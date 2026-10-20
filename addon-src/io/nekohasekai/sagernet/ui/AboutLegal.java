@@ -63,7 +63,7 @@ public final class AboutLegal {
   button(a,legal,"JiajiaBox 修改与分发说明",()->document(a,"JiajiaBox 修改与分发说明","JiajiaBox-NOTICE.txt"));
   LinearLayout source=card(a,parent,"源码与版本关系");
   paragraph(a,source,"上游项目链接用于溯源，不能代替包含本软件修改的对应源码。分发 GPL 覆盖的可执行版本时，还需提供相应源码和必要构建脚本。");
-  paragraph(a,source,"本版本对应源码发布地址尚未配置。源码地址应与您安装的具体版本相对应。");
+  paragraph(a,source,"本版本对应源码发布地址： https://github.com/weilai090624-code/JiajiaBox");
   paragraph(a,source,"本软件为独立修改版本，非 NekoBox、SagerNet 或 sing-box 官方发行版，不表示上游认可或背书。");
  }
  private static void document(Activity a,String title,String asset){
