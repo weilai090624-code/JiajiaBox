@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher" android:shortcutId="toggle" android:shortcutShortLabel="@string/quick_toggle" android:shortcutLongLabel="@string/quick_toggle">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.QuickToggleShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher" android:shortcutId="enable" android:shortcutShortLabel="@string/quick_enable" android:shortcutLongLabel="@string/quick_enable">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.QuickEnableShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher" android:shortcutId="disable" android:shortcutShortLabel="@string/quick_disable" android:shortcutLongLabel="@string/quick_disable">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.QuickDisableShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_camera_launcher" android:shortcutId="scan" android:shortcutShortLabel="@string/add_profile_methods_scan_qr_code" android:shortcutLongLabel="@string/add_profile_methods_scan_qr_code">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.ScannerActivity" />
+    </shortcut>
+</shortcuts>

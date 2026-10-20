@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/group_pager" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/top_glass" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/layout_appbar" />
+        <com.google.android.material.tabs.TabLayout android:id="@id/group_tab" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:elevation="0.0dip" app:tabIndicatorColor="?tabIndicatorColor" app:tabIndicatorFullWidth="false" app:tabMode="scrollable" app:tabPaddingStart="16.0dip" app:tabRippleColor="?tabRippleColor" app:tabSelectedTextColor="?tabSelectedTextColor" app:tabTextColor="?tabTextColor" app:tabUnboundedRipple="false" />
+    </LinearLayout>
+</FrameLayout>

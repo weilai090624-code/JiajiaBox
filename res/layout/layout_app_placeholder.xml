@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:padding="32.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="?colorOnBackground" android:gravity="center" android:id="@id/empty_message" android:paddingBottom="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_list_permission_denied" />
+    <com.google.android.material.button.MaterialButton android:id="@id/open_settings" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_app_settings" />
+</LinearLayout>

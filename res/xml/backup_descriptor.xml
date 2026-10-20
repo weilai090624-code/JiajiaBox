@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="database" path="sager_net.db" />
+    <include domain="database" path="configuration.db" />
+    <include domain="device_database" path="configuration.db" />
+</full-backup-content>

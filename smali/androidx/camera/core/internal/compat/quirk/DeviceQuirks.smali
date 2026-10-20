@@ -1,0 +1,69 @@
+.class public Landroidx/camera/core/internal/compat/quirk/DeviceQuirks;
+.super Ljava/lang/Object;
+.source "DeviceQuirks.java"
+
+
+# static fields
+.field private static final QUIRKS:Landroidx/camera/core/impl/Quirks;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 39
+    new-instance v0, Landroidx/camera/core/impl/Quirks;
+
+    invoke-static {}, Landroidx/camera/core/internal/compat/quirk/DeviceQuirksLoader;->loadQuirks()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroidx/camera/core/impl/Quirks;-><init>(Ljava/util/List;)V
+
+    sput-object v0, Landroidx/camera/core/internal/compat/quirk/DeviceQuirks;->QUIRKS:Landroidx/camera/core/impl/Quirks;
+
+    .line 40
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    .line 42
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 43
+    return-void
+.end method
+
+.method public static get(Ljava/lang/Class;)Landroidx/camera/core/impl/Quirk;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10
+        }
+        names = {
+            "quirkClass"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Landroidx/camera/core/impl/Quirk;",
+            ">(",
+            "Ljava/lang/Class<",
+            "TT;>;)TT;"
+        }
+    .end annotation
+
+    .line 54
+    .local p0, "quirkClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    sget-object v0, Landroidx/camera/core/internal/compat/quirk/DeviceQuirks;->QUIRKS:Landroidx/camera/core/impl/Quirks;
+
+    invoke-virtual {v0, p0}, Landroidx/camera/core/impl/Quirks;->get(Ljava/lang/Class;)Landroidx/camera/core/impl/Quirk;
+
+    move-result-object v0
+
+    return-object v0
+.end method

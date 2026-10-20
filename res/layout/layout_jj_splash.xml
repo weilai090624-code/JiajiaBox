@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/jj_surface" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:id="@id/jj_splash_content" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/jj_splash_logo" android:layout_width="128.0dip" android:layout_height="128.0dip" android:src="@drawable/jj_logo" android:contentDescription="@string/app_name" />
+        <TextView android:textSize="30.0sp" android:textStyle="bold" android:textColor="@color/jj_text_main" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/app_name" android:letterSpacing="0.18" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/jj_text_hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:text="@string/app_name_long" />
+    </LinearLayout>
+</FrameLayout>

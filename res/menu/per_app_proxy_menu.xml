@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@id/action_invert_selections" android:title="@string/invert_selections" app:showAsAction="never" />
+    <item android:id="@id/action_clear_selections" android:title="@string/clear_selections" app:showAsAction="never" />
+    <item android:icon="?actionModeCopyDrawable" android:id="@id/action_export_clipboard" android:title="@string/action_export_clipboard" app:showAsAction="ifRoom" />
+    <item android:icon="?actionModePasteDrawable" android:id="@id/action_import_clipboard" android:title="@string/action_import" app:showAsAction="always" />
+</menu>

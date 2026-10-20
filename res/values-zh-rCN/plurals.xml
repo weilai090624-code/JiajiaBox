@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">已添加 %d 个配置</item>
+    </plurals>
+    <plurals name="jj_imported_count">
+        <item quantity="other">已导入 %d 个节点</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d 条新通知</item>
+        <item quantity="one">%d 条新通知</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">已删除 %d 个配置</item>
+    </plurals>
+</resources>

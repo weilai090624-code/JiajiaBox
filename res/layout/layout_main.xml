@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/drawer_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/coordinator" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/fragment_holder" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <io.nekohasekai.sagernet.ui.JJNavButton android:layout_gravity="start|center|top" android:id="@id/jj_nav_button" android:background="@drawable/jj_nav_float_bg" android:visibility="gone" android:layout_width="44.0dip" android:layout_height="44.0dip" android:src="@drawable/ic_navigation_menu" android:scaleType="center" android:contentDescription="@string/jj_open_nav_menu" android:layout_marginStart="8.0dip" android:elevation="6.0dip" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <FrameLayout android:layout_gravity="start" android:id="@id/nav_light_container" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <io.nekohasekai.sagernet.ui.JJGlassCapsule android:layout_gravity="center_vertical" android:id="@id/nav_glass_light" android:layout_width="300.0dip" android:layout_height="wrap_content" android:layout_marginStart="12.0dip" android:layout_marginEnd="12.0dip">
+            <FrameLayout android:id="@id/nav_glass_page_host" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </io.nekohasekai.sagernet.ui.JJGlassCapsule>
+    </FrameLayout>
+    <com.google.android.material.navigation.NavigationView android:layout_gravity="start" android:id="@id/nav_view_black" android:layout_width="wrap_content" android:layout_height="fill_parent" app:itemIconTint="@color/navigation_icon" app:itemShapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent" app:itemShapeFillColor="@color/navigation_item" app:itemTextColor="@color/navigation_icon" app:menu="@menu/main_drawer_menu" style="@style/Widget.Design.NavigationView" />
+    <FrameLayout android:id="@id/nav_glass_overlay" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</androidx.drawerlayout.widget.DrawerLayout>

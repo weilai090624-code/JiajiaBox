@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.nekohasekai.sagernet.ui.JJGlassCapsule android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="22.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/jj_add_subscription" />
+        <EditText android:textSize="15.0sp" android:textColor="#ffffffff" android:textColorHint="#ff8b8b96" android:id="@id/jj_sub_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:hint="@string/jj_sub_name_hint" android:maxLines="1" android:inputType="text" android:backgroundTint="#ffa6a6b0" />
+        <EditText android:textSize="14.0sp" android:textColor="#ffffffff" android:textColorHint="#ff8b8b96" android:id="@id/jj_sub_link" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:hint="@string/jj_sub_link_hint" android:maxLines="1" android:inputType="textUri" android:backgroundTint="#ffa6a6b0" />
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dip">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffc2c2cb" android:id="@id/jj_sub_cancel" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/jj_sub_cancel" />
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/jj_sub_ok" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/jj_sub_add" android:layout_marginStart="18.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</io.nekohasekai.sagernet.ui.JJGlassCapsule>

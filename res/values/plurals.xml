@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">%d proxies added</item>
+        <item quantity="one">Added</item>
+    </plurals>
+    <plurals name="jj_imported_count">
+        <item quantity="other">Imported %d nodes</item>
+        <item quantity="one">Imported %d node</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d new notifications</item>
+        <item quantity="one">%d new notification</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">%d items removed</item>
+        <item quantity="one">Removed</item>
+    </plurals>
+</resources>

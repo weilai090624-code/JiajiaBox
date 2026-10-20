@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/group_name_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="4.0dip">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/group_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/group_name" android:inputType="textNoSuggestions" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/group_links_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="4.0dip">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/group_subscription_link" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/group_subscription_link" android:inputType="textMultiLine|textNoSuggestions" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.card.MaterialCardView android:id="@id/deduplication_card" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="4.0dip" app:cardElevation="2.0dip">
+                <LinearLayout android:orientation="horizontal" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textAppearance="?android:textAppearanceSmall" android:textStyle="bold" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/deduplication" android:layout_weight="1.0" android:layout_marginStart="12.0dip" />
+                    <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/deduplication" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

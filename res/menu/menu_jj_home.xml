@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_baseline_compare_arrows_24" android:id="@id/jj_action_switch_group" android:title="@string/jj_home_menu_switch_group" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_action_note_add" android:id="@id/jj_action_add_sub" android:title="@string/jj_add_subscription" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_baseline_update_24" android:id="@id/jj_action_update" android:title="@string/jj_home_menu_update" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_baseline_speed_24" android:id="@id/jj_action_speedtest" android:title="@string/jj_home_menu_speed" app:showAsAction="always" />
+</menu>

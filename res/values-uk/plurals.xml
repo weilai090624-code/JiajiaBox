@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">Додано %d проксі</item>
+        <item quantity="one">Додано</item>
+        <item quantity="few">Додано %d проксі</item>
+        <item quantity="many">Додано %d проксі</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d нового сповіщення</item>
+        <item quantity="one">%d нове сповіщення</item>
+        <item quantity="few">%d нові сповіщення</item>
+        <item quantity="many">%d нових сповіщень</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">Видалено %d елемента</item>
+        <item quantity="one">Видалено</item>
+        <item quantity="few">Видалено %d елементи</item>
+        <item quantity="many">Видалено %d елементів</item>
+    </plurals>
+</resources>

@@ -1,0 +1,28 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: JiajiaBox-0.0.4-beta.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- png
+- mp3
+- res/raw-zh-rCN/insecure.txt
+- res/raw-zh-rCN/not_encrypted.txt
+- res/raw-zh-rCN/shadowsocks_stream_cipher.txt
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '21'
+  targetSdkVersion: '35'
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.7.0-dirty
+versionInfo:
+  versionCode: '288'
+  versionName: 0.0.4 beta

@@ -1,0 +1,35 @@
+# Build and packaging output
+build/
+**/build/
+out/
+dist/
+*.apk
+*.apk.idsig
+*.aab
+*.dex
+*.idsig
+
+# Gradle, IDE and local tooling state
+.gradle/
+.idea/
+.vscode/
+.cache/
+**/.cache/
+*.iml
+local.properties
+
+# Compiled/native artifacts and temporary logs
+*.class
+*.o
+*.so
+*.dylib
+*.dll
+*.log
+*.tmp
+*.swp
+*~
+
+# Generated verification and packaging directories
+verify-apk/
+unsigned.apk
+aligned.apk

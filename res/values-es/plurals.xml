@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">%d proxys añadidos</item>
+        <item quantity="one">Añadido</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d notificaciones nuevas</item>
+        <item quantity="one">%d notificación nueva</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">%d elementos eliminados</item>
+        <item quantity="one">Eliminado</item>
+    </plurals>
+</resources>

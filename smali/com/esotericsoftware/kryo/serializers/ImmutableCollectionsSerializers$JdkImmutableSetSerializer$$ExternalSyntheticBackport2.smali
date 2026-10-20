@@ -1,0 +1,24 @@
+.class public final synthetic Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableSetSerializer$$ExternalSyntheticBackport2;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+
+# direct methods
+.method public static synthetic m(Ljava/lang/Object;)Ljava/util/Set;
+    .locals 2
+
+    .line 0
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
+
+    invoke-static {v0}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableSetSerializer$$ExternalSyntheticBackport1;->m([Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+.end method

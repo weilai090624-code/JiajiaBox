@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.QuickToggleShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.QuickEnableShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_shadowsocks_launcher">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.QuickDisableShortcut" />
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_qu_camera_launcher">
+        <intent android:targetPackage="com.linjiajia.top" android:action="android.intent.action.MAIN" android:targetClass="io.nekohasekai.sagernet.ui.ScannerActivity" />
+    </shortcut>
+</shortcuts>

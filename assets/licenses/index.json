@@ -1,0 +1,27 @@
+{
+  "project_license": "MIT",
+  "license_scope": "JiajiaBox original code and modifications: MIT; bundled upstream components: their respective licenses",
+  "source_url": null,
+  "documents": [
+    "JiajiaBox-MIT-LICENSE.txt",
+    "GPL-3.0.txt",
+    "sing-box-NOTICE.txt",
+    "NekoBox-NOTICE.txt",
+    "SagerNet-libcore-NOTICE.txt",
+    "AUTHORS.txt",
+    "JiajiaBox-NOTICE.txt",
+    "UPSTREAM-NOTICES.txt",
+    "Go-LICENSE.txt",
+    "Original-APK-NOTICE.txt",
+    "JiajiaBox-COPYRIGHT.txt"
+  ],
+  "upstream_projects": {
+    "NekoBox for Android": "https://github.com/MatsuriDayo/NekoBoxForAndroid",
+    "sing-box": "https://github.com/SagerNet/sing-box",
+    "SagerNet": "https://github.com/SagerNet/SagerNet",
+    "shadowsocks-android": "https://github.com/shadowsocks/shadowsocks-android",
+    "Yacd-meta": "https://github.com/MetaCubeX/Yacd-meta",
+    "libneko": "https://github.com/MatsuriDayo/libneko",
+    "libcore": "https://github.com/SagerNet/SagerNet"
+  }
+}

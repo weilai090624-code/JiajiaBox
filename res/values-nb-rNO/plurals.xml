@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">%d fullmakter lagt til</item>
+        <item quantity="one">La til</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">%d elementer fjernet</item>
+        <item quantity="one">Fjernet</item>
+    </plurals>
+</resources>

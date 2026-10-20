@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13.0.0" android:installLocation="internalOnly" package="com.linjiajia.top" platformBuildVersionCode="33" platformBuildVersionName="13.0.0">
+    <permission android:name="com.linjiajia.top.SERVICE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.linjiajia.top.SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="com.android.permission.GET_INSTALLED_APPS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <queries>
+        <intent>
+            <action android:name="io.nekohasekai.sagernet.plugin.ACTION_NATIVE_PLUGIN"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <permission android:name="com.linjiajia.top.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.linjiajia.top.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:autoRevokePermissions="allowed" android:banner="@mipmap/ic_launcher" android:dataExtractionRules="@xml/backup_rules" android:debuggable="true" android:extractNativeLibs="true" android:fullBackupContent="@xml/backup_descriptor" android:fullBackupOnly="true" android:hardwareAccelerated="true" android:hasFragileUserData="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:localeConfig="@xml/_generated_res_locale_config" android:name="io.nekohasekai.sagernet.SagerNet" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/Theme.Start">
+        <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.BlankActivity"/>
+        <activity android:exported="true" android:name="io.nekohasekai.sagernet.ui.JJSplashActivity" android:theme="@style/Theme.JJ.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="uiMode" android:exported="true" android:label="@string/app_name_glass" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+            </intent-filter>
+            <intent-filter android:label="@string/subscription_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="subscription" android:scheme="sn"/>
+            </intent-filter>
+            <intent-filter android:label="@string/subscription_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="install-config" android:scheme="clash"/>
+            </intent-filter>
+            <intent-filter android:label="@string/profile_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sn"/>
+                <data android:scheme="ss"/>
+                <data android:scheme="ssr"/>
+                <data android:scheme="socks"/>
+                <data android:scheme="socks4"/>
+                <data android:scheme="socksa"/>
+                <data android:scheme="sock5"/>
+                <data android:scheme="vmess"/>
+                <data android:scheme="trojan"/>
+                <data android:scheme="trojan-go"/>
+                <data android:scheme="naive+https"/>
+                <data android:scheme="naive+quic"/>
+                <data android:scheme="hysteria"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="io.nekohasekai.sagernet.ui.VpnRequestActivity" android:taskAffinity=""/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.ConfigEditActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.SocksSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.HttpSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.ShadowsocksSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.VMessSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.TrojanSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.TrojanGoSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.MieruSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.NaiveSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.HysteriaSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.SSHSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.WireGuardSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.TuicSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.profile.ChainSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="moe.matsuri.nb4a.proxy.shadowtls.ShadowTLSSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="moe.matsuri.nb4a.proxy.anytls.AnyTLSSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="moe.matsuri.nb4a.proxy.config.ConfigSettingActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.GroupSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.RouteSettingsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.AssetsActivity"/>
+        <activity android:configChanges="uiMode" android:name="io.nekohasekai.sagernet.ui.AppListActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:label="@string/quick_toggle" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.QuickToggleShortcut" android:process=":bg" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="true" android:label="@string/quick_enable" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.QuickEnableShortcut" android:process=":bg" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:label="@string/quick_disable" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.QuickDisableShortcut" android:process=":bg" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="uiMode" android:excludeFromRecents="true" android:label="@string/proxied_apps" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.AppManagerActivity" android:parentActivityName="io.nekohasekai.sagernet.ui.MainActivity"/>
+        <activity android:configChanges="uiMode" android:excludeFromRecents="true" android:label="@string/add_profile_methods_scan_qr_code" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.ScannerActivity" android:parentActivityName="io.nekohasekai.sagernet.ui.MainActivity"/>
+        <activity android:configChanges="uiMode" android:label="@string/select_profile" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.ProfileSelectActivity" android:parentActivityName="io.nekohasekai.sagernet.ui.MainActivity"/>
+        <activity android:configChanges="uiMode" android:launchMode="singleTask" android:name="io.nekohasekai.sagernet.ui.StunActivity" android:parentActivityName="io.nekohasekai.sagernet.ui.MainActivity"/>
+        <activity android:configChanges="uiMode" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="io.nekohasekai.sagernet.ui.SwitchActivity" android:theme="@style/Theme.SagerNet.Dialog"/>
+        <service android:exported="false" android:foregroundServiceType="" android:name="io.nekohasekai.sagernet.bg.ProxyService" android:process=":bg"/>
+        <service android:exported="false" android:foregroundServiceType="" android:label="@string/app_name" android:name="io.nekohasekai.sagernet.bg.VpnService" android:permission="android.permission.BIND_VPN_SERVICE" android:process=":bg">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:foregroundServiceType="" android:icon="@drawable/ic_service_active" android:label="@string/tile_title" android:name="io.nekohasekai.sagernet.bg.TileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:process=":bg">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.TOGGLEABLE_TILE" android:value="true"/>
+        </service>
+        <provider android:authorities="com.linjiajia.top.cache" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/cache_paths"/>
+        </provider>
+        <receiver android:enabled="false" android:exported="true" android:name="io.nekohasekai.sagernet.BootReceiver" android:process=":bg">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService" android:process=":bg"/>
+        <service android:exported="false" android:name="androidx.work.multiprocess.RemoteWorkManagerService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.jakewharton.processphoenix.ProcessPhoenix" android:process=":phoenix" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

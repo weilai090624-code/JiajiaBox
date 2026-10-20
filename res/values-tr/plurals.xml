@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="added">
+        <item quantity="other">%d vekil sunucu eklendi</item>
+        <item quantity="one">Eklendi</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d yeni bildirim</item>
+        <item quantity="one">%d yeni bildirim</item>
+    </plurals>
+    <plurals name="removed">
+        <item quantity="other">%d öğe kaldırıldı</item>
+        <item quantity="one">Kaldırıldı</item>
+    </plurals>
+</resources>
