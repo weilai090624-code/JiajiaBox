@@ -24,7 +24,7 @@
 .method constructor <init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
     .registers 3
 
-    .line 142
+    .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;->label:Ljava/lang/String;

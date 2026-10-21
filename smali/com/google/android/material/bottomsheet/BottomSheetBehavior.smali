@@ -2432,6 +2432,7 @@
     .line 1406
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->interpolatorAnimator:Landroid/animation/ValueAnimator;
 
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->reverse()V
 
     goto :goto_2
@@ -2469,6 +2470,7 @@
     .line 1411
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->interpolatorAnimator:Landroid/animation/ValueAnimator;
 
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1412

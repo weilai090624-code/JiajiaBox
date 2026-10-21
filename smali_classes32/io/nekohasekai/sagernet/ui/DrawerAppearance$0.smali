@@ -6,14 +6,6 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/DrawerAppearance;"
-    method = "lambda$settingsWindow$1"
-    proto = "(Landroid/view/View;)V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Landroid/view/View;
 

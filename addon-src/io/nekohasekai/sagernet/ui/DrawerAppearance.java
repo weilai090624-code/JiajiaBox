@@ -27,6 +27,23 @@ public final class DrawerAppearance {
     private static final WeakHashMap<View, Boolean> pages = new WeakHashMap<>();
     private static final WeakHashMap<View, Boolean> pills = new WeakHashMap<>();
 
+    private static final WeakHashMap<View, Surface> surfaces = new WeakHashMap<>();
+    private static final class Surface extends GradientDrawable {
+        int fill,border; float density;
+        Surface(int fill,int border,float density){update(fill,border,density);}
+        void update(int nextFill,int nextBorder,float nextDensity){
+            if(fill!=nextFill){setColor(nextFill);fill=nextFill;}
+            if(border!=nextBorder||density!=nextDensity){setStroke(Math.max(1,Math.round(nextDensity)),nextBorder);border=nextBorder;}
+            if(density!=nextDensity){setCornerRadius(18*nextDensity);density=nextDensity;}
+        }
+    }
+    private static final class Palette {
+        final int text,border,secondary,control;
+        Palette(android.content.Context context){
+            text=ThemePalette.text(context);boolean dark=text==0xffffffff;
+            border=dark?0xff3d3e46:0xffeae7eb;secondary=dark?0xffb0acb5:0xff78737d;control=dark?0xff303137:0xffffffff;
+        }
+    }
     public static void install(View panel) {
         panels.put(panel, Boolean.TRUE);
         if (panel instanceof JJGlassCapsule) {
@@ -55,10 +72,11 @@ public final class DrawerAppearance {
     public static void label(View view) { tint(view); }
 
     public static void preference(View view) {
+        CardLight.bind(view,18);
         normalizePreferenceGeometry(view);
         clearNestedPreferenceBackgrounds(view, view);
         pills.put(view, Boolean.TRUE);
-        tint(view);
+        tint(view, new Palette(view.getContext()));
     }
 
     private static void normalizePreferenceGeometry(View view) {
@@ -67,17 +85,15 @@ public final class DrawerAppearance {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         if (params instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams margin = (ViewGroup.MarginLayoutParams) params;
-            margin.width = ViewGroup.LayoutParams.MATCH_PARENT;
-            margin.leftMargin = horizontal;
-            margin.rightMargin = horizontal;
-            margin.setMarginStart(horizontal);
-            margin.setMarginEnd(horizontal);
-            margin.topMargin = gap;
-            margin.bottomMargin = gap;
-            view.setLayoutParams(margin);
+            if(margin.width!=ViewGroup.LayoutParams.MATCH_PARENT||margin.leftMargin!=horizontal||margin.rightMargin!=horizontal
+                    ||margin.getMarginStart()!=horizontal||margin.getMarginEnd()!=horizontal||margin.topMargin!=gap||margin.bottomMargin!=gap){
+                margin.width=ViewGroup.LayoutParams.MATCH_PARENT;margin.leftMargin=margin.rightMargin=horizontal;
+                margin.setMarginStart(horizontal);margin.setMarginEnd(horizontal);margin.topMargin=margin.bottomMargin=gap;
+                view.setLayoutParams(margin);
+            }
         }
-        view.setPaddingRelative(Math.round(14 * density), horizontal, Math.round(14 * density), horizontal);
-        view.setMinimumHeight(Math.round(56 * density));
+        padding(view,Math.round(14*density),horizontal,Math.round(14*density),horizontal);
+        if(view.getMinimumHeight()!=Math.round(56*density))view.setMinimumHeight(Math.round(56*density));
         if (view instanceof android.widget.FrameLayout) {
             ViewGroup group = (ViewGroup) view;
             for (int i = 0; i < group.getChildCount(); i++) {
@@ -86,29 +102,34 @@ public final class DrawerAppearance {
                 ViewGroup.LayoutParams cp = child.getLayoutParams();
                 if (cp instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams margin = (ViewGroup.MarginLayoutParams) cp;
-                    margin.leftMargin = margin.rightMargin = margin.topMargin = margin.bottomMargin = 0;
-                    margin.setMarginStart(0); margin.setMarginEnd(0);
-                    child.setLayoutParams(margin);
+                    if(margin.leftMargin!=0||margin.rightMargin!=0||margin.topMargin!=0||margin.bottomMargin!=0||margin.getMarginStart()!=0||margin.getMarginEnd()!=0){
+                        margin.leftMargin=margin.rightMargin=margin.topMargin=margin.bottomMargin=0;
+                        margin.setMarginStart(0);margin.setMarginEnd(0);child.setLayoutParams(margin);
+                    }
                 }
-                child.setPaddingRelative(0, 0, 0, 0);
-                child.setMinimumHeight(0);
+                padding(child,0,0,0,0);
+                if(child.getMinimumHeight()!=0)child.setMinimumHeight(0);
             }
         }
     }
 
+    private static void padding(View view,int start,int top,int end,int bottom){
+        if(view.getPaddingStart()!=start||view.getPaddingTop()!=top||view.getPaddingEnd()!=end||view.getPaddingBottom()!=bottom)view.setPaddingRelative(start,top,end,bottom);
+    }
     private static void replaceBackground(View view, android.graphics.drawable.Drawable background) {
+        if(view.getBackground()==background)return;
         int start = view.getPaddingStart(), end = view.getPaddingEnd();
         int top = view.getPaddingTop(), bottom = view.getPaddingBottom();
         int minWidth = view.getMinimumWidth(), minHeight = view.getMinimumHeight();
         view.setBackground(background);
-        view.setPaddingRelative(start, top, end, bottom);
-        view.setMinimumWidth(minWidth);
-        view.setMinimumHeight(minHeight);
+        padding(view,start,top,end,bottom);
+        if(view.getMinimumWidth()!=minWidth)view.setMinimumWidth(minWidth);
+        if(view.getMinimumHeight()!=minHeight)view.setMinimumHeight(minHeight);
     }
 
     private static void clearNestedPreferenceBackgrounds(View view, View root) {
         if (view != root && view instanceof ViewGroup && view.findViewById(android.R.id.title) != null) {
-            view.setBackgroundTintList(null);
+            if(view.getBackgroundTintList()!=null)view.setBackgroundTintList(null);
             replaceBackground(view, null);
         }
         if (view instanceof ViewGroup) {
@@ -168,7 +189,7 @@ public final class DrawerAppearance {
 
     private static void clearDialogPanels(View view, View root) {
         if (view != root && view instanceof ViewGroup && !(view instanceof android.widget.AbsListView)) {
-            view.setBackgroundTintList(null);
+            if(view.getBackgroundTintList()!=null)view.setBackgroundTintList(null);
             replaceBackground(view, null);
         }
         if (view instanceof ViewGroup) {
@@ -200,6 +221,7 @@ public final class DrawerAppearance {
     }
 
     public static void refreshAll() {
+        CardLight.refreshAll();
         UiComponents.refreshAll();
         SubscriptionCards.refreshAll();
         ToolPageAppearance.refreshAll();
@@ -208,16 +230,17 @@ public final class DrawerAppearance {
         for (View view : panels.keySet().toArray(new View[0])) tint(view);
     }
 
-    private static void tint(View view) {
+    private static void tint(View view) {tint(view,null);}
+    private static void tint(View view,Palette palette) {
         if (view instanceof TrafficDashboardView) {
             ((TrafficDashboardView) view).refreshAppearance();
             return;
         }
         if (managedLists.containsKey(view)) return;
         if (UiComponents.owns(view)) { UiComponents.refresh(view); DrawerDesign.refreshTree(view); return; }
-        int text = ThemePalette.text(view.getContext());
+        int text = palette==null?ThemePalette.text(view.getContext()):palette.text;
         boolean dark = text == 0xffffffff;
-        int border = ThemePalette.border(view.getContext());
+        int border = palette==null?ThemePalette.border(view.getContext()):palette.border;
         if (pills.containsKey(view) && view instanceof JJGlassCapsule) {
             JJGlassCapsule capsule = (JJGlassCapsule) view;
             capsule.disableLiveBackdrop();
@@ -225,26 +248,27 @@ public final class DrawerAppearance {
             capsule.setBorderColor(border);
             capsule.setBorderWidthDp(1f);
         } else if (pills.containsKey(view)) {
-            view.setBackgroundTintList(null);
-            GradientDrawable background = new GradientDrawable();
-            background.setColor(ThemePalette.control(view.getContext()));
-            float density = view.getResources().getDisplayMetrics().density;
-            background.setCornerRadius(18 * density);
-            background.setStroke(Math.max(1, Math.round(density)), border);
+            if(view.getBackgroundTintList()!=null)view.setBackgroundTintList(null);
+            int fill=palette==null?ThemePalette.control(view.getContext()):palette.control;
+            float density=view.getResources().getDisplayMetrics().density;
+            Surface background=surfaces.get(view);
+            if(background==null){background=new Surface(fill,border,density);surfaces.put(view,background);}
+            else background.update(fill,border,density);
             replaceBackground(view, background);
         }
         if (view instanceof TextView) {
             TextView label = (TextView) view;
-            label.setTextColor(text);
-            label.setHintTextColor(ThemePalette.secondary(view.getContext()));
+            if(label.getTextColors().isStateful()||label.getCurrentTextColor()!=text)label.setTextColor(text);
+            int secondary=palette==null?ThemePalette.secondary(view.getContext()):palette.secondary;
+            if(label.getHintTextColors()==null||label.getHintTextColors().isStateful()||label.getCurrentHintTextColor()!=secondary)label.setHintTextColor(secondary);
         }
         if (view instanceof ImageView) ((ImageView) view).setColorFilter(text);
         if (view instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) view;
-            for (int i = 0; i < group.getChildCount(); i++) tint(group.getChildAt(i));
+            for (int i = 0; i < group.getChildCount(); i++) tint(group.getChildAt(i),palette);
         }
         DrawerDesign.refresh(view);
-        view.invalidate();
+        if(palette==null)view.invalidate();
     }
 }
 

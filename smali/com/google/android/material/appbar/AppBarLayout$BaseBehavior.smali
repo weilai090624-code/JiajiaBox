@@ -411,7 +411,7 @@
 
     sget-object v2, Lcom/google/android/material/animation/AnimationUtils;->DECELERATE_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
-    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 1636
     iget-object v1, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;->offsetAnimator:Landroid/animation/ValueAnimator;
@@ -456,6 +456,7 @@
     .line 1650
     iget-object v1, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;->offsetAnimator:Landroid/animation/ValueAnimator;
 
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1651

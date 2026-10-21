@@ -12,9 +12,9 @@
 
 
 # static fields
-.field private static final CLOSE_MS:J = 0x140L
+.field private static final CLOSE_MS:J = 0x1e0L
 
-.field private static final OPEN_MS:J = 0x1a4L
+.field private static final OPEN_MS:J = 0x276L
 
 .field private static final STATE_TAG:I = 0x7f0a0f48
 
@@ -71,7 +71,7 @@
 
     add-float/2addr v0, p0
 
-    .line 168
+    .line 178
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
     move-result p0
@@ -102,7 +102,7 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 167
+    .line 177
     invoke-virtual {p0, v0}, Landroid/view/View;->setAlpha(F)V
 
     const/4 v0, 0x0
@@ -117,7 +117,7 @@
 .method private static setPhysicalMargins(Landroid/widget/FrameLayout$LayoutParams;IILandroid/view/View;)V
     .registers 5
 
-    .line 163
+    .line 173
     iput p1, p0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
 
     iput p2, p0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
@@ -128,7 +128,7 @@
 
     iput p2, p0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    .line 164
+    .line 174
     invoke-virtual {p3}, Landroid/view/View;->getLayoutDirection()I
 
     move-result p3
@@ -152,7 +152,7 @@
     :cond_16
     move p3, p1
 
-    .line 165
+    .line 175
     :goto_17
     invoke-virtual {p0, p3}, Landroid/widget/FrameLayout$LayoutParams;->setMarginStart(I)V
 

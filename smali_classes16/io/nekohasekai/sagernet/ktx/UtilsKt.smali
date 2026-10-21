@@ -468,7 +468,7 @@
     invoke-virtual {p0, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 209
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
@@ -485,7 +485,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     .line 210
-    invoke-virtual {p1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 

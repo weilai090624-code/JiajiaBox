@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 98
+    .line 100
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -43,7 +43,7 @@
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .registers 3
 
-    .line 99
+    .line 101
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     const/4 v0, 0x0
@@ -56,7 +56,7 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .registers 2
 
-    .line 100
+    .line 102
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
     iget-boolean p1, p1, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stopped:Z

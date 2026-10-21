@@ -46,21 +46,21 @@
 .method constructor <init>(Landroid/view/ViewGroup;)V
     .registers 4
 
-    .line 31
+    .line 49
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 29
+    .line 47
     new-instance v0, Lio/nekohasekai/sagernet/ui/BlurTransition;
 
     invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/BlurTransition;-><init>()V
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->transition:Lio/nekohasekai/sagernet/ui/BlurTransition;
 
-    .line 30
+    .line 48
     new-instance v0, Landroid/graphics/Paint;
 
     const/4 v1, 0x3
@@ -73,7 +73,7 @@
 
     iput v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->strength:I
 
-    .line 31
+    .line 49
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
     const/4 p1, 0x2
@@ -88,14 +88,14 @@
 .method acquire()Z
     .registers 5
 
-    .line 32
+    .line 50
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->watching:Z
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_39
 
-    .line 33
+    .line 51
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1f
@@ -104,30 +104,28 @@
 
     if-lt v0, v2, :cond_e
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_f
 
     :cond_e
-    move v0, v3
+    const/4 v0, 0x0
 
     :goto_f
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->nativeBlur:Z
 
-    .line 34
-    iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->nativeBlur:Z
+    if-nez v0, :cond_29
 
-    if-nez v0, :cond_2b
-
+    .line 52
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->capture()Z
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1a
 
     return v3
 
-    :cond_1c
+    :cond_1a
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
@@ -142,8 +140,8 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->setAlpha(F)V
 
-    .line 35
-    :cond_2b
+    .line 53
+    :cond_29
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -158,8 +156,8 @@
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->watching:Z
 
-    .line 36
-    :cond_3b
+    .line 54
+    :cond_39
     iget v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
     add-int/2addr v0, v1
@@ -186,7 +184,7 @@
 .method capture()Z
     .registers 11
 
-    .line 39
+    .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getWidth()I
@@ -201,18 +199,18 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_a2
+    if-lez v0, :cond_9f
 
     if-gtz v1, :cond_13
 
-    goto/16 :goto_a2
+    goto/16 :goto_9f
 
-    .line 40
     :cond_13
     add-int/lit8 v3, v0, 0x7
 
     const/4 v4, 0x0
 
+    .line 58
     :try_start_16
     div-int/lit8 v3, v3, 0x8
 
@@ -236,9 +234,9 @@
 
     move-result-object v7
     :try_end_2b
-    .catch Ljava/lang/RuntimeException; {:try_start_16 .. :try_end_2b} :catch_8e
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_16 .. :try_end_2b} :catch_8c
-    .catchall {:try_start_16 .. :try_end_2b} :catchall_8a
+    .catch Ljava/lang/RuntimeException; {:try_start_16 .. :try_end_2b} :catch_8b
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_16 .. :try_end_2b} :catch_89
+    .catchall {:try_start_16 .. :try_end_2b} :catchall_87
 
     :try_start_2b
     new-instance v8, Landroid/graphics/Canvas;
@@ -259,7 +257,7 @@
 
     invoke-virtual {v8, v3, v6}, Landroid/graphics/Canvas;->scale(FF)V
 
-    .line 41
+    .line 59
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->installed:Z
 
     if-eqz v3, :cond_46
@@ -272,9 +270,9 @@
 
     invoke-virtual {v3, p0}, Landroid/view/ViewGroupOverlay;->remove(Landroid/view/View;)V
     :try_end_46
-    .catch Ljava/lang/RuntimeException; {:try_start_2b .. :try_end_46} :catch_87
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_2b .. :try_end_46} :catch_85
-    .catchall {:try_start_2b .. :try_end_46} :catchall_82
+    .catch Ljava/lang/RuntimeException; {:try_start_2b .. :try_end_46} :catch_84
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_2b .. :try_end_46} :catch_82
+    .catchall {:try_start_2b .. :try_end_46} :catchall_7f
 
     :cond_46
     :try_start_46
@@ -282,7 +280,7 @@
 
     invoke-virtual {v3, v8}, Landroid/view/ViewGroup;->draw(Landroid/graphics/Canvas;)V
     :try_end_4b
-    .catchall {:try_start_46 .. :try_end_4b} :catchall_73
+    .catchall {:try_start_46 .. :try_end_4b} :catchall_70
 
     :try_start_4b
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->installed:Z
@@ -297,28 +295,26 @@
 
     invoke-virtual {v3, p0}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 42
     :cond_58
     const/4 v3, 0x3
 
+    .line 60
     invoke-static {v7, v3}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->blur(Landroid/graphics/Bitmap;I)V
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
 
-    if-eqz v3, :cond_65
-
-    iget-object v3, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
+    if-eqz v3, :cond_63
 
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_65
+    :cond_63
     iput-object v7, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
-    :try_end_67
-    .catch Ljava/lang/RuntimeException; {:try_start_4b .. :try_end_67} :catch_87
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_4b .. :try_end_67} :catch_85
-    .catchall {:try_start_4b .. :try_end_67} :catchall_82
+    :try_end_65
+    .catch Ljava/lang/RuntimeException; {:try_start_4b .. :try_end_65} :catch_84
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_4b .. :try_end_65} :catch_82
+    .catchall {:try_start_4b .. :try_end_65} :catchall_7f
 
-    :try_start_67
+    :try_start_65
     iput v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->width:I
 
     iput v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->height:I
@@ -326,25 +322,21 @@
     invoke-virtual {p0, v2, v2, v0, v1}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->layout(IIII)V
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->invalidate()V
-    :try_end_71
-    .catch Ljava/lang/RuntimeException; {:try_start_67 .. :try_end_71} :catch_8e
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_67 .. :try_end_71} :catch_8c
-    .catchall {:try_start_67 .. :try_end_71} :catchall_8a
+    :try_end_6f
+    .catch Ljava/lang/RuntimeException; {:try_start_65 .. :try_end_6f} :catch_8b
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_65 .. :try_end_6f} :catch_89
+    .catchall {:try_start_65 .. :try_end_6f} :catchall_87
 
-    .line 43
-    nop
-
-    .line 42
     return v5
 
-    .line 41
-    :catchall_73
+    :catchall_70
     move-exception v0
 
-    :try_start_74
+    .line 59
+    :try_start_71
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->installed:Z
 
-    if-eqz v1, :cond_81
+    if-eqz v1, :cond_7e
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
@@ -354,91 +346,90 @@
 
     invoke-virtual {v1, p0}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    :cond_81
+    :cond_7e
     throw v0
-    :try_end_82
-    .catch Ljava/lang/RuntimeException; {:try_start_74 .. :try_end_82} :catch_87
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_74 .. :try_end_82} :catch_85
-    .catchall {:try_start_74 .. :try_end_82} :catchall_82
+    :try_end_7f
+    .catch Ljava/lang/RuntimeException; {:try_start_71 .. :try_end_7f} :catch_84
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_71 .. :try_end_7f} :catch_82
+    .catchall {:try_start_71 .. :try_end_7f} :catchall_7f
 
-    .line 43
-    :catchall_82
+    :catchall_7f
     move-exception v0
 
     move-object v4, v7
 
-    goto :goto_9c
+    goto :goto_99
 
-    :catch_85
+    :catch_82
     move-exception v0
 
-    goto :goto_88
+    goto :goto_85
 
-    :catch_87
+    :catch_84
     move-exception v0
 
-    :goto_88
+    :goto_85
     move-object v4, v7
 
-    goto :goto_8f
+    goto :goto_8c
 
-    :catchall_8a
+    :catchall_87
     move-exception v0
 
-    goto :goto_9c
+    goto :goto_99
 
-    :catch_8c
+    :catch_89
     move-exception v0
 
-    goto :goto_8f
+    goto :goto_8c
 
-    :catch_8e
+    :catch_8b
     move-exception v0
 
-    :goto_8f
-    :try_start_8f
+    .line 61
+    :goto_8c
+    :try_start_8c
     const-string v1, "PopupBackdrop"
 
     const-string v3, "Cannot capture popup background"
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_96
-    .catchall {:try_start_8f .. :try_end_96} :catchall_8a
+    :try_end_93
+    .catchall {:try_start_8c .. :try_end_93} :catchall_87
 
-    if-eqz v4, :cond_9b
+    if-eqz v4, :cond_98
 
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_9b
+    :cond_98
     return v2
 
-    :goto_9c
-    if-eqz v4, :cond_a1
+    :goto_99
+    if-eqz v4, :cond_9e
 
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_a1
+    :cond_9e
     throw v0
 
-    .line 39
-    :cond_a2
-    :goto_a2
+    :cond_9f
+    :goto_9f
     return v2
 .end method
 
 .method clear()V
     .registers 4
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 74
     iput v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->transition:Lio/nekohasekai/sagernet/ui/BlurTransition;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/BlurTransition;->reset()V
 
-    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
@@ -564,27 +555,23 @@
     :cond_86
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_91
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
+    if-eqz v0, :cond_8f
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
 
-    :cond_91
+    :cond_8f
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .registers 7
 
-    .line 45
+    .line 63
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1b
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->image:Landroid/graphics/Bitmap;
+    if-eqz v0, :cond_19
 
     new-instance v1, Landroid/graphics/Rect;
 
@@ -606,14 +593,14 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    :cond_1b
+    :cond_19
     return-void
 .end method
 
 .method public onPreDraw()Z
     .registers 5
 
-    .line 47
+    .line 65
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->transition:Lio/nekohasekai/sagernet/ui/BlurTransition;
 
     iget v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
@@ -622,7 +609,7 @@
 
     if-lez v1, :cond_9
 
-    move v1, v2
+    const/4 v1, 0x1
 
     goto :goto_a
 
@@ -634,7 +621,7 @@
 
     move-result v0
 
-    .line 48
+    .line 66
     iget v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
     if-nez v1, :cond_1b
@@ -649,21 +636,21 @@
 
     return v2
 
-    .line 49
+    .line 67
     :cond_1b
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->nativeBlur:Z
 
     if-eqz v1, :cond_34
 
-    .line 50
+    .line 68
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/BlurEffects;->level(F)I
 
     move-result v0
 
-    .line 51
+    .line 69
     iget v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->strength:I
 
-    if-eq v0, v1, :cond_33
+    if-eq v0, v1, :cond_4e
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->root:Landroid/view/ViewGroup;
 
@@ -675,11 +662,9 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->refreshNative(Landroid/view/ViewGroup;)V
 
-    .line 52
-    :cond_33
     goto :goto_4e
 
-    .line 53
+    .line 71
     :cond_34
     iget v1, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->width:I
 
@@ -707,7 +692,8 @@
     :cond_4b
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->setAlpha(F)V
 
-    .line 54
+    .line 72
+    :cond_4e
     :goto_4e
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->transition:Lio/nekohasekai/sagernet/ui/BlurTransition;
 
@@ -728,14 +714,13 @@
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .registers 2
 
-    .line 57
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .registers 2
 
-    .line 58
+    .line 76
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->clear()V
 
     return-void
@@ -744,21 +729,19 @@
 .method release()V
     .registers 3
 
-    .line 37
+    .line 55
     iget v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
-    if-lez v0, :cond_a
-
-    iget v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
+    if-lez v0, :cond_8
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
-    :cond_a
+    :cond_8
     iget v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->users:I
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/PopupBackdrop$Layer;->transition:Lio/nekohasekai/sagernet/ui/BlurTransition;
 
@@ -770,6 +753,6 @@
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->postInvalidateOnAnimation()V
 
-    :cond_19
+    :cond_17
     return-void
 .end method

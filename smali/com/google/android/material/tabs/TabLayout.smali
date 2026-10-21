@@ -1239,6 +1239,7 @@
     .line 1885
     iget-object v2, p0, Lcom/google/android/material/tabs/TabLayout;->scrollAnimator:Landroid/animation/ValueAnimator;
 
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1889
@@ -1919,7 +1920,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/tabs/TabLayout;->tabIndicatorTimeInterpolator:Landroid/animation/TimeInterpolator;
 
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 1896
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayout;->scrollAnimator:Landroid/animation/ValueAnimator;

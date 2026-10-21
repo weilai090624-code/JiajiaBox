@@ -26,10 +26,10 @@
 .method constructor <init>(F)V
     .registers 4
 
-    .line 306
+    .line 307
     invoke-direct {p0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 303
+    .line 304
     new-instance v0, Landroid/graphics/Paint;
 
     const/4 v1, 0x1
@@ -38,17 +38,17 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->edge:Landroid/graphics/Paint;
 
-    .line 304
+    .line 305
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
-    .line 307
+    .line 308
     iput p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->density:F
 
-    .line 308
+    .line 309
     sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -57,12 +57,12 @@
 
     mul-float p1, p1, v1
 
-    .line 309
+    .line 310
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     const p1, 0x407a8494
 
-    .line 310
+    .line 311
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
     return-void
@@ -73,10 +73,10 @@
 .method public draw(Landroid/graphics/Canvas;)V
     .registers 4
 
-    .line 325
+    .line 326
     invoke-super {p0, p1}, Landroid/graphics/drawable/GradientDrawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 326
+    .line 327
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->edge:Landroid/graphics/Paint;
@@ -89,10 +89,10 @@
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .registers 10
 
-    .line 313
+    .line 314
     invoke-super {p0, p1}, Landroid/graphics/drawable/GradientDrawable;->onBoundsChange(Landroid/graphics/Rect;)V
 
-    .line 314
+    .line 315
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->edge:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getStrokeWidth()F
@@ -103,7 +103,7 @@
 
     div-float/2addr v0, v1
 
-    .line 315
+    .line 316
     iget v2, p1, Landroid/graphics/Rect;->left:I
 
     int-to-float v2, v2
@@ -116,7 +116,7 @@
 
     sub-float/2addr v3, v0
 
-    .line 316
+    .line 317
     iget p1, p1, Landroid/graphics/Rect;->bottom:I
 
     int-to-float p1, p1
@@ -125,7 +125,7 @@
 
     const/high16 v0, 0x41800000    # 16.0f
 
-    .line 317
+    .line 318
     iget v4, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->density:F
 
     mul-float v4, v4, v0
@@ -138,19 +138,19 @@
 
     move-result v0
 
-    .line 318
+    .line 319
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     invoke-virtual {v4}, Landroid/graphics/Path;->reset()V
 
-    .line 319
+    .line 320
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     sub-float v5, p1, v0
 
     invoke-virtual {v4, v2, v5}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 320
+    .line 321
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     new-instance v5, Landroid/graphics/RectF;
@@ -169,14 +169,14 @@
 
     invoke-virtual {v4, v5, v2, v7}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FF)V
 
-    .line 321
+    .line 322
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     sub-float v0, v3, v0
 
     invoke-virtual {v2, v0, p1}, Landroid/graphics/Path;->lineTo(FF)V
 
-    .line 322
+    .line 323
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$HeaderBackground;->bottom:Landroid/graphics/Path;
 
     new-instance v2, Landroid/graphics/RectF;

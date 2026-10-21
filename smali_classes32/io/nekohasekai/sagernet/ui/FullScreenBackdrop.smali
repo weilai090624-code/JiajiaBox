@@ -52,7 +52,7 @@
 .method private constructor <init>(Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
     .registers 3
 
-    .line 54
+    .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->root:Landroid/view/ViewGroup;
@@ -67,7 +67,7 @@
 
     move/from16 v0, p1
 
-    .line 109
+    .line 110
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v3
@@ -140,7 +140,7 @@
 
     add-int v1, v6, v7
 
-    .line 111
+    .line 112
     invoke-static {v15, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v1
@@ -255,7 +255,7 @@
 
     add-int v14, v1, v6
 
-    .line 112
+    .line 113
     invoke-static {v13, v14}, Ljava/lang/Math;->min(II)I
 
     move-result v13
@@ -360,7 +360,7 @@
 
     const/4 v4, 0x0
 
-    .line 114
+    .line 115
     invoke-virtual/range {v0 .. v7}, Landroid/graphics/Bitmap;->setPixels([IIIIIII)V
 
     return-void
@@ -375,7 +375,7 @@
 .method public static drawerState(Landroid/app/Activity;I)V
     .registers 6
 
-    .line 84
+    .line 85
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -400,7 +400,7 @@
     :goto_f
     invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->drawerMoving(Landroid/view/View;Z)V
 
-    .line 85
+    .line 86
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object p0
@@ -422,7 +422,7 @@
     :cond_23
     const/4 v1, 0x0
 
-    .line 86
+    .line 87
     :goto_24
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->moving:Z
 
@@ -433,7 +433,7 @@
 .method public static install(Landroid/app/Activity;)V
     .registers 7
 
-    .line 58
+    .line 59
     :try_start_0
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
@@ -447,7 +447,7 @@
 
     const v1, 0x7f0a0f49
 
-    .line 59
+    .line 60
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getTag(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -456,7 +456,7 @@
 
     goto :goto_74
 
-    .line 60
+    .line 61
     :cond_14
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -478,7 +478,7 @@
 
     move-result-object p0
 
-    .line 61
+    .line 62
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -493,7 +493,7 @@
 
     move-result-object v2
 
-    .line 62
+    .line 63
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -508,7 +508,7 @@
 
     move-result-object p0
 
-    .line 63
+    .line 64
     instance-of v3, v2, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     if-eqz v3, :cond_74
@@ -519,7 +519,7 @@
 
     goto :goto_74
 
-    .line 64
+    .line 65
     :cond_4b
     new-instance v3, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;
 
@@ -527,10 +527,10 @@
 
     invoke-direct {v3, v0, p0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;-><init>(Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
 
-    .line 65
+    .line 66
     invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
 
-    .line 66
+    .line 67
     move-object p0, v2
 
     check-cast p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
@@ -559,10 +559,10 @@
     :goto_6a
     if-eqz p0, :cond_6f
 
-    .line 69
+    .line 70
     invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 70
+    .line 71
     :cond_6f
     iget-object p0, v3, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->content:Landroid/view/ViewGroup;
 
@@ -577,7 +577,7 @@
     :catch_75
     move-exception p0
 
-    .line 71
+    .line 72
     const-string v0, "FullScreenBackdrop"
 
     const-string v1, "Cannot install drawer motion gate"
@@ -590,12 +590,12 @@
 .method public static isTransitioning(Landroid/view/View;)Z
     .registers 2
 
-    .line 90
+    .line 91
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->owner(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;
 
     move-result-object v0
 
-    .line 91
+    .line 92
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->isMoving(Landroid/view/View;)Z
 
     move-result p0
@@ -686,6 +686,9 @@
 
     .line 45
     :cond_36
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->preload()V
+
+    .line 46
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     const/16 v1, 0x18
@@ -693,37 +696,37 @@
     invoke-static {v1, v1, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v1
-    :try_end_3e
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3e} :catch_4b
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_3e} :catch_4b
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_41} :catch_4e
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_41} :catch_4e
 
     const/4 v0, 0x2
 
-    .line 46
-    :try_start_3f
-    invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->blur(Landroid/graphics/Bitmap;I)V
-    :try_end_42
-    .catchall {:try_start_3f .. :try_end_42} :catchall_46
-
+    .line 47
     :try_start_42
+    invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->blur(Landroid/graphics/Bitmap;I)V
+    :try_end_45
+    .catchall {:try_start_42 .. :try_end_45} :catchall_49
+
+    :try_start_45
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
     return-void
 
-    :catchall_46
+    :catchall_49
     move-exception v0
 
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
     throw v0
-    :try_end_4b
-    .catch Ljava/lang/Exception; {:try_start_42 .. :try_end_4b} :catch_4b
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_42 .. :try_end_4b} :catch_4b
+    :try_end_4e
+    .catch Ljava/lang/Exception; {:try_start_45 .. :try_end_4e} :catch_4e
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_45 .. :try_end_4e} :catch_4e
 
-    :catch_4b
+    :catch_4e
     move-exception v0
 
-    .line 47
+    .line 48
     const-string v1, "FullScreenBackdrop"
 
     const-string v2, "Optional startup prewarm skipped"
@@ -759,7 +762,7 @@
 
     return-object v0
 
-    .line 76
+    .line 77
     :cond_4
     invoke-virtual {p0}, Landroid/view/View;->getRootView()Landroid/view/View;
 
@@ -771,7 +774,7 @@
 
     move-result-object p0
 
-    .line 77
+    .line 78
     instance-of v1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;
 
     if-eqz v1, :cond_16
@@ -844,7 +847,7 @@
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .registers 4
 
-    .line 102
+    .line 103
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->disposed:Z
 
     if-eqz p1, :cond_5
@@ -856,12 +859,12 @@
 
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->disposed:Z
 
-    .line 103
+    .line 104
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->content:Landroid/view/ViewGroup;
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 104
+    .line 105
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->root:Landroid/view/ViewGroup;
 
     const v0, 0x7f0a0f49

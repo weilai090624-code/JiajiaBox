@@ -2605,7 +2605,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 1898
     :cond_3
@@ -2616,6 +2616,7 @@
     invoke-virtual {p1, v0}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 1905
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {p1}, Landroid/animation/Animator;->start()V
 
     .line 1907

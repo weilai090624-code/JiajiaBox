@@ -448,7 +448,7 @@
     invoke-static {p0, v2}, Lmoe/matsuri/nb4a/ui/DrawerDialogLayout;->apply(Landroid/view/Window;Landroid/content/Context;)V
 
     .line 77
-    invoke-virtual {v7}, Landroid/app/Dialog;->show()V
+    invoke-static {v7}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 78
     return v9

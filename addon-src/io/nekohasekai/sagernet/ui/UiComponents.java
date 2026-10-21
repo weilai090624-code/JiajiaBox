@@ -38,6 +38,15 @@ public final class UiComponents {
     private static final WeakHashMap<View, Style> styles = new WeakHashMap<>();
     public static int dp(Context c, float value) { return Math.round(value * c.getResources().getDisplayMetrics().density); }
     public static boolean owns(View view) { return styles.containsKey(view); }
+    /** Bind neutral text created by the original drawer builders, including late rule rows. */
+    public static void legacyText(TextView view, String color) {
+        int original=android.graphics.Color.parseColor(color);
+        int red=android.graphics.Color.red(original),green=android.graphics.Color.green(original),blue=android.graphics.Color.blue(original);
+        int high=Math.max(red,Math.max(green,blue)),low=Math.min(red,Math.min(green,blue));
+        if(high-low<=24) {
+            if(low>=230)text(view);else secondary(view);
+        } else view.setTextColor(original);
+    }
     private static void register(View view, Role role, boolean background) {
         GradientDrawable shape = background ? new GradientDrawable() : null;
         styles.put(view, new Style(role, shape));
@@ -49,6 +58,7 @@ public final class UiComponents {
             styles.get(view).installed=view.getBackground();
             view.setPaddingRelative(start,top,end,bottom);
         }
+        if(role==Role.SURFACE||role==Role.ROUTING||role==Role.CHOICE)CardLight.bind(view,role==Role.ROUTING?ThemePalette.CARD_RADIUS:role==Role.SURFACE?PANEL_RADIUS:CELL_RADIUS);
         paint(view);
         if(role==Role.SURFACE)PopupBackdrop.bind(view);
     }

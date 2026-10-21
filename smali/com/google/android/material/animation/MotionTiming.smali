@@ -227,7 +227,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 54
     instance-of v0, p1, Landroid/animation/ValueAnimator;

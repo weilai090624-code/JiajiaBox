@@ -261,7 +261,7 @@
     move-result-object v4
 
     .line 197
-    invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v3, v4}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 200
     return-object v3
@@ -352,7 +352,7 @@
     move-result-object v4
 
     .line 172
-    invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v3, v4}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 175
     return-object v3
@@ -403,7 +403,7 @@
     move-result-object v2
 
     .line 183
-    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 185
     return-object v1

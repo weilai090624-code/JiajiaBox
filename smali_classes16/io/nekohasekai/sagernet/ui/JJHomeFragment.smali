@@ -765,7 +765,7 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/JJFileImport;->polish(Landroid/view/View;)V
 
-    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 288
     return-void
@@ -2544,7 +2544,7 @@
     move-object v0, v1
 
     :cond_19
-    invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -2577,7 +2577,7 @@
     move-object v1, v0
 
     :goto_36
-    invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -2646,7 +2646,7 @@
     move-object v1, v0
 
     :goto_1a
-    invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -4008,7 +4008,7 @@
     :cond_227
     invoke-static {v10}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->homeDialog(Landroid/app/Dialog;)V
 
-    invoke-virtual {v10}, Landroid/app/Dialog;->show()V
+    invoke-static {v10}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 559
     return-void

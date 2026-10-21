@@ -55,6 +55,7 @@ public final class AppTrafficRankingCard extends LinearLayout {
 
     public AppTrafficRankingCard(Context context){
         super(context);setOrientation(VERTICAL);setId(0x7f0a0169);surface.setCornerRadius(dp(ThemePalette.CARD_RADIUS));setBackground(surface);setPadding(dp(16),dp(14),dp(16),dp(14));
+        CardLight.bind(this,ThemePalette.CARD_RADIUS);
         LinearLayout header=new LinearLayout(context);header.setGravity(Gravity.CENTER_VERTICAL);
         title=text("应用流量排行",14,true);caption=text("累计代理 · TOP 5",10,false);caption.setGravity(Gravity.RIGHT|Gravity.CENTER_VERTICAL);
         header.addView(title,new LayoutParams(0,headerHeight(),1));header.addView(caption,new LayoutParams(-2,headerHeight()));addView(header,new LayoutParams(-1,headerHeight()));

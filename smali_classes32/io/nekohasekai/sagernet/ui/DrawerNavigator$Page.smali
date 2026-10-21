@@ -28,7 +28,11 @@
 
 .field observer:Landroid/view/ViewTreeObserver;
 
+.field pageLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
 .field parent:Landroid/view/View;
+
+.field parentLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
 
 .field pendingStart:Ljava/lang/Runnable;
 
@@ -41,7 +45,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .line 31
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,7 +54,7 @@
 .method synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$1;)V
     .registers 2
 
-    .line 31
+    .line 60
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;-><init>()V
 
     return-void
@@ -67,7 +71,7 @@
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .registers 2
 
-    .line 36
+    .line 70
     # invokes: Lio/nekohasekai/sagernet/ui/DrawerNavigator;->cancelPending(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->access$000(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
 
@@ -77,19 +81,39 @@
 .end method
 
 .method releaseMotion()V
-    .registers 2
+    .registers 3
 
-    .line 34
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->motion:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
+    .line 65
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parentLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_a
 
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;->close()V
+
+    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parentLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    .line 66
+    :cond_a
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pageLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-eqz v0, :cond_13
+
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;->close()V
+
+    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pageLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    .line 67
+    :cond_13
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->motion:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
+
+    if-eqz v0, :cond_1c
+
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;->close()V
 
-    const/4 v0, 0x0
+    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->motion:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
-    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->motion:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
-
-    :cond_a
+    :cond_1c
     return-void
 .end method

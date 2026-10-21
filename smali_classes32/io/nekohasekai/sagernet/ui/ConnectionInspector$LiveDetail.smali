@@ -506,7 +506,7 @@
     .line 104
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 

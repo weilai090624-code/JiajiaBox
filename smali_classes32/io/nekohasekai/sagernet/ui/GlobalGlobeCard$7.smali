@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .registers 3
+.method public final onScrollChanged()V
+    .registers 2
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$7;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
-    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lambda$new$2$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->$r8$lambda$q_1s78ecAuBRojvs5Rf_amZvuQQ(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     return-void
 .end method

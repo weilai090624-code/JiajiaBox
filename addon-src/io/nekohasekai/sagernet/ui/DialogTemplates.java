@@ -117,7 +117,7 @@ public final class DialogTemplates {
                 LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,-2);if(i>0)lp.topMargin=UiComponents.dp(c,12);column.addView(item,lp);
             }
         }
-        setContent(window,surface);window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));window.setWindowAnimations(android.R.style.Animation_Dialog);return true;
+        setContent(window,surface);window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));window.setWindowAnimations(AppMotion.dialogAnimations(window.getContext()));return true;
     }
     private static final class BoundChoices extends BaseAdapter {
         private final ListAdapter original;
@@ -160,7 +160,7 @@ public final class DialogTemplates {
         column.addView(UiComponents.title(context,title.getText()),new LinearLayout.LayoutParams(-1,-2));
         detach(body);styleBody(body,body instanceof ListView);LinearLayout.LayoutParams bp=new LinearLayout.LayoutParams(-1,body instanceof ListView?maxBody(context):-2);bp.topMargin=UiComponents.dp(context,12);column.addView(body,bp);
         LinearLayout bar=UiComponents.actions(context);for(View action:actions){detach(action);UiComponents.addAction(bar,action);}LinearLayout.LayoutParams ap=new LinearLayout.LayoutParams(-1,-2);ap.topMargin=UiComponents.dp(context,16);column.addView(bar,ap);
-        setContent(window,surface);window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));window.setWindowAnimations(android.R.style.Animation_Dialog);UiComponents.refresh(surface);return true;
+        setContent(window,surface);window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));window.setWindowAnimations(AppMotion.dialogAnimations(window.getContext()));UiComponents.refresh(surface);return true;
     }
     private static void setContent(Window window,View root) {
         Dialog dialog=dialogFor(window);
@@ -196,7 +196,7 @@ public final class DialogTemplates {
         for(View action:actions){detach(action);UiComponents.addAction(bar,action);}
         LinearLayout.LayoutParams footerParams=new LinearLayout.LayoutParams(-1,-2);footerParams.topMargin=UiComponents.dp(context,16);column.addView(bar,footerParams);
         setContent(window,surface);window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        window.setWindowAnimations(android.R.style.Animation_Dialog);
+        window.setWindowAnimations(AppMotion.dialogAnimations(window.getContext()));
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE|WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         UiComponents.refresh(surface);
         return true;

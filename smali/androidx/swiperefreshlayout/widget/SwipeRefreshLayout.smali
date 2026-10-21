@@ -408,7 +408,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mDecelerateInterpolator:Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/animation/Animation;Landroid/view/animation/Interpolator;)V
 
     .line 1321
     if-eqz p2, :cond_0
@@ -429,7 +429,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mAnimateToCorrectPosition:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 1326
     return-void
@@ -471,7 +471,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mDecelerateInterpolator:Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/animation/Animation;Landroid/view/animation/Interpolator;)V
 
     .line 1337
     if-eqz p2, :cond_1
@@ -492,7 +492,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mAnimateToStartPosition:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 1343
     :goto_0
@@ -1176,7 +1176,7 @@
     .line 574
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
-    invoke-virtual {v1, v0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 575
     return-object v0
@@ -1327,7 +1327,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mScaleDownToStartAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 1392
     return-void
@@ -1386,7 +1386,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mScaleAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 517
     return-void
@@ -3792,7 +3792,7 @@
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mScaleDownAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 552
     return-void

@@ -42,6 +42,7 @@ public final class FullScreenBackdrop implements View.OnAttachStateChangeListene
     ClassLoader loader=FullScreenBackdrop.class.getClassLoader();
     for(String name:new String[]{"DrawerDesign","DrawerDesign$Glyph","DrawerMotion","DrawerMorph","DrawerNavigator","ResponsiveDrawerHeader","RosePalette"})
      Class.forName("io.nekohasekai.sagernet.ui."+name,false,loader);
+    DrawerNavigator.preload();
     Bitmap tiny=Bitmap.createBitmap(24,24,Bitmap.Config.ARGB_8888);
     try{blur(tiny,2);}finally{tiny.recycle();}
    }catch(Exception|OutOfMemoryError error){android.util.Log.w("FullScreenBackdrop","Optional startup prewarm skipped",error);}

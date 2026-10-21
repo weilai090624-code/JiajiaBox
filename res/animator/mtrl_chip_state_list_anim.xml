@@ -2,12 +2,12 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true" android:state_pressed="true">
-        <objectAnimator android:duration="@integer/mtrl_chip_anim_duration" android:valueTo="@dimen/mtrl_chip_pressed_translation_z" android:valueType="floatType" android:propertyName="translationZ" />
+        <objectAnimator android:duration="@integer/mtrl_chip_anim_duration" android:valueTo="@dimen/mtrl_chip_pressed_translation_z" android:valueType="floatType" android:propertyName="translationZ"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
     <item android:state_enabled="true">
-        <objectAnimator android:duration="@integer/mtrl_chip_anim_duration" android:valueTo="0" android:valueType="floatType" android:propertyName="translationZ" />
+        <objectAnimator android:duration="@integer/mtrl_chip_anim_duration" android:valueTo="0" android:valueType="floatType" android:propertyName="translationZ"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
     <item>
-        <objectAnimator android:duration="0" android:valueTo="0" android:valueType="floatType" android:propertyName="translationZ" />
+        <objectAnimator android:duration="0" android:valueTo="0" android:valueType="floatType" android:propertyName="translationZ"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
 </selector>

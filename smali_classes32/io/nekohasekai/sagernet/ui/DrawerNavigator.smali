@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;,
+        Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;,
         Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
     }
 .end annotation
@@ -14,6 +15,8 @@
 
 # static fields
 .field private static final HOST:I = 0x7f0a01e2
+
+.field private static volatile fragmentApi:Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
 
 .field private static final states:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -31,7 +34,7 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 39
+    .line 73
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -44,7 +47,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 29
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,16 +56,65 @@
 .method static synthetic access$000(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     .registers 1
 
-    .line 29
+    .line 32
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->cancelPending(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
 
     return-void
 .end method
 
+.method private static api()Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ReflectiveOperationException;
+        }
+    .end annotation
+
+    .line 56
+    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->fragmentApi:Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    if-eqz v0, :cond_5
+
+    return-object v0
+
+    .line 57
+    :cond_5
+    const-class v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;
+
+    monitor-enter v0
+
+    :try_start_8
+    sget-object v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->fragmentApi:Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    if-nez v1, :cond_13
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    invoke-direct {v1}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;-><init>()V
+
+    sput-object v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->fragmentApi:Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    :cond_13
+    sget-object v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->fragmentApi:Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_17
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_19
+    .catchall {:try_start_8 .. :try_end_19} :catchall_17
+
+    throw v1
+.end method
+
 .method public static back(Landroid/app/Activity;)Z
     .registers 5
 
-    .line 90
+    .line 124
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->states:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -85,7 +137,7 @@
 
     goto :goto_2a
 
-    .line 91
+    .line 125
     :cond_14
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
@@ -99,7 +151,7 @@
 
     return v3
 
-    .line 92
+    .line 126
     :cond_1e
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
@@ -121,7 +173,7 @@
 .method private static cancelPending(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     .registers 4
 
-    .line 111
+    .line 145
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->observer:Landroid/view/ViewTreeObserver;
 
     if-eqz v0, :cond_17
@@ -147,12 +199,12 @@
     :cond_17
     const/4 v0, 0x0
 
-    .line 112
+    .line 146
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->observer:Landroid/view/ViewTreeObserver;
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->ready:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    .line 113
+    .line 147
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pendingStart:Ljava/lang/Runnable;
 
     if-eqz v1, :cond_29
@@ -172,7 +224,7 @@
 .method public static captureRoot(Landroid/app/Activity;)V
     .registers 4
 
-    .line 51
+    .line 85
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->states:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -188,7 +240,7 @@
     :cond_b
     const v1, 0x7f0a01e2
 
-    .line 52
+    .line 86
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
@@ -199,7 +251,7 @@
 
     goto :goto_1f
 
-    .line 53
+    .line 87
     :cond_17
     check-cast p0, Landroid/widget/FrameLayout;
 
@@ -212,7 +264,7 @@
     :goto_1f
     return-void
 
-    .line 54
+    .line 88
     :cond_20
     new-instance v1, Landroid/util/SparseArray;
 
@@ -238,7 +290,7 @@
 .method public static destroy(Landroid/app/Activity;)V
     .registers 2
 
-    .line 135
+    .line 170
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->dismiss(Landroid/app/Activity;)V
 
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->states:Ljava/util/WeakHashMap;
@@ -251,7 +303,7 @@
 .method public static dismiss(Landroid/app/Activity;)V
     .registers 2
 
-    .line 134
+    .line 169
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->states:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -291,7 +343,7 @@
 .method static synthetic lambda$open$1(Landroid/app/Activity;)V
     .registers 1
 
-    .line 71
+    .line 105
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->back(Landroid/app/Activity;)Z
 
     return-void
@@ -300,7 +352,7 @@
 .method static synthetic lambda$rootReady$0(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;ILandroid/widget/FrameLayout;Landroid/view/View;Landroid/util/SparseArray;)V
     .registers 5
 
-    .line 48
+    .line 82
     iget-object p0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->root()I
@@ -336,10 +388,10 @@
 
     const/4 v0, 0x0
 
-    .line 98
+    .line 132
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pendingStart:Ljava/lang/Runnable;
 
-    .line 99
+    .line 133
     iget-object v0, p1, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->current()Ljava/lang/Object;
@@ -361,12 +413,12 @@
     :cond_14
     const/4 v0, 0x1
 
-    .line 100
+    .line 134
     invoke-static {p2, p1, p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->transition(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;Z)V
 
     return-void
 
-    .line 99
+    .line 133
     :cond_19
     :goto_19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->releaseMotion()V
@@ -377,7 +429,7 @@
 .method static synthetic lambda$startAfterLayout$3(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)Z
     .registers 3
 
-    .line 103
+    .line 137
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->observer:Landroid/view/ViewTreeObserver;
 
     if-eqz v0, :cond_13
@@ -399,12 +451,12 @@
     :cond_13
     const/4 v0, 0x0
 
-    .line 104
+    .line 138
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->observer:Landroid/view/ViewTreeObserver;
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->ready:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    .line 105
+    .line 139
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pendingStart:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_23
@@ -424,7 +476,7 @@
 .method static synthetic lambda$transition$4(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     .registers 4
 
-    .line 122
+    .line 157
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->current()Ljava/lang/Object;
@@ -460,7 +512,7 @@
 .method static synthetic lambda$transition$5(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     .registers 3
 
-    .line 124
+    .line 159
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->current()Ljava/lang/Object;
@@ -486,21 +538,21 @@
 .end method
 
 .method public static open(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 14
+    .registers 13
 
     const v0, 0x7f0a01e2
 
-    .line 63
+    .line 97
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 64
+    .line 98
     instance-of v1, v0, Landroid/widget/FrameLayout;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_175
+    if-eqz v1, :cond_12f
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
 
@@ -508,9 +560,9 @@
 
     if-nez v1, :cond_14
 
-    goto/16 :goto_175
+    goto/16 :goto_12f
 
-    .line 65
+    .line 99
     :cond_14
     check-cast v0, Landroid/widget/FrameLayout;
 
@@ -522,7 +574,7 @@
 
     return v2
 
-    .line 66
+    .line 100
     :cond_1d
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->state(Landroid/app/Activity;)Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
 
@@ -540,7 +592,7 @@
 
     return v4
 
-    .line 67
+    .line 101
     :cond_2b
     new-instance v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
 
@@ -572,7 +624,7 @@
     :goto_44
     iput-object v6, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    .line 68
+    .line 102
     new-instance v6, Landroid/widget/LinearLayout;
 
     invoke-direct {v6, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -583,7 +635,7 @@
 
     const/high16 v7, 0x41200000    # 10.0f
 
-    .line 69
+    .line 103
     invoke-static {p0, v7}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v7
@@ -592,14 +644,14 @@
 
     invoke-virtual {v6, v4}, Landroid/widget/LinearLayout;->setClickable(Z)V
 
-    .line 70
+    .line 104
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJGlassToolbar;->matteColor(Landroid/content/Context;)I
 
     move-result v7
 
     invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 71
+    .line 105
     new-instance v7, Lio/nekohasekai/sagernet/ui/DrawerNavigator$2;
 
     invoke-direct {v7, p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$2;-><init>(Landroid/app/Activity;)V
@@ -608,7 +660,7 @@
 
     move-result-object p1
 
-    .line 73
+    .line 107
     new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v8, -0x2
@@ -619,10 +671,10 @@
 
     invoke-virtual {v6, p1, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 74
+    .line 108
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->nestedHeader(Landroid/widget/LinearLayout;)V
 
-    .line 75
+    .line 109
     new-instance p1, Landroid/widget/FrameLayout;
 
     invoke-direct {p1, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -641,7 +693,7 @@
 
     invoke-virtual {v6, p1, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 76
+    .line 110
     new-instance v7, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v7, v9, v9}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
@@ -652,7 +704,7 @@
 
     invoke-virtual {v7, v3}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->push(Ljava/lang/Object;)V
 
-    .line 77
+    .line 111
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->begin(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
     move-result-object v0
@@ -661,34 +713,22 @@
 
     invoke-virtual {v6, v3}, Landroid/widget/LinearLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 79
+    .line 113
     :try_start_a5
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->api()Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
 
     move-result-object v0
 
-    const-string v6, "getSupportFragmentManager"
+    iget-object v6, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->manager:Ljava/lang/reflect/Method;
 
-    new-array v7, v2, [Ljava/lang/Class;
+    invoke-virtual {v6, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v6, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    move-result-object v6
 
-    move-result-object v0
+    iput-object v6, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
 
-    invoke-virtual {v0, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    iput-object v0, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
-
-    .line 80
-    invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object p2
-
-    new-array v0, v2, [Ljava/lang/Class;
-
-    invoke-virtual {p2, v5}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    .line 114
+    invoke-virtual {v0, p2}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->constructor(Ljava/lang/String;)Ljava/lang/reflect/Constructor;
 
     move-result-object p2
 
@@ -698,84 +738,36 @@
 
     iput-object p2, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
 
-    const-string p2, "androidx.fragment.app.Fragment"
+    .line 115
+    new-instance p2, Landroid/os/Bundle;
 
-    invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object p2
-
-    .line 81
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {p2}, Landroid/os/Bundle;-><init>()V
 
     const-string v6, "glass_drawer_page"
 
-    invoke-virtual {v0, v6, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p2, v6, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string v6, "setArguments"
-
-    new-array v7, v4, [Ljava/lang/Class;
-
-    const-class v8, Landroid/os/Bundle;
-
-    aput-object v8, v7, v2
-
-    invoke-virtual {p2, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v6
+    iget-object v6, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->setArguments:Ljava/lang/reflect/Method;
 
     iget-object v7, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
 
     new-array v8, v4, [Ljava/lang/Object;
 
-    aput-object v0, v8, v2
+    aput-object p2, v8, v2
 
     invoke-virtual {v6, v7, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
-    const-string v0, "androidx.fragment.app.FragmentManager"
-
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string v6, "beginTransaction"
-
-    new-array v7, v2, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v6, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
+    .line 116
+    iget-object p2, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->begin:Ljava/lang/reflect/Method;
 
     iget-object v6, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
 
-    invoke-virtual {v0, v6, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v6, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 83
-    const-string v6, "androidx.fragment.app.FragmentTransaction"
-
-    invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v6
-
-    const-string v7, "add"
-
-    const/4 v8, 0x2
-
-    new-array v9, v8, [Ljava/lang/Class;
-
-    sget-object v10, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    aput-object v10, v9, v2
-
-    aput-object p2, v9, v4
-
-    invoke-virtual {v6, v7, v9}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v7
+    .line 117
+    iget-object v6, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->add:Ljava/lang/reflect/Method;
 
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getId()I
 
@@ -785,34 +777,24 @@
 
     move-result-object p1
 
-    iget-object v9, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
+    iget-object v7, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
+
+    const/4 v8, 0x2
 
     new-array v8, v8, [Ljava/lang/Object;
 
     aput-object p1, v8, v2
 
-    aput-object v9, v8, v4
+    aput-object v7, v8, v4
 
-    invoke-virtual {v7, v0, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, p2, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string p1, "commitNowAllowingStateLoss"
+    iget-object p1, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->commit:Ljava/lang/reflect/Method;
 
-    new-array v7, v2, [Ljava/lang/Class;
+    invoke-virtual {p1, p2, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v6, p1, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p1
-
-    invoke-virtual {p1, v0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 84
-    const-string p1, "getView"
-
-    new-array v0, v2, [Ljava/lang/Class;
-
-    invoke-virtual {p2, p1, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p1
+    .line 118
+    iget-object p1, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->getView:Ljava/lang/reflect/Method;
 
     iget-object p2, v3, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
 
@@ -822,40 +804,40 @@
 
     check-cast p1, Landroid/view/View;
 
-    if-eqz p1, :cond_15c
+    if-eqz p1, :cond_116
 
     const p2, 0x7f0a02ba
 
-    .line 85
+    .line 119
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p2
 
-    if-eqz p2, :cond_153
+    if-eqz p2, :cond_10d
 
     const/16 v0, 0x8
 
     invoke-virtual {p2, v0}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_153
+    :cond_10d
     invoke-virtual {p1, v2, v2, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->settingsPage(Landroid/view/View;)V
 
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->prepareForDisplay(Landroid/view/View;)V
 
-    .line 86
-    :cond_15c
+    .line 120
+    :cond_116
     invoke-static {p0, v1, v3}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->startAfterLayout(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
-    :try_end_15f
-    .catch Ljava/lang/Exception; {:try_start_a5 .. :try_end_15f} :catch_160
+    :try_end_119
+    .catch Ljava/lang/Exception; {:try_start_a5 .. :try_end_119} :catch_11a
 
     return v4
 
-    :catch_160
+    :catch_11a
     move-exception p0
 
-    .line 87
+    .line 121
     const-string p1, "DrawerNavigator"
 
     const-string p2, "Cannot open drawer child"
@@ -872,25 +854,45 @@
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->complete()V
 
-    :cond_175
-    :goto_175
+    :cond_12f
+    :goto_12f
     return v2
 .end method
 
-.method private static remove(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
-    .registers 9
+.method static preload()V
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ReflectiveOperationException;
+        }
+    .end annotation
 
-    .line 128
+    .line 59
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->api()Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+
+    move-result-object v0
+
+    const-string v1, "io.nekohasekai.sagernet.ui.ToolsFragment"
+
+    invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->constructor(Ljava/lang/String;)Ljava/lang/reflect/Constructor;
+
+    return-void
+.end method
+
+.method private static remove(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
+    .registers 8
+
+    .line 163
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->cancelPending(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 129
+    .line 164
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -904,7 +906,7 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -924,83 +926,49 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->reset(Landroid/view/View;)V
 
-    .line 130
+    .line 165
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
 
-    if-eqz v0, :cond_7e
+    if-eqz v0, :cond_5c
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
 
-    if-eqz v0, :cond_7e
+    if-eqz v0, :cond_5c
 
     :try_start_36
-    const-string v0, "androidx.fragment.app.FragmentManager"
-
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->api()Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
 
     move-result-object v0
 
-    const-string v3, "beginTransaction"
+    iget-object v3, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->begin:Ljava/lang/reflect/Method;
 
-    new-array v4, v2, [Ljava/lang/Class;
+    iget-object v4, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
 
-    invoke-virtual {v0, v3, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    iget-object v3, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->manager:Ljava/lang/Object;
-
-    invoke-virtual {v0, v3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    const-string v3, "androidx.fragment.app.FragmentTransaction"
-
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-virtual {v3, v4, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    const-string v4, "remove"
+    iget-object v4, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->remove:Ljava/lang/reflect/Method;
 
-    const/4 v5, 0x1
+    iget-object v5, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
 
-    new-array v6, v5, [Ljava/lang/Class;
+    const/4 v6, 0x1
 
-    const-string v7, "androidx.fragment.app.Fragment"
+    new-array v6, v6, [Ljava/lang/Object;
 
-    invoke-static {v7}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    aput-object v5, v6, v2
 
-    move-result-object v7
+    invoke-virtual {v4, v3, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    aput-object v7, v6, v2
+    iget-object v0, v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->commit:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v3, v4, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_53
+    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_53} :catch_54
 
-    move-result-object v4
+    goto :goto_5c
 
-    iget-object v6, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->fragment:Ljava/lang/Object;
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    aput-object v6, v5, v2
-
-    invoke-virtual {v4, v0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string v4, "commitNowAllowingStateLoss"
-
-    new-array v2, v2, [Ljava/lang/Class;
-
-    invoke-virtual {v3, v4, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_75
-    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_75} :catch_76
-
-    goto :goto_7e
-
-    :catch_76
+    :catch_54
     move-exception v0
 
     const-string v1, "DrawerNavigator"
@@ -1009,16 +977,16 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 131
-    :cond_7e
-    :goto_7e
+    .line 166
+    :cond_5c
+    :goto_5c
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->host:Landroid/widget/FrameLayout;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    .line 132
+    .line 167
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->releaseMotion()V
 
     return-void
@@ -1029,7 +997,7 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 126
+    .line 161
     invoke-virtual {p0, v0}, Landroid/view/View;->setAlpha(F)V
 
     const/4 v0, 0x0
@@ -1051,7 +1019,7 @@
         }
     .end annotation
 
-    .line 60
+    .line 94
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_20
@@ -1093,7 +1061,7 @@
 .method public static rootReady(Landroid/app/Activity;I)V
     .registers 8
 
-    .line 42
+    .line 76
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->state(Landroid/app/Activity;)Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
 
     move-result-object v1
@@ -1104,25 +1072,25 @@
 
     const v0, 0x7f0a01e2
 
-    .line 43
+    .line 77
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    .line 44
+    .line 78
     instance-of v0, p0, Landroid/widget/FrameLayout;
 
     if-nez v0, :cond_15
 
     goto :goto_3c
 
-    .line 45
+    .line 79
     :cond_15
     move-object v3, p0
 
     check-cast v3, Landroid/widget/FrameLayout;
 
-    .line 46
+    .line 80
     iget-object p0, v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;->history:Lio/nekohasekai/sagernet/ui/DrawerHistory;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerHistory;->snapshot()Ljava/lang/Object;
@@ -1133,7 +1101,7 @@
 
     check-cast v5, Landroid/util/SparseArray;
 
-    .line 47
+    .line 81
     invoke-virtual {v3}, Landroid/widget/FrameLayout;->getChildCount()I
 
     move-result p0
@@ -1158,7 +1126,7 @@
 
     if-eqz v4, :cond_3c
 
-    .line 48
+    .line 82
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$0;
 
     move v2, p1
@@ -1184,7 +1152,7 @@
         }
     .end annotation
 
-    .line 57
+    .line 91
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_20
@@ -1226,7 +1194,7 @@
 .method private static startAfterLayout(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
     .registers 6
 
-    .line 95
+    .line 129
     iget-object v0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getLayoutDirection()I
@@ -1244,7 +1212,7 @@
     :cond_c
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 96
+    .line 130
     :goto_e
     iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
@@ -1266,21 +1234,21 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setTranslationX(F)V
 
-    .line 97
+    .line 131
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$3;
 
     invoke-direct {v0, p2, p1, p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$3;-><init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Landroid/app/Activity;)V
 
     iput-object v0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pendingStart:Ljava/lang/Runnable;
 
-    .line 102
+    .line 136
     new-instance p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;
 
     invoke-direct {p0, p2}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;-><init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
 
     iput-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->ready:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    .line 108
+    .line 142
     iget-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -1301,7 +1269,7 @@
 .method private static state(Landroid/app/Activity;)Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
     .registers 4
 
-    .line 40
+    .line 74
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->states:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1327,7 +1295,7 @@
 .method private static transition(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;Z)V
     .registers 10
 
-    .line 116
+    .line 150
     iget-object v0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->motion:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
     if-nez v0, :cond_c
@@ -1343,7 +1311,7 @@
     :cond_c
     const/high16 v0, 0x41b00000    # 22.0f
 
-    .line 117
+    .line 151
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v0
@@ -1352,83 +1320,92 @@
 
     const/high16 v1, 0x40e00000    # 7.0f
 
-    .line 118
+    .line 152
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result p0
 
     int-to-float p0, p0
 
-    if-eqz p3, :cond_1f
+    .line 153
+    iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
-    const-wide/16 v1, 0x168
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getLayoutDirection()I
 
-    goto :goto_21
+    move-result v1
 
-    :cond_1f
-    const-wide/16 v1, 0x12c
+    const/4 v2, 0x1
 
-    .line 119
-    :goto_21
-    iget-object v3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getLayoutDirection()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    if-ne v3, v4, :cond_2f
-
-    const/high16 v3, -0x40800000    # -1.0f
-
-    goto :goto_31
-
-    :cond_2f
     const/high16 v3, 0x3f800000    # 1.0f
 
-    :goto_31
-    mul-float v0, v0, v3
+    if-ne v1, v2, :cond_28
 
-    mul-float p0, p0, v3
+    const/high16 v1, -0x40800000    # -1.0f
 
-    .line 120
-    iget-object v3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
+    goto :goto_2a
 
-    invoke-virtual {v3}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    :cond_28
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    move-result-object v3
+    :goto_2a
+    mul-float v0, v0, v1
 
-    const/4 v4, 0x0
+    mul-float p0, p0, v1
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
+    .line 154
+    iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    move-result-object v3
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
-    invoke-virtual {v3}, Landroid/view/ViewPropertyAnimator;->cancel()V
+    move-result-object v1
 
-    iget-object v3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
+    const/4 v2, 0x0
 
-    invoke-virtual {v3}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    move-result-object v3
+    iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v3}, Landroid/view/ViewPropertyAnimator;->cancel()V
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
-    const/4 v3, 0x0
+    move-result-object v1
 
-    if-eqz p3, :cond_a4
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
 
-    .line 121
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
+
+    .line 155
+    iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->acquire(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    move-result-object v1
+
+    iput-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parentLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    iget-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->acquire(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    move-result-object v1
+
+    iput-object v1, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->pageLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    const/4 v1, 0x0
+
+    const-wide/16 v4, 0x21c
+
+    if-eqz p3, :cond_af
+
+    .line 156
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p3, v3}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-virtual {p3, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
 
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
@@ -1436,11 +1413,11 @@
 
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    invoke-virtual {p3}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p3}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p3
 
-    invoke-virtual {p3, v5}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p3, v3}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p3
 
@@ -1450,7 +1427,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -1458,28 +1435,28 @@
 
     invoke-direct {p3}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
 
-    invoke-virtual {p0, p3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    .line 122
+    .line 157
     iget-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v3}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v1}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
-    invoke-virtual {p0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -1487,7 +1464,7 @@
 
     invoke-direct {p3}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
 
-    invoke-virtual {p0, p3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -1503,17 +1480,17 @@
 
     return-void
 
-    .line 123
-    :cond_a4
+    .line 158
+    :cond_af
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p3, v4}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p3, v2}, Landroid/view/View;->setVisibility(I)V
 
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    invoke-virtual {p3, v5}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {p3, v3}, Landroid/view/View;->setAlpha(F)V
 
     iget-object p3, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
@@ -1523,36 +1500,7 @@
 
     iget-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->parent:Landroid/view/View;
 
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v5}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v3}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    new-instance p3, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;
-
-    invoke-direct {p3}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
-
-    invoke-virtual {p0, p3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
-
-    .line 124
-    iget-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -1560,11 +1508,11 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v1}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
-    invoke-virtual {p0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p0, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -1572,7 +1520,36 @@
 
     invoke-direct {p3}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
 
-    invoke-virtual {p0, p3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    .line 159
+    iget-object p0, p2, Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;->view:Landroid/widget/LinearLayout;
+
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    new-instance p3, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;
+
+    invoke-direct {p3}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
+
+    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 

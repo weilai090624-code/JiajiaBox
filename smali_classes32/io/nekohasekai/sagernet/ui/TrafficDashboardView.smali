@@ -193,113 +193,118 @@
     .line 146
     invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
-    const/high16 v7, 0x41900000    # 18.0f
+    const/high16 v7, 0x41b00000    # 22.0f
 
     .line 147
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-static {v4, v7}, Lio/nekohasekai/sagernet/ui/CardLight;->bind(Landroid/view/View;F)V
 
-    move-result v8
+    const/high16 v8, 0x41900000    # 18.0f
 
-    const/high16 v9, 0x41400000    # 12.0f
-
-    invoke-direct {v0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
-
-    move-result v10
-
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
-
-    move-result v11
-
-    invoke-direct {v0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 148
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v9
 
-    invoke-virtual {v4, v8, v10, v11, v9}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    const/high16 v10, 0x41400000    # 12.0f
 
-    .line 149
-    new-instance v8, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/high16 v9, 0x41800000    # 16.0f
-
-    if-eqz v2, :cond_6b
-
-    .line 150
-    invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeHeight()I
-
-    move-result v10
-
-    invoke-direct {v0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v11
 
-    sub-int/2addr v10, v11
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    goto :goto_71
-
-    :cond_6b
-    const/high16 v10, 0x433c0000    # 188.0f
+    move-result v12
 
     invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v10
 
-    :goto_71
-    const/16 v11, 0x30
+    invoke-virtual {v4, v9, v11, v12, v10}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    invoke-direct {v8, v3, v10, v11}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    .line 150
+    new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
 
-    const/high16 v10, 0x40c00000    # 6.0f
+    const/high16 v10, 0x41800000    # 16.0f
+
+    if-eqz v2, :cond_70
 
     .line 151
+    invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeHeight()I
+
+    move-result v11
+
     invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v12
 
-    iput v12, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->baseTopMargin:I
+    sub-int/2addr v11, v12
+
+    goto :goto_76
+
+    :cond_70
+    const/high16 v11, 0x433c0000    # 188.0f
+
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+
+    move-result v11
+
+    :goto_76
+    const/16 v12, 0x30
+
+    invoke-direct {v9, v3, v11, v12}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+
+    const/high16 v11, 0x40c00000    # 6.0f
 
     .line 152
-    invoke-direct {v0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v12
+    move-result v13
 
-    iget v13, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->baseTopMargin:I
+    iput v13, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->baseTopMargin:I
 
-    invoke-direct {v0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 153
+    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v14
+    move-result v13
+
+    iget v14, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->baseTopMargin:I
 
     invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v15
 
-    invoke-virtual {v8, v12, v13, v14, v15}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    .line 153
-    invoke-virtual {v0, v4, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    move-result v7
 
-    .line 155
-    new-instance v8, Landroid/widget/LinearLayout;
+    invoke-virtual {v9, v13, v14, v15, v7}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    invoke-direct {v8, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    const/4 v12, 0x0
+    .line 154
+    invoke-virtual {v0, v4, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 156
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    new-instance v7, Landroid/widget/LinearLayout;
+
+    invoke-direct {v7, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    const/4 v9, 0x0
 
     .line 157
-    invoke-virtual {v8, v6}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v7, v9}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 158
+    invoke-virtual {v7, v6}, Landroid/widget/LinearLayout;->setGravity(I)V
+
+    .line 159
     new-instance v13, Landroid/widget/LinearLayout$LayoutParams;
 
     const v14, 0x3f866666    # 1.05f
 
-    invoke-direct {v13, v3, v12, v14}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v13, v3, v9, v14}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v4, v8, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v4, v7, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 161
+    .line 162
     const-string v13, "\u7d2f\u8ba1\u4ee3\u7406"
 
     const-string v14, "0 B"
@@ -308,7 +313,7 @@
 
     move-result-object v13
 
-    .line 162
+    .line 163
     invoke-virtual {v13, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v15
@@ -317,70 +322,70 @@
 
     iput-object v15, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->totalValue:Landroid/widget/TextView;
 
-    .line 163
+    .line 164
     new-instance v15, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v10, 0x3f800000    # 1.0f
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    invoke-direct {v15, v12, v3, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v15, v9, v3, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v8, v13, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v13, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 164
+    .line 165
     new-instance v13, Landroid/view/View;
 
     invoke-direct {v13, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 165
+    .line 166
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
 
     move-result v15
 
     invoke-virtual {v13, v15}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 166
+    .line 167
     new-instance v15, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
-
-    move-result v9
-
-    const/high16 v11, 0x42080000    # 34.0f
 
     invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v7
+    move-result v10
 
-    invoke-direct {v15, v9, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    const/high16 v12, 0x42080000    # 34.0f
 
-    const/high16 v7, 0x41000000    # 8.0f
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    .line 167
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    move-result v8
 
-    move-result v9
+    invoke-direct {v15, v10, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    iput v9, v15, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+    const/high16 v8, 0x41000000    # 8.0f
 
     .line 168
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v9
+    move-result v10
 
-    iput v9, v15, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+    iput v10, v15, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
     .line 169
-    invoke-virtual {v8, v13, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+
+    move-result v10
+
+    iput v10, v15, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
 
     .line 170
-    const-string v9, "\u672c\u6b21\u4ee3\u7406"
-
-    invoke-direct {v0, v1, v9, v14}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
-
-    move-result-object v9
+    invoke-virtual {v7, v13, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 171
-    invoke-virtual {v9, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    const-string v10, "\u672c\u6b21\u4ee3\u7406"
+
+    invoke-direct {v0, v1, v10, v14}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
+
+    move-result-object v10
+
+    .line 172
+    invoke-virtual {v10, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v13
 
@@ -388,68 +393,68 @@
 
     iput-object v13, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->sessionValue:Landroid/widget/TextView;
 
-    .line 172
+    .line 173
     new-instance v13, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v13, v12, v3, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v13, v9, v3, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v8, v9, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 174
-    new-instance v8, Landroid/view/View;
-
-    invoke-direct {v8, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v7, v10, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 175
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
+    new-instance v7, Landroid/view/View;
 
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setBackgroundColor(I)V
+    invoke-direct {v7, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 176
-    new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
+
+    move-result v10
+
+    invoke-virtual {v7, v10}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 177
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    new-instance v10, Landroid/widget/LinearLayout$LayoutParams;
+
+    .line 178
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v13
 
-    invoke-direct {v9, v3, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v10, v3, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 176
-    invoke-virtual {v4, v8, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 179
-    new-instance v8, Landroid/widget/LinearLayout;
-
-    invoke-direct {v8, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    .line 177
+    invoke-virtual {v4, v7, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 180
-    invoke-virtual {v8, v6}, Landroid/widget/LinearLayout;->setGravity(I)V
+    new-instance v7, Landroid/widget/LinearLayout;
+
+    invoke-direct {v7, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 181
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {v7, v6}, Landroid/widget/LinearLayout;->setGravity(I)V
 
     .line 182
+    invoke-virtual {v7, v9}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 183
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v6, v3, v12, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v6, v3, v9, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v4, v8, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v4, v7, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 185
+    .line 186
     const-string v6, "\u2191 \u4e0a\u884c\u901f\u7387"
 
-    const-string v9, "0 B/s"
+    const-string v10, "0 B/s"
 
-    invoke-direct {v0, v1, v6, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
+    invoke-direct {v0, v1, v6, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
 
     move-result-object v6
 
     iput-object v6, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->uploadSection:Landroid/widget/LinearLayout;
 
-    .line 186
+    .line 187
     invoke-virtual {v6, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v13
@@ -458,125 +463,125 @@
 
     iput-object v13, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->uploadValue:Landroid/widget/TextView;
 
-    .line 187
+    .line 188
     new-instance v14, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v14, v12, v3, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v14, v9, v3, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v8, v6, v14}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v6, v14}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 190
+    .line 191
     new-instance v14, Landroid/view/View;
 
     invoke-direct {v14, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 191
+    .line 192
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
 
     move-result v15
 
     invoke-virtual {v14, v15}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 192
+    .line 193
     new-instance v15, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
-
-    move-result v3
 
     invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v11
+    move-result v3
 
-    invoke-direct {v15, v3, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    .line 193
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    move-result v12
+
+    invoke-direct {v15, v3, v12}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    .line 194
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v3
 
     iput v3, v15, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    .line 194
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 195
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v3
 
     iput v3, v15, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
 
-    .line 195
-    invoke-virtual {v8, v14, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .line 196
+    invoke-virtual {v7, v14, v15}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 197
+    .line 198
     const-string v3, "\u2193 \u4e0b\u884c\u901f\u7387"
 
-    invoke-direct {v0, v1, v3, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
+    invoke-direct {v0, v1, v3, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
 
     move-result-object v3
 
-    .line 198
+    .line 199
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v9
+    move-result-object v10
 
-    check-cast v9, Landroid/widget/TextView;
+    check-cast v10, Landroid/widget/TextView;
 
-    iput-object v9, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->downloadValue:Landroid/widget/TextView;
+    iput-object v10, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->downloadValue:Landroid/widget/TextView;
 
-    .line 199
-    new-instance v11, Landroid/widget/LinearLayout$LayoutParams;
+    .line 200
+    new-instance v12, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v14, -0x1
 
-    invoke-direct {v11, v12, v14, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v12, v9, v14, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v8, v3, v11}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v3, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     const/high16 v3, 0x41900000    # 18.0f
 
-    .line 202
+    .line 203
     invoke-virtual {v13, v3}, Landroid/widget/TextView;->setTextSize(F)V
 
-    invoke-virtual {v9, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v10, v3}, Landroid/widget/TextView;->setTextSize(F)V
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_196
+    if-eqz v2, :cond_19b
 
-    move-object v8, v3
+    move-object v7, v3
 
-    goto :goto_19b
+    goto :goto_1a0
 
-    .line 203
-    :cond_196
-    new-instance v8, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
+    .line 204
+    :cond_19b
+    new-instance v7, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
-    invoke-direct {v8, v1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, v1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;-><init>(Landroid/content/Context;)V
 
-    :goto_19b
-    iput-object v8, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
+    :goto_1a0
+    iput-object v7, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
-    if-eqz v8, :cond_1c1
+    if-eqz v7, :cond_1c6
 
-    .line 205
-    new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
+    .line 206
+    new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {v8}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
+    invoke-virtual {v7}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
-    move-result v10
+    move-result v11
 
-    const/16 v11, 0x30
+    const/16 v12, 0x30
 
     const/4 v14, -0x1
 
-    invoke-direct {v9, v14, v10, v11}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v10, v14, v11, v12}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    const/high16 v10, 0x41800000    # 16.0f
+    const/high16 v11, 0x41800000    # 16.0f
 
-    .line 206
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 207
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v11
+    move-result v12
 
     const/high16 v13, 0x40c00000    # 6.0f
 
@@ -584,50 +589,50 @@
 
     move-result v14
 
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v13
 
-    invoke-virtual {v9, v11, v14, v13, v12}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v10, v12, v14, v13, v9}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 207
-    invoke-virtual {v0, v8, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .line 208
+    invoke-virtual {v0, v7, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_1c1
-    if-eqz v2, :cond_1c5
+    :cond_1c6
+    if-eqz v2, :cond_1ca
 
-    move-object v9, v3
+    move-object v10, v3
 
-    goto :goto_1ca
+    goto :goto_1cf
 
-    .line 209
-    :cond_1c5
-    new-instance v9, Lio/nekohasekai/sagernet/ui/ConnectionCard;
+    .line 210
+    :cond_1ca
+    new-instance v10, Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
-    invoke-direct {v9, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;-><init>(Landroid/content/Context;)V
+    invoke-direct {v10, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;-><init>(Landroid/content/Context;)V
 
-    :goto_1ca
-    iput-object v9, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->connectionCard:Lio/nekohasekai/sagernet/ui/ConnectionCard;
+    :goto_1cf
+    iput-object v10, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->connectionCard:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
-    if-eqz v9, :cond_1f0
+    if-eqz v10, :cond_1f5
 
-    .line 211
-    new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
+    .line 212
+    new-instance v11, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {v8}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
+    invoke-virtual {v7}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
-    move-result v11
+    move-result v12
 
     const/16 v13, 0x30
 
     const/4 v14, -0x1
 
-    invoke-direct {v10, v14, v11, v13}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v11, v14, v12, v13}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    const/high16 v11, 0x41800000    # 16.0f
+    const/high16 v12, 0x41800000    # 16.0f
 
-    .line 212
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 213
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v13
 
@@ -637,52 +642,52 @@
 
     move-result v15
 
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v14
 
-    invoke-virtual {v10, v13, v15, v14, v12}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v11, v13, v15, v14, v9}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 213
-    invoke-virtual {v0, v9, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .line 214
+    invoke-virtual {v0, v10, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_1f0
-    if-eqz v2, :cond_1f4
+    :cond_1f5
+    if-eqz v2, :cond_1f9
 
-    move-object v9, v3
+    move-object v10, v3
 
-    goto :goto_1f9
+    goto :goto_1fe
 
-    .line 215
-    :cond_1f4
-    new-instance v9, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
+    .line 216
+    :cond_1f9
+    new-instance v10, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
-    invoke-direct {v9, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;-><init>(Landroid/content/Context;)V
+    invoke-direct {v10, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;-><init>(Landroid/content/Context;)V
 
-    :goto_1f9
-    iput-object v9, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->globeCard:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
+    :goto_1fe
+    iput-object v10, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->globeCard:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
-    if-eqz v9, :cond_21f
+    if-eqz v10, :cond_224
 
-    .line 217
-    new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
+    .line 218
+    new-instance v11, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {v8}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
+    invoke-virtual {v7}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
-    move-result v8
+    move-result v7
 
     const/16 v13, 0x30
 
     const/4 v14, -0x1
 
-    invoke-direct {v10, v14, v8, v13}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v11, v14, v7, v13}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    const/high16 v11, 0x41800000    # 16.0f
+    const/high16 v12, 0x41800000    # 16.0f
 
-    .line 218
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 219
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v8
+    move-result v7
 
     const/high16 v13, 0x40c00000    # 6.0f
 
@@ -690,30 +695,30 @@
 
     move-result v14
 
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v13
 
-    invoke-virtual {v10, v8, v14, v13, v12}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v11, v7, v14, v13, v9}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    invoke-virtual {v0, v9, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 220
-    :cond_21f
-    new-instance v8, Lio/nekohasekai/sagernet/ui/AiRoutingCard;
-
-    invoke-direct {v8, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;-><init>(Landroid/content/Context;)V
-
-    iput-object v8, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->aiCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
+    invoke-virtual {v0, v10, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 221
-    new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
+    :cond_224
+    new-instance v7, Lio/nekohasekai/sagernet/ui/AiRoutingCard;
 
-    const/high16 v10, 0x430c0000    # 140.0f
+    invoke-direct {v7, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    iput-object v7, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->aiCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
 
-    move-result v11
+    .line 222
+    new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
+
+    const/high16 v11, 0x430c0000    # 140.0f
+
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+
+    move-result v12
 
     const/high16 v13, 0x42a00000    # 80.0f
 
@@ -723,47 +728,47 @@
 
     const/16 v15, 0x33
 
-    invoke-direct {v9, v11, v14, v15}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v10, v12, v14, v15}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    const/high16 v11, 0x41800000    # 16.0f
+    const/high16 v12, 0x41800000    # 16.0f
 
-    .line 222
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 223
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v14
 
-    const/high16 v7, 0x434e0000    # 206.0f
+    const/high16 v8, 0x434e0000    # 206.0f
 
-    invoke-direct {v0, v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v8}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
-    move-result v7
+    move-result v8
 
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+
+    move-result v9
+
+    const/high16 v12, 0x40c00000    # 6.0f
+
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v12
 
-    const/high16 v11, 0x40c00000    # 6.0f
-
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
-
-    move-result v11
-
-    invoke-virtual {v9, v14, v7, v12, v11}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
-
-    .line 223
-    invoke-virtual {v0, v8, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v10, v14, v8, v9, v12}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
     .line 224
-    new-instance v7, Lio/nekohasekai/sagernet/ui/AiRoutingCard;
-
-    invoke-direct {v7, v1, v5}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;-><init>(Landroid/content/Context;Z)V
-
-    iput-object v7, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->telegramCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
+    invoke-virtual {v0, v7, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 225
+    new-instance v8, Lio/nekohasekai/sagernet/ui/AiRoutingCard;
+
+    invoke-direct {v8, v1, v5}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;-><init>(Landroid/content/Context;Z)V
+
+    iput-object v8, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->telegramCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
+
+    .line 226
     new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-direct {v0, v10}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v10
 
@@ -773,9 +778,9 @@
 
     invoke-direct {v9, v10, v11, v15}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    invoke-virtual {v0, v7, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v8, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 226
+    .line 227
     new-instance v9, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$5;
 
     invoke-direct {v9, v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$5;-><init>(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;)V
@@ -784,40 +789,40 @@
 
     const/16 v6, 0x8
 
-    if-eqz v2, :cond_2d7
+    if-eqz v2, :cond_2dc
 
-    .line 231
+    .line 232
     invoke-virtual {v0, v3}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     const/4 v2, 0x0
 
-    .line 232
-    invoke-virtual {v0, v2}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setClipChildren(Z)V
-
     .line 233
-    invoke-virtual {v8, v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setClipChildren(Z)V
 
     .line 234
     invoke-virtual {v7, v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setVisibility(I)V
 
+    .line 235
+    invoke-virtual {v8, v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setVisibility(I)V
+
     const/4 v14, -0x1
 
-    .line 235
+    .line 236
     invoke-virtual {v4, v14}, Landroid/widget/LinearLayout;->setId(I)V
 
-    .line 236
+    .line 237
     new-instance v3, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v3}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 237
+    .line 238
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->control(Landroid/content/Context;)I
 
     move-result v6
 
     invoke-virtual {v3, v6}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 238
+    .line 239
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ThemePalette;->border(Landroid/content/Context;)I
 
     move-result v1
@@ -826,7 +831,7 @@
 
     const/high16 v1, 0x41b00000    # 22.0f
 
-    .line 239
+    .line 240
     invoke-direct {v0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v1
@@ -835,15 +840,15 @@
 
     invoke-virtual {v3, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 240
+    .line 241
     invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 241
+    .line 242
     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setClipToOutline(Z)V
 
     const/high16 v1, 0x40000000    # 2.0f
 
-    .line 242
+    .line 243
     invoke-direct {v0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v1
@@ -852,17 +857,17 @@
 
     invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->setElevation(F)V
 
-    .line 243
+    .line 244
     invoke-virtual {v4}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    const/high16 v11, 0x41800000    # 16.0f
+    const/high16 v12, 0x41800000    # 16.0f
 
-    .line 244
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    .line 245
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v2
 
@@ -872,7 +877,7 @@
 
     move-result v5
 
-    invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
+    invoke-direct {v0, v12}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v6
 
@@ -882,21 +887,21 @@
 
     invoke-virtual {v1, v2, v5, v6, v3}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 245
+    .line 246
     invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_31b
+    goto :goto_320
 
-    .line 247
-    :cond_2d7
+    .line 248
+    :cond_2dc
     invoke-virtual {v4, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 249
+    .line 250
     new-instance v2, Landroid/widget/ScrollView;
 
     invoke-direct {v2, v1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 250
+    .line 251
     invoke-virtual {v2, v5}, Landroid/widget/ScrollView;->setFillViewport(Z)V
 
     const/4 v3, 0x0
@@ -905,20 +910,20 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/ScrollView;->setNestedScrollingEnabled(Z)V
 
-    .line 251
+    .line 252
     new-instance v4, Landroid/widget/FrameLayout;
 
     invoke-direct {v4, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     iput-object v4, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->scrollContent:Landroid/widget/FrameLayout;
 
-    .line 252
-    :goto_2f0
+    .line 253
+    :goto_2f5
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getChildCount()I
 
     move-result v1
 
-    if-lez v1, :cond_307
+    if-lez v1, :cond_30c
 
     invoke-virtual {v0, v3}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getChildAt(I)Landroid/view/View;
 
@@ -934,10 +939,10 @@
 
     invoke-virtual {v5, v1, v4}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_2f0
+    goto :goto_2f5
 
-    .line 253
-    :cond_307
+    .line 254
+    :cond_30c
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->scrollContent:Landroid/widget/FrameLayout;
 
     new-instance v3, Landroid/widget/FrameLayout$LayoutParams;
@@ -950,22 +955,22 @@
 
     invoke-virtual {v2, v1, v3}, Landroid/widget/ScrollView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 254
+    .line 255
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v1, v14, v14}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v2, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 256
-    :goto_31b
+    .line 257
+    :goto_320
     new-instance v1, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$6;
 
     invoke-direct {v1, v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$6;-><init>(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;)V
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    .line 257
+    .line 258
     new-instance v1, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$7;
 
     invoke-direct {v1, v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$7;-><init>(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;)V
@@ -1014,7 +1019,7 @@
 .method private applyHeaderTheme()V
     .registers 4
 
-    .line 340
+    .line 341
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1023,7 +1028,7 @@
 
     move-result v0
 
-    .line 341
+    .line 342
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1032,7 +1037,7 @@
 
     move-result v1
 
-    .line 342
+    .line 343
     iget-boolean v2, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->headerThemeApplied:Z
 
     if-eqz v2, :cond_1c
@@ -1045,19 +1050,19 @@
 
     if-eq v1, v2, :cond_42
 
-    .line 343
+    .line 344
     :cond_1c
     iput v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->headerColor:I
 
-    .line 344
+    .line 345
     iput v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->headerTextColor:I
 
     const/4 v1, 0x1
 
-    .line 345
+    .line 346
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->headerThemeApplied:Z
 
-    .line 346
+    .line 347
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dashboardCard:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -1068,7 +1073,7 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 347
+    .line 348
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dashboardCard:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -1089,7 +1094,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 350
+    .line 351
     :cond_42
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dashboardCard:Landroid/widget/LinearLayout;
 
@@ -1101,24 +1106,24 @@
 .method private applyTopInset()V
     .registers 5
 
-    .line 373
+    .line 374
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
 
     if-eqz v0, :cond_8
 
-    .line 374
+    .line 375
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->applyHeaderTheme()V
 
     return-void
 
-    .line 377
+    .line 378
     :cond_8
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshAppearance()V
 
-    .line 378
+    .line 379
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->positionAiCard()V
 
-    .line 379
+    .line 380
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getRootWindowInsets()Landroid/view/WindowInsets;
 
     move-result-object v0
@@ -1127,7 +1132,7 @@
 
     goto :goto_4c
 
-    .line 381
+    .line 382
     :cond_15
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -1135,7 +1140,7 @@
 
     if-lt v1, v2, :cond_26
 
-    .line 382
+    .line 383
     invoke-static {}, Landroid/view/WindowInsets$Type;->statusBars()I
 
     move-result v1
@@ -1148,19 +1153,19 @@
 
     goto :goto_2a
 
-    .line 383
+    .line 384
     :cond_26
     invoke-virtual {v0}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v0
 
-    .line 384
+    .line 385
     :goto_2a
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dashboardCard:Landroid/widget/LinearLayout;
 
     if-eqz v1, :cond_4c
 
-    .line 385
+    .line 386
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
@@ -1171,7 +1176,7 @@
 
     goto :goto_4c
 
-    .line 386
+    .line 387
     :cond_37
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -1179,23 +1184,23 @@
 
     check-cast v2, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 387
+    .line 388
     iget v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->baseTopMargin:I
 
     add-int/2addr v3, v0
 
-    .line 388
+    .line 389
     iget v0, v2, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     if-eq v0, v3, :cond_49
 
-    .line 389
+    .line 390
     iput v3, v2, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    .line 390
+    .line 391
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 392
+    .line 393
     :cond_49
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->positionAiCard()V
 
@@ -1207,7 +1212,7 @@
 .method private dp(F)I
     .registers 3
 
-    .line 482
+    .line 483
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1230,7 +1235,7 @@
 .method private homeHeight()I
     .registers 3
 
-    .line 479
+    .line 480
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1463,7 +1468,7 @@
 .method private positionAiCard()V
     .registers 11
 
-    .line 396
+    .line 397
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
 
     if-nez v0, :cond_15b
@@ -1476,7 +1481,7 @@
 
     goto/16 :goto_15b
 
-    .line 397
+    .line 398
     :cond_c
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getRootWindowInsets()Landroid/view/WindowInsets;
 
@@ -1484,7 +1489,7 @@
 
     const/high16 v1, 0x40c00000    # 6.0f
 
-    .line 398
+    .line 399
     invoke-direct {p0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v1
@@ -1505,28 +1510,28 @@
     :goto_1f
     add-int/2addr v1, v3
 
-    .line 399
+    .line 400
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     const/high16 v4, 0x41400000    # 12.0f
 
     if-eqz v3, :cond_49
 
-    .line 400
+    .line 401
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 401
+    .line 402
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
     move-result v5
 
-    .line 402
+    .line 403
     iget v6, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     if-ne v6, v1, :cond_3a
@@ -1535,18 +1540,18 @@
 
     if-eq v6, v5, :cond_43
 
-    .line 403
+    .line 404
     :cond_3a
     iput v1, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     iput v5, v3, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 404
+    .line 405
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     invoke-virtual {v6, v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 406
+    .line 407
     :cond_43
     invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
@@ -1556,27 +1561,27 @@
 
     add-int/2addr v1, v5
 
-    .line 408
+    .line 409
     :cond_49
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->connectionCard:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     if-eqz v3, :cond_70
 
-    .line 409
+    .line 410
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 410
+    .line 411
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
     move-result v5
 
-    .line 411
+    .line 412
     iget v6, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     if-ne v6, v1, :cond_61
@@ -1585,18 +1590,18 @@
 
     if-eq v6, v5, :cond_6a
 
-    .line 412
+    .line 413
     :cond_61
     iput v1, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     iput v5, v3, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 413
+    .line 414
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->connectionCard:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     invoke-virtual {v6, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 415
+    .line 416
     :cond_6a
     invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
@@ -1606,27 +1611,27 @@
 
     add-int/2addr v1, v5
 
-    .line 417
+    .line 418
     :cond_70
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->globeCard:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     if-eqz v3, :cond_97
 
-    .line 418
+    .line 419
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 419
+    .line 420
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->rankingCard:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->preferredHeight()I
 
     move-result v5
 
-    .line 420
+    .line 421
     iget v6, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     if-ne v6, v1, :cond_88
@@ -1644,7 +1649,7 @@
 
     invoke-virtual {v6, v3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 421
+    .line 422
     :cond_91
     invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
@@ -1654,7 +1659,7 @@
 
     add-int/2addr v1, v5
 
-    .line 423
+    .line 424
     :cond_97
     invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
@@ -1672,7 +1677,7 @@
 
     sub-int/2addr v4, v5
 
-    .line 424
+    .line 425
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
@@ -1714,10 +1719,10 @@
     :cond_c6
     sub-int/2addr v4, v3
 
-    .line 425
+    .line 426
     div-int/lit8 v4, v4, 0x2
 
-    .line 426
+    .line 427
     :goto_c9
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getResources()Landroid/content/res/Resources;
 
@@ -1741,7 +1746,7 @@
 
     move-result v6
 
-    .line 427
+    .line 428
     iget-object v7, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->aiCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
 
     invoke-virtual {v7}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1750,7 +1755,7 @@
 
     check-cast v7, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 428
+    .line 429
     iget v8, v7, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
     const/high16 v9, 0x41800000    # 16.0f
@@ -1792,7 +1797,7 @@
     :cond_10a
     if-eqz v5, :cond_111
 
-    .line 429
+    .line 430
     invoke-direct {p0, v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result v3
@@ -1808,7 +1813,7 @@
 
     add-int/2addr v3, v5
 
-    .line 430
+    .line 431
     :goto_117
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->telegramCard:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
 
@@ -1818,7 +1823,7 @@
 
     check-cast v5, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 431
+    .line 432
     iget v7, v5, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
     if-ne v7, v4, :cond_12f
@@ -1848,7 +1853,7 @@
 
     invoke-virtual {v3, v5}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 432
+    .line 433
     :cond_13c
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->scrollContent:Landroid/widget/FrameLayout;
 
@@ -1894,19 +1899,19 @@
 .method private rateSection(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/widget/LinearLayout;
     .registers 12
 
-    .line 448
+    .line 449
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v1, 0x1
 
-    .line 449
+    .line 450
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     const/16 v1, 0x11
 
-    .line 450
+    .line 451
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
     const/4 v6, 0x0
@@ -1921,14 +1926,14 @@
 
     move-object v4, p2
 
-    .line 451
+    .line 452
     invoke-direct/range {v2 .. v7}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->text(Landroid/content/Context;Ljava/lang/String;FZI)Landroid/widget/TextView;
 
     move-result-object p1
 
     move-object v2, v3
 
-    .line 452
+    .line 453
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->wrapCentered()Landroid/widget/LinearLayout$LayoutParams;
 
     move-result-object p2
@@ -1945,29 +1950,29 @@
 
     move-object v3, p3
 
-    .line 453
+    .line 454
     invoke-direct/range {v1 .. v6}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->text(Landroid/content/Context;Ljava/lang/String;FZI)Landroid/widget/TextView;
 
     move-result-object p1
 
-    .line 454
+    .line 455
     invoke-static {p1, v3}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setValue(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 455
+    .line 456
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->wrapCentered()Landroid/widget/LinearLayout$LayoutParams;
 
     move-result-object p2
 
     const/high16 p3, 0x40e00000    # 7.0f
 
-    .line 456
+    .line 457
     invoke-direct {p0, p3}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->dp(F)I
 
     move-result p3
 
     iput p3, p2, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    .line 457
+    .line 458
     invoke-virtual {v0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     return-object v0
@@ -1997,7 +2002,7 @@
 .method private render()V
     .registers 12
 
-    .line 354
+    .line 355
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
 
     if-eqz v0, :cond_c9
@@ -2012,11 +2017,11 @@
 
     goto/16 :goto_c9
 
-    .line 355
+    .line 356
     :cond_e
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->applyHeaderTheme()V
 
-    .line 356
+    .line 357
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -2025,7 +2030,7 @@
 
     move-result-wide v0
 
-    .line 357
+    .line 358
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->totalValue:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->getContext()Landroid/content/Context;
@@ -2038,7 +2043,7 @@
 
     invoke-static {v2, v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setValue(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 358
+    .line 359
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     const-wide/16 v1, 0x0
@@ -2058,7 +2063,7 @@
 
     move-result-wide v3
 
-    .line 359
+    .line 360
     :goto_36
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -2091,7 +2096,7 @@
     :cond_50
     add-long v7, v3, v5
 
-    .line 362
+    .line 363
     :goto_52
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->sessionValue:Landroid/widget/TextView;
 
@@ -2105,12 +2110,12 @@
 
     invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setValue(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 364
+    .line 365
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     if-eqz v0, :cond_73
 
-    .line 365
+    .line 366
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
@@ -2143,7 +2148,7 @@
 
     goto :goto_82
 
-    .line 366
+    .line 367
     :cond_78
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -2160,7 +2165,7 @@
 
     goto :goto_8f
 
-    .line 367
+    .line 368
     :cond_85
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -2172,7 +2177,7 @@
 
     move-result-wide v1
 
-    .line 368
+    .line 369
     :goto_8f
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->uploadValue:Landroid/widget/TextView;
 
@@ -2200,7 +2205,7 @@
 
     invoke-static {v0, v4}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->setValue(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 369
+    .line 370
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->downloadValue:Landroid/widget/TextView;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2233,7 +2238,7 @@
 .method private scheduleRefresh()V
     .registers 5
 
-    .line 291
+    .line 292
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshRunnable:Ljava/lang/Runnable;
@@ -2242,10 +2247,10 @@
 
     const/4 v0, 0x0
 
-    .line 292
+    .line 293
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshScheduled:Z
 
-    .line 293
+    .line 294
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
 
     if-eqz v0, :cond_2f
@@ -2268,15 +2273,15 @@
 
     if-nez v0, :cond_2f
 
-    .line 294
+    .line 295
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->render()V
 
     const/4 v0, 0x1
 
-    .line 295
+    .line 296
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshScheduled:Z
 
-    .line 296
+    .line 297
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshRunnable:Ljava/lang/Runnable;
@@ -2292,7 +2297,7 @@
 .method private static setValue(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 6
 
-    .line 331
+    .line 332
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -2313,7 +2318,7 @@
 
     return-void
 
-    .line 332
+    .line 333
     :cond_13
     new-instance v0, Landroid/text/SpannableString;
 
@@ -2321,7 +2326,7 @@
 
     const/4 v1, 0x0
 
-    .line 334
+    .line 335
     :goto_19
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -2352,7 +2357,7 @@
     :goto_2e
     if-ltz v1, :cond_41
 
-    .line 335
+    .line 336
     new-instance v2, Landroid/text/style/RelativeSizeSpan;
 
     const v3, 0x3f1eb852    # 0.62f
@@ -2367,7 +2372,7 @@
 
     invoke-virtual {v0, v2, v1, p1, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 336
+    .line 337
     :cond_41
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -2386,20 +2391,20 @@
 .method private text(Landroid/content/Context;Ljava/lang/String;FZI)Landroid/widget/TextView;
     .registers 7
 
-    .line 462
+    .line 463
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 463
+    .line 464
     invoke-virtual {v0, p5}, Landroid/widget/TextView;->setId(I)V
 
     const/16 p1, 0x11
 
-    .line 464
+    .line 465
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 465
+    .line 466
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     if-eqz p4, :cond_16
@@ -2411,26 +2416,26 @@
     :cond_16
     const p1, -0x75756e
 
-    .line 466
+    .line 467
     :goto_19
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 467
+    .line 468
     invoke-virtual {v0, p3}, Landroid/widget/TextView;->setTextSize(F)V
 
     const/4 p1, 0x1
 
-    .line 468
+    .line 469
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setMaxLines(I)V
 
     const/4 p1, 0x0
 
-    .line 469
+    .line 470
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
     if-eqz p4, :cond_3d
 
-    .line 470
+    .line 471
     const-string p2, "sans-serif-medium"
 
     invoke-static {p2, p1}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
@@ -2454,17 +2459,17 @@
 .method private tintHeader(Landroid/view/View;)V
     .registers 5
 
-    .line 436
+    .line 437
     instance-of v0, p1, Landroid/widget/TextView;
 
     if-eqz v0, :cond_25
 
-    .line 437
+    .line 438
     move-object v0, p1
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 438
+    .line 439
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
@@ -2486,7 +2491,7 @@
     :cond_19
     iget v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->headerTextColor:I
 
-    .line 439
+    .line 440
     :goto_1b
     invoke-virtual {v0}, Landroid/widget/TextView;->getCurrentTextColor()I
 
@@ -2498,7 +2503,7 @@
 
     goto :goto_34
 
-    .line 440
+    .line 441
     :cond_25
     instance-of v0, p1, Landroid/view/ViewGroup;
 
@@ -2514,19 +2519,19 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 441
+    .line 442
     :cond_34
     :goto_34
     instance-of v0, p1, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_4b
 
-    .line 442
+    .line 443
     check-cast p1, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 443
+    .line 444
     :goto_3b
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -2575,7 +2580,7 @@
 .method private wrapCentered()Landroid/widget/LinearLayout$LayoutParams;
     .registers 3
 
-    .line 475
+    .line 476
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v1, -0x2
@@ -2618,7 +2623,7 @@
 .method synthetic lambda$new$4$io-nekohasekai-sagernet-ui-TrafficDashboardView(Landroid/view/View;IIIIIIII)V
     .registers 10
 
-    .line 226
+    .line 227
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->positionAiCard()V
 
     return-void
@@ -2627,7 +2632,7 @@
 .method synthetic lambda$new$5$io-nekohasekai-sagernet-ui-TrafficDashboardView(Landroid/view/View;IIIIIIII)V
     .registers 10
 
-    .line 256
+    .line 257
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->applyTopInset()V
 
     return-void
@@ -2636,10 +2641,10 @@
 .method protected onAttachedToWindow()V
     .registers 1
 
-    .line 267
+    .line 268
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
-    .line 268
+    .line 269
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->scheduleRefresh()V
 
     return-void
@@ -2648,10 +2653,10 @@
 .method protected onDetachedFromWindow()V
     .registers 3
 
-    .line 272
+    .line 273
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->cancel(Landroid/view/View;)V
 
-    .line 273
+    .line 274
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshRunnable:Ljava/lang/Runnable;
@@ -2660,10 +2665,10 @@
 
     const/4 v0, 0x0
 
-    .line 274
+    .line 275
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshScheduled:Z
 
-    .line 275
+    .line 276
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
     return-void
@@ -2672,12 +2677,12 @@
 .method protected onVisibilityChanged(Landroid/view/View;I)V
     .registers 3
 
-    .line 279
+    .line 280
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onVisibilityChanged(Landroid/view/View;I)V
 
     if-nez p2, :cond_f
 
-    .line 280
+    .line 281
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->isAttachedToWindow()Z
 
     move-result p1
@@ -2688,7 +2693,7 @@
 
     return-void
 
-    .line 281
+    .line 282
     :cond_f
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;
 
@@ -2706,10 +2711,10 @@
 .method protected onWindowVisibilityChanged(I)V
     .registers 2
 
-    .line 285
+    .line 286
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onWindowVisibilityChanged(I)V
 
-    .line 286
+    .line 287
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;
 
     if-eqz p1, :cond_f
@@ -2720,7 +2725,7 @@
 
     goto :goto_f
 
-    .line 287
+    .line 288
     :cond_c
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->scheduleRefresh()V
 
@@ -2780,17 +2785,17 @@
 .method public update(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
     .registers 4
 
-    .line 261
+    .line 262
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->latestStats:Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
-    .line 262
+    .line 263
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lastUpdateTime:J
 
-    .line 263
+    .line 264
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
 
     if-eqz p1, :cond_19

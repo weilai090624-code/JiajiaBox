@@ -498,7 +498,7 @@
     invoke-virtual {v1, v2}, Landroid/view/Window;->setDimAmount(F)V
 
     .line 112
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 113
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;

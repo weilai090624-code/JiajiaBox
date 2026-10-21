@@ -307,6 +307,7 @@
 
     check-cast v1, Landroid/animation/ObjectAnimator;
 
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->start()V
 
     .end local v5    # "startValue":F

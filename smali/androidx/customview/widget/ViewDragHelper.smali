@@ -1415,6 +1415,25 @@
     return-void
 .end method
 
+.method private drawerCaptureTarget(Landroid/view/View;)Landroid/view/View;
+    .locals 2
+
+    iget-object v0, p0, Landroidx/customview/widget/ViewDragHelper;->mParentView:Landroid/view/ViewGroup;
+    instance-of v0, v0, Landroidx/drawerlayout/widget/DrawerLayout;
+    if-eqz v0, :keep_candidate
+    iget v1, p0, Landroidx/customview/widget/ViewDragHelper;->mDragState:I
+    const/4 v0, 0x1
+    if-eq v1, v0, :drawer_in_motion
+    const/4 v0, 0x2
+    if-ne v1, v0, :keep_candidate
+    :drawer_in_motion
+    iget-object v0, p0, Landroidx/customview/widget/ViewDragHelper;->mCapturedView:Landroid/view/View;
+    if-eqz v0, :keep_candidate
+    return-object v0
+    :keep_candidate
+    return-object p1
+.end method
+
 .method private forceSettleCapturedViewAt(IIII)Z
     .locals 11
     .param p1, "finalLeft"    # I
@@ -1496,7 +1515,7 @@
 
     move v6, v10
 
-    invoke-virtual/range {v1 .. v6}, Landroid/widget/OverScroller;->startScroll(IIIII)V
+    invoke-static/range {v1 .. v6}, Lio/nekohasekai/sagernet/ui/AppMotion;->settle(Landroid/widget/OverScroller;IIIII)V
 
     .line 641
     const/4 v1, 0x2
@@ -3550,6 +3569,10 @@
 
     move-result-object v5
 
+    invoke-direct {p0, v5}, Landroidx/customview/widget/ViewDragHelper;->drawerCaptureTarget(Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v5
+
     .line 1147
     .local v5, "toCapture":Landroid/view/View;
     invoke-direct {p0, v2, v3, v4}, Landroidx/customview/widget/ViewDragHelper;->saveInitialMotion(FFI)V
@@ -4305,6 +4328,10 @@
     float-to-int v8, v3
 
     invoke-virtual {v0, v7, v8}, Landroidx/customview/widget/ViewDragHelper;->findTopChildUnder(II)Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-direct {v0, v7}, Landroidx/customview/widget/ViewDragHelper;->drawerCaptureTarget(Landroid/view/View;)Landroid/view/View;
 
     move-result-object v7
 

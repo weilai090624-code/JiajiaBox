@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 110
+    .line 124
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices$1;->this$0:Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -43,7 +43,7 @@
 .method public onChanged()V
     .registers 2
 
-    .line 110
+    .line 124
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices$1;->this$0:Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->notifyDataSetChanged()V
@@ -54,7 +54,7 @@
 .method public onInvalidated()V
     .registers 2
 
-    .line 110
+    .line 124
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices$1;->this$0:Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->notifyDataSetInvalidated()V

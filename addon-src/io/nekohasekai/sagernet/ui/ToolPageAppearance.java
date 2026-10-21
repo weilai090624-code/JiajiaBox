@@ -55,6 +55,7 @@ public final class ToolPageAppearance {
             call(view,"setSelectedTabIndicatorColor",int.class,foreground);
         }
         if(materialCard(view)) {
+            CardLight.bind(view,UiComponents.PANEL_RADIUS);
             boolean dark=ThemePalette.text(view.getContext())==0xffffffff;
             call(view,"setCardBackgroundColor",int.class,ThemePalette.control(view.getContext()));
             call(view,"setStrokeColor",int.class,ThemePalette.border(view.getContext()));

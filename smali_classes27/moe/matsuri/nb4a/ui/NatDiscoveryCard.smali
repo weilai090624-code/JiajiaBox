@@ -637,7 +637,7 @@
     invoke-virtual {v7, p0}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 106
-    invoke-virtual {v7}, Landroid/app/Dialog;->show()V
+    invoke-static {v7}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 107
     return-void

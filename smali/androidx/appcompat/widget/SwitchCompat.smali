@@ -651,6 +651,7 @@
     .line 1145
     iget-object v1, p0, Landroidx/appcompat/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->start()V
 
     .line 1146

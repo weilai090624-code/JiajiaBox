@@ -58,7 +58,7 @@
 
     const/4 v0, 0x0
 
-    .line 72
+    .line 79
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->state(Landroid/view/View;Z)Lio/nekohasekai/sagernet/ui/DrawerWorkGate$State;
 
     move-result-object v0
@@ -149,12 +149,51 @@
     return v0
 .end method
 
+.method static synthetic lambda$post$0(Landroid/view/View;Ljava/lang/Runnable;)V
+    .registers 2
+
+    .line 76
+    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_9
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    :cond_9
+    return-void
+.end method
+
+.method static synthetic lambda$post$1(Landroid/view/View;Ljava/lang/Runnable;)V
+    .registers 3
+
+    .line 75
+    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    return-void
+
+    .line 76
+    :cond_7
+    new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$0;
+
+    invoke-direct {v0, p0, p1}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$0;-><init>(Landroid/view/View;Ljava/lang/Runnable;)V
+
+    invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->publish(Landroid/view/View;Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public static observe(Landroid/view/View;Ljava/lang/Runnable;)V
     .registers 3
 
     const/4 v0, 0x1
 
-    .line 74
+    .line 81
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->state(Landroid/view/View;Z)Lio/nekohasekai/sagernet/ui/DrawerWorkGate$State;
 
     move-result-object v0
@@ -164,6 +203,21 @@
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
+.end method
+
+.method public static post(Landroid/view/View;Landroid/view/View;Ljava/lang/Runnable;)Z
+    .registers 4
+
+    .line 74
+    new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$2;
+
+    invoke-direct {v0, p1, p2}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$2;-><init>(Landroid/view/View;Ljava/lang/Runnable;)V
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public static publish(Landroid/view/View;Ljava/lang/Runnable;)V
@@ -233,7 +287,7 @@
 
     const/4 v0, 0x0
 
-    .line 75
+    .line 82
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->state(Landroid/view/View;Z)Lio/nekohasekai/sagernet/ui/DrawerWorkGate$State;
 
     move-result-object v0

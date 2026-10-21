@@ -29,7 +29,7 @@ import kotlin.jvm.functions.Function0;
 /** Fixed-layout content with an animated material viewport. No frame requests layout. */
 public final class DrawerMorph {
     private static final int STATE_TAG=0x7f0a0f48;
-    private static final long OPEN_MS=420,CLOSE_MS=320;
+    private static final long OPEN_MS=630,CLOSE_MS=480;
     private static State state(View view){Object value=view.getTag(STATE_TAG);return value instanceof State?(State)value:null;}
 
     public static ValueAnimator start(JJGlassCapsule capsule,ViewGroup overlay,View page,View menu,
@@ -67,13 +67,15 @@ public final class DrawerMorph {
         final boolean expanding;
         final float startPageAlpha;
         final DrawerMotion.Track left,top,right,bottom,opacity,pageOffset,menuOffset;
-        float fraction;final float seconds;
+        float fraction;
         final int menuWidth;
         final Function0<?> onEnd;
         final ValueAnimator animator=ValueAnimator.ofFloat(0f,1f);
         final View shield;
         ViewTreeObserver observer;
         DrawerWorkGate.Lease motionLease;
+        DrawerLayers.Lease pageLayer,menuLayer;
+        DrawerOutline.Scope outline;
         boolean stopped,finished;
         State(JJGlassCapsule capsule,ViewGroup overlay,View page,View menu,Rect from,Rect target,Rect layout,
               Rect menuBounds,boolean expanding,float pageAlpha,int menuWidth,Function0<?> onEnd,State previous){
@@ -83,16 +85,16 @@ public final class DrawerMorph {
             shield=new View(capsule.getContext());shield.setClickable(true);
             long base=expanding?OPEN_MS:CLOSE_MS;
             long duration=previous==null?base:Math.max(140,Math.round(base*(float)Math.sqrt(Math.abs((expanding?1f:0f)-pageAlpha))));
-            seconds=duration/1000f;
             float old=previous==null?0:previous.fraction;
-            left=new DrawerMotion.Track(from.left,target.left,previous==null?0:previous.left.velocity(old),seconds,18f);
-            top=new DrawerMotion.Track(from.top,target.top,previous==null?0:previous.top.velocity(old),seconds,18f);
-            right=new DrawerMotion.Track(from.right,target.right,previous==null?0:previous.right.velocity(old),seconds,18f);
-            bottom=new DrawerMotion.Track(from.bottom,target.bottom,previous==null?0:previous.bottom.velocity(old),seconds,18f);
-            opacity=new DrawerMotion.Track(pageAlpha,expanding?1:0,previous==null?0:previous.opacity.velocity(old),seconds,14f);
+            left=new DrawerMotion.Track(from.left,target.left);
+            top=new DrawerMotion.Track(from.top,target.top);
+            right=new DrawerMotion.Track(from.right,target.right);
+            bottom=new DrawerMotion.Track(from.bottom,target.bottom);
+            opacity=new DrawerMotion.Track(pageAlpha,expanding?1:0);
             float density=capsule.getContext().getResources().getDisplayMetrics().density;
-            pageOffset=new DrawerMotion.Track(previous==null?(expanding?10*density:0):previous.pageOffset.value(old),expanding?0:6*density,previous==null?0:previous.pageOffset.velocity(old),seconds,16f);
-            menuOffset=new DrawerMotion.Track(previous==null?(expanding?0:-4*density):previous.menuOffset.value(old),expanding?-4*density:0,previous==null?0:previous.menuOffset.velocity(old),seconds,18f);
+            pageOffset=new DrawerMotion.Track(previous==null?(expanding?10*density:0):previous.pageOffset.value(old),expanding?0:6*density);
+            menuOffset=new DrawerMotion.Track(previous==null?(expanding?0:-4*density):previous.menuOffset.value(old),expanding?-4*density:0);
+            // Track.value applies the curve once; this animator is only its elapsed-time clock.
             animator.setDuration(duration);animator.setInterpolator(new LinearInterpolator());
             animator.addUpdateListener(value->{if(!stopped)frame((Float)value.getAnimatedValue());});
             animator.addListener(new AnimatorListenerAdapter(){
@@ -102,6 +104,7 @@ public final class DrawerMorph {
         }
         void prepare(){
             motionLease=DrawerWorkGate.begin(capsule);
+            outline=DrawerOutline.acquire(capsule);
             RosePalette.prepareForDisplay(page);if(menu!=null)RosePalette.prepareForDisplay(menu);
             page.animate().withEndAction(null).cancel();page.setVisibility(View.VISIBLE);
             if(menu!=null){menu.animate().withEndAction(null).cancel();menu.setVisibility(View.VISIBLE);
@@ -120,18 +123,20 @@ public final class DrawerMorph {
             removePreDraw();
             if(stopped||state(capsule)!=this)return true;
             // Wait until the destination hierarchy has been measured at its full size.
+            pageLayer=DrawerLayers.acquire(page);menuLayer=DrawerLayers.acquire(menu);
             animator.start();return true;
         }
         void removePreDraw(){if(observer!=null&&observer.isAlive())observer.removeOnPreDrawListener(this);observer=null;}
         void frame(float progress){
             fraction=progress;
-            current.set(Math.round(left.value(progress)),Math.round(top.value(progress)),
-                        Math.round(right.value(progress)),Math.round(bottom.value(progress)));
+            float eased=AppMotion.ease(progress);
+            current.set(Math.round(left.at(eased)),Math.round(top.at(eased)),
+                        Math.round(right.at(eased)),Math.round(bottom.at(eased)));
             clip.set(current);clip.offset(-layout.left,-layout.top);capsule.setMorphClip(clip);
             float x=current.left-layout.left,y=current.top-layout.top;
-            page.setTranslationX(x);page.setTranslationY(y+pageOffset.value(progress));
-            float alpha=Math.max(0f,Math.min(1f,opacity.value(progress)));page.setAlpha(alpha);
-            if(menu!=null){menu.setTranslationX(x);menu.setTranslationY(y+menuOffset.value(progress));menu.setAlpha(1f-alpha);}
+            page.setTranslationX(x);page.setTranslationY(y+pageOffset.at(eased));
+            float alpha=Math.max(0f,Math.min(1f,opacity.at(eased)));page.setAlpha(alpha);
+            if(menu!=null){menu.setTranslationX(x);menu.setTranslationY(y+menuOffset.at(eased));menu.setAlpha(1f-alpha);}
         }
 
         void finish(){
@@ -155,7 +160,12 @@ public final class DrawerMorph {
             // Keep current geometry/compositing for an immediate reverse transition.
         }
         void restoreMenuWidth(){ViewGroup.LayoutParams lp=menu.getLayoutParams();if(lp.width!=menuWidth){lp.width=menuWidth;menu.setLayoutParams(lp);}}
-        void releaseMotion(){if(motionLease!=null){motionLease.close();motionLease=null;}}
+        void releaseMotion(){
+            if(outline!=null){outline.close();outline=null;}
+            if(pageLayer!=null){pageLayer.close();pageLayer=null;}
+            if(menuLayer!=null){menuLayer.close();menuLayer=null;}
+            if(motionLease!=null){motionLease.close();motionLease=null;}
+        }
         @Override public void onViewAttachedToWindow(View view){}
         @Override public void onViewDetachedFromWindow(View view){stop(true);}
     }

@@ -11157,7 +11157,7 @@
     .local v2, "velocity":I
     move/from16 v10, v17
 
-    invoke-virtual/range {v5 .. v10}, Landroid/widget/Scroller;->startScroll(IIIII)V
+    invoke-static/range {v5 .. v10}, Lio/nekohasekai/sagernet/ui/AppMotion;->settle(Landroid/widget/Scroller;IIIII)V
 
     .line 1004
     invoke-static/range {p0 .. p0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V

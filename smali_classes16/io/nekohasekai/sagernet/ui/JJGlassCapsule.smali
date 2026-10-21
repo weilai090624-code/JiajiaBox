@@ -614,10 +614,14 @@
 .end method
 
 .method private final drawOpaqueMaterial(Landroid/graphics/Canvas;II)V
-    .registers 14
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "width"    # I
     .param p3, "height"    # I
+
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/DrawerOutline;->nativeClip(Landroid/view/View;Landroid/graphics/Canvas;)Z
+
+    move-result v10
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->rectF:Landroid/graphics/RectF;
 
@@ -647,6 +651,8 @@
 
     if-eqz v9, :cond_28
 
+    if-nez v10, :cond_28
+
     invoke-virtual {v0, v9}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->bodyPath:Landroid/graphics/Path;
@@ -660,13 +666,19 @@
     :cond_28
     invoke-virtual {p1, v0, v1, v1, v2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
+    invoke-static {p0, p1, v0, v1}, Lio/nekohasekai/sagernet/ui/CardLight;->drawNative(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/RectF;F)V
+
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v5
 
+    if-nez v10, :native_clip_ready
+
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->bodyPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
+
+    :native_clip_ready
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->syncMatteText()V
 
@@ -2836,7 +2848,17 @@
     goto :goto_1b
 
     :cond_f
-    if-nez v0, :cond_18
+    if-eqz v0, :clip_allocate
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1e
+
+    goto :cond_18
+
+    :clip_allocate
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -2848,6 +2870,8 @@
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     :goto_1b
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerOutline;->changed(Landroid/view/View;)V
+
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     :cond_1e

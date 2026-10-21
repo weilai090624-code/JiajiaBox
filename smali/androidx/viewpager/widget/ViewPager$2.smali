@@ -30,24 +30,9 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 2
-    .param p1, "t"    # F
+    .registers 2
 
-    .line 150
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    sub-float/2addr p1, v0
-
-    .line 151
-    mul-float v1, p1, p1
-
-    mul-float v1, v1, p1
-
-    mul-float v1, v1, p1
-
-    mul-float v1, v1, p1
-
-    add-float/2addr v1, v0
-
-    return v1
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->ease(F)F
+    move-result p1
+    return p1
 .end method

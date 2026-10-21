@@ -6,14 +6,6 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/PopupBackdrop;"
-    method = "lambda$onViewAttachedToWindow$0"
-    proto = "()V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/PopupBackdrop;
 

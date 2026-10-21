@@ -1017,7 +1017,7 @@
 
     invoke-direct {v1}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
-    invoke-virtual {p2, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {p2, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 262
     sget-object p2, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->transition:Landroid/animation/ValueAnimator;
@@ -1040,6 +1040,7 @@
     .line 273
     sget-object p0, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->transition:Landroid/animation/ValueAnimator;
 
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 274

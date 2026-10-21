@@ -152,7 +152,7 @@
 
     .line 100
     .local v2, "dialog":Landroidx/appcompat/app/AlertDialog;
-    invoke-virtual {v2}, Landroidx/appcompat/app/AlertDialog;->show()V
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 101
     return-void

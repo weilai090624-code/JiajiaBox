@@ -2298,7 +2298,7 @@
 
     sput-object p0, Lio/nekohasekai/sagernet/ui/CloudUpdate;->shown:Landroid/app/Dialog;
 
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     :try_start_c
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;

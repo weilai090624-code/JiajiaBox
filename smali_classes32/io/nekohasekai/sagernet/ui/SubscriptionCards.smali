@@ -1259,7 +1259,7 @@
     .line 65
     invoke-virtual {v1, v7}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 

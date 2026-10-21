@@ -33,6 +33,8 @@
 
 .field private animator:Landroid/animation/ValueAnimator;
 
+.field private final cacheAfterLayout:Ljava/lang/Runnable;
+
 .field private distance:F
 
 .field private eligible:Z
@@ -41,17 +43,29 @@
 
 .field private incoming:Landroid/view/View;
 
+.field private incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+.field private layerRetry:Z
+
 .field private motionLease:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
 .field private motionRegistered:Z
 
 .field private outgoing:Landroid/view/View;
 
+.field private outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+.field private settleDestination:Z
+
 .field private settling:Z
 
 .field private startX:F
 
 .field private startY:F
+
+.field private takeover:Z
+
+.field private takeoverDistance:F
 
 .field private toBlank:Z
 
@@ -64,7 +78,7 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 32
+    .line 31
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -75,18 +89,25 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;)V
-    .registers 3
+    .registers 4
 
-    .line 68
+    .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 69
+    .line 51
+    new-instance v0, Lio/nekohasekai/sagernet/ui/HomeSwipeController$2;
+
+    invoke-direct {v0, p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$2;-><init>(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)V
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cacheAfterLayout:Ljava/lang/Runnable;
+
+    .line 92
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
 
-    .line 70
+    .line 93
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
-    .line 71
+    .line 94
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
     move-result-object p1
@@ -102,20 +123,20 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Landroid/view/View;
+.method static synthetic access$000(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Landroid/animation/ValueAnimator;
     .registers 1
 
-    .line 29
-    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
+    .line 28
+    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     return-object p0
 .end method
 
-.method static synthetic access$002(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Landroid/view/View;)Landroid/view/View;
+.method static synthetic access$002(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .registers 2
 
-    .line 29
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
+    .line 28
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     return-object p1
 .end method
@@ -123,8 +144,8 @@
 .method static synthetic access$100(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Landroid/view/View;
     .registers 1
 
-    .line 29
-    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
+    .line 28
+    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
     return-object p0
 .end method
@@ -132,25 +153,34 @@
 .method static synthetic access$102(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Landroid/view/View;)Landroid/view/View;
     .registers 2
 
-    .line 29
+    .line 28
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
+
+    return-object p1
+.end method
+
+.method static synthetic access$200(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Landroid/view/View;
+    .registers 1
+
+    .line 28
+    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static synthetic access$202(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Landroid/view/View;)Landroid/view/View;
+    .registers 2
+
+    .line 28
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
     return-object p1
 .end method
 
-.method static synthetic access$200(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)V
-    .registers 1
-
-    .line 29
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
-
-    return-void
-.end method
-
 .method static synthetic access$300(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Z
     .registers 1
 
-    .line 29
+    .line 28
     iget-boolean p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
     return p0
@@ -159,25 +189,25 @@
 .method static synthetic access$400(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
     .registers 1
 
-    .line 29
+    .line 28
     iget-object p0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
     return-object p0
 .end method
 
-.method static synthetic access$502(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .registers 2
+.method static synthetic access$500(Lio/nekohasekai/sagernet/ui/HomeSwipeController;)V
+    .registers 1
 
-    .line 29
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
+    .line 28
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
 
-    return-object p1
+    return-void
 .end method
 
 .method static synthetic access$602(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Z)Z
     .registers 2
 
-    .line 29
+    .line 28
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
     return p1
@@ -186,7 +216,7 @@
 .method static synthetic access$702(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Z)Z
     .registers 2
 
-    .line 29
+    .line 28
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
     return p1
@@ -195,7 +225,7 @@
 .method static synthetic access$802(Lio/nekohasekai/sagernet/ui/HomeSwipeController;Z)Z
     .registers 2
 
-    .line 29
+    .line 28
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
 
     return p1
@@ -204,43 +234,99 @@
 .method private apply(F)V
     .registers 5
 
-    .line 176
+    .line 208
+    iget v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
+
+    cmpl-float v0, v0, p1
+
+    if-nez v0, :cond_2c
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
+
+    move-result v0
+
+    iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
+
+    if-eqz v1, :cond_12
+
+    neg-float v1, p1
+
+    goto :goto_13
+
+    :cond_12
+    move v1, p1
+
+    :goto_13
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_2c
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
+
+    move-result v0
+
+    iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
+
+    iget v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
+
+    if-eqz v1, :cond_25
+
+    sub-float/2addr v2, p1
+
+    goto :goto_27
+
+    :cond_25
+    sub-float v2, p1, v2
+
+    :goto_27
+    cmpl-float v0, v0, v2
+
+    if-nez v0, :cond_2c
+
+    return-void
+
+    .line 209
+    :cond_2c
     iput p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
 
-    .line 177
+    .line 210
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_36
 
     neg-float v1, p1
 
-    goto :goto_b
+    goto :goto_37
 
-    :cond_a
+    :cond_36
     move v1, p1
 
-    :goto_b
+    :goto_37
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
-    .line 178
+    .line 211
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
     iget v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_44
 
     sub-float/2addr v2, p1
 
-    goto :goto_1a
+    goto :goto_46
 
-    :cond_18
+    :cond_44
     sub-float v2, p1, v2
 
-    :goto_1a
+    :goto_46
     invoke-virtual {v0, v2}, Landroid/view/View;->setTranslationX(F)V
 
     return-void
@@ -249,7 +335,7 @@
 .method private beginMotion()V
     .registers 3
 
-    .line 51
+    .line 68
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionRegistered:Z
 
     if-nez v0, :cond_1c
@@ -284,10 +370,80 @@
     return-void
 .end method
 
+.method private cachePages(Z)V
+    .registers 3
+
+    .line 53
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-nez v0, :cond_c
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->acquire(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    .line 54
+    :cond_c
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-nez v0, :cond_18
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->acquire(Landroid/view/View;)Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    :cond_18
+    if-eqz p1, :cond_38
+
+    .line 55
+    iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->layerRetry:Z
+
+    if-nez p1, :cond_38
+
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-eqz p1, :cond_26
+
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-nez p1, :cond_38
+
+    :cond_26
+    const/4 p1, 0x1
+
+    .line 56
+    iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->layerRetry:Z
+
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
+
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cacheAfterLayout:Ljava/lang/Runnable;
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
+
+    :cond_38
+    return-void
+.end method
+
 .method private static childOwnsGesture(Landroid/view/View;FF)Z
     .registers 7
 
-    .line 35
+    .line 34
     sget-object v0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->exclusiveTouches:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -311,7 +467,7 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 36
+    .line 35
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -324,7 +480,7 @@
 
     check-cast v1, Landroid/graphics/Rect;
 
-    .line 37
+    .line 36
     invoke-virtual {v2}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v3
@@ -364,14 +520,53 @@
 .end method
 
 .method private endMotion()V
-    .registers 2
+    .registers 4
 
-    .line 52
-    iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionRegistered:Z
+    .line 70
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_17
+    invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cacheAfterLayout:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->layerRetry:Z
+
+    .line 71
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1c
+
+    invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;->close()V
+
+    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    .line 72
+    :cond_1c
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    if-eqz v1, :cond_25
+
+    invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;->close()V
+
+    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incomingLayer:Lio/nekohasekai/sagernet/ui/DrawerLayers$Lease;
+
+    .line 73
+    :cond_25
+    iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionRegistered:Z
+
+    if-eqz v1, :cond_3a
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionRegistered:Z
 
@@ -383,15 +578,13 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionLease:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_3a
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;->close()V
 
-    const/4 v0, 0x0
+    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionLease:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
 
-    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->motionLease:Lio/nekohasekai/sagernet/ui/DrawerWorkGate$Lease;
-
-    :cond_17
+    :cond_3a
     return-void
 .end method
 
@@ -400,7 +593,7 @@
 
     if-eqz p1, :cond_d
 
-    .line 33
+    .line 32
     sget-object p1, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->exclusiveTouches:Ljava/util/Map;
 
     new-instance v0, Landroid/graphics/Rect;
@@ -422,7 +615,7 @@
 .method public static isMoving()Z
     .registers 1
 
-    .line 50
+    .line 67
     sget v0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->movingControllers:I
 
     if-lez v0, :cond_6
@@ -437,31 +630,102 @@
     return v0
 .end method
 
-.method private settle(Z)V
-    .registers 7
+.method private prepare(Z)[Landroid/view/View;
+    .registers 4
+
+    .line 60
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->beginMotion()V
+
+    .line 62
+    :try_start_3
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
+
+    invoke-interface {v0, p1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->prepareSwipe(Z)[Landroid/view/View;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1b
+
+    .line 63
+    array-length v0, p1
+
+    const/4 v1, 0x2
+
+    if-lt v0, v1, :cond_1b
+
+    const/4 v0, 0x0
+
+    aget-object v0, p1, v0
+
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x1
 
-    .line 182
+    aget-object v0, p1, v0
+
+    if-nez v0, :cond_1a
+
+    goto :goto_1b
+
+    :cond_1a
+    return-object p1
+
+    :cond_1b
+    :goto_1b
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
+    :try_end_1e
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_1e} :catch_22
+    .catch Ljava/lang/Error; {:try_start_3 .. :try_end_1e} :catch_20
+
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :catch_20
+    move-exception p1
+
+    goto :goto_23
+
+    :catch_22
+    move-exception p1
+
+    .line 65
+    :goto_23
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
+
+    throw p1
+.end method
+
+.method private settle(Z)V
+    .registers 7
+
+    .line 218
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->stopAnimator()V
+
+    iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settleDestination:Z
+
+    const/4 v0, 0x1
+
+    .line 219
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
 
-    .line 183
+    .line 220
     iget v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_f
 
-    .line 184
+    .line 221
     iget v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
 
-    goto :goto_b
+    goto :goto_10
 
-    :cond_a
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_b
+    :goto_10
     const/4 v3, 0x2
 
-    .line 185
+    .line 222
     new-array v3, v3, [F
 
     const/4 v4, 0x0
@@ -478,12 +742,12 @@
 
     sub-float/2addr v2, v1
 
-    .line 186
+    .line 223
     invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
     move-result v1
 
-    const/high16 v2, 0x43820000    # 260.0f
+    const/high16 v2, 0x44070000    # 540.0f
 
     mul-float v1, v1, v2
 
@@ -495,7 +759,7 @@
 
     move-result v1
 
-    const/16 v2, 0x6e
+    const/16 v2, 0xa5
 
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
@@ -505,18 +769,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    .line 187
+    .line 224
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Landroid/view/animation/DecelerateInterpolator;
+    sget-object v1, Lio/nekohasekai/sagernet/ui/AppMotion;->CURVE:Landroid/view/animation/Interpolator;
 
-    const/high16 v2, 0x3fc00000    # 1.5f
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
-    invoke-direct {v1, v2}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    .line 188
+    .line 225
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/HomeSwipeController$0;
@@ -525,7 +785,7 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    .line 189
+    .line 226
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/HomeSwipeController$1;
@@ -534,11 +794,38 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 203
+    .line 240
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
 
+    return-void
+.end method
+
+.method private stopAnimator()V
+    .registers 2
+
+    .line 215
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_14
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllListeners()V
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
+
+    :cond_14
     return-void
 .end method
 
@@ -547,80 +834,82 @@
 .method public backToHome()V
     .registers 5
 
-    .line 157
+    .line 187
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
 
-    if-nez v0, :cond_5e
+    const/4 v1, 0x1
+
+    if-nez v0, :cond_64
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    if-nez v0, :cond_5e
+    if-eqz v0, :cond_a
 
+    goto :goto_64
+
+    .line 188
+    :cond_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->canSwipe(Z)Z
+    invoke-interface {v0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->canSwipe(Z)Z
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_14
 
-    goto :goto_5e
+    goto :goto_63
 
-    .line 158
-    :cond_12
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
-
-    invoke-interface {v0, v1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->prepareSwipe(Z)[Landroid/view/View;
+    .line 189
+    :cond_14
+    invoke-direct {p0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->prepare(Z)[Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_63
 
-    .line 159
-    aget-object v2, v0, v1
+    .line 190
+    aget-object v3, v0, v2
 
-    if-eqz v2, :cond_5e
+    if-eqz v3, :cond_63
 
-    const/4 v3, 0x1
+    aget-object v0, v0, v1
 
-    aget-object v0, v0, v3
+    if-nez v0, :cond_23
 
-    if-nez v0, :cond_24
+    goto :goto_63
 
-    goto :goto_5e
+    .line 191
+    :cond_23
+    iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
-    .line 160
-    :cond_24
-    iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
+    .line 192
+    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
-    .line 161
-    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
-
-    .line 162
+    .line 193
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
-    .line 163
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
+    .line 194
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
 
     move-result v0
 
-    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
+    iget-object v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {v3}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    invoke-virtual {v3}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
@@ -628,48 +917,83 @@
 
     iput v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    cmpg-float v0, v0, v2
+    cmpg-float v0, v0, v3
 
-    if-gtz v0, :cond_53
+    if-gtz v0, :cond_55
 
-    .line 165
+    .line 196
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
-    invoke-interface {v0, v1, v1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->finishSwipe(ZZ)V
+    invoke-interface {v0, v2, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->finishSwipe(ZZ)V
+
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
 
     const/4 v0, 0x0
 
-    .line 166
+    .line 197
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
     return-void
 
-    .line 169
-    :cond_53
+    .line 200
+    :cond_55
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->beginMotion()V
 
-    .line 170
-    iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
+    .line 201
+    iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    .line 171
-    invoke-direct {p0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->apply(F)V
+    .line 202
+    invoke-direct {p0, v1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cachePages(Z)V
 
-    .line 172
-    invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settle(Z)V
+    .line 203
+    invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->apply(F)V
 
-    :cond_5e
-    :goto_5e
+    .line 204
+    invoke-direct {p0, v1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settle(Z)V
+
+    :cond_63
+    :goto_63
+    return-void
+
+    .line 187
+    :cond_64
+    :goto_64
+    iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
+
+    xor-int/2addr v0, v1
+
+    invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settle(Z)V
+
     return-void
 .end method
 
-.method synthetic lambda$settle$0$io-nekohasekai-sagernet-ui-HomeSwipeController(Landroid/animation/ValueAnimator;)V
+.method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-HomeSwipeController()V
+    .registers 3
+
+    .line 0
+    const/4 v0, 0x0
+
+    .line 51
+    iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->layerRetry:Z
+
+    iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
+
+    if-eqz v1, :cond_a
+
+    invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cachePages(Z)V
+
+    :cond_a
+    return-void
+.end method
+
+.method synthetic lambda$settle$1$io-nekohasekai-sagernet-ui-HomeSwipeController(Landroid/animation/ValueAnimator;)V
     .registers 2
 
-    .line 188
+    .line 225
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object p1
@@ -688,42 +1012,91 @@
 .method public onTouch(Landroid/view/MotionEvent;)I
     .registers 9
 
-    .line 93
+    .line 115
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    .line 94
+    .line 116
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_a
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_32
+
+    if-eqz v0, :cond_d
 
     return v2
 
-    :cond_a
+    .line 118
+    :cond_d
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->stopAnimator()V
+
+    iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
+
+    iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
+
+    iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
+
+    iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeover:Z
+
+    iget v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
+
+    iput v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeoverDistance:F
+
+    .line 119
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
+
+    iget v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
+
+    if-eqz v1, :cond_27
+
+    goto :goto_28
+
+    :cond_27
+    neg-float v3, v3
+
+    :goto_28
+    add-float/2addr v0, v3
+
+    iput v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->startX:F
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result p1
+
+    iput p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->startY:F
+
+    return v2
+
+    :cond_32
     const/4 v1, 0x0
 
-    const/4 v3, 0x0
+    if-nez v0, :cond_bd
 
-    if-nez v0, :cond_94
-
-    .line 96
+    .line 123
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_3c
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->reset()V
 
-    .line 97
-    :cond_15
+    .line 124
+    :cond_3c
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    .line 98
+    .line 125
     iput v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
 
-    .line 99
+    iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeover:Z
+
+    .line 126
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
     invoke-interface {v0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->canSwipe(Z)Z
@@ -732,21 +1105,21 @@
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_54
 
-    .line 100
+    .line 127
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
     invoke-interface {v0, v3}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->canSwipe(Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_84
+    if-eqz v0, :cond_ad
 
-    :cond_2b
+    :cond_54
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
 
-    .line 101
+    .line 128
     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -767,9 +1140,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_84
+    if-nez v0, :cond_ad
 
-    .line 102
+    .line 129
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -792,9 +1165,9 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_84
+    if-lez v0, :cond_ad
 
-    .line 103
+    .line 130
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -817,7 +1190,7 @@
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->activity:Landroid/app/Activity;
 
-    .line 104
+    .line 131
     invoke-virtual {v4}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -836,24 +1209,24 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_84
+    if-gez v0, :cond_ad
 
-    goto :goto_85
+    goto :goto_ae
 
-    :cond_84
+    :cond_ad
     const/4 v2, 0x0
 
-    :goto_85
+    :goto_ae
     iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
-    .line 105
+    .line 132
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
     iput v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->startX:F
 
-    .line 106
+    .line 133
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
@@ -862,24 +1235,24 @@
 
     return v3
 
-    .line 109
-    :cond_94
+    .line 136
+    :cond_bd
     iget-boolean v4, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
-    if-nez v4, :cond_9d
+    if-nez v4, :cond_c6
 
     iget-boolean v4, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    if-nez v4, :cond_9d
+    if-nez v4, :cond_c6
 
     return v3
 
-    :cond_9d
+    :cond_c6
     const/4 v4, 0x2
 
-    if-ne v0, v4, :cond_168
+    if-ne v0, v4, :cond_195
 
-    .line 111
+    .line 138
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -888,7 +1261,7 @@
 
     sub-float/2addr v0, v5
 
-    .line 112
+    .line 139
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v5
@@ -897,12 +1270,12 @@
 
     sub-float/2addr v5, v6
 
-    .line 113
+    .line 140
     iget-boolean v6, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    if-nez v6, :cond_14e
+    if-nez v6, :cond_17b
 
-    .line 114
+    .line 141
     invoke-static {v5}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
@@ -911,7 +1284,7 @@
 
     cmpl-float p1, p1, v6
 
-    if-lez p1, :cond_cb
+    if-lez p1, :cond_f4
 
     invoke-static {v5}, Ljava/lang/Math;->abs(F)F
 
@@ -923,15 +1296,15 @@
 
     cmpl-float p1, p1, v6
 
-    if-lez p1, :cond_cb
+    if-lez p1, :cond_f4
 
-    .line 115
+    .line 142
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
     return v3
 
-    .line 118
-    :cond_cb
+    .line 145
+    :cond_f4
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
@@ -940,7 +1313,7 @@
 
     cmpg-float p1, p1, v6
 
-    if-ltz p1, :cond_14d
+    if-ltz p1, :cond_17a
 
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
@@ -956,62 +1329,60 @@
 
     cmpg-float p1, p1, v5
 
-    if-gez p1, :cond_e7
+    if-gez p1, :cond_110
 
-    goto :goto_14d
+    goto :goto_17a
 
-    .line 119
-    :cond_e7
+    .line 146
+    :cond_110
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
-    if-eqz p1, :cond_f0
+    if-eqz p1, :cond_119
 
     cmpl-float v5, v0, v1
 
-    if-ltz v5, :cond_f7
+    if-ltz v5, :cond_120
 
-    goto :goto_f4
+    goto :goto_11d
 
-    :cond_f0
+    :cond_119
     cmpg-float v5, v0, v1
 
-    if-gtz v5, :cond_f7
+    if-gtz v5, :cond_120
 
-    .line 120
-    :goto_f4
+    .line 147
+    :goto_11d
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
     return v3
 
-    .line 123
-    :cond_f7
-    iget-object v5, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
-
-    invoke-interface {v5, p1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->prepareSwipe(Z)[Landroid/view/View;
+    .line 150
+    :cond_120
+    invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->prepare(Z)[Landroid/view/View;
 
     move-result-object p1
 
-    if-eqz p1, :cond_14b
+    if-eqz p1, :cond_178
 
-    .line 124
+    .line 151
     aget-object v5, p1, v3
 
-    if-eqz v5, :cond_14b
+    if-eqz v5, :cond_178
 
     aget-object p1, p1, v2
 
-    if-nez p1, :cond_108
+    if-nez p1, :cond_12f
 
-    goto :goto_14b
+    goto :goto_178
 
-    .line 128
-    :cond_108
+    .line 155
+    :cond_12f
     iput-object v5, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
-    .line 129
+    .line 156
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
-    .line 130
+    .line 157
     invoke-virtual {v5}, Landroid/view/View;->getWidth()I
 
     move-result p1
@@ -1040,35 +1411,40 @@
 
     cmpg-float p1, p1, v1
 
-    if-gtz p1, :cond_138
+    if-gtz p1, :cond_162
 
-    .line 132
+    .line 159
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
     invoke-interface {p1, v0, v3}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->finishSwipe(ZZ)V
 
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
+
     const/4 p1, 0x0
 
-    .line 133
+    .line 160
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
-    .line 134
+    .line 161
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
     return v3
 
-    .line 137
-    :cond_138
+    .line 164
+    :cond_162
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->beginMotion()V
 
-    .line 138
+    .line 165
     iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    .line 139
+    .line 166
+    invoke-direct {p0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->cachePages(Z)V
+
+    .line 167
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
@@ -1083,17 +1459,17 @@
 
     return v4
 
-    .line 125
-    :cond_14b
-    :goto_14b
+    .line 152
+    :cond_178
+    :goto_178
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
-    :cond_14d
-    :goto_14d
+    :cond_17a
+    :goto_17a
     return v3
 
-    .line 142
-    :cond_14e
+    .line 170
+    :cond_17b
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
@@ -1102,16 +1478,16 @@
 
     sub-float/2addr p1, v0
 
-    .line 143
+    .line 171
     iget v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
 
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
-    if-eqz v3, :cond_15c
+    if-eqz v3, :cond_189
 
     neg-float p1, p1
 
-    :cond_15c
+    :cond_189
     invoke-static {v0, p1}, Ljava/lang/Math;->min(FF)F
 
     move-result p1
@@ -1124,140 +1500,204 @@
 
     return v2
 
-    .line 146
-    :cond_168
+    .line 174
+    :cond_195
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
     const/4 v1, 0x5
 
     const/4 v4, 0x3
 
-    if-eqz p1, :cond_188
+    if-eqz p1, :cond_1da
 
-    if-eq v0, v2, :cond_174
+    if-eq v0, v2, :cond_1a1
 
-    if-eq v0, v4, :cond_174
+    if-eq v0, v4, :cond_1a1
 
-    if-ne v0, v1, :cond_188
+    if-ne v0, v1, :cond_1da
 
-    :cond_174
-    if-ne v0, v2, :cond_184
-
-    .line 148
+    .line 176
+    :cond_1a1
     iget p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
 
-    iget v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
+    iget v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->width:F
 
-    const v1, 0x3df5c28f    # 0.12f
+    const v4, 0x3df5c28f    # 0.12f
 
-    mul-float v0, v0, v1
+    mul-float v1, v1, v4
 
-    cmpl-float p1, p1, v0
+    cmpl-float v1, p1, v1
 
-    if-lez p1, :cond_184
+    if-lez v1, :cond_1b0
+
+    const/4 v1, 0x1
+
+    goto :goto_1b1
+
+    :cond_1b0
+    const/4 v1, 0x0
+
+    .line 177
+    :goto_1b1
+    iget-boolean v4, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeover:Z
+
+    if-eqz v4, :cond_1d1
+
+    iget v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeoverDistance:F
+
+    sub-float/2addr p1, v1
+
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+
+    move-result p1
+
+    iget v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->touchSlop:F
+
+    cmpl-float p1, p1, v1
+
+    if-lez p1, :cond_1ce
+
+    iget p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->distance:F
+
+    iget v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->takeoverDistance:F
+
+    cmpl-float p1, p1, v1
+
+    if-lez p1, :cond_1cc
+
+    const/4 v1, 0x1
+
+    goto :goto_1d1
+
+    :cond_1cc
+    const/4 v1, 0x0
+
+    goto :goto_1d1
+
+    :cond_1ce
+    iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settleDestination:Z
+
+    move v1, p1
+
+    :cond_1d1
+    :goto_1d1
+    if-ne v0, v2, :cond_1d6
+
+    if-eqz v1, :cond_1d6
 
     const/4 v3, 0x1
 
-    :cond_184
+    .line 178
+    :cond_1d6
     invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settle(Z)V
 
     return v2
 
-    :cond_188
-    if-eq v0, v2, :cond_18e
+    :cond_1da
+    if-eq v0, v2, :cond_1e0
 
-    if-eq v0, v4, :cond_18e
+    if-eq v0, v4, :cond_1e0
 
-    if-ne v0, v1, :cond_190
+    if-ne v0, v1, :cond_1e2
 
-    .line 152
-    :cond_18e
+    .line 182
+    :cond_1e0
     iput-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
-    :cond_190
+    :cond_1e2
     return v3
 .end method
 
 .method public reset()V
     .registers 5
 
-    .line 75
+    .line 98
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_14
 
-    .line 76
+    .line 99
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllListeners()V
 
-    .line 77
+    .line 100
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
 
-    .line 78
+    .line 101
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    .line 79
+    .line 102
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
-    .line 81
     :cond_14
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
-
     const/4 v0, 0x0
 
-    .line 82
+    .line 104
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->eligible:Z
 
-    .line 83
+    .line 105
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->active:Z
 
-    .line 84
+    .line 106
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->settling:Z
 
-    .line 85
+    .line 107
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_23
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setTranslationX(F)V
 
-    .line 86
-    :cond_26
+    .line 108
+    :cond_23
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_2a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setTranslationX(F)V
 
-    .line 87
-    :cond_2d
+    .line 109
+    :cond_2a
+    :try_start_2a
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
-    if-eqz v2, :cond_3c
+    if-eqz v2, :cond_39
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
-    if-eqz v2, :cond_3c
+    if-eqz v2, :cond_39
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->host:Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;
 
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->toBlank:Z
 
     invoke-interface {v2, v3, v0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController$Host;->finishSwipe(ZZ)V
+    :try_end_39
+    .catchall {:try_start_2a .. :try_end_39} :catchall_41
 
-    .line 88
-    :cond_3c
+    :cond_39
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
+
+    .line 110
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->outgoing:Landroid/view/View;
 
-    .line 89
+    .line 111
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->incoming:Landroid/view/View;
 
     return-void
+
+    :catchall_41
+    move-exception v0
+
+    .line 109
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->endMotion()V
+
+    throw v0
 .end method

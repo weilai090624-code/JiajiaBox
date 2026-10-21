@@ -592,7 +592,7 @@
     .line 176
     iget-object v2, p0, Lmoe/matsuri/nb4a/ui/AppProxyCard;->dialog:Landroid/app/Dialog;
 
-    invoke-virtual {v2}, Landroid/app/Dialog;->show()V
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 177
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->getViewTreeObserver()Landroid/view/ViewTreeObserver;

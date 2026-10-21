@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/widget/ListAdapter;)V
     .registers 3
 
-    .line 110
+    .line 124
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
@@ -41,7 +41,7 @@
 .method public areAllItemsEnabled()Z
     .registers 2
 
-    .line 117
+    .line 131
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->areAllItemsEnabled()Z
@@ -54,7 +54,7 @@
 .method public getCount()I
     .registers 2
 
-    .line 111
+    .line 125
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
@@ -67,7 +67,7 @@
 .method public getItem(I)Ljava/lang/Object;
     .registers 3
 
-    .line 112
+    .line 126
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
@@ -80,7 +80,7 @@
 .method public getItemId(I)J
     .registers 4
 
-    .line 113
+    .line 127
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->getItemId(I)J
@@ -93,7 +93,7 @@
 .method public getItemViewType(I)I
     .registers 3
 
-    .line 115
+    .line 129
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->getItemViewType(I)I
@@ -106,7 +106,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .registers 5
 
-    .line 119
+    .line 133
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0, p1, p2, p3}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
@@ -121,7 +121,7 @@
 .method public getViewTypeCount()I
     .registers 2
 
-    .line 116
+    .line 130
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getViewTypeCount()I
@@ -134,7 +134,7 @@
 .method public hasStableIds()Z
     .registers 2
 
-    .line 114
+    .line 128
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->hasStableIds()Z
@@ -147,7 +147,7 @@
 .method public isEnabled(I)Z
     .registers 3
 
-    .line 118
+    .line 132
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DialogTemplates$BoundChoices;->original:Landroid/widget/ListAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->isEnabled(I)Z

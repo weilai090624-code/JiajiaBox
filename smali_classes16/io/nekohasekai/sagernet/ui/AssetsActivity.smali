@@ -519,7 +519,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroidx/appcompat/app/AlertDialog;->show()V
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 109
     return-void

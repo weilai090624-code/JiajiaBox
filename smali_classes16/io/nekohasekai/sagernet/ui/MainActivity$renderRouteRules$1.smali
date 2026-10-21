@@ -1203,11 +1203,11 @@
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->$column:Landroid/widget/LinearLayout;
 
-    new-instance v4, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1$$ExternalSyntheticLambda0;
+    new-instance v4, Lio/nekohasekai/sagernet/ui/DrawerRuleRenderer;
 
-    invoke-direct {v4, v2, p1, v3}, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1$$ExternalSyntheticLambda0;-><init>(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/util/List;Landroid/widget/LinearLayout;)V
+    invoke-direct {v4, v2, v3}, Lio/nekohasekai/sagernet/ui/DrawerRuleRenderer;-><init>(Lio/nekohasekai/sagernet/ui/MainActivity;Landroid/widget/LinearLayout;)V
 
-    invoke-virtual {v1, v4}, Landroidx/drawerlayout/widget/DrawerLayout;->post(Ljava/lang/Runnable;)Z
+    invoke-static {v1, v3, p1, v4}, Lio/nekohasekai/sagernet/ui/DrawerRows;->post(Landroid/view/View;Landroid/view/View;Ljava/util/List;Lio/nekohasekai/sagernet/ui/DrawerRows$Renderer;)Z
 
     .line 908
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;

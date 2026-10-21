@@ -208,7 +208,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidx/appcompat/app/AlertDialog;->show()V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 1126
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;

@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController$0;->f$0:Lio/nekohasekai/sagernet/ui/HomeSwipeController;
 
-    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->lambda$settle$0$io-nekohasekai-sagernet-ui-HomeSwipeController(Landroid/animation/ValueAnimator;)V
+    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->lambda$settle$1$io-nekohasekai-sagernet-ui-HomeSwipeController(Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

@@ -4677,11 +4677,7 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 633
-    invoke-static {p5}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-static {p1, p5}, Lio/nekohasekai/sagernet/ui/UiComponents;->legacyText(Landroid/widget/TextView;Ljava/lang/String;)V
 
     .line 634
     return-object p1
@@ -5701,7 +5697,7 @@
 
     if-eqz v0, :cond_27
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -5717,7 +5713,7 @@
 
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;->navGlassPageHost:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -7582,6 +7578,8 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/EditText;->setHintTextColor(I)V
 
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
+
     .line 962
     const/high16 v3, 0x41600000    # 14.0f
 
@@ -8758,7 +8756,7 @@
 
     .line 1286
     .local v3, "$i$a$-let-MainActivity$displayFragment$1":I
-    invoke-virtual {v2}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v4
 
@@ -8859,7 +8857,7 @@
 
     if-eqz v2, :cond_bc
 
-    invoke-virtual {v2}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
 
@@ -8883,7 +8881,7 @@
     nop
 
     .line 1300
-    const-wide/16 v3, 0x104
+    const-wide/16 v3, 0x21c
 
     invoke-virtual {v2, v3, v4}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
@@ -8904,7 +8902,7 @@
 
     check-cast v3, Landroid/animation/TimeInterpolator;
 
-    invoke-virtual {v2, v3}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {v2, v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
 

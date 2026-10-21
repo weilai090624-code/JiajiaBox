@@ -19,16 +19,16 @@
 .method constructor <init>()V
     .registers 1
 
-    .line 3
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method private update(J)V
-    .registers 8
+    .registers 6
 
-    .line 10
+    .line 24
     iget v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->value:F
 
     iget v1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
@@ -37,7 +37,7 @@
 
     if-nez v0, :cond_9
 
-    return-void
+    goto :goto_31
 
     :cond_9
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->since:J
@@ -66,23 +66,13 @@
 
     iget v1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
 
-    iget v2, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->start:F
+    sub-float/2addr v1, v0
 
-    sub-float/2addr v1, v2
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->ease(F)F
 
-    mul-float v2, p1, p1
+    move-result v2
 
-    const/high16 v3, 0x40000000    # 2.0f
-
-    mul-float/2addr v3, p1
-
-    const/high16 v4, 0x40400000    # 3.0f
-
-    sub-float/2addr v4, v3
-
-    mul-float/2addr v2, v4
-
-    mul-float/2addr v1, v2
+    mul-float v1, v1, v2
 
     add-float/2addr v0, v1
 
@@ -90,13 +80,14 @@
 
     cmpl-float p1, p1, p2
 
-    if-nez p1, :cond_37
+    if-nez p1, :cond_31
 
     iget p1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
 
     iput p1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->value:F
 
-    :cond_37
+    :cond_31
+    :goto_31
     return-void
 .end method
 
@@ -105,9 +96,9 @@
 .method reset()V
     .registers 2
 
-    .line 12
     const/4 v0, 0x0
 
+    .line 26
     iput v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
 
     iput v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->start:F
@@ -120,7 +111,7 @@
 .method running()Z
     .registers 3
 
-    .line 11
+    .line 25
     iget v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->value:F
 
     iget v1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
@@ -131,19 +122,18 @@
 
     const/4 v0, 0x1
 
-    goto :goto_b
+    return v0
 
     :cond_a
     const/4 v0, 0x0
 
-    :goto_b
     return v0
 .end method
 
 .method step(Z)F
     .registers 6
 
-    .line 6
+    .line 20
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -152,22 +142,22 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_e
 
-    move p1, v2
+    const/high16 p1, 0x3f800000    # 1.0f
 
-    goto :goto_e
+    goto :goto_f
 
-    :cond_d
+    :cond_e
     const/4 p1, 0x0
 
-    .line 7
-    :goto_e
+    .line 21
+    :goto_f
     iget v3, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
 
     cmpl-float v3, p1, v3
 
-    if-eqz v3, :cond_2e
+    if-eqz v3, :cond_2c
 
     iget v3, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->value:F
 
@@ -177,19 +167,15 @@
 
     iput-wide v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->since:J
 
-    iget p1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->target:F
-
-    iget v0, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->start:F
-
-    sub-float/2addr p1, v0
+    sub-float/2addr p1, v3
 
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
 
-    const/high16 v0, 0x43700000    # 240.0f
+    const/high16 v0, 0x43d20000    # 420.0f
 
-    mul-float/2addr p1, v0
+    mul-float p1, p1, v0
 
     invoke-static {v2, p1}, Ljava/lang/Math;->max(FF)F
 
@@ -197,8 +183,8 @@
 
     iput p1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->duration:F
 
-    .line 8
-    :cond_2e
+    .line 22
+    :cond_2c
     iget p1, p0, Lio/nekohasekai/sagernet/ui/BlurTransition;->value:F
 
     return p1

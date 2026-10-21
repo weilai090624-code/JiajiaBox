@@ -14,7 +14,6 @@
 package io.nekohasekai.sagernet.ui;
 
 import android.content.Context;
-import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -57,10 +56,9 @@ public final class GlobalGlobeCard extends LinearLayout {
     private static String cachedHtml;
     private final Handler main=new Handler(Looper.getMainLooper());
     private final Rect visible=new Rect();
-    private final TextView caption,footer;
+    private final TextView caption;
     private final List<CountryRow> countryRows=new ArrayList<>(),exitRows=new ArrayList<>();
     private final LinearLayout legend,exitLegend;
-    private final TextView emptyCountries,selfLocation,exitLocation,lookupStatus;
     private final ScrollView countryScroll;
     private final FrameLayout body;
     private WebView web;
@@ -68,8 +66,6 @@ public final class GlobalGlobeCard extends LinearLayout {
     private boolean live,loading,loaded,themeApplied,lastDark,webFailed,autoRotate=true;
     private int epoch;
     private String html,lastState;
-    private boolean forceLookup;
-    private String lookupReport="等待查询";
     private JSONArray countries=new JSONArray(),nodes=new JSONArray(),links=new JSONArray();
     private final Runnable changed=this::reconcile;
     private final ViewTreeObserver.OnScrollChangedListener scrolled=this::reconcile;
@@ -86,17 +82,18 @@ public final class GlobalGlobeCard extends LinearLayout {
         body=new FrameLayout(context);content.addView(body,new LayoutParams(0,-1,1));
         legend=new LinearLayout(context);legend.setOrientation(VERTICAL);legend.setGravity(Gravity.TOP);
         countryScroll=new CountryScroll(context);countryScroll.setVerticalScrollBarEnabled(false);countryScroll.setFillViewport(true);countryScroll.setNestedScrollingEnabled(true);countryScroll.addView(legend,new FrameLayout.LayoutParams(-1,-2));
-        LayoutParams legendParams=new LayoutParams(dp(104),-1);legendParams.setMarginStart(dp(6));content.addView(countryScroll,legendParams);
-        selfLocation=text("本机：定位中",10,false);UiComponents.secondary(selfLocation);legend.addView(selfLocation,new LayoutParams(-1,dp(21)));
-        exitLocation=text("出口：等待连接",10,false);UiComponents.secondary(exitLocation);legend.addView(exitLocation,new LayoutParams(-1,dp(21)));
+        LayoutParams legendParams=new LayoutParams(dp(88),-1);legendParams.setMarginStart(dp(4));content.addView(countryScroll,legendParams);
         exitLegend=new LinearLayout(context);exitLegend.setOrientation(VERTICAL);legend.addView(exitLegend,new LayoutParams(-1,-2));
-        lookupStatus=text("定位：等待查询",9,false);lookupStatus.setSingleLine(false);UiComponents.secondary(lookupStatus);lookupStatus.setOnClickListener(v->showLookupReport());legend.addView(lookupStatus,new LayoutParams(-1,-2));
-        selfLocation.setEllipsize(TextUtils.TruncateAt.END);exitLocation.setEllipsize(TextUtils.TruncateAt.END);
-        selfLocation.setOnClickListener(v->{if(web!=null&&loaded&&live)web.evaluateJavascript("window.Globe&&Globe.focusNode('self')",null);});
-        TextView destinations=text("请求国家／地区",9,false);UiComponents.secondary(destinations);legend.addView(destinations,new LayoutParams(-1,dp(20)));
-        emptyCountries=text("连接后显示\n国家／地区",10,false);emptyCountries.setSingleLine(false);emptyCountries.setGravity(Gravity.CENTER);UiComponents.secondary(emptyCountries);legend.addView(emptyCountries,new LayoutParams(-1,dp(80)));
-        emptyCountries.setOnClickListener(v->showLookupReport());exitLocation.setOnClickListener(v->showLookupReport());
-        footer=text("当前 0",9,false);UiComponents.secondary(footer);footer.setGravity(Gravity.CENTER_VERTICAL);addView(footer,new LayoutParams(-1,dp(14)));
+    }
+    @Override protected void onMeasure(int widthMeasureSpec,int heightMeasureSpec){
+        // Reserve a compact, readable legend so small screens give the globe a larger touch area.
+        if(countryScroll!=null&&MeasureSpec.getMode(widthMeasureSpec)!=MeasureSpec.UNSPECIFIED){
+            int available=MeasureSpec.getSize(widthMeasureSpec)-getPaddingLeft()-getPaddingRight();
+            boolean largeText=getResources().getConfiguration().fontScale>1.25f;
+            int width=Math.max(dp(largeText?96:80),Math.min(dp(largeText?128:104),Math.round(available*.28f)));
+            countryScroll.getLayoutParams().width=Math.min(width,Math.max(dp(64),available/2));
+        }
+        super.onMeasure(widthMeasureSpec,heightMeasureSpec);
     }
     private TextView text(String value,int size,boolean bold){TextView text=new TextView(getContext());text.setText(value);text.setTextSize(size);text.setSingleLine(true);text.setIncludeFontPadding(false);if(bold)text.setTypeface(Typeface.create("sans-serif-medium",Typeface.NORMAL));UiComponents.text(text);return text;}
     private int dp(float value){return UiComponents.dp(getContext(),value);}
@@ -131,10 +128,9 @@ public final class GlobalGlobeCard extends LinearLayout {
     }
     private void request(){
         if(!live||loading)return;if(DrawerWorkGate.defer(this,changed))return;loading=true;
-        final boolean refresh=forceLookup;forceLookup=false;
         int generation=epoch;Context context=getContext().getApplicationContext();
         WORKER.execute(()->{
-            JSONObject graph=new JSONObject();String problem=null,queryStatus="等待查询",queryReport="等待查询";
+            JSONObject graph=new JSONObject();
             try{
                 if(cachedHtml==null){
                     String document=new String(asset(context,"globe/index.html",256*1024),StandardCharsets.UTF_8);
@@ -156,39 +152,24 @@ public final class GlobalGlobeCard extends LinearLayout {
                     if(!tag.isEmpty()&&!"direct".equals(type)&&!"block".equals(type)&&!"dns".equals(type))tags.add(tag);
                 }
                 StringBuilder path=new StringBuilder("/globe-egress?network=").append(java.net.URLEncoder.encode(networkKey(context),"UTF-8"));
-                if(refresh)path.append("&refresh=1");
                 int included=0;for(String tag:tags)if(included++<128)path.append("&tag=").append(java.net.URLEncoder.encode(tag,"UTF-8"));
                 java.util.List<String> targets=new java.util.ArrayList<>(targetCounts.keySet());
                 java.util.Collections.sort(targets,(a,b)->{int order=Integer.compare(targetCounts.get(b),targetCounts.get(a));return order!=0?order:a.compareTo(b);});
                 included=0;for(String ip:targets)if(included++<256)path.append("&ip=").append(java.net.URLEncoder.encode(ip,"UTF-8"));
                 JSONObject locations;try{locations=ConnectionInspector.request(context,path.toString());}catch(Exception e){locations=new JSONObject().put("client_error",e instanceof java.net.SocketTimeoutException?"controller_timeout":"controller_error");}
-                queryStatus=GlobeQueryStatus.summary(locations);queryReport=GlobeQueryStatus.report(locations);
                 graph=GlobeTopology.build(connections,types,locations);
-            }catch(Exception failure){problem="连接后显示分布 · 可拖动预览";queryStatus="内核接口不可用，请重连";queryReport="读取连接信息失败。请确认代理已连接，并在安装后断开再重新连接。";}
-            final JSONObject snapshot=graph;final String status=problem,document=cachedHtml,locationStatus=queryStatus,locationReport=queryReport;
+            }catch(Exception failure){android.util.Log.w("GlobalGlobeCard","Unable to read globe connections",failure);}
+            final JSONObject snapshot=graph;final String document=cachedHtml;
             main.post(()->{
                 loading=false;if(generation!=epoch||!available())return;
                 DrawerWorkGate.publish(this,()->{
                     if(generation!=epoch||!available())return;
                     countries=snapshot.optJSONArray("countries");if(countries==null)countries=new JSONArray();
                     nodes=snapshot.optJSONArray("nodes");if(nodes==null)nodes=new JSONArray();links=snapshot.optJSONArray("links");if(links==null)links=new JSONArray();html=document;if(web==null&&!webFailed&&html!=null)createWeb();renderCountries();
-                    String own=snapshot.optString("selfCountry");
-                    setText(selfLocation,"本机："+(own.isEmpty()?(snapshot.optBoolean("selfPending")?"查询中":"未定位"):GlobeCountries.name(own,Locale.getDefault())));
-                    selfLocation.setContentDescription("本机公网位置，IP.SB 在线查询，"+(own.isEmpty()?"未定位":GlobeCountries.name(own,Locale.getDefault())));
-                    lookupReport=locationReport;setText(lookupStatus,"定位："+locationStatus);lookupStatus.setContentDescription("定位状态："+locationStatus+"，点击查看失败原因并重试");
-                    if(snapshot.optInt("total")>0&&countries.length()==0)setText(emptyCountries,snapshot.optBoolean("pending")?"ip.sb 查询中\n点击查看状态":"定位未完成\n点击查看原因");
-                    setText(exitLocation,"出口："+snapshot.optInt("exitCount")+" 个"+(snapshot.optBoolean("pending")?" · 查询中":""));
-                    setText(footer,status!=null?status.split("[，,·]",2)[0].trim():"当前 "+snapshot.optInt("total"));sendState();
+                    sendState();
                 });
             });
         });
-    }
-    private void showLookupReport(){
-        Context context=getContext();Dialog dialog=new Dialog(context);LinearLayout content=UiComponents.column(context);UiComponents.panel(content);content.addView(UiComponents.title(context,"IP.SB 查询状态"));
-        TextView report=new TextView(context);report.setText(lookupReport);report.setTextSize(12);report.setTextIsSelectable(true);UiComponents.text(report);ScrollView scroll=new ScrollView(context);scroll.addView(report);content.addView(scroll,new LayoutParams(-1,dp(300)));
-        TextView retry=text("重新查询",13,true);UiComponents.action(retry);retry.setOnClickListener(v->{forceLookup=true;dialog.dismiss();request();});content.addView(retry);
-        TextView close=text("关闭",13,false);UiComponents.action(close);close.setOnClickListener(v->dialog.dismiss());content.addView(close);dialog.setContentView(content);dialog.show();
-        if(dialog.getWindow()!=null){dialog.getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));dialog.getWindow().setLayout((int)(getResources().getDisplayMetrics().widthPixels*.9),-2);}
     }
     private static String networkKey(Context context){
         try{
@@ -203,7 +184,7 @@ public final class GlobalGlobeCard extends LinearLayout {
     }
     private void createWeb(){
         try{
-            web=new WebView(getContext());web.setBackgroundColor(Color.TRANSPARENT);web.setContentDescription("写实昼夜地球与大气辉光：拖动旋转、双指缩放，点击右侧已连接国家或地区切换视角");HomeSwipeController.exclusiveTouch(web,true);
+            web=new WebView(getContext());web.setBackgroundColor(Color.TRANSPARENT);web.setLongClickable(false);web.setContentDescription("写实昼夜地球与大气辉光：自动绕地轴旋转，可自由拖动、双指缩放，点击右侧已连接国家或地区切换视角");HomeSwipeController.exclusiveTouch(web,true);
             WebSettings settings=web.getSettings();settings.setJavaScriptEnabled(true);settings.setAllowFileAccess(false);settings.setAllowContentAccess(false);settings.setBlockNetworkLoads(true);settings.setDomStorageEnabled(false);settings.setSupportZoom(false);settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
             web.setVerticalScrollBarEnabled(false);web.setHorizontalScrollBarEnabled(false);web.setOverScrollMode(OVER_SCROLL_NEVER);
             web.setWebViewClient(new WebViewClient(){
@@ -238,7 +219,6 @@ public final class GlobalGlobeCard extends LinearLayout {
         java.util.List<JSONObject> exits=new ArrayList<>();for(int i=0;i<nodes.length();i++){JSONObject node=nodes.optJSONObject(i);if(node!=null&&"exit".equals(node.optString("role")))exits.add(node);}
         while(exitRows.size()>exits.size())exitLegend.removeView(exitRows.remove(exitRows.size()-1));
         for(int i=0;i<exits.size();i++){if(i==exitRows.size()){CountryRow row=new CountryRow(true);exitRows.add(row);exitLegend.addView(row,new LayoutParams(-1,dp(22)));}exitRows.get(i).bind(exits.get(i));}
-        emptyCountries.setVisibility(countries.length()==0?VISIBLE:GONE);
         while(countryRows.size()>countries.length()){CountryRow row=countryRows.remove(countryRows.size()-1);legend.removeView(row);}
         for(int i=0;i<countries.length();i++){
             if(i==countryRows.size()){CountryRow row=new CountryRow();countryRows.add(row);legend.addView(row,new LayoutParams(-1,dp(22*Math.max(1,getResources().getConfiguration().fontScale))));}

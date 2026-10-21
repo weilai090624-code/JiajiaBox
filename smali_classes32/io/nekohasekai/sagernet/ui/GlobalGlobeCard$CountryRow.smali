@@ -40,7 +40,7 @@
 
     const/4 v0, 0x0
 
-    .line 250
+    .line 230
     invoke-direct {p0, p1, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryRow;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Z)V
 
     return-void
@@ -59,7 +59,7 @@
         }
     .end annotation
 
-    .line 251
+    .line 231
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryRow;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getContext()Landroid/content/Context;
@@ -143,7 +143,7 @@
 .method bind(Lorg/json/JSONObject;)V
     .registers 6
 
-    .line 252
+    .line 232
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryRow;->exit:Z
 
     const-string v1, "code"
@@ -289,7 +289,7 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-GlobalGlobeCard$CountryRow(Landroid/view/View;)V
     .registers 4
 
-    .line 251
+    .line 231
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryRow;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     # getter for: Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;

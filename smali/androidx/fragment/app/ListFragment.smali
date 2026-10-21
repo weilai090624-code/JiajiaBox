@@ -356,7 +356,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v4, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v4, v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 300
     iget-object v2, p0, Landroidx/fragment/app/ListFragment;->mListContainer:Landroid/view/View;
@@ -371,7 +371,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v2, v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     goto :goto_0
 
@@ -416,7 +416,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v4, v3}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v4, v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     .line 312
     iget-object v3, p0, Landroidx/fragment/app/ListFragment;->mListContainer:Landroid/view/View;
@@ -431,7 +431,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-static {v3, v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->start(Landroid/view/View;Landroid/view/animation/Animation;)V
 
     goto :goto_1
 

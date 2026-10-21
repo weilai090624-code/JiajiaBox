@@ -69,6 +69,13 @@ public final class DrawerWorkGate {
         State state=state(owner,false);return state!=null&&state.queue.defer(owner,latest);
     }
     public static void publish(View owner,Runnable latest){if(!defer(owner,latest))latest.run();}
+    /** Async row builders must not mutate an expanding drawer or a page already removed. */
+    public static boolean post(View dispatcher,View owner,Runnable latest){
+        return dispatcher.post(()->{
+            if(!owner.isAttachedToWindow())return;
+            publish(owner,()->{if(owner.isAttachedToWindow())latest.run();});
+        });
+    }
     public static void cancel(View owner){State state=state(owner,false);if(state!=null)state.queue.cancel(owner);}
     /** Visibility clients subscribe once; no drawer per-frame listener or polling. */
     public static void observe(View owner,Runnable changed){state(owner,true).observers.put(owner,changed);}

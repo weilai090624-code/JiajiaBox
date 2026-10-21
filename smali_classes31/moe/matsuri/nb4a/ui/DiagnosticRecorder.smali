@@ -609,7 +609,7 @@
     invoke-virtual {v1, v2}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 85
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
 
     .line 86
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;

@@ -146,7 +146,7 @@
     if-nez v1, :cond_0
 
     .line 23
-    invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog;->show()V
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

@@ -3,34 +3,40 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/Comparator;
 
 
 # instance fields
-.field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
+.field public final synthetic f$0:Ljava/util/Map;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+.method public synthetic constructor <init>(Ljava/util/Map;)V
     .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;->f$0:Ljava/util/Map;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 2
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .registers 4
 
     .line 0
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;->f$0:Ljava/util/Map;
 
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->$r8$lambda$Tc-dScSzcn4_tYF_jZn5zyuJN9U(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+    check-cast p1, Ljava/lang/String;
 
-    return-void
+    check-cast p2, Ljava/lang/String;
+
+    invoke-static {v0, p1, p2}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lambda$request$3(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p1
+
+    return p1
 .end method

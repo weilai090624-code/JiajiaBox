@@ -154,7 +154,7 @@
     invoke-virtual {v0, v3}, Landroid/view/View;->setScaleY(F)V
 
     .line 34
-    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v3
 
@@ -184,7 +184,7 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
 
     .line 36
-    invoke-virtual {v1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
 

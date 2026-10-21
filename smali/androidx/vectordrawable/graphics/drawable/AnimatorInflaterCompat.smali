@@ -2111,7 +2111,7 @@
 
     .line 906
     .local v3, "interpolator":Landroid/view/animation/Interpolator;
-    invoke-virtual {p4, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {p4, v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 909
     .end local v3    # "interpolator":Landroid/view/animation/Interpolator;
@@ -2303,7 +2303,7 @@
 
     .line 862
     .local v4, "interpolator":Landroid/view/animation/Interpolator;
-    invoke-virtual {v1, v4}, Landroid/animation/Keyframe;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-static {v1, v4}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/animation/Animator;Landroid/animation/TimeInterpolator;)V
 
     .line 864
     .end local v4    # "interpolator":Landroid/view/animation/Interpolator;

@@ -144,6 +144,7 @@ public final class TrafficDashboardView extends FrameLayout {
         card.setOrientation(LinearLayout.VERTICAL);
         card.setGravity(Gravity.CENTER);
         card.setBackgroundResource(CARD_BACKGROUND_ID);
+        CardLight.bind(card,ThemePalette.CARD_RADIUS);
         card.setPadding(dp(18), dp(12), dp(18), dp(12));
 
         FrameLayout.LayoutParams cardParameters = new FrameLayout.LayoutParams(

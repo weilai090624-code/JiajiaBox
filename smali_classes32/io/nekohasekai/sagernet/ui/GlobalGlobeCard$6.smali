@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$6;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
-    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lambda$new$1$io-nekohasekai-sagernet-ui-GlobalGlobeCard()V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->$r8$lambda$Tc-dScSzcn4_tYF_jZn5zyuJN9U(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     return-void
 .end method

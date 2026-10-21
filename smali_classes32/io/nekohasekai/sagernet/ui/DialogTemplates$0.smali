@@ -6,14 +6,6 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/DialogTemplates;"
-    method = "lambda$adopt$0"
-    proto = "(Landroid/app/Dialog;Landroid/view/View;)V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Landroid/app/Dialog;
 

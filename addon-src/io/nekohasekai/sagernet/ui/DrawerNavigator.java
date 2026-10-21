@@ -25,13 +25,47 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import java.util.WeakHashMap;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class DrawerNavigator {
  private static final int HOST=0x7f0a01e2;
+ private static volatile FragmentApi fragmentApi;
+ /** Only immutable metadata is preloaded. Fragment construction and view work stay on the UI thread. */
+ private static final class FragmentApi {
+  final Method manager,setArguments,getView,begin,add,remove,commit;
+  final ConcurrentHashMap<String,Constructor<?>> constructors=new ConcurrentHashMap<>();
+  FragmentApi()throws ReflectiveOperationException{
+   ClassLoader loader=DrawerNavigator.class.getClassLoader();
+   Class<?> fragment=Class.forName("androidx.fragment.app.Fragment",false,loader);
+   Class<?> transactions=Class.forName("androidx.fragment.app.FragmentTransaction",false,loader);
+   manager=Class.forName("androidx.fragment.app.FragmentActivity",false,loader).getMethod("getSupportFragmentManager");
+   setArguments=fragment.getMethod("setArguments",Bundle.class);getView=fragment.getMethod("getView");
+   begin=Class.forName("androidx.fragment.app.FragmentManager",false,loader).getMethod("beginTransaction");
+   add=transactions.getMethod("add",int.class,fragment);remove=transactions.getMethod("remove",fragment);
+   commit=transactions.getMethod("commitNowAllowingStateLoss");
+  }
+  Constructor<?> constructor(String name)throws ReflectiveOperationException{
+   Constructor<?> found=constructors.get(name);if(found!=null)return found;
+   Constructor<?> created=Class.forName(name,false,DrawerNavigator.class.getClassLoader()).getConstructor();
+   Constructor<?> previous=constructors.putIfAbsent(name,created);return previous==null?created:previous;
+  }
+ }
+ private static FragmentApi api()throws ReflectiveOperationException{
+  FragmentApi found=fragmentApi;if(found!=null)return found;
+  synchronized(DrawerNavigator.class){if(fragmentApi==null)fragmentApi=new FragmentApi();return fragmentApi;}
+ }
+ static void preload()throws ReflectiveOperationException{api().constructor("io.nekohasekai.sagernet.ui.ToolsFragment");}
  private static final class Page implements View.OnAttachStateChangeListener {
   FrameLayout host;View parent;LinearLayout view;Object manager,fragment;
   DrawerWorkGate.Lease motion;Runnable pendingStart;ViewTreeObserver observer;ViewTreeObserver.OnPreDrawListener ready;
-  void releaseMotion(){if(motion!=null){motion.close();motion=null;}}
+  DrawerLayers.Lease parentLayer,pageLayer;
+  void releaseMotion(){
+   if(parentLayer!=null){parentLayer.close();parentLayer=null;}
+   if(pageLayer!=null){pageLayer.close();pageLayer=null;}
+   if(motion!=null){motion.close();motion=null;}
+  }
   public void onViewAttachedToWindow(View view){}
   public void onViewDetachedFromWindow(View view){cancelPending(this);releaseMotion();}
  }
@@ -76,12 +110,12 @@ public final class DrawerNavigator {
   host.addView(column,new FrameLayout.LayoutParams(-1,-1));state.history.push(page);
   page.motion=DrawerWorkGate.begin(host);column.addOnAttachStateChangeListener(page);
   try {
-   page.manager=activity.getClass().getMethod("getSupportFragmentManager").invoke(activity);
-   page.fragment=Class.forName(className).getConstructor().newInstance();Class<?> fragment=Class.forName("androidx.fragment.app.Fragment");
-   Bundle args=new Bundle();args.putBoolean("glass_drawer_page",true);fragment.getMethod("setArguments",Bundle.class).invoke(page.fragment,args);
-   Object transaction=Class.forName("androidx.fragment.app.FragmentManager").getMethod("beginTransaction").invoke(page.manager);
-   Class<?> tx=Class.forName("androidx.fragment.app.FragmentTransaction");tx.getMethod("add",int.class,fragment).invoke(transaction,container.getId(),page.fragment);tx.getMethod("commitNowAllowingStateLoss").invoke(transaction);
-   View content=(View)fragment.getMethod("getView").invoke(page.fragment);
+   FragmentApi api=api();page.manager=api.manager.invoke(activity);
+   page.fragment=api.constructor(className).newInstance();
+   Bundle args=new Bundle();args.putBoolean("glass_drawer_page",true);api.setArguments.invoke(page.fragment,args);
+   Object transaction=api.begin.invoke(page.manager);
+   api.add.invoke(transaction,container.getId(),page.fragment);api.commit.invoke(transaction);
+   View content=(View)api.getView.invoke(page.fragment);
    if(content!=null){View toolbar=content.findViewById(0x7f0a02ba);if(toolbar!=null)toolbar.setVisibility(View.GONE);content.setPadding(0,0,0,0);DrawerAppearance.settingsPage(content);RosePalette.prepareForDisplay(content);}
    startAfterLayout(activity,state,page);return true;
   }catch(Exception exception){android.util.Log.e("DrawerNavigator","Cannot open drawer child",exception);state.history.pop();remove(page);state.history.complete();return false;}
@@ -115,9 +149,10 @@ public final class DrawerNavigator {
  private static void transition(Activity activity,State state,Page page,boolean forward){
   if(page.motion==null)page.motion=DrawerWorkGate.begin(page.host);
   float distance=UiComponents.dp(activity,22);
-  float parallax=UiComponents.dp(activity,7);long duration=forward?360:300;
+   float parallax=UiComponents.dp(activity,7);long duration=540;
   float direction=page.view.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL?-1:1;distance*=direction;parallax*=direction;
   page.parent.animate().withEndAction(null).cancel();page.view.animate().withEndAction(null).cancel();
+  page.parentLayer=DrawerLayers.acquire(page.parent);page.pageLayer=DrawerLayers.acquire(page.view);
   if(forward){page.view.setAlpha(0);page.view.setTranslationX(distance);page.parent.animate().alpha(1).translationX(-parallax).setDuration(duration).setInterpolator(new DrawerMotion.Ease()).start();
    page.view.animate().alpha(1).translationX(0).setDuration(duration).setInterpolator(new DrawerMotion.Ease()).withEndAction(()->{if(state.history.current()!=page){page.releaseMotion();return;}page.parent.setVisibility(View.GONE);reset(page.parent);state.history.complete();page.releaseMotion();}).start();
   }else{page.parent.setVisibility(View.VISIBLE);page.parent.setAlpha(1);page.parent.setTranslationX(-parallax);page.parent.animate().alpha(1).translationX(0).setDuration(duration).setInterpolator(new DrawerMotion.Ease()).start();
@@ -127,7 +162,7 @@ public final class DrawerNavigator {
  private static void remove(Page page){
   cancelPending(page);page.view.removeOnAttachStateChangeListener(page);
   page.view.animate().withEndAction(null).cancel();page.parent.animate().withEndAction(null).cancel();page.parent.setVisibility(View.VISIBLE);reset(page.parent);
-  if(page.fragment!=null&&page.manager!=null)try{Object tx=Class.forName("androidx.fragment.app.FragmentManager").getMethod("beginTransaction").invoke(page.manager);Class<?> type=Class.forName("androidx.fragment.app.FragmentTransaction");type.getMethod("remove",Class.forName("androidx.fragment.app.Fragment")).invoke(tx,page.fragment);type.getMethod("commitNowAllowingStateLoss").invoke(tx);}catch(Exception e){android.util.Log.e("DrawerNavigator","Cannot remove child",e);}
+  if(page.fragment!=null&&page.manager!=null)try{FragmentApi api=api();Object tx=api.begin.invoke(page.manager);api.remove.invoke(tx,page.fragment);api.commit.invoke(tx);}catch(Exception e){android.util.Log.e("DrawerNavigator","Cannot remove child",e);}
   page.host.removeView(page.view);
   page.releaseMotion();
  }

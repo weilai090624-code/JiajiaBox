@@ -2,15 +2,15 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:state_enabled="true" android:state_hovered="true">
-        <objectAnimator android:interpolator="?motionEasingEmphasizedInterpolator" android:duration="?motionDurationMedium4" android:valueTo="@dimen/m3_card_hovered_z" android:valueType="floatType" android:propertyName="translationZ" android:startDelay="?motionDurationMedium1" />
+        <objectAnimator android:duration="?motionDurationMedium4" android:valueTo="@dimen/m3_card_hovered_z" android:valueType="floatType" android:propertyName="translationZ" android:startDelay="?motionDurationMedium1"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
     <item android:state_enabled="true" app:state_dragged="true">
-        <objectAnimator android:interpolator="?motionEasingEmphasizedInterpolator" android:duration="?motionDurationMedium4" android:valueTo="@dimen/m3_card_dragged_z" android:valueType="floatType" android:propertyName="translationZ" android:startDelay="?motionDurationMedium1" />
+        <objectAnimator android:duration="?motionDurationMedium4" android:valueTo="@dimen/m3_card_dragged_z" android:valueType="floatType" android:propertyName="translationZ" android:startDelay="?motionDurationMedium1"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
     <item android:state_enabled="true">
-        <objectAnimator android:interpolator="?motionEasingEmphasizedInterpolator" android:duration="?motionDurationLong2" android:valueTo="0.0dip" android:valueType="floatType" android:propertyName="translationZ" />
+        <objectAnimator android:duration="?motionDurationLong2" android:valueTo="0.0dip" android:valueType="floatType" android:propertyName="translationZ"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
     <item>
-        <objectAnimator android:duration="0" android:valueTo="0.0dip" android:valueType="floatType" android:propertyName="translationZ" />
+        <objectAnimator android:duration="0" android:valueTo="0.0dip" android:valueType="floatType" android:propertyName="translationZ"  android:interpolator="@interpolator/mtrl_fast_out_slow_in" />
     </item>
 </selector>

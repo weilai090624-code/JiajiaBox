@@ -781,6 +781,8 @@
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->refresh(Landroid/view/View;)V
 
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/DrawerLayers;->bind(Landroid/view/View;)V
+
     return-void
 .end method
 
@@ -947,9 +949,9 @@
 
     move-result p1
 
-    if-nez p1, :cond_1f
+    if-nez p1, :cond_25
 
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -963,28 +965,34 @@
 
     move-result-object p0
 
-    const-wide/16 v0, 0x5a
+    const-wide/16 v0, 0x87
 
+    :goto_17
     invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
-    :goto_1b
+    sget-object p1, Lio/nekohasekai/sagernet/ui/AppMotion;->CURVE:Landroid/view/animation/Interpolator;
+
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
     invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    goto :goto_43
+    goto :goto_3c
 
-    :cond_1f
+    :cond_25
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_25
+    if-eq p1, v0, :cond_2b
 
     const/4 v0, 0x3
 
-    if-ne p1, v0, :cond_43
+    if-ne p1, v0, :cond_3c
 
-    :cond_25
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    :cond_2b
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->animate(Landroid/view/View;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p0
 
@@ -998,24 +1006,12 @@
 
     move-result-object p0
 
-    const-wide/16 v0, 0xb4
+    const-wide/16 v0, 0x10e
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    goto :goto_17
 
-    move-result-object p0
-
-    new-instance p1, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;
-
-    invoke-direct {p1}, Lio/nekohasekai/sagernet/ui/DrawerMotion$Ease;-><init>()V
-
-    invoke-virtual {p0, p1}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    goto :goto_1b
-
-    :cond_43
-    :goto_43
+    :cond_3c
+    :goto_3c
     const/4 p0, 0x0
 
     return p0

@@ -104,6 +104,7 @@
     .line 90
     iget-object v2, p0, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->currentAnimation:Landroid/animation/AnimatorSet;
 
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
 
     .line 91

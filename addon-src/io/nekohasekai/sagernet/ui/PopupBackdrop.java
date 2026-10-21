@@ -23,17 +23,21 @@ import android.view.*;
 /** A dialog stays in its own window; its Activity's complete decor is blurred underneath. */
 public final class PopupBackdrop implements View.OnAttachStateChangeListener {
  private static final int BIND_TAG=0x7f0a0f50,ROOT_TAG=0x7f0a0f51;
- private final View surface;private Layer layer;
- private PopupBackdrop(View view){surface=view;}
+ private final View surface;private final Context context;private Layer layer;
+ private PopupBackdrop(View view,Context context){surface=view;this.context=context;}
  public static void bind(View view){
-  if(view.getTag(BIND_TAG)!=null)return;PopupBackdrop binding=new PopupBackdrop(view);view.setTag(BIND_TAG,binding);view.addOnAttachStateChangeListener(binding);
+  bind(view,view.getContext());
+ }
+ /** A window decor can use an application context; keep its dialog's activity context. */
+ public static void bind(View view,Context context){
+  if(view.getTag(BIND_TAG)!=null)return;PopupBackdrop binding=new PopupBackdrop(view,context);view.setTag(BIND_TAG,binding);view.addOnAttachStateChangeListener(binding);
   if(view.isAttachedToWindow())binding.onViewAttachedToWindow(view);
  }
  private static Activity activity(Context c){
   while(c instanceof ContextWrapper&&!(c instanceof Activity)){Context next=((ContextWrapper)c).getBaseContext();if(next==c)break;c=next;}return c instanceof Activity?(Activity)c:null;
  }
  public void onViewAttachedToWindow(View view){view.post(()->{
-  if(!surface.isAttachedToWindow()||layer!=null)return;Activity activity=activity(surface.getContext());if(activity==null)return;
+  if(!surface.isAttachedToWindow()||layer!=null)return;Activity activity=activity(context);if(activity==null)return;
   View candidate=activity.getWindow().getDecorView();if(!(candidate instanceof ViewGroup)||surface.getRootView()==candidate)return;
   ViewGroup root=(ViewGroup)candidate;Object existing=root.getTag(ROOT_TAG);Layer value=existing instanceof Layer?(Layer)existing:new Layer(root);
   if(value.acquire()){layer=value;root.setTag(ROOT_TAG,value);}

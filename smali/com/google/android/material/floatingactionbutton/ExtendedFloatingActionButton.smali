@@ -908,6 +908,7 @@
 
     .line 885
     :cond_4
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
     invoke-virtual {v2}, Landroid/animation/Animator;->start()V
 
     .line 886
