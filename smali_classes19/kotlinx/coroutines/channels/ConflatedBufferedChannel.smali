@@ -81,7 +81,7 @@
 
 # direct methods
 .method public constructor <init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 8
     .param p1, "capacity"    # I
     .param p2, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
     .param p3, "onUndeliveredElement"    # Lkotlin/jvm/functions/Function1;
@@ -117,27 +117,27 @@
 
     const/4 v3, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_13
+    if-eqz v0, :cond_44
 
     .line 31
     iget v0, p0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->capacity:I
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v3, :cond_1a
 
     const/4 v2, 0x1
 
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_1a
+    if-eqz v2, :cond_1e
 
     .line 34
     nop
@@ -146,7 +146,7 @@
     return-void
 
     .line 31
-    :cond_2
+    :cond_1e
     const/4 v0, 0x0
 
     .line 32
@@ -190,7 +190,7 @@
     throw v1
 
     .line 28
-    :cond_3
+    :cond_44
     const/4 v0, 0x0
 
     .line 29
@@ -243,18 +243,18 @@
 .end method
 
 .method public synthetic constructor <init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 22
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 25
     const/4 p3, 0x0
 
     .line 22
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;-><init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)V
 
     .line 118
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic send$suspendImpl(Lkotlinx/coroutines/channels/ConflatedBufferedChannel;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -298,7 +298,7 @@
     .line 123
     instance-of v2, v0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -311,7 +311,7 @@
     .local v3, "$i$a$-onClosed-WpGqRn0-ConflatedBufferedChannel$send$2":I
     iget-object v4, p0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->onUndeliveredElement:Lkotlin/jvm/functions/Function1;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_28
 
     const/4 v5, 0x2
 
@@ -321,7 +321,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_28
 
     .local v4, "it":Lkotlinx/coroutines/internal/UndeliveredElementException;
     const/4 v5, 0x0
@@ -344,7 +344,7 @@
     .line 46
     .end local v4    # "it":Lkotlinx/coroutines/internal/UndeliveredElementException;
     .end local v5    # "$i$a$-let-ConflatedBufferedChannel$send$2$1":I
-    :cond_0
+    :cond_28
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->getSendException()Ljava/lang/Throwable;
 
     move-result-object v4
@@ -354,7 +354,7 @@
     .line 124
     .end local v2    # "it":Ljava/lang/Throwable;
     .end local v3    # "$i$a$-onClosed-WpGqRn0-ConflatedBufferedChannel$send$2":I
-    :cond_1
+    :cond_2d
     nop
 
     .line 48
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic sendBroadcast$suspendImpl(Lkotlinx/coroutines/channels/ConflatedBufferedChannel;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -405,7 +405,7 @@
     .line 129
     instance-of v3, v1, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     move-object v3, v1
 
@@ -425,7 +425,7 @@
     .line 130
     .end local v3    # "it":Lkotlin/Unit;
     .end local v4    # "$i$a$-onSuccess-WpGqRn0-ConflatedBufferedChannel$sendBroadcast$2":I
-    :cond_0
+    :cond_15
     nop
 
     .line 54
@@ -441,7 +441,7 @@
 .end method
 
 .method private final trySendDropLatest-Mj0NB7M(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "isSendOp"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -462,24 +462,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2b
 
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->isClosed-impl(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 71
-    :cond_0
-    if-eqz p2, :cond_2
+    :cond_11
+    if-eqz p2, :cond_22
 
     .line 72
     iget-object v1, p0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->onUndeliveredElement:Lkotlin/jvm/functions/Function1;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_22
 
     const/4 v2, 0x2
 
@@ -489,12 +489,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
-    goto :goto_0
+    goto :goto_22
 
     .local v1, "it":Lkotlinx/coroutines/internal/UndeliveredElementException;
-    :cond_1
+    :cond_20
     const/4 v2, 0x0
 
     .line 73
@@ -504,8 +504,8 @@
     .line 76
     .end local v1    # "it":Lkotlinx/coroutines/internal/UndeliveredElementException;
     .end local v2    # "$i$a$-let-ConflatedBufferedChannel$trySendDropLatest$1":I
-    :cond_2
-    :goto_0
+    :cond_22
+    :goto_22
     sget-object v1, Lkotlinx/coroutines/channels/ChannelResult;->Companion:Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -517,13 +517,13 @@
     return-object v1
 
     .line 67
-    :cond_3
-    :goto_1
+    :cond_2b
+    :goto_2b
     return-object v0
 .end method
 
 .method private final trySendDropOldest-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 20
+    .registers 22
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -551,6 +551,7 @@
     const/4 v10, 0x0
 
     .local v10, "$i$f$sendImpl":I
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannel;->sendSegment$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannel;->access$getSendSegment$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v2
@@ -568,7 +569,8 @@
 
     .line 137
     .local v2, "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :goto_0
+    :goto_15
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannel;->sendersAndCloseStatus$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannel;->access$getSendersAndCloseStatus$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v3
@@ -606,6 +608,7 @@
 
     check-cast v3, Lkotlinx/coroutines/channels/BufferedChannel;
 
+    # invokes: Lkotlinx/coroutines/channels/BufferedChannel;->isClosedForSend0(J)Z
     invoke-static {v3, v11, v12}, Lkotlinx/coroutines/channels/BufferedChannel;->access$isClosedForSend0(Lkotlinx/coroutines/channels/BufferedChannel;J)Z
 
     move-result v15
@@ -634,21 +637,22 @@
 
     cmp-long v5, v3, v8
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5c
 
     .line 151
     move-object v3, v0
 
     check-cast v3, Lkotlinx/coroutines/channels/BufferedChannel;
 
+    # invokes: Lkotlinx/coroutines/channels/BufferedChannel;->findSegmentSend(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
     invoke-static {v3, v8, v9, v2}, Lkotlinx/coroutines/channels/BufferedChannel;->access$findSegmentSend(Lkotlinx/coroutines/channels/BufferedChannel;JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_59
 
     .line 158
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_58
 
     .line 159
     const/4 v3, 0x0
@@ -669,25 +673,25 @@
 
     .line 161
     .end local v3    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$3":I
-    :cond_0
-    goto :goto_0
+    :cond_58
+    goto :goto_15
 
     .line 151
-    :cond_1
+    :cond_59
     move-object v2, v3
 
     move-object v7, v2
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 149
-    :cond_2
+    :cond_5c
     move-object v7, v2
 
     .line 167
     .end local v2    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .local v7, "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :goto_1
+    :goto_5d
     move-object v2, v0
 
     check-cast v2, Lkotlinx/coroutines/channels/BufferedChannel;
@@ -719,11 +723,12 @@
 
     move v9, v15
 
+    # invokes: Lkotlinx/coroutines/channels/BufferedChannel;->updateCellSend(Lkotlinx/coroutines/channels/ChannelSegment;ILjava/lang/Object;JLjava/lang/Object;Z)I
     invoke-static/range {v2 .. v9}, Lkotlinx/coroutines/channels/BufferedChannel;->access$updateCellSend(Lkotlinx/coroutines/channels/BufferedChannel;Lkotlinx/coroutines/channels/ChannelSegment;ILjava/lang/Object;JLjava/lang/Object;Z)I
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_f4
 
     move-object/from16 v4, v17
 
@@ -735,7 +740,7 @@
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .end local v18    # "id$iv":J
     .local v4, "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    goto/16 :goto_6
+    goto/16 :goto_ef
 
     .line 204
     .end local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
@@ -745,16 +750,16 @@
     .restart local v15    # "closed$iv":Z
     .restart local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v18    # "id$iv":J
-    :pswitch_0
+    :pswitch_79
     invoke-virtual/range {v17 .. v17}, Lkotlinx/coroutines/channels/ChannelSegment;->cleanPrev()V
 
     .line 205
     move-object/from16 v4, v17
 
-    goto/16 :goto_6
+    goto/16 :goto_ef
 
     .line 197
-    :pswitch_1
+    :pswitch_80
     move-object v2, v0
 
     check-cast v2, Lkotlinx/coroutines/channels/BufferedChannel;
@@ -765,17 +770,17 @@
 
     cmp-long v4, v13, v2
 
-    if-gez v4, :cond_3
+    if-gez v4, :cond_8e
 
     invoke-virtual/range {v17 .. v17}, Lkotlinx/coroutines/channels/ChannelSegment;->cleanPrev()V
 
     .line 198
-    :cond_3
+    :cond_8e
     const/4 v2, 0x0
 
     .line 97
     .local v2, "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$3":I
-    :goto_2
+    :goto_8f
     sget-object v3, Lkotlinx/coroutines/channels/ChannelResult;->Companion:Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
     invoke-virtual/range {p0 .. p0}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->getSendException()Ljava/lang/Throwable;
@@ -790,7 +795,7 @@
 
     .line 210
     .end local v2    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$3":I
-    :pswitch_2
+    :pswitch_9a
     const/4 v2, 0x0
 
     .local v2, "$i$a$-sendImpl-BufferedChannel$sendImpl$1":I
@@ -809,8 +814,8 @@
 
     .line 185
     .end local v2    # "$i$a$-sendImpl-BufferedChannel$sendImpl$1":I
-    :pswitch_3
-    if-eqz v15, :cond_4
+    :pswitch_a7
+    if-eqz v15, :cond_ae
 
     .line 186
     invoke-virtual/range {v17 .. v17}, Lkotlinx/coroutines/channels/ChannelSegment;->onSlotCleaned()V
@@ -819,26 +824,26 @@
     const/4 v2, 0x0
 
     .local v2, "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$3":I
-    goto :goto_2
+    goto :goto_8f
 
     .line 189
     .end local v2    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$3":I
-    :cond_4
+    :cond_ae
     instance-of v2, v1, Lkotlinx/coroutines/Waiter;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_b6
 
     move-object v2, v1
 
     check-cast v2, Lkotlinx/coroutines/Waiter;
 
-    goto :goto_3
+    goto :goto_b7
 
-    :cond_5
+    :cond_b6
     const/4 v2, 0x0
 
-    :goto_3
-    if-eqz v2, :cond_6
+    :goto_b7
+    if-eqz v2, :cond_c2
 
     move-object v3, v0
 
@@ -848,19 +853,20 @@
 
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
+    # invokes: Lkotlinx/coroutines/channels/BufferedChannel;->prepareSenderForSuspension(Lkotlinx/coroutines/Waiter;Lkotlinx/coroutines/channels/ChannelSegment;I)V
     invoke-static {v3, v2, v4, v10}, Lkotlinx/coroutines/channels/BufferedChannel;->access$prepareSenderForSuspension(Lkotlinx/coroutines/channels/BufferedChannel;Lkotlinx/coroutines/Waiter;Lkotlinx/coroutines/channels/ChannelSegment;I)V
 
-    goto :goto_4
+    goto :goto_c4
 
     .end local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :cond_6
+    :cond_c2
     move-object/from16 v4, v17
 
     .line 190
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :goto_4
+    :goto_c4
     move-object v2, v4
 
     .local v2, "segm":Lkotlinx/coroutines/channels/ChannelSegment;
@@ -902,7 +908,7 @@
     .end local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .end local v5    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$2":I
     .restart local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :pswitch_4
+    :pswitch_dc
     move-object/from16 v4, v17
 
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
@@ -911,7 +917,7 @@
 
     .line 88
     .local v2, "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$1":I
-    :goto_5
+    :goto_df
     sget-object v3, Lkotlinx/coroutines/channels/ChannelResult;->Companion:Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -926,7 +932,7 @@
     .end local v2    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$1":I
     .end local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :pswitch_5
+    :pswitch_e8
     move-object/from16 v4, v17
 
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
@@ -937,7 +943,7 @@
     const/4 v2, 0x0
 
     .restart local v2    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$1":I
-    goto :goto_5
+    goto :goto_df
 
     .line 137
     .end local v2    # "$i$a$-sendImpl$default-ConflatedBufferedChannel$trySendDropOldest$1":I
@@ -948,28 +954,28 @@
     .end local v15    # "closed$iv":Z
     .end local v18    # "id$iv":J
     .restart local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    :goto_6
+    :goto_ef
     move-object v2, v4
 
     move/from16 v10, v16
 
     .end local v17    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
     .restart local v4    # "segment$iv":Lkotlinx/coroutines/channels/ChannelSegment;
-    goto/16 :goto_0
+    goto/16 :goto_15
 
-    :pswitch_data_0
+    :pswitch_data_f4
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_e8
+        :pswitch_dc
+        :pswitch_a7
+        :pswitch_9a
+        :pswitch_80
+        :pswitch_79
     .end packed-switch
 .end method
 
 .method private final trySendImpl-Mj0NB7M(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "isSendOp"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -984,49 +990,49 @@
 
     sget-object v1, Lkotlinx/coroutines/channels/BufferOverflow;->DROP_LATEST:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     invoke-direct {p0, p1, p2}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->trySendDropLatest-Mj0NB7M(Ljava/lang/Object;Z)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 61
-    :cond_0
+    :cond_b
     invoke-direct {p0, p1}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->trySendDropOldest-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 
 # virtual methods
 .method protected isConflatedDropOldest()Z
-    .locals 2
+    .registers 3
 
     .line 37
     iget-object v0, p0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;->onBufferOverflow:Lkotlinx/coroutines/channels/BufferOverflow;
 
     sget-object v1, Lkotlinx/coroutines/channels/BufferOverflow;->DROP_OLDEST:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method protected registerSelectForSend(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 7
+    .registers 10
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1061,7 +1067,7 @@
     .line 216
     instance-of v4, v2, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_16
 
     move-object v4, v2
 
@@ -1082,7 +1088,7 @@
     .line 217
     .end local v4    # "it":Lkotlin/Unit;
     .end local v5    # "$i$a$-onSuccess-WpGqRn0-ConflatedBufferedChannel$registerSelectForSend$1$1":I
-    :cond_0
+    :cond_16
     nop
 
     .line 109
@@ -1100,7 +1106,7 @@
     .line 221
     instance-of v4, v2, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2b
 
     invoke-static {v2}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -1123,7 +1129,7 @@
     .line 222
     .end local v4    # "it":Ljava/lang/Throwable;
     .end local v5    # "$i$a$-onClosed-WpGqRn0-ConflatedBufferedChannel$registerSelectForSend$1$2":I
-    :cond_1
+    :cond_2b
     nop
 
     .line 109
@@ -1149,7 +1155,7 @@
 .end method
 
 .method public send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -1169,7 +1175,7 @@
 .end method
 
 .method public sendBroadcast$kotlinx_coroutines_core(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -1189,7 +1195,7 @@
 .end method
 
 .method public shouldSendSuspend$kotlinx_coroutines_core()Z
-    .locals 1
+    .registers 2
 
     .line 117
     const/4 v0, 0x0
@@ -1198,7 +1204,7 @@
 .end method
 
 .method public trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

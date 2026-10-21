@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/TakeSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/TakeSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,6 +87,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 428
+    # getter for: Lkotlin/sequences/TakeSequence;->count:I
     invoke-static {p1}, Lkotlin/sequences/TakeSequence;->access$getCount$p(Lkotlin/sequences/TakeSequence;)I
 
     move-result v0
@@ -94,6 +95,7 @@
     iput v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->left:I
 
     .line 429
+    # getter for: Lkotlin/sequences/TakeSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/TakeSequence;->access$getSequence$p(Lkotlin/sequences/TakeSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -111,7 +113,7 @@
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -127,7 +129,7 @@
 .end method
 
 .method public final getLeft()I
-    .locals 1
+    .registers 2
 
     .line 428
     iget v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->left:I
@@ -136,12 +138,12 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 439
     iget v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->left:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     iget-object v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
@@ -149,21 +151,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -173,7 +175,7 @@
     .line 432
     iget v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->left:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 434
     iget v0, p0, Lkotlin/sequences/TakeSequence$iterator$1;->left:I
@@ -192,7 +194,7 @@
     return-object v0
 
     .line 433
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -201,7 +203,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -213,7 +215,7 @@
 .end method
 
 .method public final setLeft(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 428

@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/selects/OnTimeout$selectClause$1;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlinx/coroutines/selects/OnTimeout;
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -102,7 +102,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/selects/OnTimeout;Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "p0"    # Lkotlinx/coroutines/selects/OnTimeout;
     .param p2, "p1"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p3, "p2"    # Ljava/lang/Object;
@@ -118,6 +118,7 @@
     .end annotation
 
     .line 45
+    # invokes: Lkotlinx/coroutines/selects/OnTimeout;->register(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
     invoke-static {p1, p2, p3}, Lkotlinx/coroutines/selects/OnTimeout;->access$register(Lkotlinx/coroutines/selects/OnTimeout;Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
 
     return-void

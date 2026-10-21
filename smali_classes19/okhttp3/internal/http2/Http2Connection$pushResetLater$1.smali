@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$pushResetLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 952
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$pushResetLater$1;->invoke()V
@@ -82,11 +82,12 @@
 .end method
 
 .method public final invoke()V
-    .locals 4
+    .registers 5
 
     .line 953
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$pushResetLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->pushObserver:Lokhttp3/internal/http2/PushObserver;
     invoke-static {v0}, Lokhttp3/internal/http2/Http2Connection;->access$getPushObserver$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/http2/PushObserver;
 
     move-result-object v0
@@ -110,7 +111,8 @@
 
     .line 955
     .local v3, "$i$a$-synchronized-Http2Connection$pushResetLater$1$1":I
-    :try_start_0
+    :try_start_15
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$getCurrentPushRequests$p(Lokhttp3/internal/http2/Http2Connection;)Ljava/util/Set;
 
     move-result-object v1
@@ -126,8 +128,8 @@
 
     .end local v3    # "$i$a$-synchronized-Http2Connection$pushResetLater$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_15 .. :try_end_23} :catchall_25
 
     .line 954
     monitor-exit v0
@@ -136,7 +138,7 @@
     return-void
 
     .line 954
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0

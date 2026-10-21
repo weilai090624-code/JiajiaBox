@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/Closeable;)V
-    .locals 0
+    .registers 2
 
     .line 2156
     iput-object p1, p0, Lcom/google/common/util/concurrent/ClosingFuture$11;->val$closeable:Ljava/io/Closeable;
@@ -36,32 +36,33 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 2160
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$11;->val$closeable:Ljava/io/Closeable;
 
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_8
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 2163
-    goto :goto_1
+    goto :goto_14
 
     .line 2161
-    :catch_0
+    :catch_6
     move-exception v0
 
-    goto :goto_0
+    goto :goto_9
 
-    :catch_1
+    :catch_8
     move-exception v0
 
     .line 2162
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_9
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ClosingFuture;->access$3200()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -74,6 +75,6 @@
 
     .line 2164
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_14
     return-void
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;FFFFFFFLandroid/graphics/Matrix;)V
-    .locals 0
+    .registers 10
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     .line 642
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 6
+    .registers 8
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 645
@@ -146,6 +146,7 @@
     move-result v2
 
     .line 650
+    # setter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->imageMatrixScale:F
     invoke-static {v1, v2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->access$202(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;F)F
 
     .line 652
@@ -163,6 +164,7 @@
     iget-object v3, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$4;->val$matrix:Landroid/graphics/Matrix;
 
     .line 652
+    # invokes: Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->calculateImageMatrixFromScale(FLandroid/graphics/Matrix;)V
     invoke-static {v1, v2, v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->access$300(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;FLandroid/graphics/Matrix;)V
 
     .line 654

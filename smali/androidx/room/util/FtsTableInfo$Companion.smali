@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/util/FtsTableInfo$Companion;-><init>()V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method private final readColumns(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 11
+    .registers 14
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "tableName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_28
     move-object v6, v5
 
     check-cast v6, Landroid/database/Cursor;
@@ -151,7 +151,7 @@
 
     move-result v8
 
-    if-lez v8, :cond_0
+    if-lez v8, :cond_4b
 
     .line 96
     const-string v8, "name"
@@ -162,12 +162,12 @@
 
     .line 97
     .local v8, "nameIndex":I
-    :goto_0
+    :goto_38
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_4b
 
     .line 98
     invoke-interface {v6, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -180,18 +180,18 @@
 
     invoke-interface {v1, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_38
 
     .line 101
     .end local v8    # "nameIndex":I
-    :cond_0
+    :cond_4b
     nop
 
     .end local v6    # "cursor":Landroid/database/Cursor;
     .end local v7    # "$i$a$-useCursor-FtsTableInfo$Companion$readColumns$1$1":I
     sget-object v6, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4e
+    .catchall {:try_start_28 .. :try_end_4e} :catchall_58
 
     .line 184
     const/4 v6, 0x0
@@ -217,7 +217,7 @@
     .restart local v2    # "$i$a$-buildSet-FtsTableInfo$Companion$readColumns$1":I
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_58
     move-exception v0
 
     .end local v1    # "$this$readColumns_u24lambda_u241":Ljava/util/Set;
@@ -226,10 +226,10 @@
     .end local v4    # "$i$f$useCursor":I
     .end local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p2    # "tableName":Ljava/lang/String;
-    :try_start_1
+    :try_start_59
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5a
+    .catchall {:try_start_59 .. :try_end_5a} :catchall_5a
 
     .restart local v1    # "$this$readColumns_u24lambda_u241":Ljava/util/Set;
     .restart local v2    # "$i$a$-buildSet-FtsTableInfo$Companion$readColumns$1":I
@@ -237,7 +237,7 @@
     .restart local v4    # "$i$f$useCursor":I
     .restart local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p2    # "tableName":Ljava/lang/String;
-    :catchall_1
+    :catchall_5a
     move-exception v6
 
     invoke-static {v5, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -246,7 +246,7 @@
 .end method
 
 .method private final readOptions(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 7
+    .registers 10
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "tableName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -309,7 +309,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_24
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -322,15 +322,15 @@
     invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_24 .. :try_end_2c} :catchall_4b
 
     const-string/jumbo v6, "sql"
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3a
 
     .line 110
-    :try_start_1
+    :try_start_31
     invoke-interface {v3, v6}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
     move-result v5
@@ -339,16 +339,16 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 112
-    :cond_0
+    :cond_3a
     const-string v5, ""
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_31 .. :try_end_3c} :catchall_4b
 
     .line 109
-    :goto_0
+    :goto_3c
     nop
 
     .line 191
@@ -379,23 +379,23 @@
     .line 191
     .local v0, "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_4b
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p2    # "tableName":Ljava/lang/String;
-    :try_start_2
+    :try_start_4c
     throw v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4d
+    .catchall {:try_start_4c .. :try_end_4d} :catchall_4d
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p2    # "tableName":Ljava/lang/String;
-    :catchall_1
+    :catchall_4d
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -406,7 +406,7 @@
 
 # virtual methods
 .method public final parseOptions(Ljava/lang/String;)Ljava/util/Set;
-    .locals 26
+    .registers 28
     .param p1, "createStatement"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -439,17 +439,17 @@
 
     const/4 v3, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_14
+    if-eqz v1, :cond_1b
 
     .line 132
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
@@ -459,7 +459,7 @@
     return-object v1
 
     .line 136
-    :cond_1
+    :cond_1b
     nop
 
     .line 137
@@ -542,12 +542,12 @@
     .local v10, "index$iv":I
     const/4 v11, 0x0
 
-    :goto_1
+    :goto_52
     invoke-interface {v8}, Ljava/lang/CharSequence;->length()I
 
     move-result v12
 
-    if-ge v11, v12, :cond_16
+    if-ge v11, v12, :cond_193
 
     invoke-interface {v8, v11}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -570,50 +570,50 @@
     .line 150
     const/16 v2, 0x27
 
-    if-ne v14, v2, :cond_2
+    if-ne v14, v2, :cond_67
 
-    :goto_2
+    :goto_65
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_6d
 
-    :cond_2
+    :cond_67
     const/16 v2, 0x22
 
-    if-ne v14, v2, :cond_3
+    if-ne v14, v2, :cond_6c
 
-    goto :goto_2
+    goto :goto_65
 
-    :cond_3
+    :cond_6c
     const/4 v2, 0x0
 
-    :goto_3
-    if-eqz v2, :cond_4
+    :goto_6d
+    if-eqz v2, :cond_71
 
-    :goto_4
+    :goto_6f
     const/4 v2, 0x1
 
-    goto :goto_5
+    goto :goto_77
 
-    :cond_4
+    :cond_71
     const/16 v2, 0x60
 
-    if-ne v14, v2, :cond_5
+    if-ne v14, v2, :cond_76
 
-    goto :goto_4
+    goto :goto_6f
 
-    :cond_5
+    :cond_76
     const/4 v2, 0x0
 
-    :goto_5
-    if-eqz v2, :cond_9
+    :goto_77
+    if-eqz v2, :cond_b0
 
     .line 151
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8e
 
     .line 152
     invoke-static {v14}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -628,26 +628,26 @@
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 153
-    :cond_6
+    :cond_8e
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/Character;
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_97
 
-    goto :goto_6
+    goto :goto_a8
 
-    :cond_7
+    :cond_97
     invoke-virtual {v2}, Ljava/lang/Character;->charValue()C
 
     move-result v2
 
-    if-ne v2, v14, :cond_8
+    if-ne v2, v14, :cond_a8
 
     .line 154
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
@@ -658,30 +658,30 @@
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 153
-    :cond_8
-    :goto_6
+    :cond_a8
+    :goto_a8
     move-object/from16 v20, v4
 
     move-object/from16 v23, v6
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 156
-    :cond_9
+    :cond_b0
     const/16 v2, 0x5b
 
-    if-ne v14, v2, :cond_b
+    if-ne v14, v2, :cond_d1
 
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_c9
 
     .line 157
     invoke-static {v14}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -696,29 +696,29 @@
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 156
-    :cond_a
+    :cond_c9
     move-object/from16 v20, v4
 
     move-object/from16 v23, v6
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 159
-    :cond_b
+    :cond_d1
     const/16 v3, 0x5d
 
-    if-ne v14, v3, :cond_e
+    if-ne v14, v3, :cond_fd
 
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_f5
 
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
 
@@ -726,16 +726,16 @@
 
     check-cast v3, Ljava/lang/Character;
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_e4
 
-    goto :goto_7
+    goto :goto_f5
 
-    :cond_c
+    :cond_e4
     invoke-virtual {v3}, Ljava/lang/Character;->charValue()C
 
     move-result v3
 
-    if-ne v3, v2, :cond_d
+    if-ne v3, v2, :cond_f5
 
     .line 160
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
@@ -746,30 +746,30 @@
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 159
-    :cond_d
-    :goto_7
+    :cond_f5
+    :goto_f5
     move-object/from16 v20, v4
 
     move-object/from16 v23, v6
 
     const/16 v17, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_185
 
     .line 162
-    :cond_e
+    :cond_fd
     const/16 v2, 0x2c
 
-    if-ne v14, v2, :cond_15
+    if-ne v14, v2, :cond_17f
 
     invoke-virtual {v6}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_17f
 
     .line 163
     add-int/lit8 v2, v7, 0x1
@@ -825,20 +825,20 @@
     .local v19, "$i$f$trim":I
     .local v21, "startFound$iv$iv":Z
     .local v22, "$this$trim$iv":Ljava/lang/String;
-    :goto_8
-    if-gt v2, v3, :cond_14
+    :goto_12a
+    if-gt v2, v3, :cond_16b
 
     .line 205
-    if-nez v21, :cond_f
+    if-nez v21, :cond_131
 
     move/from16 v20, v2
 
-    goto :goto_9
+    goto :goto_133
 
-    :cond_f
+    :cond_131
     move/from16 v20, v3
 
-    :goto_9
+    :goto_133
     move/from16 v23, v20
 
     .line 206
@@ -871,27 +871,27 @@
 
     move-result v4
 
-    if-gtz v4, :cond_10
+    if-gtz v4, :cond_14d
 
     const/4 v4, 0x1
 
-    goto :goto_a
+    goto :goto_14e
 
-    :cond_10
+    :cond_14d
     const/4 v4, 0x0
 
     .line 206
     .end local v6    # "it":C
     .end local v24    # "$i$a$-trim-FtsTableInfo$Companion$parseOptions$1$1":I
-    :goto_a
+    :goto_14e
     nop
 
     .line 208
     .local v4, "match$iv$iv":Z
-    if-nez v21, :cond_12
+    if-nez v21, :cond_161
 
     .line 209
-    if-nez v4, :cond_11
+    if-nez v4, :cond_15a
 
     .line 210
     const/16 v21, 0x1
@@ -900,9 +900,9 @@
 
     move-object/from16 v6, v23
 
-    goto :goto_8
+    goto :goto_12a
 
-    :cond_11
+    :cond_15a
     add-int/lit8 v2, v2, 0x1
 
     .line 212
@@ -910,16 +910,16 @@
 
     move-object/from16 v6, v23
 
-    goto :goto_8
+    goto :goto_12a
 
     .line 214
-    :cond_12
-    if-nez v4, :cond_13
+    :cond_161
+    if-nez v4, :cond_164
 
     .line 215
-    goto :goto_b
+    goto :goto_16f
 
-    :cond_13
+    :cond_164
     add-int/lit8 v3, v3, -0x1
 
     .line 217
@@ -929,12 +929,12 @@
 
     .end local v4    # "match$iv$iv":Z
     .end local v25    # "index$iv$iv":I
-    goto :goto_8
+    goto :goto_12a
 
     .line 204
     .end local v23    # "quoteStack":Ljava/util/ArrayDeque;
     .local v6, "quoteStack":Ljava/util/ArrayDeque;
-    :cond_14
+    :cond_16b
     move-object/from16 v20, v4
 
     move-object/from16 v23, v6
@@ -942,7 +942,7 @@
     .line 221
     .end local v6    # "quoteStack":Ljava/util/ArrayDeque;
     .restart local v23    # "quoteStack":Ljava/util/ArrayDeque;
-    :goto_b
+    :goto_16f
     add-int/lit8 v4, v3, 0x1
 
     invoke-interface {v0, v2, v4}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -971,14 +971,14 @@
 
     .end local v7    # "lastDelimiterIndex":I
     .local v0, "lastDelimiterIndex":I
-    goto :goto_c
+    goto :goto_185
 
     .line 162
     .end local v0    # "lastDelimiterIndex":I
     .end local v23    # "quoteStack":Ljava/util/ArrayDeque;
     .restart local v6    # "quoteStack":Ljava/util/ArrayDeque;
     .restart local v7    # "lastDelimiterIndex":I
-    :cond_15
+    :cond_17f
     move-object/from16 v20, v4
 
     move-object/from16 v23, v6
@@ -988,7 +988,7 @@
     .line 167
     .end local v6    # "quoteStack":Ljava/util/ArrayDeque;
     .restart local v23    # "quoteStack":Ljava/util/ArrayDeque;
-    :goto_c
+    :goto_185
     nop
 
     .line 198
@@ -1010,14 +1010,14 @@
 
     const/4 v3, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_52
 
     .line 222
     .end local v13    # "index$iv":I
     .end local v23    # "quoteStack":Ljava/util/ArrayDeque;
     .restart local v6    # "quoteStack":Ljava/util/ArrayDeque;
     .local v10, "index$iv":I
-    :cond_16
+    :cond_193
     move-object/from16 v23, v6
 
     const/16 v17, 0x1
@@ -1078,12 +1078,12 @@
 
     move-result-object v8
 
-    :goto_d
+    :goto_1c1
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1a
+    if-eqz v9, :cond_217
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1099,6 +1099,7 @@
 
     .line 174
     .local v11, "$i$a$-filter-FtsTableInfo$Companion$parseOptions$options$1":I
+    # getter for: Landroidx/room/util/FtsTableInfo;->FTS_OPTIONS:[Ljava/lang/String;
     invoke-static {}, Landroidx/room/util/FtsTableInfo;->access$getFTS_OPTIONS$cp()[Ljava/lang/String;
 
     move-result-object v12
@@ -1112,8 +1113,8 @@
 
     const/4 v15, 0x0
 
-    :goto_e
-    if-ge v15, v14, :cond_18
+    :goto_1d6
+    if-ge v15, v14, :cond_1fe
 
     aget-object v18, v12, v15
 
@@ -1157,14 +1158,14 @@
     .line 225
     .end local v2    # "validOption":Ljava/lang/String;
     .end local v20    # "$i$a$-any-FtsTableInfo$Companion$parseOptions$options$1$1":I
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1f3
 
     const/4 v0, 0x1
 
-    goto :goto_f
+    goto :goto_208
 
     .end local v18    # "element$iv":Ljava/lang/Object;
-    :cond_17
+    :cond_1f3
     add-int/lit8 v15, v15, 0x1
 
     move-object/from16 v4, v16
@@ -1175,7 +1176,7 @@
 
     move/from16 v2, v24
 
-    goto :goto_e
+    goto :goto_1d6
 
     .line 226
     .end local v16    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
@@ -1186,7 +1187,7 @@
     .restart local v1    # "argsString":Ljava/lang/String;
     .local v2, "$i$f$filter":I
     .restart local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_18
+    :cond_1fe
     move-object/from16 v21, v0
 
     move-object/from16 v22, v1
@@ -1210,17 +1211,17 @@
     .line 174
     .end local v12    # "$this$any$iv":[Ljava/lang/Object;
     .end local v13    # "$i$f$any":I
-    :goto_f
+    :goto_208
     nop
 
     .line 224
     .end local v10    # "arg":Ljava/lang/String;
     .end local v11    # "$i$a$-filter-FtsTableInfo$Companion$parseOptions$options$1":I
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_20e
 
     invoke-interface {v3, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_19
+    :cond_20e
     move-object/from16 v4, v16
 
     move-object/from16 v0, v21
@@ -1229,7 +1230,7 @@
 
     move/from16 v2, v24
 
-    goto :goto_d
+    goto :goto_1c1
 
     .line 227
     .end local v9    # "element$iv$iv":Ljava/lang/Object;
@@ -1241,7 +1242,7 @@
     .restart local v1    # "argsString":Ljava/lang/String;
     .restart local v2    # "$i$f$filter":I
     .restart local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_1a
+    :cond_217
     move-object/from16 v21, v0
 
     .end local v0    # "$this$filter$iv":Ljava/lang/Iterable;
@@ -1274,7 +1275,7 @@
 .end method
 
 .method public final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/FtsTableInfo;
-    .locals 3
+    .registers 6
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "tableName"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;

@@ -42,7 +42,7 @@
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$0;->f$2:Landroid/view/View;
 
-    invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$installHome$0(Landroid/view/View;Lio/nekohasekai/sagernet/ui/TrafficDashboardView;Landroid/view/View;)V
+    invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$installHome$1(Landroid/view/View;Lio/nekohasekai/sagernet/ui/TrafficDashboardView;Landroid/view/View;)V
 
     return-void
 .end method

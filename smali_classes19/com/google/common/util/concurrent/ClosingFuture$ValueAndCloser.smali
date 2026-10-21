@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,12 +66,13 @@
 
 # virtual methods
 .method public closeAsync()V
-    .locals 1
+    .registers 2
 
     .line 363
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser;, "Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser<TV;>;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser;->closingFuture:Lcom/google/common/util/concurrent/ClosingFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/ClosingFuture;->close()V
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$100(Lcom/google/common/util/concurrent/ClosingFuture;)V
 
     .line 364
@@ -79,7 +80,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -99,6 +100,7 @@
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser;, "Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser<TV;>;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloser;->closingFuture:Lcom/google/common/util/concurrent/ClosingFuture;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->future:Lcom/google/common/util/concurrent/FluentFuture;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$000(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/FluentFuture;
 
     move-result-object v0

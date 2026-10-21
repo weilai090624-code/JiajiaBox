@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/eventbus/Dispatcher$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/eventbus/Dispatcher$1;
 
     .line 74
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
-    .locals 4
+    .registers 7
     .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_6b
 
     .line 104
     iget-object v1, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;->dispatching:Ljava/lang/ThreadLocal;
@@ -145,8 +145,8 @@
     invoke-virtual {v1, v2}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 107
-    :cond_0
-    :try_start_0
+    :cond_2f
+    :try_start_2f
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
 
     move-result-object v1
@@ -156,10 +156,11 @@
     move-object v2, v1
 
     .local v2, "nextEvent":Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_54
 
     .line 108
-    :goto_0
+    :goto_38
+    # getter for: Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->subscribers:Ljava/util/Iterator;
     invoke-static {v2}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->access$400(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/util/Iterator;
 
     move-result-object v1
@@ -168,9 +169,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 109
+    # getter for: Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->subscribers:Ljava/util/Iterator;
     invoke-static {v2}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->access$400(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/util/Iterator;
 
     move-result-object v1
@@ -181,19 +183,20 @@
 
     check-cast v1, Lcom/google/common/eventbus/Subscriber;
 
+    # getter for: Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->event:Ljava/lang/Object;
     invoke-static {v2}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->access$500(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/lang/Object;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Lcom/google/common/eventbus/Subscriber;->dispatchEvent(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catchall {:try_start_2f .. :try_end_53} :catchall_5f
 
-    goto :goto_0
+    goto :goto_38
 
     .line 113
     .end local v2    # "nextEvent":Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
-    :cond_1
+    :cond_54
     iget-object v1, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;->dispatching:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->remove()V
@@ -204,10 +207,10 @@
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->remove()V
 
     .line 115
-    goto :goto_1
+    goto :goto_6b
 
     .line 113
-    :catchall_0
+    :catchall_5f
     move-exception v1
 
     iget-object v2, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;->dispatching:Ljava/lang/ThreadLocal;
@@ -223,7 +226,7 @@
     throw v1
 
     .line 117
-    :cond_2
-    :goto_1
+    :cond_6b
+    :goto_6b
     return-void
 .end method

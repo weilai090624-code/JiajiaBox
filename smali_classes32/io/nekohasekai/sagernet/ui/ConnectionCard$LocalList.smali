@@ -24,7 +24,7 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 2
 
-    .line 93
+    .line 107
     invoke-direct {p0, p1}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
     const/4 p1, 0x1
@@ -39,7 +39,7 @@
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .registers 8
 
-    .line 94
+    .line 108
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannelKt$createSegmentFunction$1;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlinx/coroutines/channels/BufferedChannelKt;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public final invoke(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
-    .locals 1
+    .registers 5
     .param p1, "p0"    # J
     .param p3, "p1"    # Lkotlinx/coroutines/channels/ChannelSegment;
     .annotation system Ldalvik/annotation/Signature;
@@ -118,6 +118,7 @@
     .end annotation
 
     .line 2863
+    # invokes: Lkotlinx/coroutines/channels/BufferedChannelKt;->createSegment(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
     invoke-static {p1, p2, p3}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$createSegment(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
 
     move-result-object v0

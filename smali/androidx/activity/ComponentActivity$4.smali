@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/ComponentActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/activity/ComponentActivity;
 
     iput-object p1, p0, Landroidx/activity/ComponentActivity$4;->this$0:Landroidx/activity/ComponentActivity;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -76,6 +76,7 @@
     .line 281
     iget-object v0, p0, Landroidx/activity/ComponentActivity$4;->this$0:Landroidx/activity/ComponentActivity;
 
+    # invokes: Landroidx/activity/ComponentActivity;->ensureViewModelStore()V
     invoke-static {v0}, Landroidx/activity/ComponentActivity;->access$ensureViewModelStore(Landroidx/activity/ComponentActivity;)V
 
     .line 282

@@ -118,7 +118,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 67
     invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
@@ -172,7 +172,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/timepicker/MaterialTimePicker;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     .line 67
@@ -182,7 +182,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/timepicker/MaterialTimePicker;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     .line 67
@@ -192,7 +192,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/google/android/material/timepicker/MaterialTimePicker;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
     .param p1, "x1"    # I
 
@@ -203,7 +203,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/android/material/timepicker/MaterialTimePicker;)Lcom/google/android/material/button/MaterialButton;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     .line 67
@@ -213,7 +213,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/google/android/material/timepicker/MaterialTimePicker;Lcom/google/android/material/button/MaterialButton;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
     .param p1, "x1"    # Lcom/google/android/material/button/MaterialButton;
 
@@ -224,7 +224,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/MaterialTimePicker;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 67
@@ -236,7 +236,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/android/material/timepicker/MaterialTimePicker;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     .line 67
@@ -246,7 +246,7 @@
 .end method
 
 .method private dataForMode(I)Landroid/util/Pair;
-    .locals 3
+    .registers 5
     .param p1, "mode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -259,7 +259,7 @@
     .end annotation
 
     .line 428
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_40
 
     .line 435
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -287,7 +287,7 @@
     throw v0
 
     .line 430
-    :pswitch_0
+    :pswitch_1c
     new-instance v0, Landroid/util/Pair;
 
     iget v1, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->clockIcon:I
@@ -307,7 +307,7 @@
     return-object v0
 
     .line 432
-    :pswitch_1
+    :pswitch_2e
     new-instance v0, Landroid/util/Pair;
 
     iget v1, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->keyboardIcon:I
@@ -326,20 +326,20 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method private getThemeResId()I
-    .locals 2
+    .registers 3
 
     .line 543
     iget v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->overrideThemeResId:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 544
     iget v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->overrideThemeResId:I
@@ -347,7 +347,7 @@
     return v0
 
     .line 546
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->requireContext()Landroid/content/Context;
 
     move-result-object v0
@@ -360,27 +360,27 @@
 
     .line 547
     .local v0, "value":Landroid/util/TypedValue;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_15
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
-    :goto_0
+    :goto_17
     return v1
 .end method
 
 .method private initializeOrRetrieveActivePresenterForMode(ILcom/google/android/material/timepicker/TimePickerView;Landroid/view/ViewStub;)Lcom/google/android/material/timepicker/TimePickerPresenter;
-    .locals 3
+    .registers 7
     .param p1, "mode"    # I
     .param p2, "timePickerView"    # Lcom/google/android/material/timepicker/TimePickerView;
     .param p3, "textInputStub"    # Landroid/view/ViewStub;
 
     .line 408
-    if-nez p1, :cond_1
+    if-nez p1, :cond_16
 
     .line 409
     nop
@@ -388,7 +388,7 @@
     .line 410
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerClockPresenter:Lcom/google/android/material/timepicker/TimePickerClockPresenter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 411
     new-instance v0, Lcom/google/android/material/timepicker/TimePickerClockPresenter;
@@ -397,13 +397,13 @@
 
     invoke-direct {v0, p2, v1}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;-><init>(Lcom/google/android/material/timepicker/TimePickerView;Lcom/google/android/material/timepicker/TimeModel;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 412
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerClockPresenter:Lcom/google/android/material/timepicker/TimePickerClockPresenter;
 
-    :goto_0
+    :goto_11
     iput-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerClockPresenter:Lcom/google/android/material/timepicker/TimePickerClockPresenter;
 
     .line 414
@@ -412,10 +412,10 @@
     return-object v0
 
     .line 417
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerTextInputPresenter:Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_29
 
     .line 418
     invoke-virtual {p3}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
@@ -436,7 +436,7 @@
 
     .line 422
     .end local v0    # "textInputView":Landroid/widget/LinearLayout;
-    :cond_2
+    :cond_29
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerTextInputPresenter:Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
     invoke-virtual {v0}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->clearCheck()V
@@ -448,7 +448,7 @@
 .end method
 
 .method private static newInstance(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/MaterialTimePicker;
-    .locals 4
+    .registers 5
     .param p0, "options"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 120
@@ -466,6 +466,7 @@
     .local v1, "args":Landroid/os/Bundle;
     const-string v2, "TIME_PICKER_TIME_MODEL"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->time:Lcom/google/android/material/timepicker/TimeModel;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$000(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/TimeModel;
 
     move-result-object v3
@@ -473,13 +474,15 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 123
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->inputMode:Ljava/lang/Integer;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$100(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/Integer;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 124
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->inputMode:Ljava/lang/Integer;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$100(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/Integer;
 
     move-result-object v2
@@ -493,9 +496,10 @@
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 126
-    :cond_0
+    :cond_26
     const-string v2, "TIME_PICKER_TITLE_RES"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->titleTextResId:I
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$200(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
 
     move-result v3
@@ -503,15 +507,17 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 127
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->titleText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$300(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     .line 128
     const-string v2, "TIME_PICKER_TITLE_TEXT"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->titleText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$300(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -519,9 +525,10 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     .line 130
-    :cond_1
+    :cond_3e
     const-string v2, "TIME_PICKER_POSITIVE_BUTTON_TEXT_RES"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->positiveButtonTextResId:I
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$400(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
 
     move-result v3
@@ -529,15 +536,17 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 131
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->positiveButtonText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$500(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_56
 
     .line 132
     const-string v2, "TIME_PICKER_POSITIVE_BUTTON_TEXT"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->positiveButtonText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$500(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -545,9 +554,10 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     .line 134
-    :cond_2
+    :cond_56
     const-string v2, "TIME_PICKER_NEGATIVE_BUTTON_TEXT_RES"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->negativeButtonTextResId:I
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$600(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
 
     move-result v3
@@ -555,15 +565,17 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 135
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->negativeButtonText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$700(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_6e
 
     .line 136
     const-string v2, "TIME_PICKER_NEGATIVE_BUTTON_TEXT"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->negativeButtonText:Ljava/lang/CharSequence;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$700(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -571,9 +583,10 @@
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     .line 138
-    :cond_3
+    :cond_6e
     const-string v2, "TIME_PICKER_OVERRIDE_THEME_RES_ID"
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->overrideThemeResId:I
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;->access$800(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
 
     move-result v3
@@ -588,17 +601,17 @@
 .end method
 
 .method private restoreState(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 239
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 240
     return-void
 
     .line 243
-    :cond_0
+    :cond_3
     const-string v0, "TIME_PICKER_TIME_MODEL"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -612,7 +625,7 @@
     .line 244
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->time:Lcom/google/android/material/timepicker/TimeModel;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 245
     new-instance v0, Lcom/google/android/material/timepicker/TimeModel;
@@ -622,7 +635,7 @@
     iput-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->time:Lcom/google/android/material/timepicker/TimeModel;
 
     .line 247
-    :cond_1
+    :cond_18
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->time:Lcom/google/android/material/timepicker/TimeModel;
 
     iget v0, v0, Lcom/google/android/material/timepicker/TimeModel;->format:I
@@ -631,14 +644,14 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_22
     move v0, v1
 
     .line 248
@@ -719,12 +732,12 @@
 .end method
 
 .method private updateCancelButtonVisibility()V
-    .locals 2
+    .registers 3
 
     .line 401
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->cancelButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 402
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->cancelButton:Landroid/widget/Button;
@@ -733,45 +746,45 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_10
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 404
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method private updateInputMode(Lcom/google/android/material/button/MaterialButton;)V
-    .locals 3
+    .registers 5
     .param p1, "modeButton"    # Lcom/google/android/material/button/MaterialButton;
 
     .line 381
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_53
 
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerView:Lcom/google/android/material/timepicker/TimePickerView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_53
 
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->textInputStub:Landroid/view/ViewStub;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_0
+    goto :goto_53
 
     .line 385
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 386
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
@@ -779,7 +792,7 @@
     invoke-interface {v0}, Lcom/google/android/material/timepicker/TimePickerPresenter;->hide()V
 
     .line 389
-    :cond_1
+    :cond_14
     iget v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->inputMode:I
 
     iget-object v1, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerView:Lcom/google/android/material/timepicker/TimePickerView;
@@ -851,15 +864,15 @@
 
     .line 382
     .end local v0    # "buttonData":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :cond_2
-    :goto_0
+    :cond_53
+    :goto_53
     return-void
 .end method
 
 
 # virtual methods
 .method public addOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .line 499
@@ -873,7 +886,7 @@
 .end method
 
 .method public addOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/content/DialogInterface$OnDismissListener;
 
     .line 523
@@ -887,7 +900,7 @@
 .end method
 
 .method public addOnNegativeButtonClickListener(Landroid/view/View$OnClickListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .line 471
@@ -901,7 +914,7 @@
 .end method
 
 .method public addOnPositiveButtonClickListener(Landroid/view/View$OnClickListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .line 450
@@ -915,7 +928,7 @@
 .end method
 
 .method public clearOnCancelListeners()V
-    .locals 1
+    .registers 2
 
     .line 515
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->cancelListeners:Ljava/util/Set;
@@ -927,7 +940,7 @@
 .end method
 
 .method public clearOnDismissListeners()V
-    .locals 1
+    .registers 2
 
     .line 539
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->dismissListeners:Ljava/util/Set;
@@ -939,7 +952,7 @@
 .end method
 
 .method public clearOnNegativeButtonClickListeners()V
-    .locals 1
+    .registers 2
 
     .line 487
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->negativeButtonListeners:Ljava/util/Set;
@@ -951,7 +964,7 @@
 .end method
 
 .method public clearOnPositiveButtonClickListeners()V
-    .locals 1
+    .registers 2
 
     .line 466
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->positiveButtonListeners:Ljava/util/Set;
@@ -963,7 +976,7 @@
 .end method
 
 .method public getHour()I
-    .locals 1
+    .registers 2
 
     .line 161
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->time:Lcom/google/android/material/timepicker/TimeModel;
@@ -976,7 +989,7 @@
 .end method
 
 .method public getInputMode()I
-    .locals 1
+    .registers 2
 
     .line 174
     iget v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->inputMode:I
@@ -985,7 +998,7 @@
 .end method
 
 .method public getMinute()I
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->time:Lcom/google/android/material/timepicker/TimeModel;
@@ -996,7 +1009,7 @@
 .end method
 
 .method getTimePickerClockPresenter()Lcom/google/android/material/timepicker/TimePickerClockPresenter;
-    .locals 1
+    .registers 2
 
     .line 440
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerClockPresenter:Lcom/google/android/material/timepicker/TimePickerClockPresenter;
@@ -1005,7 +1018,7 @@
 .end method
 
 .method synthetic lambda$onViewCreated$0$com-google-android-material-timepicker-MaterialTimePicker()V
-    .locals 1
+    .registers 2
 
     .line 332
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
@@ -1018,7 +1031,7 @@
 .end method
 
 .method public final onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
+    .registers 4
     .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
 
     .line 350
@@ -1028,12 +1041,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1047,10 +1060,10 @@
 
     .line 352
     .end local v1    # "listener":Landroid/content/DialogInterface$OnCancelListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 353
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
 
     .line 354
@@ -1058,25 +1071,25 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 220
     invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 221
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move-object v0, p1
 
-    :goto_0
+    :goto_b
     invoke-direct {p0, v0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->restoreState(Landroid/os/Bundle;)V
 
     .line 222
@@ -1084,7 +1097,7 @@
 .end method
 
 .method public final onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 8
+    .registers 10
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 180
@@ -1216,7 +1229,7 @@
 .end method
 
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 5
+    .registers 9
     .param p1, "layoutInflater"    # Landroid/view/LayoutInflater;
     .param p2, "viewGroup"    # Landroid/view/ViewGroup;
     .param p3, "bundle"    # Landroid/os/Bundle;
@@ -1283,24 +1296,24 @@
     .local v1, "headerTitle":Landroid/widget/TextView;
     iget v2, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->titleResId:I
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 273
     iget v2, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->titleResId:I
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 274
-    :cond_0
+    :cond_3d
     iget-object v2, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->titleText:Ljava/lang/CharSequence;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     .line 275
     iget-object v2, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->titleText:Ljava/lang/CharSequence;
@@ -1308,8 +1321,8 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 278
-    :cond_1
-    :goto_0
+    :cond_4a
+    :goto_4a
     iget-object v2, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->modeButton:Lcom/google/android/material/button/MaterialButton;
 
     invoke-direct {p0, v2}, Lcom/google/android/material/timepicker/MaterialTimePicker;->updateInputMode(Lcom/google/android/material/button/MaterialButton;)V
@@ -1334,24 +1347,24 @@
     .line 290
     iget v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->positiveButtonTextResId:I
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_69
 
     .line 291
     iget v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->positiveButtonTextResId:I
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
-    goto :goto_1
+    goto :goto_76
 
     .line 292
-    :cond_2
+    :cond_69
     iget-object v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->positiveButtonText:Ljava/lang/CharSequence;
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_76
 
     .line 293
     iget-object v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->positiveButtonText:Ljava/lang/CharSequence;
@@ -1359,8 +1372,8 @@
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     .line 296
-    :cond_3
-    :goto_1
+    :cond_76
+    :goto_76
     sget v3, Lcom/google/android/material/R$id;->material_timepicker_cancel_button:I
 
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
@@ -1383,7 +1396,7 @@
     .line 307
     iget v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->negativeButtonTextResId:I
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_96
 
     .line 308
     iget-object v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->cancelButton:Landroid/widget/Button;
@@ -1392,17 +1405,17 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(I)V
 
-    goto :goto_2
+    goto :goto_a5
 
     .line 309
-    :cond_4
+    :cond_96
     iget-object v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->negativeButtonText:Ljava/lang/CharSequence;
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_a5
 
     .line 310
     iget-object v3, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->cancelButton:Landroid/widget/Button;
@@ -1412,8 +1425,8 @@
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     .line 313
-    :cond_5
-    :goto_2
+    :cond_a5
+    :goto_a5
     invoke-direct {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->updateCancelButtonVisibility()V
 
     .line 315
@@ -1430,7 +1443,7 @@
 .end method
 
 .method public onDestroyView()V
-    .locals 2
+    .registers 3
 
     .line 338
     invoke-super {p0}, Landroidx/fragment/app/DialogFragment;->onDestroyView()V
@@ -1449,7 +1462,7 @@
     .line 342
     iget-object v1, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerView:Lcom/google/android/material/timepicker/TimePickerView;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 343
     iget-object v1, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerView:Lcom/google/android/material/timepicker/TimePickerView;
@@ -1460,12 +1473,12 @@
     iput-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->timePickerView:Lcom/google/android/material/timepicker/TimePickerView;
 
     .line 346
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public final onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+    .registers 4
     .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
 
     .line 358
@@ -1475,12 +1488,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1494,10 +1507,10 @@
 
     .line 360
     .end local v1    # "listener":Landroid/content/DialogInterface$OnDismissListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 362
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
 
     .line 363
@@ -1505,7 +1518,7 @@
 .end method
 
 .method public onDoubleTap()V
-    .locals 1
+    .registers 2
 
     .line 375
     const/4 v0, 0x1
@@ -1527,7 +1540,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 226
@@ -1601,7 +1614,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "bundle"    # Landroid/os/Bundle;
 
@@ -1613,7 +1626,7 @@
 
     instance-of v0, v0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 332
     new-instance v0, Lcom/google/android/material/timepicker/MaterialTimePicker$$ExternalSyntheticLambda0;
@@ -1625,12 +1638,12 @@
     invoke-virtual {p1, v0, v1, v2}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 334
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public removeOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .line 507
@@ -1644,7 +1657,7 @@
 .end method
 
 .method public removeOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/content/DialogInterface$OnDismissListener;
 
     .line 531
@@ -1658,7 +1671,7 @@
 .end method
 
 .method public removeOnNegativeButtonClickListener(Landroid/view/View$OnClickListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .line 479
@@ -1672,7 +1685,7 @@
 .end method
 
 .method public removeOnPositiveButtonClickListener(Landroid/view/View$OnClickListener;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .line 458
@@ -1686,7 +1699,7 @@
 .end method
 
 .method setActivePresenter(Lcom/google/android/material/timepicker/TimePickerPresenter;)V
-    .locals 0
+    .registers 2
     .param p1, "presenter"    # Lcom/google/android/material/timepicker/TimePickerPresenter;
 
     .line 445
@@ -1697,7 +1710,7 @@
 .end method
 
 .method public setCancelable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "cancelable"    # Z
 
     .line 367
@@ -1711,7 +1724,7 @@
 .end method
 
 .method public setHour(I)V
-    .locals 1
+    .registers 3
     .param p1, "hour"    # I
 
     .line 166
@@ -1722,7 +1735,7 @@
     .line 167
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 168
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
@@ -1730,12 +1743,12 @@
     invoke-interface {v0}, Lcom/google/android/material/timepicker/TimePickerPresenter;->invalidate()V
 
     .line 170
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public setMinute(I)V
-    .locals 1
+    .registers 3
     .param p1, "minute"    # I
 
     .line 152
@@ -1746,7 +1759,7 @@
     .line 153
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 154
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker;->activePresenter:Lcom/google/android/material/timepicker/TimePickerPresenter;
@@ -1754,6 +1767,6 @@
     invoke-interface {v0}, Lcom/google/android/material/timepicker/TimePickerPresenter;->invalidate()V
 
     .line 156
-    :cond_0
+    :cond_e
     return-void
 .end method

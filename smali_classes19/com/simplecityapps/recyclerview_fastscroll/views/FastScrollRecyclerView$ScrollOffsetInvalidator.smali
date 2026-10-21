@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;)V
-    .locals 0
+    .registers 2
 
     .line 562
     iput-object p1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollOffsetInvalidator;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     .param p2, "x1"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$1;
 
@@ -42,11 +42,12 @@
 .end method
 
 .method private invalidateAllScrollOffsets()V
-    .locals 1
+    .registers 2
 
     .line 564
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollOffsetInvalidator;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsets:Landroid/util/SparseIntArray;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;)Landroid/util/SparseIntArray;
 
     move-result-object v0
@@ -60,7 +61,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 0
+    .registers 1
 
     .line 569
     invoke-direct {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollOffsetInvalidator;->invalidateAllScrollOffsets()V
@@ -70,7 +71,7 @@
 .end method
 
 .method public onItemRangeChanged(II)V
-    .locals 0
+    .registers 3
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -82,7 +83,7 @@
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -95,7 +96,7 @@
 .end method
 
 .method public onItemRangeInserted(II)V
-    .locals 0
+    .registers 3
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -107,7 +108,7 @@
 .end method
 
 .method public onItemRangeMoved(III)V
-    .locals 0
+    .registers 4
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
     .param p3, "itemCount"    # I
@@ -120,7 +121,7 @@
 .end method
 
 .method public onItemRangeRemoved(II)V
-    .locals 0
+    .registers 3
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 

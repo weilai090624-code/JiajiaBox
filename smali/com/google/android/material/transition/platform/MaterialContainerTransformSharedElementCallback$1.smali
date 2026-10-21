@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;Landroid/view/Window;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;
 
     .line 241
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 249
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$1;->val$window:Landroid/view/Window;
 
+    # invokes: Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->restoreWindowBackground(Landroid/view/Window;)V
     invoke-static {v0}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->access$100(Landroid/view/Window;)V
 
     .line 250
@@ -51,12 +52,13 @@
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 244
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$1;->val$window:Landroid/view/Window;
 
+    # invokes: Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->removeWindowBackground(Landroid/view/Window;)V
     invoke-static {v0}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->access$000(Landroid/view/Window;)V
 
     .line 245

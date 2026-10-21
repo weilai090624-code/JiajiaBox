@@ -93,7 +93,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$pWD0wJBuCqmpYo4cA6wnFke6RV0(Ljava/util/List;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->_set_state_$lambda$4$lambda$3(Ljava/util/List;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method private static final _set_state_$lambda$4$lambda$3(Ljava/util/List;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 7
+    .registers 9
     .param p0, "$listenersList"    # Ljava/util/List;
     .param p1, "this$0"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
@@ -175,12 +175,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -209,10 +209,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_13
 
     .line 125
-    :cond_0
+    :cond_29
     nop
 
     .line 102
@@ -224,7 +224,7 @@
 
 # virtual methods
 .method public final addListener(Landroidx/work/impl/constraints/ConstraintListener;)V
-    .locals 6
+    .registers 8
     .param p1, "listener"    # Landroidx/work/impl/constraints/ConstraintListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -247,14 +247,14 @@
 
     .line 51
     .local v1, "$i$a$-synchronized-ConstraintTracker$addListener$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->listeners:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v2, p1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_54
 
     .line 52
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->listeners:Ljava/util/LinkedHashSet;
@@ -265,7 +265,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_4f
 
     .line 53
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->getInitialState()Ljava/lang/Object;
@@ -280,6 +280,7 @@
     move-result-object v2
 
     .line 55
+    # getter for: Landroidx/work/impl/constraints/trackers/ConstraintTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/ConstraintTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -323,19 +324,19 @@
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->startTracking()V
 
     .line 60
-    :cond_0
+    :cond_4f
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->currentState:Ljava/lang/Object;
 
     invoke-interface {p1, v2}, Landroidx/work/impl/constraints/ConstraintListener;->onConstraintChanged(Ljava/lang/Object;)V
 
     .line 62
-    :cond_1
+    :cond_54
     nop
 
     .end local v1    # "$i$a$-synchronized-ConstraintTracker$addListener$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_57
+    .catchall {:try_start_9 .. :try_end_57} :catchall_59
 
     .line 50
     monitor-exit v0
@@ -344,7 +345,7 @@
     return-void
 
     .line 50
-    :catchall_0
+    :catchall_59
     move-exception v1
 
     monitor-exit v0
@@ -353,7 +354,7 @@
 .end method
 
 .method protected final getAppContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->appContext:Landroid/content/Context;
@@ -370,7 +371,7 @@
 .end method
 
 .method public final getState()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -380,18 +381,18 @@
     .line 80
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->currentState:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->getInitialState()Ljava/lang/Object;
 
     move-result-object v0
 
-    :cond_0
+    :cond_8
     return-object v0
 .end method
 
 .method public final removeListener(Landroidx/work/impl/constraints/ConstraintListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Landroidx/work/impl/constraints/ConstraintListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -414,14 +415,14 @@
 
     .line 72
     .local v1, "$i$a$-synchronized-ConstraintTracker$removeListener$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->listeners:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v2, p1}, Ljava/util/LinkedHashSet;->remove(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->listeners:Ljava/util/LinkedHashSet;
 
@@ -429,19 +430,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 73
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->stopTracking()V
 
     .line 75
-    :cond_0
+    :cond_1c
     nop
 
     .end local v1    # "$i$a$-synchronized-ConstraintTracker$removeListener$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_9 .. :try_end_1f} :catchall_21
 
     .line 71
     monitor-exit v0
@@ -450,7 +451,7 @@
     return-void
 
     .line 71
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     monitor-exit v0
@@ -459,7 +460,7 @@
 .end method
 
 .method public final setState(Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p1, "newState"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -476,20 +477,20 @@
 
     .line 85
     .local v1, "$i$a$-synchronized-ConstraintTracker$state$1":I
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->currentState:Ljava/lang/Object;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->currentState:Ljava/lang/Object;
 
     invoke-static {v2, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_4 .. :try_end_e} :catchall_30
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 86
     nop
@@ -501,8 +502,8 @@
 
     .line 89
     .restart local v1    # "$i$a$-synchronized-ConstraintTracker$state$1":I
-    :cond_0
-    :try_start_1
+    :cond_13
+    :try_start_13
     iput-object p1, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->currentState:Ljava/lang/Object;
 
     .line 95
@@ -534,8 +535,8 @@
     .end local v1    # "$i$a$-synchronized-ConstraintTracker$state$1":I
     .end local v2    # "listenersList":Ljava/util/List;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_13 .. :try_end_2e} :catchall_30
 
     .line 84
     monitor-exit v0
@@ -544,7 +545,7 @@
     return-void
 
     .line 84
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     monitor-exit v0

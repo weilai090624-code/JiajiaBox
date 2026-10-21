@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/CompactHashMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/CompactHashMap;
 
     .line 741
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 750
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$EntrySetView;, "Lcom/google/common/collect/CompactHashMap<TK;TV;>.EntrySetView;"
@@ -56,7 +56,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -72,7 +72,7 @@
 
     .line 761
     .local v0, "delegate":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 762
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -86,12 +86,12 @@
     return v1
 
     .line 763
-    :cond_0
+    :cond_11
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 764
     move-object v1, p1
@@ -106,6 +106,7 @@
 
     move-result-object v4
 
+    # invokes: Lcom/google/common/collect/CompactHashMap;->indexOf(Ljava/lang/Object;)I
     invoke-static {v3, v4}, Lcom/google/common/collect/CompactHashMap;->access$500(Lcom/google/common/collect/CompactHashMap;Ljava/lang/Object;)I
 
     move-result v3
@@ -114,10 +115,11 @@
     .local v3, "index":I
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_37
 
     iget-object v4, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
+    # invokes: Lcom/google/common/collect/CompactHashMap;->value(I)Ljava/lang/Object;
     invoke-static {v4, v3}, Lcom/google/common/collect/CompactHashMap;->access$600(Lcom/google/common/collect/CompactHashMap;I)Ljava/lang/Object;
 
     move-result-object v4
@@ -130,22 +132,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_37
     return v2
 
     .line 768
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v3    # "index":I
-    :cond_2
+    :cond_38
     return v2
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,7 +169,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 11
+    .registers 13
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -183,7 +185,7 @@
 
     .line 774
     .local v0, "delegate":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 775
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -197,12 +199,12 @@
     return v1
 
     .line 776
-    :cond_0
+    :cond_11
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_63
 
     .line 777
     move-object v1, p1
@@ -217,15 +219,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     .line 779
     return v2
 
     .line 781
-    :cond_1
+    :cond_22
     iget-object v3, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
+    # invokes: Lcom/google/common/collect/CompactHashMap;->hashTableMask()I
     invoke-static {v3}, Lcom/google/common/collect/CompactHashMap;->access$700(Lcom/google/common/collect/CompactHashMap;)I
 
     move-result v3
@@ -247,6 +250,7 @@
     iget-object v6, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
     .line 787
+    # invokes: Lcom/google/common/collect/CompactHashMap;->requireTable()Ljava/lang/Object;
     invoke-static {v6}, Lcom/google/common/collect/CompactHashMap;->access$800(Lcom/google/common/collect/CompactHashMap;)Ljava/lang/Object;
 
     move-result-object v7
@@ -254,6 +258,7 @@
     iget-object v6, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
     .line 788
+    # invokes: Lcom/google/common/collect/CompactHashMap;->requireEntries()[I
     invoke-static {v6}, Lcom/google/common/collect/CompactHashMap;->access$900(Lcom/google/common/collect/CompactHashMap;)[I
 
     move-result-object v8
@@ -261,6 +266,7 @@
     iget-object v6, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
     .line 789
+    # invokes: Lcom/google/common/collect/CompactHashMap;->requireKeys()[Ljava/lang/Object;
     invoke-static {v6}, Lcom/google/common/collect/CompactHashMap;->access$1000(Lcom/google/common/collect/CompactHashMap;)[Ljava/lang/Object;
 
     move-result-object v9
@@ -268,6 +274,7 @@
     iget-object v6, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
     .line 790
+    # invokes: Lcom/google/common/collect/CompactHashMap;->requireValues()[Ljava/lang/Object;
     invoke-static {v6}, Lcom/google/common/collect/CompactHashMap;->access$1100(Lcom/google/common/collect/CompactHashMap;)[Ljava/lang/Object;
 
     move-result-object v10
@@ -283,13 +290,13 @@
     .local v4, "index":I
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_52
 
     .line 792
     return v2
 
     .line 795
-    :cond_2
+    :cond_52
     iget-object v2, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
     invoke-virtual {v2, v4, v3}, Lcom/google/common/collect/CompactHashMap;->moveLastEntry(II)V
@@ -297,6 +304,7 @@
     .line 796
     iget-object v2, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
+    # operator-- for: Lcom/google/common/collect/CompactHashMap;->size:I
     invoke-static {v2}, Lcom/google/common/collect/CompactHashMap;->access$1210(Lcom/google/common/collect/CompactHashMap;)I
 
     .line 797
@@ -313,12 +321,12 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v3    # "mask":I
     .end local v4    # "index":I
-    :cond_3
+    :cond_63
     return v2
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 745
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$EntrySetView;, "Lcom/google/common/collect/CompactHashMap<TK;TV;>.EntrySetView;"

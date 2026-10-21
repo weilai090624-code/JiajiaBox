@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/chip/ChipGroup;)V
-    .locals 0
+    .registers 2
 
     .line 513
     iput-object p1, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->this$0:Lcom/google/android/material/chip/ChipGroup;
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/chip/ChipGroup;
     .param p2, "x1"    # Lcom/google/android/material/chip/ChipGroup$1;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;
     .param p1, "x1"    # Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
@@ -60,18 +60,18 @@
 
 # virtual methods
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
 
     .line 518
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->this$0:Lcom/google/android/material/chip/ChipGroup;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_22
 
     instance-of v0, p2, Lcom/google/android/material/chip/Chip;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 519
     invoke-virtual {p2}, Landroid/view/View;->getId()I
@@ -82,7 +82,7 @@
     .local v0, "id":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 522
     invoke-static {}, Landroidx/core/view/ViewCompat;->generateViewId()I
@@ -93,9 +93,10 @@
     invoke-virtual {p2, v0}, Landroid/view/View;->setId(I)V
 
     .line 525
-    :cond_0
+    :cond_16
     iget-object v1, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->this$0:Lcom/google/android/material/chip/ChipGroup;
 
+    # getter for: Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
     invoke-static {v1}, Lcom/google/android/material/chip/ChipGroup;->access$200(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/internal/CheckableGroup;
 
     move-result-object v1
@@ -108,10 +109,10 @@
 
     .line 528
     .end local v0    # "id":I
-    :cond_1
+    :cond_22
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->onHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 529
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->onHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
@@ -119,27 +120,28 @@
     invoke-interface {v0, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
 
     .line 531
-    :cond_2
+    :cond_2b
     return-void
 .end method
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p1, "parent"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
 
     .line 535
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->this$0:Lcom/google/android/material/chip/ChipGroup;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_14
 
     instance-of v0, p2, Lcom/google/android/material/chip/Chip;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 536
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->this$0:Lcom/google/android/material/chip/ChipGroup;
 
+    # getter for: Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
     invoke-static {v0}, Lcom/google/android/material/chip/ChipGroup;->access$200(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/internal/CheckableGroup;
 
     move-result-object v0
@@ -151,10 +153,10 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/CheckableGroup;->removeCheckable(Lcom/google/android/material/internal/MaterialCheckable;)V
 
     .line 539
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->onHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 540
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->onHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
@@ -162,6 +164,6 @@
     invoke-interface {v0, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
 
     .line 542
-    :cond_1
+    :cond_1d
     return-void
 .end method

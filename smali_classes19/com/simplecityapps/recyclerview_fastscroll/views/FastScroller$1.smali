@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 154
@@ -37,29 +37,32 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 157
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$000(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_67
 
     .line 158
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 159
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -67,13 +70,14 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 161
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     invoke-static {v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$200(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     move-result-object v2
@@ -86,16 +90,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2f
 
     const/4 v2, -0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     const/4 v2, 0x1
 
-    :goto_0
+    :goto_30
     iget-object v3, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     invoke-virtual {v3}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->getWidth()I
@@ -114,11 +118,13 @@
 
     move-result-object v1
 
+    # setter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$102(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     .line 162
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -132,6 +138,7 @@
     .line 163
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -143,6 +150,7 @@
     .line 164
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$1;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -150,6 +158,6 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     .line 166
-    :cond_2
+    :cond_67
     return-void
 .end method

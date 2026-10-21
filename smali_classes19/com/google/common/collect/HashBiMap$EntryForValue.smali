@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;I)V
-    .locals 1
+    .registers 4
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method private updateIndex()V
-    .locals 3
+    .registers 4
 
     .line 1097
     .local p0, "this":Lcom/google/common/collect/HashBiMap$EntryForValue;, "Lcom/google/common/collect/HashBiMap$EntryForValue<TK;TV;>;"
@@ -97,7 +97,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1d
 
     iget v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->index:I
 
@@ -105,7 +105,7 @@
 
     iget v1, v1, Lcom/google/common/collect/HashBiMap;->size:I
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1d
 
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->value:Ljava/lang/Object;
 
@@ -121,10 +121,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     .line 1098
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->biMap:Lcom/google/common/collect/HashBiMap;
 
     iget-object v1, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->value:Ljava/lang/Object;
@@ -136,14 +136,14 @@
     iput v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->index:I
 
     .line 1100
-    :cond_1
+    :cond_27
     return-void
 .end method
 
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -180,15 +180,15 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     invoke-static {}, Lcom/google/common/collect/NullnessCasts;->unsafeNull()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->biMap:Lcom/google/common/collect/HashBiMap;
 
     iget-object v0, v0, Lcom/google/common/collect/HashBiMap;->keys:[Ljava/lang/Object;
@@ -201,12 +201,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -232,7 +232,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     .line 1121
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->biMap:Lcom/google/common/collect/HashBiMap;
@@ -249,7 +249,7 @@
     return-object v0
 
     .line 1124
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->biMap:Lcom/google/common/collect/HashBiMap;
 
     iget-object v0, v0, Lcom/google/common/collect/HashBiMap;->keys:[Ljava/lang/Object;
@@ -268,17 +268,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 1126
     return-object p1
 
     .line 1128
-    :cond_1
+    :cond_28
     iget-object v1, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->biMap:Lcom/google/common/collect/HashBiMap;
 
     iget v3, p0, Lcom/google/common/collect/HashBiMap$EntryForValue;->index:I
 
+    # invokes: Lcom/google/common/collect/HashBiMap;->replaceKeyInEntry(ILjava/lang/Object;Z)V
     invoke-static {v1, v3, p1, v2}, Lcom/google/common/collect/HashBiMap;->access$400(Lcom/google/common/collect/HashBiMap;ILjava/lang/Object;Z)V
 
     .line 1129

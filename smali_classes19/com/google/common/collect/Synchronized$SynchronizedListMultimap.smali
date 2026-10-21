@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ListMultimap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method delegate()Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -85,7 +85,7 @@
 .end method
 
 .method bridge synthetic delegate()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 724
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedListMultimap<TK;TV;>;"
@@ -97,7 +97,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 724
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedListMultimap<TK;TV;>;"
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
 
     .line 724
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedListMultimap<TK;TV;>;"
@@ -121,7 +121,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -138,7 +138,7 @@
     monitor-enter v0
 
     .line 739
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v1
@@ -149,6 +149,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->list(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$200(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -158,18 +159,18 @@
     return-object v1
 
     .line 740
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -185,7 +186,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -207,7 +208,7 @@
     monitor-enter v0
 
     .line 746
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v1
@@ -221,18 +222,18 @@
     return-object v1
 
     .line 747
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
 
     .line 724
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;, "Lcom/google/common/collect/Synchronized$SynchronizedListMultimap<TK;TV;>;"
@@ -244,7 +245,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -264,7 +265,7 @@
     monitor-enter v0
 
     .line 753
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v1
@@ -278,12 +279,12 @@
     return-object v1
 
     .line 754
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

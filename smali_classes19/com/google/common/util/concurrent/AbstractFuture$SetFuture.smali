@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,31 +79,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 354
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$SetFuture<TV;>;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->owner:Lcom/google/common/util/concurrent/AbstractFuture;
 
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractFuture;->access$400(Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_9
 
     .line 356
     return-void
 
     .line 358
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->future:Lcom/google/common/util/concurrent/ListenableFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/AbstractFuture;->getFutureValue(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractFuture;->access$500(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 359
     .local v0, "valueToSet":Ljava/lang/Object;
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
     invoke-static {}, Lcom/google/common/util/concurrent/AbstractFuture;->access$200()Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     move-result-object v1
@@ -114,14 +117,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 360
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->owner:Lcom/google/common/util/concurrent/AbstractFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/AbstractFuture;->complete(Lcom/google/common/util/concurrent/AbstractFuture;)V
     invoke-static {v1}, Lcom/google/common/util/concurrent/AbstractFuture;->access$600(Lcom/google/common/util/concurrent/AbstractFuture;)V
 
     .line 362
-    :cond_1
+    :cond_20
     return-void
 .end method

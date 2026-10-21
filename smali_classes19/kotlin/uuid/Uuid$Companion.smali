@@ -68,7 +68,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 203
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/uuid/Uuid$Companion;-><init>()V
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public final fromByteArray([B)Lkotlin/uuid/Uuid;
-    .locals 4
+    .registers 6
     .param p1, "byteArray"    # [B
 
     const-string v0, "byteArray"
@@ -101,25 +101,27 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_1f
 
     .line 269
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->toLong$UuidKt__UuidKt([BI)J
     invoke-static {p1, v2}, Lkotlin/uuid/UuidKt__UuidKt;->access$toLong([BI)J
 
     move-result-wide v0
 
     const/16 v2, 0x8
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->toLong$UuidKt__UuidKt([BI)J
     invoke-static {p1, v2}, Lkotlin/uuid/UuidKt__UuidKt;->access$toLong([BI)J
 
     move-result-wide v2
@@ -131,7 +133,7 @@
     return-object v0
 
     .line 448
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     .line 267
@@ -153,7 +155,7 @@
 .end method
 
 .method public final fromLongs(JJ)Lkotlin/uuid/Uuid;
-    .locals 3
+    .registers 8
     .param p1, "mostSignificantBits"    # J
     .param p3, "leastSignificantBits"    # J
 
@@ -162,32 +164,32 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     cmp-long v2, p3, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     .line 232
     invoke-virtual {p0}, Lkotlin/uuid/Uuid$Companion;->getNIL()Lkotlin/uuid/Uuid;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 234
-    :cond_0
+    :cond_f
     new-instance v0, Lkotlin/uuid/Uuid;
 
     invoke-direct {v0, p1, p2, p3, p4}, Lkotlin/uuid/Uuid;-><init>(JJ)V
 
     .line 235
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public final fromULongs-eb3DHEI(JJ)Lkotlin/uuid/Uuid;
-    .locals 1
+    .registers 6
     .param p1, "mostSignificantBits"    # J
     .param p3, "leastSignificantBits"    # J
 
@@ -200,7 +202,7 @@
 .end method
 
 .method public final getLEXICAL_ORDER()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -211,6 +213,7 @@
     .end annotation
 
     .line 392
+    # getter for: Lkotlin/uuid/Uuid;->LEXICAL_ORDER:Ljava/util/Comparator;
     invoke-static {}, Lkotlin/uuid/Uuid;->access$getLEXICAL_ORDER$cp()Ljava/util/Comparator;
 
     move-result-object v0
@@ -219,9 +222,10 @@
 .end method
 
 .method public final getNIL()Lkotlin/uuid/Uuid;
-    .locals 1
+    .registers 2
 
     .line 210
+    # getter for: Lkotlin/uuid/Uuid;->NIL:Lkotlin/uuid/Uuid;
     invoke-static {}, Lkotlin/uuid/Uuid;->access$getNIL$cp()Lkotlin/uuid/Uuid;
 
     move-result-object v0
@@ -230,7 +234,7 @@
 .end method
 
 .method public final parse(Ljava/lang/String;)Lkotlin/uuid/Uuid;
-    .locals 17
+    .registers 19
     .param p1, "uuidString"    # Ljava/lang/String;
 
     move-object/from16 v6, p1
@@ -246,17 +250,17 @@
 
     const/16 v1, 0x24
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_12
+    if-eqz v0, :cond_72
 
     .line 297
     const/4 v4, 0x4
@@ -279,6 +283,7 @@
     .local v7, "part1":J
     const/16 v0, 0x8
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->checkHyphenAt$UuidKt__UuidKt(Ljava/lang/String;I)V
     invoke-static {v6, v0}, Lkotlin/uuid/UuidKt__UuidKt;->access$checkHyphenAt(Ljava/lang/String;I)V
 
     .line 299
@@ -296,6 +301,7 @@
     .local v9, "part2":J
     const/16 v0, 0xd
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->checkHyphenAt$UuidKt__UuidKt(Ljava/lang/String;I)V
     invoke-static {v6, v0}, Lkotlin/uuid/UuidKt__UuidKt;->access$checkHyphenAt(Ljava/lang/String;I)V
 
     .line 301
@@ -313,6 +319,7 @@
     .local v11, "part3":J
     const/16 v0, 0x12
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->checkHyphenAt$UuidKt__UuidKt(Ljava/lang/String;I)V
     invoke-static {v6, v0}, Lkotlin/uuid/UuidKt__UuidKt;->access$checkHyphenAt(Ljava/lang/String;I)V
 
     .line 303
@@ -330,6 +337,7 @@
     .local v13, "part4":J
     const/16 v0, 0x17
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->checkHyphenAt$UuidKt__UuidKt(Ljava/lang/String;I)V
     invoke-static {v6, v0}, Lkotlin/uuid/UuidKt__UuidKt;->access$checkHyphenAt(Ljava/lang/String;I)V
 
     .line 305
@@ -383,7 +391,7 @@
     .end local v9    # "part2":J
     .end local v11    # "part3":J
     .end local v13    # "part4":J
-    :cond_1
+    :cond_72
     move-object/from16 v15, p0
 
     const/4 v0, 0x0
@@ -407,7 +415,7 @@
 .end method
 
 .method public final parseHex(Ljava/lang/String;)Lkotlin/uuid/Uuid;
-    .locals 8
+    .registers 10
     .param p1, "hexString"    # Ljava/lang/String;
 
     const-string v0, "hexString"
@@ -421,17 +429,17 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_10
+    if-eqz v0, :cond_2c
 
     .line 332
     const/4 v5, 0x4
@@ -477,7 +485,7 @@
     .line 448
     .end local v0    # "msb":J
     .end local v2    # "lsb":J
-    :cond_1
+    :cond_2c
     const/4 v0, 0x0
 
     .line 330
@@ -499,7 +507,7 @@
 .end method
 
 .method public final random()Lkotlin/uuid/Uuid;
-    .locals 1
+    .registers 2
 
     .line 372
     invoke-static {}, Lkotlin/uuid/UuidKt;->secureRandomUuid()Lkotlin/uuid/Uuid;

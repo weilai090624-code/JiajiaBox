@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/Service;Ljava/lang/ref/WeakReference;)V
-    .locals 0
+    .registers 3
     .param p1, "service"    # Lcom/google/common/util/concurrent/Service;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public failed(Lcom/google/common/util/concurrent/Service$State;Ljava/lang/Throwable;)V
-    .locals 8
+    .registers 11
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
     .param p2, "failure"    # Ljava/lang/Throwable;
 
@@ -74,7 +74,7 @@
 
     .line 790
     .local v0, "state":Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_62
 
     .line 793
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
@@ -85,9 +85,10 @@
 
     .line 794
     .local v1, "log":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5b
 
     .line 795
+    # getter for: Lcom/google/common/util/concurrent/ServiceManager;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ServiceManager;->access$200()Ljava/util/logging/Logger;
 
     move-result-object v2
@@ -161,7 +162,7 @@
     invoke-virtual {v2, v3, v4, p2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 800
-    :cond_0
+    :cond_5b
     iget-object v2, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
 
     sget-object v3, Lcom/google/common/util/concurrent/Service$State;->FAILED:Lcom/google/common/util/concurrent/Service$State;
@@ -170,12 +171,12 @@
 
     .line 802
     .end local v1    # "log":Z
-    :cond_1
+    :cond_62
     return-void
 .end method
 
 .method public running()V
-    .locals 4
+    .registers 5
 
     .line 759
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->state:Ljava/lang/ref/WeakReference;
@@ -188,7 +189,7 @@
 
     .line 760
     .local v0, "state":Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 761
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
@@ -200,12 +201,12 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->transitionService(Lcom/google/common/util/concurrent/Service;Lcom/google/common/util/concurrent/Service$State;Lcom/google/common/util/concurrent/Service$State;)V
 
     .line 763
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public starting()V
-    .locals 5
+    .registers 6
 
     .line 748
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->state:Ljava/lang/ref/WeakReference;
@@ -218,7 +219,7 @@
 
     .line 749
     .local v0, "state":Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 750
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
@@ -234,9 +235,10 @@
 
     instance-of v1, v1, Lcom/google/common/util/concurrent/ServiceManager$NoOpService;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 752
+    # getter for: Lcom/google/common/util/concurrent/ServiceManager;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ServiceManager;->access$200()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -250,12 +252,12 @@
     invoke-virtual {v1, v2, v3, v4}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 755
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public stopping(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 3
+    .registers 5
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 767
@@ -269,7 +271,7 @@
 
     .line 768
     .local v0, "state":Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 769
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
@@ -279,12 +281,12 @@
     invoke-virtual {v0, v1, p1, v2}, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->transitionService(Lcom/google/common/util/concurrent/Service;Lcom/google/common/util/concurrent/Service$State;Lcom/google/common/util/concurrent/Service$State;)V
 
     .line 771
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public terminated(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 6
+    .registers 8
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 775
@@ -298,16 +300,17 @@
 
     .line 776
     .local v0, "state":Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 777
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
 
     instance-of v1, v1, Lcom/google/common/util/concurrent/ServiceManager$NoOpService;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     .line 778
+    # getter for: Lcom/google/common/util/concurrent/ServiceManager;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ServiceManager;->access$200()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -333,7 +336,7 @@
     invoke-virtual {v1, v2, v3, v4}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 783
-    :cond_0
+    :cond_26
     iget-object v1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceListener;->service:Lcom/google/common/util/concurrent/Service;
 
     sget-object v2, Lcom/google/common/util/concurrent/Service$State;->TERMINATED:Lcom/google/common/util/concurrent/Service$State;
@@ -341,6 +344,6 @@
     invoke-virtual {v0, v1, p1, v2}, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->transitionService(Lcom/google/common/util/concurrent/Service;Lcom/google/common/util/concurrent/Service$State;Lcom/google/common/util/concurrent/Service$State;)V
 
     .line 785
-    :cond_1
+    :cond_2d
     return-void
 .end method

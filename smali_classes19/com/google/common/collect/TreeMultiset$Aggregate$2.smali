@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 146
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method nodeAggregate(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +46,7 @@
 .end method
 
 .method treeAggregate(Lcom/google/common/collect/TreeMultiset$AvlNode;)J
-    .locals 2
+    .registers 4
     .param p1    # Lcom/google/common/collect/TreeMultiset$AvlNode;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -61,19 +61,20 @@
 
     .line 154
     .local p1, "root":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<*>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
+    # getter for: Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
     invoke-static {p1}, Lcom/google/common/collect/TreeMultiset$AvlNode;->access$400(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
 
     move-result v0
 
     int-to-long v0, v0
 
-    :goto_0
+    :goto_a
     return-wide v0
 .end method

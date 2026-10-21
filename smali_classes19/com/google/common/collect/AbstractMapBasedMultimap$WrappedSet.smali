@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultimap;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 599
     const/4 v0, 0x0
@@ -87,7 +87,7 @@
     return v0
 
     .line 601
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSet;->size()I
 
     move-result v0
@@ -104,7 +104,7 @@
 
     .line 607
     .local v1, "changed":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 608
     iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSet;->delegate:Ljava/util/Collection;
@@ -119,6 +119,7 @@
 
     sub-int v4, v2, v0
 
+    # += operator for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v3, v4}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$212(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
 
     .line 610
@@ -126,6 +127,6 @@
 
     .line 612
     .end local v2    # "newSize":I
-    :cond_1
+    :cond_26
     return v1
 .end method

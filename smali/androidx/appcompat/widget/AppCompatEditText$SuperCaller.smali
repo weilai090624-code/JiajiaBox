@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatEditText;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/AppCompatEditText;
 
     .line 514
@@ -34,11 +34,12 @@
 
 # virtual methods
 .method public getTextClassifier()Landroid/view/textclassifier/TextClassifier;
-    .locals 1
+    .registers 2
 
     .line 518
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatEditText$SuperCaller;->this$0:Landroidx/appcompat/widget/AppCompatEditText;
 
+    # invokes: Landroid/widget/EditText;->getTextClassifier()Landroid/view/textclassifier/TextClassifier;
     invoke-static {v0}, Landroidx/appcompat/widget/AppCompatEditText;->access$001(Landroidx/appcompat/widget/AppCompatEditText;)Landroid/view/textclassifier/TextClassifier;
 
     move-result-object v0
@@ -47,12 +48,13 @@
 .end method
 
 .method public setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
-    .locals 1
+    .registers 3
     .param p1, "textClassifier"    # Landroid/view/textclassifier/TextClassifier;
 
     .line 522
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatEditText$SuperCaller;->this$0:Landroidx/appcompat/widget/AppCompatEditText;
 
+    # invokes: Landroid/widget/EditText;->setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
     invoke-static {v0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->access$101(Landroidx/appcompat/widget/AppCompatEditText;Landroid/view/textclassifier/TextClassifier;)V
 
     .line 523

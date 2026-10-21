@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/internal/ResourceFileSystem$Companion;-><init>()V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static final synthetic access$keepPath(Lokio/internal/ResourceFileSystem$Companion;Lokio/Path;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lokio/internal/ResourceFileSystem$Companion;
     .param p1, "path"    # Lokio/Path;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method private final keepPath(Lokio/Path;)Z
-    .locals 3
+    .registers 5
     .param p1, "path"    # Lokio/Path;
 
     .line 209
@@ -110,9 +110,10 @@
 
 # virtual methods
 .method public final getROOT()Lokio/Path;
-    .locals 1
+    .registers 2
 
     .line 161
+    # getter for: Lokio/internal/ResourceFileSystem;->ROOT:Lokio/Path;
     invoke-static {}, Lokio/internal/ResourceFileSystem;->access$getROOT$cp()Lokio/Path;
 
     move-result-object v0
@@ -121,7 +122,7 @@
 .end method
 
 .method public final removeBase(Lokio/Path;Lokio/Path;)Lokio/Path;
-    .locals 10
+    .registers 13
     .param p1, "$this$removeBase"    # Lokio/Path;
     .param p2, "base"    # Lokio/Path;
 
@@ -178,7 +179,7 @@
 .end method
 
 .method public final toClasspathRoots(Ljava/lang/ClassLoader;)Ljava/util/List;
-    .locals 17
+    .registers 19
     .param p1, "$this$toClasspathRoots"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -252,14 +253,14 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_2f
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
     const-string v11, "it"
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_59
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -286,6 +287,7 @@
 
     .end local v1    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
     .local v16, "$this$mapNotNull$iv":Ljava/lang/Iterable;
+    # getter for: Lokio/internal/ResourceFileSystem;->Companion:Lokio/internal/ResourceFileSystem$Companion;
     invoke-static {}, Lokio/internal/ResourceFileSystem;->access$getCompanion$p()Lokio/internal/ResourceFileSystem$Companion;
 
     move-result-object v1
@@ -298,7 +300,7 @@
 
     .end local v14    # "it":Ljava/net/URL;
     .end local v15    # "$i$a$-mapNotNull-ResourceFileSystem$Companion$toClasspathRoots$1":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_55
 
     .line 223
     .local v1, "it$iv$iv":Ljava/lang/Object;
@@ -310,23 +312,23 @@
 
     .end local v1    # "it$iv$iv":Ljava/lang/Object;
     .end local v11    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    goto :goto_1
+    goto :goto_56
 
-    :cond_0
+    :cond_55
     nop
 
-    :goto_1
+    :goto_56
     move-object/from16 v1, v16
 
     .end local v10    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v12    # "element$iv$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    goto :goto_0
+    goto :goto_2f
 
     .line 224
     .end local v16    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
     .local v1, "$this$mapNotNull$iv":Ljava/lang/Iterable;
-    :cond_1
+    :cond_59
     move-object/from16 v16, v1
 
     .line 225
@@ -403,12 +405,12 @@
 
     move-result-object v9
 
-    :goto_2
+    :goto_89
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_af
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -431,6 +433,7 @@
 
     .line 184
     .local v15, "$i$a$-mapNotNull-ResourceFileSystem$Companion$toClasspathRoots$2":I
+    # getter for: Lokio/internal/ResourceFileSystem;->Companion:Lokio/internal/ResourceFileSystem$Companion;
     invoke-static {}, Lokio/internal/ResourceFileSystem;->access$getCompanion$p()Lokio/internal/ResourceFileSystem$Companion;
 
     move-result-object v0
@@ -443,7 +446,7 @@
 
     .end local v14    # "it":Ljava/net/URL;
     .end local v15    # "$i$a$-mapNotNull-ResourceFileSystem$Companion$toClasspathRoots$2":I
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_ab
 
     .line 236
     .local v0, "it$iv$iv":Ljava/lang/Object;
@@ -455,21 +458,21 @@
 
     .end local v0    # "it$iv$iv":Ljava/lang/Object;
     .end local v14    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    goto :goto_3
+    goto :goto_ac
 
-    :cond_2
+    :cond_ab
     nop
 
-    :goto_3
+    :goto_ac
     move-object/from16 v0, p1
 
     .end local v10    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v12    # "element$iv$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    goto :goto_2
+    goto :goto_89
 
     .line 237
-    :cond_3
+    :cond_af
     nop
 
     .line 238
@@ -500,7 +503,7 @@
 .end method
 
 .method public final toFileRoot(Ljava/net/URL;)Lkotlin/Pair;
-    .locals 6
+    .registers 8
     .param p1, "$this$toFileRoot"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -531,12 +534,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     return-object v1
 
     .line 189
-    :cond_0
+    :cond_13
     sget-object v0, Lokio/FileSystem;->SYSTEM:Lokio/FileSystem;
 
     sget-object v2, Lokio/Path;->Companion:Lokio/Path$Companion;
@@ -565,7 +568,7 @@
 .end method
 
 .method public final toJarRoot(Ljava/net/URL;)Lkotlin/Pair;
-    .locals 11
+    .registers 13
     .param p1, "$this$toJarRoot"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -606,12 +609,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     return-object v4
 
     .line 198
-    :cond_0
+    :cond_1a
     move-object v5, v0
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -634,12 +637,12 @@
     .local v1, "suffixStart":I
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_2b
 
     return-object v4
 
     .line 200
-    :cond_1
+    :cond_2b
     sget-object v3, Lokio/Path;->Companion:Lokio/Path$Companion;
 
     new-instance v5, Ljava/io/File;

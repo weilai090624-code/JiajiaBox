@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;
 
     .line 1325
@@ -37,12 +37,13 @@
 
 # virtual methods
 .method public run(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 1328
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable$2;->this$0:Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;
 
+    # getter for: Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;->endView:Landroid/view/View;
     invoke-static {v0}, Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;->access$900(Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDrawable;)Landroid/view/View;
 
     move-result-object v0

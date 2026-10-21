@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/MultiEdgesConnecting;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/graph/MultiEdgesConnecting;
 
     .line 52
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -60,14 +60,14 @@
     .local p0, "this":Lcom/google/common/graph/MultiEdgesConnecting$1;, "Lcom/google/common/graph/MultiEdgesConnecting$1;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/graph/MultiEdgesConnecting$1;->val$entries:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 57
     iget-object v0, p0, Lcom/google/common/graph/MultiEdgesConnecting$1;->val$entries:Ljava/util/Iterator;
@@ -82,6 +82,7 @@
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;*>;"
     iget-object v1, p0, Lcom/google/common/graph/MultiEdgesConnecting$1;->this$0:Lcom/google/common/graph/MultiEdgesConnecting;
 
+    # getter for: Lcom/google/common/graph/MultiEdgesConnecting;->targetNode:Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/graph/MultiEdgesConnecting;->access$000(Lcom/google/common/graph/MultiEdgesConnecting;)Ljava/lang/Object;
 
     move-result-object v1
@@ -94,7 +95,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 59
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -105,11 +106,11 @@
 
     .line 61
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;*>;"
-    :cond_0
-    goto :goto_0
+    :cond_26
+    goto :goto_1
 
     .line 62
-    :cond_1
+    :cond_27
     invoke-virtual {p0}, Lcom/google/common/graph/MultiEdgesConnecting$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

@@ -7,7 +7,6 @@
         <item android:icon="@drawable/ic_action_settings" android:id="@id/nav_settings" android:title="@string/settings" />
     </group>
     <group android:id="@id/misc" android:checkableBehavior="single">
-        <item android:icon="@drawable/ic_baseline_transform_24" android:id="@id/nav_traffic" android:title="@string/menu_dashboard" />
         <item android:icon="@drawable/baseline_construction_24" android:id="@id/nav_tools" android:title="@string/menu_tools" />
     </group>
     <group android:id="@id/about" android:checkableBehavior="single">

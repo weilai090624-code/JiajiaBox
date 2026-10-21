@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/sqlite/util/ProcessLock$Companion;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Z)V
-    .locals 5
+    .registers 9
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "lockDir"    # Ljava/io/File;
     .param p3, "processLock"    # Z
@@ -117,7 +117,7 @@
     iput-boolean p3, p0, Landroidx/sqlite/util/ProcessLock;->processLock:Z
 
     .line 57
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_27
 
     .line 104
     move-object v0, p2
@@ -151,17 +151,18 @@
 
     .end local v0    # "it":Ljava/io/File;
     .end local v1    # "$i$a$-let-ProcessLock$lockFile$1":I
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_28
     iput-object v2, p0, Landroidx/sqlite/util/ProcessLock;->lockFile:Ljava/io/File;
 
     .line 58
     sget-object v0, Landroidx/sqlite/util/ProcessLock;->Companion:Landroidx/sqlite/util/ProcessLock$Companion;
 
+    # invokes: Landroidx/sqlite/util/ProcessLock$Companion;->getThreadLock(Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
     invoke-static {v0, p1}, Landroidx/sqlite/util/ProcessLock$Companion;->access$getThreadLock(Landroidx/sqlite/util/ProcessLock$Companion;Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
 
     move-result-object v0
@@ -173,7 +174,7 @@
 .end method
 
 .method public static final synthetic access$getThreadLocksMap$cp()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Landroidx/sqlite/util/ProcessLock;->threadLocksMap:Ljava/util/Map;
@@ -182,16 +183,16 @@
 .end method
 
 .method public static synthetic lock$default(Landroidx/sqlite/util/ProcessLock;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 66
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     iget-boolean p1, p0, Landroidx/sqlite/util/ProcessLock;->processLock:Z
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Landroidx/sqlite/util/ProcessLock;->lock(Z)V
 
     return-void
@@ -200,7 +201,7 @@
 
 # virtual methods
 .method public final lock(Z)V
-    .locals 4
+    .registers 6
     .param p1, "processLock"    # Z
 
     .line 67
@@ -209,16 +210,16 @@
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
     .line 68
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_40
 
     .line 69
     nop
 
     .line 70
-    :try_start_0
+    :try_start_8
     iget-object v0, p0, Landroidx/sqlite/util/ProcessLock;->lockFile:Ljava/io/File;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 74
     iget-object v0, p0, Landroidx/sqlite/util/ProcessLock;->lockFile:Ljava/io/File;
@@ -229,12 +230,12 @@
 
     .line 75
     .local v0, "parentDir":Ljava/io/File;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 76
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/io/FileOutputStream;
 
     iget-object v2, p0, Landroidx/sqlite/util/ProcessLock;->lockFile:Ljava/io/File;
@@ -260,10 +261,10 @@
     iput-object v1, p0, Landroidx/sqlite/util/ProcessLock;->lockChannel:Ljava/nio/channels/FileChannel;
 
     .end local v0    # "parentDir":Ljava/io/File;
-    goto :goto_0
+    goto :goto_40
 
     .line 71
-    :cond_1
+    :cond_2a
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "No lock directory was provided."
@@ -272,12 +273,12 @@
 
     .end local p1    # "processLock":Z
     throw v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_32} :catch_32
 
     .line 77
     .restart local p1    # "processLock":Z
-    :catch_0
+    :catch_32
     move-exception v0
 
     .line 78
@@ -299,36 +300,36 @@
 
     .line 82
     .end local v0    # "e":Ljava/io/IOException;
-    :cond_2
-    :goto_0
+    :cond_40
+    :goto_40
     return-void
 .end method
 
 .method public final unlock()V
-    .locals 1
+    .registers 2
 
     .line 88
     nop
 
     .line 89
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/sqlite/util/ProcessLock;->lockChannel:Ljava/nio/channels/FileChannel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_8} :catch_9
 
-    goto :goto_0
+    goto :goto_a
 
     .line 90
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 91
-    :cond_0
-    :goto_0
+    :cond_a
+    :goto_a
     iget-object v0, p0, Landroidx/sqlite/util/ProcessLock;->threadLock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V

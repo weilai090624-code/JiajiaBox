@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 292
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/cache2/Relay$Companion;-><init>()V
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final edit(Ljava/io/File;Lokio/Source;Lokio/ByteString;J)Lokhttp3/internal/cache2/Relay;
-    .locals 20
+    .registers 26
     .param p1, "file"    # Ljava/io/File;
     .param p2, "upstream"    # Lokio/Source;
     .param p3, "metadata"    # Lokio/ByteString;
@@ -142,6 +142,7 @@
 
     move-object v14, v2
 
+    # invokes: Lokhttp3/internal/cache2/Relay;->writeHeader(Lokio/ByteString;JJ)V
     invoke-static/range {v14 .. v19}, Lokhttp3/internal/cache2/Relay;->access$writeHeader(Lokhttp3/internal/cache2/Relay;Lokio/ByteString;JJ)V
 
     .line 324
@@ -149,7 +150,7 @@
 .end method
 
 .method public final read(Ljava/io/File;)Lokhttp3/internal/cache2/Relay;
-    .locals 23
+    .registers 25
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -221,7 +222,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_65
 
     .line 343
     invoke-virtual {v1}, Lokio/Buffer;->readLong()J
@@ -282,7 +283,7 @@
     .end local v15    # "metadata":Lokio/ByteString;
     .end local v18    # "metadataBuffer":Lokio/Buffer;
     .end local v21    # "metadataSize":J
-    :cond_0
+    :cond_65
     new-instance v2, Ljava/io/IOException;
 
     const-string v4, "unreadable cache file"

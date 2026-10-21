@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;)V
-    .locals 0
+    .registers 2
 
     .line 648
     iput-object p1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/emitter/Emitter$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public expect()V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -57,6 +57,7 @@
     .line 650
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1000(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -65,24 +66,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2500(Lorg/yaml/snakeyaml/emitter/Emitter;)I
 
     move-result v0
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2600(Lorg/yaml/snakeyaml/emitter/Emitter;)I
 
     move-result v1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_26
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->prettyFlow:Ljava/lang/Boolean;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2800(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -91,16 +95,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 651
-    :cond_0
+    :cond_26
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 653
-    :cond_1
+    :cond_2b
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     const-string v1, ":"
@@ -116,12 +120,14 @@
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2300(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     move-result-object v1
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v4}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v4
@@ -130,16 +136,19 @@
 
     move-result-object v1
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$102(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/events/Event;)Lorg/yaml/snakeyaml/events/Event;
 
     .line 655
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->writeInlineComments()Z
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2400(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
 
     .line 656
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1700(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v0
@@ -157,17 +166,20 @@
     .line 657
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->expectNode(ZZZ)V
     invoke-static {v0, v3, v2, v3}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1800(Lorg/yaml/snakeyaml/emitter/Emitter;ZZZ)V
 
     .line 658
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2300(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     move-result-object v0
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v1
@@ -177,6 +189,7 @@
     .line 659
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFlowMappingValue;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->writeInlineComments()Z
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2400(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
 
     .line 660

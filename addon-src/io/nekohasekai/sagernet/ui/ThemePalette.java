@@ -22,9 +22,9 @@ public final class ThemePalette {
     public static boolean dark(Context c) { return JJGlassToolbar.matteTextColor(c) == 0xffffffff; }
     public static int text(Context c) { return JJGlassToolbar.matteTextColor(c); }
     public static int surface(Context c) { return JJGlassToolbar.matteColor(c); }
-    public static int control(Context c) { return dark(c) ? 0xff292a30 : 0xffffffff; }
+    public static int control(Context c) { return dark(c) ? 0xff303137 : 0xffffffff; }
     public static int border(Context c) { return dark(c) ? 0xff3d3e46 : 0xffeae7eb; }
-    public static int secondary(Context c) { return dark(c) ? 0xffaaa6b0 : 0xff817c85; }
+    public static int secondary(Context c) { return dark(c) ? 0xffb0acb5 : 0xff78737d; }
     public static int ripple(Context c) { return dark(c) ? 0x24ffffff : 0x24d76a90; }
     public static int accent(Context c) { return dark(c) ? 0xffe0a4bc : 0xffb74771; }
     public static int selected(Context c) { return dark(c) ? 0xff393039 : 0xfffcf0f5; }

@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -113,7 +113,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -132,10 +132,10 @@
     monitor-enter v0
 
     .line 1272
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapEntrySet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 1273
     new-instance v1, Lcom/google/common/collect/Synchronized$SynchronizedAsMapEntries;
@@ -155,7 +155,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapEntrySet:Ljava/util/Set;
 
     .line 1275
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapEntrySet:Ljava/util/Set;
 
     monitor-exit v0
@@ -163,18 +163,18 @@
     return-object v1
 
     .line 1276
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_3 .. :try_end_1e} :catchall_1c
 
     throw v1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -192,7 +192,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -217,7 +217,7 @@
     monitor-enter v0
 
     .line 1264
-    :try_start_0
+    :try_start_3
     invoke-super {p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -226,38 +226,39 @@
 
     .line 1265
     .local v1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->typePreservingCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$400(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     monitor-exit v0
 
     return-object v2
 
     .line 1266
     .end local v1    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    :catchall_0
+    :catchall_15
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_3 .. :try_end_17} :catchall_15
 
     throw v1
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -274,10 +275,10 @@
     monitor-enter v0
 
     .line 1282
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapValues:Ljava/util/Collection;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 1283
     new-instance v1, Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues;
@@ -297,7 +298,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapValues:Ljava/util/Collection;
 
     .line 1285
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedAsMap;->asMapValues:Ljava/util/Collection;
 
     monitor-exit v0
@@ -305,12 +306,12 @@
     return-object v1
 
     .line 1286
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_3 .. :try_end_1e} :catchall_1c
 
     throw v1
 .end method

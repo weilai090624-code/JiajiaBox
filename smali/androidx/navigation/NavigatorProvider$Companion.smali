@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavigatorProvider$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final getNameForNavigator$navigation_common_release(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "navigatorClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,6 +87,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 126
+    # getter for: Landroidx/navigation/NavigatorProvider;->annotationNames:Ljava/util/Map;
     invoke-static {}, Landroidx/navigation/NavigatorProvider;->access$getAnnotationNames$cp()Ljava/util/Map;
 
     move-result-object v0
@@ -99,7 +100,7 @@
 
     .line 127
     .local v0, "name":Ljava/lang/String;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_52
 
     .line 128
     const-class v1, Landroidx/navigation/Navigator$Name;
@@ -112,18 +113,18 @@
 
     .line 131
     .local v1, "annotation":Landroidx/navigation/Navigator$Name;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v1}, Landroidx/navigation/Navigator$Name;->value()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_21
     move-object v0, v2
 
     .line 132
@@ -131,19 +132,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     .line 135
+    # getter for: Landroidx/navigation/NavigatorProvider;->annotationNames:Ljava/util/Map;
     invoke-static {}, Landroidx/navigation/NavigatorProvider;->access$getAnnotationNames$cp()Ljava/util/Map;
 
     move-result-object v2
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_52
 
     .line 132
-    :cond_1
+    :cond_30
     const/4 v2, 0x0
 
     .line 133
@@ -184,21 +186,21 @@
 
     .line 137
     .end local v1    # "annotation":Landroidx/navigation/Navigator$Name;
-    :cond_2
-    :goto_1
+    :cond_52
+    :goto_52
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public final validateName$navigation_common_release(Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     .line 121
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     move-object v1, p1
 
@@ -210,20 +212,20 @@
 
     const/4 v2, 0x1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_10
+    if-eqz v1, :cond_13
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_13
     return v0
 .end method

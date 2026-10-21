@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/FilteredEntryMultimap;
 
     .line 170
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 178
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$AsMap;, "Lcom/google/common/collect/FilteredEntryMultimap<TK;TV;>.AsMap;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -69,21 +69,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method createEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -124,7 +124,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -162,7 +162,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 5
+    .registers 7
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -200,13 +200,13 @@
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 186
     return-object v1
 
     .line 189
-    :cond_0
+    :cond_12
     move-object v2, p1
 
     .line 190
@@ -226,19 +226,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_25
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     move-object v1, v0
 
-    :goto_0
+    :goto_26
     return-object v1
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -256,7 +256,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 7
+    .registers 9
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -294,13 +294,13 @@
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 199
     return-object v1
 
     .line 202
-    :cond_0
+    :cond_12
     move-object v2, p1
 
     .line 203
@@ -317,12 +317,12 @@
 
     .line 205
     .local v4, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :goto_0
+    :goto_1b
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_34
 
     .line 206
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -333,11 +333,12 @@
     .local v5, "v":Ljava/lang/Object;, "TV;"
     iget-object v6, p0, Lcom/google/common/collect/FilteredEntryMultimap$AsMap;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
+    # invokes: Lcom/google/common/collect/FilteredEntryMultimap;->satisfies(Ljava/lang/Object;Ljava/lang/Object;)Z
     invoke-static {v6, v2, v5}, Lcom/google/common/collect/FilteredEntryMultimap;->access$000(Lcom/google/common/collect/FilteredEntryMultimap;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_33
 
     .line 208
     invoke-interface {v4}, Ljava/util/Iterator;->remove()V
@@ -347,29 +348,29 @@
 
     .line 211
     .end local v5    # "v":Ljava/lang/Object;, "TV;"
-    :cond_1
-    goto :goto_0
+    :cond_33
+    goto :goto_1b
 
     .line 212
-    :cond_2
+    :cond_34
     invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_3b
 
     .line 213
     return-object v1
 
     .line 214
-    :cond_3
+    :cond_3b
     iget-object v1, p0, Lcom/google/common/collect/FilteredEntryMultimap$AsMap;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
     iget-object v1, v1, Lcom/google/common/collect/FilteredEntryMultimap;->unfiltered:Lcom/google/common/collect/Multimap;
 
     instance-of v1, v1, Lcom/google/common/collect/SetMultimap;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4c
 
     .line 215
     invoke-static {v3}, Lcom/google/common/collect/Sets;->newLinkedHashSet(Ljava/lang/Iterable;)Ljava/util/LinkedHashSet;
@@ -383,7 +384,7 @@
     return-object v1
 
     .line 217
-    :cond_4
+    :cond_4c
     invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1

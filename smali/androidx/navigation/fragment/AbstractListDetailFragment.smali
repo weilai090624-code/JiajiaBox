@@ -80,7 +80,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final synthetic access$getOnBackPressedCallback$p(Landroidx/navigation/fragment/AbstractListDetailFragment;)Landroidx/activity/OnBackPressedCallback;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/navigation/fragment/AbstractListDetailFragment;
 
     .line 46
@@ -101,21 +101,21 @@
 
 # virtual methods
 .method public final getDetailPaneNavHostFragment()Landroidx/navigation/fragment/NavHostFragment;
-    .locals 3
+    .registers 4
 
     .line 67
     iget-object v0, p0, Landroidx/navigation/fragment/AbstractListDetailFragment;->_detailPaneNavHostFragment:Landroidx/navigation/fragment/NavHostFragment;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 70
     iget-object v0, p0, Landroidx/navigation/fragment/AbstractListDetailFragment;->_detailPaneNavHostFragment:Landroidx/navigation/fragment/NavHostFragment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-object v0
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type androidx.navigation.fragment.NavHostFragment"
@@ -125,7 +125,7 @@
     throw v0
 
     .line 67
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 68
@@ -168,7 +168,7 @@
 .end method
 
 .method public final getSlidingPaneLayout()Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
-    .locals 1
+    .registers 2
 
     .line 57
     invoke-virtual {p0}, Landroidx/navigation/fragment/AbstractListDetailFragment;->requireView()Landroid/view/View;
@@ -181,12 +181,12 @@
 .end method
 
 .method public onCreateDetailPaneNavHostFragment()Landroidx/navigation/fragment/NavHostFragment;
-    .locals 4
+    .registers 5
 
     .line 211
     iget v0, p0, Landroidx/navigation/fragment/AbstractListDetailFragment;->graphId:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 212
     sget-object v0, Landroidx/navigation/fragment/NavHostFragment;->Companion:Landroidx/navigation/fragment/NavHostFragment$Companion;
@@ -204,7 +204,7 @@
     return-object v0
 
     .line 214
-    :cond_0
+    :cond_f
     new-instance v0, Landroidx/navigation/fragment/NavHostFragment;
 
     invoke-direct {v0}, Landroidx/navigation/fragment/NavHostFragment;-><init>()V
@@ -216,7 +216,7 @@
 .end method
 
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 18
+    .registers 22
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -232,7 +232,7 @@
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 139
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 140
     const-string v3, "android-support-nav:fragment:graphId"
@@ -244,7 +244,7 @@
     iput v3, v0, Landroidx/navigation/fragment/AbstractListDetailFragment;->graphId:I
 
     .line 142
-    :cond_0
+    :cond_15
     new-instance v3, Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
@@ -288,7 +288,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_41
 
     invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -298,13 +298,13 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_41
 
     .line 149
     invoke-virtual {v3, v4}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout;->addView(Landroid/view/View;)V
 
     .line 153
-    :cond_1
+    :cond_41
     new-instance v5, Landroidx/fragment/app/FragmentContainerView;
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
@@ -409,7 +409,7 @@
 
     .line 167
     .local v8, "existingNavHostFragment":Landroidx/fragment/app/Fragment;
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_90
 
     .line 168
     move-object v10, v8
@@ -418,10 +418,10 @@
 
     move-object/from16 v17, v4
 
-    goto :goto_0
+    goto :goto_c6
 
     .line 170
-    :cond_2
+    :cond_90
     invoke-virtual/range {p0 .. p0}, Landroidx/navigation/fragment/AbstractListDetailFragment;->onCreateDetailPaneNavHostFragment()Landroidx/navigation/fragment/NavHostFragment;
 
     move-result-object v10
@@ -520,7 +520,7 @@
     nop
 
     .line 167
-    :goto_0
+    :goto_c6
     iput-object v10, v0, Landroidx/navigation/fragment/AbstractListDetailFragment;->_detailPaneNavHostFragment:Landroidx/navigation/fragment/NavHostFragment;
 
     .line 178
@@ -546,13 +546,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_fe
 
     invoke-virtual {v1}, Landroid/view/View;->isLayoutRequested()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_fe
 
     .line 273
     move-object v4, v1
@@ -562,6 +562,7 @@
 
     .line 180
     .local v9, "$i$a$-doOnLayout-AbstractListDetailFragment$onCreateView$2":I
+    # getter for: Landroidx/navigation/fragment/AbstractListDetailFragment;->onBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
     invoke-static/range {p0 .. p0}, Landroidx/navigation/fragment/AbstractListDetailFragment;->access$getOnBackPressedCallback$p(Landroidx/navigation/fragment/AbstractListDetailFragment;)Landroidx/activity/OnBackPressedCallback;
 
     move-result-object v10
@@ -573,23 +574,23 @@
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_f8
 
     invoke-virtual {v3}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout;->isOpen()Z
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_f8
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_f9
 
-    :cond_3
+    :cond_f8
     const/4 v11, 0x0
 
     .line 180
-    :goto_1
+    :goto_f9
     invoke-virtual {v10, v11}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 182
@@ -597,10 +598,10 @@
 
     .end local v4    # "it":Landroid/view/View;
     .end local v9    # "$i$a$-doOnLayout-AbstractListDetailFragment$onCreateView$2":I
-    goto :goto_2
+    goto :goto_10b
 
     .line 275
-    :cond_4
+    :cond_fe
     move-object v4, v1
 
     .local v4, "$this$doOnNextLayout$iv$iv":Landroid/view/View;
@@ -622,7 +623,7 @@
     .line 278
     .end local v4    # "$this$doOnNextLayout$iv$iv":Landroid/view/View;
     .end local v9    # "$i$f$doOnNextLayout":I
-    :goto_2
+    :goto_10b
     nop
 
     .line 279
@@ -661,7 +662,7 @@
 .end method
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -724,13 +725,13 @@
 
     .line 114
     .local v4, "graphId":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     .line 115
     iput v4, p0, Landroidx/navigation/fragment/AbstractListDetailFragment;->graphId:I
 
     .line 117
-    :cond_0
+    :cond_2a
     nop
 
     .end local v2    # "navHost":Landroid/content/res/TypedArray;
@@ -760,7 +761,7 @@
 .end method
 
 .method public onListPaneViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -773,7 +774,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     const-string v0, "outState"
@@ -786,7 +787,7 @@
     .line 252
     iget v0, p0, Landroidx/navigation/fragment/AbstractListDetailFragment;->graphId:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 253
     const-string v0, "android-support-nav:fragment:graphId"
@@ -796,12 +797,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 255
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public final onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -836,7 +837,7 @@
 .end method
 
 .method public onViewStateRestored(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 244
@@ -856,7 +857,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     invoke-virtual {p0}, Landroidx/navigation/fragment/AbstractListDetailFragment;->getSlidingPaneLayout()Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
@@ -866,17 +867,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
     .line 245
-    :goto_0
+    :goto_1f
     invoke-virtual {v0, v1}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 247

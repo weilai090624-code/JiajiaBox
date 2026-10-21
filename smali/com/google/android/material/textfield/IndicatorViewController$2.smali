@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/IndicatorViewController;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/textfield/IndicatorViewController;
 
     .line 552
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "accessibilityNodeInfo"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
@@ -44,6 +44,7 @@
     .line 557
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$2;->this$0:Lcom/google/android/material/textfield/IndicatorViewController;
 
+    # getter for: Lcom/google/android/material/textfield/IndicatorViewController;->textInputView:Lcom/google/android/material/textfield/TextInputLayout;
     invoke-static {v0}, Lcom/google/android/material/textfield/IndicatorViewController;->access$300(Lcom/google/android/material/textfield/IndicatorViewController;)Lcom/google/android/material/textfield/TextInputLayout;
 
     move-result-object v0
@@ -54,12 +55,12 @@
 
     .line 558
     .local v0, "editText":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 559
     invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setLabeledBy(Landroid/view/View;)V
 
     .line 561
-    :cond_0
+    :cond_12
     return-void
 .end method

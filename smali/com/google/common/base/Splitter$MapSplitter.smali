@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/base/Splitter;Lcom/google/common/base/Splitter;)V
-    .locals 1
+    .registers 4
     .param p1, "outerSplitter"    # Lcom/google/common/base/Splitter;
     .param p2, "entrySplitter"    # Lcom/google/common/base/Splitter;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Splitter;Lcom/google/common/base/Splitter;Lcom/google/common/base/Splitter$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/base/Splitter;
     .param p2, "x1"    # Lcom/google/common/base/Splitter;
     .param p3, "x2"    # Lcom/google/common/base/Splitter$1;
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public split(Ljava/lang/CharSequence;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,12 +95,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_55
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -112,6 +112,7 @@
     .local v2, "entry":Ljava/lang/String;
     iget-object v3, p0, Lcom/google/common/base/Splitter$MapSplitter;->entrySplitter:Lcom/google/common/base/Splitter;
 
+    # invokes: Lcom/google/common/base/Splitter;->splittingIterator(Ljava/lang/CharSequence;)Ljava/util/Iterator;
     invoke-static {v3, v2}, Lcom/google/common/base/Splitter;->access$000(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Ljava/util/Iterator;
 
     move-result-object v3
@@ -177,10 +178,10 @@
     .end local v3    # "entryFields":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     .end local v4    # "key":Ljava/lang/String;
     .end local v6    # "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_f
 
     .line 517
-    :cond_0
+    :cond_55
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v1

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialDatePicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     .line 291
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     .line 295
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialDatePicker$1;, "Lcom/google/android/material/datepicker/MaterialDatePicker$1;"
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$1;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->onPositiveButtonClickListeners:Ljava/util/LinkedHashSet;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$000(Lcom/google/android/material/datepicker/MaterialDatePicker;)Ljava/util/LinkedHashSet;
 
     move-result-object v0
@@ -53,12 +54,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -78,10 +79,10 @@
 
     .line 297
     .end local v1    # "listener":Lcom/google/android/material/datepicker/MaterialPickerOnPositiveButtonClickListener;, "Lcom/google/android/material/datepicker/MaterialPickerOnPositiveButtonClickListener<-TS;>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 298
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$1;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     invoke-virtual {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->dismiss()V

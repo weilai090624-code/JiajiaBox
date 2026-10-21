@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$QAiYBW-mHTaJB2C-2LDook5BXTg(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent;->getMaterialAboutList$lambda$1(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$sNzKFsz3VA8HIP36vmwpwtlbeNo(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent;->getMaterialAboutList$lambda$0(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;-><init>()V
@@ -70,8 +70,38 @@
     return-void
 .end method
 
+.method private static addCommunityLink(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    .registers 6
+
+    new-instance v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
+
+    invoke-direct {v0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;-><init>()V
+
+    const v1, 0x7f080088
+
+    invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->icon(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
+
+    invoke-virtual {v0, p2}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->text(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
+
+    invoke-virtual {v0, p3}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->subText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p1, p3}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->setOnClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
+
+    invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->build()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->addItem(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
+
+    return-void
+.end method
+
 .method private static final getMaterialAboutList$lambda$0(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "$activityContext"    # Landroid/content/Context;
     .param p1, "$feedbackUrl"    # Ljava/lang/String;
 
@@ -83,7 +113,7 @@
 .end method
 
 .method private static final getMaterialAboutList$lambda$1(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "$activityContext"    # Landroid/content/Context;
     .param p1, "$sourceUrl"    # Ljava/lang/String;
 
@@ -97,7 +127,7 @@
 
 # virtual methods
 .method protected getMaterialAboutList(Landroid/content/Context;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 6
+    .registers 8
     .param p1, "activityContext"    # Landroid/content/Context;
 
     const-string v0, "activityContext"
@@ -309,12 +339,16 @@
 
     move-result-object v3
 
-    const-string v4, "官方群组"
+    const-string v4, "\u5b98\u65b9\u7fa4\u7ec4"
+
     const-string v5, "https://t.me/JiajiaBoxTop1"
+
     invoke-static {v3, p1, v4, v5}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent;->addCommunityLink(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v4, "官方频道"
+    const-string v4, "\u5b98\u65b9\u9891\u9053"
+
     const-string v5, "https://t.me/JiajiaBox"
+
     invoke-static {v3, p1, v4, v5}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent;->addCommunityLink(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 88
@@ -341,7 +375,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -379,22 +413,5 @@
     nop
 
     .line 99
-    return-void
-.end method
-
-.method private static addCommunityLink(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    new-instance v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
-    invoke-direct {v0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;-><init>()V
-    const v1, 0x7f080088
-    invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->icon(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
-    invoke-virtual {v0, p2}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->text(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
-    invoke-virtual {v0, p3}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->subText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
-    new-instance v1, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent$$ExternalSyntheticLambda0;
-    invoke-direct {v1, p1, p3}, Lio/nekohasekai/sagernet/ui/AboutFragment$AboutContent$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-    invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->setOnClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
-    invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->build()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    move-result-object v0
-    invoke-virtual {p0, v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->addItem(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
     return-void
 .end method

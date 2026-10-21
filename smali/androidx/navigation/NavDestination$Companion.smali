@@ -58,7 +58,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 582
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavDestination$Companion;-><init>()V
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public static synthetic getHierarchy$annotations(Landroidx/navigation/NavDestination;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -85,11 +85,11 @@
 
 # virtual methods
 .method public final createRoute(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "route"    # Ljava/lang/String;
 
     .line 670
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -109,17 +109,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const-string v0, ""
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public final getDisplayName(Landroid/content/Context;I)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "id"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -132,21 +132,21 @@
     .line 656
     const v0, 0xffffff
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_f
 
     .line 657
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_25
 
     .line 658
-    :cond_0
+    :cond_f
     nop
 
     .line 659
-    :try_start_0
+    :try_start_10
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -154,13 +154,13 @@
     invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_10 .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 660
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 661
@@ -173,18 +173,18 @@
 
     .line 658
     .end local v0    # "e":Landroid/content/res/Resources$NotFoundException;
-    :goto_0
+    :goto_1f
     const-string/jumbo v1, "try {\n                co\u2026.toString()\n            }"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 656
-    :goto_1
+    :goto_25
     return-object v0
 .end method
 
 .method public final getHierarchy(Landroidx/navigation/NavDestination;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p1, "$this$hierarchy"    # Landroidx/navigation/NavDestination;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -214,7 +214,7 @@
 .end method
 
 .method protected final parseClassFromName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "expectedClassType"    # Ljava/lang/Class;
@@ -262,7 +262,7 @@
 
     const/16 v2, 0x2e
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2f
 
     .line 612
     new-instance v1, Ljava/lang/StringBuilder;
@@ -286,7 +286,8 @@
     move-result-object v0
 
     .line 614
-    :cond_0
+    :cond_2f
+    # getter for: Landroidx/navigation/NavDestination;->classes:Ljava/util/Map;
     invoke-static {}, Landroidx/navigation/NavDestination;->access$getClasses$cp()Ljava/util/Map;
 
     move-result-object v1
@@ -299,13 +300,13 @@
 
     .line 615
     .local v1, "clazz":Ljava/lang/Class;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_58
 
     .line 616
     nop
 
     .line 617
-    :try_start_0
+    :try_start_3c
     invoke-virtual {p1}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v2
@@ -319,18 +320,19 @@
     move-object v1, v2
 
     .line 618
+    # getter for: Landroidx/navigation/NavDestination;->classes:Ljava/util/Map;
     invoke-static {}, Landroidx/navigation/NavDestination;->access$getClasses$cp()Ljava/util/Map;
 
     move-result-object v2
 
     invoke-interface {v2, p2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4d
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_3c .. :try_end_4d} :catch_4e
 
-    goto :goto_0
+    goto :goto_58
 
     .line 619
-    :catch_0
+    :catch_4e
     move-exception v2
 
     .line 620
@@ -347,21 +349,21 @@
 
     .line 623
     .end local v2    # "e":Ljava/lang/ClassNotFoundException;
-    :cond_1
-    :goto_0
+    :cond_58
+    :goto_58
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {p3, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_62
 
     .line 626
     return-object v1
 
     .line 623
-    :cond_2
+    :cond_62
     const/4 v2, 0x0
 
     .line 624
@@ -402,7 +404,7 @@
 .end method
 
 .method public final parseClassFromNameInternal(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "expectedClassType"    # Ljava/lang/Class;

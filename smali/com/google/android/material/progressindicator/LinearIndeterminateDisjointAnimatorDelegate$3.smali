@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "arg1"    # Ljava/lang/String;
 
     .line 218
@@ -38,10 +38,11 @@
 
 # virtual methods
 .method public get(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;)Ljava/lang/Float;
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
 
     .line 221
+    # invokes: Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->getAnimationFraction()F
     invoke-static {p1}, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->access$300(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;)F
 
     move-result v0
@@ -54,7 +55,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 218
     check-cast p1, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
@@ -67,7 +68,7 @@
 .end method
 
 .method public set(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;Ljava/lang/Float;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
     .param p2, "value"    # Ljava/lang/Float;
 
@@ -83,7 +84,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 218
     check-cast p1, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;

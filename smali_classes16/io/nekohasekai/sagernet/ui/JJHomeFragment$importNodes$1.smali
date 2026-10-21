@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -191,7 +191,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_e2
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -202,7 +202,7 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlin/jvm/internal/Ref$IntRef;
@@ -210,11 +210,11 @@
     .local v0, "imported":Lkotlin/jvm/internal/Ref$IntRef;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_59
 
     .end local v0    # "imported":Lkotlin/jvm/internal/Ref$IntRef;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1d
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 293
@@ -231,6 +231,7 @@
 
     invoke-static {v5, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->showBusy(Ljava/lang/String;)V
     invoke-static {v1, v5}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$showBusy(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/lang/String;)V
 
     .line 294
@@ -273,19 +274,19 @@
     move-result-object v5
 
     .end local v5    # "nodeGroupId":Lkotlin/jvm/internal/Ref$LongRef;
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_58
 
     .line 292
     return-object v0
 
     .line 296
-    :cond_0
+    :cond_58
     move-object v0, v1
 
     .line 308
     .end local v1    # "imported":Lkotlin/jvm/internal/Ref$IntRef;
     .restart local v0    # "imported":Lkotlin/jvm/internal/Ref$IntRef;
-    :goto_0
+    :goto_59
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     sget-object v5, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -294,12 +295,13 @@
 
     move-result-object v5
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->renderConnection(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
     invoke-static {v1, v5}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$renderConnection(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/bg/BaseService$State;)V
 
     .line 309
     iget v1, v0, Lkotlin/jvm/internal/Ref$IntRef;->element:I
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_b0
 
     .line 310
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -341,7 +343,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_aa
 
     .line 312
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -352,14 +354,14 @@
 
     instance-of v2, v1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_9c
 
     move-object v4, v1
 
     check-cast v4, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_1
-    if-eqz v4, :cond_2
+    :cond_9c
+    if-eqz v4, :cond_aa
 
     move-object v1, v0
 
@@ -370,27 +372,28 @@
     move-result-object v0
 
     .end local v0    # "msg":Ljava/lang/String;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_aa
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 314
-    :cond_2
+    :cond_aa
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->reload()V
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$reload(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
-    goto :goto_1
+    goto :goto_de
 
     .line 316
-    :cond_3
+    :cond_b0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->isAdded()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_de
 
     .line 317
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -401,14 +404,14 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_c5
 
     move-object v4, v0
 
     check-cast v4, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_4
-    if-eqz v4, :cond_5
+    :cond_c5
+    if-eqz v4, :cond_de
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$importNodes$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
@@ -426,22 +429,22 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_de
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 320
-    :cond_5
-    :goto_1
+    :cond_de
+    :goto_de
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e2
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_15
     .end packed-switch
 .end method

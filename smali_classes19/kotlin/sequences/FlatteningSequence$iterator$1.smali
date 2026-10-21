@@ -96,7 +96,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/FlatteningSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/FlatteningSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,6 +112,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 299
+    # getter for: Lkotlin/sequences/FlatteningSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/FlatteningSequence;->access$getSequence$p(Lkotlin/sequences/FlatteningSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -127,7 +128,7 @@
 .end method
 
 .method private final ensureItemIterator()Z
-    .locals 5
+    .registers 6
 
     .line 322
     iget-object v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->itemIterator:Ljava/util/Iterator;
@@ -136,13 +137,13 @@
     .local v0, "itemIterator":Ljava/util/Iterator;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 324
     iput v1, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
@@ -151,14 +152,14 @@
     return v1
 
     .line 328
-    :cond_0
+    :cond_e
     iget-object v2, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     .line 329
     iget-object v2, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -171,12 +172,14 @@
     .local v2, "element":Ljava/lang/Object;
     iget-object v3, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->this$0:Lkotlin/sequences/FlatteningSequence;
 
+    # getter for: Lkotlin/sequences/FlatteningSequence;->iterator:Lkotlin/jvm/functions/Function1;
     invoke-static {v3}, Lkotlin/sequences/FlatteningSequence;->access$getIterator$p(Lkotlin/sequences/FlatteningSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v3
 
     iget-object v4, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->this$0:Lkotlin/sequences/FlatteningSequence;
 
+    # getter for: Lkotlin/sequences/FlatteningSequence;->transformer:Lkotlin/jvm/functions/Function1;
     invoke-static {v4}, Lkotlin/sequences/FlatteningSequence;->access$getTransformer$p(Lkotlin/sequences/FlatteningSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v4
@@ -197,7 +200,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_e
 
     .line 332
     iput-object v3, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->itemIterator:Ljava/util/Iterator;
@@ -211,7 +214,7 @@
     .line 338
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "nextItemIterator":Ljava/util/Iterator;
-    :cond_1
+    :cond_3d
     const/4 v1, 0x2
 
     iput v1, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
@@ -230,7 +233,7 @@
 
 # virtual methods
 .method public final getItemIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -246,7 +249,7 @@
 .end method
 
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +265,7 @@
 .end method
 
 .method public final getState()I
-    .locals 1
+    .registers 2
 
     .line 304
     iget v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
@@ -271,31 +274,31 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 316
     iget v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     return v1
 
     .line 317
-    :cond_0
+    :cond_6
     iget v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_d
 
     const/4 v0, 0x0
 
     return v0
 
     .line 318
-    :cond_1
+    :cond_d
     invoke-direct {p0}, Lkotlin/sequences/FlatteningSequence$iterator$1;->ensureItemIterator()Z
 
     move-result v0
@@ -304,7 +307,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -316,23 +319,23 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_23
 
     .line 308
     iget v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     invoke-direct {p0}, Lkotlin/sequences/FlatteningSequence$iterator$1;->ensureItemIterator()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_16
 
     .line 309
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -340,8 +343,8 @@
     throw v0
 
     .line 311
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v0, 0x0
 
     iput v0, p0, Lkotlin/sequences/FlatteningSequence$iterator$1;->state:I
@@ -358,7 +361,7 @@
     return-object v0
 
     .line 307
-    :cond_2
+    :cond_23
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -367,7 +370,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -379,7 +382,7 @@
 .end method
 
 .method public final setItemIterator(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -396,7 +399,7 @@
 .end method
 
 .method public final setState(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 304

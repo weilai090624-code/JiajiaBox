@@ -81,13 +81,14 @@ public final class FullScreenBackdrop implements View.OnAttachStateChangeListene
  public static void drawerSlide(View drawer,float progress){}
 
  public static void drawerState(Activity activity,int state){
+  DrawerWorkGate.drawerMoving(activity.getWindow().getDecorView(),state!=0);
   FullScreenBackdrop controller=owner(activity.getWindow().getDecorView());
   if(controller!=null)controller.moving=state!=0;
  }
 
  public static boolean isTransitioning(View view){
   FullScreenBackdrop controller=owner(view);
-  return controller!=null&&controller.moving;
+  return DrawerWorkGate.isMoving(view)||(controller!=null&&controller.moving);
  }
 
  // The dormant 288 backdrop used these invalidation hooks. There is no cached

@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/channels/BroadcastChannelImpl;)V
-    .locals 3
+    .registers 5
     .param p1, "this$0"    # Lkotlinx/coroutines/channels/BroadcastChannelImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,12 +88,13 @@
 
 # virtual methods
 .method public cancelImpl(Ljava/lang/Throwable;)Z
-    .locals 6
+    .registers 8
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 362
     iget-object v0, p0, Lkotlinx/coroutines/channels/BroadcastChannelImpl$SubscriberBuffered;->this$0:Lkotlinx/coroutines/channels/BroadcastChannelImpl;
 
+    # getter for: Lkotlinx/coroutines/channels/BroadcastChannelImpl;->lock:Ljava/util/concurrent/locks/ReentrantLock;
     invoke-static {v0}, Lkotlinx/coroutines/channels/BroadcastChannelImpl;->access$getLock$p(Lkotlinx/coroutines/channels/BroadcastChannelImpl;)Ljava/util/concurrent/locks/ReentrantLock;
 
     move-result-object v0
@@ -115,19 +116,20 @@
 
     .line 364
     .local v4, "$i$a$-withLock-BroadcastChannelImpl$SubscriberBuffered$cancelImpl$1":I
-    :try_start_0
+    :try_start_10
     move-object v5, p0
 
     check-cast v5, Lkotlinx/coroutines/channels/ReceiveChannel;
 
+    # invokes: Lkotlinx/coroutines/channels/BroadcastChannelImpl;->removeSubscriber(Lkotlinx/coroutines/channels/ReceiveChannel;)V
     invoke-static {v1, v5}, Lkotlinx/coroutines/channels/BroadcastChannelImpl;->access$removeSubscriber(Lkotlinx/coroutines/channels/BroadcastChannelImpl;Lkotlinx/coroutines/channels/ReceiveChannel;)V
 
     .line 365
     invoke-super {p0, p1}, Lkotlinx/coroutines/channels/BufferedChannel;->cancelImpl$kotlinx_coroutines_core(Ljava/lang/Throwable;)Z
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_10 .. :try_end_1a} :catchall_1e
 
     .line 415
     .end local v4    # "$i$a$-withLock-BroadcastChannelImpl$SubscriberBuffered$cancelImpl$1":I
@@ -141,7 +143,7 @@
     .line 415
     .restart local v0    # "$this$withLock$iv":Ljava/util/concurrent/locks/ReentrantLock;
     .restart local v2    # "$i$f$withLock":I
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
     invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -150,7 +152,7 @@
 .end method
 
 .method public bridge synthetic cancelImpl$kotlinx_coroutines_core(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 361

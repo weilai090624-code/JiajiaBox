@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/shape/ShapePath$PathLineOperation;Lcom/google/android/material/shape/ShapePath$PathLineOperation;FF)V
-    .locals 0
+    .registers 5
     .param p1, "operation1"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
     .param p2, "operation2"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
     .param p3, "startX"    # F
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V
-    .locals 22
+    .registers 27
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "shadowRenderer"    # Lcom/google/android/material/shadow/ShadowRenderer;
     .param p3, "shadowElevation"    # I
@@ -81,15 +81,16 @@
 
     cmpl-float v2, v13, v14
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_14
 
     .line 478
     return-void
 
     .line 481
-    :cond_0
+    :cond_14
     iget-object v2, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v2}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v2
@@ -102,6 +103,7 @@
 
     iget-object v4, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v4}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v4
@@ -120,12 +122,14 @@
     .local v8, "length1":D
     iget-object v2, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation2:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v2}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v2
 
     iget-object v3, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v3}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v3
@@ -136,12 +140,14 @@
 
     iget-object v4, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation2:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v4}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v4
 
     iget-object v5, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v5}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v5
@@ -194,7 +200,7 @@
     .local v3, "retractLength":D
     cmpl-double v2, v8, v3
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_92
 
     .line 487
     new-instance v2, Landroid/graphics/RectF;
@@ -238,19 +244,19 @@
 
     invoke-virtual {v10, v12, v5, v2, v11}, Lcom/google/android/material/shadow/ShadowRenderer;->drawEdgeShadow(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Landroid/graphics/RectF;I)V
 
-    goto :goto_0
+    goto :goto_94
 
     .line 486
     .end local v2    # "rect1":Landroid/graphics/RectF;
     .end local v17    # "length2":D
     .restart local v6    # "length2":D
-    :cond_1
+    :cond_92
     move-wide/from16 v17, v6
 
     .line 494
     .end local v6    # "length2":D
     .restart local v17    # "length2":D
-    :goto_0
+    :goto_94
     new-instance v5, Landroid/graphics/RectF;
 
     mul-float v2, v15, v16
@@ -270,12 +276,14 @@
 
     iget-object v6, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v6}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v6
 
     iget-object v7, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v7}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v7
@@ -364,7 +372,7 @@
     .line 508
     cmpl-double v2, v17, v14
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_124
 
     .line 509
     new-instance v2, Landroid/graphics/RectF;
@@ -388,12 +396,14 @@
 
     iget-object v4, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v4}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v4
 
     iget-object v6, v0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v6}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v6
@@ -425,23 +435,25 @@
 
     .line 516
     .end local v2    # "rect2":Landroid/graphics/RectF;
-    :cond_2
+    :cond_124
     return-void
 .end method
 
 .method getEndAngle()F
-    .locals 3
+    .registers 4
 
     .line 523
     iget-object v0, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation2:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
     .line 524
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v0
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v1
@@ -450,12 +462,14 @@
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation2:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v1
 
     iget-object v2, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v2}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v2
@@ -481,11 +495,12 @@
 .end method
 
 .method getStartAngle()F
-    .locals 3
+    .registers 4
 
     .line 519
     iget-object v0, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v0
@@ -496,6 +511,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->operation1:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v1
@@ -522,7 +538,7 @@
 .end method
 
 .method getSweepAngle()F
-    .locals 3
+    .registers 4
 
     .line 533
     invoke-virtual {p0}, Lcom/google/android/material/shape/ShapePath$InnerCornerShadowOperation;->getEndAngle()F
@@ -547,13 +563,13 @@
 
     cmpg-float v2, v0, v2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_14
 
     .line 535
     return v0
 
     .line 537
-    :cond_0
+    :cond_14
     sub-float v1, v0, v1
 
     return v1

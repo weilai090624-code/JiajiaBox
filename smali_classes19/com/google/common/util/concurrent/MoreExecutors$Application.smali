@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 172
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method final addDelayedShutdownHook(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
-    .locals 8
+    .registers 13
     .param p1, "service"    # Ljava/util/concurrent/ExecutorService;
     .param p2, "terminationTimeout"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -98,7 +98,7 @@
 .end method
 
 .method addShutdownHook(Ljava/lang/Thread;)V
-    .locals 1
+    .registers 3
     .param p1, "hook"    # Ljava/lang/Thread;
 
     .line 226
@@ -113,7 +113,7 @@
 .end method
 
 .method final getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;)Ljava/util/concurrent/ExecutorService;
-    .locals 3
+    .registers 5
     .param p1, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
     .line 183
@@ -129,12 +129,13 @@
 .end method
 
 .method final getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ExecutorService;
-    .locals 1
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
     .param p2, "terminationTimeout"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 176
+    # invokes: Lcom/google/common/util/concurrent/MoreExecutors;->useDaemonThreadFactory(Ljava/util/concurrent/ThreadPoolExecutor;)V
     invoke-static {p1}, Lcom/google/common/util/concurrent/MoreExecutors;->access$000(Ljava/util/concurrent/ThreadPoolExecutor;)V
 
     .line 177
@@ -151,7 +152,7 @@
 .end method
 
 .method final getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 3
+    .registers 5
     .param p1, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
     .line 196
@@ -167,12 +168,13 @@
 .end method
 
 .method final getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 1
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
     .param p2, "terminationTimeout"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 188
+    # invokes: Lcom/google/common/util/concurrent/MoreExecutors;->useDaemonThreadFactory(Ljava/util/concurrent/ThreadPoolExecutor;)V
     invoke-static {p1}, Lcom/google/common/util/concurrent/MoreExecutors;->access$000(Ljava/util/concurrent/ThreadPoolExecutor;)V
 
     .line 189

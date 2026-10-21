@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    .line 88
+    .line 102
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getContext()Landroid/content/Context;
@@ -122,7 +122,7 @@
 .method bind(Lorg/json/JSONObject;)V
     .registers 7
 
-    .line 89
+    .line 103
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->value:Lorg/json/JSONObject;
 
     const-string v0, "metadata"
@@ -280,7 +280,7 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-ConnectionCard$Row(Landroid/view/View;)V
     .registers 4
 
-    .line 88
+    .line 102
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;->value:Lorg/json/JSONObject;
 
     if-eqz p1, :cond_13

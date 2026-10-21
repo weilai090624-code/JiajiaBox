@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;Z)V
-    .locals 0
+    .registers 3
     .param p2, "first"    # Z
 
     .line 733
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public expect()V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -55,12 +55,14 @@
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1400(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     move-result-object v1
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v2
@@ -69,33 +71,37 @@
 
     move-result-object v1
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$102(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/events/Event;)Lorg/yaml/snakeyaml/events/Event;
 
     .line 739
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->writeBlockComment()V
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1500(Lorg/yaml/snakeyaml/emitter/Emitter;)V
 
     .line 740
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->first:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4b
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/MappingEndEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4b
 
     .line 741
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->indents:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v1
@@ -106,6 +112,7 @@
 
     check-cast v1, Ljava/lang/Integer;
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$2002(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/Integer;)Ljava/lang/Integer;
 
     .line 742
@@ -113,6 +120,7 @@
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1700(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v1
@@ -123,12 +131,13 @@
 
     check-cast v1, Lorg/yaml/snakeyaml/emitter/EmitterState;
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->state:Lorg/yaml/snakeyaml/emitter/EmitterState;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$202(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/EmitterState;)Lorg/yaml/snakeyaml/emitter/EmitterState;
 
-    goto :goto_0
+    goto :goto_8d
 
     .line 744
-    :cond_0
+    :cond_4b
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
@@ -136,6 +145,7 @@
     .line 745
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->checkSimpleKey()Z
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$3100(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
 
     move-result v0
@@ -146,11 +156,12 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_71
 
     .line 746
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1700(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v0
@@ -166,12 +177,13 @@
     .line 747
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->expectNode(ZZZ)V
     invoke-static {v0, v2, v3, v3}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1800(Lorg/yaml/snakeyaml/emitter/Emitter;ZZZ)V
 
-    goto :goto_0
+    goto :goto_8d
 
     .line 749
-    :cond_1
+    :cond_71
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     const-string v4, "?"
@@ -181,6 +193,7 @@
     .line 750
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1700(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v0
@@ -196,9 +209,10 @@
     .line 751
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectBlockMappingKey;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->expectNode(ZZZ)V
     invoke-static {v0, v2, v3, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1800(Lorg/yaml/snakeyaml/emitter/Emitter;ZZZ)V
 
     .line 754
-    :goto_0
+    :goto_8d
     return-void
 .end method

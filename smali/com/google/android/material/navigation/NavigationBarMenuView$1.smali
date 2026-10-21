@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigation/NavigationBarMenuView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     .line 134
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
 
     .line 137
@@ -55,12 +55,14 @@
     .local v1, "item":Landroid/view/MenuItem;
     iget-object v2, p0, Lcom/google/android/material/navigation/NavigationBarMenuView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationBarMenuView;->menu:Landroidx/appcompat/view/menu/MenuBuilder;
     invoke-static {v2}, Lcom/google/android/material/navigation/NavigationBarMenuView;->access$100(Lcom/google/android/material/navigation/NavigationBarMenuView;)Landroidx/appcompat/view/menu/MenuBuilder;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationBarMenuView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationBarMenuView;->presenter:Lcom/google/android/material/navigation/NavigationBarPresenter;
     invoke-static {v3}, Lcom/google/android/material/navigation/NavigationBarMenuView;->access$000(Lcom/google/android/material/navigation/NavigationBarMenuView;)Lcom/google/android/material/navigation/NavigationBarPresenter;
 
     move-result-object v3
@@ -71,7 +73,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     .line 140
     const/4 v2, 0x1
@@ -79,6 +81,6 @@
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 142
-    :cond_0
+    :cond_1e
     return-void
 .end method

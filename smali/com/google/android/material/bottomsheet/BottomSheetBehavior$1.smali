@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     .line 1306
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 1309
     .local p0, "this":Lcom/google/android/material/bottomsheet/BottomSheetBehavior$1;, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior$1;"
@@ -58,6 +58,7 @@
 
     const/4 v3, 0x0
 
+    # invokes: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->startSettling(Landroid/view/View;IZ)V
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$100(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;IZ)V
 
     .line 1310

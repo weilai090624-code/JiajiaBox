@@ -96,7 +96,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/StartedWhileSubscribed;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
 
     move-object v0, p1
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/FlowCollector;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -191,7 +191,7 @@
     .line 176
     iget v1, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_b6
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -201,18 +201,18 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_b1
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_17
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
@@ -224,12 +224,12 @@
     .local v2, "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_9d
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .end local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_21
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
@@ -241,12 +241,12 @@
     .restart local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_88
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .end local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_2a
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
@@ -258,23 +258,23 @@
     .restart local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_6b
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .end local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_4
+    :pswitch_33
     move-object v0, p0
 
     .restart local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .restart local p1    # "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_55
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_5
+    :pswitch_38
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -293,7 +293,7 @@
     nop
 
     .end local v3    # "count":I
-    if-lez v3, :cond_1
+    if-lez v3, :cond_56
 
     .line 178
     sget-object v3, Lkotlinx/coroutines/flow/SharingCommand;->START:Lkotlinx/coroutines/flow/SharingCommand;
@@ -311,27 +311,28 @@
     move-result-object v2
 
     .end local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_54
 
     .line 176
     return-object v0
 
     .line 178
-    :cond_0
+    :cond_54
     move-object v0, v1
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
-    :goto_0
-    goto :goto_5
+    :goto_55
+    goto :goto_b2
 
     .line 180
     .end local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .restart local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .restart local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_1
+    :cond_56
     iget-object v3, v1, Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;->this$0:Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
+    # getter for: Lkotlinx/coroutines/flow/StartedWhileSubscribed;->stopTimeout:J
     invoke-static {v3}, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getStopTimeout$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 
     move-result-wide v3
@@ -350,16 +351,17 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_2
+    if-ne v3, v0, :cond_6b
 
     .line 176
     return-object v0
 
     .line 181
-    :cond_2
-    :goto_1
+    :cond_6b
+    :goto_6b
     iget-object v3, v1, Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;->this$0:Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
+    # getter for: Lkotlinx/coroutines/flow/StartedWhileSubscribed;->replayExpiration:J
     invoke-static {v3}, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getReplayExpiration$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 
     move-result-wide v3
@@ -368,7 +370,7 @@
 
     cmp-long v7, v3, v5
 
-    if-lez v7, :cond_5
+    if-lez v7, :cond_9e
 
     .line 182
     sget-object v3, Lkotlinx/coroutines/flow/SharingCommand;->STOP:Lkotlinx/coroutines/flow/SharingCommand;
@@ -387,16 +389,17 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_3
+    if-ne v3, v0, :cond_88
 
     .line 176
     return-object v0
 
     .line 183
-    :cond_3
-    :goto_2
+    :cond_88
+    :goto_88
     iget-object v3, v1, Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;->this$0:Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 
+    # getter for: Lkotlinx/coroutines/flow/StartedWhileSubscribed;->replayExpiration:J
     invoke-static {v3}, Lkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getReplayExpiration$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 
     move-result-wide v3
@@ -415,17 +418,17 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_4
+    if-ne v3, v0, :cond_9d
 
     .line 176
     return-object v0
 
     .line 185
-    :cond_4
-    :goto_3
+    :cond_9d
+    :goto_9d
     nop
 
-    :cond_5
+    :cond_9e
     sget-object v3, Lkotlinx/coroutines/flow/SharingCommand;->STOP_AND_RESET_REPLAY_CACHE:Lkotlinx/coroutines/flow/SharingCommand;
 
     move-object v4, v1
@@ -445,35 +448,35 @@
     move-result-object v2
 
     .end local v2    # "$this$transformLatest":Lkotlinx/coroutines/flow/FlowCollector;
-    if-ne v2, v0, :cond_6
+    if-ne v2, v0, :cond_b0
 
     .line 176
     return-object v0
 
     .line 185
-    :cond_6
+    :cond_b0
     move-object v0, v1
 
     .line 187
     .end local v1    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$1;
-    :goto_4
+    :goto_b1
     nop
 
-    :goto_5
+    :goto_b2
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b6
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_33
+        :pswitch_2a
+        :pswitch_21
+        :pswitch_17
+        :pswitch_11
     .end packed-switch
 .end method

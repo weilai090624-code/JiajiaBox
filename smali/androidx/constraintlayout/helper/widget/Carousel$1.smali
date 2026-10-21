@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/helper/widget/Carousel;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/helper/widget/Carousel;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,11 +45,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 269
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
     invoke-static {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->access$000(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     move-result-object v0
@@ -61,17 +62,20 @@
     .line 270
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # invokes: Landroidx/constraintlayout/helper/widget/Carousel;->updateItems()V
     invoke-static {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->access$100(Landroidx/constraintlayout/helper/widget/Carousel;)V
 
     .line 271
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mAdapter:Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
     invoke-static {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->access$300(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
 
     move-result-object v0
 
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v1}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v1
@@ -81,6 +85,7 @@
     .line 272
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
     invoke-static {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->access$000(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     move-result-object v0
@@ -93,32 +98,36 @@
     .local v0, "velocity":F
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->touchUpMode:I
     invoke-static {v1}, Landroidx/constraintlayout/helper/widget/Carousel;->access$400(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v1
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_9f
 
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->velocityThreshold:F
     invoke-static {v1}, Landroidx/constraintlayout/helper/widget/Carousel;->access$500(Landroidx/constraintlayout/helper/widget/Carousel;)F
 
     move-result v1
 
     cmpl-float v1, v0, v1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_9f
 
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v1}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v1
 
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mAdapter:Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$300(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
 
     move-result-object v2
@@ -129,11 +138,12 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_9f
 
     .line 274
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->dampening:F
     invoke-static {v1}, Landroidx/constraintlayout/helper/widget/Carousel;->access$600(Landroidx/constraintlayout/helper/widget/Carousel;)F
 
     move-result v1
@@ -144,39 +154,44 @@
     .local v1, "v":F
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_6e
 
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mPreviousIndex:I
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$700(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v2
 
     iget-object v3, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v3}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v3
 
-    if-le v2, v3, :cond_0
+    if-le v2, v3, :cond_6e
 
     .line 277
     return-void
 
     .line 279
-    :cond_0
+    :cond_6e
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v2
 
     iget-object v3, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mAdapter:Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
     invoke-static {v3}, Landroidx/constraintlayout/helper/widget/Carousel;->access$300(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/helper/widget/Carousel$Adapter;
 
     move-result-object v3
@@ -187,29 +202,32 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_91
 
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mPreviousIndex:I
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$700(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v2
 
     iget-object v3, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mIndex:I
     invoke-static {v3}, Landroidx/constraintlayout/helper/widget/Carousel;->access$200(Landroidx/constraintlayout/helper/widget/Carousel;)I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_91
 
     .line 281
     return-void
 
     .line 283
-    :cond_1
+    :cond_91
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
     invoke-static {v2}, Landroidx/constraintlayout/helper/widget/Carousel;->access$000(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     move-result-object v2
@@ -222,6 +240,6 @@
 
     .line 290
     .end local v1    # "v":F
-    :cond_2
+    :cond_9f
     return-void
 .end method

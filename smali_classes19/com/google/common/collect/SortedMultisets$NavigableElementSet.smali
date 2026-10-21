@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/SortedMultiset;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -83,6 +83,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -91,7 +92,7 @@
 .end method
 
 .method public descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,7 +115,7 @@
 .end method
 
 .method public descendingSet()Ljava/util/NavigableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -141,7 +142,7 @@
 .end method
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -172,6 +173,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -180,7 +182,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -219,7 +221,7 @@
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -250,6 +252,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -258,7 +261,7 @@
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -289,6 +292,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -297,7 +301,7 @@
 .end method
 
 .method public pollFirst()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -317,6 +321,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -325,7 +330,7 @@
 .end method
 
 .method public pollLast()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -345,6 +350,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/SortedMultisets;->getElementOrNull(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/SortedMultisets;->access$100(Lcom/google/common/collect/Multiset$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -353,7 +359,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 4
+    .registers 9
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -405,7 +411,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

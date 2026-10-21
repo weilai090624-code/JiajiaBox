@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;
 
     .line 70
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "slideOffset"    # F
 
@@ -43,13 +43,14 @@
 .end method
 
 .method public onStateChanged(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "newState"    # I
 
     .line 74
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$1;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;
 
+    # invokes: Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->onBottomSheetStateChanged(I)V
     invoke-static {v0, p2}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->access$000(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;I)V
 
     .line 75

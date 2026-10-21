@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
     .line 789
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)",
@@ -70,6 +70,7 @@
     .local p1, "input":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$5;->this$0:Lcom/google/common/util/concurrent/ClosingFuture;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     move-result-object v0
@@ -84,7 +85,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 797
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$5;, "Lcom/google/common/util/concurrent/ClosingFuture$5;"

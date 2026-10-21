@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/widget/ConstraintSet;Ljava/io/Writer;Landroidx/constraintlayout/widget/ConstraintLayout;I)V
-    .locals 1
+    .registers 6
     .param p1, "this$0"    # Landroidx/constraintlayout/widget/ConstraintSet;
     .param p2, "writer"    # Ljava/io/Writer;
     .param p3, "layout"    # Landroidx/constraintlayout/widget/ConstraintLayout;
@@ -158,7 +158,7 @@
 .end method
 
 .method private writeBaseDimension(Ljava/lang/String;II)V
-    .locals 3
+    .registers 7
     .param p1, "dimString"    # Ljava/lang/String;
     .param p2, "dim"    # I
     .param p3, "def"    # I
@@ -182,14 +182,14 @@
     .end annotation
 
     .line 5557
-    if-eq p2, p3, :cond_2
+    if-eq p2, p3, :cond_6a
 
     .line 5558
     const/4 v0, -0x2
 
     const-string v1, "\n       "
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_24
 
     .line 5559
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -218,13 +218,13 @@
 
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 5561
-    :cond_0
+    :cond_24
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_44
 
     .line 5562
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -253,10 +253,10 @@
 
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 5565
-    :cond_1
+    :cond_44
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -294,13 +294,13 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5568
-    :cond_2
-    :goto_0
+    :cond_6a
+    :goto_6a
     return-void
 .end method
 
 .method private writeBoolen(Ljava/lang/String;ZZ)V
-    .locals 3
+    .registers 7
     .param p1, "dimString"    # Ljava/lang/String;
     .param p2, "val"    # Z
     .param p3, "def"    # Z
@@ -324,7 +324,7 @@
     .end annotation
 
     .line 5542
-    if-eq p2, p3, :cond_0
+    if-eq p2, p3, :cond_2a
 
     .line 5543
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -366,12 +366,12 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5544
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method private writeDimension(Ljava/lang/String;II)V
-    .locals 3
+    .registers 7
     .param p1, "dimString"    # Ljava/lang/String;
     .param p2, "dim"    # I
     .param p3, "def"    # I
@@ -395,7 +395,7 @@
     .end annotation
 
     .line 5552
-    if-eq p2, p3, :cond_0
+    if-eq p2, p3, :cond_2a
 
     .line 5553
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -437,12 +437,12 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5554
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method private writeEnum(Ljava/lang/String;I[Ljava/lang/String;I)V
-    .locals 3
+    .registers 8
     .param p1, "dimString"    # Ljava/lang/String;
     .param p2, "val"    # I
     .param p3, "types"    # [Ljava/lang/String;
@@ -469,7 +469,7 @@
     .end annotation
 
     .line 5547
-    if-eq p2, p4, :cond_0
+    if-eq p2, p4, :cond_2c
 
     .line 5548
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -513,14 +513,14 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5549
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 
 # virtual methods
 .method getName(I)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -546,7 +546,7 @@
 
     const-string v2, "@+id/"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 5574
     new-instance v0, Ljava/lang/StringBuilder;
@@ -584,8 +584,8 @@
     return-object v0
 
     .line 5576
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_32
+    if-nez p1, :cond_37
 
     .line 5577
     const-string v0, "parent"
@@ -593,7 +593,7 @@
     return-object v0
 
     .line 5579
-    :cond_1
+    :cond_37
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->lookup(I)Ljava/lang/String;
 
     move-result-object v0
@@ -633,7 +633,7 @@
 .end method
 
 .method lookup(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -649,10 +649,10 @@
 
     const-string/jumbo v1, "unknown"
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_11
 
     .line 5587
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -666,7 +666,7 @@
     return-object v0
 
     .line 5589
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -688,13 +688,13 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_28} :catch_29
 
     return-object v0
 
     .line 5591
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 5592
@@ -725,7 +725,7 @@
 .end method
 
 .method writeCircle(IFI)V
-    .locals 3
+    .registers 7
     .param p1, "circleConstraint"    # I
     .param p2, "circleAngle"    # F
     .param p3, "circleRadius"    # I
@@ -751,13 +751,13 @@
     .line 5622
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_4
 
     .line 5623
     return-void
 
     .line 5625
-    :cond_0
+    :cond_4
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     const-string v1, "circle"
@@ -831,7 +831,7 @@
 .end method
 
 .method writeConstraint(Ljava/lang/String;ILjava/lang/String;II)V
-    .locals 3
+    .registers 9
     .param p1, "my"    # Ljava/lang/String;
     .param p2, "leftToLeft"    # I
     .param p3, "other"    # Ljava/lang/String;
@@ -863,13 +863,13 @@
     .line 5606
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_4
 
     .line 5607
     return-void
 
     .line 5609
-    :cond_0
+    :cond_4
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -921,7 +921,7 @@
     invoke-virtual {v0, p3}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5614
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_50
 
     .line 5615
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -945,7 +945,7 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 5617
-    :cond_1
+    :cond_50
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     const-string v1, "],\n"
@@ -957,7 +957,7 @@
 .end method
 
 .method writeLayout()V
-    .locals 22
+    .registers 23
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -976,6 +976,7 @@
     .line 5444
     iget-object v1, v0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->this$0:Landroidx/constraintlayout/widget/ConstraintSet;
 
+    # getter for: Landroidx/constraintlayout/widget/ConstraintSet;->mConstraints:Ljava/util/HashMap;
     invoke-static {v1}, Landroidx/constraintlayout/widget/ConstraintSet;->access$1300(Landroidx/constraintlayout/widget/ConstraintSet;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -988,12 +989,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_275
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1005,6 +1006,7 @@
     .local v2, "id":Ljava/lang/Integer;
     iget-object v3, v0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->this$0:Landroidx/constraintlayout/widget/ConstraintSet;
 
+    # getter for: Landroidx/constraintlayout/widget/ConstraintSet;->mConstraints:Ljava/util/HashMap;
     invoke-static {v3}, Landroidx/constraintlayout/widget/ConstraintSet;->access$1300(Landroidx/constraintlayout/widget/ConstraintSet;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -1600,7 +1602,7 @@
     .line 5531
     iget-object v8, v5, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->mReferenceIds:[I
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_26c
 
     .line 5532
     const-string v8, "\'ReferenceIds\'"
@@ -1610,7 +1612,7 @@
     invoke-virtual {v0, v8, v9}, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writeVariable(Ljava/lang/String;[I)V
 
     .line 5534
-    :cond_0
+    :cond_26c
     iget-object v8, v0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     const-string v9, " />\n"
@@ -1624,10 +1626,10 @@
     .end local v5    # "l":Landroidx/constraintlayout/widget/ConstraintSet$Layout;
     .end local v6    # "typesConstraintDefault":[Ljava/lang/String;
     .end local v7    # "barrierDir":[Ljava/lang/String;
-    goto/16 :goto_0
+    goto/16 :goto_17
 
     .line 5536
-    :cond_1
+    :cond_275
     iget-object v1, v0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     const-string v2, "</ConstraintSet>\n"
@@ -1639,7 +1641,7 @@
 .end method
 
 .method writeVariable(Ljava/lang/String;FF)V
-    .locals 3
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # F
     .param p3, "def"    # F
@@ -1665,13 +1667,13 @@
     .line 5640
     cmpl-float v0, p2, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 5641
     return-void
 
     .line 5643
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1728,7 +1730,7 @@
 .end method
 
 .method writeVariable(Ljava/lang/String;I)V
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1749,16 +1751,16 @@
     .end annotation
 
     .line 5633
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2f
 
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_6
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 5636
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1801,13 +1803,13 @@
     return-void
 
     .line 5634
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     return-void
 .end method
 
 .method writeVariable(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1828,13 +1830,13 @@
     .end annotation
 
     .line 5670
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 5671
     return-void
 
     .line 5673
-    :cond_0
+    :cond_3
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
@@ -1881,7 +1883,7 @@
 .end method
 
 .method writeVariable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "def"    # Ljava/lang/String;
@@ -1905,18 +1907,18 @@
     .end annotation
 
     .line 5649
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_40
 
     invoke-virtual {p2, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_40
 
     .line 5652
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1972,13 +1974,13 @@
     return-void
 
     .line 5650
-    :cond_1
-    :goto_0
+    :cond_40
+    :goto_40
     return-void
 .end method
 
 .method writeVariable(Ljava/lang/String;[I)V
-    .locals 4
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # [I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1999,13 +2001,13 @@
     .end annotation
 
     .line 5658
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 5659
     return-void
 
     .line 5661
-    :cond_0
+    :cond_3
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2039,10 +2041,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_23
     array-length v1, p2
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_4c
 
     .line 5664
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
@@ -2051,16 +2053,16 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     const-string v3, "["
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_1
+    :cond_32
     const-string v3, ", "
 
-    :goto_1
+    :goto_34
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -2084,11 +2086,11 @@
     .line 5663
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 5666
     .end local v0    # "i":I
-    :cond_2
+    :cond_4c
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     const-string v1, "],\n"
@@ -2100,7 +2102,7 @@
 .end method
 
 .method writeXmlConstraint(Ljava/lang/String;I)V
-    .locals 3
+    .registers 6
     .param p1, "str"    # Ljava/lang/String;
     .param p2, "leftToLeft"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -2123,13 +2125,13 @@
     .line 5597
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_4
 
     .line 5598
     return-void
 
     .line 5600
-    :cond_0
+    :cond_4
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$WriteXmlEngine;->writer:Ljava/io/Writer;
 
     new-instance v1, Ljava/lang/StringBuilder;

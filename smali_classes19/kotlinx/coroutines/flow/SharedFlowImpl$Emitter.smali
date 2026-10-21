@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/SharedFlowImpl;JLjava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 6
     .param p1, "flow"    # Lkotlinx/coroutines/flow/SharedFlowImpl;
     .param p2, "index"    # J
     .param p4, "value"    # Ljava/lang/Object;
@@ -113,11 +113,12 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .registers 2
 
     .line 708
     iget-object v0, p0, Lkotlinx/coroutines/flow/SharedFlowImpl$Emitter;->flow:Lkotlinx/coroutines/flow/SharedFlowImpl;
 
+    # invokes: Lkotlinx/coroutines/flow/SharedFlowImpl;->cancelEmitter(Lkotlinx/coroutines/flow/SharedFlowImpl$Emitter;)V
     invoke-static {v0, p0}, Lkotlinx/coroutines/flow/SharedFlowImpl;->access$cancelEmitter(Lkotlinx/coroutines/flow/SharedFlowImpl;Lkotlinx/coroutines/flow/SharedFlowImpl$Emitter;)V
 
     return-void

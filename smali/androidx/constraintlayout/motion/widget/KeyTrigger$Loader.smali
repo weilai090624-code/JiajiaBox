@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 347
     new-instance v0, Landroid/util/SparseIntArray;
@@ -177,7 +177,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 332
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -186,7 +186,7 @@
 .end method
 
 .method public static read(Landroidx/constraintlayout/motion/widget/KeyTrigger;Landroid/content/res/TypedArray;Landroid/content/Context;)V
-    .locals 5
+    .registers 8
     .param p0, "c"    # Landroidx/constraintlayout/motion/widget/KeyTrigger;
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "context"    # Landroid/content/Context;
@@ -213,8 +213,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_5
+    if-ge v1, v0, :cond_ff
 
     .line 368
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -229,10 +229,10 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_100
 
     .line 422
-    :pswitch_0
+    :pswitch_14
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -275,10 +275,10 @@
 
     invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 416
-    :pswitch_1
+    :pswitch_43
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnPositiveCross:I
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -288,10 +288,10 @@
     iput v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnPositiveCross:I
 
     .line 417
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 413
-    :pswitch_2
+    :pswitch_4d
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnNegativeCross:I
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -301,10 +301,10 @@
     iput v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnNegativeCross:I
 
     .line 414
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 419
-    :pswitch_3
+    :pswitch_57
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnCross:I
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -314,10 +314,11 @@
     iput v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mViewTransitionOnCross:I
 
     .line 420
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 410
-    :pswitch_4
+    :pswitch_61
+    # getter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerReceiver:I
     invoke-static {p0}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$700(Landroidx/constraintlayout/motion/widget/KeyTrigger;)I
 
     move-result v3
@@ -326,13 +327,15 @@
 
     move-result v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerReceiver:I
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$702(Landroidx/constraintlayout/motion/widget/KeyTrigger;I)I
 
     .line 411
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 407
-    :pswitch_5
+    :pswitch_6e
+    # getter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mPostLayout:Z
     invoke-static {p0}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$600(Landroidx/constraintlayout/motion/widget/KeyTrigger;)Z
 
     move-result v3
@@ -341,13 +344,15 @@
 
     move-result v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mPostLayout:Z
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$602(Landroidx/constraintlayout/motion/widget/KeyTrigger;Z)Z
 
     .line 408
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 404
-    :pswitch_6
+    :pswitch_7b
+    # getter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerCollisionId:I
     invoke-static {p0}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$500(Landroidx/constraintlayout/motion/widget/KeyTrigger;)I
 
     move-result v3
@@ -356,13 +361,14 @@
 
     move-result v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerCollisionId:I
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$502(Landroidx/constraintlayout/motion/widget/KeyTrigger;I)I
 
     .line 405
-    goto/16 :goto_1
+    goto/16 :goto_fb
 
     .line 371
-    :pswitch_7
+    :pswitch_88
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mFramePosition:I
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
@@ -384,16 +390,17 @@
 
     div-float/2addr v3, v4
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mFireThreshold:F
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$002(Landroidx/constraintlayout/motion/widget/KeyTrigger;F)F
 
     .line 373
-    goto :goto_1
+    goto :goto_fb
 
     .line 375
-    :pswitch_8
+    :pswitch_9d
     sget-boolean v3, Landroidx/constraintlayout/motion/widget/MotionLayout;->IS_IN_EDIT_MODE:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_b5
 
     .line 376
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTargetId:I
@@ -409,7 +416,7 @@
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_fb
 
     .line 378
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -418,10 +425,10 @@
 
     iput-object v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTargetString:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_fb
 
     .line 381
-    :cond_0
+    :cond_b5
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v3
@@ -430,7 +437,7 @@
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_c5
 
     .line 382
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -439,10 +446,10 @@
 
     iput-object v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTargetString:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_fb
 
     .line 384
-    :cond_1
+    :cond_c5
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTargetId:I
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -452,10 +459,11 @@
     iput v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTargetId:I
 
     .line 387
-    goto :goto_1
+    goto :goto_fb
 
     .line 401
-    :pswitch_9
+    :pswitch_ce
+    # getter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerID:I
     invoke-static {p0}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$400(Landroidx/constraintlayout/motion/widget/KeyTrigger;)I
 
     move-result v3
@@ -464,13 +472,14 @@
 
     move-result v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerID:I
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$402(Landroidx/constraintlayout/motion/widget/KeyTrigger;I)I
 
     .line 402
-    goto :goto_1
+    goto :goto_fb
 
     .line 398
-    :pswitch_a
+    :pswitch_da
     iget v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerSlack:F
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -480,36 +489,39 @@
     iput v3, p0, Landroidx/constraintlayout/motion/widget/KeyTrigger;->mTriggerSlack:F
 
     .line 399
-    goto :goto_1
+    goto :goto_fb
 
     .line 395
-    :pswitch_b
+    :pswitch_e3
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mCross:Ljava/lang/String;
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$302(Landroidx/constraintlayout/motion/widget/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
     .line 396
-    goto :goto_1
+    goto :goto_fb
 
     .line 392
-    :pswitch_c
+    :pswitch_eb
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mPositiveCross:Ljava/lang/String;
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$202(Landroidx/constraintlayout/motion/widget/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
     .line 393
-    goto :goto_1
+    goto :goto_fb
 
     .line 389
-    :pswitch_d
+    :pswitch_f3
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
+    # setter for: Landroidx/constraintlayout/motion/widget/KeyTrigger;->mNegativeCross:Ljava/lang/String;
     invoke-static {p0, v3}, Landroidx/constraintlayout/motion/widget/KeyTrigger;->access$102(Landroidx/constraintlayout/motion/widget/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
     .line 390
@@ -517,32 +529,32 @@
 
     .line 367
     .end local v2    # "attr":I
-    :cond_2
-    :goto_1
+    :cond_fb
+    :goto_fb
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     .line 426
     .end local v1    # "i":I
-    :cond_3
+    :cond_ff
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_100
     .packed-switch 0x1
-        :pswitch_d
-        :pswitch_c
-        :pswitch_0
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_f3
+        :pswitch_eb
+        :pswitch_14
+        :pswitch_e3
+        :pswitch_da
+        :pswitch_ce
+        :pswitch_9d
+        :pswitch_88
+        :pswitch_7b
+        :pswitch_6e
+        :pswitch_61
+        :pswitch_57
+        :pswitch_4d
+        :pswitch_43
     .end packed-switch
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "arg0"    # Ljava/lang/String;
 
     .line 233
@@ -36,10 +36,11 @@
 
 # virtual methods
 .method public getValue(Lcom/google/android/material/progressindicator/DeterminateDrawable;)F
-    .locals 2
+    .registers 4
     .param p1, "drawable"    # Lcom/google/android/material/progressindicator/DeterminateDrawable;
 
     .line 236
+    # invokes: Lcom/google/android/material/progressindicator/DeterminateDrawable;->getIndicatorFraction()F
     invoke-static {p1}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->access$000(Lcom/google/android/material/progressindicator/DeterminateDrawable;)F
 
     move-result v0
@@ -52,7 +53,7 @@
 .end method
 
 .method public bridge synthetic getValue(Ljava/lang/Object;)F
-    .locals 0
+    .registers 2
 
     .line 233
     check-cast p1, Lcom/google/android/material/progressindicator/DeterminateDrawable;
@@ -65,7 +66,7 @@
 .end method
 
 .method public setValue(Lcom/google/android/material/progressindicator/DeterminateDrawable;F)V
-    .locals 1
+    .registers 4
     .param p1, "drawable"    # Lcom/google/android/material/progressindicator/DeterminateDrawable;
     .param p2, "value"    # F
 
@@ -74,6 +75,7 @@
 
     div-float v0, p2, v0
 
+    # invokes: Lcom/google/android/material/progressindicator/DeterminateDrawable;->setIndicatorFraction(F)V
     invoke-static {p1, v0}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->access$100(Lcom/google/android/material/progressindicator/DeterminateDrawable;F)V
 
     .line 242
@@ -81,7 +83,7 @@
 .end method
 
 .method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
+    .registers 3
 
     .line 233
     check-cast p1, Lcom/google/android/material/progressindicator/DeterminateDrawable;

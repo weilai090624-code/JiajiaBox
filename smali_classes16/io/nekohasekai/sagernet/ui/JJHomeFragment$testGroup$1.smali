@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;JLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
     .line 812
     iget v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$testGroup$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_60
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -188,25 +188,25 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
-    :try_start_0
+    :pswitch_11
+    :try_start_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_14} :catch_16
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 817
-    :catch_0
+    :catch_16
     move-exception v0
 
-    goto :goto_1
+    goto :goto_55
 
     .line 812
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_18
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 813
@@ -214,7 +214,7 @@
     nop
 
     .line 814
-    :try_start_1
+    :try_start_1c
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v1
@@ -242,27 +242,27 @@
     invoke-static {v1, v2, v3}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_36
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_36} :catch_16
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_39
 
     .line 812
     return-object v0
 
     .line 814
-    :cond_0
+    :cond_39
     move-object v0, p1
 
     move-object p1, v1
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_3b
+    :try_start_3b
     check-cast p1, Ljava/util/List;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3d
+    .catch Ljava/lang/Exception; {:try_start_3b .. :try_end_3d} :catch_51
 
     .line 813
     nop
@@ -273,18 +273,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_47
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 822
-    :cond_1
+    :cond_47
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$testGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     iget-wide v2, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$testGroup$1;->$groupId:J
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->speedTest(Ljava/util/List;J)V
     invoke-static {v1, p1, v2, v3}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$speedTest(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/util/List;J)V
 
     .line 823
@@ -294,7 +295,7 @@
 
     .line 817
     .end local p1    # "profiles":Ljava/util/List;
-    :catch_1
+    :catch_51
     move-exception p1
 
     move-object v6, v0
@@ -306,7 +307,7 @@
     .line 818
     .local v0, "e":Ljava/lang/Exception;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_1
+    :goto_55
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v2, v0
@@ -320,9 +321,9 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_60
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_11
     .end packed-switch
 .end method

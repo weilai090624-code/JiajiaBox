@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable$Companion;-><init>()V
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public compare(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)I
-    .locals 5
+    .registers 8
     .param p1, "a"    # Lio/nekohasekai/sagernet/utils/Subnet$Immutable;
     .param p2, "b"    # Lio/nekohasekai/sagernet/utils/Subnet$Immutable;
 
@@ -85,12 +85,14 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 32
+    # getter for: Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
     invoke-static {p1}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
 
     move-result-object v0
 
     array-length v0, v0
 
+    # getter for: Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
     invoke-static {p2}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
 
     move-result-object v1
@@ -99,38 +101,41 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_1a
+    if-eqz v0, :cond_3b
 
     .line 33
     const/4 v0, 0x0
 
     .local v0, "i":I
+    # getter for: Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
     invoke-static {p1}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
 
     move-result-object v1
 
     array-length v1, v1
 
-    :goto_1
-    if-ge v0, v1, :cond_2
+    :goto_22
+    if-ge v0, v1, :cond_3a
 
     .line 34
+    # getter for: Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
     invoke-static {p1}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
 
     move-result-object v3
 
     aget-byte v3, v3, v0
 
+    # getter for: Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->a:[B
     invoke-static {p2}, Lio/nekohasekai/sagernet/utils/Subnet$Immutable;->access$getA$p(Lio/nekohasekai/sagernet/utils/Subnet$Immutable;)[B
 
     move-result-object v4
@@ -143,24 +148,24 @@
 
     .line 35
     .local v3, "result":I
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     return v3
 
     .line 33
     .end local v3    # "result":I
-    :cond_1
+    :cond_37
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 37
     .end local v0    # "i":I
-    :cond_2
+    :cond_3a
     return v2
 
     .line 32
-    :cond_3
+    :cond_3b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -175,7 +180,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 

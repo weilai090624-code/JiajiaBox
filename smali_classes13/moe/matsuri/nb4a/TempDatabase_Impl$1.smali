@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lmoe/matsuri/nb4a/TempDatabase_Impl;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lmoe/matsuri/nb4a/TempDatabase_Impl;
     .param p2, "version"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 .end method
 
 .method public dropAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,25 +95,26 @@
     .line 47
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl$1;->this$0:Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
+    # getter for: Lmoe/matsuri/nb4a/TempDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lmoe/matsuri/nb4a/TempDatabase_Impl;->access$000(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 48
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 49
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -127,15 +128,15 @@
 
     .line 51
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_11
 
     .line 53
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -149,25 +150,26 @@
     .line 57
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl$1;->this$0:Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
+    # getter for: Lmoe/matsuri/nb4a/TempDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lmoe/matsuri/nb4a/TempDatabase_Impl;->access$100(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 58
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 59
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -181,15 +183,15 @@
 
     .line 61
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_c
 
     .line 63
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -203,35 +205,38 @@
     .line 67
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl$1;->this$0:Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
+    # setter for: Lmoe/matsuri/nb4a/TempDatabase_Impl;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
     invoke-static {v0, p1}, Lmoe/matsuri/nb4a/TempDatabase_Impl;->access$202(Lmoe/matsuri/nb4a/TempDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 68
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl$1;->this$0:Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
+    # invokes: Lmoe/matsuri/nb4a/TempDatabase_Impl;->internalInitInvalidationTracker(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     invoke-static {v0, p1}, Lmoe/matsuri/nb4a/TempDatabase_Impl;->access$300(Lmoe/matsuri/nb4a/TempDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 69
     iget-object v0, p0, Lmoe/matsuri/nb4a/TempDatabase_Impl$1;->this$0:Lmoe/matsuri/nb4a/TempDatabase_Impl;
 
+    # getter for: Lmoe/matsuri/nb4a/TempDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lmoe/matsuri/nb4a/TempDatabase_Impl;->access$400(Lmoe/matsuri/nb4a/TempDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 70
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 71
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -245,15 +250,15 @@
 
     .line 73
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_16
 
     .line 75
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -269,7 +274,7 @@
 .end method
 
 .method public onPreMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -288,7 +293,7 @@
 .end method
 
 .method public onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
-    .locals 16
+    .registers 18
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -411,7 +416,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_80
 
     .line 99
     new-instance v7, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -449,7 +454,7 @@
     return-object v7
 
     .line 103
-    :cond_0
+    :cond_80
     new-instance v2, Landroidx/room/RoomOpenHelper$ValidationResult;
 
     const/4 v7, 0x1

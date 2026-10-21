@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/hash/ChecksumHashFunction;Ljava/util/zip/Checksum;)V
-    .locals 0
+    .registers 3
     .param p2, "checksum"    # Ljava/util/zip/Checksum;
 
     .line 63
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/hash/ChecksumHashFunction;Ljava/util/zip/Checksum;Lcom/google/common/hash/ChecksumHashFunction$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/hash/ChecksumHashFunction;
     .param p2, "x1"    # Ljava/util/zip/Checksum;
     .param p3, "x2"    # Lcom/google/common/hash/ChecksumHashFunction$1;
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 4
+    .registers 5
 
     .line 79
     iget-object v0, p0, Lcom/google/common/hash/ChecksumHashFunction$ChecksumHasher;->checksum:Ljava/util/zip/Checksum;
@@ -71,13 +71,14 @@
     .local v0, "value":J
     iget-object v2, p0, Lcom/google/common/hash/ChecksumHashFunction$ChecksumHasher;->this$0:Lcom/google/common/hash/ChecksumHashFunction;
 
+    # getter for: Lcom/google/common/hash/ChecksumHashFunction;->bits:I
     invoke-static {v2}, Lcom/google/common/hash/ChecksumHashFunction;->access$100(Lcom/google/common/hash/ChecksumHashFunction;)I
 
     move-result v2
 
     const/16 v3, 0x20
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_16
 
     .line 86
     long-to-int v2, v0
@@ -89,7 +90,7 @@
     return-object v2
 
     .line 88
-    :cond_0
+    :cond_16
     invoke-static {v0, v1}, Lcom/google/common/hash/HashCode;->fromLong(J)Lcom/google/common/hash/HashCode;
 
     move-result-object v2
@@ -98,7 +99,7 @@
 .end method
 
 .method protected update(B)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # B
 
     .line 69
@@ -111,7 +112,7 @@
 .end method
 
 .method protected update([BII)V
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$AsyncClosingFunction2;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
 
     .line 1535
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;Lcom/google/common/util/concurrent/ClosingFuture$Peeker;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 3
+    .registers 6
     .param p1, "closer"    # Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
     .param p2, "peeker"    # Lcom/google/common/util/concurrent/ClosingFuture$Peeker;
     .annotation system Ldalvik/annotation/Signature;
@@ -76,6 +76,7 @@
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$2;->this$0:Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;->future1:Lcom/google/common/util/concurrent/ClosingFuture;
     invoke-static {v1}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;->access$1800(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object v1
@@ -86,6 +87,7 @@
 
     iget-object v2, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$2;->this$0:Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;->future2:Lcom/google/common/util/concurrent/ClosingFuture;
     invoke-static {v2}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;->access$1900(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object v2
@@ -102,7 +104,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1543
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$2;, "Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$2;"

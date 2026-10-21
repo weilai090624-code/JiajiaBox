@@ -55,7 +55,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public static synthetic getInstance$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getInstance()Lio/nekohasekai/sagernet/database/SagerDatabase;
@@ -95,9 +95,10 @@
 .end method
 
 .method public final getInstance()Lio/nekohasekai/sagernet/database/SagerDatabase;
-    .locals 1
+    .registers 2
 
     .line 33
+    # getter for: Lio/nekohasekai/sagernet/database/SagerDatabase;->instance$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/database/SagerDatabase;->access$getInstance$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -112,7 +113,7 @@
 .end method
 
 .method public final getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getInstance()Lio/nekohasekai/sagernet/database/SagerDatabase;
@@ -127,7 +128,7 @@
 .end method
 
 .method public final getRulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getInstance()Lio/nekohasekai/sagernet/database/SagerDatabase;

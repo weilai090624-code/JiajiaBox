@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 4
     .param p1, "lowerBounds"    # [Ljava/lang/reflect/Type;
     .param p2, "upperBounds"    # [Ljava/lang/reflect/Type;
 
@@ -56,11 +56,13 @@
     .line 484
     const-string v0, "lower bound for wildcard"
 
+    # invokes: Lcom/google/common/reflect/Types;->disallowPrimitiveType([Ljava/lang/reflect/Type;Ljava/lang/String;)V
     invoke-static {p1, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     .line 485
     const-string v0, "upper bound for wildcard"
 
+    # invokes: Lcom/google/common/reflect/Types;->disallowPrimitiveType([Ljava/lang/reflect/Type;Ljava/lang/String;)V
     invoke-static {p2, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     .line 486
@@ -88,7 +90,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -99,7 +101,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 503
     move-object v0, p1
@@ -122,7 +124,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     iget-object v2, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->upperBounds:Lcom/google/common/collect/ImmutableList;
 
@@ -139,31 +141,32 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     nop
 
     .line 504
-    :goto_0
+    :goto_2b
     return v1
 
     .line 507
     .end local v0    # "that":Ljava/lang/reflect/WildcardType;
-    :cond_1
+    :cond_2c
     return v1
 .end method
 
 .method public getLowerBounds()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 492
     iget-object v0, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->lowerBounds:Lcom/google/common/collect/ImmutableList;
 
+    # invokes: Lcom/google/common/reflect/Types;->toArray(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
     invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
@@ -172,11 +175,12 @@
 .end method
 
 .method public getUpperBounds()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 497
     iget-object v0, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->upperBounds:Lcom/google/common/collect/ImmutableList;
 
+    # invokes: Lcom/google/common/reflect/Types;->toArray(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
     invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
@@ -185,7 +189,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 512
     iget-object v0, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->lowerBounds:Lcom/google/common/collect/ImmutableList;
@@ -206,7 +210,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 517
     new-instance v0, Ljava/lang/StringBuilder;
@@ -223,12 +227,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -254,12 +258,13 @@
 
     .line 520
     .end local v2    # "lowerBound":Ljava/lang/reflect/Type;
-    goto :goto_0
+    goto :goto_d
 
     .line 521
-    :cond_0
+    :cond_29
     iget-object v1, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->upperBounds:Lcom/google/common/collect/ImmutableList;
 
+    # invokes: Lcom/google/common/reflect/Types;->filterUpperBounds(Ljava/lang/Iterable;)Ljava/lang/Iterable;
     invoke-static {v1}, Lcom/google/common/reflect/Types;->access$700(Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
     move-result-object v1
@@ -268,12 +273,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_33
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -299,10 +304,10 @@
 
     .line 523
     .end local v2    # "upperBound":Ljava/lang/reflect/Type;
-    goto :goto_1
+    goto :goto_33
 
     .line 524
-    :cond_1
+    :cond_4f
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

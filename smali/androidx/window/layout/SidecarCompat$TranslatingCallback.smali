@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/layout/SidecarCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/window/layout/SidecarCompat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public onDeviceStateChanged(Landroidx/window/sidecar/SidecarDeviceState;)V
-    .locals 11
+    .registers 13
     .param p1, "newDeviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
 
     const-string v0, "newDeviceState"
@@ -88,6 +88,7 @@
     .line 337
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat$TranslatingCallback;->this$0:Landroidx/window/layout/SidecarCompat;
 
+    # getter for: Landroidx/window/layout/SidecarCompat;->windowListenerRegisteredContexts:Ljava/util/Map;
     invoke-static {v0}, Landroidx/window/layout/SidecarCompat;->access$getWindowListenerRegisteredContexts$p(Landroidx/window/layout/SidecarCompat;)Ljava/util/Map;
 
     move-result-object v0
@@ -109,12 +110,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_18
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_55
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -142,13 +143,13 @@
     .line 338
     const/4 v8, 0x0
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_31
 
     .line 339
-    :goto_1
-    goto :goto_2
+    :goto_30
+    goto :goto_3f
 
-    :cond_0
+    :cond_31
     nop
 
     .line 480
@@ -161,38 +162,40 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3a
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
+    :cond_3a
     invoke-interface {v10, v7}, Landroidx/window/sidecar/SidecarInterface;->getWindowLayoutInfo(Landroid/os/IBinder;)Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
     move-result-object v8
 
-    goto :goto_1
+    goto :goto_30
 
     .line 338
     .end local v7    # "windowToken":Landroid/os/IBinder;
     .end local v9    # "$i$a$-let-SidecarCompat$TranslatingCallback$onDeviceStateChanged$1$layoutInfo$1":I
-    :goto_2
+    :goto_3f
     move-object v7, v8
 
     .line 340
     .local v7, "layoutInfo":Landroidx/window/sidecar/SidecarWindowLayoutInfo;
+    # getter for: Landroidx/window/layout/SidecarCompat;->extensionCallback:Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
     invoke-static {v1}, Landroidx/window/layout/SidecarCompat;->access$getExtensionCallback$p(Landroidx/window/layout/SidecarCompat;)Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
 
     move-result-object v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_47
 
-    goto :goto_3
+    goto :goto_53
 
     .line 341
-    :cond_2
+    :cond_47
     nop
 
     .line 342
+    # getter for: Landroidx/window/layout/SidecarCompat;->sidecarAdapter:Landroidx/window/layout/SidecarAdapter;
     invoke-static {v1}, Landroidx/window/layout/SidecarCompat;->access$getSidecarAdapter$p(Landroidx/window/layout/SidecarCompat;)Landroidx/window/layout/SidecarAdapter;
 
     move-result-object v9
@@ -205,17 +208,17 @@
     invoke-interface {v8, v5, v9}, Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;->onWindowLayoutChanged(Landroid/app/Activity;Landroidx/window/layout/WindowLayoutInfo;)V
 
     .line 344
-    :goto_3
+    :goto_53
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
     .end local v5    # "activity":Landroid/app/Activity;
     .end local v6    # "$i$a$-forEach-SidecarCompat$TranslatingCallback$onDeviceStateChanged$1":I
     .end local v7    # "layoutInfo":Landroidx/window/sidecar/SidecarWindowLayoutInfo;
-    goto :goto_0
+    goto :goto_18
 
     .line 481
-    :cond_3
+    :cond_55
     nop
 
     .line 345
@@ -225,7 +228,7 @@
 .end method
 
 .method public onWindowLayoutChanged(Landroid/os/IBinder;Landroidx/window/sidecar/SidecarWindowLayoutInfo;)V
-    .locals 3
+    .registers 6
     .param p1, "windowToken"    # Landroid/os/IBinder;
     .param p2, "newLayout"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
@@ -240,6 +243,7 @@
     .line 352
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat$TranslatingCallback;->this$0:Landroidx/window/layout/SidecarCompat;
 
+    # getter for: Landroidx/window/layout/SidecarCompat;->windowListenerRegisteredContexts:Ljava/util/Map;
     invoke-static {v0}, Landroidx/window/layout/SidecarCompat;->access$getWindowListenerRegisteredContexts$p(Landroidx/window/layout/SidecarCompat;)Ljava/util/Map;
 
     move-result-object v0
@@ -252,7 +256,7 @@
 
     .line 353
     .local v0, "activity":Landroid/app/Activity;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 355
     nop
@@ -271,9 +275,10 @@
     return-void
 
     .line 361
-    :cond_0
+    :cond_23
     iget-object v1, p0, Landroidx/window/layout/SidecarCompat$TranslatingCallback;->this$0:Landroidx/window/layout/SidecarCompat;
 
+    # getter for: Landroidx/window/layout/SidecarCompat;->sidecarAdapter:Landroidx/window/layout/SidecarAdapter;
     invoke-static {v1}, Landroidx/window/layout/SidecarCompat;->access$getSidecarAdapter$p(Landroidx/window/layout/SidecarCompat;)Landroidx/window/layout/SidecarAdapter;
 
     move-result-object v1
@@ -288,26 +293,26 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_1
+    :cond_34
     invoke-interface {v2}, Landroidx/window/sidecar/SidecarInterface;->getDeviceState()Landroidx/window/sidecar/SidecarDeviceState;
 
     move-result-object v2
 
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_38
+    if-nez v2, :cond_3f
 
     new-instance v2, Landroidx/window/sidecar/SidecarDeviceState;
 
     invoke-direct {v2}, Landroidx/window/sidecar/SidecarDeviceState;-><init>()V
 
     .line 361
-    :cond_2
+    :cond_3f
     invoke-virtual {v1, p2, v2}, Landroidx/window/layout/SidecarAdapter;->translate(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/WindowLayoutInfo;
 
     move-result-object v1
@@ -316,18 +321,19 @@
     .local v1, "layoutInfo":Landroidx/window/layout/WindowLayoutInfo;
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat$TranslatingCallback;->this$0:Landroidx/window/layout/SidecarCompat;
 
+    # getter for: Landroidx/window/layout/SidecarCompat;->extensionCallback:Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
     invoke-static {v2}, Landroidx/window/layout/SidecarCompat;->access$getExtensionCallback$p(Landroidx/window/layout/SidecarCompat;)Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
 
     move-result-object v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4c
 
-    goto :goto_1
+    goto :goto_4f
 
-    :cond_3
+    :cond_4c
     invoke-interface {v2, v0, v1}, Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;->onWindowLayoutChanged(Landroid/app/Activity;Landroidx/window/layout/WindowLayoutInfo;)V
 
     .line 366
-    :goto_1
+    :goto_4f
     return-void
 .end method

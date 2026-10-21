@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 190
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AggregateFutureState$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AggregateFutureState$1;
 
     .line 190
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method compareAndSetSeenExceptions(Lcom/google/common/util/concurrent/AggregateFutureState;Ljava/util/Set;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p2    # Ljava/util/Set;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -65,36 +65,38 @@
     monitor-enter p1
 
     .line 195
-    :try_start_0
+    :try_start_1
+    # getter for: Lcom/google/common/util/concurrent/AggregateFutureState;->seenExceptions:Ljava/util/Set;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AggregateFutureState;->access$200(Lcom/google/common/util/concurrent/AggregateFutureState;)Ljava/util/Set;
 
     move-result-object v0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_a
 
     .line 196
+    # setter for: Lcom/google/common/util/concurrent/AggregateFutureState;->seenExceptions:Ljava/util/Set;
     invoke-static {p1, p3}, Lcom/google/common/util/concurrent/AggregateFutureState;->access$202(Lcom/google/common/util/concurrent/AggregateFutureState;Ljava/util/Set;)Ljava/util/Set;
 
     .line 198
-    :cond_0
+    :cond_a
     monitor-exit p1
 
     .line 199
     return-void
 
     .line 198
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_1 .. :try_end_e} :catchall_c
 
     throw v0
 .end method
 
 .method decrementAndGetRemainingCount(Lcom/google/common/util/concurrent/AggregateFutureState;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +110,8 @@
     monitor-enter p1
 
     .line 204
-    :try_start_0
+    :try_start_1
+    # --operator for: Lcom/google/common/util/concurrent/AggregateFutureState;->remaining:I
     invoke-static {p1}, Lcom/google/common/util/concurrent/AggregateFutureState;->access$306(Lcom/google/common/util/concurrent/AggregateFutureState;)I
 
     move-result v0
@@ -118,12 +121,12 @@
     return v0
 
     .line 205
-    :catchall_0
+    :catchall_7
     move-exception v0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_7
 
     throw v0
 .end method

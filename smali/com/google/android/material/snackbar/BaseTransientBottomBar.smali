@@ -129,7 +129,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 221
     sget-object v0, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_SLOW_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
@@ -190,7 +190,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/snackbar/ContentViewCallback;)V
-    .locals 4
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parent"    # Landroid/view/ViewGroup;
     .param p3, "content"    # Landroid/view/View;
@@ -220,13 +220,13 @@
     iput-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->managerCallback:Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 357
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_d7
 
     .line 360
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_cf
 
     .line 363
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c7
 
     .line 367
     iput-object p2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->targetParent:Landroid/view/ViewGroup;
@@ -264,12 +264,13 @@
     .line 378
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # invokes: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setBaseTransientBottomBar(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
     invoke-static {v0, p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$500(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
 
     .line 379
     instance-of v0, p3, Lcom/google/android/material/snackbar/SnackbarContentLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_56
 
     .line 380
     move-object v0, p3
@@ -299,7 +300,7 @@
     invoke-virtual {v0, v2}, Lcom/google/android/material/snackbar/SnackbarContentLayout;->setMaxInlineActionWidth(I)V
 
     .line 384
-    :cond_0
+    :cond_56
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v0, p3}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->addView(Landroid/view/View;)V
@@ -428,7 +429,7 @@
 
     .line 364
     .end local v1    # "inflater":Landroid/view/LayoutInflater;
-    :cond_1
+    :cond_c7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Transient bottom bar must have non-null callback"
@@ -438,7 +439,7 @@
     throw v0
 
     .line 361
-    :cond_2
+    :cond_cf
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Transient bottom bar must have non-null content"
@@ -448,7 +449,7 @@
     throw v0
 
     .line 358
-    :cond_3
+    :cond_d7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Transient bottom bar must have non-null parent"
@@ -459,7 +460,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/snackbar/ContentViewCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "content"    # Landroid/view/View;
     .param p3, "contentViewCallback"    # Lcom/google/android/material/snackbar/ContentViewCallback;
@@ -477,7 +478,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -487,7 +488,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -499,7 +500,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -509,7 +510,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -519,7 +520,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -529,7 +530,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -539,7 +540,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)Lcom/google/android/material/snackbar/ContentViewCallback;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -549,7 +550,7 @@
 .end method
 
 .method static synthetic access$1700()Z
-    .locals 1
+    .registers 1
 
     .line 102
     sget-boolean v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->USE_OFFSET_API:Z
@@ -558,7 +559,7 @@
 .end method
 
 .method static synthetic access$1800(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -568,7 +569,7 @@
 .end method
 
 .method static synthetic access$1900(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
@@ -581,7 +582,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -593,7 +594,7 @@
 .end method
 
 .method static synthetic access$2000(ILandroid/content/res/Resources;)Landroid/graphics/drawable/GradientDrawable;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # Landroid/content/res/Resources;
 
@@ -606,7 +607,7 @@
 .end method
 
 .method static synthetic access$2100(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -616,7 +617,7 @@
 .end method
 
 .method static synthetic access$2200(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -626,7 +627,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -636,7 +637,7 @@
 .end method
 
 .method static synthetic access$400()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 102
     sget-object v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->TAG:Ljava/lang/String;
@@ -645,7 +646,7 @@
 .end method
 
 .method static synthetic access$602(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
     .param p1, "x1"    # I
 
@@ -656,7 +657,7 @@
 .end method
 
 .method static synthetic access$702(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
     .param p1, "x1"    # I
 
@@ -667,7 +668,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
     .param p1, "x1"    # I
 
@@ -678,7 +679,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 102
@@ -688,7 +689,7 @@
 .end method
 
 .method private animateViewOut(I)V
-    .locals 2
+    .registers 4
     .param p1, "event"    # I
 
     .line 928
@@ -701,24 +702,24 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 929
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->startFadeOutAnimation(I)V
 
-    goto :goto_0
+    goto :goto_10
 
     .line 931
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->startSlideOutAnimation(I)V
 
     .line 933
-    :goto_0
+    :goto_10
     return-void
 .end method
 
 .method private calculateBottomMarginForAnchorView()I
-    .locals 5
+    .registers 6
 
     .line 890
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -726,7 +727,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 891
     const/4 v0, 0x0
@@ -734,7 +735,7 @@
     return v0
 
     .line 894
-    :cond_0
+    :cond_8
     const/4 v0, 0x2
 
     new-array v1, v0, [I
@@ -781,7 +782,7 @@
 .end method
 
 .method private static createGradientDrawableBackground(ILandroid/content/res/Resources;)Landroid/graphics/drawable/GradientDrawable;
-    .locals 3
+    .registers 5
     .param p0, "backgroundColor"    # I
     .param p1, "resources"    # Landroid/content/res/Resources;
 
@@ -815,7 +816,7 @@
 .end method
 
 .method private static createMaterialShapeDrawableBackground(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 2
+    .registers 4
     .param p0, "backgroundColor"    # I
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
@@ -837,7 +838,7 @@
 .end method
 
 .method private varargs getAlphaAnimator([F)Landroid/animation/ValueAnimator;
-    .locals 2
+    .registers 4
     .param p1, "alphaValues"    # [F
 
     .line 966
@@ -864,7 +865,7 @@
 .end method
 
 .method private varargs getScaleAnimator([F)Landroid/animation/ValueAnimator;
-    .locals 2
+    .registers 4
     .param p1, "scaleValues"    # [F
 
     .line 979
@@ -891,7 +892,7 @@
 .end method
 
 .method private getScreenHeight()I
-    .locals 3
+    .registers 4
 
     .line 828
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -926,7 +927,7 @@
 .end method
 
 .method private getTranslationYBottom()I
-    .locals 3
+    .registers 4
 
     .line 1079
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -948,7 +949,7 @@
     .local v1, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 1082
     move-object v2, v1
@@ -960,12 +961,12 @@
     add-int/2addr v0, v2
 
     .line 1084
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method private getViewAbsoluteBottom()I
-    .locals 3
+    .registers 4
 
     .line 821
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -996,7 +997,7 @@
 .end method
 
 .method private isSwipeDismissable()Z
-    .locals 2
+    .registers 3
 
     .line 489
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1010,7 +1011,7 @@
     .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     move-object v1, v0
 
@@ -1023,22 +1024,22 @@
 
     instance-of v1, v1, Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
     .line 490
-    :goto_0
+    :goto_18
     return v1
 .end method
 
 .method private recalculateAndUpdateMargins()V
-    .locals 2
+    .registers 3
 
     .line 881
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1050,13 +1051,13 @@
     .local v0, "newBottomMarginAnchorView":I
     iget v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginAnchorView:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 883
     return-void
 
     .line 885
-    :cond_0
+    :cond_9
     iput v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginAnchorView:I
 
     .line 886
@@ -1067,7 +1068,7 @@
 .end method
 
 .method private setUpBehavior(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
-    .locals 3
+    .registers 5
     .param p1, "lp"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
     .line 836
@@ -1078,33 +1079,34 @@
     .local v0, "clp":Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->behavior:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     invoke-virtual {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getNewBehavior()Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->behavior:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
 
     .line 841
     .local v1, "behavior":Lcom/google/android/material/behavior/SwipeDismissBehavior;, "Lcom/google/android/material/behavior/SwipeDismissBehavior<+Landroid/view/View;>;"
-    :goto_0
+    :goto_c
     instance-of v2, v1, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     .line 842
     move-object v2, v1
 
     check-cast v2, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
 
+    # invokes: Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;->setBaseTransientBottomBar(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
     invoke-static {v2, p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;->access$1100(Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
 
     .line 845
-    :cond_1
+    :cond_16
     new-instance v2, Lcom/google/android/material/snackbar/BaseTransientBottomBar$7;
 
     invoke-direct {v2, p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$7;-><init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
@@ -1119,7 +1121,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     .line 876
     const/16 v2, 0x50
@@ -1127,42 +1129,42 @@
     iput v2, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->insetEdge:I
 
     .line 878
-    :cond_2
+    :cond_2b
     return-void
 .end method
 
 .method private shouldUpdateGestureInset()Z
-    .locals 1
+    .registers 2
 
     .line 485
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     iget v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginGestureInset:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     iget-boolean v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->gestureInsetBottomIgnored:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     invoke-direct {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->isSwipeDismissable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private showViewImpl()V
-    .locals 2
+    .registers 3
 
     .line 808
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1170,22 +1172,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 810
     invoke-virtual {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->animateViewIn()V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 813
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 814
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -1195,16 +1197,16 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setVisibility(I)V
 
     .line 816
-    :cond_1
+    :cond_18
     invoke-virtual {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->onViewShown()V
 
     .line 818
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method private startFadeInAnimation()V
-    .locals 6
+    .registers 7
 
     .line 936
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1212,7 +1214,7 @@
 
     new-array v1, v0, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_36
 
     invoke-direct {p0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1222,7 +1224,7 @@
     .local v1, "alphaAnimator":Landroid/animation/ValueAnimator;
     new-array v2, v0, [F
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_3e
 
     invoke-direct {p0, v2}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getScaleAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1270,13 +1272,13 @@
 
     nop
 
-    :array_0
+    :array_36
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_1
+    :array_3e
     .array-data 4
         0x3f4ccccd    # 0.8f
         0x3f800000    # 1.0f
@@ -1284,7 +1286,7 @@
 .end method
 
 .method private startFadeOutAnimation(I)V
-    .locals 3
+    .registers 5
     .param p1, "event"    # I
 
     .line 953
@@ -1293,7 +1295,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1c
 
     invoke-direct {p0, v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1320,7 +1322,7 @@
     .line 963
     return-void
 
-    :array_0
+    :array_1c
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -1328,7 +1330,7 @@
 .end method
 
 .method private startSlideInAnimation()V
-    .locals 4
+    .registers 5
 
     .line 994
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1340,17 +1342,17 @@
     .local v0, "translationYBottom":I
     sget-boolean v1, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->USE_OFFSET_API:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 996
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-static {v1, v0}, Landroidx/core/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_14
 
     .line 998
-    :cond_0
+    :cond_e
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     int-to-float v2, v0
@@ -1358,7 +1360,7 @@
     invoke-virtual {v1, v2}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setTranslationY(F)V
 
     .line 1001
-    :goto_0
+    :goto_14
     new-instance v1, Landroid/animation/ValueAnimator;
 
     invoke-direct {v1}, Landroid/animation/ValueAnimator;-><init>()V
@@ -1407,7 +1409,7 @@
 .end method
 
 .method private startSlideOutAnimation(I)V
-    .locals 3
+    .registers 5
     .param p1, "event"    # I
 
     .line 1041
@@ -1464,7 +1466,7 @@
 .end method
 
 .method private updateMargins()V
-    .locals 5
+    .registers 6
 
     .line 457
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1478,49 +1480,50 @@
     .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_79
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->originalMargins:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$1000(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;)Landroid/graphics/Rect;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_1
+    goto :goto_79
 
     .line 462
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
     .line 465
     return-void
 
     .line 469
-    :cond_1
+    :cond_1c
     invoke-virtual {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getAnchorView()Landroid/view/View;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_25
 
     iget v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginAnchorView:I
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_2
+    :cond_25
     iget v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginWindowInset:I
 
     .line 470
     .local v1, "extraBottomMargin":I
-    :goto_0
+    :goto_27
     move-object v2, v0
 
     check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
@@ -1529,6 +1532,7 @@
     .local v2, "marginParams":Landroid/view/ViewGroup$MarginLayoutParams;
     iget-object v3, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->originalMargins:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$1000(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -1542,6 +1546,7 @@
     .line 472
     iget-object v3, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->originalMargins:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$1000(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -1557,6 +1562,7 @@
     .line 473
     iget-object v3, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->originalMargins:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$1000(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -1572,6 +1578,7 @@
     .line 474
     iget-object v3, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->originalMargins:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->access$1000(Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -1590,13 +1597,13 @@
 
     const/16 v4, 0x1d
 
-    if-lt v3, v4, :cond_3
+    if-lt v3, v4, :cond_78
 
     invoke-direct {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->shouldUpdateGestureInset()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_78
 
     .line 479
     iget-object v3, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -1613,14 +1620,14 @@
     invoke-virtual {v3, v4}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->post(Ljava/lang/Runnable;)Z
 
     .line 482
-    :cond_3
+    :cond_78
     return-void
 
     .line 459
     .end local v1    # "extraBottomMargin":I
     .end local v2    # "marginParams":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_4
-    :goto_1
+    :cond_79
+    :goto_79
     sget-object v1, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->TAG:Ljava/lang/String;
 
     const-string v2, "Unable to update margins because layout params are not MarginLayoutParams"
@@ -1634,7 +1641,7 @@
 
 # virtual methods
 .method public addCallback(Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1646,16 +1653,16 @@
     .line 686
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     .local p1, "callback":Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback<TB;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 687
     return-object p0
 
     .line 689
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 690
     new-instance v0, Ljava/util/ArrayList;
@@ -1665,7 +1672,7 @@
     iput-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
     .line 692
-    :cond_1
+    :cond_e
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1675,7 +1682,7 @@
 .end method
 
 .method animateViewIn()V
-    .locals 2
+    .registers 3
 
     .line 907
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1692,7 +1699,7 @@
 .end method
 
 .method public dismiss()V
-    .locals 1
+    .registers 2
 
     .line 670
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1705,7 +1712,7 @@
 .end method
 
 .method protected dispatchDismiss(I)V
-    .locals 2
+    .registers 4
     .param p1, "event"    # I
 
     .line 674
@@ -1723,31 +1730,31 @@
 .end method
 
 .method public getAnchorView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 585
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->anchor:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->anchor:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;->getAnchorView()Landroid/view/View;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public getAnimationMode()I
-    .locals 1
+    .registers 2
 
     .line 563
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1761,7 +1768,7 @@
 .end method
 
 .method public getBehavior()Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
-    .locals 1
+    .registers 2
 
     .line 648
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1771,7 +1778,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 654
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1781,7 +1788,7 @@
 .end method
 
 .method public getDuration()I
-    .locals 1
+    .registers 2
 
     .line 531
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1791,7 +1798,7 @@
 .end method
 
 .method protected getNewBehavior()Lcom/google/android/material/behavior/SwipeDismissBehavior;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1812,7 +1819,7 @@
 .end method
 
 .method protected getSnackbarBaseLayoutResId()I
-    .locals 1
+    .registers 2
 
     .line 497
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1820,21 +1827,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     sget v0, Lcom/google/android/material/R$layout;->mtrl_layout_snackbar:I
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget v0, Lcom/google/android/material/R$layout;->design_layout_snackbar:I
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public getView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 660
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1844,7 +1851,7 @@
 .end method
 
 .method protected hasSnackbarStyleAttr()Z
-    .locals 4
+    .registers 5
 
     .line 506
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1871,16 +1878,16 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 509
-    if-eq v3, v2, :cond_0
+    if-eq v3, v2, :cond_14
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_14
     return v1
 .end method
 
 .method final hideView(I)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # I
 
     .line 1088
@@ -1889,7 +1896,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
@@ -1897,24 +1904,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 1089
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->animateViewOut(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1092
-    :cond_0
+    :cond_12
     invoke-virtual {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->onViewHidden(I)V
 
     .line 1094
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public isAnchorViewLayoutListenerEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 618
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1924,7 +1931,7 @@
 .end method
 
 .method public isGestureInsetBottomIgnored()Z
-    .locals 1
+    .registers 2
 
     .line 553
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1934,7 +1941,7 @@
 .end method
 
 .method public isShown()Z
-    .locals 2
+    .registers 3
 
     .line 718
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1952,7 +1959,7 @@
 .end method
 
 .method public isShownOrQueued()Z
-    .locals 2
+    .registers 3
 
     .line 726
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1970,7 +1977,7 @@
 .end method
 
 .method onAttachedToWindow()V
-    .locals 2
+    .registers 3
 
     .line 775
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -1978,7 +1985,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     .line 776
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -1989,7 +1996,7 @@
 
     .line 777
     .local v0, "insets":Landroid/view/WindowInsets;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 778
     invoke-virtual {v0}, Landroid/view/WindowInsets;->getMandatorySystemGestureInsets()Landroid/graphics/Insets;
@@ -2005,12 +2012,12 @@
 
     .line 782
     .end local v0    # "insets":Landroid/view/WindowInsets;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 785
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -2018,7 +2025,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 790
     sget-object v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->handler:Landroid/os/Handler;
@@ -2030,18 +2037,18 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 798
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method onLayoutChange()V
-    .locals 1
+    .registers 2
 
     .line 801
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     iget-boolean v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->pendingShowingView:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 802
     invoke-direct {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->showViewImpl()V
@@ -2052,12 +2059,12 @@
     iput-boolean v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->pendingShowingView:Z
 
     .line 805
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method onViewHidden(I)V
-    .locals 3
+    .registers 5
     .param p1, "event"    # I
 
     .line 1110
@@ -2073,7 +2080,7 @@
     .line 1111
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 1114
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
@@ -2087,8 +2094,8 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_15
+    if-ltz v1, :cond_25
 
     .line 1116
     iget-object v2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
@@ -2104,12 +2111,12 @@
     .line 1115
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1121
     .end local v0    # "callbackCount":I
     .end local v1    # "i":I
-    :cond_0
+    :cond_25
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->getParent()Landroid/view/ViewParent;
@@ -2120,7 +2127,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     .line 1123
     move-object v1, v0
@@ -2132,12 +2139,12 @@
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 1125
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method onViewShown()V
-    .locals 3
+    .registers 4
 
     .line 1097
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -2152,7 +2159,7 @@
     .line 1098
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 1101
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
@@ -2166,8 +2173,8 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_15
+    if-ltz v1, :cond_25
 
     .line 1103
     iget-object v2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
@@ -2183,17 +2190,17 @@
     .line 1102
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1106
     .end local v0    # "callbackCount":I
     .end local v1    # "i":I
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public removeCallback(Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2205,22 +2212,22 @@
     .line 705
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     .local p1, "callback":Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback<TB;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 706
     return-object p0
 
     .line 708
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_8
 
     .line 710
     return-object p0
 
     .line 712
-    :cond_1
+    :cond_8
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->callbacks:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -2230,7 +2237,7 @@
 .end method
 
 .method public setAnchorView(I)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 4
+    .registers 6
     .param p1, "anchorViewId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2248,7 +2255,7 @@
 
     .line 606
     .local v0, "anchorView":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 609
     invoke-virtual {p0, v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->setAnchorView(Landroid/view/View;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
@@ -2258,7 +2265,7 @@
     return-object v1
 
     .line 607
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2285,7 +2292,7 @@
 .end method
 
 .method public setAnchorView(Landroid/view/View;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .param p1, "anchorView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2299,7 +2306,7 @@
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->anchor:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 592
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->anchor:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
@@ -2307,19 +2314,19 @@
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;->unanchor()V
 
     .line 594
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_9
+    if-nez p1, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;->anchor(Lcom/google/android/material/snackbar/BaseTransientBottomBar;Landroid/view/View;)Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     iput-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->anchor:Lcom/google/android/material/snackbar/BaseTransientBottomBar$Anchor;
 
     .line 595
@@ -2327,7 +2334,7 @@
 .end method
 
 .method public setAnchorViewLayoutListenerEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "anchorViewLayoutListenerEnabled"    # Z
 
     .line 627
@@ -2339,7 +2346,7 @@
 .end method
 
 .method public setAnimationMode(I)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .param p1, "animationMode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2358,7 +2365,7 @@
 .end method
 
 .method public setBehavior(Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 0
+    .registers 2
     .param p1, "behavior"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2377,7 +2384,7 @@
 .end method
 
 .method public setDuration(I)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 0
+    .registers 2
     .param p1, "duration"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2394,7 +2401,7 @@
 .end method
 
 .method public setGestureInsetBottomIgnored(Z)Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-    .locals 0
+    .registers 2
     .param p1, "gestureInsetBottomIgnored"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2411,7 +2418,7 @@
 .end method
 
 .method shouldAnimate()Z
-    .locals 4
+    .registers 5
 
     .line 1129
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -2419,13 +2426,13 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 1130
     return v1
 
     .line 1132
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
     .line 1133
@@ -2439,25 +2446,25 @@
 
     .line 1135
     .local v2, "serviceList":Ljava/util/List;, "Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_17
     return v1
 .end method
 
 .method public show()V
-    .locals 3
+    .registers 4
 
     .line 665
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -2478,7 +2485,7 @@
 .end method
 
 .method final showView()V
-    .locals 3
+    .registers 4
 
     .line 750
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar<TB;>;"
@@ -2488,7 +2495,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
     .line 751
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -2501,7 +2508,7 @@
     .local v0, "lp":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 754
     move-object v1, v0
@@ -2511,7 +2518,7 @@
     invoke-direct {p0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->setUpBehavior(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
 
     .line 757
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     iget-object v2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->targetParent:Landroid/view/ViewGroup;
@@ -2530,14 +2537,14 @@
 
     .line 765
     .end local v0    # "lp":Landroid/view/ViewGroup$LayoutParams;
-    :cond_1
+    :cond_28
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 766
     invoke-direct {p0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->showViewImpl()V
@@ -2546,7 +2553,7 @@
     return-void
 
     .line 771
-    :cond_2
+    :cond_34
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->pendingShowingView:Z

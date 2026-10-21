@@ -2,14 +2,6 @@
 .super Landroidx/preference/DropDownPreference;
 .source "SimpleMenuPreference.kt"
 
-.method protected onClick()V
-    .locals 0
-
-    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
-
-    return-void
-.end method
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -65,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const/16 v5, 0xe
@@ -89,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -114,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -140,7 +132,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -156,36 +148,36 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 38
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 40
     const/4 p2, 0x0
 
     .line 38
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     .line 41
     const p3, 0x7f040190
 
     .line 38
-    :cond_1
+    :cond_c
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_11
 
     .line 42
     const/4 p4, 0x0
 
     .line 38
-    :cond_2
+    :cond_11
     invoke-direct {p0, p1, p2, p3, p4}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     .line 43
@@ -195,7 +187,7 @@
 
 # virtual methods
 .method protected createAdapter()Landroid/widget/ArrayAdapter;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -225,7 +217,7 @@
     .line 55
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->mAdapter:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     const-string v0, "mAdapter"
 
@@ -233,14 +225,14 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_1d
     check-cast v0, Landroid/widget/ArrayAdapter;
 
     return-object v0
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 3
+    .registers 5
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     const-string v0, "holder"
@@ -275,8 +267,16 @@
     return-void
 .end method
 
+.method protected onClick()V
+    .registers 1
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
+
+    return-void
+.end method
+
 .method public setValue(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     .line 59
@@ -285,7 +285,7 @@
     .line 60
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->mAdapter:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
     .line 61
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->mAdapter:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;
@@ -294,13 +294,13 @@
 
     const-string v2, "mAdapter"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v1
 
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->getEntryValues()[Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -320,19 +320,19 @@
     .line 62
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->mAdapter:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     move-object v1, v0
 
-    :goto_0
+    :goto_2d
     invoke-virtual {v1}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;->notifyDataSetChanged()V
 
     .line 64
-    :cond_2
+    :cond_30
     return-void
 .end method

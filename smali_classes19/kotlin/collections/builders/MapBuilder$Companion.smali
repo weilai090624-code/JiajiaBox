@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 488
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/collections/builders/MapBuilder$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public static final synthetic access$computeHashSize(Lkotlin/collections/builders/MapBuilder$Companion;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/builders/MapBuilder$Companion;
     .param p1, "capacity"    # I
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static final synthetic access$computeShift(Lkotlin/collections/builders/MapBuilder$Companion;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/builders/MapBuilder$Companion;
     .param p1, "hashSize"    # I
 
@@ -92,7 +92,7 @@
 .end method
 
 .method private final computeHashSize(I)I
-    .locals 1
+    .registers 3
     .param p1, "capacity"    # I
 
     .line 496
@@ -112,7 +112,7 @@
 .end method
 
 .method private final computeShift(I)I
-    .locals 1
+    .registers 3
     .param p1, "hashSize"    # I
 
     .line 498
@@ -128,9 +128,10 @@
 
 # virtual methods
 .method public final getEmpty$kotlin_stdlib()Lkotlin/collections/builders/MapBuilder;
-    .locals 1
+    .registers 2
 
     .line 494
+    # getter for: Lkotlin/collections/builders/MapBuilder;->Empty:Lkotlin/collections/builders/MapBuilder;
     invoke-static {}, Lkotlin/collections/builders/MapBuilder;->access$getEmpty$cp()Lkotlin/collections/builders/MapBuilder;
 
     move-result-object v0

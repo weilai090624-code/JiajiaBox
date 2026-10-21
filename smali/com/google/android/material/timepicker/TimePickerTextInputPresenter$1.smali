@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
     .line 58
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 62
@@ -43,11 +43,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 63
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter$1;->this$0:Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
+    # getter for: Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->time:Lcom/google/android/material/timepicker/TimeModel;
     invoke-static {v0}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->access$000(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;)Lcom/google/android/material/timepicker/TimeModel;
 
     move-result-object v0
@@ -60,7 +61,7 @@
     return-void
 
     .line 66
-    :cond_0
+    :cond_11
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -73,23 +74,24 @@
     .local v0, "minute":I
     iget-object v1, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter$1;->this$0:Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
+    # getter for: Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->time:Lcom/google/android/material/timepicker/TimeModel;
     invoke-static {v1}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->access$000(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;)Lcom/google/android/material/timepicker/TimeModel;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/google/android/material/timepicker/TimeModel;->setMinute(I)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_22} :catch_23
 
     .line 70
     .end local v0    # "minute":I
-    goto :goto_0
+    goto :goto_24
 
     .line 68
-    :catch_0
+    :catch_23
     move-exception v0
 
     .line 71
-    :goto_0
+    :goto_24
     return-void
 .end method

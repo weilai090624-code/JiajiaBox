@@ -2,14 +2,6 @@
 .super Landroidx/preference/ListPreference;
 .source "MTUPreference.kt"
 
-.method protected onClick()V
-    .locals 0
-
-    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
-
-    return-void
-.end method
-
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
@@ -45,7 +37,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$BRlcW0p8PU0fQD_Bozx2j7438GM(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/MTUPreference;->onBindViewHolder$lambda$3(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/view/View;)Z
 
@@ -55,7 +47,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$UNlePkeyxRRtkWvwDgQzBQpAILs(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/MTUPreference;->_init_$lambda$0(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
 
@@ -65,7 +57,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kq2O-f_0AMPPKBw5f_4-SwAU2AA(Landroid/widget/EditText;Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/MTUPreference;->onBindViewHolder$lambda$3$lambda$2(Landroid/widget/EditText;Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/content/DialogInterface;I)V
 
@@ -73,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -99,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -126,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -163,27 +155,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 14
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 15
     const/4 p2, 0x0
 
     .line 14
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 15
     const p3, 0x7f040190
 
     .line 14
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/MTUPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 16
@@ -191,7 +183,7 @@
 .end method
 
 .method private static final _init_$lambda$0(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/MTUPreference;
     .param p1, "it"    # Landroidx/preference/Preference;
 
@@ -214,7 +206,7 @@
 .end method
 
 .method private static final onBindViewHolder$lambda$3(Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/view/View;)Z
-    .locals 6
+    .registers 8
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/MTUPreference;
     .param p1, "it"    # Landroid/view/View;
 
@@ -245,7 +237,7 @@
 
     const-string v4, ""
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_23
 
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/ui/MTUPreference;->getKey()Ljava/lang/String;
 
@@ -255,15 +247,15 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     move-object v4, v3
 
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     check-cast v4, Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v4}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
@@ -333,7 +325,7 @@
 .end method
 
 .method private static final onBindViewHolder$lambda$3$lambda$2(Landroid/widget/EditText;Lmoe/matsuri/nb4a/ui/MTUPreference;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
     .param p0, "$view"    # Landroid/widget/EditText;
     .param p1, "this$0"    # Lmoe/matsuri/nb4a/ui/MTUPreference;
 
@@ -354,16 +346,16 @@
     .local p2, "mtu":I
     const/16 p3, 0x3e8
 
-    if-lt p2, p3, :cond_1
+    if-lt p2, p3, :cond_1d
 
     const/16 p3, 0x2710
 
-    if-le p2, p3, :cond_0
+    if-le p2, p3, :cond_15
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 39
-    :cond_0
+    :cond_15
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object p3
@@ -374,15 +366,15 @@
     return-void
 
     .line 38
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     const-string v0, "holder"
@@ -408,5 +400,13 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 45
+    return-void
+.end method
+
+.method protected onClick()V
+    .registers 1
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
+
     return-void
 .end method

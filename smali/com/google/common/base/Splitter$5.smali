@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/base/Splitter;
 
     .line 385
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,6 +65,7 @@
 
     iget-object v1, p0, Lcom/google/common/base/Splitter$5;->val$sequence:Ljava/lang/CharSequence;
 
+    # invokes: Lcom/google/common/base/Splitter;->splittingIterator(Ljava/lang/CharSequence;)Ljava/util/Iterator;
     invoke-static {v0, v1}, Lcom/google/common/base/Splitter;->access$000(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Ljava/util/Iterator;
 
     move-result-object v0
@@ -73,7 +74,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 393
     const-string v0, ", "

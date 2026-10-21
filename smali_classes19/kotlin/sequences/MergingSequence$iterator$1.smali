@@ -85,7 +85,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/MergingSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/MergingSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,6 +101,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 274
+    # getter for: Lkotlin/sequences/MergingSequence;->sequence1:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/MergingSequence;->access$getSequence1$p(Lkotlin/sequences/MergingSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -112,6 +113,7 @@
     iput-object v0, p0, Lkotlin/sequences/MergingSequence$iterator$1;->iterator1:Ljava/util/Iterator;
 
     .line 275
+    # getter for: Lkotlin/sequences/MergingSequence;->sequence2:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/MergingSequence;->access$getSequence2$p(Lkotlin/sequences/MergingSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -129,7 +131,7 @@
 
 # virtual methods
 .method public final getIterator1()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -145,7 +147,7 @@
 .end method
 
 .method public final getIterator2()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -161,7 +163,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 281
     iget-object v0, p0, Lkotlin/sequences/MergingSequence$iterator$1;->iterator1:Ljava/util/Iterator;
@@ -170,7 +172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lkotlin/sequences/MergingSequence$iterator$1;->iterator2:Ljava/util/Iterator;
 
@@ -178,21 +180,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -202,6 +204,7 @@
     .line 277
     iget-object v0, p0, Lkotlin/sequences/MergingSequence$iterator$1;->this$0:Lkotlin/sequences/MergingSequence;
 
+    # getter for: Lkotlin/sequences/MergingSequence;->transform:Lkotlin/jvm/functions/Function2;
     invoke-static {v0}, Lkotlin/sequences/MergingSequence;->access$getTransform$p(Lkotlin/sequences/MergingSequence;)Lkotlin/jvm/functions/Function2;
 
     move-result-object v0
@@ -226,7 +229,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

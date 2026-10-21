@@ -32,7 +32,7 @@
 .method private constructor <init>()V
     .registers 2
 
-    .line 17
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerHistory;
@@ -47,7 +47,7 @@
 .method synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$1;)V
     .registers 2
 
-    .line 17
+    .line 38
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;-><init>()V
 
     return-void

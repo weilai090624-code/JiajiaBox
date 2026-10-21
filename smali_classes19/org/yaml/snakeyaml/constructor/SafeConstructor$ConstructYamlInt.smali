@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 225
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlInt;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 228
@@ -79,7 +79,7 @@
 
     const/4 v6, 0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_29
 
     .line 232
     const/4 v2, -0x1
@@ -89,13 +89,13 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 234
-    :cond_0
+    :cond_29
     const/16 v5, 0x2b
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_31
 
     .line 235
     invoke-virtual {v1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -103,8 +103,8 @@
     move-result-object v1
 
     .line 237
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     const/16 v5, 0xa
 
     .line 238
@@ -115,7 +115,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_40
 
     .line 239
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -125,7 +125,7 @@
     return-object v3
 
     .line 240
-    :cond_2
+    :cond_40
     const-string v3, "0b"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -134,7 +134,7 @@
 
     const/4 v8, 0x2
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4f
 
     .line 241
     invoke-virtual {v1, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -146,19 +146,19 @@
 
     .end local v5    # "base":I
     .local v3, "base":I
-    goto :goto_1
+    goto :goto_6a
 
     .line 243
     .end local v3    # "base":I
     .restart local v5    # "base":I
-    :cond_3
+    :cond_4f
     const-string v3, "0x"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5e
 
     .line 244
     invoke-virtual {v1, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -170,17 +170,17 @@
 
     .end local v5    # "base":I
     .restart local v3    # "base":I
-    goto :goto_1
+    goto :goto_6a
 
     .line 246
     .end local v3    # "base":I
     .restart local v5    # "base":I
-    :cond_4
+    :cond_5e
     invoke-virtual {v1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_71
 
     .line 247
     invoke-virtual {v1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -193,9 +193,10 @@
     .line 261
     .end local v5    # "base":I
     .restart local v3    # "base":I
-    :goto_1
+    :goto_6a
     iget-object v5, v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlInt;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
+    # invokes: Lorg/yaml/snakeyaml/constructor/SafeConstructor;->createNumber(ILjava/lang/String;I)Ljava/lang/Number;
     invoke-static {v5, v2, v1, v3}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->access$100(Lorg/yaml/snakeyaml/constructor/SafeConstructor;ILjava/lang/String;I)Ljava/lang/Number;
 
     move-result-object v5
@@ -205,7 +206,7 @@
     .line 249
     .end local v3    # "base":I
     .restart local v5    # "base":I
-    :cond_5
+    :cond_71
     const/16 v3, 0x3a
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(I)I
@@ -214,7 +215,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v3, v7, :cond_7
+    if-eq v3, v7, :cond_ab
 
     .line 250
     const-string v3, ":"
@@ -239,8 +240,8 @@
     array-length v11, v3
 
     .local v11, "j":I
-    :goto_2
-    if-ge v10, v11, :cond_6
+    :goto_84
+    if-ge v10, v11, :cond_9c
 
     .line 254
     int-to-long v12, v9
@@ -275,9 +276,9 @@
     .line 253
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_2
+    goto :goto_84
 
-    :cond_6
+    :cond_9c
     move/from16 v16, v9
 
     .line 257
@@ -293,6 +294,7 @@
 
     const/16 v9, 0xa
 
+    # invokes: Lorg/yaml/snakeyaml/constructor/SafeConstructor;->createNumber(ILjava/lang/String;I)Ljava/lang/Number;
     invoke-static {v6, v2, v8, v9}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->access$100(Lorg/yaml/snakeyaml/constructor/SafeConstructor;ILjava/lang/String;I)Ljava/lang/Number;
 
     move-result-object v6
@@ -303,11 +305,12 @@
     .end local v3    # "digits":[Ljava/lang/String;
     .end local v7    # "bes":I
     .end local v16    # "val":I
-    :cond_7
+    :cond_ab
     const/16 v9, 0xa
 
     iget-object v3, v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlInt;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
+    # invokes: Lorg/yaml/snakeyaml/constructor/SafeConstructor;->createNumber(ILjava/lang/String;I)Ljava/lang/Number;
     invoke-static {v3, v2, v1, v9}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->access$100(Lorg/yaml/snakeyaml/constructor/SafeConstructor;ILjava/lang/String;I)Ljava/lang/Number;
 
     move-result-object v3

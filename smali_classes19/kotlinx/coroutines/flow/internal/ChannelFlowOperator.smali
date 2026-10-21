@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 0
+    .registers 5
     .param p1, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p3, "capacity"    # I
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final synthetic access$collectWithContextUndispatched(Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "newContext"    # Lkotlin/coroutines/CoroutineContext;
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic collect$suspendImpl(Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -145,7 +145,7 @@
 
     const/4 v1, -0x3
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_47
 
     .line 163
     invoke-interface {p2}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
@@ -166,7 +166,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     .line 167
     invoke-virtual {p0, p1, p2}, Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;->flowCollect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -177,17 +177,17 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_20
 
     return-object v2
 
-    :cond_0
+    :cond_20
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
     .line 169
-    :cond_1
+    :cond_23
     sget-object v2, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
     check-cast v2, Lkotlin/coroutines/CoroutineContext$Key;
@@ -208,7 +208,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_47
 
     .line 170
     invoke-direct {p0, p1, v1, p2}, Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;->collectWithContextUndispatched(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -219,11 +219,11 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_44
 
     return-object v2
 
-    :cond_2
+    :cond_44
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
@@ -231,7 +231,7 @@
     .line 173
     .end local v0    # "collectContext":Lkotlin/coroutines/CoroutineContext;
     .end local v1    # "newContext":Lkotlin/coroutines/CoroutineContext;
-    :cond_3
+    :cond_47
     invoke-super {p0, p1, p2}, Lkotlinx/coroutines/flow/internal/ChannelFlow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
@@ -240,11 +240,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_52
 
     return-object v0
 
-    :cond_4
+    :cond_52
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 174
@@ -252,7 +252,7 @@
 .end method
 
 .method static synthetic collectTo$suspendImpl(Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/ChannelFlowOperator;
     .param p1, "scope"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -294,18 +294,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     return-object v0
 
-    :cond_0
+    :cond_15
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method private final collectWithContextUndispatched(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 12
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "newContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -328,6 +328,7 @@
 
     move-result-object v0
 
+    # invokes: Lkotlinx/coroutines/flow/internal/ChannelFlowKt;->withUndispatchedContextCollector(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {p1, v0}, Lkotlinx/coroutines/flow/internal/ChannelFlowKt;->access$withUndispatchedContextCollector(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/FlowCollector;
 
     move-result-object v0
@@ -364,11 +365,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_22
 
     return-object v1
 
-    :cond_0
+    :cond_22
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
@@ -377,7 +378,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -399,7 +400,7 @@
 .end method
 
 .method protected collectTo(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -436,7 +437,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 177
     new-instance v0, Ljava/lang/StringBuilder;

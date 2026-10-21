@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/Protocol$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final get(Ljava/lang/String;)Lokhttp3/Protocol;
-    .locals 2
+    .registers 4
     .param p1, "protocol"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,6 +79,7 @@
     .line 108
     sget-object v0, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -87,16 +88,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     sget-object v0, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 109
-    :cond_0
+    :cond_15
     sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -105,16 +107,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 110
-    :cond_1
+    :cond_24
     sget-object v0, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -123,16 +126,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_33
 
     sget-object v0, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 111
-    :cond_2
+    :cond_33
     sget-object v0, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -141,16 +145,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     sget-object v0, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 112
-    :cond_3
+    :cond_42
     sget-object v0, Lokhttp3/Protocol;->SPDY_3:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -159,16 +164,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_51
 
     sget-object v0, Lokhttp3/Protocol;->SPDY_3:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 113
-    :cond_4
+    :cond_51
     sget-object v0, Lokhttp3/Protocol;->QUIC:Lokhttp3/Protocol;
 
+    # getter for: Lokhttp3/Protocol;->protocol:Ljava/lang/String;
     invoke-static {v0}, Lokhttp3/Protocol;->access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
 
     move-result-object v0
@@ -177,16 +183,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_60
 
     sget-object v0, Lokhttp3/Protocol;->QUIC:Lokhttp3/Protocol;
 
     .line 107
-    :goto_0
+    :goto_5f
     return-object v0
 
     .line 114
-    :cond_5
+    :cond_60
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Unexpected protocol: "

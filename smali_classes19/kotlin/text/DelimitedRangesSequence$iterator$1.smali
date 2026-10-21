@@ -88,7 +88,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/text/DelimitedRangesSequence;)V
-    .locals 3
+    .registers 5
     .param p1, "$receiver"    # Lkotlin/text/DelimitedRangesSequence;
 
     iput-object p1, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
@@ -102,10 +102,12 @@
     iput v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
     .line 1192
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->startIndex:I
     invoke-static {p1}, Lkotlin/text/DelimitedRangesSequence;->access$getStartIndex$p(Lkotlin/text/DelimitedRangesSequence;)I
 
     move-result v0
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->input:Ljava/lang/CharSequence;
     invoke-static {p1}, Lkotlin/text/DelimitedRangesSequence;->access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -132,14 +134,14 @@
 .end method
 
 .method private final calcNext()V
-    .locals 6
+    .registers 7
 
     .line 1198
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
 
     const/4 v1, 0x0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_c
 
     .line 1199
     iput v1, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
@@ -149,12 +151,13 @@
 
     iput-object v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextItem:Lkotlin/ranges/IntRange;
 
-    goto/16 :goto_1
+    goto/16 :goto_a3
 
     .line 1202
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->limit:I
     invoke-static {v0}, Lkotlin/text/DelimitedRangesSequence;->access$getLimit$p(Lkotlin/text/DelimitedRangesSequence;)I
 
     move-result v0
@@ -163,7 +166,7 @@
 
     const/4 v3, 0x1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_25
 
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->counter:I
 
@@ -175,17 +178,19 @@
 
     iget-object v4, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->limit:I
     invoke-static {v4}, Lkotlin/text/DelimitedRangesSequence;->access$getLimit$p(Lkotlin/text/DelimitedRangesSequence;)I
 
     move-result v4
 
-    if-ge v0, v4, :cond_2
+    if-ge v0, v4, :cond_33
 
-    :cond_1
+    :cond_25
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
 
     iget-object v4, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->input:Ljava/lang/CharSequence;
     invoke-static {v4}, Lkotlin/text/DelimitedRangesSequence;->access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
@@ -194,16 +199,17 @@
 
     move-result v4
 
-    if-le v0, v4, :cond_3
+    if-le v0, v4, :cond_49
 
     .line 1203
-    :cond_2
+    :cond_33
     new-instance v0, Lkotlin/ranges/IntRange;
 
     iget v1, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->currentStartIndex:I
 
     iget-object v4, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->input:Ljava/lang/CharSequence;
     invoke-static {v4}, Lkotlin/text/DelimitedRangesSequence;->access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
@@ -219,18 +225,20 @@
     .line 1204
     iput v2, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
 
-    goto :goto_0
+    goto :goto_a1
 
     .line 1206
-    :cond_3
+    :cond_49
     iget-object v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->getNextMatch:Lkotlin/jvm/functions/Function2;
     invoke-static {v0}, Lkotlin/text/DelimitedRangesSequence;->access$getGetNextMatch$p(Lkotlin/text/DelimitedRangesSequence;)Lkotlin/jvm/functions/Function2;
 
     move-result-object v0
 
     iget-object v4, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->input:Ljava/lang/CharSequence;
     invoke-static {v4}, Lkotlin/text/DelimitedRangesSequence;->access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
@@ -249,7 +257,7 @@
 
     .line 1207
     .local v0, "match":Lkotlin/Pair;
-    if-nez v0, :cond_4
+    if-nez v0, :cond_79
 
     .line 1208
     new-instance v1, Lkotlin/ranges/IntRange;
@@ -258,6 +266,7 @@
 
     iget-object v5, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->this$0:Lkotlin/text/DelimitedRangesSequence;
 
+    # getter for: Lkotlin/text/DelimitedRangesSequence;->input:Ljava/lang/CharSequence;
     invoke-static {v5}, Lkotlin/text/DelimitedRangesSequence;->access$getInput$p(Lkotlin/text/DelimitedRangesSequence;)Ljava/lang/CharSequence;
 
     move-result-object v5
@@ -273,10 +282,10 @@
     .line 1209
     iput v2, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
 
-    goto :goto_0
+    goto :goto_a1
 
     .line 1211
-    :cond_4
+    :cond_79
     invoke-virtual {v0}, Lkotlin/Pair;->component1()Ljava/lang/Object;
 
     move-result-object v2
@@ -316,11 +325,11 @@
     .line 1214
     iget v5, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->currentStartIndex:I
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_9e
 
     const/4 v1, 0x1
 
-    :cond_5
+    :cond_9e
     add-int/2addr v5, v1
 
     iput v5, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
@@ -329,18 +338,18 @@
     .end local v0    # "match":Lkotlin/Pair;
     .end local v2    # "index":I
     .end local v4    # "length":I
-    :goto_0
+    :goto_a1
     iput v3, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
     .line 1219
-    :goto_1
+    :goto_a3
     return-void
 .end method
 
 
 # virtual methods
 .method public final getCounter()I
-    .locals 1
+    .registers 2
 
     .line 1195
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->counter:I
@@ -349,7 +358,7 @@
 .end method
 
 .method public final getCurrentStartIndex()I
-    .locals 1
+    .registers 2
 
     .line 1192
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->currentStartIndex:I
@@ -358,7 +367,7 @@
 .end method
 
 .method public final getNextItem()Lkotlin/ranges/IntRange;
-    .locals 1
+    .registers 2
 
     .line 1194
     iget-object v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextItem:Lkotlin/ranges/IntRange;
@@ -367,7 +376,7 @@
 .end method
 
 .method public final getNextSearchIndex()I
-    .locals 1
+    .registers 2
 
     .line 1193
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextSearchIndex:I
@@ -376,7 +385,7 @@
 .end method
 
 .method public final getNextState()I
-    .locals 1
+    .registers 2
 
     .line 1191
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
@@ -385,37 +394,37 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 1234
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 1235
     invoke-direct {p0}, Lkotlin/text/DelimitedRangesSequence$iterator$1;->calcNext()V
 
     .line 1236
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1190
     invoke-virtual {p0}, Lkotlin/text/DelimitedRangesSequence$iterator$1;->next()Lkotlin/ranges/IntRange;
@@ -426,23 +435,23 @@
 .end method
 
 .method public next()Lkotlin/ranges/IntRange;
-    .locals 3
+    .registers 4
 
     .line 1222
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 1223
     invoke-direct {p0}, Lkotlin/text/DelimitedRangesSequence$iterator$1;->calcNext()V
 
     .line 1224
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextState:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 1226
     iget-object v0, p0, Lkotlin/text/DelimitedRangesSequence$iterator$1;->nextItem:Lkotlin/ranges/IntRange;
@@ -465,7 +474,7 @@
 
     .line 1225
     .end local v0    # "result":Lkotlin/ranges/IntRange;
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -474,7 +483,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -486,7 +495,7 @@
 .end method
 
 .method public final setCounter(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 1195
@@ -496,7 +505,7 @@
 .end method
 
 .method public final setCurrentStartIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 1192
@@ -506,7 +515,7 @@
 .end method
 
 .method public final setNextItem(Lkotlin/ranges/IntRange;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/ranges/IntRange;
 
     .line 1194
@@ -516,7 +525,7 @@
 .end method
 
 .method public final setNextSearchIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 1193
@@ -526,7 +535,7 @@
 .end method
 
 .method public final setNextState(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 1191

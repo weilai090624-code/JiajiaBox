@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/utils/widget/MotionLabel;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/utils/widget/MotionLabel;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
-    .locals 8
+    .registers 11
     .param p1, "view"    # Landroid/view/View;
     .param p2, "outline"    # Landroid/graphics/Outline;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -75,6 +75,7 @@
     .local v7, "h":I
     iget-object v1, p0, Landroidx/constraintlayout/utils/widget/MotionLabel$2;->this$0:Landroidx/constraintlayout/utils/widget/MotionLabel;
 
+    # getter for: Landroidx/constraintlayout/utils/widget/MotionLabel;->mRound:F
     invoke-static {v1}, Landroidx/constraintlayout/utils/widget/MotionLabel;->access$100(Landroidx/constraintlayout/utils/widget/MotionLabel;)F
 
     move-result v6

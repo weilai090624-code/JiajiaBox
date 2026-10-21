@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1660
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public copyFrom(Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;)V
-    .locals 1
+    .registers 3
     .param p1, "src"    # Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -101,7 +101,7 @@
 .end method
 
 .method fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -138,8 +138,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_e
+    if-ge v2, v1, :cond_54
 
     .line 1680
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -150,7 +150,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->PropertySet_android_alpha:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_21
 
     .line 1683
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
@@ -161,13 +161,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1684
-    :cond_0
+    :cond_21
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->PropertySet_android_visibility:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_38
 
     .line 1685
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->visibility:I
@@ -179,6 +179,7 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->visibility:I
 
     .line 1686
+    # getter for: Landroidx/constraintlayout/widget/ConstraintSet;->VISIBILITY_FLAGS:[I
     invoke-static {}, Landroidx/constraintlayout/widget/ConstraintSet;->access$200()[I
 
     move-result-object v4
@@ -189,13 +190,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->visibility:I
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1687
-    :cond_1
+    :cond_38
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->PropertySet_visibilityMode:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_45
 
     .line 1688
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->mVisibilityMode:I
@@ -206,13 +207,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->mVisibilityMode:I
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1689
-    :cond_2
+    :cond_45
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->PropertySet_motionProgress:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_51
 
     .line 1690
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->mProgress:F
@@ -225,15 +226,15 @@
 
     .line 1679
     .end local v3    # "attr":I
-    :cond_3
-    :goto_1
+    :cond_51
+    :goto_51
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 1693
     .end local v2    # "i":I
-    :cond_4
+    :cond_54
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 1694

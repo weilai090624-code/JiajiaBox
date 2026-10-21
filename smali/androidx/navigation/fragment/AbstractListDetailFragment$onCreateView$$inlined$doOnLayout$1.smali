@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/fragment/AbstractListDetailFragment;Landroidx/slidingpanelayout/widget/SlidingPaneLayout;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/fragment/AbstractListDetailFragment$onCreateView$$inlined$doOnLayout$1;->this$0:Landroidx/navigation/fragment/AbstractListDetailFragment;
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 6
+    .registers 16
     .param p1, "view"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -114,6 +114,7 @@
     .local v3, "$i$a$-doOnLayout-AbstractListDetailFragment$onCreateView$2":I
     iget-object v4, p0, Landroidx/navigation/fragment/AbstractListDetailFragment$onCreateView$$inlined$doOnLayout$1;->this$0:Landroidx/navigation/fragment/AbstractListDetailFragment;
 
+    # getter for: Landroidx/navigation/fragment/AbstractListDetailFragment;->onBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
     invoke-static {v4}, Landroidx/navigation/fragment/AbstractListDetailFragment;->access$getOnBackPressedCallback$p(Landroidx/navigation/fragment/AbstractListDetailFragment;)Landroidx/activity/OnBackPressedCallback;
 
     move-result-object v4
@@ -127,7 +128,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
     iget-object v5, p0, Landroidx/navigation/fragment/AbstractListDetailFragment$onCreateView$$inlined$doOnLayout$1;->$slidingPaneLayout$inlined:Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
@@ -135,17 +136,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_2b
     const/4 v5, 0x0
 
     .line 386
-    :goto_0
+    :goto_2c
     invoke-virtual {v4, v5}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 388

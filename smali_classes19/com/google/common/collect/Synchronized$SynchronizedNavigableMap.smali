@@ -75,7 +75,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableMap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public ceilingEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -122,7 +122,7 @@
     monitor-enter v0
 
     .line 1480
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -133,6 +133,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -142,18 +143,18 @@
     return-object v1
 
     .line 1481
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -171,7 +172,7 @@
     monitor-enter v0
 
     .line 1488
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -185,18 +186,18 @@
     return-object v1
 
     .line 1489
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1462
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
@@ -208,7 +209,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 1462
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
@@ -220,7 +221,7 @@
 .end method
 
 .method delegate()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -241,7 +242,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
 
     .line 1462
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
@@ -253,7 +254,7 @@
 .end method
 
 .method public descendingKeySet()Ljava/util/NavigableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -269,10 +270,10 @@
     monitor-enter v0
 
     .line 1497
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingKeySet:Ljava/util/NavigableSet;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 1498
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
@@ -296,7 +297,7 @@
     return-object v1
 
     .line 1500
-    :cond_0
+    :cond_19
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingKeySet:Ljava/util/NavigableSet;
 
     monitor-exit v0
@@ -304,18 +305,18 @@
     return-object v1
 
     .line 1501
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
 
     throw v1
 .end method
 
 .method public descendingMap()Ljava/util/NavigableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -331,10 +332,10 @@
     monitor-enter v0
 
     .line 1509
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingMap:Ljava/util/NavigableMap;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 1510
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
@@ -358,7 +359,7 @@
     return-object v1
 
     .line 1512
-    :cond_0
+    :cond_19
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingMap:Ljava/util/NavigableMap;
 
     monitor-exit v0
@@ -366,18 +367,18 @@
     return-object v1
 
     .line 1513
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
 
     throw v1
 .end method
 
 .method public firstEntry()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -396,7 +397,7 @@
     monitor-enter v0
 
     .line 1520
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -407,6 +408,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -416,18 +418,18 @@
     return-object v1
 
     .line 1521
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public floorEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -447,7 +449,7 @@
     monitor-enter v0
 
     .line 1528
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -458,6 +460,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -467,18 +470,18 @@
     return-object v1
 
     .line 1529
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public floorKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -496,7 +499,7 @@
     monitor-enter v0
 
     .line 1536
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -510,18 +513,18 @@
     return-object v1
 
     .line 1537
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 6
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -539,7 +542,7 @@
     monitor-enter v0
 
     .line 1543
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -559,18 +562,18 @@
     return-object v1
 
     .line 1544
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -592,7 +595,7 @@
 .end method
 
 .method public higherEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -612,7 +615,7 @@
     monitor-enter v0
 
     .line 1556
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -623,6 +626,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -632,18 +636,18 @@
     return-object v1
 
     .line 1557
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public higherKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -661,7 +665,7 @@
     monitor-enter v0
 
     .line 1564
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -675,18 +679,18 @@
     return-object v1
 
     .line 1565
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -705,7 +709,7 @@
 .end method
 
 .method public lastEntry()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -724,7 +728,7 @@
     monitor-enter v0
 
     .line 1572
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -735,6 +739,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -744,18 +749,18 @@
     return-object v1
 
     .line 1573
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public lowerEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -775,7 +780,7 @@
     monitor-enter v0
 
     .line 1580
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -786,6 +791,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -795,18 +801,18 @@
     return-object v1
 
     .line 1581
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -824,7 +830,7 @@
     monitor-enter v0
 
     .line 1588
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -838,18 +844,18 @@
     return-object v1
 
     .line 1589
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public navigableKeySet()Ljava/util/NavigableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -865,10 +871,10 @@
     monitor-enter v0
 
     .line 1602
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->navigableKeySet:Ljava/util/NavigableSet;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 1603
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
@@ -892,7 +898,7 @@
     return-object v1
 
     .line 1605
-    :cond_0
+    :cond_19
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->navigableKeySet:Ljava/util/NavigableSet;
 
     monitor-exit v0
@@ -900,18 +906,18 @@
     return-object v1
 
     .line 1606
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
 
     throw v1
 .end method
 
 .method public pollFirstEntry()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -930,7 +936,7 @@
     monitor-enter v0
 
     .line 1613
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -941,6 +947,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -950,18 +957,18 @@
     return-object v1
 
     .line 1614
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public pollLastEntry()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -980,7 +987,7 @@
     monitor-enter v0
 
     .line 1621
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -991,6 +998,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -1000,18 +1008,18 @@
     return-object v1
 
     .line 1622
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 8
     .param p2, "fromInclusive"    # Z
     .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -1031,7 +1039,7 @@
     monitor-enter v0
 
     .line 1629
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -1051,18 +1059,18 @@
     return-object v1
 
     .line 1630
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -1087,7 +1095,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 6
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1105,7 +1113,7 @@
     monitor-enter v0
 
     .line 1641
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -1125,18 +1133,18 @@
     return-object v1
 
     .line 1642
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",

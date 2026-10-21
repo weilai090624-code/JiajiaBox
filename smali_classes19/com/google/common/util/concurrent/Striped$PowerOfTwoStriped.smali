@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 3
+    .registers 5
     .param p1, "stripes"    # I
 
     .line 387
@@ -44,16 +44,16 @@
     .line 388
     const/4 v0, 0x1
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     const-string v2, "Stripes must be positive"
 
     invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -61,20 +61,21 @@
     .line 389
     const/high16 v1, 0x40000000    # 2.0f
 
-    if-le p1, v1, :cond_1
+    if-le p1, v1, :cond_15
 
     const/4 v0, -0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_15
+    # invokes: Lcom/google/common/util/concurrent/Striped;->ceilToPowerOfTwo(I)I
     invoke-static {p1}, Lcom/google/common/util/concurrent/Striped;->access$200(I)I
 
     move-result v1
 
     add-int/lit8 v0, v1, -0x1
 
-    :goto_1
+    :goto_1b
     iput v0, p0, Lcom/google/common/util/concurrent/Striped$PowerOfTwoStriped;->mask:I
 
     .line 390
@@ -84,7 +85,7 @@
 
 # virtual methods
 .method public final get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -109,7 +110,7 @@
 .end method
 
 .method final indexFor(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 394
@@ -118,6 +119,7 @@
 
     move-result v0
 
+    # invokes: Lcom/google/common/util/concurrent/Striped;->smear(I)I
     invoke-static {v0}, Lcom/google/common/util/concurrent/Striped;->access$300(I)I
 
     move-result v0

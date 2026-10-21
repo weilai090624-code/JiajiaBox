@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;ILokio/Buffer;IZ)V
-    .locals 1
+    .registers 7
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$pushDataLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 938
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$pushDataLater$1;->invoke()V
@@ -94,7 +94,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 8
+    .registers 9
 
     .line 939
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$pushDataLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
@@ -118,7 +118,8 @@
 
     .line 940
     .local v6, "$i$a$-ignoreIoExceptions-Http2Connection$pushDataLater$1$1":I
-    :try_start_0
+    :try_start_d
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->pushObserver:Lokhttp3/internal/http2/PushObserver;
     invoke-static {v0}, Lokhttp3/internal/http2/Http2Connection;->access$getPushObserver$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/http2/PushObserver;
 
     move-result-object v7
@@ -131,7 +132,7 @@
 
     .line 941
     .local v2, "cancel":Z
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     invoke-virtual {v0}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
 
@@ -142,22 +143,23 @@
     invoke-virtual {v3, v1, v7}, Lokhttp3/internal/http2/Http2Writer;->rstStream(ILokhttp3/internal/http2/ErrorCode;)V
 
     .line 942
-    :cond_0
-    if-nez v2, :cond_1
+    :cond_22
+    if-nez v2, :cond_26
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_34
 
     .line 943
-    :cond_1
+    :cond_26
     monitor-enter v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_27} :catch_39
 
     const/4 v3, 0x0
 
     .line 944
     .local v3, "$i$a$-synchronized-Http2Connection$pushDataLater$1$1$1":I
-    :try_start_1
+    :try_start_28
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
     invoke-static {v0}, Lokhttp3/internal/http2/Http2Connection;->access$getCurrentPushRequests$p(Lokhttp3/internal/http2/Http2Connection;)Ljava/util/Set;
 
     move-result-object v4
@@ -167,44 +169,44 @@
     move-result-object v1
 
     invoke-interface {v4, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_33
+    .catchall {:try_start_28 .. :try_end_33} :catchall_36
 
     .line 943
     .end local v3    # "$i$a$-synchronized-Http2Connection$pushDataLater$1$1$1":I
-    :try_start_2
+    :try_start_33
     monitor-exit v0
 
     .line 947
-    :cond_2
+    :cond_34
     nop
 
     .end local v2    # "cancel":Z
     .end local v6    # "$i$a$-ignoreIoExceptions-Http2Connection$pushDataLater$1$1":I
-    goto :goto_0
+    goto :goto_3a
 
     .line 943
     .restart local v2    # "cancel":Z
     .restart local v6    # "$i$a$-ignoreIoExceptions-Http2Connection$pushDataLater$1$1":I
-    :catchall_0
+    :catchall_36
     move-exception v1
 
     monitor-exit v0
 
     .end local v5    # "$i$f$ignoreIoExceptions":I
     throw v1
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_39
+    .catch Ljava/io/IOException; {:try_start_33 .. :try_end_39} :catch_39
 
     .line 1009
     .end local v2    # "cancel":Z
     .end local v6    # "$i$a$-ignoreIoExceptions-Http2Connection$pushDataLater$1$1":I
     .restart local v5    # "$i$f$ignoreIoExceptions":I
-    :catch_0
+    :catch_39
     move-exception v0
 
     .line 1011
-    :goto_0
+    :goto_3a
     nop
 
     .line 948

@@ -90,7 +90,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "capacity"    # I
 
     .line 95
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p1, "buffer"    # [Ljava/lang/Object;
     .param p2, "filledSize"    # I
 
@@ -125,32 +125,32 @@
 
     const/4 v1, 0x0
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_12
+    if-eqz v2, :cond_51
 
     .line 92
     iget-object v2, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-gt p2, v2, :cond_1
+    if-gt p2, v2, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_1b
+    if-eqz v0, :cond_26
 
     .line 93
     nop
@@ -169,7 +169,7 @@
     return-void
 
     .line 207
-    :cond_2
+    :cond_26
     const/4 v0, 0x0
 
     .line 92
@@ -218,7 +218,7 @@
     throw v1
 
     .line 207
-    :cond_3
+    :cond_51
     const/4 v0, 0x0
 
     .line 91
@@ -254,7 +254,7 @@
 .end method
 
 .method public static final synthetic access$getBuffer$p(Lkotlin/collections/RingBuffer;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/RingBuffer;
 
     .line 89
@@ -264,7 +264,7 @@
 .end method
 
 .method public static final synthetic access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/RingBuffer;
 
     .line 89
@@ -274,7 +274,7 @@
 .end method
 
 .method public static final synthetic access$getStartIndex$p(Lkotlin/collections/RingBuffer;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/RingBuffer;
 
     .line 89
@@ -284,7 +284,7 @@
 .end method
 
 .method private final forward(II)I
-    .locals 3
+    .registers 6
     .param p1, "$this$forward"    # I
     .param p2, "n"    # I
 
@@ -294,6 +294,7 @@
     .local v0, "$i$f$forward":I
     add-int v1, p1, p2
 
+    # getter for: Lkotlin/collections/RingBuffer;->capacity:I
     invoke-static {p0}, Lkotlin/collections/RingBuffer;->access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v2
@@ -306,7 +307,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -319,7 +320,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 175
     iget-object v0, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
@@ -341,6 +342,7 @@
     .local v4, "$i$f$forward":I
     add-int v5, v1, v2
 
+    # getter for: Lkotlin/collections/RingBuffer;->capacity:I
     invoke-static {v3}, Lkotlin/collections/RingBuffer;->access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v6
@@ -367,7 +369,7 @@
     return-void
 
     .line 172
-    :cond_0
+    :cond_22
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "ring buffer is full"
@@ -378,7 +380,7 @@
 .end method
 
 .method public final expanded(I)Lkotlin/collections/RingBuffer;
-    .locals 4
+    .registers 6
     .param p1, "maxCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -407,7 +409,7 @@
     .local v0, "newCapacity":I
     iget v1, p0, Lkotlin/collections/RingBuffer;->startIndex:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
     iget-object v1, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
 
@@ -419,9 +421,9 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1d
     new-array v1, v0, [Ljava/lang/Object;
 
     invoke-virtual {p0, v1}, Lkotlin/collections/RingBuffer;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -430,7 +432,7 @@
 
     .line 164
     .local v1, "newBuffer":[Ljava/lang/Object;
-    :goto_0
+    :goto_23
     new-instance v2, Lkotlin/collections/RingBuffer;
 
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer;->size()I
@@ -443,7 +445,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -475,6 +477,7 @@
     .local v3, "$i$f$forward":I
     add-int v4, v1, p1
 
+    # getter for: Lkotlin/collections/RingBuffer;->capacity:I
     invoke-static {v2}, Lkotlin/collections/RingBuffer;->access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v5
@@ -491,7 +494,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 100
     iget v0, p0, Lkotlin/collections/RingBuffer;->size:I
@@ -500,7 +503,7 @@
 .end method
 
 .method public final isFull()Z
-    .locals 2
+    .registers 3
 
     .line 109
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer;->size()I
@@ -509,21 +512,21 @@
 
     iget v1, p0, Lkotlin/collections/RingBuffer;->capacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -544,7 +547,7 @@
 .end method
 
 .method public final removeFirst(I)V
-    .locals 7
+    .registers 9
     .param p1, "n"    # I
 
     .line 183
@@ -552,35 +555,35 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_5
+    :goto_7
+    if-eqz v2, :cond_6d
 
     .line 184
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer;->size()I
 
     move-result v2
 
-    if-gt p1, v2, :cond_1
+    if-gt p1, v2, :cond_10
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_4
+    :goto_11
+    if-eqz v0, :cond_41
 
     .line 186
-    if-lez p1, :cond_3
+    if-lez p1, :cond_40
 
     .line 187
     iget v0, p0, Lkotlin/collections/RingBuffer;->startIndex:I
@@ -599,6 +602,7 @@
     .local v4, "$i$f$forward":I
     add-int v5, v2, p1
 
+    # getter for: Lkotlin/collections/RingBuffer;->capacity:I
     invoke-static {v3}, Lkotlin/collections/RingBuffer;->access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v6
@@ -615,7 +619,7 @@
     .local v2, "end":I
     const/4 v3, 0x0
 
-    if-le v0, v2, :cond_2
+    if-le v0, v2, :cond_32
 
     .line 191
     iget-object v4, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
@@ -629,16 +633,16 @@
 
     invoke-static {v4, v3, v1, v2}, Lkotlin/collections/ArraysKt;->fill([Ljava/lang/Object;Ljava/lang/Object;II)V
 
-    goto :goto_2
+    goto :goto_37
 
     .line 194
-    :cond_2
+    :cond_32
     iget-object v1, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
 
     invoke-static {v1, v3, v0, v2}, Lkotlin/collections/ArraysKt;->fill([Ljava/lang/Object;Ljava/lang/Object;II)V
 
     .line 197
-    :goto_2
+    :goto_37
     iput v2, p0, Lkotlin/collections/RingBuffer;->startIndex:I
 
     .line 198
@@ -653,11 +657,11 @@
     .line 200
     .end local v0    # "start":I
     .end local v2    # "end":I
-    :cond_3
+    :cond_40
     return-void
 
     .line 207
-    :cond_4
+    :cond_41
     const/4 v0, 0x0
 
     .line 184
@@ -706,7 +710,7 @@
     throw v1
 
     .line 207
-    :cond_5
+    :cond_6d
     const/4 v0, 0x0
 
     .line 183
@@ -742,7 +746,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 154
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer;->size()I
@@ -759,7 +763,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -780,7 +784,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1a
 
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer;->size()I
 
@@ -794,13 +798,13 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move-object v0, p1
 
     .line 129
-    :goto_0
+    :goto_1b
     nop
 
     .line 132
@@ -819,12 +823,12 @@
 
     .line 137
     .local v3, "idx":I
-    :goto_1
-    if-ge v2, v1, :cond_1
+    :goto_23
+    if-ge v2, v1, :cond_34
 
     iget v4, p0, Lkotlin/collections/RingBuffer;->capacity:I
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_34
 
     .line 138
     iget-object v4, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
@@ -839,15 +843,15 @@
     .line 140
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 143
-    :cond_1
+    :cond_34
     const/4 v3, 0x0
 
     .line 144
-    :goto_2
-    if-ge v2, v1, :cond_2
+    :goto_35
+    if-ge v2, v1, :cond_42
 
     .line 145
     iget-object v4, p0, Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
@@ -862,10 +866,10 @@
     .line 147
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_35
 
     .line 150
-    :cond_2
+    :cond_42
     invoke-static {v1, v0}, Lkotlin/collections/CollectionsKt;->terminateCollectionToArray(I[Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v4

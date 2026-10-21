@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
     .line 990
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -69,7 +69,7 @@
 .end method
 
 .method public apply(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TX;)",
@@ -89,6 +89,7 @@
     .local p1, "exception":Ljava/lang/Throwable;, "TX;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$8;->this$0:Lcom/google/common/util/concurrent/ClosingFuture;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     move-result-object v0
@@ -103,7 +104,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 998
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$8;, "Lcom/google/common/util/concurrent/ClosingFuture$8;"

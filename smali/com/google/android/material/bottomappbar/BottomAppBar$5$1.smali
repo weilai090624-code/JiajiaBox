@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar$5;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/android/material/bottomappbar/BottomAppBar$5;
 
     .line 907
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onShown(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 1
+    .registers 3
     .param p1, "fab"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 910
@@ -42,6 +42,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$5;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->dispatchAnimationEnd()V
     invoke-static {v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$1700(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
 
     .line 911

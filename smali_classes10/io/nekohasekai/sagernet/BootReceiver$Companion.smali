@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/BootReceiver$Companion;-><init>()V
 
@@ -66,9 +66,10 @@
 .end method
 
 .method private final getComponentName()Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 16
+    # getter for: Lio/nekohasekai/sagernet/BootReceiver;->componentName$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/BootReceiver;->access$getComponentName$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -85,7 +86,7 @@
 
 # virtual methods
 .method public final getEnabled()Z
-    .locals 2
+    .registers 3
 
     .line 18
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -106,19 +107,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method public final setEnabled(Z)V
-    .locals 4
+    .registers 6
     .param p1, "value"    # Z
 
     .line 19
@@ -137,17 +138,17 @@
 
     const/4 v2, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 21
-    :cond_0
+    :cond_11
     const/4 v3, 0x2
 
-    :goto_0
+    :goto_12
     nop
 
     .line 19

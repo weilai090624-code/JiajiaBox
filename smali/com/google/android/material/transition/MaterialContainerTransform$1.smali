@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transition/MaterialContainerTransform;Lcom/google/android/material/transition/MaterialContainerTransform$TransitionDrawable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/transition/MaterialContainerTransform;
 
     .line 968
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 971
@@ -51,6 +51,7 @@
 
     move-result v1
 
+    # invokes: Lcom/google/android/material/transition/MaterialContainerTransform$TransitionDrawable;->setProgress(F)V
     invoke-static {v0, v1}, Lcom/google/android/material/transition/MaterialContainerTransform$TransitionDrawable;->access$200(Lcom/google/android/material/transition/MaterialContainerTransform$TransitionDrawable;F)V
 
     .line 972

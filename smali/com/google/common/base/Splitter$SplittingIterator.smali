@@ -36,7 +36,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 4
     .param p1, "splitter"    # Lcom/google/common/base/Splitter;
     .param p2, "toSplit"    # Ljava/lang/CharSequence;
 
@@ -49,6 +49,7 @@
     iput v0, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     .line 546
+    # getter for: Lcom/google/common/base/Splitter;->trimmer:Lcom/google/common/base/CharMatcher;
     invoke-static {p1}, Lcom/google/common/base/Splitter;->access$200(Lcom/google/common/base/Splitter;)Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
@@ -56,6 +57,7 @@
     iput-object v0, p0, Lcom/google/common/base/Splitter$SplittingIterator;->trimmer:Lcom/google/common/base/CharMatcher;
 
     .line 547
+    # getter for: Lcom/google/common/base/Splitter;->omitEmptyStrings:Z
     invoke-static {p1}, Lcom/google/common/base/Splitter;->access$300(Lcom/google/common/base/Splitter;)Z
 
     move-result v0
@@ -63,6 +65,7 @@
     iput-boolean v0, p0, Lcom/google/common/base/Splitter$SplittingIterator;->omitEmptyStrings:Z
 
     .line 548
+    # getter for: Lcom/google/common/base/Splitter;->limit:I
     invoke-static {p1}, Lcom/google/common/base/Splitter;->access$400(Lcom/google/common/base/Splitter;)I
 
     move-result v0
@@ -79,7 +82,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -92,7 +95,7 @@
 .end method
 
 .method protected computeNext()Ljava/lang/String;
-    .locals 9
+    .registers 10
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -101,13 +104,13 @@
 
     .line 561
     .local v0, "nextStart":I
-    :cond_0
-    :goto_0
+    :cond_2
+    :goto_2
     iget v1, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_8
+    if-eq v1, v2, :cond_99
 
     .line 562
     move v1, v0
@@ -122,7 +125,7 @@
 
     .line 566
     .local v3, "separatorPosition":I
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_19
 
     .line 567
     iget-object v4, p0, Lcom/google/common/base/Splitter$SplittingIterator;->toSplit:Ljava/lang/CharSequence;
@@ -135,11 +138,11 @@
     .local v4, "end":I
     iput v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
-    goto :goto_1
+    goto :goto_20
 
     .line 570
     .end local v4    # "end":I
-    :cond_1
+    :cond_19
     move v4, v3
 
     .line 571
@@ -151,12 +154,12 @@
     iput v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     .line 573
-    :goto_1
+    :goto_20
     iget v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     const/4 v6, 0x1
 
-    if-ne v5, v0, :cond_2
+    if-ne v5, v0, :cond_37
 
     .line 580
     iget v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
@@ -174,17 +177,17 @@
 
     move-result v6
 
-    if-le v5, v6, :cond_0
+    if-le v5, v6, :cond_2
 
     .line 582
     iput v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
-    goto :goto_0
+    goto :goto_2
 
     .line 587
-    :cond_2
-    :goto_2
-    if-ge v1, v4, :cond_3
+    :cond_37
+    :goto_37
+    if-ge v1, v4, :cond_4a
 
     iget-object v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->trimmer:Lcom/google/common/base/CharMatcher;
 
@@ -198,17 +201,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4a
 
     .line 588
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_37
 
     .line 590
-    :cond_3
-    :goto_3
-    if-le v4, v1, :cond_4
+    :cond_4a
+    :goto_4a
+    if-le v4, v1, :cond_5f
 
     iget-object v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->trimmer:Lcom/google/common/base/CharMatcher;
 
@@ -224,32 +227,32 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5f
 
     .line 591
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_3
+    goto :goto_4a
 
     .line 594
-    :cond_4
+    :cond_5f
     iget-boolean v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->omitEmptyStrings:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_68
 
-    if-ne v1, v4, :cond_5
+    if-ne v1, v4, :cond_68
 
     .line 596
     iget v0, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     .line 597
-    goto :goto_0
+    goto :goto_2
 
     .line 600
-    :cond_5
+    :cond_68
     iget v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->limit:I
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_89
 
     .line 604
     iget-object v5, p0, Lcom/google/common/base/Splitter$SplittingIterator;->toSplit:Ljava/lang/CharSequence;
@@ -262,8 +265,8 @@
     iput v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->offset:I
 
     .line 607
-    :goto_4
-    if-le v4, v1, :cond_7
+    :goto_74
+    if-le v4, v1, :cond_8e
 
     iget-object v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->trimmer:Lcom/google/common/base/CharMatcher;
 
@@ -279,15 +282,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8e
 
     .line 608
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_4
+    goto :goto_74
 
     .line 611
-    :cond_6
+    :cond_89
     iget v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->limit:I
 
     sub-int/2addr v2, v6
@@ -295,7 +298,7 @@
     iput v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->limit:I
 
     .line 614
-    :cond_7
+    :cond_8e
     iget-object v2, p0, Lcom/google/common/base/Splitter$SplittingIterator;->toSplit:Ljava/lang/CharSequence;
 
     invoke-interface {v2, v1, v4}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -312,7 +315,7 @@
     .end local v1    # "start":I
     .end local v3    # "separatorPosition":I
     .end local v4    # "end":I
-    :cond_8
+    :cond_99
     invoke-virtual {p0}, Lcom/google/common/base/Splitter$SplittingIterator;->endOfData()Ljava/lang/Object;
 
     move-result-object v1

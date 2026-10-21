@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/RealCall;Lokhttp3/Callback;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lokhttp3/internal/connection/RealCall;
     .param p2, "responseCallback"    # Lokhttp3/Callback;
     .annotation system Ldalvik/annotation/Signature;
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public final executeOn(Ljava/util/concurrent/ExecutorService;)V
-    .locals 6
+    .registers 8
     .param p1, "executorService"    # Ljava/util/concurrent/ExecutorService;
 
     const-string v0, "executorService"
@@ -144,18 +144,18 @@
     .local v1, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
-    goto :goto_0
+    goto :goto_46
 
     .line 554
-    :cond_0
+    :cond_1b
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -199,8 +199,8 @@
     throw v2
 
     .line 556
-    :cond_1
-    :goto_0
+    :cond_46
+    :goto_46
     nop
 
     .line 497
@@ -213,15 +213,15 @@
     nop
 
     .line 499
-    :try_start_0
+    :try_start_49
     move-object v1, p0
 
     check-cast v1, Ljava/lang/Runnable;
 
     invoke-interface {p1, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4f
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_49 .. :try_end_4f} :catch_54
+    .catchall {:try_start_49 .. :try_end_4f} :catchall_52
 
     .line 500
     const/4 v0, 0x1
@@ -230,21 +230,21 @@
     nop
 
     .line 510
-    :goto_1
-    goto :goto_2
+    :goto_51
+    goto :goto_85
 
-    :catchall_0
+    :catchall_52
     move-exception v1
 
-    goto :goto_3
+    goto :goto_86
 
     .line 501
-    :catch_0
+    :catch_54
     move-exception v1
 
     .line 502
     .local v1, "e":Ljava/util/concurrent/RejectedExecutionException;
-    :try_start_1
+    :try_start_55
     new-instance v2, Ljava/io/InterruptedIOException;
 
     const-string v3, "executor rejected"
@@ -280,8 +280,8 @@
     check-cast v5, Ljava/io/IOException;
 
     invoke-interface {v3, v4, v5}, Lokhttp3/Callback;->onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_76
+    .catchall {:try_start_55 .. :try_end_76} :catchall_52
 
     .line 507
     .end local v1    # "e":Ljava/util/concurrent/RejectedExecutionException;
@@ -301,14 +301,14 @@
 
     invoke-virtual {v1, p0}, Lokhttp3/Dispatcher;->finished$okhttp(Lokhttp3/internal/connection/RealCall$AsyncCall;)V
 
-    goto :goto_1
+    goto :goto_51
 
     .line 511
-    :goto_2
+    :goto_85
     return-void
 
     .line 507
-    :goto_3
+    :goto_86
     nop
 
     .line 508
@@ -328,7 +328,7 @@
 .end method
 
 .method public final getCall()Lokhttp3/internal/connection/RealCall;
-    .locals 1
+    .registers 2
 
     .line 488
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->this$0:Lokhttp3/internal/connection/RealCall;
@@ -337,7 +337,7 @@
 .end method
 
 .method public final getCallsPerHost()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
 
     .line 474
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->callsPerHost:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -346,7 +346,7 @@
 .end method
 
 .method public final getHost()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 482
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->this$0:Lokhttp3/internal/connection/RealCall;
@@ -367,7 +367,7 @@
 .end method
 
 .method public final getRequest()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 485
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->this$0:Lokhttp3/internal/connection/RealCall;
@@ -380,7 +380,7 @@
 .end method
 
 .method public final reuseCallsPerHostFrom(Lokhttp3/internal/connection/RealCall$AsyncCall;)V
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lokhttp3/internal/connection/RealCall$AsyncCall;
 
     const-string v0, "other"
@@ -397,7 +397,7 @@
 .end method
 
 .method public run()V
-    .locals 12
+    .registers 13
 
     .line 514
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->this$0:Lokhttp3/internal/connection/RealCall;
@@ -445,20 +445,21 @@
 
     .line 516
     .local v6, "signalledCallback":Z
-    :try_start_0
+    :try_start_1d
+    # getter for: Lokhttp3/internal/connection/RealCall;->timeout:Lokhttp3/internal/connection/RealCall$timeout$1;
     invoke-static {v1}, Lokhttp3/internal/connection/RealCall;->access$getTimeout$p(Lokhttp3/internal/connection/RealCall;)Lokhttp3/internal/connection/RealCall$timeout$1;
 
     move-result-object v7
 
     invoke-virtual {v7}, Lokhttp3/internal/connection/RealCall$timeout$1;->enter()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_24
+    .catchall {:try_start_1d .. :try_end_24} :catchall_a0
 
     .line 517
     nop
 
     .line 518
-    :try_start_1
+    :try_start_25
     invoke-virtual {v1}, Lokhttp3/internal/connection/RealCall;->getResponseWithInterceptorChain$okhttp()Lokhttp3/Response;
 
     move-result-object v7
@@ -475,13 +476,13 @@
     check-cast v9, Lokhttp3/Call;
 
     invoke-interface {v8, v9, v7}, Lokhttp3/Callback;->onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_25 .. :try_end_32} :catch_61
+    .catchall {:try_start_25 .. :try_end_32} :catchall_3e
 
     .line 537
     .end local v7    # "response":Lokhttp3/Response;
-    :try_start_2
+    :try_start_32
     invoke-virtual {v1}, Lokhttp3/internal/connection/RealCall;->getClient()Lokhttp3/OkHttpClient;
 
     move-result-object v1
@@ -490,25 +491,25 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3a
     invoke-virtual {v1, p0}, Lokhttp3/Dispatcher;->finished$okhttp(Lokhttp3/internal/connection/RealCall$AsyncCall;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_3d
+    .catchall {:try_start_32 .. :try_end_3d} :catchall_a0
 
     .line 538
-    goto :goto_2
+    goto :goto_8d
 
     .line 528
-    :catchall_0
+    :catchall_3e
     move-exception v7
 
     .line 529
     .local v7, "t":Ljava/lang/Throwable;
-    :try_start_3
+    :try_start_3f
     invoke-virtual {v1}, Lokhttp3/internal/connection/RealCall;->cancel()V
 
     .line 530
-    if-nez v6, :cond_0
+    if-nez v6, :cond_5d
 
     .line 531
     new-instance v8, Ljava/io/IOException;
@@ -540,7 +541,7 @@
 
     .line 535
     .end local v8    # "canceledException":Ljava/io/IOException;
-    :cond_0
+    :cond_5d
     nop
 
     .end local v0    # "name$iv":Ljava/lang/String;
@@ -558,18 +559,18 @@
     .restart local v4    # "oldName$iv":Ljava/lang/String;
     .restart local v5    # "$i$a$-threadName-RealCall$AsyncCall$run$1":I
     .restart local v6    # "signalledCallback":Z
-    :catchall_1
+    :catchall_5f
     move-exception v7
 
-    goto :goto_3
+    goto :goto_94
 
     .line 521
-    :catch_0
+    :catch_61
     move-exception v7
 
     .line 522
     .local v7, "e":Ljava/io/IOException;
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_7c
 
     .line 524
     sget-object v8, Lokhttp3/internal/platform/Platform;->Companion:Lokhttp3/internal/platform/Platform$Companion;
@@ -580,6 +581,7 @@
 
     const-string v9, "Callback failure for "
 
+    # invokes: Lokhttp3/internal/connection/RealCall;->toLoggableString()Ljava/lang/String;
     invoke-static {v1}, Lokhttp3/internal/connection/RealCall;->access$toLoggableString(Lokhttp3/internal/connection/RealCall;)Ljava/lang/String;
 
     move-result-object v10
@@ -596,10 +598,10 @@
 
     invoke-virtual {v8, v9, v11, v10}, Lokhttp3/internal/platform/Platform;->log(Ljava/lang/String;ILjava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_84
 
     .line 526
-    :cond_1
+    :cond_7c
     iget-object v8, p0, Lokhttp3/internal/connection/RealCall$AsyncCall;->responseCallback:Lokhttp3/Callback;
 
     move-object v9, v1
@@ -607,13 +609,13 @@
     check-cast v9, Lokhttp3/Call;
 
     invoke-interface {v8, v9, v7}, Lokhttp3/Callback;->onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_84
+    .catchall {:try_start_3f .. :try_end_84} :catchall_5f
 
     .line 537
     .end local v7    # "e":Ljava/io/IOException;
-    :goto_1
-    :try_start_4
+    :goto_84
+    :try_start_84
     invoke-virtual {v1}, Lokhttp3/internal/connection/RealCall;->getClient()Lokhttp3/OkHttpClient;
 
     move-result-object v1
@@ -621,13 +623,13 @@
     invoke-virtual {v1}, Lokhttp3/OkHttpClient;->dispatcher()Lokhttp3/Dispatcher;
 
     move-result-object v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_8c
+    .catchall {:try_start_84 .. :try_end_8c} :catchall_a0
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 539
-    :goto_2
+    :goto_8d
     nop
 
     .line 563
@@ -655,8 +657,8 @@
     .restart local v4    # "oldName$iv":Ljava/lang/String;
     .restart local v5    # "$i$a$-threadName-RealCall$AsyncCall$run$1":I
     .restart local v6    # "signalledCallback":Z
-    :goto_3
-    :try_start_5
+    :goto_94
+    :try_start_94
     invoke-virtual {v1}, Lokhttp3/internal/connection/RealCall;->getClient()Lokhttp3/OkHttpClient;
 
     move-result-object v1
@@ -672,8 +674,8 @@
     .end local v3    # "currentThread$iv":Ljava/lang/Thread;
     .end local v4    # "oldName$iv":Ljava/lang/String;
     throw v7
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_a0
+    .catchall {:try_start_94 .. :try_end_a0} :catchall_a0
 
     .line 564
     .end local v5    # "$i$a$-threadName-RealCall$AsyncCall$run$1":I
@@ -682,7 +684,7 @@
     .restart local v2    # "$i$f$threadName":I
     .restart local v3    # "currentThread$iv":Ljava/lang/Thread;
     .restart local v4    # "oldName$iv":Ljava/lang/String;
-    :catchall_2
+    :catchall_a0
     move-exception v1
 
     .line 563

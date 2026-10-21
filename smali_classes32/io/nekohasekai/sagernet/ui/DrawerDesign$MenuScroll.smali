@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 2
 
-    .line 69
+    .line 84
     invoke-direct {p0, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     new-instance p1, Landroid/graphics/Rect;
@@ -39,7 +39,7 @@
 .method protected onMeasure(II)V
     .registers 8
 
-    .line 70
+    .line 85
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V

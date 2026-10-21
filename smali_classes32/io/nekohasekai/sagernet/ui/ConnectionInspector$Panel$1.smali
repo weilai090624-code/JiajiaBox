@@ -48,7 +48,7 @@
         }
     .end annotation
 
-    .line 116
+    .line 131
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     iput-object p5, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$1;->val$c:Landroid/content/Context;
@@ -63,7 +63,7 @@
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .registers 4
 
-    .line 118
+    .line 133
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
@@ -93,7 +93,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .registers 4
 
-    .line 117
+    .line 132
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1

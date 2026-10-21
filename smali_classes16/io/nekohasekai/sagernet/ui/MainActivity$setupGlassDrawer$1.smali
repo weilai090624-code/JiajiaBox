@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/MainActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/MainActivity;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$setupGlassDrawer$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onDrawerClosed(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "drawerView"    # Landroid/view/View;
 
     const-string v0, "drawerView"
@@ -66,32 +66,39 @@
     .line 323
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$setupGlassDrawer$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/MainActivity;->glassExpanded:Z
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$getGlassExpanded$p(Lio/nekohasekai/sagernet/ui/MainActivity;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$setupGlassDrawer$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
 
     const/4 v1, 0x0
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->collapseGlassToMenu(Z)V
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$collapseGlassToMenu(Lio/nekohasekai/sagernet/ui/MainActivity;Z)V
 
     .line 324
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public onDrawerSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
+
     invoke-static {p1, p2}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->slide(Landroid/view/View;F)V
+
     return-void
 .end method
 
 .method public onDrawerStateChanged(I)V
-    .locals 1
+    .registers 3
+
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$setupGlassDrawer$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
+
     invoke-static {v0, p1}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->drawerState(Landroid/app/Activity;I)V
+
     return-void
 .end method

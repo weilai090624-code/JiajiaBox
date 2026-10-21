@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)V
-    .locals 1
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     .line 409
@@ -66,6 +66,7 @@
     .line 410
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
+    # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->firstEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
     invoke-static {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->access$000(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     move-result-object v0
@@ -75,6 +76,7 @@
     .line 412
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
+    # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->access$100(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)I
 
     move-result v0
@@ -85,25 +87,26 @@
 .end method
 
 .method private checkForComodification()V
-    .locals 2
+    .registers 3
 
     .line 415
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
+    # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->access$100(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)I
 
     move-result v0
 
     iget v1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 418
     return-void
 
     .line 416
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -114,7 +117,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 422
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;"
@@ -125,21 +128,21 @@
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -155,7 +158,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 432
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->nextEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
@@ -185,7 +188,7 @@
     .line 430
     .end local v0    # "entry":Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;, "Lcom/google/common/collect/LinkedHashMultimap$ValueEntry<TK;TV;>;"
     .end local v1    # "result":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -194,7 +197,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 441
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;"
@@ -203,16 +206,16 @@
     .line 442
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->toRemove:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "no calls to next() since the last call to remove()"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -231,6 +234,7 @@
     .line 444
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
+    # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->access$100(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)I
 
     move-result v0

@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Ljava/util/concurrent/Executor;
     .param p2, "sequencer"    # Lcom/google/common/util/concurrent/ExecutionSequencer;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/util/concurrent/Executor;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/ExecutionSequencer;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/ExecutionSequencer$1;
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;
 
     .line 287
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;
 
     .line 287
@@ -108,7 +108,7 @@
 .end method
 
 .method private trySetCancelled()Z
-    .locals 2
+    .registers 3
 
     .line 446
     sget-object v0, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;->NOT_RUN:Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
@@ -123,7 +123,7 @@
 .end method
 
 .method private trySetStarted()Z
-    .locals 2
+    .registers 3
 
     .line 442
     sget-object v0, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;->NOT_RUN:Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 4
+    .registers 6
     .param p1, "task"    # Ljava/lang/Runnable;
 
     .line 328
@@ -152,7 +152,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 329
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
@@ -164,7 +164,7 @@
     return-void
 
     .line 333
-    :cond_0
+    :cond_e
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v0
@@ -172,7 +172,7 @@
     iput-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->submitting:Ljava/lang/Thread;
 
     .line 345
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -181,6 +181,7 @@
 
     check-cast v0, Lcom/google/common/util/concurrent/ExecutionSequencer;
 
+    # getter for: Lcom/google/common/util/concurrent/ExecutionSequencer;->latestTaskQueue:Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ExecutionSequencer;->access$400(Lcom/google/common/util/concurrent/ExecutionSequencer;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
 
     move-result-object v0
@@ -191,7 +192,7 @@
 
     iget-object v3, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->submitting:Ljava/lang/Thread;
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v3, :cond_41
 
     .line 347
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
@@ -199,16 +200,16 @@
     .line 352
     iget-object v1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_1
+    :cond_2e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_2f
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 353
@@ -228,10 +229,10 @@
     .line 356
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
 
-    goto :goto_1
+    goto :goto_50
 
     .line 359
-    :cond_2
+    :cond_41
     iget-object v1, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
 
     invoke-static {v1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -249,13 +250,13 @@
 
     .line 362
     invoke-interface {v1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_50
+    .catchall {:try_start_14 .. :try_end_50} :catchall_54
 
     .line 369
     .end local v0    # "submittingTaskQueue":Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
     .end local v1    # "localDelegate":Ljava/util/concurrent/Executor;
-    :goto_1
+    :goto_50
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->submitting:Ljava/lang/Thread;
 
     .line 370
@@ -265,7 +266,7 @@
     return-void
 
     .line 369
-    :catchall_0
+    :catchall_54
     move-exception v0
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->submitting:Ljava/lang/Thread;
@@ -275,7 +276,7 @@
 .end method
 
 .method public run()V
-    .locals 10
+    .registers 11
 
     .line 376
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -288,7 +289,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     .line 382
     iget-object v1, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->task:Ljava/lang/Runnable;
@@ -311,7 +312,7 @@
 
     .line 390
     .end local v1    # "localTask":Ljava/lang/Runnable;
-    :cond_0
+    :cond_17
     new-instance v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
 
     invoke-direct {v1, v2}, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;-><init>(Lcom/google/common/util/concurrent/ExecutionSequencer$1;)V
@@ -329,13 +330,14 @@
 
     check-cast v3, Lcom/google/common/util/concurrent/ExecutionSequencer;
 
+    # setter for: Lcom/google/common/util/concurrent/ExecutionSequencer;->latestTaskQueue:Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
     invoke-static {v3, v1}, Lcom/google/common/util/concurrent/ExecutionSequencer;->access$402(Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
 
     .line 414
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     .line 417
-    :try_start_0
+    :try_start_2b
     iget-object v3, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->task:Ljava/lang/Runnable;
 
     invoke-static {v3}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -352,7 +354,7 @@
     invoke-interface {v3}, Ljava/lang/Runnable;->run()V
 
     .line 424
-    :goto_0
+    :goto_38
     iget-object v4, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
 
     move-object v5, v4
@@ -362,32 +364,32 @@
 
     const/4 v7, 0x0
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_41
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_42
     iget-object v8, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextExecutor:Ljava/util/concurrent/Executor;
 
     move-object v9, v8
 
     .local v9, "queuedExecutor":Ljava/util/concurrent/Executor;
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_48
 
-    goto :goto_2
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v6, 0x0
 
-    :goto_2
+    :goto_49
     and-int/2addr v4, v6
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_54
 
     .line 426
     iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
@@ -397,16 +399,16 @@
 
     .line 428
     invoke-interface {v9, v5}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catchall {:try_start_2b .. :try_end_53} :catchall_58
 
-    goto :goto_0
+    goto :goto_38
 
     .line 437
     .end local v3    # "localTask":Ljava/lang/Runnable;
     .end local v5    # "queuedTask":Ljava/lang/Runnable;
     .end local v9    # "queuedExecutor":Ljava/util/concurrent/Executor;
-    :cond_3
+    :cond_54
     iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;
 
     .line 438
@@ -416,7 +418,7 @@
     return-void
 
     .line 437
-    :catchall_0
+    :catchall_58
     move-exception v3
 
     iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;

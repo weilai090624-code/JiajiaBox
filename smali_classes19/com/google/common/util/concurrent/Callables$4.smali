@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Supplier;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
 
     .line 114
     iput-object p1, p0, Lcom/google/common/util/concurrent/Callables$4;->val$nameSupplier:Lcom/google/common/base/Supplier;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 117
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -63,42 +63,45 @@
 
     check-cast v2, Ljava/lang/String;
 
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v2, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     move-result v2
 
     .line 121
     .local v2, "restoreName":Z
-    :try_start_0
+    :try_start_14
     iget-object v3, p0, Lcom/google/common/util/concurrent/Callables$4;->val$task:Ljava/lang/Runnable;
 
     invoke-interface {v3}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_14 .. :try_end_19} :catchall_20
 
     .line 123
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 124
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     .line 125
     nop
 
     .line 127
-    :cond_0
+    :cond_1f
     return-void
 
     .line 123
-    :catchall_0
+    :catchall_20
     move-exception v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 124
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     .line 126
-    :cond_1
+    :cond_26
     throw v3
 .end method

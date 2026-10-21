@@ -634,7 +634,7 @@
     nop
 
     .line 92
-    const/4 v0, 0x5
+    const/4 v0, 0x4
 
     new-array v0, v0, [Lkotlin/Pair;
 
@@ -706,30 +706,6 @@
     .line 92
     nop
 
-    .line 95
-    const v2, 0x7f0a01e9
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const v5, 0x7f13019a
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v2, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v2
-
-    const/4 v5, 0x3
-
-    aput-object v2, v0, v5
-
-    .line 92
-    nop
-
     .line 97
     const v2, 0x7f0a01de
 
@@ -747,7 +723,7 @@
 
     move-result-object v2
 
-    const/4 v5, 0x4
+    const/4 v5, 0x3
 
     aput-object v2, v0, v5
 
@@ -2493,7 +2469,9 @@
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->install(Landroid/view/View;)V
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/MainActivity;->navRowViews:Ljava/util/HashMap;
+
     iget v2, v0, Lio/nekohasekai/sagernet/ui/MainActivity;->currentNavId:I
+
     invoke-static {v0, v6, v4, v1, v2}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->install(Landroid/app/Activity;Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Landroid/widget/LinearLayout;Ljava/util/Map;I)V
 
     return-void
@@ -2936,7 +2914,9 @@
     .line 1067
     :cond_6d
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->navRowViews:Ljava/util/HashMap;
+
     invoke-static {v1, p1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->select(Ljava/util/Map;I)V
+
     return-void
 .end method
 
@@ -8372,13 +8352,13 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_11
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/JJBlankFragment;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_17
 
-    :cond_e
+    :cond_11
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/JJNavButton;->setVisibility(I)V
@@ -8386,47 +8366,47 @@
     return-void
 
     .line 1318
-    :cond_14
+    :cond_17
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_33
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/JJBlankFragment;
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_33
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/RouteFragment;
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_33
 
     .line 1319
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/SettingsFragment;
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_33
 
     .line 1320
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/ToolsFragment;
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_33
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/AboutFragment;
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_30
 
-    goto :goto_30
+    goto :goto_33
 
     .line 1321
-    :cond_2d
+    :cond_30
     const/16 v1, 0x8
 
-    goto :goto_31
+    goto :goto_34
 
-    :cond_30
-    :goto_30
+    :cond_33
+    :goto_33
     const/4 v1, 0x0
 
     .line 1317
-    :goto_31
+    :goto_34
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/JJNavButton;->setVisibility(I)V
 
     .line 1322
@@ -8953,7 +8933,7 @@
     .param p1, "id"    # I
 
     .line 1325
-    sparse-switch p1, :sswitch_data_d0
+    sparse-switch p1, :sswitch_data_c6
 
     .line 1334
     const/4 v0, 0x0
@@ -8962,18 +8942,12 @@
 
     .line 1332
     :sswitch_5
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->newDashboardFragment()Lio/nekohasekai/sagernet/ui/WebviewFragment;
+    const/4 v0, 0x0
 
-    move-result-object v0
-
-    check-cast v0, Lio/nekohasekai/sagernet/ui/ToolbarFragment;
-
-    invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
-
-    goto/16 :goto_ca
+    return v0
 
     .line 1329
-    :sswitch_10
+    :sswitch_7
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->cachedPages:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -8994,7 +8968,7 @@
 
     .line 1586
     .local v3, "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_2d
+    if-nez v3, :cond_24
 
     .line 1587
     const/4 v4, 0x0
@@ -9019,14 +8993,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_2e
+    goto :goto_25
 
     .line 1591
-    :cond_2d
+    :cond_24
     move-object v4, v3
 
     .line 1586
-    :goto_2e
+    :goto_25
     nop
 
     .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -9038,10 +9012,10 @@
     .line 1329
     invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
 
-    goto/16 :goto_ca
+    goto/16 :goto_c1
 
     .line 1328
-    :sswitch_36
+    :sswitch_2d
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->cachedPages:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -9062,7 +9036,7 @@
 
     .line 1579
     .restart local v3    # "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_53
+    if-nez v3, :cond_4a
 
     .line 1580
     const/4 v4, 0x0
@@ -9087,14 +9061,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_54
+    goto :goto_4b
 
     .line 1584
-    :cond_53
+    :cond_4a
     move-object v4, v3
 
     .line 1579
-    :goto_54
+    :goto_4b
     nop
 
     .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -9106,10 +9080,10 @@
     .line 1328
     invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
 
-    goto/16 :goto_ca
+    goto/16 :goto_c1
 
     .line 1327
-    :sswitch_5c
+    :sswitch_53
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->cachedPages:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -9130,7 +9104,7 @@
 
     .line 1572
     .restart local v3    # "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_79
+    if-nez v3, :cond_70
 
     .line 1573
     const/4 v4, 0x0
@@ -9155,14 +9129,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_7a
+    goto :goto_71
 
     .line 1577
-    :cond_79
+    :cond_70
     move-object v4, v3
 
     .line 1572
-    :goto_7a
+    :goto_71
     nop
 
     .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -9174,10 +9148,10 @@
     .line 1327
     invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
 
-    goto :goto_ca
+    goto :goto_c1
 
     .line 1326
-    :sswitch_81
+    :sswitch_78
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->cachedPages:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -9198,7 +9172,7 @@
 
     .line 1565
     .restart local v3    # "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_9e
+    if-nez v3, :cond_95
 
     .line 1566
     const/4 v4, 0x0
@@ -9223,14 +9197,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_9f
+    goto :goto_96
 
     .line 1570
-    :cond_9e
+    :cond_95
     move-object v4, v3
 
     .line 1565
-    :goto_9f
+    :goto_96
     nop
 
     .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -9242,10 +9216,10 @@
     .line 1326
     invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
 
-    goto :goto_ca
+    goto :goto_c1
 
     .line 1330
-    :sswitch_a6
+    :sswitch_9d
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->cachedPages:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -9266,7 +9240,7 @@
 
     .line 1593
     .restart local v3    # "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_c3
+    if-nez v3, :cond_ba
 
     .line 1594
     const/4 v4, 0x0
@@ -9291,14 +9265,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_c4
+    goto :goto_bb
 
     .line 1598
-    :cond_c3
+    :cond_ba
     move-object v4, v3
 
     .line 1593
-    :goto_c4
+    :goto_bb
     nop
 
     .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -9311,7 +9285,7 @@
     invoke-virtual {p0, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->displayFragment(Lio/nekohasekai/sagernet/ui/ToolbarFragment;)V
 
     .line 1336
-    :goto_ca
+    :goto_c1
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/MainActivity;->checkNavItem(I)V
 
     .line 1337
@@ -9319,15 +9293,13 @@
 
     return v0
 
-    nop
-
-    :sswitch_data_d0
+    :sswitch_data_c6
     .sparse-switch
-        0x7f0a01de -> :sswitch_a6
-        0x7f0a01e3 -> :sswitch_81
-        0x7f0a01e6 -> :sswitch_5c
-        0x7f0a01e7 -> :sswitch_36
-        0x7f0a01e8 -> :sswitch_10
+        0x7f0a01de -> :sswitch_9d
+        0x7f0a01e3 -> :sswitch_78
+        0x7f0a01e6 -> :sswitch_53
+        0x7f0a01e7 -> :sswitch_2d
+        0x7f0a01e8 -> :sswitch_7
         0x7f0a01e9 -> :sswitch_5
     .end sparse-switch
 .end method
@@ -12425,15 +12397,17 @@
     .registers 5
     .param p1, "clashApi"    # Z
 
+    const/4 p1, 0x0
+
     .line 1074
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity;->navigation:Landroid/view/View;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     return-void
 
     .line 1075
-    :cond_5
+    :cond_6
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->getNavigation()Landroid/view/View;
 
     move-result-object v0
@@ -12442,7 +12416,7 @@
 
     const v1, 0x7f0a01e9
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2a
 
     .line 1076
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->getNavigation()Landroid/view/View;
@@ -12463,19 +12437,19 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2d
 
     invoke-interface {v0, p1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    goto :goto_2c
+    goto :goto_2d
 
     .line 1078
-    :cond_29
+    :cond_2a
     invoke-direct {p0, v1, p1}, Lio/nekohasekai/sagernet/ui/MainActivity;->setNavRowVisible(IZ)V
 
     .line 1080
-    :cond_2c
-    :goto_2c
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 

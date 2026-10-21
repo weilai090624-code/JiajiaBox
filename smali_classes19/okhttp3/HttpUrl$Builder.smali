@@ -169,7 +169,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/HttpUrl$Builder$Companion;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 909
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -226,7 +226,7 @@
 .end method
 
 .method private final addPathSegments(Ljava/lang/String;Z)Lokhttp3/HttpUrl$Builder;
-    .locals 10
+    .registers 13
     .param p1, "pathSegments"    # Ljava/lang/String;
     .param p2, "alreadyEncoded"    # Z
 
@@ -246,7 +246,7 @@
 
     .line 1000
     .local v8, "offset":I
-    :cond_0
+    :cond_6
     const-string v0, "/\\"
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -263,22 +263,22 @@
 
     move-result v0
 
-    if-ge v9, v0, :cond_1
+    if-ge v9, v0, :cond_19
 
     const/4 v0, 0x1
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
     const/4 v4, 0x0
 
     .line 1002
     .local v4, "addTrailingSlash":Z
-    :goto_0
+    :goto_1b
     move-object v0, v6
 
     move-object v1, p1
@@ -299,7 +299,7 @@
 
     move-result v0
 
-    if-le v8, v0, :cond_0
+    if-le v8, v0, :cond_6
 
     .line 1005
     .end local v4    # "addTrailingSlash":Z
@@ -319,20 +319,20 @@
 .end method
 
 .method private final effectivePort()I
-    .locals 2
+    .registers 3
 
     .line 972
     iget v0, p0, Lokhttp3/HttpUrl$Builder;->port:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     iget v0, p0, Lokhttp3/HttpUrl$Builder;->port:I
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_8
     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     iget-object v1, p0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
@@ -343,12 +343,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method private final isDot(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/lang/String;
 
     .line 1452
@@ -360,7 +360,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     const-string v0, "%2e"
 
@@ -368,20 +368,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     return v1
 .end method
 
 .method private final isDotDot(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/lang/String;
 
     .line 1456
@@ -393,7 +393,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 1457
     const-string v0, "%2e."
@@ -402,7 +402,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 1458
     const-string v0, ".%2e"
@@ -411,7 +411,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 1459
     const-string v0, "%2e%2e"
@@ -420,26 +420,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_22
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     nop
 
     .line 1456
-    :goto_1
+    :goto_25
     return v1
 .end method
 
 .method private final pop()V
-    .locals 5
+    .registers 6
 
     .line 1473
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -470,19 +470,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1c
     const-string v3, ""
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     iget-object v1, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
@@ -492,7 +492,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_37
 
     .line 1477
     iget-object v1, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -507,21 +507,21 @@
 
     invoke-interface {v1, v4, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 1479
-    :cond_1
+    :cond_37
     iget-object v1, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1481
-    :goto_1
+    :goto_3c
     return-void
 .end method
 
 .method private final push(Ljava/lang/String;IIZZ)V
-    .locals 13
+    .registers 19
     .param p1, "input"    # Ljava/lang/String;
     .param p2, "pos"    # I
     .param p3, "limit"    # I
@@ -578,18 +578,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 1435
     return-void
 
     .line 1437
-    :cond_0
+    :cond_21
     invoke-direct {p0, v1}, Lokhttp3/HttpUrl$Builder;->isDotDot(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 1438
     invoke-direct {p0}, Lokhttp3/HttpUrl$Builder;->pop()V
@@ -598,7 +598,7 @@
     return-void
 
     .line 1441
-    :cond_1
+    :cond_2b
     iget-object v2, v0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
     iget-object v3, v0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -621,17 +621,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_43
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_2
+    :cond_43
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_44
+    if-eqz v2, :cond_53
 
     .line 1442
     iget-object v2, v0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -646,17 +646,17 @@
 
     invoke-interface {v2, v3, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_58
 
     .line 1444
-    :cond_3
+    :cond_53
     iget-object v2, v0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1446
-    :goto_1
-    if-eqz p4, :cond_4
+    :goto_58
+    if-eqz p4, :cond_61
 
     .line 1447
     iget-object v2, v0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -666,12 +666,12 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1449
-    :cond_4
+    :cond_61
     return-void
 .end method
 
 .method private final removeAllCanonicalQueryParameters(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "canonicalName"    # Ljava/lang/String;
 
     .line 1110
@@ -693,9 +693,9 @@
 
     move-result v1
 
-    if-gt v1, v0, :cond_2
+    if-gt v1, v0, :cond_47
 
-    :cond_0
+    :cond_13
     move v3, v0
 
     .local v3, "i":I
@@ -714,7 +714,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_45
 
     .line 1112
     iget-object v4, p0, Lokhttp3/HttpUrl$Builder;->encodedQueryNamesAndValues:Ljava/util/List;
@@ -741,7 +741,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_45
 
     .line 1115
     const/4 v0, 0x0
@@ -752,17 +752,17 @@
     return-void
 
     .line 1110
-    :cond_1
-    if-ne v3, v1, :cond_0
+    :cond_45
+    if-ne v3, v1, :cond_13
 
     .line 1120
     .end local v3    # "i":I
-    :cond_2
+    :cond_47
     return-void
 .end method
 
 .method private final resolvePath(Ljava/lang/String;II)V
-    .locals 12
+    .registers 16
     .param p1, "input"    # Ljava/lang/String;
     .param p2, "startPos"    # I
     .param p3, "limit"    # I
@@ -772,13 +772,13 @@
 
     .line 1394
     .local v0, "pos":I
-    if-ne v0, p3, :cond_0
+    if-ne v0, p3, :cond_4
 
     .line 1396
     return-void
 
     .line 1398
-    :cond_0
+    :cond_4
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
@@ -791,16 +791,16 @@
 
     const/4 v4, 0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_21
 
     const/16 v2, 0x5c
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_14
 
-    goto :goto_0
+    goto :goto_21
 
     .line 1406
-    :cond_1
+    :cond_14
     iget-object v2, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
     iget-object v5, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -813,11 +813,11 @@
 
     invoke-interface {v2, v5, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 1401
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     iget-object v2, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->clear()V
@@ -831,14 +831,14 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 1410
-    :goto_1
+    :goto_2d
     move v2, v0
 
     .line 1411
     .local v2, "i":I
-    :cond_3
-    :goto_2
-    if-ge v2, p3, :cond_5
+    :cond_2e
+    :goto_2e
+    if-ge v2, p3, :cond_4b
 
     .line 1412
     const-string v3, "/\\"
@@ -849,16 +849,16 @@
 
     .line 1413
     .local v3, "pathSegmentDelimiterOffset":I
-    if-ge v3, p3, :cond_4
+    if-ge v3, p3, :cond_3a
 
     const/4 v5, 0x1
 
-    goto :goto_3
+    goto :goto_3b
 
-    :cond_4
+    :cond_3a
     const/4 v5, 0x0
 
-    :goto_3
+    :goto_3b
     move v11, v5
 
     .line 1414
@@ -881,23 +881,23 @@
     move v2, v3
 
     .line 1416
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_2e
 
     add-int/lit8 v2, v2, 0x1
 
     .end local v3    # "pathSegmentDelimiterOffset":I
     .end local v11    # "segmentHasTrailingSlash":Z
-    goto :goto_2
+    goto :goto_2e
 
     .line 1418
-    :cond_5
+    :cond_4b
     return-void
 .end method
 
 
 # virtual methods
 .method public final addEncodedPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 8
+    .registers 10
     .param p1, "encodedPathSegment"    # Ljava/lang/String;
 
     const-string v0, "encodedPathSegment"
@@ -949,7 +949,7 @@
 .end method
 
 .method public final addEncodedPathSegments(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 1
+    .registers 3
     .param p1, "encodedPathSegments"    # Ljava/lang/String;
 
     const-string v0, "encodedPathSegments"
@@ -967,7 +967,7 @@
 .end method
 
 .method public final addEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 27
+    .registers 30
     .param p1, "encodedName"    # Ljava/lang/String;
     .param p2, "encodedValue"    # Ljava/lang/String;
 
@@ -991,7 +991,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     new-instance v1, Ljava/util/ArrayList;
 
@@ -1002,7 +1002,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->setEncodedQueryNamesAndValues$okhttp(Ljava/util/List;)V
 
     .line 1069
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->getEncodedQueryNamesAndValues$okhttp()Ljava/util/List;
 
     move-result-object v15
@@ -1059,13 +1059,13 @@
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_49
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_69
 
-    :cond_1
+    :cond_49
     sget-object v15, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1075
@@ -1107,7 +1107,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_69
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1079
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public final addPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 8
+    .registers 10
     .param p1, "pathSegment"    # Ljava/lang/String;
 
     const-string v0, "pathSegment"
@@ -1173,7 +1173,7 @@
 .end method
 
 .method public final addPathSegments(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 1
+    .registers 3
     .param p1, "pathSegments"    # Ljava/lang/String;
 
     const-string v0, "pathSegments"
@@ -1191,7 +1191,7 @@
 .end method
 
 .method public final addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 27
+    .registers 30
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -1215,7 +1215,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     new-instance v1, Ljava/util/ArrayList;
 
@@ -1226,7 +1226,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->setEncodedQueryNamesAndValues$okhttp(Ljava/util/List;)V
 
     .line 1056
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->getEncodedQueryNamesAndValues$okhttp()Ljava/util/List;
 
     move-result-object v15
@@ -1280,13 +1280,13 @@
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_48
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_67
 
-    :cond_1
+    :cond_48
     sget-object v15, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1061
@@ -1325,7 +1325,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_67
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1064
@@ -1343,7 +1343,7 @@
 .end method
 
 .method public final build()Lokhttp3/HttpUrl;
-    .locals 24
+    .registers 25
 
     .line 1174
     move-object/from16 v0, p0
@@ -1351,7 +1351,7 @@
     .line 1175
     iget-object v2, v0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_dc
 
     .line 1176
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
@@ -1390,7 +1390,7 @@
     .line 1178
     iget-object v5, v0, Lokhttp3/HttpUrl$Builder;->host:Ljava/lang/String;
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_d4
 
     .line 1179
     invoke-direct/range {p0 .. p0}, Lokhttp3/HttpUrl$Builder;->effectivePort()I
@@ -1431,12 +1431,12 @@
 
     move-result-object v12
 
-    :goto_0
+    :goto_3e
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_64
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1477,10 +1477,10 @@
 
     .line 1875
     .end local v13    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_3e
 
     .line 1877
-    :cond_0
+    :cond_64
     nop
 
     .end local v8    # "destination$iv$iv":Ljava/util/Collection;
@@ -1498,13 +1498,13 @@
 
     const/4 v7, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_6f
 
     move-object v9, v7
 
-    goto :goto_3
+    goto :goto_b2
 
-    :cond_1
+    :cond_6f
     check-cast v1, Ljava/lang/Iterable;
 
     .restart local v1    # "$this$map$iv":Ljava/lang/Iterable;
@@ -1536,12 +1536,12 @@
 
     move-result-object v13
 
-    :goto_1
+    :goto_84
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_ae
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1558,13 +1558,13 @@
 
     .line 1181
     .local v23, "$i$a$-map-HttpUrl$Builder$build$2":I
-    if-nez v22, :cond_2
+    if-nez v22, :cond_98
 
     move-object v15, v7
 
-    goto :goto_2
+    goto :goto_aa
 
-    :cond_2
+    :cond_98
     sget-object v15, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     const/16 v20, 0x3
@@ -1585,15 +1585,15 @@
 
     .end local v22    # "it":Ljava/lang/String;
     .end local v23    # "$i$a$-map-HttpUrl$Builder$build$2":I
-    :goto_2
+    :goto_aa
     invoke-interface {v9, v15}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 1879
     .end local v14    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_84
 
     .line 1881
-    :cond_3
+    :cond_ae
     nop
 
     .end local v9    # "destination$iv$iv":Ljava/util/Collection;
@@ -1607,16 +1607,16 @@
     .line 1182
     .end local v1    # "$this$map$iv":Ljava/lang/Iterable;
     .end local v10    # "$i$f$map":I
-    :goto_3
+    :goto_b2
     iget-object v11, v0, Lokhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
 
-    if-nez v11, :cond_4
+    if-nez v11, :cond_b8
 
     move-object v10, v7
 
-    goto :goto_4
+    goto :goto_c5
 
-    :cond_4
+    :cond_b8
     sget-object v10, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     const/4 v15, 0x7
@@ -1636,7 +1636,7 @@
     move-object v10, v1
 
     .line 1183
-    :goto_4
+    :goto_c5
     invoke-virtual/range {p0 .. p0}, Lokhttp3/HttpUrl$Builder;->toString()Ljava/lang/String;
 
     move-result-object v11
@@ -1659,7 +1659,7 @@
     return-object v12
 
     .line 1178
-    :cond_5
+    :cond_d4
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "host == null"
@@ -1669,7 +1669,7 @@
     throw v1
 
     .line 1175
-    :cond_6
+    :cond_dc
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "scheme == null"
@@ -1680,7 +1680,7 @@
 .end method
 
 .method public final encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "encodedFragment"    # Ljava/lang/String;
 
     .line 1129
@@ -1693,13 +1693,13 @@
 
     .line 1130
     .local v1, "$i$a$-apply-HttpUrl$Builder$encodedFragment$1":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_8
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1131
@@ -1741,7 +1741,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setEncodedFragment$okhttp(Ljava/lang/String;)V
 
     .line 1135
@@ -1759,7 +1759,7 @@
 .end method
 
 .method public final encodedPassword(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 14
+    .registers 16
     .param p1, "encodedPassword"    # Ljava/lang/String;
 
     const-string v0, "encodedPassword"
@@ -1828,7 +1828,7 @@
 .end method
 
 .method public final encodedPath(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .registers 8
     .param p1, "encodedPath"    # Ljava/lang/String;
 
     const-string v0, "encodedPath"
@@ -1857,7 +1857,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 1035
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -1882,7 +1882,7 @@
     .line 1873
     .restart local v0    # "$this$encodedPath_u24lambda_u2d17":Lokhttp3/HttpUrl$Builder;
     .restart local v1    # "$i$a$-apply-HttpUrl$Builder$encodedPath$1":I
-    :cond_0
+    :cond_20
     const/4 v2, 0x0
 
     .line 1034
@@ -1908,7 +1908,7 @@
 .end method
 
 .method public final encodedQuery(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "encodedQuery"    # Ljava/lang/String;
 
     .line 1045
@@ -1921,15 +1921,15 @@
 
     .line 1046
     .local v1, "$i$a$-apply-HttpUrl$Builder$encodedQuery$1":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 1050
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 1046
-    :cond_0
+    :cond_8
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1047
@@ -1983,7 +1983,7 @@
     move-result-object v2
 
     .line 1046
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setEncodedQueryNamesAndValues$okhttp(Ljava/util/List;)V
 
     .line 1051
@@ -2001,7 +2001,7 @@
 .end method
 
 .method public final encodedUsername(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 14
+    .registers 16
     .param p1, "encodedUsername"    # Ljava/lang/String;
 
     const-string v0, "encodedUsername"
@@ -2070,7 +2070,7 @@
 .end method
 
 .method public final fragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "fragment"    # Ljava/lang/String;
 
     .line 1122
@@ -2083,13 +2083,13 @@
 
     .line 1123
     .local v1, "$i$a$-apply-HttpUrl$Builder$fragment$1":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_8
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1124
@@ -2128,7 +2128,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1f
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setEncodedFragment$okhttp(Ljava/lang/String;)V
 
     .line 1127
@@ -2146,7 +2146,7 @@
 .end method
 
 .method public final getEncodedFragment$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 917
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
@@ -2155,7 +2155,7 @@
 .end method
 
 .method public final getEncodedPassword$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 912
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
@@ -2164,7 +2164,7 @@
 .end method
 
 .method public final getEncodedPathSegments$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2181,7 +2181,7 @@
 .end method
 
 .method public final getEncodedQueryNamesAndValues$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2198,7 +2198,7 @@
 .end method
 
 .method public final getEncodedUsername$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 911
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedUsername:Ljava/lang/String;
@@ -2207,7 +2207,7 @@
 .end method
 
 .method public final getHost$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 913
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->host:Ljava/lang/String;
@@ -2216,7 +2216,7 @@
 .end method
 
 .method public final getPort$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 914
     iget v0, p0, Lokhttp3/HttpUrl$Builder;->port:I
@@ -2225,7 +2225,7 @@
 .end method
 
 .method public final getScheme$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 910
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
@@ -2234,7 +2234,7 @@
 .end method
 
 .method public final host(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 9
+    .registers 11
     .param p1, "host"    # Ljava/lang/String;
 
     const-string v0, "host"
@@ -2273,7 +2273,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 963
     .local v2, "encoded":Ljava/lang/String;
@@ -2296,7 +2296,7 @@
     .line 961
     .restart local v0    # "$this$host_u24lambda_u2d5":Lokhttp3/HttpUrl$Builder;
     .restart local v1    # "$i$a$-apply-HttpUrl$Builder$host$1":I
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     .line 962
@@ -2313,7 +2313,7 @@
 .end method
 
 .method public final parse$okhttp(Lokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 33
+    .registers 36
     .param p1, "base"    # Lokhttp3/HttpUrl;
     .param p2, "input"    # Ljava/lang/String;
 
@@ -2350,6 +2350,7 @@
     .local v15, "limit":I
     sget-object v3, Lokhttp3/HttpUrl$Builder;->Companion:Lokhttp3/HttpUrl$Builder$Companion;
 
+    # invokes: Lokhttp3/HttpUrl$Builder$Companion;->schemeDelimiterOffset(Ljava/lang/String;II)I
     invoke-static {v3, v13, v1, v15}, Lokhttp3/HttpUrl$Builder$Companion;->access$schemeDelimiterOffset(Lokhttp3/HttpUrl$Builder$Companion;Ljava/lang/String;II)I
 
     move-result v12
@@ -2362,7 +2363,7 @@
 
     const/4 v9, -0x1
 
-    if-eq v12, v9, :cond_2
+    if-eq v12, v9, :cond_6d
 
     .line 1245
     nop
@@ -2374,7 +2375,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_35
 
     .line 1247
     const-string v4, "https"
@@ -2388,17 +2389,17 @@
 
     add-int/2addr v1, v3
 
-    goto :goto_0
+    goto :goto_75
 
     .line 1250
-    :cond_0
+    :cond_35
     const-string v3, "http:"
 
     invoke-static {v13, v3, v1, v10}, Lkotlin/text/StringsKt;->startsWith(Ljava/lang/String;Ljava/lang/String;IZ)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_47
 
     .line 1251
     const-string v4, "http"
@@ -2412,10 +2413,10 @@
 
     add-int/2addr v1, v3
 
-    goto :goto_0
+    goto :goto_75
 
     .line 1254
-    :cond_1
+    :cond_47
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2455,8 +2456,8 @@
     throw v2
 
     .line 1257
-    :cond_2
-    if-eqz p1, :cond_1c
+    :cond_6d
+    if-eqz p1, :cond_389
 
     .line 1258
     invoke-virtual/range {p1 .. p1}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
@@ -2466,7 +2467,7 @@
     iput-object v3, v0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
 
     .line 1266
-    :goto_0
+    :goto_75
     const/4 v3, 0x0
 
     .line 1267
@@ -2477,6 +2478,7 @@
     .local v4, "hasPassword":Z
     sget-object v5, Lokhttp3/HttpUrl$Builder;->Companion:Lokhttp3/HttpUrl$Builder$Companion;
 
+    # invokes: Lokhttp3/HttpUrl$Builder$Companion;->slashCount(Ljava/lang/String;II)I
     invoke-static {v5, v13, v1, v15}, Lokhttp3/HttpUrl$Builder$Companion;->access$slashCount(Lokhttp3/HttpUrl$Builder$Companion;Ljava/lang/String;II)I
 
     move-result v8
@@ -2487,9 +2489,9 @@
 
     const/16 v6, 0x23
 
-    if-ge v8, v2, :cond_6
+    if-ge v8, v2, :cond_d7
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_d7
 
     invoke-virtual/range {p1 .. p1}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
 
@@ -2501,12 +2503,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_92
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 1348
-    :cond_3
+    :cond_92
     invoke-virtual/range {p1 .. p1}, Lokhttp3/HttpUrl;->encodedUsername()Ljava/lang/String;
 
     move-result-object v2
@@ -2551,16 +2553,16 @@
     invoke-interface {v2, v5}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 1354
-    if-eq v1, v15, :cond_4
+    if-eq v1, v15, :cond_c2
 
     invoke-virtual {v13, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    if-ne v2, v6, :cond_5
+    if-ne v2, v6, :cond_c9
 
     .line 1355
-    :cond_4
+    :cond_c2
     invoke-virtual/range {p1 .. p1}, Lokhttp3/HttpUrl;->encodedQuery()Ljava/lang/String;
 
     move-result-object v2
@@ -2568,7 +2570,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->encodedQuery(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 1360
-    :cond_5
+    :cond_c9
     move/from16 v16, v3
 
     move/from16 v17, v4
@@ -2581,11 +2583,11 @@
 
     const/16 v10, 0x3f
 
-    goto/16 :goto_10
+    goto/16 :goto_2c8
 
     .line 1279
-    :cond_6
-    :goto_1
+    :cond_d7
+    :goto_d7
     add-int/2addr v1, v8
 
     move v5, v1
@@ -2601,7 +2603,7 @@
     .local v5, "pos":I
     .local v16, "hasUsername":Z
     .local v17, "hasPassword":Z
-    :goto_2
+    :goto_dd
     nop
 
     .line 1281
@@ -2613,21 +2615,21 @@
 
     .line 1282
     .local v4, "componentDelimiterOffset":I
-    if-eq v4, v15, :cond_7
+    if-eq v4, v15, :cond_eb
 
     .line 1283
     invoke-virtual {v13, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_ec
 
     .line 1285
-    :cond_7
+    :cond_eb
     const/4 v1, -0x1
 
     .line 1282
-    :goto_3
+    :goto_ec
     move v3, v1
 
     .line 1287
@@ -2637,12 +2639,12 @@
     .line 1288
     const/16 v1, 0x40
 
-    if-ne v3, v1, :cond_b
+    if-ne v3, v1, :cond_1ea
 
     .line 1290
     const-string v2, "%40"
 
-    if-nez v17, :cond_a
+    if-nez v17, :cond_192
 
     .line 1291
     const/16 v1, 0x3a
@@ -2744,7 +2746,7 @@
 
     .line 1298
     .local v12, "canonicalUsername":Ljava/lang/String;
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_158
 
     .line 1299
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2769,14 +2771,14 @@
 
     move-result-object v1
 
-    goto :goto_4
+    goto :goto_159
 
     .line 1301
-    :cond_8
+    :cond_158
     move-object v1, v12
 
     .line 1298
-    :goto_4
+    :goto_159
     iput-object v1, v0, Lokhttp3/HttpUrl$Builder;->encodedUsername:Ljava/lang/String;
 
     .line 1303
@@ -2788,7 +2790,7 @@
     .end local v29    # "componentDelimiterOffset":I
     .local v11, "passwordColonOffset":I
     .local v14, "componentDelimiterOffset":I
-    if-eq v11, v14, :cond_9
+    if-eq v11, v14, :cond_187
 
     .line 1304
     const/16 v17, 0x1
@@ -2847,14 +2849,14 @@
 
     iput-object v1, v0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
 
-    goto :goto_5
+    goto :goto_18b
 
     .line 1303
     .end local v20    # "canonicalUsername":Ljava/lang/String;
     .end local v24    # "passwordColonOffset":I
     .restart local v11    # "passwordColonOffset":I
     .restart local v12    # "canonicalUsername":Ljava/lang/String;
-    :cond_9
+    :cond_187
     move/from16 v24, v11
 
     move-object/from16 v20, v12
@@ -2864,7 +2866,7 @@
     .end local v12    # "canonicalUsername":Ljava/lang/String;
     .restart local v20    # "canonicalUsername":Ljava/lang/String;
     .restart local v24    # "passwordColonOffset":I
-    :goto_5
+    :goto_18b
     const/4 v1, 0x1
 
     move/from16 v16, v1
@@ -2877,7 +2879,7 @@
     .end local v20    # "canonicalUsername":Ljava/lang/String;
     .end local v24    # "passwordColonOffset":I
     .local v1, "hasUsername":Z
-    goto :goto_6
+    goto :goto_1d7
 
     .line 1314
     .end local v1    # "hasUsername":Z
@@ -2892,7 +2894,7 @@
     .restart local v8    # "slashCount":I
     .local v12, "schemeDelimiterOffset":I
     .restart local v16    # "hasUsername":Z
-    :cond_a
+    :cond_192
     move-object v14, v2
 
     move/from16 v28, v3
@@ -2991,7 +2993,7 @@
     iput-object v1, v0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
 
     .line 1321
-    :goto_6
+    :goto_1d7
     add-int/lit8 v5, v15, 0x1
 
     move/from16 v12, v19
@@ -3014,7 +3016,7 @@
 
     .end local v30    # "pos":I
     .restart local v5    # "pos":I
-    goto/16 :goto_2
+    goto/16 :goto_dd
 
     .line 1324
     .end local v19    # "schemeDelimiterOffset":I
@@ -3026,7 +3028,7 @@
     .restart local v8    # "slashCount":I
     .local v12, "schemeDelimiterOffset":I
     .local v15, "limit":I
-    :cond_b
+    :cond_1ea
     move/from16 v28, v3
 
     move/from16 v30, v5
@@ -3060,85 +3062,85 @@
 
     .end local v28    # "c":I
     .local v8, "c":I
-    if-ne v8, v9, :cond_c
+    if-ne v8, v9, :cond_200
 
-    :goto_7
+    :goto_1fe
     const/4 v10, 0x1
 
-    goto :goto_8
+    goto :goto_206
 
-    :cond_c
+    :cond_200
     const/16 v1, 0x2f
 
-    if-ne v8, v1, :cond_d
+    if-ne v8, v1, :cond_205
 
-    goto :goto_7
+    goto :goto_1fe
 
-    :cond_d
+    :cond_205
     const/4 v10, 0x0
 
-    :goto_8
-    if-eqz v10, :cond_e
+    :goto_206
+    if-eqz v10, :cond_20a
 
-    :goto_9
+    :goto_208
     const/4 v10, 0x1
 
-    goto :goto_a
+    goto :goto_210
 
-    :cond_e
+    :cond_20a
     const/16 v1, 0x5c
 
-    if-ne v8, v1, :cond_f
+    if-ne v8, v1, :cond_20f
 
-    goto :goto_9
+    goto :goto_208
 
-    :cond_f
+    :cond_20f
     const/4 v10, 0x0
 
-    :goto_a
-    if-eqz v10, :cond_10
+    :goto_210
+    if-eqz v10, :cond_216
 
     const/4 v1, 0x1
 
     const/16 v10, 0x3f
 
-    goto :goto_b
+    goto :goto_21d
 
-    :cond_10
+    :cond_216
     const/16 v10, 0x3f
 
-    if-ne v8, v10, :cond_11
+    if-ne v8, v10, :cond_21c
 
     const/4 v1, 0x1
 
-    goto :goto_b
+    goto :goto_21d
 
-    :cond_11
+    :cond_21c
     const/4 v1, 0x0
 
-    :goto_b
-    if-eqz v1, :cond_12
+    :goto_21d
+    if-eqz v1, :cond_223
 
     const/4 v1, 0x1
 
     const/16 v14, 0x23
 
-    goto :goto_c
+    goto :goto_22a
 
-    :cond_12
+    :cond_223
     const/16 v14, 0x23
 
-    if-ne v8, v14, :cond_13
+    if-ne v8, v14, :cond_229
 
     const/4 v1, 0x1
 
-    goto :goto_c
+    goto :goto_22a
 
-    :cond_13
+    :cond_229
     const/4 v1, 0x0
 
-    :goto_c
-    if-eqz v1, :cond_1b
+    :goto_22a
+    if-eqz v1, :cond_372
 
     .line 1326
     sget-object v1, Lokhttp3/HttpUrl$Builder;->Companion:Lokhttp3/HttpUrl$Builder$Companion;
@@ -3147,6 +3149,7 @@
 
     .end local v30    # "pos":I
     .local v11, "pos":I
+    # invokes: Lokhttp3/HttpUrl$Builder$Companion;->portColonOffset(Ljava/lang/String;II)I
     invoke-static {v1, v13, v11, v15}, Lokhttp3/HttpUrl$Builder$Companion;->access$portColonOffset(Lokhttp3/HttpUrl$Builder$Companion;Ljava/lang/String;II)I
 
     move-result v12
@@ -3157,7 +3160,7 @@
 
     const/16 v7, 0x22
 
-    if-ge v1, v15, :cond_16
+    if-ge v1, v15, :cond_297
 
     .line 1328
     sget-object v1, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
@@ -3193,6 +3196,7 @@
 
     add-int/lit8 v2, v12, 0x1
 
+    # invokes: Lokhttp3/HttpUrl$Builder$Companion;->parsePort(Ljava/lang/String;II)I
     invoke-static {v1, v13, v2, v15}, Lokhttp3/HttpUrl$Builder$Companion;->access$parsePort(Lokhttp3/HttpUrl$Builder$Companion;Ljava/lang/String;II)I
 
     move-result v1
@@ -3202,23 +3206,23 @@
     .line 1330
     iget v1, v0, Lokhttp3/HttpUrl$Builder;->port:I
 
-    if-eq v1, v9, :cond_14
+    if-eq v1, v9, :cond_262
 
     const/4 v1, 0x1
 
-    goto :goto_d
+    goto :goto_263
 
-    :cond_14
+    :cond_262
     const/4 v1, 0x0
 
-    :goto_d
-    if-eqz v1, :cond_15
+    :goto_263
+    if-eqz v1, :cond_268
 
     move-object/from16 v9, v31
 
-    goto :goto_e
+    goto :goto_2bb
 
-    :cond_15
+    :cond_268
     const/4 v1, 0x0
 
     .line 1331
@@ -3270,7 +3274,7 @@
     throw v2
 
     .line 1335
-    :cond_16
+    :cond_297
     move-object/from16 v9, v31
 
     const/16 v14, 0x22
@@ -3313,20 +3317,20 @@
     iput v1, v0, Lokhttp3/HttpUrl$Builder;->port:I
 
     .line 1338
-    :goto_e
+    :goto_2bb
     iget-object v1, v0, Lokhttp3/HttpUrl$Builder;->host:Ljava/lang/String;
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_2c2
 
     const/16 v18, 0x1
 
-    goto :goto_f
+    goto :goto_2c4
 
-    :cond_17
+    :cond_2c2
     const/16 v18, 0x0
 
-    :goto_f
-    if-eqz v18, :cond_1a
+    :goto_2c4
+    if-eqz v18, :cond_347
 
     .line 1341
     move v1, v15
@@ -3340,7 +3344,7 @@
     .end local v8    # "c":I
     .end local v12    # "portColonOffset":I
     .end local v15    # "componentDelimiterOffset":I
-    :goto_10
+    :goto_2c8
     const-string v2, "?#"
 
     move/from16 v14, v23
@@ -3361,13 +3365,13 @@
     .line 1365
     .end local v1    # "pos":I
     .local v12, "pos":I
-    if-ge v12, v14, :cond_18
+    if-ge v12, v14, :cond_314
 
     invoke-virtual {v13, v12}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    if-ne v1, v10, :cond_18
+    if-ne v1, v10, :cond_314
 
     .line 1366
     const/16 v1, 0x23
@@ -3454,11 +3458,11 @@
 
     .end local v20    # "pos":I
     .restart local v12    # "pos":I
-    goto :goto_11
+    goto :goto_318
 
     .line 1365
     .end local v18    # "queryDelimiterOffset":I
-    :cond_18
+    :cond_314
     move/from16 v20, v12
 
     .line 1378
@@ -3468,8 +3472,8 @@
 
     .end local v20    # "pos":I
     .restart local v12    # "pos":I
-    :goto_11
-    if-ge v12, v14, :cond_19
+    :goto_318
+    if-ge v12, v14, :cond_344
 
     invoke-virtual {v13, v12}, Ljava/lang/String;->charAt(I)C
 
@@ -3477,7 +3481,7 @@
 
     const/16 v2, 0x23
 
-    if-ne v1, v2, :cond_19
+    if-ne v1, v2, :cond_344
 
     .line 1379
     sget-object v1, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
@@ -3533,18 +3537,18 @@
 
     iput-object v1, v0, Lokhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
 
-    goto :goto_12
+    goto :goto_346
 
     .line 1378
     .end local v20    # "pos":I
     .restart local v12    # "pos":I
-    :cond_19
+    :cond_344
     move/from16 v20, v12
 
     .line 1388
     .end local v12    # "pos":I
     .restart local v20    # "pos":I
-    :goto_12
+    :goto_346
     return-object v0
 
     .line 1338
@@ -3555,7 +3559,7 @@
     .local v12, "portColonOffset":I
     .local v15, "componentDelimiterOffset":I
     .restart local v23    # "limit":I
-    :cond_1a
+    :cond_347
     const/4 v1, 0x0
 
     .line 1339
@@ -3606,7 +3610,7 @@
     .end local v11    # "pos":I
     .end local v12    # "portColonOffset":I
     .restart local v30    # "pos":I
-    :cond_1b
+    :cond_372
     move/from16 v3, v23
 
     move/from16 v11, v30
@@ -3637,7 +3641,7 @@
 
     move-object v11, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_dd
 
     .line 1260
     .end local v3    # "limit":I
@@ -3650,7 +3654,7 @@
     .local v1, "pos":I
     .local v12, "schemeDelimiterOffset":I
     .local v15, "limit":I
-    :cond_1c
+    :cond_389
     move/from16 v19, v12
 
     move v3, v15
@@ -3665,7 +3669,7 @@
 
     const/4 v4, 0x6
 
-    if-le v2, v4, :cond_1d
+    if-le v2, v4, :cond_39e
 
     invoke-static {v13, v4}, Lkotlin/text/StringsKt;->take(Ljava/lang/String;I)Ljava/lang/String;
 
@@ -3677,14 +3681,14 @@
 
     move-result-object v2
 
-    goto :goto_13
+    goto :goto_39f
 
-    :cond_1d
+    :cond_39e
     move-object v2, v13
 
     .line 1261
     .local v2, "truncated":Ljava/lang/String;
-    :goto_13
+    :goto_39f
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     .line 1262
@@ -3701,7 +3705,7 @@
 .end method
 
 .method public final password(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 14
+    .registers 16
     .param p1, "password"    # Ljava/lang/String;
 
     const-string v0, "password"
@@ -3763,7 +3767,7 @@
 .end method
 
 .method public final port(I)Lokhttp3/HttpUrl$Builder;
-    .locals 5
+    .registers 7
     .param p1, "port"    # I
 
     .line 966
@@ -3780,16 +3784,16 @@
 
     const/4 v3, 0x1
 
-    if-gt v3, p1, :cond_0
+    if-gt v3, p1, :cond_e
 
     const v4, 0xffff
 
-    if-gt p1, v4, :cond_0
+    if-gt p1, v4, :cond_e
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_e
+    if-eqz v2, :cond_18
 
     .line 968
     invoke-virtual {v0, p1}, Lokhttp3/HttpUrl$Builder;->setPort$okhttp(I)V
@@ -3810,7 +3814,7 @@
     .line 1873
     .restart local v0    # "$this$port_u24lambda_u2d7":Lokhttp3/HttpUrl$Builder;
     .restart local v1    # "$i$a$-apply-HttpUrl$Builder$port$1":I
-    :cond_1
+    :cond_18
     const/4 v2, 0x0
 
     .line 967
@@ -3840,7 +3844,7 @@
 .end method
 
 .method public final query(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "query"    # Ljava/lang/String;
 
     .line 1038
@@ -3853,15 +3857,15 @@
 
     .line 1039
     .local v1, "$i$a$-apply-HttpUrl$Builder$query$1":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 1042
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 1039
-    :cond_0
+    :cond_8
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1040
@@ -3912,7 +3916,7 @@
     move-result-object v2
 
     .line 1039
-    :goto_0
+    :goto_26
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setEncodedQueryNamesAndValues$okhttp(Ljava/util/List;)V
 
     .line 1043
@@ -3930,7 +3934,7 @@
 .end method
 
 .method public final reencodeForUri$okhttp()Lokhttp3/HttpUrl$Builder;
-    .locals 20
+    .registers 21
 
     .line 1141
     move-object/from16 v0, p0
@@ -3948,13 +3952,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     move-object v2, v3
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_e
     check-cast v2, Ljava/lang/CharSequence;
 
     new-instance v4, Lkotlin/text/Regex;
@@ -3969,7 +3973,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1d
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setHost$okhttp(Ljava/lang/String;)V
 
     .line 1144
@@ -3983,11 +3987,11 @@
 
     const/4 v4, 0x0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_5a
 
     const/4 v5, 0x0
 
-    :cond_1
+    :cond_2c
     move v6, v5
 
     .local v6, "i":I
@@ -4047,27 +4051,27 @@
     invoke-interface {v7, v6, v8}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 1144
-    if-lt v5, v2, :cond_1
+    if-lt v5, v2, :cond_2c
 
     .line 1152
     .end local v6    # "i":I
-    :cond_2
+    :cond_5a
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->getEncodedQueryNamesAndValues$okhttp()Ljava/util/List;
 
     move-result-object v2
 
     .line 1153
     .local v2, "encodedQueryNamesAndValues":Ljava/util/List;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_92
 
     .line 1154
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-lez v5, :cond_5
+    if-lez v5, :cond_92
 
-    :cond_3
+    :cond_66
     move v6, v4
 
     .restart local v6    # "i":I
@@ -4082,13 +4086,13 @@
 
     check-cast v9, Ljava/lang/String;
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_74
 
     move-object v7, v3
 
-    goto :goto_1
+    goto :goto_8d
 
-    :cond_4
+    :cond_74
     sget-object v8, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1156
@@ -4128,24 +4132,24 @@
 
     move-result-object v7
 
-    :goto_1
+    :goto_8d
     invoke-interface {v2, v6, v7}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 1154
-    if-lt v4, v5, :cond_3
+    if-lt v4, v5, :cond_66
 
     .line 1164
     .end local v6    # "i":I
-    :cond_5
+    :cond_92
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->getEncodedFragment$okhttp()Ljava/lang/String;
 
     move-result-object v9
 
-    if-nez v9, :cond_6
+    if-nez v9, :cond_99
 
-    goto :goto_2
+    goto :goto_b3
 
-    :cond_6
+    :cond_99
     sget-object v8, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1165
@@ -4188,7 +4192,7 @@
 
     move-result-object v3
 
-    :goto_2
+    :goto_b3
     invoke-virtual {v0, v3}, Lokhttp3/HttpUrl$Builder;->setEncodedFragment$okhttp(Ljava/lang/String;)V
 
     .line 1170
@@ -4207,7 +4211,7 @@
 .end method
 
 .method public final removeAllEncodedQueryParameters(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "encodedName"    # Ljava/lang/String;
 
     const-string v0, "encodedName"
@@ -4230,12 +4234,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     return-object v0
 
     .line 1102
-    :cond_0
+    :cond_12
     sget-object v1, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1103
@@ -4294,7 +4298,7 @@
 .end method
 
 .method public final removeAllQueryParameters(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 17
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -4317,12 +4321,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     return-object v0
 
     .line 1093
-    :cond_0
+    :cond_12
     sget-object v1, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     .line 1094
@@ -4381,7 +4385,7 @@
 .end method
 
 .method public final removePathSegment(I)Lokhttp3/HttpUrl$Builder;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
 
     .line 1026
@@ -4409,7 +4413,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 1029
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->getEncodedPathSegments$okhttp()Ljava/util/List;
@@ -4421,7 +4425,7 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1031
-    :cond_0
+    :cond_1e
     nop
 
     .line 1026
@@ -4436,7 +4440,7 @@
 .end method
 
 .method public final scheme(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 5
+    .registers 7
     .param p1, "scheme"    # Ljava/lang/String;
 
     const-string v0, "scheme"
@@ -4464,26 +4468,26 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setScheme$okhttp(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 929
-    :cond_0
+    :cond_17
     const-string v2, "https"
 
     invoke-static {p1, v2, v3}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     invoke-virtual {v0, v2}, Lokhttp3/HttpUrl$Builder;->setScheme$okhttp(Ljava/lang/String;)V
 
     .line 932
-    :goto_0
+    :goto_22
     nop
 
     .line 926
@@ -4499,7 +4503,7 @@
     .line 930
     .restart local v0    # "$this$scheme_u24lambda_u2d0":Lokhttp3/HttpUrl$Builder;
     .restart local v1    # "$i$a$-apply-HttpUrl$Builder$scheme$1":I
-    :cond_1
+    :cond_27
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "unexpected scheme: "
@@ -4514,7 +4518,7 @@
 .end method
 
 .method public final setEncodedFragment$okhttp(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 917
@@ -4524,7 +4528,7 @@
 .end method
 
 .method public final setEncodedPassword$okhttp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -4538,7 +4542,7 @@
 .end method
 
 .method public final setEncodedPathSegment(ILjava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 18
     .param p1, "index"    # I
     .param p2, "encodedPathSegment"    # Ljava/lang/String;
 
@@ -4608,23 +4612,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_38
 
     invoke-direct {v13, v0}, Lokhttp3/HttpUrl$Builder;->isDotDot(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_38
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_38
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_39
+    if-eqz v1, :cond_40
 
     .line 1024
     nop
@@ -4644,7 +4648,7 @@
     .restart local v0    # "canonicalPathSegment":Ljava/lang/String;
     .restart local v13    # "$this$setEncodedPathSegment_u24lambda_u2d14":Lokhttp3/HttpUrl$Builder;
     .restart local v14    # "$i$a$-apply-HttpUrl$Builder$setEncodedPathSegment$1":I
-    :cond_1
+    :cond_40
     const/4 v1, 0x0
 
     .line 1022
@@ -4671,7 +4675,7 @@
 .end method
 
 .method public final setEncodedQueryNamesAndValues$okhttp(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4689,7 +4693,7 @@
 .end method
 
 .method public final setEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 2
+    .registers 5
     .param p1, "encodedName"    # Ljava/lang/String;
     .param p2, "encodedValue"    # Ljava/lang/String;
 
@@ -4727,7 +4731,7 @@
 .end method
 
 .method public final setEncodedUsername$okhttp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -4741,7 +4745,7 @@
 .end method
 
 .method public final setHost$okhttp(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 913
@@ -4751,7 +4755,7 @@
 .end method
 
 .method public final setPathSegment(ILjava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 15
+    .registers 18
     .param p1, "index"    # I
     .param p2, "pathSegment"    # Ljava/lang/String;
 
@@ -4805,23 +4809,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     invoke-direct {v13, v0}, Lokhttp3/HttpUrl$Builder;->isDotDot(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2d
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_2e
+    if-eqz v1, :cond_3e
 
     .line 1012
     invoke-virtual {v13}, Lokhttp3/HttpUrl$Builder;->getEncodedPathSegments$okhttp()Ljava/util/List;
@@ -4850,7 +4854,7 @@
     .restart local v0    # "canonicalPathSegment":Ljava/lang/String;
     .restart local v13    # "$this$setPathSegment_u24lambda_u2d12":Lokhttp3/HttpUrl$Builder;
     .restart local v14    # "$i$a$-apply-HttpUrl$Builder$setPathSegment$1":I
-    :cond_1
+    :cond_3e
     move/from16 v2, p1
 
     const/4 v1, 0x0
@@ -4879,7 +4883,7 @@
 .end method
 
 .method public final setPort$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 914
@@ -4889,7 +4893,7 @@
 .end method
 
 .method public final setQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -4927,7 +4931,7 @@
 .end method
 
 .method public final setScheme$okhttp(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 910
@@ -4937,7 +4941,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 1188
     new-instance v0, Ljava/lang/StringBuilder;
@@ -4955,7 +4959,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1a
 
     .line 1190
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getScheme$okhttp()Ljava/lang/String;
@@ -4969,16 +4973,16 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 1193
-    :cond_0
+    :cond_1a
     const-string v3, "//"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1196
-    :goto_0
+    :goto_1f
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getEncodedUsername$okhttp()Ljava/lang/String;
 
     move-result-object v3
@@ -4993,19 +4997,19 @@
 
     const/4 v5, 0x0
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_2f
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_30
     const/16 v6, 0x3a
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_45
 
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getEncodedPassword$okhttp()Ljava/lang/String;
 
@@ -5017,20 +5021,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_42
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_43
 
-    :cond_2
+    :cond_42
     const/4 v3, 0x0
 
-    :goto_2
-    if-eqz v3, :cond_6
+    :goto_43
+    if-eqz v3, :cond_6b
 
     .line 1197
-    :cond_3
+    :cond_45
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getEncodedUsername$okhttp()Ljava/lang/String;
 
     move-result-object v3
@@ -5048,15 +5052,15 @@
 
     move-result v3
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_59
 
-    goto :goto_3
+    goto :goto_5a
 
-    :cond_4
+    :cond_59
     const/4 v4, 0x0
 
-    :goto_3
-    if-eqz v4, :cond_5
+    :goto_5a
+    if-eqz v4, :cond_66
 
     .line 1199
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -5069,18 +5073,18 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1202
-    :cond_5
+    :cond_66
     const/16 v3, 0x40
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1205
-    :cond_6
+    :cond_6b
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getHost$okhttp()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9b
 
     .line 1206
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getHost$okhttp()Ljava/lang/String;
@@ -5099,7 +5103,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_94
 
     .line 1208
     const/16 v3, 0x5b
@@ -5118,10 +5122,10 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_9b
 
     .line 1212
-    :cond_7
+    :cond_94
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getHost$okhttp()Ljava/lang/String;
 
     move-result-object v3
@@ -5129,24 +5133,24 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1216
-    :cond_8
-    :goto_4
+    :cond_9b
+    :goto_9b
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getPort$okhttp()I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_9
+    if-ne v3, v4, :cond_a8
 
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getScheme$okhttp()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c7
 
     .line 1217
-    :cond_9
+    :cond_a8
     invoke-direct {p0}, Lokhttp3/HttpUrl$Builder;->effectivePort()I
 
     move-result v3
@@ -5157,7 +5161,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_c1
 
     sget-object v4, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
@@ -5171,10 +5175,10 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_b
+    if-eq v3, v4, :cond_c7
 
     .line 1219
-    :cond_a
+    :cond_c1
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1220
@@ -5182,7 +5186,7 @@
 
     .line 1224
     .end local v3    # "effectivePort":I
-    :cond_b
+    :cond_c7
     sget-object v3, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getEncodedPathSegments$okhttp()Ljava/util/List;
@@ -5196,7 +5200,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_e7
 
     .line 1227
     const/16 v3, 0x3f
@@ -5215,12 +5219,12 @@
     invoke-virtual {v3, v4, v1}, Lokhttp3/HttpUrl$Companion;->toQueryString$okhttp(Ljava/util/List;Ljava/lang/StringBuilder;)V
 
     .line 1231
-    :cond_c
+    :cond_e7
     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->getEncodedFragment$okhttp()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_f9
 
     .line 1232
     const/16 v3, 0x23
@@ -5235,7 +5239,7 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1235
-    :cond_d
+    :cond_f9
     nop
 
     .line 1188
@@ -5253,7 +5257,7 @@
 .end method
 
 .method public final username(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 14
+    .registers 16
     .param p1, "username"    # Ljava/lang/String;
 
     const-string v0, "username"

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;Lcom/google/android/material/datepicker/MonthsPagerAdapter;Lcom/google/android/material/button/MaterialButton;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialCalendar;
 
     .line 432
@@ -43,13 +43,13 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "newState"    # I
 
     .line 447
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialCalendar$7;, "Lcom/google/android/material/datepicker/MaterialCalendar$7;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 448
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$7;->val$monthDropSelect:Lcom/google/android/material/button/MaterialButton;
@@ -67,19 +67,19 @@
 
     .line 455
     .end local v0    # "announcementText":Ljava/lang/CharSequence;
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 3
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I
 
     .line 436
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialCalendar$7;, "Lcom/google/android/material/datepicker/MaterialCalendar$7;"
-    if-gez p2, :cond_0
+    if-gez p2, :cond_d
 
     .line 437
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$7;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
@@ -93,11 +93,11 @@
     move-result v0
 
     .local v0, "currentItem":I
-    goto :goto_0
+    goto :goto_17
 
     .line 439
     .end local v0    # "currentItem":I
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$7;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
     invoke-virtual {v0}, Lcom/google/android/material/datepicker/MaterialCalendar;->getLayoutManager()Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -110,7 +110,7 @@
 
     .line 441
     .restart local v0    # "currentItem":I
-    :goto_0
+    :goto_17
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialCalendar$7;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
     iget-object v2, p0, Lcom/google/android/material/datepicker/MaterialCalendar$7;->val$monthsPagerAdapter:Lcom/google/android/material/datepicker/MonthsPagerAdapter;
@@ -119,6 +119,7 @@
 
     move-result-object v2
 
+    # setter for: Lcom/google/android/material/datepicker/MaterialCalendar;->current:Lcom/google/android/material/datepicker/Month;
     invoke-static {v1, v2}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$602(Lcom/google/android/material/datepicker/MaterialCalendar;Lcom/google/android/material/datepicker/Month;)Lcom/google/android/material/datepicker/Month;
 
     .line 442

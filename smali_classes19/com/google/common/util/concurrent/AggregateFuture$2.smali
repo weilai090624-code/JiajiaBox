@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AggregateFuture;
 
     .line 185
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 188
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture$2;, "Lcom/google/common/util/concurrent/AggregateFuture$2;"
@@ -50,6 +50,7 @@
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AggregateFuture$2;->val$localFutures:Lcom/google/common/collect/ImmutableCollection;
 
+    # invokes: Lcom/google/common/util/concurrent/AggregateFuture;->decrementCountAndMaybeComplete(Lcom/google/common/collect/ImmutableCollection;)V
     invoke-static {v0, v1}, Lcom/google/common/util/concurrent/AggregateFuture;->access$200(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
 
     .line 189

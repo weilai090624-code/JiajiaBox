@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavDeepLink;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/NavDeepLink$mimeTypePattern$2;->this$0:Landroidx/navigation/NavDeepLink;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 60
     invoke-virtual {p0}, Landroidx/navigation/NavDeepLink$mimeTypePattern$2;->invoke()Ljava/util/regex/Pattern;
@@ -79,16 +79,17 @@
 .end method
 
 .method public final invoke()Ljava/util/regex/Pattern;
-    .locals 2
+    .registers 3
 
     .line 61
     iget-object v0, p0, Landroidx/navigation/NavDeepLink$mimeTypePattern$2;->this$0:Landroidx/navigation/NavDeepLink;
 
+    # getter for: Landroidx/navigation/NavDeepLink;->mimeTypeFinalRegex:Ljava/lang/String;
     invoke-static {v0}, Landroidx/navigation/NavDeepLink;->access$getMimeTypeFinalRegex$p(Landroidx/navigation/NavDeepLink;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 510
     .local v0, "it":Ljava/lang/String;
@@ -102,11 +103,11 @@
 
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-NavDeepLink$mimeTypePattern$2$1":I
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method

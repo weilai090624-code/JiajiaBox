@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
     .line 1318
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+    .registers 20
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -55,6 +55,7 @@
 
     iget-object v2, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->viewRef:Ljava/lang/ref/WeakReference;
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->access$2500(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Ljava/lang/ref/WeakReference;
 
     move-result-object v2
@@ -67,20 +68,20 @@
 
     .line 1333
     .local v2, "child":Lcom/google/android/material/bottomappbar/BottomAppBar;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_c8
 
     instance-of v3, v1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     instance-of v3, v1, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
-    goto/16 :goto_2
+    goto/16 :goto_c8
 
     .line 1340
-    :cond_0
+    :cond_1a
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
     move-result v3
@@ -89,7 +90,7 @@
     .local v3, "height":I
     instance-of v4, v1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_56
 
     .line 1342
     move-object v4, v1
@@ -100,6 +101,7 @@
     .local v4, "fab":Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     iget-object v5, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->fabContentRect:Landroid/graphics/Rect;
     invoke-static {v5}, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->access$2600(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;
 
     move-result-object v5
@@ -109,6 +111,7 @@
     .line 1346
     iget-object v5, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->fabContentRect:Landroid/graphics/Rect;
     invoke-static {v5}, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->access$2600(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;
 
     move-result-object v5
@@ -138,6 +141,7 @@
     iget-object v7, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
     .line 1355
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->fabContentRect:Landroid/graphics/Rect;
     invoke-static {v7}, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->access$2600(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;
 
     move-result-object v7
@@ -155,7 +159,7 @@
     .line 1360
     .end local v4    # "fab":Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .end local v5    # "cornerSize":F
-    :cond_1
+    :cond_56
     nop
 
     .line 1361
@@ -169,11 +173,12 @@
     .local v4, "fabLayoutParams":Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
     iget-object v5, v0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->originalBottomMargin:I
     invoke-static {v5}, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->access$2700(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)I
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_c7
 
     .line 1368
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
@@ -190,13 +195,14 @@
 
     .line 1370
     .local v6, "bottomMargin":I
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabAnchorMode:I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$400(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v7
 
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_3
+    if-ne v7, v8, :cond_89
 
     .line 1371
     nop
@@ -218,6 +224,7 @@
 
     .line 1377
     .local v7, "minBottomMargin":I
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getBottomInset()I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2800(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v8
@@ -228,15 +235,16 @@
 
     .line 1378
     .end local v7    # "minBottomMargin":I
-    :cond_2
-    goto :goto_0
+    :cond_88
+    goto :goto_a2
 
-    :cond_3
+    :cond_89
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabAnchorMode:I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$400(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_88
 
     .line 1382
     nop
@@ -246,6 +254,7 @@
 
     move-result v7
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getBottomInset()I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2800(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v8
@@ -263,7 +272,8 @@
     iput v7, v4, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
 
     .line 1386
-    :goto_0
+    :goto_a2
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getLeftInset()I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2900(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v7
@@ -271,6 +281,7 @@
     iput v7, v4, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
 
     .line 1387
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getRightInset()I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3000(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v7
@@ -284,11 +295,12 @@
 
     .line 1389
     .local v7, "isRtl":Z
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_be
 
     .line 1390
     iget v8, v4, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabOffsetEndMode:I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3100(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v9
@@ -297,12 +309,13 @@
 
     iput v8, v4, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
 
-    goto :goto_1
+    goto :goto_c7
 
     .line 1392
-    :cond_4
+    :cond_be
     iget v8, v4, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabOffsetEndMode:I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3100(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v9
@@ -315,15 +328,15 @@
     .end local v5    # "bottomShadowPadding":I
     .end local v6    # "bottomMargin":I
     .end local v7    # "isRtl":Z
-    :cond_5
-    :goto_1
+    :cond_c7
+    :goto_c7
     return-void
 
     .line 1336
     .end local v3    # "height":I
     .end local v4    # "fabLayoutParams":Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
-    :cond_6
-    :goto_2
+    :cond_c8
+    :goto_c8
     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
     .line 1337

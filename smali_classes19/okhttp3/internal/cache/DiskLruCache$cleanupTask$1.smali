@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "$receiver"    # Lokhttp3/internal/cache/DiskLruCache;
     .param p2, "$super_call_param$1"    # Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public runOnce()J
-    .locals 7
+    .registers 8
 
     .line 187
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$cleanupTask$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -74,63 +74,65 @@
 
     .line 188
     .local v2, "$i$a$-synchronized-DiskLruCache$cleanupTask$1$runOnce$1":I
-    :try_start_0
+    :try_start_6
+    # getter for: Lokhttp3/internal/cache/DiskLruCache;->initialized:Z
     invoke-static {v1}, Lokhttp3/internal/cache/DiskLruCache;->access$getInitialized$p(Lokhttp3/internal/cache/DiskLruCache;)Z
 
     move-result v3
 
     const-wide/16 v4, -0x1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->getClosed$okhttp()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_6 .. :try_end_12} :catchall_43
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_15
 
-    goto :goto_2
+    goto :goto_40
 
     .line 192
-    :cond_0
+    :cond_15
     nop
 
     .line 193
     const/4 v3, 0x1
 
-    :try_start_1
+    :try_start_17
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->trimToSize()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1a
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_1a} :catch_1b
+    .catchall {:try_start_17 .. :try_end_1a} :catchall_43
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 194
-    :catch_0
+    :catch_1b
     move-exception v6
 
     .line 195
     .local v6, "_":Ljava/io/IOException;
-    :try_start_2
+    :try_start_1c
     invoke-static {v1, v3}, Lokhttp3/internal/cache/DiskLruCache;->access$setMostRecentTrimFailed$p(Lokhttp3/internal/cache/DiskLruCache;Z)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_1c .. :try_end_1f} :catchall_43
 
     .line 198
     .end local v6    # "_":Ljava/io/IOException;
-    :goto_0
+    :goto_1f
     nop
 
     .line 199
-    :try_start_3
+    :try_start_20
+    # invokes: Lokhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
     invoke-static {v1}, Lokhttp3/internal/cache/DiskLruCache;->access$journalRebuildRequired(Lokhttp3/internal/cache/DiskLruCache;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3d
 
     .line 200
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->rebuildJournal$okhttp()V
@@ -139,19 +141,19 @@
     const/4 v6, 0x0
 
     invoke-static {v1, v6}, Lokhttp3/internal/cache/DiskLruCache;->access$setRedundantOpCount$p(Lokhttp3/internal/cache/DiskLruCache;I)V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2d
+    .catch Ljava/io/IOException; {:try_start_20 .. :try_end_2d} :catch_2e
+    .catchall {:try_start_20 .. :try_end_2d} :catchall_43
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 203
-    :catch_1
+    :catch_2e
     move-exception v6
 
     .line 204
     .restart local v6    # "_":Ljava/io/IOException;
-    :try_start_4
+    :try_start_2f
     invoke-static {v1, v3}, Lokhttp3/internal/cache/DiskLruCache;->access$setMostRecentRebuildFailed$p(Lokhttp3/internal/cache/DiskLruCache;Z)V
 
     .line 205
@@ -164,13 +166,13 @@
     move-result-object v3
 
     invoke-static {v1, v3}, Lokhttp3/internal/cache/DiskLruCache;->access$setJournalWriter$p(Lokhttp3/internal/cache/DiskLruCache;Lokio/BufferedSink;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_2f .. :try_end_3d} :catchall_43
 
     .line 208
     .end local v6    # "_":Ljava/io/IOException;
-    :cond_1
-    :goto_1
+    :cond_3d
+    :goto_3d
     nop
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$cleanupTask$1$runOnce$1":I
@@ -180,8 +182,8 @@
 
     .line 189
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$cleanupTask$1$runOnce$1":I
-    :cond_2
-    :goto_2
+    :cond_40
+    :goto_40
     nop
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$cleanupTask$1$runOnce$1":I
@@ -190,7 +192,7 @@
     return-wide v4
 
     .line 208
-    :catchall_0
+    :catchall_43
     move-exception v1
 
     monitor-exit v0

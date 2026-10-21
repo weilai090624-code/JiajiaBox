@@ -89,7 +89,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;)V
-    .locals 0
+    .registers 2
     .param p1, "prev"    # Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final synthetic access$getNextOrClosed(Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
 
     .line 94
@@ -148,7 +148,7 @@
 .end method
 
 .method private final getAliveSegmentLeft()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -162,14 +162,14 @@
 
     .line 174
     .local v0, "cur":Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    :goto_0
-    if-eqz v0, :cond_0
+    :goto_4
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isRemoved()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     sget-object v1, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->_prev$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -182,15 +182,15 @@
 
     check-cast v0, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
 
-    goto :goto_0
+    goto :goto_4
 
     .line 176
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method private final getAliveSegmentRight()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -202,7 +202,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 277
     const/4 v0, 0x0
@@ -214,11 +214,11 @@
     move-result v1
 
     .end local v0    # "$i$a$-assert-ConcurrentLinkedListNode$aliveSegmentRight$1":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -226,8 +226,8 @@
     throw v0
 
     .line 181
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->getNext()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
 
     move-result-object v0
@@ -236,34 +236,34 @@
 
     .line 182
     .local v0, "cur":Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    :goto_1
+    :goto_1b
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isRemoved()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2a
 
     .line 183
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->getNext()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_28
 
     return-object v0
 
-    :cond_2
+    :cond_28
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 184
-    :cond_3
+    :cond_2a
     return-object v0
 .end method
 
 .method private final getNextOrClosed()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->_next$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -276,7 +276,7 @@
 .end method
 
 .method private final update$atomicfu(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -293,7 +293,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -306,7 +306,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 .end method
@@ -314,7 +314,7 @@
 
 # virtual methods
 .method public final cleanPrev()V
-    .locals 2
+    .registers 3
 
     sget-object v0, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->_prev$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -327,7 +327,7 @@
 .end method
 
 .method public final getNext()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -342,6 +342,7 @@
 
     .line 270
     .local v1, "$i$f$nextOrIfClosed":I
+    # invokes: Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->getNextOrClosed()Ljava/lang/Object;
     invoke-static {v0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->access$getNextOrClosed(Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;)Ljava/lang/Object;
 
     move-result-object v2
@@ -351,11 +352,12 @@
 
     .line 271
     .local v3, "$i$a$-let-ConcurrentLinkedListNode$nextOrIfClosed$1$iv":I
+    # getter for: Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->CLOSED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->access$getCLOSED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v4
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_10
 
     .line 272
     const/4 v4, 0x0
@@ -368,7 +370,7 @@
 
     .line 274
     .end local v4    # "$i$a$-nextOrIfClosed-ConcurrentLinkedListNode$next$1":I
-    :cond_0
+    :cond_10
     move-object v4, v2
 
     check-cast v4, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
@@ -391,7 +393,7 @@
 .end method
 
 .method public final getPrev()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -414,34 +416,35 @@
 .end method
 
 .method public final isTail()Z
-    .locals 1
+    .registers 2
 
     .line 125
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->getNext()Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final markAsClosed()Z
-    .locals 3
+    .registers 4
 
     sget-object v0, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->_next$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 137
     const/4 v1, 0x0
 
+    # getter for: Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->CLOSED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->access$getCLOSED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
@@ -454,7 +457,7 @@
 .end method
 
 .method public final nextOrIfClosed(Lkotlin/jvm/functions/Function0;)Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
-    .locals 4
+    .registers 6
     .param p1, "onClosedAction"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -468,6 +471,7 @@
 
     .line 107
     .local v0, "$i$f$nextOrIfClosed":I
+    # invokes: Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->getNextOrClosed()Ljava/lang/Object;
     invoke-static {p0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->access$getNextOrClosed(Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;)Ljava/lang/Object;
 
     move-result-object v1
@@ -477,11 +481,12 @@
 
     .line 108
     .local v2, "$i$a$-let-ConcurrentLinkedListNode$nextOrIfClosed$1":I
+    # getter for: Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->CLOSED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->access$getCLOSED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v3
 
-    if-eq v1, v3, :cond_0
+    if-eq v1, v3, :cond_12
 
     .line 111
     move-object v3, v1
@@ -502,7 +507,7 @@
     .line 109
     .restart local v1    # "it":Ljava/lang/Object;
     .restart local v2    # "$i$a$-let-ConcurrentLinkedListNode$nextOrIfClosed$1":I
-    :cond_0
+    :cond_12
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     new-instance v3, Lkotlin/KotlinNothingValueException;
@@ -513,14 +518,14 @@
 .end method
 
 .method public final remove()V
-    .locals 9
+    .registers 10
 
     .line 153
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_20
 
     .line 277
     const/4 v0, 0x0
@@ -531,32 +536,32 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isTail()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v1, 0x1
 
     .end local v0    # "$i$a$-assert-ConcurrentLinkedListNode$remove$1":I
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_17
+    if-eqz v1, :cond_1a
 
-    goto :goto_2
+    goto :goto_20
 
-    :cond_2
+    :cond_1a
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -564,18 +569,18 @@
     throw v0
 
     .line 156
-    :cond_3
-    :goto_2
+    :cond_20
+    :goto_20
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isTail()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_27
 
     return-void
 
     .line 157
-    :cond_4
+    :cond_27
     nop
 
     .line 159
@@ -599,7 +604,7 @@
     const/4 v4, 0x0
 
     .local v4, "$i$f$update$atomicfu":I
-    :cond_5
+    :cond_34
     invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -613,65 +618,65 @@
 
     .line 162
     .local v7, "$i$a$-update$atomicfu-ConcurrentLinkedListNode$remove$2":I
-    if-nez v6, :cond_6
+    if-nez v6, :cond_40
 
     const/4 v8, 0x0
 
-    goto :goto_3
+    goto :goto_41
 
-    :cond_6
+    :cond_40
     move-object v8, v0
 
     .end local v6    # "it":Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
     .end local v7    # "$i$a$-update$atomicfu-ConcurrentLinkedListNode$remove$2":I
-    :goto_3
+    :goto_41
     invoke-static {v2, v1, v5, v8}, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_34
 
     .line 163
     .end local v2    # "atomicfu$handler$iv":Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .end local v3    # "this_$iv":Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
     .end local v4    # "$i$f$update$atomicfu":I
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_4e
 
     sget-object v2, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->_next$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 165
-    :cond_7
+    :cond_4e
     invoke-virtual {v1}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isRemoved()Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_5a
 
     invoke-virtual {v1}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isTail()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_27
 
     .line 166
-    :cond_8
-    if-eqz v0, :cond_9
+    :cond_5a
+    if-eqz v0, :cond_62
 
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;->isRemoved()Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_27
 
     .line 168
-    :cond_9
+    :cond_62
     return-void
 .end method
 
 .method public final trySetNext(Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Lkotlinx/coroutines/internal/ConcurrentLinkedListNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/SharedSQLiteStatement;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/room/SharedSQLiteStatement$stmt$2;->this$0:Landroidx/room/SharedSQLiteStatement;
 
@@ -64,11 +64,12 @@
 
 # virtual methods
 .method public final invoke()Landroidx/sqlite/db/SupportSQLiteStatement;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Landroidx/room/SharedSQLiteStatement$stmt$2;->this$0:Landroidx/room/SharedSQLiteStatement;
 
+    # invokes: Landroidx/room/SharedSQLiteStatement;->createNewStatement()Landroidx/sqlite/db/SupportSQLiteStatement;
     invoke-static {v0}, Landroidx/room/SharedSQLiteStatement;->access$createNewStatement(Landroidx/room/SharedSQLiteStatement;)Landroidx/sqlite/db/SupportSQLiteStatement;
 
     move-result-object v0
@@ -77,7 +78,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-virtual {p0}, Landroidx/room/SharedSQLiteStatement$stmt$2;->invoke()Landroidx/sqlite/db/SupportSQLiteStatement;

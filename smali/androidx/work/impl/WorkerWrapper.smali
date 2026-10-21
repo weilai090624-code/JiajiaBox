@@ -90,7 +90,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 78
     const-string v0, "WorkerWrapper"
@@ -105,7 +105,7 @@
 .end method
 
 .method constructor <init>(Landroidx/work/impl/WorkerWrapper$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/work/impl/WorkerWrapper$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -220,6 +220,7 @@
     iput-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mDependencyDao:Landroidx/work/impl/model/DependencyDao;
 
     .line 129
+    # getter for: Landroidx/work/impl/WorkerWrapper$Builder;->mTags:Ljava/util/List;
     invoke-static {p1}, Landroidx/work/impl/WorkerWrapper$Builder;->access$000(Landroidx/work/impl/WorkerWrapper$Builder;)Ljava/util/List;
 
     move-result-object v0
@@ -231,7 +232,7 @@
 .end method
 
 .method private createWorkDescription(Ljava/util/List;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -283,12 +284,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -298,29 +299,29 @@
 
     .line 617
     .local v3, "tag":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 618
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 620
-    :cond_0
+    :cond_28
     const-string v4, ", "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 622
-    :goto_1
+    :goto_2d
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 623
     .end local v3    # "tag":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_18
 
     .line 624
-    :cond_1
+    :cond_31
     const-string v2, " } ]"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -334,7 +335,7 @@
 .end method
 
 .method private handleResult(Landroidx/work/ListenableWorker$Result;)V
-    .locals 4
+    .registers 6
     .param p1, "result"    # Landroidx/work/ListenableWorker$Result;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -348,7 +349,7 @@
     .line 475
     instance-of v0, p1, Landroidx/work/ListenableWorker$Result$Success;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 476
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -386,24 +387,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 480
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->resetPeriodicAndResolve()V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 482
-    :cond_0
+    :cond_2e
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->setSucceededAndResolve()V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 485
-    :cond_1
+    :cond_32
     instance-of v0, p1, Landroidx/work/ListenableWorker$Result$Retry;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_58
 
     .line 486
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -437,10 +438,10 @@
     .line 489
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->rescheduleAndResolve()V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 491
-    :cond_2
+    :cond_58
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -476,24 +477,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_82
 
     .line 495
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->resetPeriodicAndResolve()V
 
-    goto :goto_0
+    goto :goto_85
 
     .line 497
-    :cond_3
+    :cond_82
     invoke-virtual {p0}, Landroidx/work/impl/WorkerWrapper;->setFailedAndResolve()V
 
     .line 500
-    :goto_0
+    :goto_85
     return-void
 .end method
 
 .method private iterativelyFailWorkAndDependents(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -514,12 +515,12 @@
     invoke-virtual {v0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 539
-    :goto_0
+    :goto_8
     invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     .line 540
     invoke-virtual {v0}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
@@ -538,7 +539,7 @@
 
     sget-object v3, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_25
 
     .line 543
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -548,7 +549,7 @@
     invoke-interface {v2, v3, v1}, Landroidx/work/impl/model/WorkSpecDao;->setState(Landroidx/work/WorkInfo$State;Ljava/lang/String;)I
 
     .line 545
-    :cond_0
+    :cond_25
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mDependencyDao:Landroidx/work/impl/model/DependencyDao;
 
     invoke-interface {v2, v1}, Landroidx/work/impl/model/DependencyDao;->getDependentWorkIds(Ljava/lang/String;)Ljava/util/List;
@@ -559,15 +560,15 @@
 
     .line 546
     .end local v1    # "id":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_8
 
     .line 547
-    :cond_1
+    :cond_2f
     return-void
 .end method
 
 .method private rescheduleAndResolve()V
-    .locals 5
+    .registers 6
 
     .line 550
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -577,7 +578,7 @@
     .line 552
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     sget-object v2, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
@@ -610,8 +611,8 @@
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_6 .. :try_end_28} :catchall_32
 
     .line 557
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -628,7 +629,7 @@
     return-void
 
     .line 557
-    :catchall_0
+    :catchall_32
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -643,7 +644,7 @@
 .end method
 
 .method private resetPeriodicAndResolve()V
-    .locals 5
+    .registers 6
 
     .line 563
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -653,7 +654,7 @@
     .line 569
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecId:Ljava/lang/String;
@@ -700,8 +701,8 @@
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_36
+    .catchall {:try_start_6 .. :try_end_36} :catchall_40
 
     .line 576
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -718,7 +719,7 @@
     return-void
 
     .line 576
-    :catchall_0
+    :catchall_40
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -733,7 +734,7 @@
 .end method
 
 .method private resolve(Z)V
-    .locals 5
+    .registers 7
     .param p1, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -750,7 +751,7 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 448
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
@@ -763,7 +764,7 @@
 
     .line 449
     .local v0, "hasUnfinishedWork":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 450
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mAppContext:Landroid/content/Context;
@@ -775,8 +776,8 @@
     invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
 
     .line 453
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_19
+    if-eqz p1, :cond_2d
 
     .line 458
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -797,14 +798,14 @@
     invoke-interface {v1, v2, v3, v4}, Landroidx/work/impl/model/WorkSpecDao;->markWorkSpecScheduled(Ljava/lang/String;J)I
 
     .line 461
-    :cond_1
+    :cond_2d
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     .line 462
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
@@ -817,7 +818,7 @@
 
     .line 463
     .local v1, "isInForeground":Z
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     .line 464
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
@@ -828,12 +829,12 @@
 
     .line 467
     .end local v1    # "isInForeground":Z
-    :cond_2
+    :cond_46
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4b
+    .catchall {:try_start_5 .. :try_end_4b} :catchall_5b
 
     .line 469
     .end local v0    # "hasUnfinishedWork":Z
@@ -857,7 +858,7 @@
     return-void
 
     .line 469
-    :catchall_0
+    :catchall_5b
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -869,7 +870,7 @@
 .end method
 
 .method private resolveIncorrectStatus()V
-    .locals 5
+    .registers 6
 
     .line 406
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -886,7 +887,7 @@
 
     const-string v2, "Status for "
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_35
 
     .line 408
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -926,10 +927,10 @@
 
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->resolve(Z)V
 
-    goto :goto_0
+    goto :goto_65
 
     .line 412
-    :cond_0
+    :cond_35
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -978,12 +979,12 @@
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->resolve(Z)V
 
     .line 416
-    :goto_0
+    :goto_65
     return-void
 .end method
 
 .method private runWorker()V
-    .locals 18
+    .registers 19
 
     .line 154
     move-object/from16 v1, p0
@@ -992,26 +993,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 155
     return-void
 
     .line 158
-    :cond_0
+    :cond_9
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 162
-    :try_start_0
+    :try_start_e
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iget-object v0, v0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v2, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_44
 
     .line 163
     invoke-direct/range {p0 .. p0}, Landroidx/work/impl/WorkerWrapper;->resolveIncorrectStatus()V
@@ -1051,8 +1052,8 @@
     move-result-object v3
 
     invoke-virtual {v0, v2, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_e .. :try_end_3e} :catchall_208
 
     .line 203
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1063,15 +1064,15 @@
     return-void
 
     .line 182
-    :cond_1
-    :try_start_1
+    :cond_44
+    :try_start_44
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {v0}, Landroidx/work/impl/model/WorkSpec;->isPeriodic()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_54
 
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
@@ -1079,10 +1080,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_89
 
     .line 183
-    :cond_2
+    :cond_54
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -1097,7 +1098,7 @@
 
     cmp-long v0, v2, v4
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_89
 
     .line 185
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1135,8 +1136,8 @@
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_83
+    .catchall {:try_start_44 .. :try_end_83} :catchall_208
 
     .line 203
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1148,13 +1149,13 @@
 
     .line 201
     .end local v2    # "now":J
-    :cond_3
-    :try_start_2
+    :cond_89
+    :try_start_89
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_8e
+    .catchall {:try_start_89 .. :try_end_8e} :catchall_208
 
     .line 203
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1171,7 +1172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a1
 
     .line 210
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
@@ -1179,11 +1180,11 @@
     iget-object v0, v0, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
     .local v0, "input":Landroidx/work/Data;
-    goto :goto_0
+    goto :goto_f2
 
     .line 212
     .end local v0    # "input":Landroidx/work/Data;
-    :cond_4
+    :cond_a1
     iget-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mConfiguration:Landroidx/work/Configuration;
 
     invoke-virtual {v0}, Landroidx/work/Configuration;->getInputMergerFactory()Landroidx/work/InputMergerFactory;
@@ -1207,7 +1208,7 @@
 
     .line 216
     .local v3, "inputMerger":Landroidx/work/InputMerger;
-    if-nez v3, :cond_5
+    if-nez v3, :cond_d6
 
     .line 217
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1247,7 +1248,7 @@
     return-void
 
     .line 221
-    :cond_5
+    :cond_d6
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -1283,7 +1284,7 @@
     .end local v3    # "inputMerger":Landroidx/work/InputMerger;
     .end local v4    # "inputs":Ljava/util/List;, "Ljava/util/List<Landroidx/work/Data;>;"
     .local v0, "input":Landroidx/work/Data;
-    :goto_0
+    :goto_f2
     new-instance v2, Landroidx/work/WorkerParameters;
 
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorkSpecId:Ljava/lang/String;
@@ -1356,7 +1357,7 @@
     .local v2, "params":Landroidx/work/WorkerParameters;
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_149
 
     .line 243
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mConfiguration:Landroidx/work/Configuration;
@@ -1378,10 +1379,10 @@
     iput-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
     .line 249
-    :cond_6
+    :cond_149
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_171
 
     .line 250
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1421,14 +1422,14 @@
     return-void
 
     .line 256
-    :cond_7
+    :cond_171
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
     invoke-virtual {v3}, Landroidx/work/ListenableWorker;->isUsed()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_1a3
 
     .line 257
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1474,7 +1475,7 @@
     return-void
 
     .line 262
-    :cond_8
+    :cond_1a3
     iget-object v3, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
     invoke-virtual {v3}, Landroidx/work/ListenableWorker;->setUsed()V
@@ -1484,20 +1485,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_204
 
     .line 267
     invoke-direct/range {p0 .. p0}, Landroidx/work/impl/WorkerWrapper;->tryCheckForInterruptionAndResolve()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_1b5
 
     .line 268
     return-void
 
     .line 271
-    :cond_9
+    :cond_1b5
     new-instance v3, Landroidx/work/impl/utils/WorkForegroundRunnable;
 
     iget-object v5, v1, Landroidx/work/impl/WorkerWrapper;->mAppContext:Landroid/content/Context;
@@ -1586,20 +1587,20 @@
     .end local v3    # "foregroundRunnable":Landroidx/work/impl/utils/WorkForegroundRunnable;
     .end local v4    # "runExpedited":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Void;>;"
     .end local v5    # "workDescription":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_207
 
     .line 340
-    :cond_a
+    :cond_204
     invoke-direct/range {p0 .. p0}, Landroidx/work/impl/WorkerWrapper;->resolveIncorrectStatus()V
 
     .line 342
-    :goto_1
+    :goto_207
     return-void
 
     .line 203
     .end local v0    # "input":Landroidx/work/Data;
     .end local v2    # "params":Landroidx/work/WorkerParameters;
-    :catchall_0
+    :catchall_208
     move-exception v0
 
     iget-object v2, v1, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1611,7 +1612,7 @@
 .end method
 
 .method private setSucceededAndResolve()V
-    .locals 12
+    .registers 13
 
     .line 582
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1621,7 +1622,7 @@
     .line 584
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     sget-object v2, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
@@ -1670,12 +1671,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_2e
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_75
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1693,7 +1694,7 @@
 
     sget-object v9, Landroidx/work/WorkInfo$State;->BLOCKED:Landroidx/work/WorkInfo$State;
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_74
 
     iget-object v8, p0, Landroidx/work/impl/WorkerWrapper;->mDependencyDao:Landroidx/work/impl/model/DependencyDao;
 
@@ -1702,7 +1703,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_74
 
     .line 596
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1745,16 +1746,16 @@
 
     .line 601
     .end local v7    # "dependentWorkId":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_74
+    goto :goto_2e
 
     .line 603
-    :cond_1
+    :cond_75
     iget-object v6, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v6}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7a
+    .catchall {:try_start_6 .. :try_end_7a} :catchall_84
 
     .line 605
     .end local v1    # "success":Landroidx/work/ListenableWorker$Result$Success;
@@ -1775,7 +1776,7 @@
     return-void
 
     .line 605
-    :catchall_0
+    :catchall_84
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1790,14 +1791,14 @@
 .end method
 
 .method private tryCheckForInterruptionAndResolve()Z
-    .locals 5
+    .registers 6
 
     .line 424
     iget-boolean v0, p0, Landroidx/work/impl/WorkerWrapper;->mInterrupted:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     .line 425
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1841,15 +1842,15 @@
     .local v0, "currentState":Landroidx/work/WorkInfo$State;
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_32
 
     .line 430
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->resolve(Z)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 432
-    :cond_0
+    :cond_32
     invoke-virtual {v0}, Landroidx/work/WorkInfo$State;->isFinished()Z
 
     move-result v1
@@ -1859,17 +1860,17 @@
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->resolve(Z)V
 
     .line 434
-    :goto_0
+    :goto_3a
     return v2
 
     .line 436
     .end local v0    # "currentState":Landroidx/work/WorkInfo$State;
-    :cond_1
+    :cond_3b
     return v1
 .end method
 
 .method private trySetRunning()Z
-    .locals 5
+    .registers 6
 
     .line 503
     const/4 v0, 0x0
@@ -1881,7 +1882,7 @@
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 506
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecId:Ljava/lang/String;
@@ -1894,7 +1895,7 @@
     .local v1, "currentState":Landroidx/work/WorkInfo$State;
     sget-object v2, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_23
 
     .line 508
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -1916,12 +1917,12 @@
     const/4 v0, 0x1
 
     .line 512
-    :cond_0
+    :cond_23
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v2}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_6 .. :try_end_28} :catchall_2f
 
     .line 514
     .end local v1    # "currentState":Landroidx/work/WorkInfo$State;
@@ -1936,7 +1937,7 @@
     return v0
 
     .line 514
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -1950,7 +1951,7 @@
 
 # virtual methods
 .method public getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1967,7 +1968,7 @@
 .end method
 
 .method public getWorkGenerationalId()Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
@@ -1980,7 +1981,7 @@
 .end method
 
 .method public getWorkSpec()Landroidx/work/impl/model/WorkSpec;
-    .locals 1
+    .registers 2
 
     .line 150
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
@@ -1989,7 +1990,7 @@
 .end method
 
 .method public interrupt()V
-    .locals 3
+    .registers 4
 
     .line 388
     const/4 v0, 0x1
@@ -2007,7 +2008,7 @@
     .line 397
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkerResultFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -2015,17 +2016,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 398
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->stop()V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 400
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2064,12 +2065,12 @@
 
     .line 403
     .end local v0    # "message":Ljava/lang/String;
-    :goto_0
+    :goto_41
     return-void
 .end method
 
 .method synthetic lambda$runWorker$0$androidx-work-impl-WorkerWrapper(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .param p1, "runExpedited"    # Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 284
@@ -2079,7 +2080,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 285
     const/4 v0, 0x1
@@ -2087,19 +2088,19 @@
     invoke-interface {p1, v0}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 287
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method onWorkFinished()V
-    .locals 3
+    .registers 4
 
     .line 346
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->tryCheckForInterruptionAndResolve()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4a
 
     .line 347
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -2107,7 +2108,7 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 349
-    :try_start_0
+    :try_start_b
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecId:Ljava/lang/String;
@@ -2129,47 +2130,47 @@
     invoke-interface {v1, v2}, Landroidx/work/impl/model/WorkProgressDao;->delete(Ljava/lang/String;)V
 
     .line 351
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 356
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->resolve(Z)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 357
-    :cond_0
+    :cond_25
     sget-object v1, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2f
 
     .line 358
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mResult:Landroidx/work/ListenableWorker$Result;
 
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->handleResult(Landroidx/work/ListenableWorker$Result;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 359
-    :cond_1
+    :cond_2f
     invoke-virtual {v0}, Landroidx/work/WorkInfo$State;->isFinished()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_38
 
     .line 360
     invoke-direct {p0}, Landroidx/work/impl/WorkerWrapper;->rescheduleAndResolve()V
 
     .line 362
-    :cond_2
-    :goto_0
+    :cond_38
+    :goto_38
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_b .. :try_end_3d} :catchall_43
 
     .line 364
     .end local v0    # "state":Landroidx/work/WorkInfo$State;
@@ -2178,10 +2179,10 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 365
-    goto :goto_1
+    goto :goto_4a
 
     .line 364
-    :catchall_0
+    :catchall_43
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -2192,11 +2193,11 @@
     throw v0
 
     .line 375
-    :cond_3
-    :goto_1
+    :cond_4a
+    :goto_4a
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mSchedulers:Ljava/util/List;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6f
 
     .line 376
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mSchedulers:Ljava/util/List;
@@ -2205,12 +2206,12 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_54
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_66
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2226,10 +2227,10 @@
 
     .line 378
     .end local v1    # "scheduler":Landroidx/work/impl/Scheduler;
-    goto :goto_2
+    goto :goto_54
 
     .line 379
-    :cond_4
+    :cond_66
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mConfiguration:Landroidx/work/Configuration;
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -2239,12 +2240,12 @@
     invoke-static {v0, v1, v2}, Landroidx/work/impl/Schedulers;->schedule(Landroidx/work/Configuration;Landroidx/work/impl/WorkDatabase;Ljava/util/List;)V
 
     .line 381
-    :cond_5
+    :cond_6f
     return-void
 .end method
 
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mTags:Ljava/util/List;
@@ -2263,7 +2264,7 @@
 .end method
 
 .method setFailedAndResolve()V
-    .locals 5
+    .registers 6
 
     .line 521
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -2273,7 +2274,7 @@
     .line 523
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper;->mWorkSpecId:Ljava/lang/String;
 
     invoke-direct {p0, v1}, Landroidx/work/impl/WorkerWrapper;->iterativelyFailWorkAndDependents(Ljava/lang/String;)V
@@ -2301,8 +2302,8 @@
     iget-object v3, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v3}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_6 .. :try_end_1f} :catchall_29
 
     .line 530
     .end local v1    # "failure":Landroidx/work/ListenableWorker$Result$Failure;
@@ -2321,7 +2322,7 @@
     return-void
 
     .line 530
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;

@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method private final isBatteryChangedIntentCharging(Landroid/content/Intent;)Z
-    .locals 4
+    .registers 6
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 75
@@ -83,7 +83,7 @@
 
     const/4 v3, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_19
 
     .line 76
     const-string/jumbo v0, "status"
@@ -98,45 +98,45 @@
     .local v0, "status":I
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_23
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_17
     const/4 v2, 0x0
 
     .end local v0    # "status":I
-    goto :goto_0
+    goto :goto_23
 
     .line 79
-    :cond_1
+    :cond_19
     const-string v0, "plugged"
 
     invoke-virtual {p1, v0, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     const/4 v2, 0x0
 
     .line 75
-    :cond_3
-    :goto_0
+    :cond_23
+    :goto_23
     return v2
 .end method
 
 
 # virtual methods
 .method public getInitialState()Ljava/lang/Boolean;
-    .locals 5
+    .registers 6
 
     .line 41
     new-instance v0, Landroid/content/IntentFilter;
@@ -159,13 +159,14 @@
 
     .line 43
     .local v1, "intent":Landroid/content/Intent;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_25
 
     .line 44
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
 
+    # getter for: Landroidx/work/impl/constraints/trackers/BatteryChargingTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/BatteryChargingTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -184,7 +185,7 @@
     return-object v2
 
     .line 47
-    :cond_0
+    :cond_25
     invoke-direct {p0, v1}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->isBatteryChangedIntentCharging(Landroid/content/Intent;)Z
 
     move-result v2
@@ -197,7 +198,7 @@
 .end method
 
 .method public bridge synthetic getInitialState()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->getInitialState()Ljava/lang/Boolean;
@@ -208,7 +209,7 @@
 .end method
 
 .method public getIntentFilter()Landroid/content/IntentFilter;
-    .locals 3
+    .registers 4
 
     .line 52
     new-instance v0, Landroid/content/IntentFilter;
@@ -221,7 +222,7 @@
 
     const/16 v2, 0x17
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_16
 
     .line 54
     const-string v1, "android.os.action.CHARGING"
@@ -233,10 +234,10 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 57
-    :cond_0
+    :cond_16
     const-string v1, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -247,12 +248,12 @@
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 60
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method public onBroadcastReceive(Landroid/content/Intent;)V
-    .locals 5
+    .registers 7
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -264,17 +265,18 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     return-void
 
     .line 65
     .local v0, "action":Ljava/lang/String;
-    :cond_0
+    :cond_c
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
+    # getter for: Landroidx/work/impl/constraints/trackers/BatteryChargingTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/BatteryChargingTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -308,90 +310,90 @@
 
     const/4 v3, 0x0
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_78
 
-    :goto_0
-    goto :goto_1
+    :goto_33
+    goto :goto_77
 
-    :sswitch_0
+    :sswitch_34
     const-string v1, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3d
 
-    goto :goto_0
+    goto :goto_33
 
     .line 69
-    :cond_1
+    :cond_3d
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->setState(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_77
 
     .line 66
-    :sswitch_1
+    :sswitch_45
     const-string v1, "android.os.action.CHARGING"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4e
 
-    goto :goto_0
+    goto :goto_33
 
     .line 67
-    :cond_2
+    :cond_4e
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->setState(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_77
 
     .line 66
-    :sswitch_2
+    :sswitch_56
     const-string v1, "android.os.action.DISCHARGING"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5f
 
-    goto :goto_0
+    goto :goto_33
 
     .line 68
-    :cond_3
+    :cond_5f
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->setState(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_77
 
     .line 66
-    :sswitch_3
+    :sswitch_67
     const-string v1, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_70
 
-    goto :goto_0
+    goto :goto_33
 
     .line 70
-    :cond_4
+    :cond_70
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -399,14 +401,14 @@
     invoke-virtual {p0, v1}, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;->setState(Ljava/lang/Object;)V
 
     .line 72
-    :goto_1
+    :goto_77
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_78
     .sparse-switch
-        -0x7073f927 -> :sswitch_3
-        -0x3465cce -> :sswitch_2
-        0x388694fe -> :sswitch_1
-        0x3cbf870b -> :sswitch_0
+        -0x7073f927 -> :sswitch_67
+        -0x3465cce -> :sswitch_56
+        0x388694fe -> :sswitch_45
+        0x3cbf870b -> :sswitch_34
     .end sparse-switch
 .end method

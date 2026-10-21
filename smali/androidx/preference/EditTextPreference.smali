@@ -1,20 +1,5 @@
 .class public Landroidx/preference/EditTextPreference;
 .super Landroidx/preference/DialogPreference;
-
-.method protected onClick()V
-    .locals 1
-
-    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassTextEditor;->open(Landroidx/preference/EditTextPreference;)Z
-
-    move-result v0
-
-    if-nez v0, :handled
-
-    invoke-super {p0}, Landroidx/preference/DialogPreference;->onClick()V
-
-    :handled
-    return-void
-.end method
 .source "EditTextPreference.java"
 
 
@@ -36,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 68
@@ -49,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -69,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -84,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -112,7 +97,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 51
     invoke-static {}, Landroidx/preference/EditTextPreference$SimpleSummaryProvider;->getInstance()Landroidx/preference/EditTextPreference$SimpleSummaryProvider;
@@ -122,7 +107,7 @@
     invoke-virtual {p0, v1}, Landroidx/preference/EditTextPreference;->setSummaryProvider(Landroidx/preference/Preference$SummaryProvider;)V
 
     .line 54
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 55
@@ -132,7 +117,7 @@
 
 # virtual methods
 .method public getOnBindEditTextListener()Landroidx/preference/EditTextPreference$OnBindEditTextListener;
-    .locals 1
+    .registers 2
 
     .line 165
     iget-object v0, p0, Landroidx/preference/EditTextPreference;->mOnBindEditTextListener:Landroidx/preference/EditTextPreference$OnBindEditTextListener;
@@ -141,7 +126,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Landroidx/preference/EditTextPreference;->mText:Ljava/lang/String;
@@ -149,8 +134,23 @@
     return-object v0
 .end method
 
+.method protected onClick()V
+    .registers 2
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassTextEditor;->open(Landroidx/preference/EditTextPreference;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    invoke-super {p0}, Landroidx/preference/DialogPreference;->onClick()V
+
+    :cond_9
+    return-void
+.end method
+
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
 
@@ -163,11 +163,11 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 132
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -179,12 +179,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 138
-    :cond_0
+    :cond_f
     move-object v0, p1
 
     check-cast v0, Landroidx/preference/EditTextPreference$SavedState;
@@ -207,8 +207,8 @@
 
     .line 134
     .end local v0    # "myState":Landroidx/preference/EditTextPreference$SavedState;
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     invoke-super {p0, p1}, Landroidx/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 135
@@ -216,7 +216,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 119
     invoke-super {p0}, Landroidx/preference/DialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -229,13 +229,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 122
     return-object v0
 
     .line 125
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/preference/EditTextPreference$SavedState;
 
     invoke-direct {v1, v0}, Landroidx/preference/EditTextPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
@@ -253,7 +253,7 @@
 .end method
 
 .method protected onSetInitialValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 108
@@ -272,7 +272,7 @@
 .end method
 
 .method public setOnBindEditTextListener(Landroidx/preference/EditTextPreference$OnBindEditTextListener;)V
-    .locals 0
+    .registers 2
     .param p1, "onBindEditTextListener"    # Landroidx/preference/EditTextPreference$OnBindEditTextListener;
 
     .line 153
@@ -283,7 +283,7 @@
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/String;
 
     .line 77
@@ -305,13 +305,13 @@
 
     .line 84
     .local v1, "isBlocking":Z
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_12
 
     .line 85
     invoke-virtual {p0, v1}, Landroidx/preference/EditTextPreference;->notifyDependencyChange(Z)V
 
     .line 88
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Landroidx/preference/EditTextPreference;->notifyChanged()V
 
     .line 89
@@ -319,7 +319,7 @@
 .end method
 
 .method public shouldDisableDependents()Z
-    .locals 1
+    .registers 2
 
     .line 113
     iget-object v0, p0, Landroidx/preference/EditTextPreference;->mText:Ljava/lang/String;
@@ -328,25 +328,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     invoke-super {p0}, Landroidx/preference/DialogPreference;->shouldDisableDependents()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_12
     return v0
 .end method

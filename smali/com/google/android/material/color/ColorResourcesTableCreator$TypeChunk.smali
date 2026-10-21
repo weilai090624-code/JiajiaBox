@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/util/Set;I)V
-    .locals 5
+    .registers 9
     .param p3, "entryCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,12 +85,12 @@
     const/4 v0, 0x0
 
     .local v0, "index":I
-    :goto_0
+    :goto_19
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_35
 
     .line 464
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -105,6 +105,7 @@
 
     new-instance v3, Lcom/google/android/material/color/ColorResourcesTableCreator$ResEntry;
 
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->value:I
     invoke-static {v1}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$1400(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)I
 
     move-result v4
@@ -117,11 +118,11 @@
     .end local v1    # "colorResource":Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 468
     .end local v0    # "index":I
-    :cond_0
+    :cond_35
     new-array v0, p3, [I
 
     iput-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->offsetTable:[I
@@ -134,8 +135,8 @@
     const/4 v1, 0x0
 
     .local v1, "entryId":S
-    :goto_1
-    if-ge v1, p3, :cond_2
+    :goto_3b
+    if-ge v1, p3, :cond_57
 
     .line 471
     invoke-static {v1}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
@@ -146,7 +147,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4e
 
     .line 472
     iget-object v2, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->offsetTable:[I
@@ -156,10 +157,10 @@
     .line 473
     add-int/lit8 v0, v0, 0x10
 
-    goto :goto_2
+    goto :goto_53
 
     .line 475
-    :cond_1
+    :cond_4e
     iget-object v2, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->offsetTable:[I
 
     const/4 v3, -0x1
@@ -167,16 +168,16 @@
     aput v3, v2, v1
 
     .line 470
-    :goto_2
+    :goto_53
     add-int/lit8 v2, v1, 0x1
 
     int-to-short v1, v2
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 479
     .end local v1    # "entryId":S
-    :cond_2
+    :cond_57
     new-instance v1, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;
 
     const/16 v2, 0x54
@@ -196,7 +197,7 @@
 .end method
 
 .method private getEntryStart()I
-    .locals 1
+    .registers 2
 
     .line 501
     invoke-direct {p0}, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->getOffsetTableSize()I
@@ -209,7 +210,7 @@
 .end method
 
 .method private getOffsetTableSize()I
-    .locals 1
+    .registers 2
 
     .line 505
     iget-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->offsetTable:[I
@@ -224,7 +225,7 @@
 
 # virtual methods
 .method getChunkSize()I
-    .locals 2
+    .registers 3
 
     .line 497
     invoke-direct {p0}, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->getEntryStart()I
@@ -243,7 +244,7 @@
 .end method
 
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 6
+    .registers 8
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -257,6 +258,7 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;->writeTo(Ljava/io/ByteArrayOutputStream;)V
 
     .line 484
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator;->typeIdColor:B
     invoke-static {}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$1300()B
 
     move-result v0
@@ -286,6 +288,7 @@
     .line 485
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->entryCount:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -297,6 +300,7 @@
 
     move-result v0
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -315,13 +319,14 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_38
+    if-ge v3, v1, :cond_46
 
     aget v4, v0, v3
 
     .line 489
     .local v4, "offset":I
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v4}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v5
@@ -332,16 +337,16 @@
     .end local v4    # "offset":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 491
-    :cond_0
+    :cond_46
     iget-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$TypeChunk;->resEntries:[Lcom/google/android/material/color/ColorResourcesTableCreator$ResEntry;
 
     array-length v1, v0
 
-    :goto_1
-    if-ge v2, v1, :cond_1
+    :goto_49
+    if-ge v2, v1, :cond_53
 
     aget-object v3, v0, v2
 
@@ -353,9 +358,9 @@
     .end local v3    # "entry":Lcom/google/android/material/color/ColorResourcesTableCreator$ResEntry;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_49
 
     .line 494
-    :cond_1
+    :cond_53
     return-void
 .end method

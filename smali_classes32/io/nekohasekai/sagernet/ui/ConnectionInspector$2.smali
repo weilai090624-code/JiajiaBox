@@ -6,14 +6,6 @@
 .implements Ljava/util/Comparator;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/ConnectionInspector;"
-    method = "lambda$ordered$2"
-    proto = "(Lorg/json/JSONObject;Lorg/json/JSONObject;)I"
-.end annotation
-
-
 # direct methods
 .method public synthetic constructor <init>()V
     .registers 1

@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/text/MatcherMatchResult;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lkotlin/text/MatcherMatchResult;
 
     iput-object p1, p0, Lkotlin/text/MatcherMatchResult$groups$1;->this$0:Lkotlin/text/MatcherMatchResult;
@@ -78,27 +78,27 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 357
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lkotlin/text/MatchGroup;
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_6
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Lkotlin/text/MatchGroup;
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge contains(Lkotlin/text/MatchGroup;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lkotlin/text/MatchGroup;
 
     .line 357
@@ -123,16 +123,18 @@
 .end method
 
 .method public get(I)Lkotlin/text/MatchGroup;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
 
     .line 363
     iget-object v0, p0, Lkotlin/text/MatcherMatchResult$groups$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v0}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v0
 
+    # invokes: Lkotlin/text/RegexKt;->range(Ljava/util/regex/MatchResult;I)Lkotlin/ranges/IntRange;
     invoke-static {v0, p1}, Lkotlin/text/RegexKt;->access$range(Ljava/util/regex/MatchResult;I)Lkotlin/ranges/IntRange;
 
     move-result-object v0
@@ -147,13 +149,14 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_29
 
     .line 365
     new-instance v1, Lkotlin/text/MatchGroup;
 
     iget-object v2, p0, Lkotlin/text/MatcherMatchResult$groups$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v2}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v2
@@ -168,19 +171,19 @@
 
     invoke-direct {v1, v2, v0}, Lkotlin/text/MatchGroup;-><init>(Ljava/lang/String;Lkotlin/ranges/IntRange;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 367
-    :cond_0
+    :cond_29
     const/4 v1, 0x0
 
     .line 364
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method public get(Ljava/lang/String;)Lkotlin/text/MatchGroup;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -192,6 +195,7 @@
 
     iget-object v1, p0, Lkotlin/text/MatcherMatchResult$groups$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v1}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v1
@@ -204,11 +208,12 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 358
     iget-object v0, p0, Lkotlin/text/MatcherMatchResult$groups$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v0}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v0
@@ -223,7 +228,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 359
     const/4 v0, 0x0
@@ -232,7 +237,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

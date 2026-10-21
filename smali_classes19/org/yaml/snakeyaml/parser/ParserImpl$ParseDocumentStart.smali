@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
-    .locals 0
+    .registers 2
 
     .line 233
     iput-object p1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/parser/ParserImpl$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public produce()Lorg/yaml/snakeyaml/events/Event;
-    .locals 12
+    .registers 13
 
     .line 235
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -68,7 +68,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 236
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -79,6 +79,7 @@
 
     invoke-direct {v1, v2}, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;-><init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
 
+    # setter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
 
     .line 237
@@ -94,6 +95,7 @@
 
     check-cast v1, Lorg/yaml/snakeyaml/tokens/CommentToken;
 
+    # invokes: Lorg/yaml/snakeyaml/parser/ParserImpl;->produceCommentEvent(Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$300(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
 
     move-result-object v0
@@ -101,8 +103,8 @@
     return-object v0
 
     .line 240
-    :cond_0
-    :goto_0
+    :cond_2f
+    :goto_2f
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v0, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -117,7 +119,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 241
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -126,10 +128,10 @@
 
     invoke-interface {v0}, Lorg/yaml/snakeyaml/scanner/Scanner;->getToken()Lorg/yaml/snakeyaml/tokens/Token;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 243
-    :cond_1
+    :cond_47
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v0, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -144,7 +146,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_74
 
     .line 244
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -155,6 +157,7 @@
 
     invoke-direct {v1, v2}, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;-><init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
 
+    # setter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
 
     .line 245
@@ -170,6 +173,7 @@
 
     check-cast v1, Lorg/yaml/snakeyaml/tokens/CommentToken;
 
+    # invokes: Lorg/yaml/snakeyaml/parser/ParserImpl;->produceCommentEvent(Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$300(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
 
     move-result-object v0
@@ -177,7 +181,7 @@
     return-object v0
 
     .line 249
-    :cond_2
+    :cond_74
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v0, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -194,7 +198,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_140
 
     .line 250
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -215,13 +219,14 @@
     .local v3, "startMark":Lorg/yaml/snakeyaml/error/Mark;
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # invokes: Lorg/yaml/snakeyaml/parser/ParserImpl;->processDirectives()Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
     invoke-static {v5}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$1000(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
 
     move-result-object v11
 
     .line 253
     .local v11, "tuple":Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
-    :goto_1
+    :goto_97
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v5, v5, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -236,7 +241,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_af
 
     .line 255
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -245,10 +250,10 @@
 
     invoke-interface {v5}, Lorg/yaml/snakeyaml/scanner/Scanner;->getToken()Lorg/yaml/snakeyaml/tokens/Token;
 
-    goto :goto_1
+    goto :goto_97
 
     .line 257
-    :cond_3
+    :cond_af
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v5, v5, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -263,7 +268,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_140
 
     .line 258
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -280,7 +285,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_109
 
     .line 262
     iget-object v1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -322,6 +327,7 @@
     .local v4, "event":Lorg/yaml/snakeyaml/events/Event;
     iget-object v5, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v5}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$700(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v5
@@ -343,6 +349,7 @@
 
     invoke-direct {v6, v7, v2}, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentContent;-><init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
 
+    # setter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
     invoke-static {v5, v6}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
 
     .line 268
@@ -351,7 +358,7 @@
     .line 259
     .end local v1    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
     .end local v4    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_4
+    :cond_109
     new-instance v1, Lorg/yaml/snakeyaml/parser/ParserException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -410,7 +417,7 @@
     .end local v0    # "token":Lorg/yaml/snakeyaml/tokens/Token;
     .end local v3    # "startMark":Lorg/yaml/snakeyaml/error/Mark;
     .end local v11    # "tuple":Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
-    :cond_5
+    :cond_140
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     iget-object v0, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -439,6 +446,7 @@
     .local v1, "event":Lorg/yaml/snakeyaml/events/Event;
     iget-object v3, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v3}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$700(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v3
@@ -447,11 +455,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_194
 
     .line 277
     iget-object v3, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->marks:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v3}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$1200(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v3
@@ -460,18 +469,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_175
 
     .line 280
     iget-object v3, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # setter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
     invoke-static {v3, v2}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
 
     .line 281
     return-object v1
 
     .line 278
-    :cond_6
+    :cond_175
     new-instance v2, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -486,6 +496,7 @@
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->marks:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v4}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$1200(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v4
@@ -503,7 +514,7 @@
     throw v2
 
     .line 275
-    :cond_7
+    :cond_194
     new-instance v2, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -518,6 +529,7 @@
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->states:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v4}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$700(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v4

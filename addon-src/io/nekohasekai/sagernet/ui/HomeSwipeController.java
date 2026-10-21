@@ -18,12 +18,26 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 public final class HomeSwipeController {
+    // Activity.dispatchTouchEvent runs before child listeners. Decide ownership at DOWN,
+    // before the global page-swipe recognizer can send CANCEL to an interactive globe.
+    private static final Map<View,Rect> exclusiveTouches=new WeakHashMap<>();
+    public static void exclusiveTouch(View view,boolean enabled){if(enabled)exclusiveTouches.put(view,new Rect());else exclusiveTouches.remove(view);}
+    private static boolean childOwnsGesture(View root,float x,float y){
+        for(Map.Entry<View,Rect> entry:exclusiveTouches.entrySet()){
+            View child=entry.getKey();Rect area=entry.getValue();
+            if(child.getRootView()==root&&child.isShown()&&child.getGlobalVisibleRect(area)&&area.contains((int)x,(int)y))return true;
+        }
+        return false;
+    }
     public interface Host {
         boolean canSwipe(boolean toBlank);
         View[] prepareSwipe(boolean toBlank);
@@ -32,9 +46,10 @@ public final class HomeSwipeController {
 
     private static int movingControllers;
     private boolean motionRegistered;
+    private DrawerWorkGate.Lease motionLease;
     public static boolean isMoving(){return movingControllers>0;}
-    private void beginMotion(){if(!motionRegistered){motionRegistered=true;movingControllers++;}}
-    private void endMotion(){if(motionRegistered){motionRegistered=false;movingControllers--;}}
+    private void beginMotion(){if(!motionRegistered){motionRegistered=true;movingControllers++;motionLease=DrawerWorkGate.begin(activity.getWindow().getDecorView());}}
+    private void endMotion(){if(motionRegistered){motionRegistered=false;movingControllers--;if(motionLease!=null){motionLease.close();motionLease=null;}}}
     private final Activity activity;
     private final Host host;
     private final float touchSlop;
@@ -83,6 +98,7 @@ public final class HomeSwipeController {
             distance = 0;
             toBlank = host.canSwipe(true);
             eligible = (toBlank || host.canSwipe(false))
+                && !childOwnsGesture(activity.getWindow().getDecorView(),event.getX(),event.getY())
                 && event.getX() > 32 * activity.getResources().getDisplayMetrics().density
                 && event.getX() < activity.getWindow().getDecorView().getWidth()
                     - 24 * activity.getResources().getDisplayMetrics().density;

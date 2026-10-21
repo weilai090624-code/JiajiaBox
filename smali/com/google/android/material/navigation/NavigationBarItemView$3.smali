@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView;F)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
 
     .line 360
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 363
@@ -61,6 +61,7 @@
 
     iget v2, p0, Lcom/google/android/material/navigation/NavigationBarItemView$3;->val$newProgress:F
 
+    # invokes: Lcom/google/android/material/navigation/NavigationBarItemView;->setActiveIndicatorProgress(FF)V
     invoke-static {v1, v0, v2}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$500(Lcom/google/android/material/navigation/NavigationBarItemView;FF)V
 
     .line 365

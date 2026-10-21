@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 361
     invoke-direct {p0}, Lorg/yaml/snakeyaml/constructor/AbstractConstruct;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 23
+    .registers 25
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 370
@@ -49,6 +49,7 @@
 
     .line 372
     .local v2, "nodeValue":Ljava/lang/String;
+    # getter for: Lorg/yaml/snakeyaml/constructor/SafeConstructor;->YMD_REGEXP:Ljava/util/regex/Pattern;
     invoke-static {}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->access$200()Ljava/util/regex/Pattern;
 
     move-result-object v3
@@ -73,7 +74,7 @@
 
     const/4 v9, 0x1
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_5c
 
     .line 374
     invoke-virtual {v3, v9}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -151,7 +152,8 @@
     .end local v4    # "year_s":Ljava/lang/String;
     .end local v6    # "day_s":Ljava/lang/String;
     .end local v10    # "month_s":Ljava/lang/String;
-    :cond_0
+    :cond_5c
+    # getter for: Lorg/yaml/snakeyaml/constructor/SafeConstructor;->TIMESTAMP_REGEXP:Ljava/util/regex/Pattern;
     invoke-static {}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->access$300()Ljava/util/regex/Pattern;
 
     move-result-object v4
@@ -165,7 +167,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_160
 
     .line 389
     invoke-virtual {v3, v9}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -216,7 +218,7 @@
 
     .line 397
     .local v14, "millis":Ljava/lang/String;
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_a2
 
     .line 398
     new-instance v15, Ljava/lang/StringBuilder;
@@ -242,7 +244,7 @@
     move-result-object v13
 
     .line 400
-    :cond_1
+    :cond_a2
     invoke-static {v13}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v16
@@ -293,10 +295,10 @@
 
     .line 407
     .local v15, "timezonem_s":Ljava/lang/String;
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_106
 
     .line 408
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_e4
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -320,11 +322,11 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_e8
 
     .end local v20    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .restart local v1    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
-    :cond_2
+    :cond_e4
     move-object/from16 v20, v1
 
     .end local v1    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
@@ -333,7 +335,7 @@
 
     .line 409
     .local v1, "time":Ljava/lang/String;
-    :goto_0
+    :goto_e8
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -366,14 +368,14 @@
 
     .line 410
     .local v1, "timeZone":Ljava/util/TimeZone;
-    goto :goto_1
+    goto :goto_10e
 
     .line 412
     .end local v20    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .end local v21    # "match":Ljava/util/regex/Matcher;
     .local v1, "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .restart local v3    # "match":Ljava/util/regex/Matcher;
-    :cond_3
+    :cond_106
     move-object/from16 v20, v1
 
     move-object/from16 v21, v3
@@ -388,7 +390,7 @@
 
     .line 414
     .local v1, "timeZone":Ljava/util/TimeZone;
-    :goto_1
+    :goto_10e
     invoke-static {v1}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
     move-result-object v3
@@ -497,7 +499,7 @@
     .end local v22    # "timeZone":Ljava/util/TimeZone;
     .local v1, "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .restart local v3    # "match":Ljava/util/regex/Matcher;
-    :cond_4
+    :cond_160
     move-object/from16 v20, v1
 
     move-object/from16 v21, v3
@@ -532,7 +534,7 @@
 .end method
 
 .method public getCalendar()Ljava/util/Calendar;
-    .locals 1
+    .registers 2
 
     .line 365
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlTimestamp;->calendar:Ljava/util/Calendar;

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchViewAnimationHelper;Z)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     .line 270
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 278
@@ -46,26 +46,28 @@
 
     iget-boolean v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$5;->val$show:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
+    # invokes: Lcom/google/android/material/search/SearchViewAnimationHelper;->setContentViewsAlpha(F)V
     invoke-static {v0, v1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->access$200(Lcom/google/android/material/search/SearchViewAnimationHelper;F)V
 
     .line 279
     iget-boolean v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$5;->val$show:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 282
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$5;->this$0:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
+    # getter for: Lcom/google/android/material/search/SearchViewAnimationHelper;->rootView:Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
     invoke-static {v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->access$100(Lcom/google/android/material/search/SearchViewAnimationHelper;)Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
 
     move-result-object v0
@@ -73,12 +75,12 @@
     invoke-virtual {v0}, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->resetClipBoundsAndCornerRadius()V
 
     .line 284
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 273
@@ -86,16 +88,17 @@
 
     iget-boolean v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$5;->val$show:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     const/high16 v1, 0x3f800000    # 1.0f
 
-    :goto_0
+    :goto_a
+    # invokes: Lcom/google/android/material/search/SearchViewAnimationHelper;->setContentViewsAlpha(F)V
     invoke-static {v0, v1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->access$200(Lcom/google/android/material/search/SearchViewAnimationHelper;F)V
 
     .line 274

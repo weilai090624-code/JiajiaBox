@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(SSI)V
-    .locals 0
+    .registers 4
     .param p1, "type"    # S
     .param p2, "headerSize"    # S
     .param p3, "chunkSize"    # I
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -59,6 +59,7 @@
     .line 186
     iget-short v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;->type:S
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->shortToByteArray(S)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$600(S)[B
 
     move-result-object v0
@@ -68,6 +69,7 @@
     .line 187
     iget-short v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;->headerSize:S
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->shortToByteArray(S)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$600(S)[B
 
     move-result-object v0
@@ -77,6 +79,7 @@
     .line 188
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;->chunkSize:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0

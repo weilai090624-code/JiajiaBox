@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     new-instance v0, Lkotlin/text/HexFormat$BytesHexFormat$Companion;
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 11
     .param p1, "bytesPerLine"    # I
     .param p2, "bytesPerGroup"    # I
     .param p3, "groupSeparator"    # Ljava/lang/String;
@@ -209,20 +209,20 @@
 
     const v3, 0x7fffffff
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_32
 
     iget v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->bytesPerGroup:I
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_32
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_33
     iput-boolean v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->noLineAndGroupSeparator:Z
 
     .line 245
@@ -234,17 +234,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_41
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_42
+    if-eqz v0, :cond_5d
 
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSuffix:Ljava/lang/String;
 
@@ -254,17 +254,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_50
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_51
 
-    :cond_2
+    :cond_50
     const/4 v0, 0x0
 
-    :goto_2
-    if-eqz v0, :cond_3
+    :goto_51
+    if-eqz v0, :cond_5d
 
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSeparator:Ljava/lang/String;
 
@@ -272,59 +272,63 @@
 
     move-result v0
 
-    if-gt v0, v2, :cond_3
+    if-gt v0, v2, :cond_5d
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_5e
 
-    :cond_3
+    :cond_5d
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_5e
     iput-boolean v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->shortByteSeparatorNoPrefixAndSuffix:Z
 
     .line 252
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->groupSeparator:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_80
 
     .line 253
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSeparator:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_80
 
     .line 254
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->bytePrefix:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_80
 
     .line 255
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSuffix:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_81
 
-    :cond_4
+    :cond_80
     const/4 v1, 0x1
 
     .line 252
-    :cond_5
+    :cond_81
     iput-boolean v1, p0, Lkotlin/text/HexFormat$BytesHexFormat;->ignoreCase:Z
 
     .line 152
@@ -332,7 +336,7 @@
 .end method
 
 .method public static final synthetic access$getDefault$cp()Lkotlin/text/HexFormat$BytesHexFormat;
-    .locals 1
+    .registers 1
 
     .line 152
     sget-object v0, Lkotlin/text/HexFormat$BytesHexFormat;->Default:Lkotlin/text/HexFormat$BytesHexFormat;
@@ -343,7 +347,7 @@
 
 # virtual methods
 .method public final appendOptionsTo$kotlin_stdlib(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 5
+    .registers 8
     .param p1, "sb"    # Ljava/lang/StringBuilder;
     .param p2, "indent"    # Ljava/lang/String;
 
@@ -544,7 +548,7 @@
 .end method
 
 .method public final getBytePrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->bytePrefix:Ljava/lang/String;
@@ -553,7 +557,7 @@
 .end method
 
 .method public final getByteSeparator()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 214
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSeparator:Ljava/lang/String;
@@ -562,7 +566,7 @@
 .end method
 
 .method public final getByteSuffix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 238
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->byteSuffix:Ljava/lang/String;
@@ -571,7 +575,7 @@
 .end method
 
 .method public final getBytesPerGroup()I
-    .locals 1
+    .registers 2
 
     .line 185
     iget v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->bytesPerGroup:I
@@ -580,7 +584,7 @@
 .end method
 
 .method public final getBytesPerLine()I
-    .locals 1
+    .registers 2
 
     .line 167
     iget v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->bytesPerLine:I
@@ -589,7 +593,7 @@
 .end method
 
 .method public final getGroupSeparator()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 200
     iget-object v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->groupSeparator:Ljava/lang/String;
@@ -598,7 +602,7 @@
 .end method
 
 .method public final getIgnoreCase$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 251
     iget-boolean v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->ignoreCase:Z
@@ -607,7 +611,7 @@
 .end method
 
 .method public final getNoLineAndGroupSeparator$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 241
     iget-boolean v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->noLineAndGroupSeparator:Z
@@ -616,7 +620,7 @@
 .end method
 
 .method public final getShortByteSeparatorNoPrefixAndSuffix$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 244
     iget-boolean v0, p0, Lkotlin/text/HexFormat$BytesHexFormat;->shortByteSeparatorNoPrefixAndSuffix:Z
@@ -625,7 +629,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 257
     new-instance v0, Ljava/lang/StringBuilder;

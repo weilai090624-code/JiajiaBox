@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getInitialState()Ljava/lang/Boolean;
-    .locals 5
+    .registers 6
 
     .line 36
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/StorageNotLowTracker;->getAppContext()Landroid/content/Context;
@@ -93,81 +93,81 @@
     .local v0, "intent":Landroid/content/Intent;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 43
-    :cond_0
+    :cond_17
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3b
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v4
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_44
 
-    goto :goto_0
+    goto :goto_3b
 
-    :sswitch_0
+    :sswitch_26
     const-string v4, "android.intent.action.DEVICE_STORAGE_OK"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2f
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 44
-    :cond_1
-    goto :goto_2
+    :cond_2f
+    goto :goto_3e
 
     .line 43
-    :sswitch_1
+    :sswitch_30
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_39
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 45
-    :cond_2
+    :cond_39
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 49
-    :cond_3
-    :goto_0
+    :cond_3b
+    :goto_3b
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 41
-    :cond_4
-    :goto_1
+    :cond_3d
+    :goto_3d
     nop
 
     .line 49
-    :goto_2
+    :goto_3e
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -177,15 +177,15 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_44
     .sparse-switch
-        -0x46671f94 -> :sswitch_1
-        -0x2b8fb65c -> :sswitch_0
+        -0x46671f94 -> :sswitch_30
+        -0x2b8fb65c -> :sswitch_26
     .end sparse-switch
 .end method
 
 .method public bridge synthetic getInitialState()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 29
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/StorageNotLowTracker;->getInitialState()Ljava/lang/Boolean;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getIntentFilter()Landroid/content/IntentFilter;
-    .locals 2
+    .registers 3
 
     .line 59
     new-instance v0, Landroid/content/IntentFilter;
@@ -219,7 +219,7 @@
 .end method
 
 .method public onBroadcastReceive(Landroid/content/Intent;)V
-    .locals 4
+    .registers 6
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -231,17 +231,18 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 67
     return-void
 
     .line 69
-    :cond_0
+    :cond_c
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/constraints/trackers/StorageNotLowTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/StorageNotLowTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1
@@ -275,29 +276,29 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5f
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v1
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_60
 
-    goto :goto_0
+    goto :goto_5f
 
-    :sswitch_0
+    :sswitch_3c
     const-string v1, "android.intent.action.DEVICE_STORAGE_OK"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_45
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 71
-    :cond_1
+    :cond_45
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -306,22 +307,22 @@
 
     invoke-virtual {p0, v0}, Landroidx/work/impl/constraints/trackers/StorageNotLowTracker;->setState(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 70
-    :sswitch_1
+    :sswitch_4e
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_57
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 72
-    :cond_2
+    :cond_57
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -331,13 +332,13 @@
     invoke-virtual {p0, v0}, Landroidx/work/impl/constraints/trackers/StorageNotLowTracker;->setState(Ljava/lang/Object;)V
 
     .line 74
-    :cond_3
-    :goto_0
+    :cond_5f
+    :goto_5f
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_60
     .sparse-switch
-        -0x46671f94 -> :sswitch_1
-        -0x2b8fb65c -> :sswitch_0
+        -0x46671f94 -> :sswitch_4e
+        -0x2b8fb65c -> :sswitch_3c
     .end sparse-switch
 .end method

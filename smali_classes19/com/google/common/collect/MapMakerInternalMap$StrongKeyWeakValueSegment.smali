@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;II)V
-    .locals 1
+    .registers 5
     .param p2, "initialCapacity"    # I
     .param p3, "maxSegmentSize"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;)Ljava/lang/ref/ReferenceQueue;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;
 
     .line 2027
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public bridge synthetic castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-    .locals 0
+    .registers 2
 
     .line 2027
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment<TK;TV;>;"
@@ -99,7 +99,7 @@
 .end method
 
 .method public castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 .end method
 
 .method getValueReferenceQueueForTesting()Ljava/lang/ref/ReferenceQueue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -138,7 +138,7 @@
 .end method
 
 .method public getWeakValueReferenceForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,7 +166,7 @@
 .end method
 
 .method maybeClearReferenceQueues()V
-    .locals 1
+    .registers 2
 
     .line 2087
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment<TK;TV;>;"
@@ -179,7 +179,7 @@
 .end method
 
 .method maybeDrainReferenceQueues()V
-    .locals 1
+    .registers 2
 
     .line 2082
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment<TK;TV;>;"
@@ -192,7 +192,7 @@
 .end method
 
 .method public newWeakValueReferenceForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;Ljava/lang/Object;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,7 +223,7 @@
 .end method
 
 .method bridge synthetic self()Lcom/google/common/collect/MapMakerInternalMap$Segment;
-    .locals 1
+    .registers 2
 
     .line 2027
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment<TK;TV;>;"
@@ -235,7 +235,7 @@
 .end method
 
 .method self()Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -250,7 +250,7 @@
 .end method
 
 .method public setWeakValueReferenceForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,12 +277,14 @@
 
     .line 2075
     .local v1, "newValueReference":Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;, "Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference<TK;TV;Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry<TK;TV;>;>;"
+    # getter for: Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;->valueReference:Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
     invoke-static {v0}, Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;->access$600(Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
 
     move-result-object v2
 
     .line 2076
     .local v2, "previous":Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;, "Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference<TK;TV;Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry<TK;TV;>;>;"
+    # setter for: Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;->valueReference:Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
     invoke-static {v0, v1}, Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;->access$602(Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
 
     .line 2077

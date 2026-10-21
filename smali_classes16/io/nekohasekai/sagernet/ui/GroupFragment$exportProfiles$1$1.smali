@@ -72,7 +72,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Wrkd4aKn0DLDvi6w_r1MSRVrMJM(Lio/nekohasekai/sagernet/database/ProxyEntity;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/GroupFragment$exportProfiles$1$1;->invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/database/ProxyEntity;)Ljava/lang/CharSequence;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/GroupFragment;Landroid/net/Uri;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/database/ProxyEntity;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     .line 148
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -195,7 +195,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -206,7 +206,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -217,28 +217,28 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_d3
 
-    :pswitch_1
-    :try_start_0
+    :pswitch_17
+    :try_start_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_1a} :catch_1c
 
-    goto/16 :goto_1
+    goto/16 :goto_ad
 
     .line 158
-    :catch_0
+    :catch_1c
     move-exception v1
 
-    goto/16 :goto_2
+    goto/16 :goto_b5
 
     .line 146
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 147
@@ -251,11 +251,12 @@
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$exportProfiles$1$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/GroupFragment;->selectedGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/GroupFragment;->access$getSelectedGroup$p(Lio/nekohasekai/sagernet/ui/GroupFragment;)Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
     const-string v3, "selectedGroup"
 
@@ -263,7 +264,7 @@
 
     move-object v3, v2
 
-    :cond_0
+    :cond_36
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
     move-result-wide v3
@@ -308,7 +309,7 @@
     nop
 
     .line 150
-    :try_start_1
+    :try_start_56
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$exportProfiles$1$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/GroupFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -346,13 +347,13 @@
 
     instance-of v1, v5, Ljava/io/BufferedWriter;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_80
 
     check-cast v5, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_88
 
-    :cond_1
+    :cond_80
     new-instance v1, Ljava/io/BufferedWriter;
 
     const/16 v4, 0x2000
@@ -361,12 +362,12 @@
 
     move-object v5, v1
 
-    :goto_0
+    :goto_88
     check-cast v5, Ljava/io/Closeable;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_8a
+    .catch Ljava/lang/Exception; {:try_start_56 .. :try_end_8a} :catch_1c
 
-    :try_start_2
+    :try_start_8a
     move-object v1, v5
 
     check-cast v1, Ljava/io/BufferedWriter;
@@ -385,11 +386,11 @@
     .end local v1    # "it":Ljava/io/BufferedWriter;
     .end local v4    # "$i$a$-use-GroupFragment$exportProfiles$1$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_94
+    .catchall {:try_start_8a .. :try_end_94} :catchall_ae
 
     .line 152
-    :try_start_3
+    :try_start_94
     invoke-static {v5, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 155
@@ -412,45 +413,45 @@
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_aa
+    .catch Ljava/lang/Exception; {:try_start_94 .. :try_end_aa} :catch_1c
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_ad
 
     .line 146
     return-object v0
 
     .line 155
-    :cond_2
-    :goto_1
-    goto :goto_4
+    :cond_ad
+    :goto_ad
+    goto :goto_d4
 
     .line 152
-    :catchall_0
+    :catchall_ae
     move-exception v1
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :try_start_4
+    :try_start_af
     throw v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_b0
+    .catchall {:try_start_af .. :try_end_b0} :catchall_b0
 
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_b0
     move-exception v3
 
-    :try_start_5
+    :try_start_b1
     invoke-static {v5, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p1    # "$result":Ljava/lang/Object;
     throw v3
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    :try_end_b5
+    .catch Ljava/lang/Exception; {:try_start_b1 .. :try_end_b5} :catch_1c
 
     .line 159
     .local v1, "e":Ljava/lang/Exception;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_b5
     sget-object v3, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v4, v1
@@ -481,27 +482,27 @@
     move-result-object v1
 
     .end local v1    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_d3
 
     .line 146
     return-object v0
 
     .line 165
-    :cond_3
-    :goto_3
+    :cond_d3
+    :goto_d3
     nop
 
-    :goto_4
+    :goto_d4
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_d8
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

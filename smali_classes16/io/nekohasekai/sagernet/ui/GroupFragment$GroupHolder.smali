@@ -105,7 +105,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$3ks1v94wG3Kgh1JoxvQs0Qh18UQ(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$lambda$5(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$_uTRjVtqCIRet0cIN6QUPSIMib8(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->onMenuItemClick$lambda$0(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/content/DialogInterface;I)V
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$bIfUBphjg8lVwIjfJMJ-YldoXqw(Lkotlin/text/MatchResult;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$get$lambda$9(Lkotlin/text/MatchResult;)Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$dQuQEV4wDE1IkA8MF2dWVJ4xPlY(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$lambda$3(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/view/View;)V
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$oXBJs_wKyZ8eesw6TqyCo6LhyVc(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$lambda$4(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tqnetl0otGcurulpIJpNpJYAQxM(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$lambda$1(Landroid/view/View;)V
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -259,7 +259,7 @@
 .end method
 
 .method private static final bind$get(Lio/nekohasekai/sagernet/database/SubscriptionBean;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "subscription"    # Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .param p1, "regex"    # Ljava/lang/String;
 
@@ -306,7 +306,7 @@
 .end method
 
 .method private static final bind$get$lambda$9(Lkotlin/text/MatchResult;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "it"    # Lkotlin/text/MatchResult;
 
     const-string v0, "it"
@@ -324,7 +324,7 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1b
 
     invoke-interface {p0}, Lkotlin/text/MatchResult;->getGroupValues()Ljava/util/List;
 
@@ -336,17 +336,17 @@
 
     check-cast v0, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     return-object v0
 .end method
 
 .method private static final bind$lambda$1(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "it"    # Landroid/view/View;
 
     .line 398
@@ -354,7 +354,7 @@
 .end method
 
 .method private static final bind$lambda$3(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/view/View;)V
-    .locals 6
+    .registers 9
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment;
     .param p1, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "it"    # Landroid/view/View;
@@ -398,7 +398,7 @@
 .end method
 
 .method private static final bind$lambda$4(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
     .param p1, "it"    # Landroid/view/View;
 
@@ -418,7 +418,7 @@
 .end method
 
 .method private static final bind$lambda$5(Lio/nekohasekai/sagernet/ui/GroupFragment;Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/view/View;)V
-    .locals 4
+    .registers 7
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
     .param p2, "it"    # Landroid/view/View;
@@ -464,7 +464,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_33
 
     .line 421
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->getMenu()Landroid/view/Menu;
@@ -476,7 +476,7 @@
     invoke-interface {v1, v2}, Landroid/view/Menu;->removeItem(I)V
 
     .line 423
-    :cond_0
+    :cond_33
     move-object v1, p1
 
     check-cast v1, Landroidx/appcompat/widget/PopupMenu$OnMenuItemClickListener;
@@ -491,7 +491,7 @@
 .end method
 
 .method private static final onMenuItemClick$export(Lio/nekohasekai/sagernet/ui/GroupFragment;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment;
     .param p1, "link"    # Ljava/lang/String;
 
@@ -508,16 +508,16 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const v2, 0x7f130029
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_10
     const v2, 0x7f130027
 
-    :goto_0
+    :goto_13
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ui/MainActivity;->snackbar(I)Lcom/google/android/material/snackbar/Snackbar;
 
     move-result-object v1
@@ -530,7 +530,7 @@
 .end method
 
 .method private static final onMenuItemClick$lambda$0(Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
 
     .line 382
@@ -551,7 +551,7 @@
 
 # virtual methods
 .method public final bind(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 21
+    .registers 23
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     move-object/from16 v1, p0
@@ -597,16 +597,16 @@
 
     const/4 v6, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     const/16 v7, 0x8
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_2b
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_2c
     invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     .line 564
@@ -630,34 +630,34 @@
 
     const/4 v4, 0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_41
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     const/4 v3, 0x0
 
     .local v0, "$this$isInvisible$iv":Landroid/view/View;
     .restart local v3    # "value$iv":Z
-    :goto_1
+    :goto_42
     const/4 v7, 0x0
 
     .line 565
     .local v7, "$i$f$setInvisible":I
     const/4 v8, 0x4
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
     const/4 v9, 0x4
 
-    goto :goto_2
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v9, 0x0
 
-    :goto_2
+    :goto_49
     invoke-virtual {v0, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 566
@@ -737,7 +737,7 @@
 
     const-string v3, "null cannot be cast to non-null type android.widget.LinearLayout"
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_12c
 
     .line 428
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupName:Landroid/widget/TextView;
@@ -827,17 +827,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_e3
 
     .line 435
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->subscriptionUpdateProgress:Lcom/google/android/material/progressindicator/LinearProgressIndicator;
 
     invoke-virtual {v0, v4}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->setIndeterminate(Z)V
 
-    goto :goto_3
+    goto :goto_117
 
     .line 437
-    :cond_3
+    :cond_e3
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->subscriptionUpdateProgress:Lcom/google/android/material/progressindicator/LinearProgressIndicator;
 
     invoke-virtual {v0, v6}, Lcom/google/android/material/progressindicator/LinearProgressIndicator;->setIndeterminate(Z)V
@@ -867,7 +867,7 @@
 
     check-cast v0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_117
 
     .local v0, "it":Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
     const/4 v3, 0x0
@@ -900,8 +900,8 @@
     nop
 
     .line 444
-    :cond_4
-    :goto_3
+    :cond_117
+    :goto_117
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->updateButton:Lcom/google/android/material/button/MaterialButton;
 
     check-cast v0, Landroid/view/View;
@@ -943,10 +943,10 @@
     .end local v0    # "$this$isGone$iv":Landroid/view/View;
     .end local v3    # "value$iv":Z
     .end local v7    # "$i$f$setGone":I
-    goto :goto_7
+    goto :goto_18b
 
     .line 447
-    :cond_5
+    :cond_12c
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupName:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getParent()Landroid/view/ViewParent;
@@ -1024,32 +1024,32 @@
 
     move-result v3
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_169
 
     const/4 v3, 0x1
 
-    goto :goto_4
+    goto :goto_16a
 
-    :cond_6
+    :cond_169
     const/4 v3, 0x0
 
     .local v0, "$this$isInvisible$iv":Landroid/view/View;
     .restart local v3    # "value$iv":Z
-    :goto_4
+    :goto_16a
     const/4 v7, 0x0
 
     .line 575
     .local v7, "$i$f$setInvisible":I
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_16f
 
     const/4 v9, 0x4
 
-    goto :goto_5
+    goto :goto_170
 
-    :cond_7
+    :cond_16f
     const/4 v9, 0x0
 
-    :goto_5
+    :goto_170
     invoke-virtual {v0, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 576
@@ -1077,16 +1077,16 @@
 
     .line 577
     .local v7, "$i$f$setGone":I
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_186
 
     const/16 v9, 0x8
 
-    goto :goto_6
+    goto :goto_187
 
-    :cond_8
+    :cond_186
     const/4 v9, 0x0
 
-    :goto_6
+    :goto_187
     invoke-virtual {v0, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 578
@@ -1096,7 +1096,7 @@
     .end local v0    # "$this$isGone$iv":Landroid/view/View;
     .end local v3    # "value$iv":Z
     .end local v7    # "$i$f$setGone":I
-    :goto_7
+    :goto_18b
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->getProxyGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     move-result-object v0
@@ -1115,7 +1115,7 @@
 
     const-wide/16 v10, 0x0
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_232
 
     iget-object v12, v3, Lio/nekohasekai/sagernet/database/SubscriptionBean;->bytesUsed:Ljava/lang/Long;
 
@@ -1125,7 +1125,7 @@
 
     cmp-long v14, v12, v10
 
-    if-lez v14, :cond_a
+    if-lez v14, :cond_232
 
     .line 458
     iget-object v5, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupTraffic:Landroid/widget/TextView;
@@ -1161,7 +1161,7 @@
 
     cmp-long v14, v12, v10
 
-    if-lez v14, :cond_9
+    if-lez v14, :cond_1ff
 
     .line 460
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -1233,10 +1233,10 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    goto :goto_8
+    goto :goto_223
 
     .line 468
-    :cond_9
+    :cond_1ff
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -1278,7 +1278,7 @@
     check-cast v0, Ljava/lang/CharSequence;
 
     .line 459
-    :goto_8
+    :goto_223
     invoke-virtual {v5, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 474
@@ -1302,37 +1302,37 @@
     .end local v0    # "$this$setPadding$iv":Landroid/view/View;
     .end local v4    # "size$iv":I
     .end local v5    # "$i$f$setPadding":I
-    goto/16 :goto_f
+    goto/16 :goto_353
 
     .line 475
-    :cond_a
-    if-eqz v3, :cond_15
+    :cond_232
+    if-eqz v3, :cond_33f
 
     iget-object v12, v3, Lio/nekohasekai/sagernet/database/SubscriptionBean;->subscriptionUserinfo:Ljava/lang/String;
 
     check-cast v12, Ljava/lang/CharSequence;
 
-    if-eqz v12, :cond_c
+    if-eqz v12, :cond_243
 
     invoke-static {v12}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_b
+    if-eqz v12, :cond_241
 
-    goto :goto_9
+    goto :goto_243
 
-    :cond_b
+    :cond_241
     const/4 v12, 0x0
 
-    goto :goto_a
+    goto :goto_244
 
-    :cond_c
-    :goto_9
+    :cond_243
+    :goto_243
     const/4 v12, 0x1
 
-    :goto_a
-    if-nez v12, :cond_15
+    :goto_244
+    if-nez v12, :cond_33f
 
     .line 476
     const/4 v5, 0x0
@@ -1348,14 +1348,14 @@
 
     .line 486
     .local v12, "used":J
-    :try_start_0
+    :try_start_24c
     const-string v8, "upload=([0-9]+)"
 
     invoke-static {v3, v8}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$get(Lio/nekohasekai/sagernet/database/SubscriptionBean;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_25b
 
     .local v8, "$this$bind_u24lambda_u2410":Ljava/lang/String;
     const/4 v14, 0x0
@@ -1374,7 +1374,7 @@
     .line 486
     .end local v8    # "$this$bind_u24lambda_u2410":Ljava/lang/String;
     .end local v14    # "$i$a$-apply-GroupFragment$GroupHolder$bind$8":I
-    :cond_d
+    :cond_25b
     nop
 
     .line 489
@@ -1384,7 +1384,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_26b
 
     .local v8, "$this$bind_u24lambda_u2411":Ljava/lang/String;
     const/4 v14, 0x0
@@ -1403,7 +1403,7 @@
     .line 489
     .end local v8    # "$this$bind_u24lambda_u2411":Ljava/lang/String;
     .end local v14    # "$i$a$-apply-GroupFragment$GroupHolder$bind$9":I
-    :cond_e
+    :cond_26b
     nop
 
     .line 492
@@ -1413,34 +1413,34 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_279
 
     invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v14
 
-    goto :goto_b
+    goto :goto_27a
 
-    :cond_f
+    :cond_279
     move-wide v14, v10
 
     .line 493
     .local v14, "total":J
-    :goto_b
+    :goto_27a
     sub-long v16, v14, v12
 
     .line 494
     .local v16, "remain":J
     cmp-long v8, v12, v10
 
-    if-gtz v8, :cond_10
+    if-gtz v8, :cond_284
 
     cmp-long v8, v14, v10
 
-    if-lez v8, :cond_12
+    if-lez v8, :cond_2bf
 
     .line 495
-    :cond_10
+    :cond_284
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -1451,7 +1451,7 @@
 
     cmp-long v18, v16, v10
 
-    if-lez v18, :cond_11
+    if-lez v18, :cond_2a8
 
     .line 496
     iget-object v9, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
@@ -1483,10 +1483,10 @@
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_2b6
 
     .line 502
-    :cond_11
+    :cond_2a8
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
     invoke-static {v12, v13}, Lmoe/matsuri/nb4a/utils/KotlinUtilKt;->toBytesString(J)Ljava/lang/String;
@@ -1502,7 +1502,7 @@
     move-result-object v0
 
     .line 495
-    :goto_c
+    :goto_2b6
     invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1514,14 +1514,14 @@
     move-object v5, v0
 
     .line 505
-    :cond_12
+    :cond_2bf
     const-string v0, "expire=([0-9]+)"
 
     invoke-static {v3, v0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->bind$get(Lio/nekohasekai/sagernet/database/SubscriptionBean;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_312
 
     iget-object v7, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
@@ -1603,8 +1603,8 @@
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_30f
+    .catch Ljava/lang/NumberFormatException; {:try_start_24c .. :try_end_30f} :catch_313
 
     move-object v5, v6
 
@@ -1614,20 +1614,20 @@
     .line 505
     .end local v0    # "$this$bind_u24lambda_u2412":Ljava/lang/String;
     .end local v8    # "$i$a$-apply-GroupFragment$GroupHolder$bind$10":I
-    goto :goto_d
+    goto :goto_314
 
     .end local v12    # "used":J
     .end local v14    # "total":J
     .end local v16    # "remain":J
-    :cond_13
-    goto :goto_d
+    :cond_312
+    goto :goto_314
 
     .line 512
-    :catch_0
+    :catch_313
     move-exception v0
 
     .line 516
-    :goto_d
+    :goto_314
     move-object v0, v5
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -1636,15 +1636,15 @@
 
     move-result v0
 
-    if-lez v0, :cond_14
+    if-lez v0, :cond_31e
 
-    goto :goto_e
+    goto :goto_31f
 
-    :cond_14
+    :cond_31e
     const/4 v4, 0x0
 
-    :goto_e
-    if-eqz v4, :cond_16
+    :goto_31f
+    if-eqz v4, :cond_353
 
     .line 517
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupTraffic:Landroid/widget/TextView;
@@ -1700,10 +1700,10 @@
     .end local v4    # "size$iv":I
     .end local v5    # "text":Ljava/lang/Object;
     .end local v6    # "$i$f$setPadding":I
-    goto :goto_f
+    goto :goto_353
 
     .line 522
-    :cond_15
+    :cond_33f
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupTraffic:Landroid/widget/TextView;
 
     check-cast v0, Landroid/view/View;
@@ -1736,22 +1736,22 @@
     invoke-virtual {v0, v5, v5, v5, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 526
-    :cond_16
-    :goto_f
+    :cond_353
+    :goto_353
     iget-object v0, v1, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupUser:Landroid/widget/TextView;
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_35c
 
     iget-object v4, v3, Lio/nekohasekai/sagernet/database/SubscriptionBean;->username:Ljava/lang/String;
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_35c
 
-    goto :goto_10
+    goto :goto_35e
 
-    :cond_17
+    :cond_35c
     const-string v4, ""
 
-    :goto_10
+    :goto_35e
     check-cast v4, Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -1774,7 +1774,7 @@
 .end method
 
 .method public final getEditButton()Landroidx/appcompat/widget/AppCompatImageView;
-    .locals 1
+    .registers 2
 
     .line 339
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->editButton:Landroidx/appcompat/widget/AppCompatImageView;
@@ -1783,7 +1783,7 @@
 .end method
 
 .method public final getGroupName()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 335
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupName:Landroid/widget/TextView;
@@ -1792,7 +1792,7 @@
 .end method
 
 .method public final getGroupStatus()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 336
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupStatus:Landroid/widget/TextView;
@@ -1801,7 +1801,7 @@
 .end method
 
 .method public final getGroupTraffic()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 337
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupTraffic:Landroid/widget/TextView;
@@ -1810,7 +1810,7 @@
 .end method
 
 .method public final getGroupUser()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 338
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->groupUser:Landroid/widget/TextView;
@@ -1819,7 +1819,7 @@
 .end method
 
 .method public final getOptionsButton()Landroidx/appcompat/widget/AppCompatImageView;
-    .locals 1
+    .registers 2
 
     .line 340
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->optionsButton:Landroidx/appcompat/widget/AppCompatImageView;
@@ -1828,16 +1828,16 @@
 .end method
 
 .method public final getProxyGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
-    .locals 1
+    .registers 2
 
     .line 334
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "proxyGroup"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -1848,7 +1848,7 @@
 .end method
 
 .method public final getSubscriptionUpdateProgress()Lcom/google/android/material/progressindicator/LinearProgressIndicator;
-    .locals 1
+    .registers 2
 
     .line 342
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->subscriptionUpdateProgress:Lcom/google/android/material/progressindicator/LinearProgressIndicator;
@@ -1857,7 +1857,7 @@
 .end method
 
 .method public final getUpdateButton()Lcom/google/android/material/button/MaterialButton;
-    .locals 1
+    .registers 2
 
     .line 341
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->updateButton:Lcom/google/android/material/button/MaterialButton;
@@ -1866,7 +1866,7 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 4
+    .registers 6
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1880,12 +1880,12 @@
 
     const/4 v1, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_b2
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 354
-    :sswitch_0
+    :sswitch_f
     new-instance v0, Lio/nekohasekai/sagernet/widget/QRCodeDialog;
 
     .line 355
@@ -1925,10 +1925,10 @@
 
     invoke-static {v0, v2, v1, v3, v1}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->showAllowingStateLoss$default(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentManager;Ljava/lang/String;ILjava/lang/Object;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 360
-    :sswitch_1
+    :sswitch_37
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->getProxyGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1941,16 +1941,17 @@
 
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->onMenuItemClick$export(Lio/nekohasekai/sagernet/ui/GroupFragment;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 375
-    :sswitch_2
+    :sswitch_45
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
     check-cast v0, Landroidx/fragment/app/Fragment;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/GroupFragment;->exportProfiles:Landroidx/activity/result/ActivityResultLauncher;
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/GroupFragment;->access$getExportProfiles$p(Lio/nekohasekai/sagernet/ui/GroupFragment;)Landroidx/activity/result/ActivityResultLauncher;
 
     move-result-object v1
@@ -1989,10 +1990,10 @@
 
     invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->startFilesForResult(Landroidx/fragment/app/Fragment;Landroidx/activity/result/ActivityResultLauncher;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 364
-    :sswitch_3
+    :sswitch_74
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$onMenuItemClick$1;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
@@ -2003,10 +2004,10 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_0
+    goto :goto_af
 
     .line 379
-    :sswitch_4
+    :sswitch_81
     new-instance v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
@@ -2052,25 +2053,25 @@
     invoke-virtual {v0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->show()Landroidx/appcompat/app/AlertDialog;
 
     .line 391
-    :goto_0
+    :goto_af
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_b2
     .sparse-switch
-        0x7f0a003e -> :sswitch_4
-        0x7f0a0050 -> :sswitch_3
-        0x7f0a0051 -> :sswitch_2
-        0x7f0a0088 -> :sswitch_1
-        0x7f0a0089 -> :sswitch_0
+        0x7f0a003e -> :sswitch_81
+        0x7f0a0050 -> :sswitch_74
+        0x7f0a0051 -> :sswitch_45
+        0x7f0a0088 -> :sswitch_37
+        0x7f0a0089 -> :sswitch_f
     .end sparse-switch
 .end method
 
 .method public final setProxyGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const-string v0, "<set-?>"

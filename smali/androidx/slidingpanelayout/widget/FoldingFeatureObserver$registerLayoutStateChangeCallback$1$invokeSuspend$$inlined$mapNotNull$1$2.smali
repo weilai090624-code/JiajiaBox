@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2;->$this_unsafeFlow$inlined:Lkotlinx/coroutines/flow/FlowCollector;
 
@@ -77,11 +77,11 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
 
     instance-of v0, p2, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -93,7 +93,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;->label:I
 
@@ -101,14 +101,14 @@
 
     iput p2, v0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;
 
     invoke-direct {v0, p0, p2}, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;-><init>(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -122,7 +122,7 @@
     .line 0
     iget v2, p2, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5a
 
     .line 138
     .end local v0    # "$result":Ljava/lang/Object;
@@ -138,7 +138,7 @@
     .line 0
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p1, 0x0
 
     .local p1, "$i$a$-collect-FlowKt__EmittersKt$unsafeTransform$1$1":I
@@ -147,11 +147,11 @@
     .local v1, "$i$a$-unsafeTransform-FlowKt__TransformKt$mapNotNull$1":I
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_56
 
     .end local v1    # "$i$a$-unsafeTransform-FlowKt__TransformKt$mapNotNull$1":I
     .end local p1    # "$i$a$-collect-FlowKt__EmittersKt$unsafeTransform$1$1":I
-    :pswitch_1
+    :pswitch_33
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -183,6 +183,7 @@
     .local v6, "$i$a$-mapNotNull-FoldingFeatureObserver$registerLayoutStateChangeCallback$1$1":I
     iget-object v7, v2, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2;->this$0:Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
+    # invokes: Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->getFoldingFeature(Landroidx/window/layout/WindowLayoutInfo;)Landroidx/window/layout/FoldingFeature;
     invoke-static {v7, p1}, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->access$getFoldingFeature(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;Landroidx/window/layout/WindowLayoutInfo;)Landroidx/window/layout/FoldingFeature;
 
     move-result-object p1
@@ -190,13 +191,13 @@
     .end local v2    # "this":Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2;
     .end local v6    # "$i$a$-mapNotNull-FoldingFeatureObserver$registerLayoutStateChangeCallback$1$1":I
     .end local p1    # "info":Landroidx/window/layout/WindowLayoutInfo;
-    if-nez p1, :cond_1
+    if-nez p1, :cond_4a
 
-    goto :goto_2
+    goto :goto_57
 
     .line 138
     .local p1, "transformed":Ljava/lang/Object;
-    :cond_1
+    :cond_4a
     const/4 v2, 0x1
 
     iput v2, p2, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1$2$1;->label:I
@@ -207,13 +208,13 @@
 
     .end local v4    # "$this$mapNotNull_u24lambda_u2d5":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "transformed":Ljava/lang/Object;
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_54
 
     .line 0
     return-object v1
 
     .line 138
-    :cond_2
+    :cond_54
     move p1, v3
 
     move v1, v5
@@ -222,19 +223,19 @@
     .end local v5    # "$i$a$-unsafeTransform-FlowKt__TransformKt$mapNotNull$1":I
     .restart local v1    # "$i$a$-unsafeTransform-FlowKt__TransformKt$mapNotNull$1":I
     .local p1, "$i$a$-collect-FlowKt__EmittersKt$unsafeTransform$1$1":I
-    :goto_1
+    :goto_56
     nop
 
     .end local v1    # "$i$a$-unsafeTransform-FlowKt__TransformKt$mapNotNull$1":I
     .end local p1    # "$i$a$-collect-FlowKt__EmittersKt$unsafeTransform$1$1":I
-    :goto_2
+    :goto_57
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_33
+        :pswitch_2d
     .end packed-switch
 .end method

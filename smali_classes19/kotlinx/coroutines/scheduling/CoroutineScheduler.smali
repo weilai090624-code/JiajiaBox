@@ -193,7 +193,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Companion;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public constructor <init>(IIJLjava/lang/String;)V
-    .locals 7
+    .registers 13
     .param p1, "corePoolSize"    # I
     .param p2, "maxPoolSize"    # I
     .param p3, "idleWorkerKeepAliveNs"    # J
@@ -273,53 +273,53 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_7
+    :goto_15
+    if-eqz v0, :cond_d7
 
     .line 102
     iget v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->maxPoolSize:I
 
     iget v3, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->corePoolSize:I
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v3, :cond_1f
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_20
     const-string v3, "Max pool size "
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_ad
 
     .line 105
     iget v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->maxPoolSize:I
 
     const v4, 0x1ffffe
 
-    if-gt v0, v4, :cond_2
+    if-gt v0, v4, :cond_2d
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_2e
 
-    :cond_2
+    :cond_2d
     const/4 v0, 0x0
 
-    :goto_2
-    if-eqz v0, :cond_5
+    :goto_2e
+    if-eqz v0, :cond_89
 
     .line 108
     iget-wide v3, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->idleWorkerKeepAliveNs:J
@@ -328,17 +328,17 @@
 
     cmp-long v0, v3, v5
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_3a
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_3b
 
-    :cond_3
+    :cond_3a
     const/4 v0, 0x0
 
-    :goto_3
-    if-eqz v0, :cond_4
+    :goto_3b
+    if-eqz v0, :cond_63
 
     .line 111
     nop
@@ -388,7 +388,7 @@
     return-void
 
     .line 108
-    :cond_4
+    :cond_63
     const/4 v0, 0x0
 
     .line 109
@@ -432,7 +432,7 @@
     throw v1
 
     .line 105
-    :cond_5
+    :cond_89
     const/4 v0, 0x0
 
     .line 106
@@ -474,7 +474,7 @@
     throw v1
 
     .line 102
-    :cond_6
+    :cond_ad
     const/4 v0, 0x0
 
     .line 103
@@ -522,7 +522,7 @@
     throw v1
 
     .line 99
-    :cond_7
+    :cond_d7
     const/4 v0, 0x0
 
     .line 100
@@ -567,41 +567,41 @@
 .end method
 
 .method public synthetic constructor <init>(IIJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 6
+    .registers 14
 
     .line 92
     and-int/lit8 p7, p6, 0x4
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_8
 
     .line 95
     sget-wide p3, Lkotlinx/coroutines/scheduling/TasksKt;->IDLE_WORKER_KEEP_ALIVE_NS:J
 
     move-wide v3, p3
 
-    goto :goto_0
+    goto :goto_9
 
     .line 92
-    :cond_0
+    :cond_8
     move-wide v3, p3
 
-    :goto_0
+    :goto_9
     and-int/lit8 p3, p6, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_11
 
     .line 96
     sget-object p5, Lkotlinx/coroutines/scheduling/TasksKt;->DEFAULT_SCHEDULER_NAME:Ljava/lang/String;
 
     move-object v5, p5
 
-    goto :goto_1
+    goto :goto_12
 
     .line 92
-    :cond_1
+    :cond_11
     move-object v5, p5
 
-    :goto_1
+    :goto_12
     move-object v0, p0
 
     move v1, p1
@@ -615,7 +615,7 @@
 .end method
 
 .method public static final synthetic access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
-    .locals 1
+    .registers 1
 
     .line 91
     sget-object v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -624,7 +624,7 @@
 .end method
 
 .method private final addToGlobalQueue(Lkotlinx/coroutines/scheduling/Task;)Z
-    .locals 4
+    .registers 6
     .param p1, "task"    # Lkotlinx/coroutines/scheduling/Task;
 
     .line 119
@@ -643,18 +643,18 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v3, 0x0
 
     .line 119
     .end local v0    # "$this$isBlocking$iv":Lkotlinx/coroutines/scheduling/Task;
     .end local v1    # "$i$f$isBlocking":I
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_d
+    if-eqz v3, :cond_16
 
     .line 120
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalBlockingQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
@@ -663,10 +663,10 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 122
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalCpuQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
 
     invoke-virtual {v0, p1}, Lkotlinx/coroutines/scheduling/GlobalQueue;->addLast(Ljava/lang/Object;)Z
@@ -674,12 +674,12 @@
     move-result v0
 
     .line 119
-    :goto_1
+    :goto_1c
     return v0
 .end method
 
 .method private final blockingTasks(J)I
-    .locals 4
+    .registers 7
     .param p1, "state"    # J
 
     const/4 v0, 0x0
@@ -700,7 +700,7 @@
 .end method
 
 .method private final createNewWorker()I
-    .locals 22
+    .registers 23
 
     .line 477
     move-object/from16 v1, p0
@@ -729,14 +729,14 @@
 
     .line 480
     .local v0, "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
-    :try_start_0
+    :try_start_a
     invoke-virtual/range {p0 .. p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->isTerminated()Z
 
     move-result v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_e
+    .catchall {:try_start_a .. :try_end_e} :catchall_ae
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_13
 
     .end local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
     .end local v3    # "lock$iv":Ljava/lang/Object;
@@ -752,8 +752,8 @@
     .restart local v3    # "lock$iv":Ljava/lang/Object;
     .restart local v4    # "$i$f$synchronized":I
     .restart local v5    # "$i$f$synchronizedImpl":I
-    :cond_0
-    :try_start_1
+    :cond_13
+    :try_start_13
     sget-object v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     .line 481
@@ -818,10 +818,10 @@
     .line 486
     .local v12, "cpuWorkers":I
     iget v14, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->corePoolSize:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3a
+    .catchall {:try_start_13 .. :try_end_3a} :catchall_ae
 
-    if-lt v12, v14, :cond_1
+    if-lt v12, v14, :cond_3e
 
     .end local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
     .end local v3    # "lock$iv":Ljava/lang/Object;
@@ -844,13 +844,13 @@
     .restart local v8    # "created":I
     .restart local v9    # "blocking":I
     .restart local v12    # "cpuWorkers":I
-    :cond_1
-    :try_start_2
+    :cond_3e
+    :try_start_3e
     iget v14, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->maxPoolSize:I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_40
+    .catchall {:try_start_3e .. :try_end_40} :catchall_ae
 
-    if-lt v8, v14, :cond_2
+    if-lt v8, v14, :cond_44
 
     .end local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
     .end local v3    # "lock$iv":Ljava/lang/Object;
@@ -873,14 +873,15 @@
     .restart local v8    # "created":I
     .restart local v9    # "blocking":I
     .restart local v12    # "cpuWorkers":I
-    :cond_2
+    :cond_44
     move-object/from16 v14, p0
 
     .local v14, "this_$iv":Lkotlinx/coroutines/scheduling/CoroutineScheduler;
     const/4 v15, 0x0
 
     .local v15, "$i$f$getCreatedWorkers":I
-    :try_start_3
+    :try_start_47
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v13
@@ -889,8 +890,8 @@
     invoke-virtual {v13, v14}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v17
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_4f
+    .catchall {:try_start_47 .. :try_end_4f} :catchall_ae
 
     move v13, v4
 
@@ -913,20 +914,20 @@
 
     .line 490
     .local v5, "newIndex":I
-    if-lez v5, :cond_3
+    if-lez v5, :cond_65
 
-    :try_start_4
+    :try_start_59
     iget-object v14, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->workers:Lkotlinx/coroutines/internal/ResizableAtomicArray;
 
     invoke-virtual {v14, v5}, Lkotlinx/coroutines/internal/ResizableAtomicArray;->get(I)Ljava/lang/Object;
 
     move-result-object v14
 
-    if-nez v14, :cond_3
+    if-nez v14, :cond_65
 
     const/4 v14, 0x1
 
-    goto :goto_0
+    goto :goto_66
 
     .line 1059
     .end local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
@@ -935,10 +936,10 @@
     .end local v8    # "created":I
     .end local v9    # "blocking":I
     .end local v12    # "cpuWorkers":I
-    :catchall_0
+    :catchall_63
     move-exception v0
 
-    goto :goto_2
+    goto :goto_b2
 
     .line 490
     .restart local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
@@ -947,11 +948,11 @@
     .restart local v8    # "created":I
     .restart local v9    # "blocking":I
     .restart local v12    # "cpuWorkers":I
-    :cond_3
+    :cond_65
     const/4 v14, 0x0
 
-    :goto_0
-    if-eqz v14, :cond_6
+    :goto_66
+    if-eqz v14, :cond_a2
 
     .line 496
     new-instance v14, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
@@ -978,8 +979,8 @@
     invoke-virtual {v4, v14}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->incrementAndGet(Ljava/lang/Object;)J
 
     move-result-wide v20
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_7c
+    .catchall {:try_start_59 .. :try_end_7c} :catchall_63
 
     .local v20, "state$iv$iv":J
     move-object v4, v14
@@ -1001,18 +1002,18 @@
 
     .end local v14    # "this_$iv":Lkotlinx/coroutines/scheduling/CoroutineScheduler;
     .end local v15    # "$i$f$incrementCreatedWorkers":I
-    if-ne v5, v4, :cond_4
+    if-ne v5, v4, :cond_88
 
     const/16 v16, 0x1
 
-    goto :goto_1
+    goto :goto_8a
 
-    :cond_4
+    :cond_88
     const/16 v16, 0x0
 
     .line 498
-    :goto_1
-    if-eqz v16, :cond_5
+    :goto_8a
+    if-eqz v16, :cond_96
 
     .line 499
     const/4 v4, 0x1
@@ -1060,8 +1061,8 @@
     .restart local v12    # "cpuWorkers":I
     .restart local v13    # "$i$f$synchronized":I
     .restart local v19    # "$i$f$synchronizedImpl":I
-    :cond_5
-    :try_start_5
+    :cond_96
+    :try_start_96
     const-string v4, "Failed requirement."
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
@@ -1083,7 +1084,7 @@
     .restart local v3    # "lock$iv":Ljava/lang/Object;
     .restart local v13    # "$i$f$synchronized":I
     .restart local v19    # "$i$f$synchronizedImpl":I
-    :cond_6
+    :cond_a2
     const-string v4, "Failed requirement."
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
@@ -1099,8 +1100,8 @@
     .end local v13    # "$i$f$synchronized":I
     .end local v19    # "$i$f$synchronizedImpl":I
     throw v10
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_ae
+    .catchall {:try_start_96 .. :try_end_ae} :catchall_63
 
     .line 1059
     .end local v0    # "$i$a$-synchronized-CoroutineScheduler$createNewWorker$1":I
@@ -1112,7 +1113,7 @@
     .restart local v3    # "lock$iv":Ljava/lang/Object;
     .local v4, "$i$f$synchronized":I
     .local v5, "$i$f$synchronizedImpl":I
-    :catchall_1
+    :catchall_ae
     move-exception v0
 
     move v13, v4
@@ -1123,14 +1124,14 @@
     .end local v5    # "$i$f$synchronizedImpl":I
     .restart local v13    # "$i$f$synchronized":I
     .restart local v19    # "$i$f$synchronizedImpl":I
-    :goto_2
+    :goto_b2
     monitor-exit v3
 
     throw v0
 .end method
 
 .method private final createdWorkers(J)I
-    .locals 3
+    .registers 6
     .param p1, "state"    # J
 
     const/4 v0, 0x0
@@ -1147,7 +1148,7 @@
 .end method
 
 .method private final currentWorker()Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    .locals 6
+    .registers 7
 
     .line 522
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -1158,17 +1159,17 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     check-cast v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v0, v2
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_1e
 
     move-object v1, v0
 
@@ -1185,6 +1186,7 @@
 
     .line 1066
     .local v5, "$i$f$getScheduler":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->this$0:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
     invoke-static {v4}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->access$getThis$0$p(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     move-result-object v4
@@ -1198,20 +1200,21 @@
 
     .end local v1    # "it":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .end local v3    # "$i$a$-takeIf-CoroutineScheduler$currentWorker$1":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     move-object v2, v0
 
-    :cond_1
+    :cond_1e
     return-object v2
 .end method
 
 .method private final decrementBlockingTasks()V
-    .locals 4
+    .registers 5
 
     const/4 v0, 0x0
 
     .local v0, "$i$f$decrementBlockingTasks":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v1
@@ -1226,12 +1229,13 @@
 .end method
 
 .method private final decrementCreatedWorkers()I
-    .locals 7
+    .registers 8
 
     const/4 v0, 0x0
 
     .line 289
     .local v0, "$i$f$decrementCreatedWorkers":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v1
@@ -1262,30 +1266,30 @@
 .end method
 
 .method public static synthetic dispatch$default(Lkotlinx/coroutines/scheduling/CoroutineScheduler;Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 392
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     sget-object p2, Lkotlinx/coroutines/scheduling/TasksKt;->NonBlockingContext:Lkotlinx/coroutines/scheduling/TaskContext;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-virtual {p0, p1, p2, p3}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->dispatch(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V
 
     return-void
 .end method
 
 .method private final getAvailableCpuPermits()I
-    .locals 8
+    .registers 9
 
     const/4 v0, 0x0
 
@@ -1323,11 +1327,12 @@
 .end method
 
 .method private final getCreatedWorkers()I
-    .locals 5
+    .registers 6
 
     const/4 v0, 0x0
 
     .local v0, "$i$f$getCreatedWorkers":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v1
@@ -1347,7 +1352,7 @@
 .end method
 
 .method private final incrementBlockingTasks()J
-    .locals 4
+    .registers 5
 
     const/4 v0, 0x0
 
@@ -1365,7 +1370,7 @@
 .end method
 
 .method private final incrementCreatedWorkers()I
-    .locals 7
+    .registers 8
 
     const/4 v0, 0x0
 
@@ -1399,7 +1404,7 @@
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1416,7 +1421,7 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v1
@@ -1427,11 +1432,11 @@
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final parkedWorkersStackNextIndex(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)I
-    .locals 3
+    .registers 5
     .param p1, "worker"    # Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
     .line 237
@@ -1441,7 +1446,7 @@
 
     .line 238
     .local v0, "next":Ljava/lang/Object;
-    :goto_0
+    :goto_4
     nop
 
     .line 239
@@ -1450,22 +1455,22 @@
     .line 240
     sget-object v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->NOT_IN_STACK:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v1, -0x1
 
     return v1
 
     .line 241
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_c
+    if-nez v0, :cond_10
 
     const/4 v1, 0x0
 
     return v1
 
     .line 243
-    :cond_1
+    :cond_10
     move-object v1, v0
 
     check-cast v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
@@ -1478,23 +1483,23 @@
 
     .line 245
     .local v2, "updIndex":I
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1a
 
     return v2
 
     .line 247
-    :cond_2
+    :cond_1a
     invoke-virtual {v1}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->getNextParkedWorker()Ljava/lang/Object;
 
     move-result-object v0
 
     .end local v1    # "nextWorker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .end local v2    # "updIndex":I
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method private final parkedWorkersStackPop()Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    .locals 20
+    .registers 21
 
     move-object/from16 v6, p0
 
@@ -1507,7 +1512,7 @@
     const/4 v9, 0x0
 
     .local v9, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_7
     invoke-virtual {v7, v6}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v10
@@ -1533,13 +1538,13 @@
 
     check-cast v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_1d
     move-object v14, v0
 
     .line 208
@@ -1560,7 +1565,7 @@
 
     .line 210
     .local v4, "updIndex":I
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_47
 
     .line 216
     sget-object v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->parkedWorkersStack$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -1583,7 +1588,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 223
     sget-object v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->NOT_IN_STACK:Lkotlinx/coroutines/internal/Symbol;
@@ -1594,7 +1599,7 @@
     return-object v14
 
     .line 226
-    :cond_1
+    :cond_45
     nop
 
     .end local v10    # "top":J
@@ -1603,7 +1608,7 @@
     .end local v14    # "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .end local v15    # "updVersion":J
     .end local v19    # "updIndex":I
-    goto :goto_0
+    goto :goto_7
 
     .line 210
     .restart local v4    # "updIndex":I
@@ -1612,20 +1617,21 @@
     .restart local v13    # "index":I
     .restart local v14    # "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .restart local v15    # "updVersion":J
-    :cond_2
+    :cond_47
     move/from16 v19, v4
 
     .end local v4    # "updIndex":I
     .restart local v19    # "updIndex":I
-    goto :goto_0
+    goto :goto_7
 .end method
 
 .method private final releaseCpuPermit()J
-    .locals 4
+    .registers 5
 
     const/4 v0, 0x0
 
     .local v0, "$i$f$releaseCpuPermit":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v1
@@ -1641,37 +1647,37 @@
 .end method
 
 .method private final signalBlockingWork(JZ)V
-    .locals 1
+    .registers 5
     .param p1, "stateSnapshot"    # J
     .param p3, "skipUnpark"    # Z
 
     .line 431
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_3
 
     return-void
 
     .line 432
-    :cond_0
+    :cond_3
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryUnpark()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 434
-    :cond_1
+    :cond_a
     invoke-direct {p0, p1, p2}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryCreateWorker(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_11
 
     return-void
 
     .line 435
-    :cond_2
+    :cond_11
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryUnpark()Z
 
     .line 436
@@ -1679,28 +1685,28 @@
 .end method
 
 .method private final submitToLocalQueue(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;Lkotlinx/coroutines/scheduling/Task;Z)Lkotlinx/coroutines/scheduling/Task;
-    .locals 3
+    .registers 7
     .param p1, "$this$submitToLocalQueue"    # Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .param p2, "task"    # Lkotlinx/coroutines/scheduling/Task;
     .param p3, "tailDispatch"    # Z
 
     .line 508
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-object p2
 
     .line 513
-    :cond_0
+    :cond_3
     iget-object v0, p1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->state:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
     sget-object v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;->TERMINATED:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_a
 
     return-object p2
 
     .line 515
-    :cond_1
+    :cond_a
     move-object v0, p2
 
     .local v0, "this_$iv":Lkotlinx/coroutines/scheduling/Task;
@@ -1717,19 +1723,19 @@
     .line 515
     .end local v0    # "this_$iv":Lkotlinx/coroutines/scheduling/Task;
     .end local v1    # "$i$f$getMode$kotlinx_coroutines_core":I
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1b
 
     iget-object v0, p1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->state:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
     sget-object v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;->BLOCKING:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1b
 
     .line 516
     return-object p2
 
     .line 518
-    :cond_2
+    :cond_1b
     const/4 v0, 0x1
 
     iput-boolean v0, p1, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->mayHaveLocalTasks:Z
@@ -1745,11 +1751,12 @@
 .end method
 
 .method private final tryAcquireCpuPermit()Z
-    .locals 17
+    .registers 18
 
     const/4 v0, 0x0
 
     .local v0, "$i$f$tryAcquireCpuPermit":I
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v1
@@ -1763,7 +1770,7 @@
     move-object/from16 v10, p0
 
     .local v3, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_a
     invoke-virtual {v1, v10}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v11
@@ -1797,20 +1804,21 @@
 
     .line 299
     .local v14, "available":I
-    if-nez v14, :cond_0
+    if-nez v14, :cond_21
 
     const/4 v4, 0x0
 
     return v4
 
     .line 300
-    :cond_0
+    :cond_21
     const-wide v4, 0x40000000000L
 
     sub-long v15, v11, v4
 
     .line 301
     .local v15, "update":J
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v4
@@ -1825,25 +1833,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_38
 
     const/4 v4, 0x1
 
     return v4
 
     .line 302
-    :cond_1
+    :cond_38
     nop
 
     .end local v11    # "state":J
     .end local v13    # "$i$a$-loop$atomicfu-CoroutineScheduler$tryAcquireCpuPermit$1":I
     .end local v14    # "available":I
     .end local v15    # "update":J
-    goto :goto_0
+    goto :goto_a
 .end method
 
 .method private final tryCreateWorker(J)Z
-    .locals 7
+    .registers 10
     .param p1, "state"    # J
 
     .line 445
@@ -1903,7 +1911,7 @@
     .local v2, "cpuWorkers":I
     iget v4, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->corePoolSize:I
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_31
 
     .line 453
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->createNewWorker()I
@@ -1914,33 +1922,33 @@
     .local v4, "newCpuWorkers":I
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2e
 
     iget v6, p0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->corePoolSize:I
 
-    if-le v6, v5, :cond_0
+    if-le v6, v5, :cond_2e
 
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->createNewWorker()I
 
     .line 457
-    :cond_0
-    if-lez v4, :cond_1
+    :cond_2e
+    if-lez v4, :cond_31
 
     return v5
 
     .line 459
     .end local v4    # "newCpuWorkers":I
-    :cond_1
+    :cond_31
     return v3
 .end method
 
 .method static synthetic tryCreateWorker$default(Lkotlinx/coroutines/scheduling/CoroutineScheduler;JILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 444
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     sget-object p1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
@@ -1948,7 +1956,7 @@
 
     move-result-wide p1
 
-    :cond_0
+    :cond_a
     invoke-direct {p0, p1, p2}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryCreateWorker(J)Z
 
     move-result p0
@@ -1957,12 +1965,12 @@
 .end method
 
 .method private final tryUnpark()Z
-    .locals 4
+    .registers 5
 
     .line 463
     nop
 
-    :cond_0
+    :cond_1
     nop
 
     .line 464
@@ -1972,13 +1980,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     return v1
 
     .line 465
     .local v0, "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    :cond_1
+    :cond_a
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->getWorkerCtl$FU()Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     move-result-object v2
@@ -1989,7 +1997,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 466
     move-object v1, v0
@@ -2007,7 +2015,7 @@
 
 # virtual methods
 .method public final availableCpuPermits(J)I
-    .locals 4
+    .registers 7
     .param p1, "state"    # J
 
     const/4 v0, 0x0
@@ -2028,7 +2036,7 @@
 .end method
 
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 338
     const-wide/16 v0, 0x2710
@@ -2039,7 +2047,7 @@
 .end method
 
 .method public final createTask(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;)Lkotlinx/coroutines/scheduling/Task;
-    .locals 3
+    .registers 6
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "taskContext"    # Lkotlinx/coroutines/scheduling/TaskContext;
 
@@ -2054,7 +2062,7 @@
     .local v0, "nanoTime":J
     instance-of v2, p1, Lkotlinx/coroutines/scheduling/Task;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 422
     move-object v2, p1
@@ -2078,7 +2086,7 @@
     return-object v2
 
     .line 426
-    :cond_0
+    :cond_18
     new-instance v2, Lkotlinx/coroutines/scheduling/TaskImpl;
 
     invoke-direct {v2, p1, v0, v1, p2}, Lkotlinx/coroutines/scheduling/TaskImpl;-><init>(Ljava/lang/Runnable;JLkotlinx/coroutines/scheduling/TaskContext;)V
@@ -2089,7 +2097,7 @@
 .end method
 
 .method public final dispatch(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V
-    .locals 9
+    .registers 13
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "taskContext"    # Lkotlinx/coroutines/scheduling/TaskContext;
     .param p3, "tailDispatch"    # Z
@@ -2099,12 +2107,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->trackTask()V
 
     .line 394
-    :cond_0
+    :cond_9
     invoke-virtual {p0, p1, p2}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->createTask(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;)Lkotlinx/coroutines/scheduling/Task;
 
     move-result-object v0
@@ -2128,24 +2136,24 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_1b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v1, 0x0
 
     .line 395
     .end local v1    # "$this$isBlocking$iv":Lkotlinx/coroutines/scheduling/Task;
     .end local v2    # "$i$f$isBlocking":I
-    :goto_0
+    :goto_1c
     nop
 
     .line 398
     .local v1, "isBlockingTask":Z
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     move-object v2, p0
 
@@ -2164,13 +2172,13 @@
 
     .end local v2    # "this_$iv":Lkotlinx/coroutines/scheduling/CoroutineScheduler;
     .end local v3    # "$i$f$incrementBlockingTasks":I
-    goto :goto_1
+    goto :goto_2d
 
     .line 398
-    :cond_2
+    :cond_2b
     const-wide/16 v2, 0x0
 
-    :goto_1
+    :goto_2d
     nop
 
     .line 400
@@ -2187,19 +2195,19 @@
 
     .line 402
     .local v7, "notAdded":Lkotlinx/coroutines/scheduling/Task;
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5a
 
     .line 403
     invoke-direct {p0, v7}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->addToGlobalQueue(Lkotlinx/coroutines/scheduling/Task;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_3f
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 405
-    :cond_3
+    :cond_3f
     new-instance v4, Ljava/util/concurrent/RejectedExecutionException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2227,41 +2235,41 @@
     throw v4
 
     .line 408
-    :cond_4
-    :goto_2
-    if-eqz p3, :cond_5
+    :cond_5a
+    :goto_5a
+    if-eqz p3, :cond_5f
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_5f
 
     const/4 v4, 0x1
 
     .line 410
     .local v4, "skipUnpark":Z
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_5f
+    if-eqz v1, :cond_65
 
     .line 412
     invoke-direct {p0, v2, v3, v4}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->signalBlockingWork(JZ)V
 
-    goto :goto_3
+    goto :goto_6b
 
     .line 414
-    :cond_6
-    if-eqz v4, :cond_7
+    :cond_65
+    if-eqz v4, :cond_68
 
     return-void
 
     .line 415
-    :cond_7
+    :cond_68
     invoke-virtual {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->signalCpuWork()V
 
     .line 417
-    :goto_3
+    :goto_6b
     return-void
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 8
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 336
@@ -2283,7 +2291,7 @@
 .end method
 
 .method public final isTerminated()Z
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->_isTerminated$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -2292,21 +2300,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public final parkedWorkersStackPush(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)Z
-    .locals 21
+    .registers 23
     .param p1, "worker"    # Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
     .line 178
@@ -2320,11 +2328,11 @@
 
     const/4 v7, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     return v7
 
-    :cond_0
+    :cond_c
     sget-object v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->parkedWorkersStack$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     .local v0, "atomicfu$handler$iv":Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -2338,7 +2346,7 @@
     const/4 v10, 0x0
 
     .local v10, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_12
     invoke-virtual {v9, v6}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v11
@@ -2378,29 +2386,29 @@
 
     const/16 v17, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_40
 
     .line 1035
     const/4 v0, 0x0
 
     .line 187
     .local v0, "$i$a$-assert-CoroutineScheduler$parkedWorkersStackPush$1$1":I
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_36
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_1
+    :cond_36
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-CoroutineScheduler$parkedWorkersStackPush$1$1":I
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_37
+    if-eqz v0, :cond_3a
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_2
+    :cond_3a
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -2408,8 +2416,8 @@
     throw v0
 
     .line 188
-    :cond_3
-    :goto_2
+    :cond_40
+    :goto_40
     iget-object v0, v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->workers:Lkotlinx/coroutines/internal/ResizableAtomicArray;
 
     invoke-virtual {v0, v14}, Lkotlinx/coroutines/internal/ResizableAtomicArray;->get(I)Ljava/lang/Object;
@@ -2441,12 +2449,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5e
 
     return v17
 
     .line 195
-    :cond_4
+    :cond_5e
     nop
 
     .end local v11    # "top":J
@@ -2454,11 +2462,11 @@
     .end local v14    # "index":I
     .end local v15    # "updVersion":J
     .end local v20    # "updIndex":I
-    goto :goto_0
+    goto :goto_12
 .end method
 
 .method public final parkedWorkersStackTopUpdate(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;II)V
-    .locals 19
+    .registers 23
     .param p1, "worker"    # Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .param p2, "oldIndex"    # I
     .param p3, "newIndex"    # I
@@ -2474,7 +2482,7 @@
     move-object/from16 v9, p0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_7
     invoke-virtual {v0, v9}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v10
@@ -2504,35 +2512,35 @@
     .local v14, "updVersion":J
     move/from16 v7, p2
 
-    if-ne v13, v7, :cond_1
+    if-ne v13, v7, :cond_28
 
     .line 154
-    if-nez p3, :cond_0
+    if-nez p3, :cond_25
 
     .line 155
     invoke-direct/range {p0 .. p1}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->parkedWorkersStackNextIndex(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)I
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_29
 
     .line 157
-    :cond_0
+    :cond_25
     move/from16 v3, p3
 
-    goto :goto_1
+    goto :goto_29
 
     .line 160
-    :cond_1
+    :cond_28
     move v3, v13
 
     .line 153
-    :goto_1
+    :goto_29
     move v8, v3
 
     .line 162
     .local v8, "updIndex":I
-    if-ltz v8, :cond_3
+    if-ltz v8, :cond_41
 
     .line 163
     sget-object v3, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->parkedWorkersStack$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -2555,12 +2563,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3f
 
     return-void
 
     .line 164
-    :cond_2
+    :cond_3f
     nop
 
     .end local v10    # "top":J
@@ -2568,7 +2576,7 @@
     .end local v13    # "index":I
     .end local v14    # "updVersion":J
     .end local v18    # "updIndex":I
-    goto :goto_0
+    goto :goto_7
 
     .line 162
     .restart local v8    # "updIndex":I
@@ -2576,48 +2584,48 @@
     .restart local v12    # "$i$a$-loop$atomicfu-CoroutineScheduler$parkedWorkersStackTopUpdate$1":I
     .restart local v13    # "index":I
     .restart local v14    # "updVersion":J
-    :cond_3
+    :cond_41
     move/from16 v18, v8
 
     .end local v8    # "updIndex":I
     .restart local v18    # "updIndex":I
-    goto :goto_0
+    goto :goto_7
 .end method
 
 .method public final runSafely(Lkotlinx/coroutines/scheduling/Task;)V
-    .locals 3
+    .registers 5
     .param p1, "task"    # Lkotlinx/coroutines/scheduling/Task;
 
     .line 583
     nop
 
     .line 584
-    :try_start_0
+    :try_start_1
     invoke-virtual {p1}, Lkotlinx/coroutines/scheduling/Task;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4
+    .catchall {:try_start_1 .. :try_end_4} :catchall_e
 
     .line 589
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    :goto_0
+    :goto_a
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->unTrackTask()V
 
     .line 590
-    :cond_0
-    goto :goto_1
+    :cond_d
+    goto :goto_21
 
     .line 585
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 586
     .local v0, "e":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_f
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -2629,8 +2637,8 @@
     move-result-object v2
 
     invoke-interface {v2, v1, v0}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1a
+    .catchall {:try_start_f .. :try_end_1a} :catchall_22
 
     .line 589
     .end local v0    # "e":Ljava/lang/Throwable;
@@ -2639,32 +2647,32 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_a
 
     .line 591
-    :goto_1
+    :goto_21
     return-void
 
     .line 589
-    :catchall_1
+    :catchall_22
     move-exception v0
 
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     invoke-virtual {v1}, Lkotlinx/coroutines/AbstractTimeSource;->unTrackTask()V
 
-    :cond_1
+    :cond_2c
     throw v0
 .end method
 
 .method public final shutdown(J)V
-    .locals 17
+    .registers 20
     .param p1, "timeout"    # J
 
     .line 343
@@ -2680,12 +2688,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return-void
 
     .line 345
-    :cond_0
+    :cond_d
     invoke-direct/range {p0 .. p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->currentWorker()Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
     move-result-object v4
@@ -2718,7 +2726,8 @@
     const/4 v9, 0x0
 
     .local v9, "$i$f$getCreatedWorkers":I
-    :try_start_0
+    :try_start_1b
+    # getter for: Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->access$getControlState$FU$p()Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     move-result-object v10
@@ -2727,8 +2736,8 @@
     invoke-virtual {v10, v8}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_1b .. :try_end_23} :catchall_e6
 
     const-wide/32 v12, 0x1fffff
 
@@ -2759,10 +2768,10 @@
     const/4 v5, 0x1
 
     .local v5, "i":I
-    if-gt v5, v0, :cond_6
+    if-gt v5, v0, :cond_78
 
     .line 350
-    :goto_0
+    :goto_2f
     iget-object v6, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->workers:Lkotlinx/coroutines/internal/ResizableAtomicArray;
 
     invoke-virtual {v6, v5}, Lkotlinx/coroutines/internal/ResizableAtomicArray;->get(I)Ljava/lang/Object;
@@ -2775,15 +2784,15 @@
 
     .line 351
     .local v6, "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    if-eq v6, v4, :cond_5
+    if-eq v6, v4, :cond_71
 
     .line 352
-    :goto_1
+    :goto_3c
     invoke-virtual {v6}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->isAlive()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4e
 
     .line 353
     move-object v7, v6
@@ -2797,10 +2806,10 @@
 
     invoke-virtual {v6, v8, v9}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->join(J)V
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 356
-    :cond_1
+    :cond_4e
     move-wide/from16 v8, p1
 
     iget-object v7, v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->state:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
@@ -2811,7 +2820,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_69
 
     .line 1035
     const/4 v10, 0x0
@@ -2820,22 +2829,22 @@
     .local v10, "$i$a$-assert-CoroutineScheduler$shutdown$1":I
     sget-object v11, Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;->TERMINATED:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
-    if-ne v7, v11, :cond_2
+    if-ne v7, v11, :cond_5f
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_60
 
-    :cond_2
+    :cond_5f
     const/4 v10, 0x0
 
     .end local v10    # "$i$a$-assert-CoroutineScheduler$shutdown$1":I
-    :goto_2
-    if-eqz v10, :cond_3
+    :goto_60
+    if-eqz v10, :cond_63
 
-    goto :goto_3
+    goto :goto_69
 
-    :cond_3
+    :cond_63
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -2843,36 +2852,36 @@
     throw v2
 
     .line 358
-    :cond_4
-    :goto_3
+    :cond_69
+    :goto_69
     iget-object v10, v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->localQueue:Lkotlinx/coroutines/scheduling/WorkQueue;
 
     iget-object v11, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalBlockingQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
 
     invoke-virtual {v10, v11}, Lkotlinx/coroutines/scheduling/WorkQueue;->offloadAllWorkTo(Lkotlinx/coroutines/scheduling/GlobalQueue;)V
 
-    goto :goto_4
+    goto :goto_73
 
     .line 351
     .end local v7    # "state":Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
-    :cond_5
+    :cond_71
     move-wide/from16 v8, p1
 
     .line 349
     .end local v6    # "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    :goto_4
-    if-eq v5, v0, :cond_7
+    :goto_73
+    if-eq v5, v0, :cond_7a
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_6
+    :cond_78
     move-wide/from16 v8, p1
 
     .line 362
     .end local v5    # "i":I
-    :cond_7
+    :cond_7a
     iget-object v5, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalBlockingQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
 
     invoke-virtual {v5}, Lkotlinx/coroutines/scheduling/GlobalQueue;->close()V
@@ -2883,20 +2892,20 @@
     invoke-virtual {v5}, Lkotlinx/coroutines/scheduling/GlobalQueue;->close()V
 
     .line 365
-    :goto_5
+    :goto_84
     nop
 
     .line 366
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_8d
 
     invoke-virtual {v4, v3}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->findTask(Z)Lkotlinx/coroutines/scheduling/Task;
 
     move-result-object v5
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_e2
 
     .line 367
-    :cond_8
+    :cond_8d
     iget-object v5, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalCpuQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
 
     invoke-virtual {v5}, Lkotlinx/coroutines/scheduling/GlobalQueue;->removeFirstOrNull()Ljava/lang/Object;
@@ -2906,7 +2915,7 @@
     check-cast v5, Lkotlinx/coroutines/scheduling/Task;
 
     .line 366
-    if-nez v5, :cond_d
+    if-nez v5, :cond_e2
 
     .line 368
     iget-object v5, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->globalBlockingQueue:Lkotlinx/coroutines/scheduling/GlobalQueue;
@@ -2918,25 +2927,25 @@
     check-cast v5, Lkotlinx/coroutines/scheduling/Task;
 
     .line 366
-    if-nez v5, :cond_d
+    if-nez v5, :cond_e2
 
     .line 369
     nop
 
     .line 373
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a9
 
     sget-object v5, Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;->TERMINATED:Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;
 
     invoke-virtual {v4, v5}, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->tryReleaseCpu(Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;)Z
 
     .line 375
-    :cond_9
+    :cond_a9
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d5
 
     .line 1035
     const/4 v5, 0x0
@@ -2985,25 +2994,25 @@
     .end local v7    # "$i$f$getAvailableCpuPermits":I
     iget v6, v1, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->corePoolSize:I
 
-    if-ne v10, v6, :cond_a
+    if-ne v10, v6, :cond_cc
 
     const/4 v2, 0x1
 
     .end local v5    # "$i$a$-assert-CoroutineScheduler$shutdown$2":I
-    :cond_a
-    if-eqz v2, :cond_b
+    :cond_cc
+    if-eqz v2, :cond_cf
 
-    goto :goto_6
+    goto :goto_d5
 
-    :cond_b
+    :cond_cf
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
 
     throw v2
 
-    :cond_c
-    :goto_6
+    :cond_d5
+    :goto_d5
     sget-object v2, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->parkedWorkersStack$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     .line 376
@@ -3021,18 +3030,18 @@
 
     .line 370
     .local v5, "task":Lkotlinx/coroutines/scheduling/Task;
-    :cond_d
+    :cond_e2
     invoke-virtual {v1, v5}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->runSafely(Lkotlinx/coroutines/scheduling/Task;)V
 
     .end local v5    # "task":Lkotlinx/coroutines/scheduling/Task;
-    goto :goto_5
+    goto :goto_84
 
     .line 1044
     .end local v0    # "created":I
     .local v5, "lock$iv":Ljava/lang/Object;
     .local v6, "$i$f$synchronized":I
     .local v7, "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_e6
     move-exception v0
 
     move-wide/from16 v8, p1
@@ -3043,19 +3052,19 @@
 .end method
 
 .method public final signalCpuWork()V
-    .locals 4
+    .registers 5
 
     .line 439
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryUnpark()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 440
-    :cond_0
+    :cond_7
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -3066,12 +3075,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     return-void
 
     .line 441
-    :cond_1
+    :cond_12
     invoke-direct {p0}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->tryUnpark()Z
 
     .line 442
@@ -3079,7 +3088,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 17
+    .registers 18
 
     .line 535
     move-object/from16 v0, p0
@@ -3119,8 +3128,8 @@
 
     move-result v8
 
-    :goto_0
-    if-ge v7, v8, :cond_2
+    :goto_13
+    if-ge v7, v8, :cond_98
 
     .line 542
     iget-object v9, v0, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->workers:Lkotlinx/coroutines/internal/ResizableAtomicArray;
@@ -3131,13 +3140,13 @@
 
     check-cast v9, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_21
 
-    goto/16 :goto_1
+    goto/16 :goto_94
 
     .line 543
     .local v9, "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
-    :cond_0
+    :cond_21
     iget-object v10, v9, Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;->localQueue:Lkotlinx/coroutines/scheduling/WorkQueue;
 
     invoke-virtual {v10}, Lkotlinx/coroutines/scheduling/WorkQueue;->getSize$kotlinx_coroutines_core()I
@@ -3156,26 +3165,26 @@
 
     aget v11, v12, v11
 
-    packed-switch v11, :pswitch_data_0
+    packed-switch v11, :pswitch_data_18c
 
-    goto :goto_1
+    goto :goto_94
 
     .line 556
-    :pswitch_0
+    :pswitch_35
     add-int/lit8 v5, v5, 0x1
 
     .line 558
-    goto :goto_1
+    goto :goto_94
 
     .line 552
-    :pswitch_1
+    :pswitch_38
     add-int/lit8 v4, v4, 0x1
 
     .line 555
     nop
 
     .line 556
-    if-lez v10, :cond_1
+    if-lez v10, :cond_94
 
     move-object v11, v6
 
@@ -3201,10 +3210,10 @@
 
     invoke-interface {v11, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_94
 
     .line 548
-    :pswitch_2
+    :pswitch_57
     add-int/lit8 v3, v3, 0x1
 
     .line 551
@@ -3235,10 +3244,10 @@
 
     invoke-interface {v11, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_94
 
     .line 545
-    :pswitch_3
+    :pswitch_74
     add-int/lit8 v2, v2, 0x1
 
     .line 547
@@ -3269,10 +3278,10 @@
 
     invoke-interface {v11, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_94
 
     .line 544
-    :pswitch_4
+    :pswitch_91
     add-int/lit8 v1, v1, 0x1
 
     .line 545
@@ -3281,14 +3290,14 @@
     .line 541
     .end local v9    # "worker":Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;
     .end local v10    # "queueSize":I
-    :cond_1
-    :goto_1
+    :cond_94
+    :goto_94
     add-int/lit8 v7, v7, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .end local v7    # "index":I
-    :cond_2
+    :cond_98
     sget-object v7, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->controlState$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     .line 561
@@ -3626,12 +3635,12 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18c
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_91
+        :pswitch_74
+        :pswitch_57
+        :pswitch_38
+        :pswitch_35
     .end packed-switch
 .end method

@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,6 +85,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v1
@@ -104,32 +105,33 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 317
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->closed:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_24
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     monitor-exit p0
 
     return-void
 
     .line 318
-    :cond_0
+    :cond_7
     const/4 v0, 0x1
 
-    :try_start_1
+    :try_start_8
     iput-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->closed:Z
 
     .line 319
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -143,6 +145,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->timeout:Lokio/ForwardingTimeout;
 
+    # invokes: Lokhttp3/internal/http1/Http1ExchangeCodec;->detachTimeout(Lokio/ForwardingTimeout;)V
     invoke-static {v0, v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$detachTimeout(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokio/ForwardingTimeout;)V
 
     .line 321
@@ -151,8 +154,8 @@
     const/4 v1, 0x3
 
     invoke-static {v0, v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$setState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_22
+    .catchall {:try_start_8 .. :try_end_22} :catchall_24
 
     .line 322
     monitor-exit p0
@@ -161,46 +164,47 @@
 
     .line 316
     .end local p0    # "this":Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;
-    :catchall_0
+    :catchall_24
     move-exception v0
 
-    :try_start_2
+    :try_start_25
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_26
+    .catchall {:try_start_25 .. :try_end_26} :catchall_24
 
     throw v0
 .end method
 
 .method public declared-synchronized flush()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 311
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->closed:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_12
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     monitor-exit p0
 
     return-void
 
     .line 312
-    :cond_0
-    :try_start_1
+    :cond_7
+    :try_start_7
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_7 .. :try_end_10} :catchall_12
 
     .line 313
     monitor-exit p0
@@ -209,19 +213,19 @@
 
     .line 310
     .end local p0    # "this":Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;
-    :catchall_0
+    :catchall_12
     move-exception v0
 
-    :try_start_2
+    :try_start_13
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_14
+    .catchall {:try_start_13 .. :try_end_14} :catchall_12
 
     throw v0
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 297
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->timeout:Lokio/ForwardingTimeout;
@@ -232,7 +236,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 3
+    .registers 7
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -243,21 +247,22 @@
     .line 300
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     .line 301
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     return-void
 
     .line 303
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -267,6 +272,7 @@
     .line 304
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -278,6 +284,7 @@
     .line 305
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -287,6 +294,7 @@
     .line 306
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -297,7 +305,7 @@
     return-void
 
     .line 500
-    :cond_1
+    :cond_37
     const/4 v0, 0x0
 
     .line 300

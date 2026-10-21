@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;Ljava/util/Comparator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 .end method
 
 .method private static calculateSize(Ljava/util/List;Ljava/util/Comparator;)I
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -118,12 +118,12 @@
 
     .line 443
     .local v2, "r":I
-    :goto_0
+    :goto_3
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_1
+    if-ge v1, v3, :cond_2e
 
     .line 444
     add-int/lit8 v3, v1, -0x1
@@ -142,7 +142,7 @@
 
     .line 445
     .local v3, "comparison":I
-    if-gez v3, :cond_0
+    if-gez v3, :cond_28
 
     .line 447
     invoke-static {v1, v2}, Lcom/google/common/math/IntMath;->binomial(II)I
@@ -159,13 +159,13 @@
     .line 449
     const v4, 0x7fffffff
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_28
 
     .line 450
     return v4
 
     .line 453
-    :cond_0
+    :cond_28
     add-int/lit8 v1, v1, 0x1
 
     .line 454
@@ -175,10 +175,10 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 455
-    goto :goto_0
+    goto :goto_3
 
     .line 456
-    :cond_1
+    :cond_2e
     invoke-static {v1, v2}, Lcom/google/common/math/IntMath;->binomial(II)I
 
     move-result v3
@@ -193,7 +193,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -203,7 +203,7 @@
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationCollection;, "Lcom/google/common/collect/Collections2$OrderedPermutationCollection<TE;>;"
     instance-of v0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 477
     move-object v0, p1
@@ -214,6 +214,7 @@
     .local v0, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     iget-object v1, p0, Lcom/google/common/collect/Collections2$OrderedPermutationCollection;->inputList:Lcom/google/common/collect/ImmutableList;
 
+    # invokes: Lcom/google/common/collect/Collections2;->isPermutation(Ljava/util/List;Ljava/util/List;)Z
     invoke-static {v1, v0}, Lcom/google/common/collect/Collections2;->access$000(Ljava/util/List;Ljava/util/List;)Z
 
     move-result v1
@@ -222,14 +223,14 @@
 
     .line 480
     .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<*>;"
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 466
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationCollection;, "Lcom/google/common/collect/Collections2$OrderedPermutationCollection<TE;>;"
@@ -239,7 +240,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -263,7 +264,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 461
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationCollection;, "Lcom/google/common/collect/Collections2$OrderedPermutationCollection<TE;>;"
@@ -273,7 +274,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 485
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationCollection;, "Lcom/google/common/collect/Collections2$OrderedPermutationCollection<TE;>;"

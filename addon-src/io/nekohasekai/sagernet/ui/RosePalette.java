@@ -31,8 +31,8 @@ public final class RosePalette {
  private static class State {boolean light;ColorStateList button,text,link,image,progress,indeterminate,thumb,track;int highlight;}
  public static int accent(Context c){return LocalAppearanceSettings.dark(c)?0xffffffff:ACCENT;}
  public static int capsuleSurface(Context c){return LocalAppearanceSettings.dark(c)?0xff292b2f:0xffffffff;}
- public static int nodeFill(boolean dark,boolean selected){return dark?(selected?0xff393039:0xff292a30):selected?SELECTED:0xffffffff;}
- public static int nodeBorder(boolean dark,boolean selected){return dark?(selected?0xff6c4d5d:0):selected?0xffe8c2d2:BORDER;}
+ public static int nodeFill(boolean dark,boolean selected){return dark?(selected?0xff3b3039:0xff303137):selected?SELECTED:0xfff8f7f9;}
+ public static int nodeBorder(boolean dark,boolean selected){return selected?(dark?0xff6c4d5d:0xffe8c2d2):0;}
  private static ColorStateList controls(boolean track){return new ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{android.R.attr.state_checked},new int[]{android.R.attr.state_selected},new int[0]},new int[]{0xffe4d3db,track?0xffefd9e2:ACCENT,ACCENT,track?0xffeeecef:0xffaaa5ad});}
  public static void install(Activity activity){
   if(activities.containsKey(activity))return;activities.put(activity,true);
@@ -46,15 +46,14 @@ public final class RosePalette {
   void schedule(){if(!posted){posted=true;root.postDelayed(this,120);}}
   public void run(){
    posted=false;if(!root.isAttachedToWindow())return;
-   View capsule=root.findViewById(0x7f0a01e0);
-   if(FullScreenBackdrop.isTransitioning(root)||HomeSwipeController.isMoving()||(capsule!=null&&capsule.getTag(0x7f0a0f48)!=null)){schedule();return;}
+   if(DrawerWorkGate.defer(root,this)){posted=true;return;}
    long now=android.os.SystemClock.uptimeMillis();
    if(last!=0&&now-last<500){posted=true;root.postDelayed(this,500-(now-last));return;}
    last=now;boolean light=!LocalAppearanceSettings.dark(root.getContext());
    backdrop(root.findViewById(android.R.id.content));walk(root,light,false);
   }
   public void onViewAttachedToWindow(View view){schedule();}
-  public void onViewDetachedFromWindow(View view){root.removeCallbacks(this);posted=false;}
+  public void onViewDetachedFromWindow(View view){root.removeCallbacks(this);DrawerWorkGate.cancel(root);posted=false;}
  }
  public static void prepareForDisplay(View root){
   if(root==null)return;prepare(root);if(root.getTag(0x7f0a0f7b)!=null)return;

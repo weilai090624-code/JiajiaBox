@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Lcom/google/android/material/color/DynamicColorsOptions$1;
@@ -49,13 +49,14 @@
 .end method
 
 .method private constructor <init>(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Lcom/google/android/material/color/DynamicColorsOptions$Builder;
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
+    # getter for: Lcom/google/android/material/color/DynamicColorsOptions$Builder;->themeOverlay:I
     invoke-static {p1}, Lcom/google/android/material/color/DynamicColorsOptions$Builder;->access$000(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)I
 
     move-result v0
@@ -63,6 +64,7 @@
     iput v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->themeOverlay:I
 
     .line 62
+    # getter for: Lcom/google/android/material/color/DynamicColorsOptions$Builder;->precondition:Lcom/google/android/material/color/DynamicColors$Precondition;
     invoke-static {p1}, Lcom/google/android/material/color/DynamicColorsOptions$Builder;->access$100(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)Lcom/google/android/material/color/DynamicColors$Precondition;
 
     move-result-object v0
@@ -70,6 +72,7 @@
     iput-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->precondition:Lcom/google/android/material/color/DynamicColors$Precondition;
 
     .line 63
+    # getter for: Lcom/google/android/material/color/DynamicColorsOptions$Builder;->onAppliedCallback:Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
     invoke-static {p1}, Lcom/google/android/material/color/DynamicColorsOptions$Builder;->access$200(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
 
     move-result-object v0
@@ -77,13 +80,15 @@
     iput-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->onAppliedCallback:Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
 
     .line 64
+    # getter for: Lcom/google/android/material/color/DynamicColorsOptions$Builder;->contentBasedSource:Landroid/graphics/Bitmap;
     invoke-static {p1}, Lcom/google/android/material/color/DynamicColorsOptions$Builder;->access$300(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 65
+    # getter for: Lcom/google/android/material/color/DynamicColorsOptions$Builder;->contentBasedSource:Landroid/graphics/Bitmap;
     invoke-static {p1}, Lcom/google/android/material/color/DynamicColorsOptions$Builder;->access$300(Lcom/google/android/material/color/DynamicColorsOptions$Builder;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -99,12 +104,12 @@
     iput-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->contentBasedSeedColor:Ljava/lang/Integer;
 
     .line 67
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/color/DynamicColorsOptions$Builder;Lcom/google/android/material/color/DynamicColorsOptions$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/color/DynamicColorsOptions$Builder;
     .param p2, "x1"    # Lcom/google/android/material/color/DynamicColorsOptions$1;
 
@@ -115,7 +120,7 @@
 .end method
 
 .method static synthetic access$400()Lcom/google/android/material/color/DynamicColors$Precondition;
-    .locals 1
+    .registers 1
 
     .line 39
     sget-object v0, Lcom/google/android/material/color/DynamicColorsOptions;->ALWAYS_ALLOW:Lcom/google/android/material/color/DynamicColors$Precondition;
@@ -124,7 +129,7 @@
 .end method
 
 .method static synthetic access$500()Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
-    .locals 1
+    .registers 1
 
     .line 39
     sget-object v0, Lcom/google/android/material/color/DynamicColorsOptions;->NO_OP_CALLBACK:Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
@@ -133,7 +138,7 @@
 .end method
 
 .method private static extractSeedColorFromImage(Landroid/graphics/Bitmap;)I
-    .locals 11
+    .registers 12
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 146
@@ -202,7 +207,7 @@
 
 # virtual methods
 .method public getContentBasedSeedColor()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->contentBasedSeedColor:Ljava/lang/Integer;
@@ -211,7 +216,7 @@
 .end method
 
 .method public getOnAppliedCallback()Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->onAppliedCallback:Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
@@ -220,7 +225,7 @@
 .end method
 
 .method public getPrecondition()Lcom/google/android/material/color/DynamicColors$Precondition;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->precondition:Lcom/google/android/material/color/DynamicColors$Precondition;
@@ -229,7 +234,7 @@
 .end method
 
 .method public getThemeOverlay()I
-    .locals 1
+    .registers 2
 
     .line 72
     iget v0, p0, Lcom/google/android/material/color/DynamicColorsOptions;->themeOverlay:I

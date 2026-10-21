@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>([Z)V
-    .locals 2
+    .registers 4
     .param p1, "array"    # [Z
 
     .line 386
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>([ZII)V
-    .locals 0
+    .registers 4
     .param p1, "array"    # [Z
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -90,7 +90,7 @@
     .line 414
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
 
@@ -107,28 +107,29 @@
 
     iget v3, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Booleans;->indexOf([ZZII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Booleans;->access$000([ZZII)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     .line 414
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -137,16 +138,16 @@
     .line 463
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 464
     return v0
 
     .line 466
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2f
 
     .line 467
     move-object v1, p1
@@ -167,18 +168,18 @@
 
     const/4 v4, 0x0
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_17
 
     .line 470
     return v4
 
     .line 472
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_18
+    if-ge v3, v2, :cond_2e
 
     .line 473
     iget-object v5, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
@@ -197,26 +198,26 @@
 
     aget-boolean v6, v6, v7
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_2b
 
     .line 474
     return v4
 
     .line 472
-    :cond_2
+    :cond_2b
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 477
     .end local v3    # "i":I
-    :cond_3
+    :cond_2e
     return v0
 
     .line 479
     .end local v1    # "that":Lcom/google/common/primitives/Booleans$BooleanArrayAsList;
     .end local v2    # "size":I
-    :cond_4
+    :cond_2f
     invoke-super {p0, p1}, Ljava/util/AbstractList;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -225,7 +226,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 407
@@ -252,7 +253,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 378
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->get(I)Ljava/lang/Boolean;
@@ -263,7 +264,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 484
     const/4 v0, 0x1
@@ -273,10 +274,10 @@
     iget v1, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->start:I
 
     .local v1, "i":I
-    :goto_0
+    :goto_3
     iget v2, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 486
     mul-int/lit8 v2, v0, 0x1f
@@ -294,16 +295,16 @@
     .line 485
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 488
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -312,7 +313,7 @@
     .line 421
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 422
     iget-object v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
@@ -329,13 +330,14 @@
 
     iget v3, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Booleans;->indexOf([ZZII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Booleans;->access$000([ZZII)I
 
     move-result v0
 
     .line 423
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 424
     iget v1, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->start:I
@@ -346,14 +348,14 @@
 
     .line 427
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 402
     const/4 v0, 0x0
@@ -362,7 +364,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -371,7 +373,7 @@
     .line 433
     instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 434
     iget-object v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
@@ -388,13 +390,14 @@
 
     iget v3, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Booleans;->lastIndexOf([ZZII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Booleans;->access$100([ZZII)I
 
     move-result v0
 
     .line 435
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 436
     iget v1, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->start:I
@@ -405,14 +408,14 @@
 
     .line 439
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public set(ILjava/lang/Boolean;)Ljava/lang/Boolean;
-    .locals 4
+    .registers 7
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Boolean;
 
@@ -461,7 +464,7 @@
 .end method
 
 .method public bridge synthetic set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 378
     check-cast p2, Ljava/lang/Boolean;
@@ -474,7 +477,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 397
     iget v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
@@ -487,7 +490,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 5
+    .registers 8
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -509,7 +512,7 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 455
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_e
 
     .line 456
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -519,7 +522,7 @@
     return-object v1
 
     .line 458
-    :cond_0
+    :cond_e
     new-instance v1, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;
 
     iget-object v2, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
@@ -538,7 +541,7 @@
 .end method
 
 .method toBooleanArray()[Z
-    .locals 3
+    .registers 4
 
     .line 502
     iget-object v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
@@ -555,7 +558,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 493
     new-instance v0, Ljava/lang/StringBuilder;
@@ -576,16 +579,16 @@
 
     aget-boolean v1, v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     const-string v1, "[true"
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const-string v1, "[false"
 
-    :goto_0
+    :goto_18
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 495
@@ -594,36 +597,36 @@
     add-int/lit8 v1, v1, 0x1
 
     .local v1, "i":I
-    :goto_1
+    :goto_1f
     iget v2, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_34
 
     .line 496
     iget-object v2, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;->array:[Z
 
     aget-boolean v2, v2, v1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     const-string v2, ", true"
 
-    goto :goto_2
+    goto :goto_2e
 
-    :cond_1
+    :cond_2c
     const-string v2, ", false"
 
-    :goto_2
+    :goto_2e
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 495
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 498
     .end local v1    # "i":I
-    :cond_2
+    :cond_34
     const/16 v1, 0x5d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

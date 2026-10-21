@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/OnBackPressedDispatcher;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/activity/OnBackPressedDispatcher$2;->this$0:Landroidx/activity/OnBackPressedDispatcher;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 123
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke(Landroidx/activity/BackEventCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroidx/activity/BackEventCompat;
 
     const-string v0, "backEvent"
@@ -93,6 +93,7 @@
     .line 125
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$2;->this$0:Landroidx/activity/OnBackPressedDispatcher;
 
+    # invokes: Landroidx/activity/OnBackPressedDispatcher;->onBackProgressed(Landroidx/activity/BackEventCompat;)V
     invoke-static {v0, p1}, Landroidx/activity/OnBackPressedDispatcher;->access$onBackProgressed(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/BackEventCompat;)V
 
     return-void

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     .line 265
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic onScaleChanged(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 265
     check-cast p1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -57,12 +57,13 @@
 .end method
 
 .method public onScaleChanged(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 3
+    .registers 5
     .param p1, "fab"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 268
     iget-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
     invoke-static {v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$500(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v0
@@ -72,31 +73,32 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabAnchorMode:I
     invoke-static {v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$400(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v1
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1a
 
     .line 270
     invoke-virtual {p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getScaleY()F
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 271
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     .line 268
-    :goto_0
+    :goto_1b
     invoke-virtual {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setInterpolation(F)V
 
     .line 272
@@ -104,7 +106,7 @@
 .end method
 
 .method public bridge synthetic onTranslationChanged(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 265
     check-cast p1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -115,25 +117,26 @@
 .end method
 
 .method public onTranslationChanged(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 5
+    .registers 7
     .param p1, "fab"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 276
     iget-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabAnchorMode:I
     invoke-static {v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$400(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     .line 277
     return-void
 
     .line 279
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getTranslationX()F
 
     move-result v0
@@ -142,6 +145,7 @@
     .local v0, "horizontalOffset":F
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getTopEdgeTreatment()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
     invoke-static {v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$600(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
 
     move-result-object v1
@@ -152,11 +156,12 @@
 
     cmpl-float v1, v1, v0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 281
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getTopEdgeTreatment()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
     invoke-static {v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$600(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
 
     move-result-object v1
@@ -166,6 +171,7 @@
     .line 282
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
     invoke-static {v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$500(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v1
@@ -173,7 +179,7 @@
     invoke-virtual {v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->invalidateSelf()V
 
     .line 286
-    :cond_1
+    :cond_2e
     invoke-virtual {p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getTranslationY()F
 
     move-result v1
@@ -190,6 +196,7 @@
     .local v1, "verticalOffset":F
     iget-object v3, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getTopEdgeTreatment()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
     invoke-static {v3}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$600(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
 
     move-result-object v3
@@ -200,11 +207,12 @@
 
     cmpl-float v3, v3, v1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_58
 
     .line 288
     iget-object v3, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getTopEdgeTreatment()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
     invoke-static {v3}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$600(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;
 
     move-result-object v3
@@ -214,6 +222,7 @@
     .line 289
     iget-object v3, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
     invoke-static {v3}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$500(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v3
@@ -221,9 +230,10 @@
     invoke-virtual {v3}, Lcom/google/android/material/shape/MaterialShapeDrawable;->invalidateSelf()V
 
     .line 291
-    :cond_2
+    :cond_58
     iget-object v3, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$2;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
     invoke-static {v3}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$500(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v3
@@ -233,14 +243,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_68
 
     invoke-virtual {p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getScaleY()F
 
     move-result v2
 
     .line 291
-    :cond_3
+    :cond_68
     invoke-virtual {v3, v2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setInterpolation(F)V
 
     .line 293

@@ -29,13 +29,14 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ArrayTable;)V
-    .locals 1
+    .registers 3
 
     .line 758
     .local p0, "this":Lcom/google/common/collect/ArrayTable$RowMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.RowMap;"
     iput-object p1, p0, Lcom/google/common/collect/ArrayTable$RowMap;->this$0:Lcom/google/common/collect/ArrayTable;
 
     .line 759
+    # getter for: Lcom/google/common/collect/ArrayTable;->rowKeyToIndex:Lcom/google/common/collect/ImmutableMap;
     invoke-static {p1}, Lcom/google/common/collect/ArrayTable;->access$300(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
@@ -49,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ArrayTable;Lcom/google/common/collect/ArrayTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ArrayTable;
     .param p2, "x1"    # Lcom/google/common/collect/ArrayTable$1;
 
@@ -63,7 +64,7 @@
 
 # virtual methods
 .method getKeyRole()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 764
     .local p0, "this":Lcom/google/common/collect/ArrayTable$RowMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.RowMap;"
@@ -73,7 +74,7 @@
 .end method
 
 .method bridge synthetic getValue(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 756
     .local p0, "this":Lcom/google/common/collect/ArrayTable$RowMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.RowMap;"
@@ -85,7 +86,7 @@
 .end method
 
 .method getValue(I)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,7 +108,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -123,7 +124,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;",
@@ -149,7 +150,7 @@
 .end method
 
 .method bridge synthetic setValue(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 756
     .local p0, "this":Lcom/google/common/collect/ArrayTable$RowMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.RowMap;"
@@ -163,7 +164,7 @@
 .end method
 
 .method setValue(ILjava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -96,7 +96,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,7 +105,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/time/Duration$Companion;-><init>()V
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private final getDays-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$days"    # D
 
     .line 199
@@ -127,7 +127,7 @@
 .end method
 
 .method private final getDays-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$days"    # I
 
     .line 185
@@ -141,7 +141,7 @@
 .end method
 
 .method private final getDays-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$days"    # J
 
     .line 189
@@ -155,25 +155,25 @@
 .end method
 
 .method public static synthetic getDays-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getDays-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getDays-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getHours-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$hours"    # D
 
     .line 180
@@ -187,7 +187,7 @@
 .end method
 
 .method private final getHours-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$hours"    # I
 
     .line 166
@@ -201,7 +201,7 @@
 .end method
 
 .method private final getHours-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$hours"    # J
 
     .line 170
@@ -215,25 +215,25 @@
 .end method
 
 .method public static synthetic getHours-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getHours-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getHours-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getMicroseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$microseconds"    # D
 
     .line 104
@@ -247,7 +247,7 @@
 .end method
 
 .method private final getMicroseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$microseconds"    # I
 
     .line 90
@@ -261,7 +261,7 @@
 .end method
 
 .method private final getMicroseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$microseconds"    # J
 
     .line 94
@@ -275,25 +275,25 @@
 .end method
 
 .method public static synthetic getMicroseconds-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getMicroseconds-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getMicroseconds-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getMilliseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$milliseconds"    # D
 
     .line 123
@@ -307,7 +307,7 @@
 .end method
 
 .method private final getMilliseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$milliseconds"    # I
 
     .line 109
@@ -321,7 +321,7 @@
 .end method
 
 .method private final getMilliseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$milliseconds"    # J
 
     .line 113
@@ -335,25 +335,25 @@
 .end method
 
 .method public static synthetic getMilliseconds-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getMilliseconds-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getMilliseconds-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getMinutes-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$minutes"    # D
 
     .line 161
@@ -367,7 +367,7 @@
 .end method
 
 .method private final getMinutes-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$minutes"    # I
 
     .line 147
@@ -381,7 +381,7 @@
 .end method
 
 .method private final getMinutes-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$minutes"    # J
 
     .line 151
@@ -395,25 +395,25 @@
 .end method
 
 .method public static synthetic getMinutes-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getMinutes-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getMinutes-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getNanoseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$nanoseconds"    # D
 
     .line 85
@@ -427,7 +427,7 @@
 .end method
 
 .method private final getNanoseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$nanoseconds"    # I
 
     .line 71
@@ -441,7 +441,7 @@
 .end method
 
 .method private final getNanoseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$nanoseconds"    # J
 
     .line 75
@@ -455,25 +455,25 @@
 .end method
 
 .method public static synthetic getNanoseconds-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getNanoseconds-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getNanoseconds-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private final getSeconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "$this$seconds"    # D
 
     .line 142
@@ -487,7 +487,7 @@
 .end method
 
 .method private final getSeconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "$this$seconds"    # I
 
     .line 128
@@ -501,7 +501,7 @@
 .end method
 
 .method private final getSeconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "$this$seconds"    # J
 
     .line 132
@@ -515,19 +515,19 @@
 .end method
 
 .method public static synthetic getSeconds-UwyO8pc$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getSeconds-UwyO8pc$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getSeconds-UwyO8pc$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
@@ -535,7 +535,7 @@
 
 # virtual methods
 .method public final convert(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
-    .locals 2
+    .registers 7
     .param p1, "value"    # D
     .param p3, "sourceUnit"    # Lkotlin/time/DurationUnit;
     .param p4, "targetUnit"    # Lkotlin/time/DurationUnit;
@@ -557,7 +557,7 @@
 .end method
 
 .method public final synthetic days-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.days\' extension property from Duration.Companion instead."
@@ -586,7 +586,7 @@
 .end method
 
 .method public final synthetic days-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.days\' extension property from Duration.Companion instead."
@@ -615,7 +615,7 @@
 .end method
 
 .method public final synthetic days-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.days\' extension property from Duration.Companion instead."
@@ -644,9 +644,10 @@
 .end method
 
 .method public final getINFINITE-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     .line 59
+    # getter for: Lkotlin/time/Duration;->INFINITE:J
     invoke-static {}, Lkotlin/time/Duration;->access$getINFINITE$cp()J
 
     move-result-wide v0
@@ -655,9 +656,10 @@
 .end method
 
 .method public final getNEG_INFINITE-UwyO8pc$kotlin_stdlib()J
-    .locals 2
+    .registers 3
 
     .line 60
+    # getter for: Lkotlin/time/Duration;->NEG_INFINITE:J
     invoke-static {}, Lkotlin/time/Duration;->access$getNEG_INFINITE$cp()J
 
     move-result-wide v0
@@ -666,9 +668,10 @@
 .end method
 
 .method public final getZERO-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     .line 56
+    # getter for: Lkotlin/time/Duration;->ZERO:J
     invoke-static {}, Lkotlin/time/Duration;->access$getZERO$cp()J
 
     move-result-wide v0
@@ -677,7 +680,7 @@
 .end method
 
 .method public final synthetic hours-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.hours\' extension property from Duration.Companion instead."
@@ -706,7 +709,7 @@
 .end method
 
 .method public final synthetic hours-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.hours\' extension property from Duration.Companion instead."
@@ -735,7 +738,7 @@
 .end method
 
 .method public final synthetic hours-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.hours\' extension property from Duration.Companion instead."
@@ -764,7 +767,7 @@
 .end method
 
 .method public final synthetic microseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.microseconds\' extension property from Duration.Companion instead."
@@ -793,7 +796,7 @@
 .end method
 
 .method public final synthetic microseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.microseconds\' extension property from Duration.Companion instead."
@@ -822,7 +825,7 @@
 .end method
 
 .method public final synthetic microseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.microseconds\' extension property from Duration.Companion instead."
@@ -851,7 +854,7 @@
 .end method
 
 .method public final synthetic milliseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.milliseconds\' extension property from Duration.Companion instead."
@@ -880,7 +883,7 @@
 .end method
 
 .method public final synthetic milliseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.milliseconds\' extension property from Duration.Companion instead."
@@ -909,7 +912,7 @@
 .end method
 
 .method public final synthetic milliseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.milliseconds\' extension property from Duration.Companion instead."
@@ -938,7 +941,7 @@
 .end method
 
 .method public final synthetic minutes-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.minutes\' extension property from Duration.Companion instead."
@@ -967,7 +970,7 @@
 .end method
 
 .method public final synthetic minutes-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.minutes\' extension property from Duration.Companion instead."
@@ -996,7 +999,7 @@
 .end method
 
 .method public final synthetic minutes-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.minutes\' extension property from Duration.Companion instead."
@@ -1025,7 +1028,7 @@
 .end method
 
 .method public final synthetic nanoseconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.nanoseconds\' extension property from Duration.Companion instead."
@@ -1054,7 +1057,7 @@
 .end method
 
 .method public final synthetic nanoseconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.nanoseconds\' extension property from Duration.Companion instead."
@@ -1083,7 +1086,7 @@
 .end method
 
 .method public final synthetic nanoseconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.nanoseconds\' extension property from Duration.Companion instead."
@@ -1112,7 +1115,7 @@
 .end method
 
 .method public final parse-UwyO8pc(Ljava/lang/String;)J
-    .locals 4
+    .registers 6
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -1125,18 +1128,19 @@
     .line 398
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
+    # invokes: Lkotlin/time/DurationKt;->parseDuration(Ljava/lang/String;Z)J
     invoke-static {p1, v0}, Lkotlin/time/DurationKt;->access$parseDuration(Ljava/lang/String;Z)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_b} :catch_c
 
     .line 401
     return-wide v0
 
     .line 399
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 400
@@ -1177,7 +1181,7 @@
 .end method
 
 .method public final parseIsoString-UwyO8pc(Ljava/lang/String;)J
-    .locals 4
+    .registers 6
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -1190,18 +1194,19 @@
     .line 419
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_7
+    # invokes: Lkotlin/time/DurationKt;->parseDuration(Ljava/lang/String;Z)J
     invoke-static {p1, v0}, Lkotlin/time/DurationKt;->access$parseDuration(Ljava/lang/String;Z)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_b} :catch_c
 
     .line 422
     return-wide v0
 
     .line 420
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 421
@@ -1242,7 +1247,7 @@
 .end method
 
 .method public final parseIsoStringOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -1255,7 +1260,8 @@
     .line 449
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_7
+    # invokes: Lkotlin/time/DurationKt;->parseDuration(Ljava/lang/String;Z)J
     invoke-static {p1, v0}, Lkotlin/time/DurationKt;->access$parseDuration(Ljava/lang/String;Z)J
 
     move-result-wide v0
@@ -1263,13 +1269,13 @@
     invoke-static {v0, v1}, Lkotlin/time/Duration;->box-impl(J)Lkotlin/time/Duration;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_13
 
     .line 450
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 451
@@ -1280,12 +1286,12 @@
 
     .line 452
     .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public final parseOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -1298,7 +1304,8 @@
     .line 436
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
+    # invokes: Lkotlin/time/DurationKt;->parseDuration(Ljava/lang/String;Z)J
     invoke-static {p1, v0}, Lkotlin/time/DurationKt;->access$parseDuration(Ljava/lang/String;Z)J
 
     move-result-wide v0
@@ -1306,13 +1313,13 @@
     invoke-static {v0, v1}, Lkotlin/time/Duration;->box-impl(J)Lkotlin/time/Duration;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_13
 
     .line 437
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 438
@@ -1323,12 +1330,12 @@
 
     .line 439
     .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public final synthetic seconds-UwyO8pc(D)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Double.seconds\' extension property from Duration.Companion instead."
@@ -1357,7 +1364,7 @@
 .end method
 
 .method public final synthetic seconds-UwyO8pc(I)J
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Int.seconds\' extension property from Duration.Companion instead."
@@ -1386,7 +1393,7 @@
 .end method
 
 .method public final synthetic seconds-UwyO8pc(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use \'Long.seconds\' extension property from Duration.Companion instead."

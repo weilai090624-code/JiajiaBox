@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/builders/MapBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "map"    # Lkotlin/collections/builders/MapBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 557
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->next()Lkotlin/collections/builders/MapBuilder$EntryRef;
@@ -105,7 +105,7 @@
 .end method
 
 .method public next()Lkotlin/collections/builders/MapBuilder$EntryRef;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,11 +126,12 @@
 
     move-result-object v1
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2e
 
     .line 562
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->getIndex$kotlin_stdlib()I
@@ -165,7 +166,7 @@
 
     .line 561
     .end local v0    # "result":Lkotlin/collections/builders/MapBuilder$EntryRef;
-    :cond_0
+    :cond_2e
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -174,7 +175,7 @@
 .end method
 
 .method public final nextAppendString(Ljava/lang/StringBuilder;)V
-    .locals 4
+    .registers 6
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     const-string v0, "sb"
@@ -190,11 +191,12 @@
 
     move-result-object v1
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_63
 
     .line 578
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->getIndex$kotlin_stdlib()I
@@ -212,6 +214,7 @@
 
     move-result-object v0
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->keysArray:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getKeysArray$p(Lkotlin/collections/builders/MapBuilder;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -230,17 +233,17 @@
 
     const-string v2, "(this Map)"
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_39
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_39
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 581
-    :goto_0
+    :goto_3c
     const/16 v1, 0x3d
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -250,6 +253,7 @@
 
     move-result-object v1
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->valuesArray:[Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getValuesArray$p(Lkotlin/collections/builders/MapBuilder;)[Ljava/lang/Object;
 
     move-result-object v1
@@ -268,17 +272,17 @@
 
     move-result-object v3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_5c
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_5f
 
-    :cond_1
+    :cond_5c
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 584
-    :goto_1
+    :goto_5f
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->initNext$kotlin_stdlib()V
 
     .line 585
@@ -287,7 +291,7 @@
     .line 577
     .end local v0    # "key":Ljava/lang/Object;
     .end local v1    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_63
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -296,7 +300,7 @@
 .end method
 
 .method public final nextHashCode$kotlin_stdlib()I
-    .locals 4
+    .registers 5
 
     .line 569
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->getIndex$kotlin_stdlib()I
@@ -307,11 +311,12 @@
 
     move-result-object v1
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_4d
 
     .line 570
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->getIndex$kotlin_stdlib()I
@@ -329,6 +334,7 @@
 
     move-result-object v0
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->keysArray:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getKeysArray$p(Lkotlin/collections/builders/MapBuilder;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -341,22 +347,23 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_31
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$EntriesItr;->getMap$kotlin_stdlib()Lkotlin/collections/builders/MapBuilder;
 
     move-result-object v2
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->valuesArray:[Ljava/lang/Object;
     invoke-static {v2}, Lkotlin/collections/builders/MapBuilder;->access$getValuesArray$p(Lkotlin/collections/builders/MapBuilder;)[Ljava/lang/Object;
 
     move-result-object v2
@@ -369,13 +376,13 @@
 
     aget-object v2, v2, v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_48
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :cond_1
+    :cond_48
     xor-int/2addr v0, v1
 
     .line 572
@@ -387,7 +394,7 @@
 
     .line 569
     .end local v0    # "result":I
-    :cond_2
+    :cond_4d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

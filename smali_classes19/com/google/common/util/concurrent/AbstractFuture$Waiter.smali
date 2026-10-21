@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 202
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
@@ -47,12 +47,13 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 213
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 215
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
     invoke-static {}, Lcom/google/common/util/concurrent/AbstractFuture;->access$200()Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     move-result-object v0
@@ -68,7 +69,7 @@
 .end method
 
 .method constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "unused"    # Z
 
     .line 211
@@ -80,13 +81,14 @@
 
 # virtual methods
 .method setNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
-    .locals 1
+    .registers 3
     .param p1, "next"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
     .end param
 
     .line 221
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
     invoke-static {}, Lcom/google/common/util/concurrent/AbstractFuture;->access$200()Lcom/google/common/util/concurrent/AbstractFuture$AtomicHelper;
 
     move-result-object v0
@@ -98,14 +100,14 @@
 .end method
 
 .method unpark()V
-    .locals 2
+    .registers 3
 
     .line 228
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
     .line 229
     .local v0, "w":Ljava/lang/Thread;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 230
     const/4 v1, 0x0
@@ -116,6 +118,6 @@
     invoke-static {v0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
     .line 233
-    :cond_0
+    :cond_a
     return-void
 .end method

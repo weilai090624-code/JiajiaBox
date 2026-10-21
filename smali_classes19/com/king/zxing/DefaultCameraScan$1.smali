@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/king/zxing/DefaultCameraScan;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/king/zxing/DefaultCameraScan;
 
     .line 118
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
-    .locals 4
+    .registers 6
     .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
     .line 121
@@ -46,15 +46,17 @@
     .local v0, "scale":F
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan$1;->this$0:Lcom/king/zxing/DefaultCameraScan;
 
+    # getter for: Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
     invoke-static {v1}, Lcom/king/zxing/DefaultCameraScan;->access$000(Lcom/king/zxing/DefaultCameraScan;)Landroidx/camera/core/Camera;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 123
     iget-object v1, p0, Lcom/king/zxing/DefaultCameraScan$1;->this$0:Lcom/king/zxing/DefaultCameraScan;
 
+    # getter for: Lcom/king/zxing/DefaultCameraScan;->mCamera:Landroidx/camera/core/Camera;
     invoke-static {v1}, Lcom/king/zxing/DefaultCameraScan;->access$000(Lcom/king/zxing/DefaultCameraScan;)Landroidx/camera/core/Camera;
 
     move-result-object v1
@@ -87,7 +89,7 @@
 
     .line 126
     .end local v1    # "ratio":F
-    :cond_0
+    :cond_2b
     const/4 v1, 0x1
 
     return v1

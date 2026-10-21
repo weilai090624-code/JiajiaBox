@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 308
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
@@ -40,17 +40,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 317
-    :try_start_0
+    :try_start_6
     invoke-static {p3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/google/common/cache/CacheBuilderSpec$LongParser;->parseLong(Lcom/google/common/cache/CacheBuilderSpec;J)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_d} :catch_f
 
     .line 321
     nop
@@ -59,7 +59,7 @@
     return-void
 
     .line 318
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 319
@@ -81,6 +81,7 @@
     .line 320
     const-string v3, "key %s value set to %s, must be integer"
 
+    # invokes: Lcom/google/common/cache/CacheBuilderSpec;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     invoke-static {v3, v2}, Lcom/google/common/cache/CacheBuilderSpec;->access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -91,7 +92,7 @@
 
     .line 314
     .end local v0    # "e":Ljava/lang/NumberFormatException;
-    :cond_0
+    :cond_25
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;

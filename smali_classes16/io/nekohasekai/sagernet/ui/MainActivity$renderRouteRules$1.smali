@@ -75,7 +75,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-Catlj4-6MDHMmxq_xo5nRudQb8(Lio/nekohasekai/sagernet/database/RuleEntity;Landroid/widget/CompoundButton;Z)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->invokeSuspend$lambda$15$lambda$14$lambda$4$lambda$3(Lio/nekohasekai/sagernet/database/RuleEntity;Landroid/widget/CompoundButton;Z)V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$32B7YHWliTjgW-ODcVCzcKIwG4c(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->invokeSuspend$lambda$15$lambda$14$lambda$9(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$K4_y6CNVY_fPiCDZn2Nk_NBqIk8(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/util/List;Landroid/widget/LinearLayout;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->invokeSuspend$lambda$15(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/util/List;Landroid/widget/LinearLayout;)V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$x_HeoR4j3Kmru-445n7BbaNb3Jw(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->invokeSuspend$lambda$15$lambda$14$lambda$8(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/MainActivity;Landroid/widget/LinearLayout;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +136,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$15(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/util/List;Landroid/widget/LinearLayout;)V
-    .locals 19
+    .registers 22
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/MainActivity;
     .param p1, "$rules"    # Ljava/util/List;
     .param p2, "$column"    # Landroid/widget/LinearLayout;
@@ -144,11 +144,12 @@
     .line 816
     move-object/from16 v7, p0
 
+    # getter for: Lio/nekohasekai/sagernet/ui/MainActivity;->glassExpanded:Z
     invoke-static/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$getGlassExpanded$p(Lio/nekohasekai/sagernet/ui/MainActivity;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_226
 
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
 
@@ -160,19 +161,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     move-object/from16 v2, p2
 
-    goto/16 :goto_1
+    goto/16 :goto_228
 
     .line 817
-    :cond_0
+    :cond_18
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 818
     const v0, 0x7f130261
@@ -203,7 +204,7 @@
     return-void
 
     .line 821
-    :cond_1
+    :cond_37
     move-object/from16 v6, p1
 
     check-cast v6, Ljava/lang/Iterable;
@@ -217,12 +218,12 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_40
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_223
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -260,6 +261,7 @@
     .line 824
     const/high16 v3, 0x41400000    # 12.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v3}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v4
@@ -268,12 +270,14 @@
 
     const/high16 v13, 0x41000000    # 8.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v13}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v5
 
     float-to-int v5, v5
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v3}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v3
@@ -282,6 +286,7 @@
 
     const/high16 v14, 0x40c00000    # 6.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v14}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v15
@@ -367,6 +372,7 @@
 
     move-object/from16 v5, v17
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->glassText(Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
     invoke-static/range {v0 .. v5}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$glassText(Lio/nekohasekai/sagernet/ui/MainActivity;Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -415,6 +421,7 @@
 
     move-object/from16 v5, v17
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->glassText(Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
     invoke-static/range {v0 .. v5}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$glassText(Lio/nekohasekai/sagernet/ui/MainActivity;Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -446,6 +453,7 @@
     .local v3, "$i$a$-apply-MainActivity$renderRouteRules$1$1$1$1":I
     const/high16 v4, 0x41000000    # 8.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v4}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v5
@@ -556,7 +564,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_142
 
     .line 1540
     const/4 v0, 0x0
@@ -568,7 +576,7 @@
     .end local v0    # "$i$a$-ifBlank-MainActivity$renderRouteRules$1$1$1$2":I
     const-string v0, "\u2014"
 
-    :cond_2
+    :cond_142
     move-object v2, v0
 
     check-cast v2, Ljava/lang/String;
@@ -582,6 +590,7 @@
 
     move-object/from16 v0, p0
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->glassText(Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
     invoke-static/range {v0 .. v5}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$glassText(Lio/nekohasekai/sagernet/ui/MainActivity;Landroid/widget/TextView;Ljava/lang/String;FZLjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -615,6 +624,7 @@
     .local v4, "$i$a$-apply-MainActivity$renderRouteRules$1$1$1$3":I
     const/high16 v5, 0x40400000    # 3.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v5}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v5
@@ -676,6 +686,7 @@
 
     const-string v3, "\u7f16\u8f91"
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->glassMenuButton(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Landroid/view/View;
     invoke-static {v7, v3, v1}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$glassMenuButton(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Landroid/view/View;
 
     move-result-object v1
@@ -707,6 +718,7 @@
 
     const-string v3, "\u5220\u9664"
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->glassMenuButton(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Landroid/view/View;
     invoke-static {v7, v3, v1}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$glassMenuButton(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Landroid/view/View;
 
     move-result-object v1
@@ -736,6 +748,7 @@
     .local v5, "$i$a$-apply-MainActivity$renderRouteRules$1$1$1$6":I
     const/high16 v2, 0x40c00000    # 6.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v2}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v2
@@ -788,6 +801,7 @@
     .local v4, "$i$a$-apply-MainActivity$renderRouteRules$1$1$1$7":I
     const/high16 v5, 0x40800000    # 4.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v5}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v5
@@ -806,6 +820,7 @@
     invoke-virtual {v15, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 892
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->makeDarkPill()Landroid/widget/FrameLayout;
     invoke-static/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$makeDarkPill(Lio/nekohasekai/sagernet/ui/MainActivity;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -843,6 +858,7 @@
     .local v18, "$i$a$-apply-MainActivity$renderRouteRules$1$1$1$pill$1$1":I
     const/high16 v13, 0x41000000    # 8.0f
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->dp(F)F
     invoke-static {v7, v13}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$dp(Lio/nekohasekai/sagernet/ui/MainActivity;F)F
 
     move-result v13
@@ -923,10 +939,10 @@
     nop
 
     .end local v10    # "element$iv":Ljava/lang/Object;
-    goto/16 :goto_0
+    goto/16 :goto_40
 
     .line 1541
-    :cond_3
+    :cond_223
     move-object/from16 v2, p2
 
     .line 907
@@ -935,15 +951,15 @@
     return-void
 
     .line 816
-    :cond_4
+    :cond_226
     move-object/from16 v2, p2
 
-    :goto_1
+    :goto_228
     return-void
 .end method
 
 .method private static final invokeSuspend$lambda$15$lambda$14$lambda$4$lambda$3(Lio/nekohasekai/sagernet/database/RuleEntity;Landroid/widget/CompoundButton;Z)V
-    .locals 20
+    .registers 23
     .param p0, "$rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .param p2, "isOn"    # Z
 
@@ -1003,11 +1019,12 @@
 .end method
 
 .method private static final invokeSuspend$lambda$15$lambda$14$lambda$8(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/MainActivity;
     .param p1, "$rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     .line 872
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->showRouteEditor(Lio/nekohasekai/sagernet/database/RuleEntity;)V
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$showRouteEditor(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -1016,11 +1033,12 @@
 .end method
 
 .method private static final invokeSuspend$lambda$15$lambda$14$lambda$9(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/MainActivity;
     .param p1, "$rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     .line 879
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->confirmDeleteRoute(Lio/nekohasekai/sagernet/database/RuleEntity;)V
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$confirmDeleteRoute(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/RuleEntity;)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -1031,7 +1049,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1058,7 +1076,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -1072,7 +1090,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1101,7 +1119,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -1110,7 +1128,7 @@
     .line 813
     iget v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$renderRouteRules$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -1121,15 +1139,15 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_2a
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 814
@@ -1148,13 +1166,13 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_28
 
     .line 813
     return-object v0
 
     .line 814
-    :cond_0
+    :cond_28
     move-object v0, p1
 
     move-object p1, v1
@@ -1162,7 +1180,7 @@
     .line 813
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_2a
     check-cast p1, Ljava/util/List;
 
     .line 815
@@ -1198,9 +1216,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

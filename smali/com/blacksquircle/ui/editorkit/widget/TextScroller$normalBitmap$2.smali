@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public final invoke()Landroid/graphics/Bitmap;
-    .locals 6
+    .registers 7
 
     .line 71
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
@@ -76,6 +76,7 @@
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbHeight:I
     invoke-static {v1}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->access$getThumbHeight$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)I
 
     move-result v1
@@ -90,6 +91,7 @@
     .local v0, "bitmap":Landroid/graphics/Bitmap;
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbNormal:Landroid/graphics/drawable/Drawable;
     invoke-static {v1}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->access$getThumbNormal$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -104,6 +106,7 @@
 
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbHeight:I
     invoke-static {v4}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->access$getThumbHeight$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)I
 
     move-result v4
@@ -117,6 +120,7 @@
     .line 73
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbNormal:Landroid/graphics/drawable/Drawable;
     invoke-static {v1}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->access$getThumbNormal$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -132,7 +136,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 70
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$normalBitmap$2;->invoke()Landroid/graphics/Bitmap;

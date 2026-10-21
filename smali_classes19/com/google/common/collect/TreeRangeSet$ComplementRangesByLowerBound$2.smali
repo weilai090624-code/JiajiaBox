@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;Lcom/google/common/collect/Cut;Lcom/google/common/collect/PeekingIterator;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;
 
     .line 605
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -82,7 +82,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Map$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 612
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound$2;->endOfData()Ljava/lang/Object;
@@ -117,14 +117,14 @@
     return-object v0
 
     .line 613
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound$2;->val$positiveItr:Lcom/google/common/collect/PeekingIterator;
 
     invoke-interface {v0}, Lcom/google/common/collect/PeekingIterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 614
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound$2;->val$positiveItr:Lcom/google/common/collect/PeekingIterator;
@@ -155,6 +155,7 @@
     .line 618
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;
 
+    # getter for: Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;->complementLowerBoundWindow:Lcom/google/common/collect/Range;
     invoke-static {v2}, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;->access$100(Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;)Lcom/google/common/collect/Range;
 
     move-result-object v2
@@ -167,7 +168,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_42
 
     .line 619
     iget-object v2, v1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
@@ -181,13 +182,14 @@
     .line 618
     .end local v0    # "positiveRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     .end local v1    # "negativeRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_1
-    goto :goto_0
+    :cond_42
+    goto :goto_6e
 
     .line 621
-    :cond_2
+    :cond_43
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;
 
+    # getter for: Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;->complementLowerBoundWindow:Lcom/google/common/collect/Range;
     invoke-static {v0}, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;->access$100(Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -202,7 +204,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6e
 
     .line 622
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
@@ -236,8 +238,8 @@
 
     .line 621
     .end local v0    # "negativeRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_3
-    :goto_0
+    :cond_6e
+    :goto_6e
     nop
 
     .line 626

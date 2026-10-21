@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 352
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 355
@@ -45,6 +45,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAnimatingShow:Z
     invoke-static {v0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$302(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;Z)Z
 
     .line 357
@@ -52,7 +53,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 361
@@ -63,6 +64,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAnimatingShow:Z
     invoke-static {v0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$302(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;Z)Z
 
     .line 363

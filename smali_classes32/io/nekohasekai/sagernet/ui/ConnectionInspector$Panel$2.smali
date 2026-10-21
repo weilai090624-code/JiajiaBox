@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 123
+    .line 138
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$2;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,21 +46,19 @@
 .method public afterTextChanged(Landroid/text/Editable;)V
     .registers 2
 
-    .line 123
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .registers 5
 
-    .line 123
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .registers 5
 
-    .line 123
+    .line 138
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$2;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->render()V

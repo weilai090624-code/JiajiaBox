@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokio/internal/ResourceFileSystem$Companion$toJarRoot$zip$1;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Lokio/internal/ZipEntry;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "entry"    # Lokio/internal/ZipEntry;
 
     const-string v0, "entry"
@@ -84,6 +84,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 204
+    # getter for: Lokio/internal/ResourceFileSystem;->Companion:Lokio/internal/ResourceFileSystem$Companion;
     invoke-static {}, Lokio/internal/ResourceFileSystem;->access$getCompanion$p()Lokio/internal/ResourceFileSystem$Companion;
 
     move-result-object v0
@@ -92,6 +93,7 @@
 
     move-result-object v1
 
+    # invokes: Lokio/internal/ResourceFileSystem$Companion;->keepPath(Lokio/Path;)Z
     invoke-static {v0, v1}, Lokio/internal/ResourceFileSystem$Companion;->access$keepPath(Lokio/internal/ResourceFileSystem$Companion;Lokio/Path;)Z
 
     move-result v0
@@ -104,7 +106,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 201

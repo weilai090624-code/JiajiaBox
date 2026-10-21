@@ -96,7 +96,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$c3CbiC0pI878XiJbKqjLJYNUwD0(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;ZLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->loop$lambda$8(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;ZLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$xzCPMN0P3Ebje4Soyu7YVVefoBg(Ljava/util/Map;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->stop$lambda$1(Ljava/util/Map;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Data;Lkotlinx/coroutines/CoroutineScope;)V
-    .locals 2
+    .registers 5
     .param p1, "data"    # Lio/nekohasekai/sagernet/bg/BaseService$Data;
     .param p2, "sc"    # Lkotlinx/coroutines/CoroutineScope;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final synthetic access$loop(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method private final loop(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 44
+    .registers 46
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,7 +199,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -211,7 +211,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->label:I
 
@@ -221,9 +221,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;
 
     move-object/from16 v2, p0
@@ -231,7 +231,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;-><init>(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -244,7 +244,7 @@
 
     const-wide/16 v7, 0x0
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_496
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -258,7 +258,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_34
     iget-boolean v5, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->Z$1:Z
 
     .local v5, "profileTrafficStatistics":Z
@@ -306,7 +306,7 @@
 
     const/4 v2, 0x2
 
-    goto/16 :goto_11
+    goto/16 :goto_48a
 
     .end local v5    # "profileTrafficStatistics":Z
     .end local v9    # "showDirectSpeed":Z
@@ -315,7 +315,7 @@
     .end local v13    # "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v14    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .end local v15    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :pswitch_1
+    :pswitch_58
     const/4 v5, 0x0
 
     .local v5, "$i$a$-apply-TrafficLooper$loop$5":I
@@ -358,7 +358,7 @@
 
     const/4 v2, 0x2
 
-    goto/16 :goto_f
+    goto/16 :goto_459
 
     .end local v5    # "$i$a$-apply-TrafficLooper$loop$5":I
     .end local v6    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
@@ -368,7 +368,7 @@
     .end local v13    # "itemBypass":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
     .end local v14    # "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v15    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
-    :pswitch_2
+    :pswitch_7b
     iget-boolean v5, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->Z$1:Z
 
     .local v5, "profileTrafficStatistics":Z
@@ -409,7 +409,7 @@
 
     const/4 v2, 0x2
 
-    goto/16 :goto_c
+    goto/16 :goto_40d
 
     .end local v5    # "profileTrafficStatistics":Z
     .end local v6    # "showDirectSpeed":Z
@@ -419,7 +419,7 @@
     .end local v13    # "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v14    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .end local v15    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :pswitch_3
+    :pswitch_9d
     iget-boolean v5, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->Z$1:Z
 
     .restart local v5    # "profileTrafficStatistics":Z
@@ -461,7 +461,7 @@
 
     move-object v12, v11
 
-    goto/16 :goto_7
+    goto/16 :goto_2f9
 
     .end local v5    # "profileTrafficStatistics":Z
     .end local v6    # "showDirectSpeed":Z
@@ -470,7 +470,7 @@
     .end local v12    # "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v13    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .end local v14    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :pswitch_4
+    :pswitch_be
     iget-boolean v5, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->Z$1:Z
 
     .restart local v5    # "profileTrafficStatistics":Z
@@ -502,7 +502,7 @@
     .restart local v14    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_152
 
     .end local v5    # "profileTrafficStatistics":Z
     .end local v6    # "showDirectSpeed":Z
@@ -511,7 +511,7 @@
     .end local v12    # "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v13    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .end local v14    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :pswitch_5
+    :pswitch_d9
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -525,7 +525,6 @@
     move-result v6
 
     int-to-long v9, v6
-
 
     .line 85
     .restart local v9    # "delayMs":J
@@ -547,14 +546,14 @@
     .local v11, "profileTrafficStatistics":Z
     cmp-long v12, v9, v7
 
-    if-nez v12, :cond_1
+    if-nez v12, :cond_f8
 
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v4
 
     .line 89
-    :cond_1
+    :cond_f8
     const/4 v12, 0x0
 
     .line 90
@@ -615,14 +614,14 @@
     .local v12, "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v13, "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .restart local v14    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :goto_1
+    :goto_126
     iget-object v15, v14, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->sc:Lkotlinx/coroutines/CoroutineScope;
 
     invoke-static {v15}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_17
+    if-eqz v15, :cond_490
 
     .line 96
     iget-object v15, v14, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -638,7 +637,7 @@
 
     const/4 v7, 0x1
 
-    if-nez v15, :cond_3
+    if-nez v15, :cond_155
 
     .line 98
     iput-object v14, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$0:Ljava/lang/Object;
@@ -661,21 +660,21 @@
 
     move-result-object v7
 
-    if-ne v7, v4, :cond_2
+    if-ne v7, v4, :cond_152
 
     .line 83
     return-object v4
 
     .line 99
-    :cond_2
-    :goto_2
+    :cond_152
+    :goto_152
     const-wide/16 v7, 0x0
 
-    goto :goto_1
+    goto :goto_126
 
     .line 102
-    :cond_3
-    if-nez v13, :cond_9
+    :cond_155
+    if-nez v13, :cond_2cf
 
     .line 103
     iget-object v8, v12, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -686,7 +685,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_2c1
 
     .line 104
     .end local v13    # "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
@@ -746,12 +745,12 @@
     move-result-object v13
 
     .end local v13    # "$this$forEach$iv":Ljava/util/Map;
-    :goto_3
+    :goto_192
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_6
+    if-eqz v19, :cond_258
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -788,12 +787,12 @@
     move-result-object v21
 
     .end local v19    # "ents":Ljava/util/List;
-    :goto_4
+    :goto_1b5
     invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_5
+    if-eqz v19, :cond_24d
 
     invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -843,19 +842,19 @@
 
     cmp-long v0, v22, v17
 
-    if-ltz v0, :cond_4
+    if-ltz v0, :cond_1e8
 
     const/16 v38, 0x1
 
-    goto :goto_5
+    goto :goto_1eb
 
-    :cond_4
+    :cond_1e8
     const/4 v0, 0x0
 
     const/16 v38, 0x0
 
     .line 111
-    :goto_5
+    :goto_1eb
     new-instance v0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
 
     .line 112
@@ -972,14 +971,14 @@
 
     .end local v19    # "ent":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v22    # "item":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    goto/16 :goto_4
+    goto/16 :goto_1b5
 
     .line 123
     .end local v24    # "$result":Ljava/lang/Object;
     .end local v41    # "$completion":Lkotlin/coroutines/Continuation;
     .local v0, "$completion":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_5
+    :cond_24d
     move-object/from16 v41, v0
 
     move-object/from16 v24, v3
@@ -997,14 +996,14 @@
 
     const/4 v7, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_192
 
     .line 191
     .end local v24    # "$result":Ljava/lang/Object;
     .end local v41    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v0    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_6
+    :cond_258
     move-object/from16 v41, v0
 
     move-object/from16 v24, v3
@@ -1033,7 +1032,7 @@
 
     cmp-long v0, v2, v17
 
-    if-ltz v0, :cond_7
+    if-ltz v0, :cond_27f
 
     .line 125
     iget-object v0, v12, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -1051,7 +1050,7 @@
     invoke-virtual {v14, v2, v3}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->selectMain(J)V
 
     .line 128
-    :cond_7
+    :cond_27f
     new-instance v0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
 
     .line 129
@@ -1120,7 +1119,7 @@
 
     invoke-virtual {v0, v2}, Llibcore/BoxInstance;->setV2rayStats(Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_2d7
 
     .line 103
     .end local v8    # "tags":Ljava/util/HashSet;
@@ -1128,7 +1127,7 @@
     .end local v41    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v0    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_8
+    :cond_2c1
     move-object/from16 v41, v0
 
     move-object/from16 v24, v3
@@ -1145,14 +1144,14 @@
 
     move-wide/from16 v7, v17
 
-    goto/16 :goto_1
+    goto/16 :goto_126
 
     .line 102
     .end local v24    # "$result":Ljava/lang/Object;
     .end local v41    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v0    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_9
+    :cond_2cf
     move-object/from16 v41, v0
 
     move-object/from16 v24, v3
@@ -1166,7 +1165,7 @@
     .end local v3    # "$result":Ljava/lang/Object;
     .restart local v24    # "$result":Ljava/lang/Object;
     .restart local v41    # "$completion":Lkotlin/coroutines/Continuation;
-    :goto_6
+    :goto_2d7
     iput-object v14, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$0:Ljava/lang/Object;
 
     iput-object v13, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$1:Ljava/lang/Object;
@@ -1191,13 +1190,13 @@
 
     move-object/from16 v4, v23
 
-    if-ne v0, v4, :cond_a
+    if-ne v0, v4, :cond_2f1
 
     .line 83
     return-object v4
 
     .line 134
-    :cond_a
+    :cond_2f1
     move-object v15, v14
 
     move-object/from16 v3, v24
@@ -1220,21 +1219,21 @@
     .local v13, "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v14, "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .local v15, "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :goto_7
+    :goto_2f9
     iget-object v2, v15, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->sc:Lkotlinx/coroutines/CoroutineScope;
 
     invoke-static {v2}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_304
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
     .line 138
-    :cond_b
+    :cond_304
     new-instance v2, Lkotlin/jvm/internal/Ref$LongRef;
 
     invoke-direct {v2}, Lkotlin/jvm/internal/Ref$LongRef;-><init>()V
@@ -1279,12 +1278,12 @@
     move-result-object v0
 
     .end local v0    # "$this$forEach$iv":Ljava/util/Map;
-    :goto_8
+    :goto_326
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_d
+    if-eqz v20, :cond_383
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1308,7 +1307,7 @@
 
     move-result v22
 
-    if-nez v22, :cond_c
+    if-nez v22, :cond_359
 
     .line 144
     move-object/from16 v22, v3
@@ -1338,12 +1337,12 @@
 
     iput-wide v3, v7, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
-    goto :goto_9
+    goto :goto_35d
 
     .line 143
     .end local v22    # "$result":Ljava/lang/Object;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_c
+    :cond_359
     move-object/from16 v22, v3
 
     move-object/from16 v23, v4
@@ -1351,7 +1350,7 @@
     .line 147
     .end local v3    # "$result":Ljava/lang/Object;
     .restart local v22    # "$result":Ljava/lang/Object;
-    :goto_9
+    :goto_35d
     iget-wide v3, v8, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     invoke-virtual/range {v20 .. v20}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTx()J
@@ -1395,12 +1394,12 @@
 
     move-object/from16 v4, v23
 
-    goto :goto_8
+    goto :goto_326
 
     .line 193
     .end local v22    # "$result":Ljava/lang/Object;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :cond_d
+    :cond_383
     move-object/from16 v22, v3
 
     move-object/from16 v23, v4
@@ -1424,7 +1423,7 @@
 
     .line 155
     .end local v7    # "mainRxRate":Lkotlin/jvm/internal/Ref$LongRef;
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_398
 
     invoke-virtual {v12}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTxRate()J
 
@@ -1432,14 +1431,14 @@
 
     move-wide/from16 v29, v24
 
-    goto :goto_a
+    goto :goto_39a
 
-    :cond_e
+    :cond_398
     move-wide/from16 v29, v17
 
     .line 156
-    :goto_a
-    if-eqz v6, :cond_f
+    :goto_39a
+    if-eqz v6, :cond_3a3
 
     invoke-virtual {v12}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getRxRate()J
 
@@ -1447,13 +1446,13 @@
 
     move-wide/from16 v31, v24
 
-    goto :goto_b
+    goto :goto_3a5
 
-    :cond_f
+    :cond_3a3
     move-wide/from16 v31, v17
 
     .line 157
-    :goto_b
+    :goto_3a5
     iget-wide v7, v8, Lkotlin/jvm/internal/Ref$LongRef;->element:J
 
     .line 158
@@ -1496,7 +1495,7 @@
 
     sget-object v2, Lio/nekohasekai/sagernet/bg/BaseService$State;->Connected:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v0, v2, :cond_12
+    if-ne v0, v2, :cond_41a
 
     .line 163
     iget-object v0, v15, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -1519,7 +1518,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_415
 
     .line 165
     iget-object v0, v15, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -1562,13 +1561,13 @@
 
     move-object/from16 v3, v23
 
-    if-ne v0, v3, :cond_10
+    if-ne v0, v3, :cond_407
 
     .line 83
     return-object v3
 
     .line 165
-    :cond_10
+    :cond_407
     move-object/from16 v0, p1
 
     move-object v12, v4
@@ -1584,7 +1583,7 @@
     .local v0, "$completion":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
     .restart local v12    # "itemBypass":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    :goto_c
+    :goto_40d
     move-wide v7, v9
 
     move v9, v5
@@ -1599,7 +1598,7 @@
 
     move-object v13, v12
 
-    goto :goto_e
+    goto :goto_42b
 
     .line 163
     .end local v0    # "$completion":Lkotlin/coroutines/Continuation;
@@ -1610,19 +1609,19 @@
     .restart local v19    # "delayMs":J
     .restart local v22    # "$result":Ljava/lang/Object;
     .restart local p1    # "$completion":Lkotlin/coroutines/Continuation;
-    :cond_11
+    :cond_415
     move-wide/from16 v9, v19
 
     move-object/from16 v3, v23
 
     .end local v19    # "delayMs":J
     .restart local v9    # "delayMs":J
-    goto :goto_d
+    goto :goto_41f
 
     .line 162
     .end local v9    # "delayMs":J
     .restart local v19    # "delayMs":J
-    :cond_12
+    :cond_41a
     move-wide/from16 v9, v19
 
     move-object/from16 v3, v23
@@ -1632,7 +1631,7 @@
     .line 180
     .end local v19    # "delayMs":J
     .restart local v9    # "delayMs":J
-    :goto_d
+    :goto_41f
     move-object/from16 v0, p1
 
     move-wide v7, v9
@@ -1666,14 +1665,14 @@
     .local v13, "itemBypass":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
     .local v14, "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v15, "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
-    :goto_e
+    :goto_42b
     iget-object v5, v6, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->getNotification()Lio/nekohasekai/sagernet/bg/ServiceNotification;
 
     move-result-object v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_462
 
     move-object v12, v5
 
@@ -1686,7 +1685,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_14
+    if-eqz v19, :cond_45a
 
     iput-object v6, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$0:Ljava/lang/Object;
 
@@ -1714,13 +1713,13 @@
 
     .end local v11    # "speed":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
     .end local v12    # "$this$loop_u24lambda_u249":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    if-ne v5, v4, :cond_13
+    if-ne v5, v4, :cond_456
 
     .line 83
     return-object v4
 
     .line 181
-    :cond_13
+    :cond_456
     move-wide v11, v7
 
     move/from16 v5, v16
@@ -1730,14 +1729,14 @@
     .end local v16    # "$i$a$-apply-TrafficLooper$loop$5":I
     .local v5, "$i$a$-apply-TrafficLooper$loop$5":I
     .local v11, "delayMs":J
-    :goto_f
+    :goto_459
     move-wide v7, v11
 
     .line 180
     .end local v5    # "$i$a$-apply-TrafficLooper$loop$5":I
     .end local v11    # "delayMs":J
     .restart local v7    # "delayMs":J
-    :cond_14
+    :cond_45a
     move v5, v9
 
     move v9, v10
@@ -1752,10 +1751,10 @@
 
     move-wide v10, v7
 
-    goto :goto_10
+    goto :goto_469
 
     .local v11, "speed":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    :cond_15
+    :cond_462
     move v5, v9
 
     move v9, v10
@@ -1781,7 +1780,7 @@
     .local v13, "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v14, "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .local v15, "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :goto_10
+    :goto_469
     iput-object v15, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$0:Ljava/lang/Object;
 
     iput-object v14, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->L$1:Ljava/lang/Object;
@@ -1808,13 +1807,13 @@
 
     move-result-object v6
 
-    if-ne v6, v4, :cond_16
+    if-ne v6, v4, :cond_484
 
     .line 83
     return-object v4
 
     .line 184
-    :cond_16
+    :cond_484
     move v6, v9
 
     move-wide v9, v10
@@ -1835,15 +1834,15 @@
     .local v12, "proxy":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v13, "trafficUpdater":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;
     .local v14, "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :goto_11
+    :goto_48a
     move-object/from16 v2, p0
 
     move-wide/from16 v7, v17
 
-    goto/16 :goto_1
+    goto/16 :goto_126
 
     .line 186
-    :cond_17
+    :cond_490
     move-object/from16 v41, v0
 
     .end local v0    # "$completion":Lkotlin/coroutines/Continuation;
@@ -1852,19 +1851,21 @@
 
     return-object v0
 
-    :pswitch_data_0
+    nop
+
+    :pswitch_data_496
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d9
+        :pswitch_be
+        :pswitch_9d
+        :pswitch_7b
+        :pswitch_58
+        :pswitch_34
     .end packed-switch
 .end method
 
 .method private static final loop$lambda$8(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;ZLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 18
+    .registers 22
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
     .param p1, "$speed"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
     .param p2, "$profileTrafficStatistics"    # Z
@@ -1895,20 +1896,20 @@
 
     check-cast v2, Ljava/lang/Integer;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     move-object/from16 v2, p1
 
-    goto :goto_1
+    goto :goto_70
 
-    :cond_0
+    :cond_1e
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_6e
 
     .line 167
     move-object/from16 v2, p1
@@ -1916,7 +1917,7 @@
     invoke-interface {v1, v2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
 
     .line 168
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_70
 
     .line 169
     iget-object v3, v0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->idMap:Ljava/util/Map;
@@ -1934,12 +1935,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_37
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_6d
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2005,28 +2006,28 @@
     move-object/from16 v0, p0
 
     .end local v6    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_37
 
     .line 195
-    :cond_1
-    goto :goto_1
+    :cond_6d
+    goto :goto_70
 
     .line 166
     .end local v3    # "$this$forEach$iv":Ljava/util/Map;
     .end local v4    # "$i$f$forEach":I
-    :cond_2
+    :cond_6e
     move-object/from16 v2, p1
 
     .line 176
-    :cond_3
-    :goto_1
+    :cond_70
+    :goto_70
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method private static final stop$lambda$1(Ljava/util/Map;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 3
+    .registers 5
     .param p0, "$traffic"    # Ljava/util/Map;
     .param p1, "b"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
@@ -2043,12 +2044,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2067,10 +2068,10 @@
     invoke-interface {p1, v2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
 
     .end local v1    # "t":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_d
 
     .line 46
-    :cond_0
+    :cond_23
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -2079,7 +2080,7 @@
 
 # virtual methods
 .method public final getData()Lio/nekohasekai/sagernet/bg/BaseService$Data;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -2088,7 +2089,7 @@
 .end method
 
 .method public final getSelectorNowFakeTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->selectorNowFakeTag:Ljava/lang/String;
@@ -2097,7 +2098,7 @@
 .end method
 
 .method public final getSelectorNowId()J
-    .locals 2
+    .registers 3
 
     .line 54
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->selectorNowId:J
@@ -2106,7 +2107,7 @@
 .end method
 
 .method public final selectMain(J)V
-    .locals 8
+    .registers 11
     .param p1, "id"    # J
 
     .line 58
@@ -2173,14 +2174,14 @@
 
     check-cast v1, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_41
 
     return-void
 
     .line 61
     .local v1, "newData":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    :cond_0
-    if-eqz v0, :cond_3
+    :cond_41
+    if-eqz v0, :cond_9c
 
     move-object v2, v0
 
@@ -2205,7 +2206,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_9a
 
     .line 66
     iget-object v4, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -2214,19 +2215,19 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_99
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getConfig()Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_99
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;->getTrafficMap()Ljava/util/Map;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_99
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTag()Ljava/lang/String;
 
@@ -2238,7 +2239,7 @@
 
     check-cast v4, Ljava/util/List;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_99
 
     invoke-static {v4}, Lkotlin/collections/CollectionsKt;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
 
@@ -2246,7 +2247,7 @@
 
     check-cast v4, Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_99
 
     .local v4, "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
     const/4 v5, 0x0
@@ -2283,11 +2284,11 @@
     .line 66
     .end local v4    # "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v5    # "$i$a$-let-TrafficLooper$selectMain$1$1":I
-    :cond_1
+    :cond_99
     nop
 
     .line 74
-    :cond_2
+    :cond_9a
     nop
 
     .line 61
@@ -2296,7 +2297,7 @@
     nop
 
     .line 75
-    :cond_3
+    :cond_9c
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTag()Ljava/lang/String;
 
     move-result-object v2
@@ -2336,7 +2337,7 @@
 .end method
 
 .method public final setSelectorNowFakeTag(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2350,7 +2351,7 @@
 .end method
 
 .method public final setSelectorNowId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 54
@@ -2360,7 +2361,7 @@
 .end method
 
 .method public final start()V
-    .locals 6
+    .registers 7
 
     .line 51
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->sc:Lkotlinx/coroutines/CoroutineScope;
@@ -2387,13 +2388,12 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->job:Lkotlinx/coroutines/Job;
 
-
     .line 52
     return-void
 .end method
 
 .method public final stop(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 25
+    .registers 27
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2410,7 +2410,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$stop$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -2422,7 +2422,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$stop$1;->label:I
 
@@ -2432,9 +2432,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$stop$1;
 
     move-object/from16 v2, p0
@@ -2442,7 +2442,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$stop$1;-><init>(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$stop$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -2457,7 +2457,7 @@
 
     const/4 v7, 0x0
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_15a
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -2471,12 +2471,12 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_34
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_14f
 
-    :pswitch_1
+    :pswitch_39
     const/4 v5, 0x0
 
     .local v5, "$i$f$forEach":I
@@ -2524,14 +2524,14 @@
 
     move-object/from16 v9, v24
 
-    goto/16 :goto_3
+    goto/16 :goto_103
 
     .end local v5    # "$i$f$forEach":I
     .end local v8    # "$i$a$-forEach-TrafficLooper$stop$2":I
     .end local v9    # "ent":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v12    # "traffic":Ljava/util/Map;
     .end local v13    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    :pswitch_2
+    :pswitch_60
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -2540,14 +2540,16 @@
     .local v5, "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
     iget-object v8, v5, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->job:Lkotlinx/coroutines/Job;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_6c
 
     invoke-static {v8, v7, v6, v7}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 27
-    :cond_1
+    :cond_6c
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
+
     move-result-object v8
+
     invoke-static {v8}, Lio/nekohasekai/sagernet/ui/LifetimeTraffic;->flush(Landroid/content/Context;)V
 
     sget-object v8, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -2556,14 +2558,14 @@
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_7e
 
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v4
 
     .line 28
-    :cond_2
+    :cond_7e
     new-instance v8, Ljava/util/LinkedHashMap;
 
     invoke-direct {v8}, Ljava/util/LinkedHashMap;-><init>()V
@@ -2578,19 +2580,19 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_12f
 
     invoke-virtual {v9}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getConfig()Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;
 
     move-result-object v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_12f
 
     invoke-virtual {v9}, Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;->getTrafficMap()Ljava/util/Map;
 
     move-result-object v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_12f
 
     .local v9, "$this$forEach$iv":Ljava/util/Map;
     const/4 v10, 0x0
@@ -2608,12 +2610,12 @@
     .end local v9    # "$this$forEach$iv":Ljava/util/Map;
     .end local p1    # "$completion":Lkotlin/coroutines/Continuation;
     .local v0, "$completion":Lkotlin/coroutines/Continuation;
-    :goto_1
+    :goto_a2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_12e
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2650,12 +2652,12 @@
     .local v8, "$i$a$-forEach-TrafficLooper$stop$2":I
     .local v9, "traffic":Ljava/util/Map;
     .local v11, "$i$f$forEach":I
-    :goto_2
+    :goto_bd
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_126
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2681,13 +2683,13 @@
 
     check-cast v14, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
 
-    if-nez v14, :cond_3
+    if-nez v14, :cond_dc
 
-    goto :goto_4
+    goto :goto_128
 
     .line 32
     .local v14, "item":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    :cond_3
+    :cond_dc
     move/from16 p1, v8
 
     .end local v8    # "$i$a$-forEach-TrafficLooper$stop$2":I
@@ -2725,19 +2727,19 @@
 
     move-result-object v7
 
-    if-ne v7, v4, :cond_4
+    if-ne v7, v4, :cond_101
 
     .line 24
     return-object v4
 
     .line 34
-    :cond_4
+    :cond_101
     move/from16 v8, p1
 
     .line 35
     .end local p1    # "$i$a$-forEach-TrafficLooper$stop$2":I
     .restart local v8    # "$i$a$-forEach-TrafficLooper$stop$2":I
-    :goto_3
+    :goto_103
     invoke-virtual {v12}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v16
@@ -2782,16 +2784,16 @@
 
     const/4 v7, 0x0
 
-    goto :goto_2
+    goto :goto_bd
 
     .line 41
     .end local v12    # "ent":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_5
+    :cond_126
     move/from16 p1, v8
 
     .line 188
     .end local v8    # "$i$a$-forEach-TrafficLooper$stop$2":I
-    :goto_4
+    :goto_128
     move-object v8, v9
 
     move-object v9, v10
@@ -2800,19 +2802,19 @@
 
     const/4 v7, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_a2
 
     .line 189
     .end local v9    # "traffic":Ljava/util/Map;
     .end local v11    # "$i$f$forEach":I
     .local v8, "traffic":Ljava/util/Map;
     .restart local v10    # "$i$f$forEach":I
-    :cond_6
+    :cond_12e
     nop
 
     .line 42
     .end local v10    # "$i$f$forEach":I
-    :cond_7
+    :cond_12f
     iget-object v6, v5, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->getBinder()Lio/nekohasekai/sagernet/bg/BaseService$Binder;
@@ -2845,14 +2847,14 @@
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
     .end local v8    # "traffic":Ljava/util/Map;
-    if-ne v5, v4, :cond_8
+    if-ne v5, v4, :cond_14f
 
     .line 24
     return-object v4
 
     .line 47
-    :cond_8
-    :goto_5
+    :cond_14f
+    :goto_14f
     sget-object v4, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     const-string v5, "finally traffic post done"
@@ -2864,10 +2866,12 @@
 
     return-object v4
 
-    :pswitch_data_0
+    nop
+
+    :pswitch_data_15a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_60
+        :pswitch_39
+        :pswitch_34
     .end packed-switch
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/net/MediaType;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/net/MediaType;
 
     .line 1188
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1188
     check-cast p1, Ljava/lang/String;
@@ -54,10 +54,11 @@
 .end method
 
 .method public apply(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 1191
+    # getter for: Lcom/google/common/net/MediaType;->TOKEN_MATCHER:Lcom/google/common/base/CharMatcher;
     invoke-static {}, Lcom/google/common/net/MediaType;->access$000()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
@@ -66,26 +67,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 1192
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 1193
-    :cond_0
+    :cond_12
+    # invokes: Lcom/google/common/net/MediaType;->escapeAndQuote(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {p1}, Lcom/google/common/net/MediaType;->access$100(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 1191
-    :goto_0
+    :goto_16
     return-object v0
 .end method

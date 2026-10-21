@@ -130,7 +130,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 255
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic lambda$allowAnyComponent$10(Landroid/content/ComponentName;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/content/ComponentName;
 
     .line 602
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic lambda$allowClipDataUriWithAuthority$11(Ljava/lang/String;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "v"    # Landroid/net/Uri;
 
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic lambda$allowComponentWithPackage$9(Ljava/lang/String;Landroid/content/ComponentName;)Z
-    .locals 1
+    .registers 3
     .param p0, "packageName"    # Ljava/lang/String;
     .param p1, "v"    # Landroid/content/ComponentName;
 
@@ -251,7 +251,7 @@
 .end method
 
 .method static synthetic lambda$allowDataWithAuthority$8(Ljava/lang/String;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "v"    # Landroid/net/Uri;
 
@@ -268,7 +268,7 @@
 .end method
 
 .method static synthetic lambda$allowExtra$12(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/Object;
 
     .line 680
@@ -278,7 +278,7 @@
 .end method
 
 .method static synthetic lambda$allowExtra$13(Ljava/lang/Class;Landroidx/core/util/Predicate;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "clazz"    # Ljava/lang/Class;
     .param p1, "valueFilter"    # Landroidx/core/util/Predicate;
     .param p2, "v"    # Ljava/lang/Object;
@@ -288,7 +288,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {p0, p2}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -298,21 +298,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method static synthetic lambda$allowExtra$14(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/Object;
 
     .line 721
@@ -322,7 +322,7 @@
 .end method
 
 .method static synthetic lambda$allowExtraOutput$16(Ljava/lang/String;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 3
     .param p0, "uriAuthority"    # Ljava/lang/String;
     .param p1, "v"    # Landroid/net/Uri;
 
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic lambda$allowExtraStreamUriWithAuthority$15(Ljava/lang/String;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 3
     .param p0, "uriAuthority"    # Ljava/lang/String;
     .param p1, "v"    # Landroid/net/Uri;
 
@@ -356,7 +356,7 @@
 .end method
 
 .method static synthetic lambda$new$0(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/String;
 
     .line 283
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic lambda$new$1(Landroid/net/Uri;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/net/Uri;
 
     .line 284
@@ -376,7 +376,7 @@
 .end method
 
 .method static synthetic lambda$new$2(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/String;
 
     .line 285
@@ -386,7 +386,7 @@
 .end method
 
 .method static synthetic lambda$new$3(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/String;
 
     .line 286
@@ -396,7 +396,7 @@
 .end method
 
 .method static synthetic lambda$new$4(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Ljava/lang/String;
 
     .line 287
@@ -406,7 +406,7 @@
 .end method
 
 .method static synthetic lambda$new$5(Landroid/content/ComponentName;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/content/ComponentName;
 
     .line 288
@@ -416,7 +416,7 @@
 .end method
 
 .method static synthetic lambda$new$6(Landroid/net/Uri;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/net/Uri;
 
     .line 293
@@ -426,7 +426,7 @@
 .end method
 
 .method static synthetic lambda$new$7(Landroid/content/ClipData;)Z
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/content/ClipData;
 
     .line 294
@@ -438,7 +438,7 @@
 
 # virtual methods
 .method public allowAction(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -467,7 +467,7 @@
 .end method
 
 .method public allowAction(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/lang/String;
 
     .line 393
@@ -487,7 +487,7 @@
 .end method
 
 .method public allowAnyComponent()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 2
 
     .line 601
     const/4 v0, 0x1
@@ -506,7 +506,7 @@
 .end method
 
 .method public allowCategory(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -535,7 +535,7 @@
 .end method
 
 .method public allowCategory(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "category"    # Ljava/lang/String;
 
     .line 488
@@ -556,7 +556,7 @@
 .end method
 
 .method public allowClipData(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -585,7 +585,7 @@
 .end method
 
 .method public allowClipDataText()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 2
 
     .line 615
     const/4 v0, 0x1
@@ -597,7 +597,7 @@
 .end method
 
 .method public allowClipDataUri(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -626,7 +626,7 @@
 .end method
 
 .method public allowClipDataUriWithAuthority(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "authority"    # Ljava/lang/String;
 
     .line 630
@@ -645,7 +645,7 @@
 .end method
 
 .method public allowComponent(Landroid/content/ComponentName;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "component"    # Landroid/content/ComponentName;
 
     .line 553
@@ -666,7 +666,7 @@
 .end method
 
 .method public allowComponent(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -700,7 +700,7 @@
 .end method
 
 .method public allowComponentWithPackage(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "packageName"    # Ljava/lang/String;
 
     .line 585
@@ -719,7 +719,7 @@
 .end method
 
 .method public allowData(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -748,7 +748,7 @@
 .end method
 
 .method public allowDataWithAuthority(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "authority"    # Ljava/lang/String;
 
     .line 425
@@ -766,7 +766,7 @@
 .end method
 
 .method public allowExtra(Ljava/lang/String;Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -797,7 +797,7 @@
 
     .line 721
     .local v0, "allowedExtra":Landroidx/core/util/Predicate;, "Landroidx/core/util/Predicate<Ljava/lang/Object;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     new-instance v1, Landroidx/core/content/IntentSanitizer$Builder$$ExternalSyntheticLambda8;
 
@@ -806,7 +806,7 @@
     move-object v0, v1
 
     .line 722
-    :cond_0
+    :cond_16
     invoke-interface {v0, p2}, Landroidx/core/util/Predicate;->or(Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     move-result-object v0
@@ -821,7 +821,7 @@
 .end method
 
 .method public allowExtra(Ljava/lang/String;Ljava/lang/Class;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -847,7 +847,7 @@
 .end method
 
 .method public allowExtra(Ljava/lang/String;Ljava/lang/Class;Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -887,7 +887,7 @@
 .end method
 
 .method public allowExtraOutput(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -911,7 +911,7 @@
 .end method
 
 .method public allowExtraOutput(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 3
+    .registers 5
     .param p1, "uriAuthority"    # Ljava/lang/String;
 
     .line 783
@@ -930,7 +930,7 @@
 .end method
 
 .method public allowExtraStream(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -954,7 +954,7 @@
 .end method
 
 .method public allowExtraStreamUriWithAuthority(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 3
+    .registers 5
     .param p1, "uriAuthority"    # Ljava/lang/String;
 
     .line 742
@@ -976,7 +976,7 @@
 .end method
 
 .method public allowFlags(I)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 328
@@ -991,7 +991,7 @@
 .end method
 
 .method public allowHistoryStackFlags()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 2
+    .registers 3
 
     .line 359
     iget v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedFlags:I
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public allowIdentifier()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 2
 
     .line 816
     const/4 v0, 0x1
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public allowPackage(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1048,7 +1048,7 @@
 .end method
 
 .method public allowPackage(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "packageName"    # Ljava/lang/String;
 
     .line 520
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public allowReceiverFlags()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 2
+    .registers 3
 
     .line 378
     iget v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedFlags:I
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public allowSelector()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 2
 
     .line 828
     const/4 v0, 0x1
@@ -1097,7 +1097,7 @@
 .end method
 
 .method public allowSourceBounds()Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 2
 
     .line 840
     const/4 v0, 0x1
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public allowType(Landroidx/core/util/Predicate;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public allowType(Ljava/lang/String;)Landroidx/core/content/IntentSanitizer$Builder;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/String;
 
     .line 458
@@ -1159,30 +1159,30 @@
 .end method
 
 .method public build()Landroidx/core/content/IntentSanitizer;
-    .locals 2
+    .registers 3
 
     .line 851
     iget-boolean v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowAnyComponent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     iget-boolean v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowSomeComponents:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
-    :cond_0
+    :cond_8
     iget-boolean v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowAnyComponent:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_19
 
     iget-boolean v0, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowSomeComponents:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_19
 
     .line 853
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "You must call either allowAnyComponent or one or more of the allowComponent methods; but not both."
@@ -1192,8 +1192,8 @@
     throw v0
 
     .line 858
-    :cond_2
-    :goto_0
+    :cond_19
+    :goto_19
     new-instance v0, Landroidx/core/content/IntentSanitizer;
 
     const/4 v1, 0x0
@@ -1204,76 +1204,91 @@
     .local v0, "sanitizer":Landroidx/core/content/IntentSanitizer;
     iget v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedFlags:I
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedFlags:I
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$102(Landroidx/core/content/IntentSanitizer;I)I
 
     .line 860
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedActions:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedActions:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$202(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 861
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedData:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedData:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$302(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 862
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedTypes:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedTypes:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$402(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 863
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedCategories:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedCategories:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$502(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 864
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedPackages:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedPackages:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$602(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 865
     iget-boolean v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowAnyComponent:Z
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowAnyComponent:Z
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$702(Landroidx/core/content/IntentSanitizer;Z)Z
 
     .line 866
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedComponents:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedComponents:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$802(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 867
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedExtras:Ljava/util/Map;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedExtras:Ljava/util/Map;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$902(Landroidx/core/content/IntentSanitizer;Ljava/util/Map;)Ljava/util/Map;
 
     .line 868
     iget-boolean v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowClipDataText:Z
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowClipDataText:Z
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1002(Landroidx/core/content/IntentSanitizer;Z)Z
 
     .line 869
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedClipDataUri:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedClipDataUri:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1102(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 870
     iget-object v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowedClipData:Landroidx/core/util/Predicate;
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowedClipData:Landroidx/core/util/Predicate;
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1202(Landroidx/core/content/IntentSanitizer;Landroidx/core/util/Predicate;)Landroidx/core/util/Predicate;
 
     .line 871
     iget-boolean v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowIdentifier:Z
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowIdentifier:Z
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1302(Landroidx/core/content/IntentSanitizer;Z)Z
 
     .line 872
     iget-boolean v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowSelector:Z
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowSelector:Z
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1402(Landroidx/core/content/IntentSanitizer;Z)Z
 
     .line 873
     iget-boolean v1, p0, Landroidx/core/content/IntentSanitizer$Builder;->mAllowSourceBounds:Z
 
+    # setter for: Landroidx/core/content/IntentSanitizer;->mAllowSourceBounds:Z
     invoke-static {v0, v1}, Landroidx/core/content/IntentSanitizer;->access$1502(Landroidx/core/content/IntentSanitizer;Z)Z
 
     .line 874

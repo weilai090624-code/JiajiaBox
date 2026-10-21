@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 1006
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 1016
@@ -49,13 +49,14 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 1009
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;"
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->contentViewCallback:Lcom/google/android/material/snackbar/ContentViewCallback;
     invoke-static {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1600(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)Lcom/google/android/material/snackbar/ContentViewCallback;
 
     move-result-object v0
@@ -63,12 +64,14 @@
     iget-object v1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 1010
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->animationSlideDuration:I
     invoke-static {v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1400(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->animationFadeInDuration:I
     invoke-static {v2}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1500(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
 
     move-result v2
@@ -78,6 +81,7 @@
     iget-object v2, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$13;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 1011
+    # getter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->animationFadeInDuration:I
     invoke-static {v2}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1500(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)I
 
     move-result v2

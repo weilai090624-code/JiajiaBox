@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 1378
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap;"
@@ -83,21 +83,22 @@
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    # getter for: Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
     invoke-static {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$000(Lcom/google/common/collect/AbstractMapBasedMultimap;)Ljava/util/Map;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 1379
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractMapBasedMultimap;->clear()V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1381
-    :cond_0
+    :cond_10
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;)V
@@ -105,12 +106,12 @@
     invoke-static {v0}, Lcom/google/common/collect/Iterators;->clear(Ljava/util/Iterator;)V
 
     .line 1383
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -128,7 +129,7 @@
 .end method
 
 .method protected createEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -150,7 +151,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -158,7 +159,7 @@
 
     .line 1363
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap;"
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_d
 
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;->submap:Ljava/util/Map;
 
@@ -166,25 +167,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_e
     return v0
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -202,7 +203,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -232,7 +233,7 @@
 
     .line 1328
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 1329
     const/4 v1, 0x0
@@ -240,7 +241,7 @@
     return-object v1
 
     .line 1332
-    :cond_0
+    :cond_c
     move-object v1, p1
 
     .line 1333
@@ -255,7 +256,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 1368
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap;"
@@ -269,7 +270,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -290,7 +291,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -308,7 +309,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -338,7 +339,7 @@
 
     .line 1350
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 1351
     const/4 v1, 0x0
@@ -346,7 +347,7 @@
     return-object v1
 
     .line 1354
-    :cond_0
+    :cond_c
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
     invoke-virtual {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->createCollection()Ljava/util/Collection;
@@ -364,6 +365,7 @@
 
     move-result v3
 
+    # -= operator for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v2, v3}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$220(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
 
     .line 1357
@@ -374,7 +376,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1343
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap;"
@@ -388,7 +390,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1373
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap;"
@@ -402,7 +404,7 @@
 .end method
 
 .method wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 820
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/reflect/TypeToken;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -40,37 +40,39 @@
 
     .line 823
     .local p1, "type":Lcom/google/common/reflect/TypeToken;, "Lcom/google/common/reflect/TypeToken<*>;"
+    # getter for: Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
     invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->access$500(Lcom/google/common/reflect/TypeToken;)Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     instance-of v0, v0, Ljava/lang/reflect/TypeVariable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 824
+    # getter for: Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
     invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->access$500(Lcom/google/common/reflect/TypeToken;)Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     instance-of v0, v0, Ljava/lang/reflect/WildcardType;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 823
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 820
     check-cast p1, Lcom/google/common/reflect/TypeToken;

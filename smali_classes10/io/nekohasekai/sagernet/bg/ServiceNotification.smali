@@ -100,7 +100,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$_7yljB7pn8ykL9N5ongidPaRc2E(ZLandroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->postNotificationWakeLockStatus$lambda$2(ZLandroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$anyDRQUsWFDQkSzlPHZK_MsJGHg(Ljava/lang/String;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->postNotificationTitle$lambda$1(Ljava/lang/String;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ccS8NcCzwZAMooc4uHsR7BB0S2Q(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->update$lambda$7(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$lgAbeIwxg_YGPax4GFBmsAW00tc(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->postNotificationSpeedUpdate$lambda$0(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$pyoougniWnwEXlv_H53FoK4p1u0(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->show$lambda$6(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$yX1S3YvMONoid3aayyMrHxKkoz0(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/ServiceNotification;->updateActions$lambda$5(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$Companion;
 
@@ -175,23 +175,23 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     const/high16 v0, 0x4000000
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     sput v0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->flags:I
 
     return-void
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Interface;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 7
+    .registers 12
     .param p1, "service"    # Lio/nekohasekai/sagernet/bg/BaseService$Interface;
     .param p2, "title"    # Ljava/lang/String;
     .param p3, "channel"    # Ljava/lang/String;
@@ -211,7 +211,6 @@
 
     .line 43
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
-
 
     .line 41
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -316,16 +315,16 @@
     move-result-object v0
 
     .line 123
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_71
 
     const/4 v2, -0x1
 
-    goto :goto_0
+    goto :goto_72
 
-    :cond_0
+    :cond_71
     const/4 v2, -0x2
 
-    :goto_0
+    :goto_72
     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->setPriority(I)Landroidx/core/app/NotificationCompat$Builder;
 
     move-result-object v0
@@ -344,25 +343,24 @@
 
     move-result v2
 
-    if-lez v2, :initial_speed_done
+    if-lez v2, :cond_91
 
     iget-boolean v2, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->showDirectSpeed:Z
 
-    if-eqz v2, :initial_speed_proxy
+    if-eqz v2, :cond_8c
 
-    const-string v2, "代理 ↑ 0 B/s ↓ 0 B/s\n直连 ↑ 0 B/s ↓ 0 B/s"
+    const-string v2, "\u4ee3\u7406 \u2191 0 B/s \u2193 0 B/s\n\u76f4\u8fde \u2191 0 B/s \u2193 0 B/s"
 
-    goto :initial_speed_text
+    goto :goto_8e
 
-    :initial_speed_proxy
-    const-string v2, "代理 ↑ 0 B/s ↓ 0 B/s"
+    :cond_8c
+    const-string v2, "\u4ee3\u7406 \u2191 0 B/s \u2193 0 B/s"
 
-    :initial_speed_text
+    :goto_8e
     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->setContentText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
 
-    :initial_speed_done
-
     .line 125
+    :cond_91
     const/4 v0, 0x0
 
     const/4 v2, 0x0
@@ -474,18 +472,18 @@
 .end method
 
 .method public synthetic constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Interface;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 40
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 42
     const/4 p4, 0x0
 
     .line 40
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/bg/ServiceNotification;-><init>(Lio/nekohasekai/sagernet/bg/BaseService$Interface;Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 43
@@ -493,7 +491,7 @@
 .end method
 
 .method public static final synthetic access$getFlags$cp()I
-    .locals 1
+    .registers 1
 
     .line 40
     sget v0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->flags:I
@@ -502,7 +500,7 @@
 .end method
 
 .method public static final synthetic access$show(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -515,7 +513,7 @@
 .end method
 
 .method public static final synthetic access$update(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -528,7 +526,7 @@
 .end method
 
 .method public static final synthetic access$updateActions(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -541,7 +539,7 @@
 .end method
 
 .method public static final synthetic access$useBuilder(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "f"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -555,7 +553,7 @@
 .end method
 
 .method private static final postNotificationSpeedUpdate$lambda$0(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 16
+    .registers 19
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "$stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
     .param p2, "it"    # Landroidx/core/app/NotificationCompat$Builder;
@@ -563,7 +561,6 @@
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
-
 
     const-string v2, "it"
 
@@ -586,7 +583,7 @@
 
     const/4 v9, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b5
 
     .line 61
     iget-object v2, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -771,10 +768,10 @@
     invoke-virtual {v1, v3}, Landroidx/core/app/NotificationCompat$Builder;->setContentText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
 
     .end local v2    # "speedDetail":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_101
 
     .line 77
-    :cond_0
+    :cond_b5
     iget-object v2, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -865,7 +862,7 @@
 
     .line 86
     .end local v2    # "speedSimple":Ljava/lang/String;
-    :goto_0
+    :goto_101
     nop
 
     .line 87
@@ -928,7 +925,7 @@
 .end method
 
 .method private static final postNotificationTitle$lambda$1(Ljava/lang/String;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "$newTitle"    # Ljava/lang/String;
     .param p1, "it"    # Landroidx/core/app/NotificationCompat$Builder;
 
@@ -950,7 +947,7 @@
 .end method
 
 .method private static final postNotificationWakeLockStatus$lambda$2(ZLandroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "$acquired"    # Z
     .param p1, "it"    # Landroidx/core/app/NotificationCompat$Builder;
 
@@ -962,17 +959,17 @@
     nop
 
     .line 108
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, -0x1
 
     .line 107
-    :goto_0
+    :goto_b
     invoke-virtual {p1, v0}, Landroidx/core/app/NotificationCompat$Builder;->setPriority(I)Landroidx/core/app/NotificationCompat$Builder;
 
     .line 109
@@ -982,7 +979,7 @@
 .end method
 
 .method private final show(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1008,11 +1005,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     return-object v0
 
-    :cond_0
+    :cond_10
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 206
@@ -1020,7 +1017,7 @@
 .end method
 
 .method private static final show$lambda$6(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 5
+    .registers 7
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "it"    # Landroidx/core/app/NotificationCompat$Builder;
 
@@ -1034,19 +1031,19 @@
     .line 190
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_7
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_9} :catch_31
 
     const/16 v2, 0x22
 
     const-string v3, "null cannot be cast to non-null type android.app.Service"
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_22
 
     .line 191
-    :try_start_1
+    :try_start_f
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1069,10 +1066,10 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;I)V
 
-    goto :goto_0
+    goto :goto_57
 
     .line 197
-    :cond_0
+    :cond_22
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1084,13 +1081,13 @@
     move-result-object v2
 
     invoke-virtual {v1, v0, v2}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_30
+    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_30} :catch_31
 
-    goto :goto_0
+    goto :goto_57
 
     .line 199
-    :catch_0
+    :catch_31
     move-exception v1
 
     .line 201
@@ -1137,14 +1134,14 @@
 
     .line 206
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_57
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method private final update(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1170,11 +1167,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     return-object v0
 
-    :cond_0
+    :cond_10
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 210
@@ -1182,7 +1179,7 @@
 .end method
 
 .method private static final update$lambda$7(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "it"    # Landroidx/core/app/NotificationCompat$Builder;
 
@@ -1215,11 +1212,9 @@
 
     check-cast v1, Landroid/content/Context;
 
-
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroidx/core/app/NotificationManagerCompat;->notify(ILandroid/app/Notification;)V
-
 
     .line 210
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -1228,7 +1223,7 @@
 .end method
 
 .method private final updateActions(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1263,11 +1258,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     return-object v0
 
-    :cond_0
+    :cond_19
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 178
@@ -1275,7 +1270,7 @@
 .end method
 
 .method private static final updateActions$lambda$5(Lio/nekohasekai/sagernet/bg/ServiceNotification;Landroidx/core/app/NotificationCompat$Builder;)Lkotlin/Unit;
-    .locals 9
+    .registers 11
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .param p1, "it"    # Landroidx/core/app/NotificationCompat$Builder;
 
@@ -1479,7 +1474,7 @@
 .end method
 
 .method private final useBuilder(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1499,7 +1494,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1511,7 +1506,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;->label:I
 
@@ -1519,15 +1514,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;-><init>(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -1538,7 +1533,7 @@
     .line 127
     iget v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$useBuilder$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_72
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -1552,7 +1547,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 p1, 0x0
 
     .local p1, "$i$f$withLock":I
@@ -1576,14 +1571,14 @@
     .local v5, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5a
 
     .end local v2    # "owner$iv":Ljava/lang/Object;
     .end local v3    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local v4    # "f":Lkotlin/jvm/functions/Function1;
     .end local v5    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .end local p1    # "$i$f$withLock":I
-    :pswitch_1
+    :pswitch_3e
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v5, p0
@@ -1621,13 +1616,13 @@
 
     move-result-object v7
 
-    if-ne v7, v2, :cond_1
+    if-ne v7, v2, :cond_58
 
     .line 127
     return-object v2
 
     .line 228
-    :cond_1
+    :cond_58
     move-object v2, p1
 
     move p1, v6
@@ -1636,7 +1631,7 @@
     .end local v6    # "$i$f$withLock":I
     .restart local v2    # "owner$iv":Ljava/lang/Object;
     .local p1, "$i$f$withLock":I
-    :goto_1
+    :goto_5a
     nop
 
     .line 230
@@ -1644,7 +1639,7 @@
 
     .line 129
     .local v6, "$i$a$-withLock$default-ServiceNotification$useBuilder$2":I
-    :try_start_0
+    :try_start_5c
     iget-object v7, v5, Lio/nekohasekai/sagernet/bg/ServiceNotification;->builder:Landroidx/core/app/NotificationCompat$Builder;
 
     invoke-interface {v4, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1656,8 +1651,8 @@
     .end local v5    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .end local v6    # "$i$a$-withLock$default-ServiceNotification$useBuilder$2":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_64
+    .catchall {:try_start_5c .. :try_end_64} :catchall_6c
 
     .line 230
     nop
@@ -1680,7 +1675,7 @@
     .restart local v2    # "owner$iv":Ljava/lang/Object;
     .restart local v3    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .restart local p1    # "$i$f$withLock":I
-    :catchall_0
+    :catchall_6c
     move-exception v4
 
     invoke-interface {v3, v2}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
@@ -1689,17 +1684,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_2c
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public final destroy()V
-    .locals 4
+    .registers 5
 
     .line 213
     const/4 v0, 0x0
@@ -1715,7 +1710,7 @@
 
     const-string v3, "null cannot be cast to non-null type android.app.Service"
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 215
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -1726,10 +1721,10 @@
 
     invoke-virtual {v0, v2}, Landroid/app/Service;->stopForeground(I)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 217
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1739,7 +1734,7 @@
     invoke-virtual {v0, v2}, Landroid/app/Service;->stopForeground(Z)V
 
     .line 219
-    :goto_0
+    :goto_21
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     check-cast v0, Landroid/content/ContextWrapper;
@@ -1755,17 +1750,16 @@
 .end method
 
 .method public final getListenPostSpeed()Z
-    .locals 1
+    .registers 2
 
     .line 56
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->listenPostSpeed:Z
-
 
     return v0
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -1790,7 +1784,7 @@
 
     sget-object v1, Lio/nekohasekai/sagernet/bg/BaseService$State;->Connected:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_24
 
     .line 182
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -1806,12 +1800,12 @@
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification;->listenPostSpeed:Z
 
     .line 184
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method public final postNotificationSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1827,7 +1821,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1839,7 +1833,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->label:I
 
@@ -1847,15 +1841,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;-><init>(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -1866,7 +1860,7 @@
     .line 58
     iget v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_5e
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -1880,12 +1874,12 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_5b
 
-    :pswitch_1
+    :pswitch_30
     iget-object p1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lio/nekohasekai/sagernet/bg/ServiceNotification;
@@ -1893,10 +1887,10 @@
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_4e
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :pswitch_2
+    :pswitch_38
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -1919,19 +1913,19 @@
     move-result-object p1
 
     .end local p1    # "stats":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_4d
 
     .line 58
     return-object v2
 
     .line 59
-    :cond_1
+    :cond_4d
     move-object p1, v3
 
     .line 94
     .end local v3    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :goto_1
+    :goto_4e
     const/4 v3, 0x0
 
     iput-object v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationSpeedUpdate$1;->L$0:Ljava/lang/Object;
@@ -1945,28 +1939,28 @@
     move-result-object p1
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_5b
 
     .line 58
     return-object v2
 
     .line 95
-    :cond_2
-    :goto_2
+    :cond_5b
+    :goto_5b
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_30
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final postNotificationTitle(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1982,7 +1976,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1994,7 +1988,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->label:I
 
@@ -2002,15 +1996,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;-><init>(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -2021,7 +2015,7 @@
     .line 97
     iget v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_5e
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -2035,12 +2029,12 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_5b
 
-    :pswitch_1
+    :pswitch_30
     iget-object p1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lio/nekohasekai/sagernet/bg/ServiceNotification;
@@ -2048,10 +2042,10 @@
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_4e
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :pswitch_2
+    :pswitch_38
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -2074,19 +2068,19 @@
     move-result-object p1
 
     .end local p1    # "newTitle":Ljava/lang/String;
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_4d
 
     .line 97
     return-object v2
 
     .line 98
-    :cond_1
+    :cond_4d
     move-object p1, v3
 
     .line 101
     .end local v3    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :goto_1
+    :goto_4e
     const/4 v3, 0x0
 
     iput-object v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationTitle$1;->L$0:Ljava/lang/Object;
@@ -2100,28 +2094,28 @@
     move-result-object p1
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_5b
 
     .line 97
     return-object v2
 
     .line 102
-    :cond_2
-    :goto_2
+    :cond_5b
+    :goto_5b
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_30
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final postNotificationWakeLockStatus(ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2136,7 +2130,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -2148,7 +2142,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->label:I
 
@@ -2156,15 +2150,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;-><init>(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -2177,7 +2171,7 @@
 
     const/4 v4, 0x1
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_80
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -2191,12 +2185,12 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2d
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_7c
 
-    :pswitch_1
+    :pswitch_31
     iget-object p1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lio/nekohasekai/sagernet/bg/ServiceNotification;
@@ -2204,10 +2198,10 @@
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_6f
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :pswitch_2
+    :pswitch_39
     iget-boolean p1, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->Z$0:Z
 
     .local p1, "acquired":Z
@@ -2224,11 +2218,11 @@
 
     move-object p1, v6
 
-    goto :goto_1
+    goto :goto_5a
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
     .end local p1    # "acquired":Z
-    :pswitch_3
+    :pswitch_46
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -2246,13 +2240,13 @@
 
     move-result-object v5
 
-    if-ne v5, v2, :cond_1
+    if-ne v5, v2, :cond_57
 
     .line 104
     return-object v2
 
     .line 105
-    :cond_1
+    :cond_57
     move-object v6, v3
 
     move v3, p1
@@ -2262,16 +2256,16 @@
     .line 106
     .local v3, "acquired":Z
     .local p1, "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_5a
+    if-eqz v3, :cond_5d
 
-    goto :goto_2
+    goto :goto_5e
 
     .end local v3    # "acquired":Z
-    :cond_2
+    :cond_5d
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_5e
     new-instance v3, Lio/nekohasekai/sagernet/bg/ServiceNotification$$ExternalSyntheticLambda4;
 
     invoke-direct {v3, v4}, Lio/nekohasekai/sagernet/bg/ServiceNotification$$ExternalSyntheticLambda4;-><init>(Z)V
@@ -2286,14 +2280,14 @@
 
     move-result-object v3
 
-    if-ne v3, v2, :cond_3
+    if-ne v3, v2, :cond_6f
 
     .line 104
     return-object v2
 
     .line 110
-    :cond_3
-    :goto_3
+    :cond_6f
+    :goto_6f
     const/4 v3, 0x0
 
     iput-object v3, v0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->L$0:Ljava/lang/Object;
@@ -2307,31 +2301,31 @@
     move-result-object p1
 
     .end local p1    # "this":Lio/nekohasekai/sagernet/bg/ServiceNotification;
-    if-ne p1, v2, :cond_4
+    if-ne p1, v2, :cond_7c
 
     .line 104
     return-object v2
 
     .line 111
-    :cond_4
-    :goto_4
+    :cond_7c
+    :goto_7c
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_80
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_39
+        :pswitch_31
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public final setListenPostSpeed(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 56

@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 200
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/MultipartReader$Companion;-><init>()V
 
@@ -58,9 +58,10 @@
 
 # virtual methods
 .method public final getAfterBoundaryOptions()Lokio/Options;
-    .locals 1
+    .registers 2
 
     .line 202
+    # getter for: Lokhttp3/MultipartReader;->afterBoundaryOptions:Lokio/Options;
     invoke-static {}, Lokhttp3/MultipartReader;->access$getAfterBoundaryOptions$cp()Lokio/Options;
 
     move-result-object v0

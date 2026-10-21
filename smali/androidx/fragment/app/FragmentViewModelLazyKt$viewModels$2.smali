@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/Lazy;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,11 +87,12 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModelStore;
-    .locals 2
+    .registers 3
 
     .line 68
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$2;->$owner$delegate:Lkotlin/Lazy;
 
+    # invokes: Landroidx/fragment/app/FragmentViewModelLazyKt;->viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
     invoke-static {v0}, Landroidx/fragment/app/FragmentViewModelLazyKt;->access$viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
 
     move-result-object v0
@@ -108,7 +109,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$2;->invoke()Landroidx/lifecycle/ViewModelStore;

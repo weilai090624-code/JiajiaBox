@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parameters"    # Landroidx/work/WorkerParameters;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public doWork()Landroidx/work/ListenableWorker$Result;
-    .locals 14
+    .registers 15
 
     .line 35
     invoke-virtual {p0}, Landroidx/work/impl/workers/DiagnosticsWorker;->getApplicationContext()Landroid/content/Context;
@@ -155,13 +155,14 @@
 
     move-result v11
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_69
 
     .line 48
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v11
 
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
@@ -176,10 +177,12 @@
     move-result-object v11
 
     .line 50
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
 
+    # invokes: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
     invoke-static {v3, v4, v5, v8}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
 
     move-result-object v13
@@ -188,7 +191,7 @@
     invoke-virtual {v11, v12, v13}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 53
-    :cond_0
+    :cond_69
     move-object v11, v9
 
     check-cast v11, Ljava/util/Collection;
@@ -197,13 +200,14 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_8e
 
     .line 54
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v11
 
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
@@ -217,10 +221,12 @@
 
     move-result-object v11
 
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
 
+    # invokes: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
     invoke-static {v3, v4, v5, v9}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
 
     move-result-object v13
@@ -228,7 +234,7 @@
     invoke-virtual {v11, v12, v13}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 57
-    :cond_1
+    :cond_8e
     move-object v11, v10
 
     check-cast v11, Ljava/util/Collection;
@@ -237,13 +243,14 @@
 
     move-result v11
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_b3
 
     .line 58
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v11
 
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
@@ -257,10 +264,12 @@
 
     move-result-object v11
 
+    # getter for: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v12
 
+    # invokes: Landroidx/work/impl/workers/DiagnosticsWorkerKt;->workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
     invoke-static {v3, v4, v5, v10}, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->access$workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
 
     move-result-object v13
@@ -268,7 +277,7 @@
     invoke-virtual {v11, v12, v13}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 61
-    :cond_2
+    :cond_b3
     invoke-static {}, Landroidx/work/ListenableWorker$Result;->success()Landroidx/work/ListenableWorker$Result;
 
     move-result-object v11

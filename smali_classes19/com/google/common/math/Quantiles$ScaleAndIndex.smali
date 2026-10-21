@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "scale"    # I
     .param p2, "index"    # I
 
@@ -30,6 +30,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 222
+    # invokes: Lcom/google/common/math/Quantiles;->checkIndex(II)V
     invoke-static {p2, p1}, Lcom/google/common/math/Quantiles;->access$300(II)V
 
     .line 223
@@ -43,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(IILcom/google/common/math/Quantiles$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # I
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/math/Quantiles$1;
@@ -57,7 +58,7 @@
 
 # virtual methods
 .method public compute(Ljava/util/Collection;)D
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +83,7 @@
 .end method
 
 .method public varargs compute([D)D
-    .locals 2
+    .registers 4
     .param p1, "dataset"    # [D
 
     .line 247
@@ -100,10 +101,11 @@
 .end method
 
 .method public varargs compute([I)D
-    .locals 2
+    .registers 4
     .param p1, "dataset"    # [I
 
     .line 270
+    # invokes: Lcom/google/common/math/Quantiles;->intsToDoubles([I)[D
     invoke-static {p1}, Lcom/google/common/math/Quantiles;->access$500([I)[D
 
     move-result-object v0
@@ -116,10 +118,11 @@
 .end method
 
 .method public varargs compute([J)D
-    .locals 2
+    .registers 4
     .param p1, "dataset"    # [J
 
     .line 259
+    # invokes: Lcom/google/common/math/Quantiles;->longsToDoubles([J)[D
     invoke-static {p1}, Lcom/google/common/math/Quantiles;->access$400([J)[D
 
     move-result-object v0
@@ -132,7 +135,7 @@
 .end method
 
 .method public varargs computeInPlace([D)D
-    .locals 18
+    .registers 20
     .param p1, "dataset"    # [D
 
     .line 281
@@ -146,26 +149,27 @@
 
     const/4 v4, 0x1
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_c
     const-string v5, "Cannot calculate quantiles of an empty dataset"
 
     invoke-static {v2, v5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 282
+    # invokes: Lcom/google/common/math/Quantiles;->containsNaN([D)Z
     invoke-static/range {p1 .. p1}, Lcom/google/common/math/Quantiles;->access$600([D)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1a
 
     .line 283
     const-wide/high16 v2, 0x7ff8000000000000L    # Double.NaN
@@ -173,7 +177,7 @@
     return-wide v2
 
     .line 293
-    :cond_1
+    :cond_1a
     iget v2, v0, Lcom/google/common/math/Quantiles$ScaleAndIndex;->index:I
 
     int-to-long v5, v2
@@ -220,10 +224,11 @@
 
     sub-int/2addr v7, v4
 
+    # invokes: Lcom/google/common/math/Quantiles;->selectInPlace(I[DII)V
     invoke-static {v2, v1, v3, v7}, Lcom/google/common/math/Quantiles;->access$700(I[DII)V
 
     .line 300
-    if-nez v8, :cond_2
+    if-nez v8, :cond_3f
 
     .line 301
     aget-wide v3, v1, v2
@@ -231,7 +236,7 @@
     return-wide v3
 
     .line 303
-    :cond_2
+    :cond_3f
     add-int/lit8 v3, v2, 0x1
 
     add-int/lit8 v7, v2, 0x1
@@ -240,6 +245,7 @@
 
     sub-int/2addr v9, v4
 
+    # invokes: Lcom/google/common/math/Quantiles;->selectInPlace(I[DII)V
     invoke-static {v3, v1, v7, v9}, Lcom/google/common/math/Quantiles;->access$700(I[DII)V
 
     .line 304
@@ -257,6 +263,7 @@
 
     move-wide/from16 v16, v3
 
+    # invokes: Lcom/google/common/math/Quantiles;->interpolate(DDDD)D
     invoke-static/range {v10 .. v17}, Lcom/google/common/math/Quantiles;->access$800(DDDD)D
 
     move-result-wide v3

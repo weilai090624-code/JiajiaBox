@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkDatabase_Impl;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/WorkDatabase_Impl;
     .param p2, "version"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -136,7 +136,7 @@
 .end method
 
 .method public dropAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -185,11 +185,12 @@
     .line 96
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Landroidx/work/impl/WorkDatabase_Impl;->access$000(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4a
 
     .line 97
     const/4 v0, 0x0
@@ -197,6 +198,7 @@
     .local v0, "_i":I
     iget-object v1, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v1}, Landroidx/work/impl/WorkDatabase_Impl;->access$100(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v1
@@ -206,12 +208,13 @@
     move-result v1
 
     .local v1, "_size":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_36
+    if-ge v0, v1, :cond_4a
 
     .line 98
     iget-object v2, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v2}, Landroidx/work/impl/WorkDatabase_Impl;->access$200(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v2
@@ -227,17 +230,17 @@
     .line 97
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_36
 
     .line 101
     .end local v0    # "_i":I
     .end local v1    # "_size":I
-    :cond_0
+    :cond_4a
     return-void
 .end method
 
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -251,11 +254,12 @@
     .line 105
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Landroidx/work/impl/WorkDatabase_Impl;->access$300(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 106
     const/4 v0, 0x0
@@ -263,6 +267,7 @@
     .local v0, "_i":I
     iget-object v1, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v1}, Landroidx/work/impl/WorkDatabase_Impl;->access$400(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v1
@@ -272,12 +277,13 @@
     move-result v1
 
     .local v1, "_size":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_13
+    if-ge v0, v1, :cond_27
 
     .line 107
     iget-object v2, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v2}, Landroidx/work/impl/WorkDatabase_Impl;->access$500(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v2
@@ -293,17 +299,17 @@
     .line 106
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 110
     .end local v0    # "_i":I
     .end local v1    # "_size":I
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -317,6 +323,7 @@
     .line 114
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # setter for: Landroidx/work/impl/WorkDatabase_Impl;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
     invoke-static {v0, p1}, Landroidx/work/impl/WorkDatabase_Impl;->access$602(Landroidx/work/impl/WorkDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 115
@@ -327,16 +334,18 @@
     .line 116
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # invokes: Landroidx/work/impl/WorkDatabase_Impl;->internalInitInvalidationTracker(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     invoke-static {v0, p1}, Landroidx/work/impl/WorkDatabase_Impl;->access$700(Landroidx/work/impl/WorkDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 117
     iget-object v0, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Landroidx/work/impl/WorkDatabase_Impl;->access$800(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     .line 118
     const/4 v0, 0x0
@@ -344,6 +353,7 @@
     .local v0, "_i":I
     iget-object v1, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v1}, Landroidx/work/impl/WorkDatabase_Impl;->access$900(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v1
@@ -353,12 +363,13 @@
     move-result v1
 
     .local v1, "_size":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_22
+    if-ge v0, v1, :cond_36
 
     .line 119
     iget-object v2, p0, Landroidx/work/impl/WorkDatabase_Impl$1;->this$0:Landroidx/work/impl/WorkDatabase_Impl;
 
+    # getter for: Landroidx/work/impl/WorkDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v2}, Landroidx/work/impl/WorkDatabase_Impl;->access$1000(Landroidx/work/impl/WorkDatabase_Impl;)Ljava/util/List;
 
     move-result-object v2
@@ -374,17 +385,17 @@
     .line 118
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 122
     .end local v0    # "_i":I
     .end local v1    # "_size":I
-    :cond_0
+    :cond_36
     return-void
 .end method
 
 .method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -400,7 +411,7 @@
 .end method
 
 .method public onPreMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -419,7 +430,7 @@
 .end method
 
 .method public onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
-    .locals 49
+    .registers 51
     .param p1, "_db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -637,7 +648,7 @@
 
     const-string v10, "\n Found:\n"
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_e7
 
     .line 147
     new-instance v2, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -673,7 +684,7 @@
     return-object v2
 
     .line 151
-    :cond_0
+    :cond_e7
     new-instance v8, Ljava/util/HashMap;
 
     const/16 v11, 0x1b
@@ -1243,7 +1254,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_34a
 
     .line 186
     new-instance v3, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1281,7 +1292,7 @@
     return-object v3
 
     .line 190
-    :cond_1
+    :cond_34a
     new-instance v6, Ljava/util/HashMap;
 
     const/4 v12, 0x2
@@ -1434,7 +1445,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3fc
 
     .line 200
     new-instance v3, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1472,7 +1483,7 @@
     return-object v3
 
     .line 204
-    :cond_2
+    :cond_3fc
     new-instance v4, Ljava/util/HashMap;
 
     const/4 v5, 0x3
@@ -1609,7 +1620,7 @@
 
     move-result v28
 
-    if-nez v28, :cond_3
+    if-nez v28, :cond_4a4
 
     .line 214
     new-instance v3, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1647,7 +1658,7 @@
     return-object v3
 
     .line 218
-    :cond_3
+    :cond_4a4
     move-object/from16 v28, v1
 
     .end local v1    # "_existingSystemIdInfo":Landroidx/room/util/TableInfo;
@@ -1818,7 +1829,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_55f
 
     .line 228
     new-instance v3, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1856,7 +1867,7 @@
     return-object v3
 
     .line 232
-    :cond_4
+    :cond_55f
     new-instance v7, Ljava/util/HashMap;
 
     const/4 v8, 0x2
@@ -1974,7 +1985,7 @@
 
     move-result v35
 
-    if-nez v35, :cond_5
+    if-nez v35, :cond_5f9
 
     .line 241
     move-object/from16 v35, v1
@@ -2030,7 +2041,7 @@
     .restart local v1    # "_columnsWorkName":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroidx/room/util/TableInfo$Column;>;"
     .restart local v2    # "_foreignKeysWorkName":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroidx/room/util/TableInfo$ForeignKey;>;"
     .restart local v3    # "_indicesWorkProgress":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroidx/room/util/TableInfo$Index;>;"
-    :cond_5
+    :cond_5f9
     move-object/from16 v35, v1
 
     move-object/from16 v36, v2
@@ -2135,7 +2146,7 @@
 
     move-result v39
 
-    if-nez v39, :cond_6
+    if-nez v39, :cond_678
 
     .line 253
     new-instance v0, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -2185,7 +2196,7 @@
     .end local v40    # "_foreignKeysPreference":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroidx/room/util/TableInfo$ForeignKey;>;"
     .restart local v1    # "_columnsPreference":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroidx/room/util/TableInfo$Column;>;"
     .restart local v2    # "_foreignKeysPreference":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroidx/room/util/TableInfo$ForeignKey;>;"
-    :cond_6
+    :cond_678
     move-object/from16 v39, v1
 
     move-object/from16 v40, v2

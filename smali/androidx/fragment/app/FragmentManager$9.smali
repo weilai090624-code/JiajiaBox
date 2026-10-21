@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 2708
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onActivityResult(Landroidx/activity/result/ActivityResult;)V
-    .locals 7
+    .registers 9
     .param p1, "result"    # Landroidx/activity/result/ActivityResult;
 
     .line 2711
@@ -64,7 +64,7 @@
     .local v0, "requestInfo":Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;
     const-string v1, "FragmentManager"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 2713
     new-instance v2, Ljava/lang/StringBuilder;
@@ -91,7 +91,7 @@
     return-void
 
     .line 2716
-    :cond_0
+    :cond_25
     iget-object v2, v0, Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;->mWho:Ljava/lang/String;
 
     .line 2717
@@ -102,6 +102,7 @@
     .local v3, "requestCode":I
     iget-object v4, p0, Landroidx/fragment/app/FragmentManager$9;->this$0:Landroidx/fragment/app/FragmentManager;
 
+    # getter for: Landroidx/fragment/app/FragmentManager;->mFragmentStore:Landroidx/fragment/app/FragmentStore;
     invoke-static {v4}, Landroidx/fragment/app/FragmentManager;->access$200(Landroidx/fragment/app/FragmentManager;)Landroidx/fragment/app/FragmentStore;
 
     move-result-object v4
@@ -112,7 +113,7 @@
 
     .line 2722
     .local v4, "fragment":Landroidx/fragment/app/Fragment;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4c
 
     .line 2723
     new-instance v5, Ljava/lang/StringBuilder;
@@ -139,7 +140,7 @@
     return-void
 
     .line 2727
-    :cond_1
+    :cond_4c
     invoke-virtual {p1}, Landroidx/activity/result/ActivityResult;->getResultCode()I
 
     move-result v1
@@ -157,7 +158,7 @@
 .end method
 
 .method public bridge synthetic onActivityResult(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 2708
     check-cast p1, Landroidx/activity/result/ActivityResult;

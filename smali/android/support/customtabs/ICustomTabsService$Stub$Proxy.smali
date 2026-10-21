@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 250
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 255
     iget-object v0, p0, Landroid/support/customtabs/ICustomTabsService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -48,7 +48,7 @@
 .end method
 
 .method public extraCommand(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 5
+    .registers 8
     .param p1, "commandName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -70,7 +70,7 @@
 
     .line 343
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -81,6 +81,7 @@
     .line 345
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 346
@@ -99,13 +100,14 @@
     .line 348
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
 
     move-object v2, v3
 
@@ -124,7 +126,7 @@
 
     .line 351
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_2f
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -137,7 +139,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 259
     const-string v0, "android.support.customtabs.ICustomTabsService"
@@ -146,7 +148,7 @@
 .end method
 
 .method public mayLaunchUrl(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;Landroid/os/Bundle;Ljava/util/List;)Z
-    .locals 5
+    .registers 10
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "url"    # Landroid/net/Uri;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -182,7 +184,7 @@
 
     .line 322
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -193,9 +195,11 @@
     .line 324
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 325
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p3, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 326
@@ -218,17 +222,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_8 .. :try_end_28} :catchall_33
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     const/4 v2, 0x1
 
     .line 332
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_2b
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 333
@@ -242,7 +246,7 @@
 
     .line 332
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_33
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -255,7 +259,7 @@
 .end method
 
 .method public newSession(Landroid/support/customtabs/ICustomTabsCallback;)Z
-    .locals 5
+    .registers 7
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -276,7 +280,7 @@
 
     .line 285
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -303,14 +307,14 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_8 .. :try_end_1f} :catchall_2b
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     const/4 v4, 0x1
 
-    :cond_0
+    :cond_22
     move v2, v4
 
     .line 292
@@ -328,7 +332,7 @@
 
     .line 292
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -341,7 +345,7 @@
 .end method
 
 .method public newSessionWithExtras(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)Z
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -363,7 +367,7 @@
 
     .line 303
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -374,6 +378,7 @@
     .line 305
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 306
@@ -393,17 +398,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_8 .. :try_end_23} :catchall_2e
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_26
 
     const/4 v2, 0x1
 
     .line 311
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_26
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 312
@@ -417,7 +422,7 @@
 
     .line 311
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_2e
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -430,7 +435,7 @@
 .end method
 
 .method public postMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)I
-    .locals 5
+    .registers 9
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -453,7 +458,7 @@
 
     .line 420
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -467,6 +472,7 @@
     .line 423
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p3, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 424
@@ -486,8 +492,8 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
 
     move v2, v3
 
@@ -506,7 +512,7 @@
 
     .line 429
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_2f
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -519,7 +525,7 @@
 .end method
 
 .method public receiveFile(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;ILandroid/os/Bundle;)Z
-    .locals 5
+    .registers 10
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "uri"    # Landroid/net/Uri;
     .param p3, "purpose"    # I
@@ -543,7 +549,7 @@
 
     .line 461
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -554,12 +560,14 @@
     .line 463
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 464
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 465
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p4, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 466
@@ -579,17 +587,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_8 .. :try_end_29} :catchall_34
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     const/4 v2, 0x1
 
     .line 471
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_2c
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 472
@@ -603,7 +611,7 @@
 
     .line 471
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_34
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -616,7 +624,7 @@
 .end method
 
 .method public requestPostMessageChannel(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;)Z
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "postMessageOrigin"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
@@ -638,7 +646,7 @@
 
     .line 381
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -649,6 +657,7 @@
     .line 383
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 384
@@ -668,17 +677,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_8 .. :try_end_22} :catchall_2d
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_25
 
     const/4 v2, 0x1
 
     .line 389
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_25
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 390
@@ -692,7 +701,7 @@
 
     .line 389
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_2d
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -705,7 +714,7 @@
 .end method
 
 .method public requestPostMessageChannelWithExtras(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;Landroid/os/Bundle;)Z
-    .locals 5
+    .registers 9
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "postMessageOrigin"    # Landroid/net/Uri;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -728,7 +737,7 @@
 
     .line 400
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -739,9 +748,11 @@
     .line 402
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 403
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p3, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 404
@@ -761,17 +772,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_8 .. :try_end_26} :catchall_31
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     const/4 v2, 0x1
 
     .line 409
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_29
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 410
@@ -785,7 +796,7 @@
 
     .line 409
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_31
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -798,7 +809,7 @@
 .end method
 
 .method public updateVisuals(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)Z
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -820,7 +831,7 @@
 
     .line 362
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -831,6 +842,7 @@
     .line 364
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 365
@@ -850,17 +862,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_8 .. :try_end_22} :catchall_2d
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_25
 
     const/4 v2, 0x1
 
     .line 370
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_25
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 371
@@ -874,7 +886,7 @@
 
     .line 370
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_2d
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -887,7 +899,7 @@
 .end method
 
 .method public validateRelationship(Landroid/support/customtabs/ICustomTabsCallback;ILandroid/net/Uri;Landroid/os/Bundle;)Z
-    .locals 5
+    .registers 10
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "relation"    # I
     .param p3, "origin"    # Landroid/net/Uri;
@@ -911,7 +923,7 @@
 
     .line 440
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -925,9 +937,11 @@
     .line 443
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p3, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 444
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p4, v2}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 445
@@ -947,17 +961,17 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_8 .. :try_end_29} :catchall_34
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     const/4 v2, 0x1
 
     .line 450
     .end local v3    # "_status":Z
     .local v2, "_result":Z
-    :cond_0
+    :cond_2c
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 451
@@ -971,7 +985,7 @@
 
     .line 450
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_34
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -984,7 +998,7 @@
 .end method
 
 .method public warmup(J)Z
-    .locals 5
+    .registers 8
     .param p1, "flags"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1005,7 +1019,7 @@
 
     .line 267
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.ICustomTabsService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1032,14 +1046,14 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_8 .. :try_end_1f} :catchall_2b
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     const/4 v4, 0x1
 
-    :cond_0
+    :cond_22
     move v2, v4
 
     .line 274
@@ -1057,7 +1071,7 @@
 
     .line 274
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

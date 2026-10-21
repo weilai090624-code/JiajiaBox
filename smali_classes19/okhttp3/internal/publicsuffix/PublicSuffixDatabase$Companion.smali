@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 239
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/publicsuffix/PublicSuffixDatabase$Companion;-><init>()V
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public static final synthetic access$binarySearch(Lokhttp3/internal/publicsuffix/PublicSuffixDatabase$Companion;[B[[BI)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p0, "$this"    # Lokhttp3/internal/publicsuffix/PublicSuffixDatabase$Companion;
     .param p1, "$receiver"    # [B
     .param p2, "labels"    # [[B
@@ -84,7 +84,7 @@
 .end method
 
 .method private final binarySearch([B[[BI)Ljava/lang/String;
-    .locals 18
+    .registers 22
     .param p1, "$this$binarySearch"    # [B
     .param p2, "labels"    # [[B
     .param p3, "labelIndex"    # I
@@ -104,8 +104,8 @@
 
     .line 260
     .local v3, "match":Ljava/lang/String;
-    :goto_0
-    if-ge v1, v2, :cond_d
+    :goto_5
+    if-ge v1, v2, :cond_b9
 
     .line 261
     add-int v4, v1, v2
@@ -114,26 +114,26 @@
 
     .line 264
     .local v4, "mid":I
-    :goto_1
+    :goto_b
     const/16 v5, 0xa
 
     const/4 v6, -0x1
 
-    if-le v4, v6, :cond_0
+    if-le v4, v6, :cond_18
 
     aget-byte v6, v0, v4
 
     int-to-byte v7, v5
 
-    if-eq v6, v7, :cond_0
+    if-eq v6, v7, :cond_18
 
     .line 265
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_1
+    goto :goto_b
 
     .line 267
-    :cond_0
+    :cond_18
     add-int/lit8 v4, v4, 0x1
 
     .line 270
@@ -141,22 +141,22 @@
 
     .line 271
     .local v6, "end":I
-    :goto_2
+    :goto_1b
     add-int v7, v4, v6
 
     aget-byte v7, v0, v7
 
     int-to-byte v8, v5
 
-    if-eq v7, v8, :cond_1
+    if-eq v7, v8, :cond_25
 
     .line 272
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_1b
 
     .line 274
-    :cond_1
+    :cond_25
     add-int v5, v4, v6
 
     sub-int/2addr v5, v4
@@ -182,14 +182,14 @@
 
     .line 284
     .local v11, "expectDot":Z
-    :goto_3
+    :goto_2e
     const/4 v12, 0x0
 
     .line 286
     .local v12, "byte0":I
     const/16 v13, 0xff
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_37
 
     .line 287
     const/16 v12, 0x2e
@@ -197,10 +197,10 @@
     .line 288
     const/4 v11, 0x0
 
-    goto :goto_4
+    goto :goto_3f
 
     .line 290
-    :cond_2
+    :cond_37
     aget-object v14, p2, v8
 
     aget-byte v14, v14, v9
@@ -210,7 +210,7 @@
     move-result v12
 
     .line 293
-    :goto_4
+    :goto_3f
     add-int v14, v4, v10
 
     aget-byte v14, v0, v14
@@ -224,29 +224,29 @@
     sub-int v7, v12, v13
 
     .line 296
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4c
 
-    goto :goto_5
+    goto :goto_62
 
     .line 298
-    :cond_3
+    :cond_4c
     add-int/lit8 v10, v10, 0x1
 
     .line 299
     add-int/lit8 v9, v9, 0x1
 
     .line 300
-    if-ne v10, v5, :cond_4
+    if-ne v10, v5, :cond_53
 
-    goto :goto_5
+    goto :goto_62
 
     .line 302
-    :cond_4
+    :cond_53
     aget-object v14, p2, v8
 
     array-length v14, v14
 
-    if-ne v14, v9, :cond_c
+    if-ne v14, v9, :cond_b5
 
     .line 305
     move-object/from16 v14, p2
@@ -257,7 +257,7 @@
 
     add-int/lit8 v14, v14, -0x1
 
-    if-ne v8, v14, :cond_b
+    if-ne v8, v14, :cond_ad
 
     .line 306
     nop
@@ -265,27 +265,27 @@
     .line 315
     .end local v12    # "byte0":I
     .end local v13    # "byte1":I
-    :goto_5
-    if-gez v7, :cond_5
+    :goto_62
+    if-gez v7, :cond_67
 
     .line 316
     add-int/lit8 v2, v4, -0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 317
-    :cond_5
-    if-lez v7, :cond_6
+    :cond_67
+    if-lez v7, :cond_6e
 
     .line 318
     add-int v12, v4, v6
 
     add-int/lit8 v1, v12, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 321
-    :cond_6
+    :cond_6e
     sub-int v12, v5, v10
 
     .line 322
@@ -306,9 +306,9 @@
 
     array-length v15, v15
 
-    if-ge v14, v15, :cond_8
+    if-ge v14, v15, :cond_8d
 
-    :goto_6
+    :goto_7d
     move/from16 v16, v14
 
     .local v16, "i":I
@@ -326,37 +326,37 @@
     add-int/2addr v13, v1
 
     .line 323
-    if-lt v14, v15, :cond_7
+    if-lt v14, v15, :cond_8a
 
-    goto :goto_7
+    goto :goto_8f
 
-    :cond_7
+    :cond_8a
     move/from16 v1, v17
 
-    goto :goto_6
+    goto :goto_7d
 
     .end local v16    # "i":I
     .end local v17    # "low":I
     .restart local v1    # "low":I
-    :cond_8
+    :cond_8d
     move/from16 v17, v1
 
     .line 327
     .end local v1    # "low":I
     .restart local v17    # "low":I
-    :goto_7
-    if-ge v13, v12, :cond_9
+    :goto_8f
+    if-ge v13, v12, :cond_97
 
     .line 328
     add-int/lit8 v2, v4, -0x1
 
     move/from16 v1, v17
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     .line 329
-    :cond_9
-    if-le v13, v12, :cond_a
+    :cond_97
+    if-le v13, v12, :cond_9f
 
     .line 330
     add-int v1, v4, v6
@@ -365,12 +365,12 @@
 
     .end local v17    # "low":I
     .restart local v1    # "low":I
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     .line 333
     .end local v1    # "low":I
     .restart local v17    # "low":I
-    :cond_a
+    :cond_9f
     sget-object v1, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
     const-string v14, "UTF_8"
@@ -384,14 +384,14 @@
     move-object v3, v14
 
     .line 334
-    goto :goto_8
+    goto :goto_bb
 
     .line 308
     .end local v17    # "low":I
     .restart local v1    # "low":I
     .local v12, "byte0":I
     .local v13, "byte1":I
-    :cond_b
+    :cond_ad
     move/from16 v17, v1
 
     .end local v1    # "low":I
@@ -406,19 +406,19 @@
 
     .end local v12    # "byte0":I
     .end local v13    # "byte1":I
-    goto/16 :goto_3
+    goto/16 :goto_2e
 
     .line 302
     .end local v17    # "low":I
     .restart local v1    # "low":I
     .restart local v12    # "byte0":I
     .restart local v13    # "byte1":I
-    :cond_c
+    :cond_b5
     move/from16 v17, v1
 
     .end local v1    # "low":I
     .restart local v17    # "low":I
-    goto/16 :goto_3
+    goto/16 :goto_2e
 
     .line 260
     .end local v4    # "mid":I
@@ -433,22 +433,23 @@
     .end local v13    # "byte1":I
     .end local v17    # "low":I
     .restart local v1    # "low":I
-    :cond_d
+    :cond_b9
     move/from16 v17, v1
 
     .line 338
     .end local v1    # "low":I
     .restart local v17    # "low":I
-    :goto_8
+    :goto_bb
     return-object v3
 .end method
 
 
 # virtual methods
 .method public final get()Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;
-    .locals 1
+    .registers 2
 
     .line 250
+    # getter for: Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;->instance:Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;
     invoke-static {}, Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;->access$getInstance$cp()Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;
 
     move-result-object v0

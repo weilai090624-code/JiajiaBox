@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/file/Path;[Lkotlin/io/path/PathWalkOption;)V
-    .locals 1
+    .registers 4
     .param p1, "start"    # Ljava/nio/file/Path;
     .param p2, "options"    # [Lkotlin/io/path/PathWalkOption;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final synthetic access$getFollowLinks(Lkotlin/io/path/PathTreeWalk;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/path/PathTreeWalk;
 
     .line 20
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final synthetic access$getIncludeDirectories(Lkotlin/io/path/PathTreeWalk;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/path/PathTreeWalk;
 
     .line 20
@@ -126,7 +126,7 @@
 .end method
 
 .method public static final synthetic access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/path/PathTreeWalk;
 
     .line 20
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final synthetic access$getStart$p(Lkotlin/io/path/PathTreeWalk;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/path/PathTreeWalk;
 
     .line 20
@@ -148,7 +148,7 @@
 .end method
 
 .method private final bfsIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -176,7 +176,7 @@
 .end method
 
 .method private final dfsIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -204,7 +204,7 @@
 .end method
 
 .method private final getFollowLinks()Z
-    .locals 2
+    .registers 3
 
     .line 27
     iget-object v0, p0, Lkotlin/io/path/PathTreeWalk;->options:[Lkotlin/io/path/PathWalkOption;
@@ -219,7 +219,7 @@
 .end method
 
 .method private final getIncludeDirectories()Z
-    .locals 2
+    .registers 3
 
     .line 33
     iget-object v0, p0, Lkotlin/io/path/PathTreeWalk;->options:[Lkotlin/io/path/PathWalkOption;
@@ -234,7 +234,7 @@
 .end method
 
 .method private final getLinkOptions()[Ljava/nio/file/LinkOption;
-    .locals 2
+    .registers 3
 
     .line 30
     sget-object v0, Lkotlin/io/path/LinkFollowing;->INSTANCE:Lkotlin/io/path/LinkFollowing;
@@ -251,7 +251,7 @@
 .end method
 
 .method private final isBFS()Z
-    .locals 2
+    .registers 3
 
     .line 36
     iget-object v0, p0, Lkotlin/io/path/PathTreeWalk;->options:[Lkotlin/io/path/PathWalkOption;
@@ -266,7 +266,7 @@
 .end method
 
 .method private final yieldIfNeeded(Lkotlin/sequences/SequenceScope;Lkotlin/io/path/PathNode;Lkotlin/io/path/DirectoryEntriesReader;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 12
     .param p1, "$this$yieldIfNeeded"    # Lkotlin/sequences/SequenceScope;
     .param p2, "node"    # Lkotlin/io/path/PathNode;
     .param p3, "entriesReader"    # Lkotlin/io/path/DirectoryEntriesReader;
@@ -310,13 +310,14 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 48
     invoke-static {v1}, Lkotlin/io/path/PathsKt;->checkFileName(Ljava/nio/file/Path;)V
 
     .line 50
-    :cond_0
+    :cond_e
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {p0}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v2
@@ -341,27 +342,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5f
 
     .line 51
+    # invokes: Lkotlin/io/path/PathTreeWalkKt;->createsCycle(Lkotlin/io/path/PathNode;)Z
     invoke-static {p2}, Lkotlin/io/path/PathTreeWalkKt;->access$createsCycle(Lkotlin/io/path/PathNode;)Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_55
 
     .line 54
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getIncludeDirectories()Z
     invoke-static {p0}, Lkotlin/io/path/PathTreeWalk;->access$getIncludeDirectories(Lkotlin/io/path/PathTreeWalk;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 55
     invoke-virtual {p1, v1, p5}, Lkotlin/sequences/SequenceScope;->yield(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     .line 57
-    :cond_1
+    :cond_35
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {p0}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v2
@@ -386,7 +390,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_54
 
     .line 58
     invoke-virtual {p3, p2}, Lkotlin/io/path/DirectoryEntriesReader;->readEntries(Lkotlin/io/path/PathNode;)Ljava/util/List;
@@ -395,11 +399,11 @@
 
     invoke-interface {p4, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    goto :goto_0
+    :cond_54
+    goto :goto_79
 
     .line 52
-    :cond_3
+    :cond_55
     new-instance v2, Ljava/nio/file/FileSystemLoopException;
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -411,7 +415,7 @@
     throw v2
 
     .line 60
-    :cond_4
+    :cond_5f
     const/4 v2, 0x1
 
     new-array v3, v2, [Ljava/nio/file/LinkOption;
@@ -432,7 +436,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_79
 
     .line 61
     invoke-virtual {p1, v1, p5}, Lkotlin/sequences/SequenceScope;->yield(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -442,8 +446,8 @@
     .line 63
     return-object v2
 
-    :cond_5
-    :goto_0
+    :cond_79
+    :goto_79
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
@@ -452,7 +456,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -467,19 +471,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-direct {p0}, Lkotlin/io/path/PathTreeWalk;->bfsIterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lkotlin/io/path/PathTreeWalk;->dfsIterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method

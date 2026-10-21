@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/resources/TextAppearance;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/resources/TextAppearance;
 
     .line 194
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onFontRetrievalFailed(I)V
-    .locals 2
+    .registers 4
     .param p1, "reason"    # I
 
     .line 204
@@ -46,6 +46,7 @@
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/google/android/material/resources/TextAppearance;->fontResolved:Z
     invoke-static {v0, v1}, Lcom/google/android/material/resources/TextAppearance;->access$102(Lcom/google/android/material/resources/TextAppearance;Z)Z
 
     .line 205
@@ -58,7 +59,7 @@
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;)V
-    .locals 3
+    .registers 5
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 197
@@ -72,6 +73,7 @@
 
     move-result-object v1
 
+    # setter for: Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
     invoke-static {v0, v1}, Lcom/google/android/material/resources/TextAppearance;->access$002(Lcom/google/android/material/resources/TextAppearance;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 198
@@ -79,6 +81,7 @@
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/google/android/material/resources/TextAppearance;->fontResolved:Z
     invoke-static {v0, v1}, Lcom/google/android/material/resources/TextAppearance;->access$102(Lcom/google/android/material/resources/TextAppearance;Z)Z
 
     .line 199
@@ -86,6 +89,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/resources/TextAppearance$1;->this$0:Lcom/google/android/material/resources/TextAppearance;
 
+    # getter for: Lcom/google/android/material/resources/TextAppearance;->font:Landroid/graphics/Typeface;
     invoke-static {v1}, Lcom/google/android/material/resources/TextAppearance;->access$000(Lcom/google/android/material/resources/TextAppearance;)Landroid/graphics/Typeface;
 
     move-result-object v1

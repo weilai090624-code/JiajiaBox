@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .locals 2
+    .registers 6
     .param p1, "textRes"    # I
     .param p2, "descRes"    # I
     .param p3, "iconRes"    # I
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)V
-    .locals 2
+    .registers 4
     .param p1, "builder"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 32
@@ -117,6 +117,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->onLongClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 33
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->text:Ljava/lang/CharSequence;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$000(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -124,6 +125,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->text:Ljava/lang/CharSequence;
 
     .line 34
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->textRes:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$100(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
 
     move-result v0
@@ -131,6 +133,7 @@
     iput v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->textRes:I
 
     .line 36
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->desc:Ljava/lang/CharSequence;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$200(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -138,6 +141,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->desc:Ljava/lang/CharSequence;
 
     .line 37
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->descRes:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$300(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
 
     move-result v0
@@ -145,6 +149,7 @@
     iput v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->descRes:I
 
     .line 39
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->icon:Landroid/graphics/drawable/Drawable;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$400(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -152,6 +157,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->icon:Landroid/graphics/drawable/Drawable;
 
     .line 40
+    # getter for: Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->iconRes:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;->access$500(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
 
     move-result v0
@@ -173,7 +179,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
     .param p2, "x1"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$1;
 
@@ -184,7 +190,7 @@
 .end method
 
 .method public constructor <init>(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;)V
-    .locals 2
+    .registers 4
     .param p1, "item"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
 
     .line 138
@@ -286,7 +292,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "desc"    # Ljava/lang/CharSequence;
     .param p3, "icon"    # Landroid/graphics/drawable/Drawable;
@@ -336,7 +342,7 @@
 .end method
 
 .method public static getViewHolder(Landroid/view/View;)Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 59
@@ -348,7 +354,7 @@
 .end method
 
 .method public static setupItem(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;Landroid/content/Context;)V
-    .locals 15
+    .registers 18
     .param p0, "holder"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;
     .param p1, "item"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
     .param p2, "context"    # Landroid/content/Context;
@@ -377,34 +383,34 @@
     .line 68
     const/16 v3, 0x8
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 69
     iget-object v5, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->text:Landroid/widget/TextView;
 
     invoke-virtual {v5, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 70
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_19
+    if-eqz v2, :cond_21
 
     .line 71
     iget-object v5, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->text:Landroid/widget/TextView;
 
     invoke-virtual {v5, v2}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 73
-    :cond_1
+    :cond_21
     iget-object v5, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->text:Landroid/widget/TextView;
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 76
-    :goto_0
+    :goto_26
     invoke-virtual/range {p1 .. p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->getDesc()Ljava/lang/CharSequence;
 
     move-result-object v5
@@ -422,34 +428,34 @@
     invoke-virtual {v7, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 80
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3b
 
     .line 81
     iget-object v3, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->desc:Landroid/widget/TextView;
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_48
 
     .line 82
-    :cond_2
-    if-eqz v6, :cond_3
+    :cond_3b
+    if-eqz v6, :cond_43
 
     .line 83
     iget-object v3, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->desc:Landroid/widget/TextView;
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_48
 
     .line 85
-    :cond_3
+    :cond_43
     iget-object v7, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->desc:Landroid/widget/TextView;
 
     invoke-virtual {v7, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 88
-    :goto_1
+    :goto_48
     invoke-virtual/range {p1 .. p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
@@ -462,18 +468,18 @@
 
     .line 90
     .local v7, "drawableRes":I
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_58
 
     .line 91
     iget-object v8, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->icon:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 92
-    :cond_4
-    if-eqz v7, :cond_5
+    :cond_58
+    if-eqz v7, :cond_5f
 
     .line 93
     iget-object v8, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->icon:Landroid/widget/ImageView;
@@ -481,8 +487,8 @@
     invoke-virtual {v8, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 96
-    :cond_5
-    :goto_2
+    :cond_5f
+    :goto_5f
     const/4 v8, 0x0
 
     .local v8, "pL":I
@@ -503,27 +509,27 @@
 
     move-result-object v12
 
-    if-nez v12, :cond_7
+    if-nez v12, :cond_77
 
     invoke-virtual/range {p1 .. p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->getOnLongClickAction()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     move-result-object v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_71
 
-    goto :goto_3
+    goto :goto_77
 
     .line 109
-    :cond_6
+    :cond_71
     iget-object v12, v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$MaterialAboutTitleItemViewHolder;->view:Landroid/view/View;
 
     invoke-virtual {v12, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    goto :goto_4
+    goto :goto_8e
 
     .line 105
-    :cond_7
-    :goto_3
+    :cond_77
+    :goto_77
     new-instance v4, Landroid/util/TypedValue;
 
     invoke-direct {v4}, Landroid/util/TypedValue;-><init>()V
@@ -552,7 +558,7 @@
     nop
 
     .line 111
-    :goto_4
+    :goto_8e
     invoke-virtual/range {p1 .. p1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->getOnClickAction()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     move-result-object v4
@@ -576,7 +582,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->clone()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
@@ -587,7 +593,7 @@
 .end method
 
 .method public clone()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 2
 
     .line 152
     new-instance v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
@@ -598,7 +604,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -614,7 +620,7 @@
 .end method
 
 .method public getDesc()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 176
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->desc:Ljava/lang/CharSequence;
@@ -623,7 +629,7 @@
 .end method
 
 .method public getDescRes()I
-    .locals 1
+    .registers 2
 
     .line 186
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->descRes:I
@@ -632,7 +638,7 @@
 .end method
 
 .method public getDetailString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 126
     new-instance v0, Ljava/lang/StringBuilder;
@@ -749,7 +755,7 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->icon:Landroid/graphics/drawable/Drawable;
@@ -758,7 +764,7 @@
 .end method
 
 .method public getIconRes()I
-    .locals 1
+    .registers 2
 
     .line 206
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->iconRes:I
@@ -767,7 +773,7 @@
 .end method
 
 .method public getOnClickAction()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 1
+    .registers 2
 
     .line 216
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->onClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
@@ -776,7 +782,7 @@
 .end method
 
 .method public getOnLongClickAction()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 1
+    .registers 2
 
     .line 225
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->onLongClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
@@ -785,7 +791,7 @@
 .end method
 
 .method public getText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 156
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->text:Ljava/lang/CharSequence;
@@ -794,7 +800,7 @@
 .end method
 
 .method public getTextRes()I
-    .locals 1
+    .registers 2
 
     .line 166
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;->textRes:I
@@ -803,7 +809,7 @@
 .end method
 
 .method public getType()I
-    .locals 1
+    .registers 2
 
     .line 121
     const/4 v0, 0x1
@@ -812,7 +818,7 @@
 .end method
 
 .method public setDesc(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "desc"    # Ljava/lang/CharSequence;
 
     .line 180
@@ -828,7 +834,7 @@
 .end method
 
 .method public setDescRes(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "descRes"    # I
 
     .line 190
@@ -846,7 +852,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 200
@@ -862,7 +868,7 @@
 .end method
 
 .method public setIconRes(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 210
@@ -878,7 +884,7 @@
 .end method
 
 .method public setOnClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 0
+    .registers 2
     .param p1, "onClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 220
@@ -889,7 +895,7 @@
 .end method
 
 .method public setOnLongClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 0
+    .registers 2
     .param p1, "onLongClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 229
@@ -900,7 +906,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 160
@@ -916,7 +922,7 @@
 .end method
 
 .method public setTextRes(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 1
+    .registers 3
     .param p1, "textRes"    # I
 
     .line 170

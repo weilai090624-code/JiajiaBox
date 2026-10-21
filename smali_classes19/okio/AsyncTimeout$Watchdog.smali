@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 173
     const-string v0, "Okio Watchdog"
@@ -66,12 +66,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 179
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 180
@@ -81,7 +81,7 @@
     const/4 v0, 0x0
 
     .local v0, "timedOut":Ljava/lang/Object;
-    :try_start_0
+    :try_start_4
     const-class v1, Lokio/AsyncTimeout;
 
     .line 182
@@ -93,14 +93,14 @@
     .line 330
     .local v2, "$i$f$synchronized":I
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_9} :catch_2f
 
     const/4 v3, 0x0
 
     .line 183
     .local v3, "$i$a$-synchronized-AsyncTimeout$Watchdog$run$1":I
-    :try_start_1
+    :try_start_a
     sget-object v4, Lokio/AsyncTimeout;->Companion:Lokio/AsyncTimeout$Companion;
 
     invoke-virtual {v4}, Lokio/AsyncTimeout$Companion;->awaitTimeout$okio()Lokio/AsyncTimeout;
@@ -110,11 +110,12 @@
     move-object v0, v4
 
     .line 187
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v4
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_20
 
     .line 188
     sget-object v4, Lokio/AsyncTimeout;->Companion:Lokio/AsyncTimeout$Companion;
@@ -122,8 +123,8 @@
     const/4 v4, 0x0
 
     invoke-static {v4}, Lokio/AsyncTimeout;->access$setHead$cp(Lokio/AsyncTimeout;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_a .. :try_end_1d} :catchall_2c
 
     .line 189
     nop
@@ -131,10 +132,10 @@
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
     .end local v3    # "$i$a$-synchronized-AsyncTimeout$Watchdog$run$1":I
-    :try_start_2
+    :try_start_1e
     monitor-exit v1
-    :try_end_2
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/InterruptedException; {:try_start_1e .. :try_end_1f} :catch_2f
 
     return-void
 
@@ -142,16 +143,16 @@
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$a$-synchronized-AsyncTimeout$Watchdog$run$1":I
-    :cond_0
+    :cond_20
     nop
 
     .end local v3    # "$i$a$-synchronized-AsyncTimeout$Watchdog$run$1":I
-    :try_start_3
+    :try_start_21
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_23
+    .catchall {:try_start_21 .. :try_end_23} :catchall_2c
 
-    :try_start_4
+    :try_start_23
     monitor-exit v1
 
     .line 330
@@ -160,35 +161,35 @@
     .line 194
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_28
     invoke-virtual {v0}, Lokio/AsyncTimeout;->timedOut()V
 
     .end local v0    # "timedOut":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1
 
     .line 191
     .restart local v0    # "timedOut":Ljava/lang/Object;
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_2c
     move-exception v3
 
     monitor-exit v1
 
     throw v3
-    :try_end_4
-    .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/InterruptedException; {:try_start_23 .. :try_end_2f} :catch_2f
 
     .line 195
     .end local v0    # "timedOut":Ljava/lang/Object;
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
-    :catch_0
+    :catch_2f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1
 .end method

@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableSet;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1040
     .local p0, "this":Lcom/google/common/collect/Maps$NavigableAsMapView;, "Lcom/google/common/collect/Maps$NavigableAsMapView<TK;TV;>;"
@@ -103,7 +103,7 @@
 .end method
 
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -127,7 +127,7 @@
 .end method
 
 .method descendingEntryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -155,7 +155,7 @@
 .end method
 
 .method public descendingMap()Ljava/util/NavigableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -182,7 +182,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,7 +206,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -230,7 +230,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1031
     move-object v0, p1
@@ -247,14 +247,14 @@
 
     .line 1034
     .end local v0    # "k":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -287,7 +287,7 @@
 .end method
 
 .method public navigableKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -300,6 +300,7 @@
     .local p0, "this":Lcom/google/common/collect/Maps$NavigableAsMapView;, "Lcom/google/common/collect/Maps$NavigableAsMapView<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$NavigableAsMapView;->set:Ljava/util/NavigableSet;
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlyNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$400(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -308,7 +309,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1060
     .local p0, "this":Lcom/google/common/collect/Maps$NavigableAsMapView;, "Lcom/google/common/collect/Maps$NavigableAsMapView<TK;TV;>;"
@@ -322,7 +323,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -361,7 +362,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

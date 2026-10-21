@@ -77,7 +77,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,7 +169,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -180,7 +180,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_9e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -191,7 +191,7 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -203,11 +203,11 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_44
 
     .end local v0    # "noSubscriptionHint":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1c
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 717
@@ -246,20 +246,20 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_42
 
     .line 716
     return-object v0
 
     .line 718
-    :cond_0
+    :cond_42
     move-object v0, p1
 
     move-object p1, v3
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_44
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -283,36 +283,37 @@
 
     move-result-object v4
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->renderConnection(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
     invoke-static {v3, v4}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$renderConnection(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/bg/BaseService$State;)V
 
     .line 737
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_61
 
     const v3, 0x7f130160
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 738
     .end local p1    # "ok":Z
-    :cond_1
+    :cond_61
     iget-object p1, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast p1, Ljava/lang/Integer;
 
     .end local v1    # "noSubscriptionHint":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6c
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_6f
 
-    :cond_2
+    :cond_6c
     const v3, 0x7f13015b
 
     .line 737
-    :goto_1
+    :goto_6f
     move p1, v3
 
     .line 739
@@ -325,14 +326,14 @@
 
     instance-of v3, v1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_7d
 
     move-object v2, v1
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_3
-    if-eqz v2, :cond_4
+    :cond_7d
+    if-eqz v2, :cond_95
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
@@ -351,14 +352,15 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_95
 
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 740
-    :cond_4
+    :cond_95
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->reload()V
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$reload(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
     .line 741
@@ -368,9 +370,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1c
+        :pswitch_12
     .end packed-switch
 .end method

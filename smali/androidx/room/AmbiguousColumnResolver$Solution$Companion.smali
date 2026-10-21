@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/AmbiguousColumnResolver$Solution$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final build(Ljava/util/List;)Landroidx/room/AmbiguousColumnResolver$Solution;
-    .locals 20
+    .registers 22
     .param p1, "matches"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,14 +95,14 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -150,9 +150,9 @@
     .end local v6    # "$i$a$-sumOfInt-AmbiguousColumnResolver$Solution$Companion$build$coverageOffset$1":I
     add-int/2addr v3, v7
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_3a
     move v1, v3
 
     .line 230
@@ -169,7 +169,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_11b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -193,13 +193,13 @@
 
     .end local v4    # "it":Landroidx/room/AmbiguousColumnResolver$Match;
     .end local v6    # "$i$a$-minOf-AmbiguousColumnResolver$Solution$Companion$build$min$1":I
-    :cond_1
-    :goto_1
+    :cond_57
+    :goto_57
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_70
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -223,13 +223,13 @@
 
     .end local v6    # "it":Landroidx/room/AmbiguousColumnResolver$Match;
     .end local v7    # "$i$a$-minOf-AmbiguousColumnResolver$Solution$Companion$build$min$1":I
-    if-le v4, v6, :cond_1
+    if-le v4, v6, :cond_57
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_2
+    :cond_70
     move v3, v4
 
     .line 231
@@ -246,7 +246,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_115
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -270,13 +270,13 @@
 
     .end local v6    # "it":Landroidx/room/AmbiguousColumnResolver$Match;
     .end local v7    # "$i$a$-maxOf-AmbiguousColumnResolver$Solution$Companion$build$max$1":I
-    :cond_3
-    :goto_2
+    :cond_8d
+    :goto_8d
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_a6
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -300,13 +300,13 @@
 
     .end local v7    # "it":Landroidx/room/AmbiguousColumnResolver$Match;
     .end local v8    # "$i$a$-maxOf-AmbiguousColumnResolver$Solution$Companion$build$max$1":I
-    if-ge v6, v7, :cond_3
+    if-ge v6, v7, :cond_8d
 
     move v6, v7
 
-    goto :goto_2
+    goto :goto_8d
 
-    :cond_4
+    :cond_a6
     move v4, v6
 
     .line 232
@@ -324,7 +324,7 @@
     .local v7, "$i$f$count":I
     instance-of v8, v6, Ljava/util/Collection;
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_be
 
     move-object v8, v6
 
@@ -334,14 +334,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_be
 
     const/4 v2, 0x0
 
-    goto :goto_6
+    goto :goto_10b
 
     .line 256
-    :cond_5
+    :cond_be
     const/4 v8, 0x0
 
     .line 257
@@ -350,13 +350,13 @@
 
     move-result-object v9
 
-    :cond_6
-    :goto_3
+    :cond_c3
+    :goto_c3
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_10a
 
     move-object v10, v9
 
@@ -391,12 +391,12 @@
 
     move-result-object v16
 
-    :goto_4
+    :goto_db
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_9
+    if-eqz v17, :cond_fe
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -420,22 +420,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_f7
 
     .line 236
     add-int/lit8 v13, v13, 0x1
 
     .line 238
-    :cond_7
-    if-le v13, v5, :cond_8
+    :cond_f7
+    if-le v13, v5, :cond_fb
 
     .line 239
     const/4 v2, 0x1
 
-    goto :goto_5
+    goto :goto_100
 
     .line 241
-    :cond_8
+    :cond_fb
     nop
 
     .line 258
@@ -444,10 +444,10 @@
     nop
 
     .end local v17    # "element$iv":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_db
 
     .line 259
-    :cond_9
+    :cond_fe
     nop
 
     .line 242
@@ -459,27 +459,27 @@
     .end local v11    # "i":I
     .end local v12    # "$i$a$-count-AmbiguousColumnResolver$Solution$Companion$build$overlaps$1":I
     .end local v13    # "count":I
-    :goto_5
-    if-eqz v2, :cond_6
+    :goto_100
+    if-eqz v2, :cond_c3
 
     add-int/lit8 v8, v8, 0x1
 
-    if-gez v8, :cond_6
+    if-gez v8, :cond_c3
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v10    # "element$iv":I
-    goto :goto_3
+    goto :goto_c3
 
     .line 260
-    :cond_a
+    :cond_10a
     move v2, v8
 
     .line 232
     .end local v6    # "$this$count$iv":Ljava/lang/Iterable;
     .end local v7    # "$i$f$count":I
     .end local v8    # "count$iv":I
-    :goto_6
+    :goto_10b
     nop
 
     .line 244
@@ -503,7 +503,7 @@
     .line 231
     .end local v2    # "overlaps":I
     .end local v4    # "max":I
-    :cond_b
+    :cond_115
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
@@ -512,7 +512,7 @@
 
     .line 230
     .end local v3    # "min":I
-    :cond_c
+    :cond_11b
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
@@ -521,9 +521,10 @@
 .end method
 
 .method public final getNO_SOLUTION()Landroidx/room/AmbiguousColumnResolver$Solution;
-    .locals 1
+    .registers 2
 
     .line 222
+    # getter for: Landroidx/room/AmbiguousColumnResolver$Solution;->NO_SOLUTION:Landroidx/room/AmbiguousColumnResolver$Solution;
     invoke-static {}, Landroidx/room/AmbiguousColumnResolver$Solution;->access$getNO_SOLUTION$cp()Landroidx/room/AmbiguousColumnResolver$Solution;
 
     move-result-object v0

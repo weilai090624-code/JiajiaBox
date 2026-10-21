@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavController$NavControllerNavigatorState;Landroidx/navigation/NavBackStackEntry;Z)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Landroidx/navigation/NavController$NavControllerNavigatorState$pop$1;->this$0:Landroidx/navigation/NavController$NavControllerNavigatorState;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 327
     invoke-virtual {p0}, Landroidx/navigation/NavController$NavControllerNavigatorState$pop$1;->invoke()V
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 328
     iget-object v0, p0, Landroidx/navigation/NavController$NavControllerNavigatorState$pop$1;->this$0:Landroidx/navigation/NavController$NavControllerNavigatorState;
@@ -92,6 +92,7 @@
 
     iget-boolean v2, p0, Landroidx/navigation/NavController$NavControllerNavigatorState$pop$1;->$saveState:Z
 
+    # invokes: Landroidx/navigation/NavigatorState;->pop(Landroidx/navigation/NavBackStackEntry;Z)V
     invoke-static {v0, v1, v2}, Landroidx/navigation/NavController$NavControllerNavigatorState;->access$pop$s261051546(Landroidx/navigation/NavController$NavControllerNavigatorState;Landroidx/navigation/NavBackStackEntry;Z)V
 
     .line 329

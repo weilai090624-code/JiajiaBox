@@ -74,7 +74,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/MinMaxPriorityQueue;)V
-    .locals 0
+    .registers 2
 
     .line 770
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;, "Lcom/google/common/collect/MinMaxPriorityQueue<TE;>.QueueIterator;"
@@ -93,6 +93,7 @@
     .line 773
     iget-object p1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
 
+    # getter for: Lcom/google/common/collect/MinMaxPriorityQueue;->modCount:I
     invoke-static {p1}, Lcom/google/common/collect/MinMaxPriorityQueue;->access$700(Lcom/google/common/collect/MinMaxPriorityQueue;)I
 
     move-result p1
@@ -103,7 +104,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/MinMaxPriorityQueue;Lcom/google/common/collect/MinMaxPriorityQueue$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/MinMaxPriorityQueue;
     .param p2, "x1"    # Lcom/google/common/collect/MinMaxPriorityQueue$1;
 
@@ -115,25 +116,26 @@
 .end method
 
 .method private checkModCount()V
-    .locals 2
+    .registers 3
 
     .line 860
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;, "Lcom/google/common/collect/MinMaxPriorityQueue<TE;>.QueueIterator;"
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
 
+    # getter for: Lcom/google/common/collect/MinMaxPriorityQueue;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/MinMaxPriorityQueue;->access$700(Lcom/google/common/collect/MinMaxPriorityQueue;)I
 
     move-result v0
 
     iget v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 863
     return-void
 
     .line 861
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -142,7 +144,7 @@
 .end method
 
 .method private foundAndRemovedExactReference(Ljava/lang/Iterable;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,12 +162,12 @@
     move-result-object v0
 
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 839
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -174,7 +176,7 @@
 
     .line 840
     .local v1, "element":Ljava/lang/Object;, "TE;"
-    if-ne v1, p2, :cond_0
+    if-ne v1, p2, :cond_15
 
     .line 841
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -186,41 +188,41 @@
 
     .line 844
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_15
+    goto :goto_4
 
     .line 845
     .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private nextNotInSkipMe(I)V
-    .locals 2
+    .registers 4
     .param p1, "c"    # I
 
     .line 870
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;, "Lcom/google/common/collect/MinMaxPriorityQueue<TE;>.QueueIterator;"
     iget v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->nextCursor:I
 
-    if-ge v0, p1, :cond_1
+    if-ge v0, p1, :cond_23
 
     .line 871
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 872
-    :goto_0
+    :goto_8
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MinMaxPriorityQueue;->size()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_21
 
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
 
@@ -234,24 +236,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 873
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 876
-    :cond_0
+    :cond_21
     iput p1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->nextCursor:I
 
     .line 878
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method private removeExact(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "target"    # Ljava/lang/Object;
 
     .line 850
@@ -259,25 +261,27 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
 
+    # getter for: Lcom/google/common/collect/MinMaxPriorityQueue;->size:I
     invoke-static {v1}, Lcom/google/common/collect/MinMaxPriorityQueue;->access$600(Lcom/google/common/collect/MinMaxPriorityQueue;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1d
 
     .line 851
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
 
+    # getter for: Lcom/google/common/collect/MinMaxPriorityQueue;->queue:[Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/collect/MinMaxPriorityQueue;->access$500(Lcom/google/common/collect/MinMaxPriorityQueue;)[Ljava/lang/Object;
 
     move-result-object v1
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_1a
 
     .line 852
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
@@ -290,14 +294,14 @@
     return v1
 
     .line 850
-    :cond_0
+    :cond_1a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 856
     .end local v0    # "i":I
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     return v0
@@ -306,7 +310,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 3
+    .registers 4
 
     .line 783
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;, "Lcom/google/common/collect/MinMaxPriorityQueue<TE;>.QueueIterator;"
@@ -330,11 +334,11 @@
 
     move-result v2
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_22
 
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
 
@@ -342,20 +346,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     return v1
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -384,7 +388,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_23
 
     .line 793
     iget v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->nextCursor:I
@@ -406,10 +410,10 @@
     return-object v0
 
     .line 796
-    :cond_0
+    :cond_23
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     .line 797
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
@@ -432,7 +436,7 @@
     .line 799
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->lastFromForgetMeNot:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     .line 800
     iput-boolean v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->canRemove:Z
@@ -443,7 +447,7 @@
     return-object v0
 
     .line 804
-    :cond_1
+    :cond_40
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "iterator moved past last element in queue."
@@ -454,7 +458,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 809
     .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;, "Lcom/google/common/collect/MinMaxPriorityQueue<TE;>.QueueIterator;"
@@ -486,7 +490,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_6b
 
     .line 814
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->this$0:Lcom/google/common/collect/MinMaxPriorityQueue;
@@ -499,19 +503,19 @@
 
     .line 815
     .local v0, "moved":Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;, "Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc<TE;>;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5e
 
     .line 817
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3c
 
     .line 818
-    :cond_0
+    :cond_2d
     new-instance v1, Ljava/util/ArrayDeque;
 
     invoke-direct {v1}, Ljava/util/ArrayDeque;-><init>()V
@@ -528,7 +532,7 @@
     iput-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
 
     .line 821
-    :cond_1
+    :cond_3c
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
 
     iget-object v2, v0, Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;->toTrickle:Ljava/lang/Object;
@@ -537,7 +541,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4d
 
     .line 822
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
@@ -547,7 +551,7 @@
     invoke-interface {v1, v2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
     .line 824
-    :cond_2
+    :cond_4d
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->forgetMeNot:Ljava/util/Queue;
 
     iget-object v2, v0, Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;->replaced:Ljava/lang/Object;
@@ -556,7 +560,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5e
 
     .line 825
     iget-object v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->skipMe:Ljava/util/List;
@@ -566,7 +570,7 @@
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 828
-    :cond_3
+    :cond_5e
     iget v1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->cursor:I
 
     add-int/lit8 v1, v1, -0x1
@@ -582,10 +586,10 @@
 
     .line 830
     .end local v0    # "moved":Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;, "Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc<TE;>;"
-    goto :goto_0
+    goto :goto_7b
 
     .line 831
-    :cond_4
+    :cond_6b
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->lastFromForgetMeNot:Ljava/lang/Object;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -604,6 +608,6 @@
     iput-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$QueueIterator;->lastFromForgetMeNot:Ljava/lang/Object;
 
     .line 834
-    :goto_0
+    :goto_7b
     return-void
 .end method

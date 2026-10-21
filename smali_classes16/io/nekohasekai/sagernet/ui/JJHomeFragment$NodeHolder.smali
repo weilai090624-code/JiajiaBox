@@ -208,6 +208,8 @@
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
+    invoke-static {p2}, Lio/nekohasekai/sagernet/ui/NodeRowStyle;->install(Landroid/view/View;)V
+
     .line 951
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;
 
     .line 92
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 95
@@ -46,6 +46,7 @@
     iget-object v1, p0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate$1;->this$0:Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;
 
     .line 97
+    # getter for: Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->indicatorColorIndexOffset:I
     invoke-static {v1}, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->access$000(Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;)I
 
     move-result v1
@@ -54,6 +55,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate$1;->this$0:Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;
 
+    # getter for: Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->baseSpec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
     invoke-static {v2}, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->access$100(Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;)Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
     move-result-object v2
@@ -65,6 +67,7 @@
     rem-int/2addr v1, v2
 
     .line 96
+    # setter for: Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->indicatorColorIndexOffset:I
     invoke-static {v0, v1}, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->access$002(Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;I)I
 
     .line 98

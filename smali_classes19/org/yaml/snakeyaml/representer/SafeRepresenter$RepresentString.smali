@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 117
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentString;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 8
+    .registers 10
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 119
@@ -62,13 +62,13 @@
 
     sget-object v5, Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;->BINARY:Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_46
 
     invoke-static {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->isPrintable(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_46
 
     .line 123
     sget-object v1, Lorg/yaml/snakeyaml/nodes/Tag;->BINARY:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -76,7 +76,7 @@
     .line 126
     const/4 v4, 0x0
 
-    :try_start_0
+    :try_start_1a
     invoke-virtual {v3, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
     move-result-object v5
@@ -95,14 +95,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_37
 
     .line 134
     invoke-static {v5}, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->encode([B)[C
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1a .. :try_end_2e} :catch_3f
 
     move-object v0, v4
 
@@ -119,13 +119,13 @@
     .line 139
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->LITERAL:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    goto :goto_0
+    goto :goto_46
 
     .line 132
     .local v0, "checkValue":Ljava/lang/String;
     .restart local v5    # "bytes":[B
-    :cond_0
-    :try_start_1
+    :cond_37
+    :try_start_37
     new-instance v6, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v7, "invalid string value has occurred"
@@ -137,8 +137,8 @@
     .end local v3    # "value":Ljava/lang/String;
     .end local p1    # "data":Ljava/lang/Object;
     throw v6
-    :try_end_1
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_3f
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_37 .. :try_end_3f} :catch_3f
 
     .line 135
     .end local v0    # "checkValue":Ljava/lang/String;
@@ -147,7 +147,7 @@
     .restart local v2    # "style":Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
     .restart local v3    # "value":Ljava/lang/String;
     .restart local p1    # "data":Ljava/lang/Object;
-    :catch_0
+    :catch_3f
     move-exception v0
 
     .line 136
@@ -162,16 +162,17 @@
     .line 143
     .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v4    # "binary":[C
-    :cond_1
-    :goto_0
+    :cond_46
+    :goto_46
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentString;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     iget-object v0, v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->defaultScalarStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     sget-object v4, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->PLAIN:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v0, v4, :cond_2
+    if-ne v0, v4, :cond_5e
 
+    # getter for: Lorg/yaml/snakeyaml/representer/SafeRepresenter;->MULTILINE_PATTERN:Ljava/util/regex/Pattern;
     invoke-static {}, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->access$000()Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -184,13 +185,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5e
 
     .line 144
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->LITERAL:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 146
-    :cond_2
+    :cond_5e
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentString;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     invoke-virtual {v0, v1, v3, v2}, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->representScalar(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/String;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)Lorg/yaml/snakeyaml/nodes/Node;

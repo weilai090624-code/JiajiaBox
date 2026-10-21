@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     .line 363
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 366
@@ -43,6 +43,7 @@
     .line 368
     iget-object v0, p0, Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange$1;->this$0:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
+    # invokes: Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;->dispatchAnimationStart()V
     invoke-static {v0}, Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;->access$000(Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;)V
 
     .line 369

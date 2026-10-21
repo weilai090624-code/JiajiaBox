@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableSet;)V
-    .locals 0
+    .registers 2
 
     .line 1127
     iput-object p1, p0, Lcom/google/common/collect/Maps$6;->val$set:Ljava/util/NavigableSet;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -61,7 +61,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1127
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$6;->delegate()Ljava/util/NavigableSet;
@@ -91,7 +91,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 1127
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$6;->delegate()Ljava/util/NavigableSet;
@@ -102,7 +102,7 @@
 .end method
 
 .method protected delegate()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -118,7 +118,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 1127
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$6;->delegate()Ljava/util/NavigableSet;
@@ -129,7 +129,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 1127
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$6;->delegate()Ljava/util/NavigableSet;
@@ -140,7 +140,7 @@
 .end method
 
 .method public descendingSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -154,6 +154,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlyNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$400(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -162,7 +163,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -182,6 +183,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlyNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$400(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -190,7 +192,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -209,6 +211,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlySortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$300(Ljava/util/SortedSet;)Ljava/util/SortedSet;
 
     move-result-object v0
@@ -217,7 +220,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -247,6 +250,7 @@
     move-result-object v0
 
     .line 1165
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlyNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$400(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -255,7 +259,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -279,6 +283,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlySortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$300(Ljava/util/SortedSet;)Ljava/util/SortedSet;
 
     move-result-object v0
@@ -287,7 +292,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -307,6 +312,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlyNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$400(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -315,7 +321,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -334,6 +340,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlySortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$300(Ljava/util/SortedSet;)Ljava/util/SortedSet;
 
     move-result-object v0

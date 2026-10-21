@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/text/MatcherMatchResult;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lkotlin/text/MatcherMatchResult;
 
     iput-object p1, p0, Lkotlin/text/MatcherMatchResult$groupValues$1;->this$0:Lkotlin/text/MatcherMatchResult;
@@ -67,19 +67,19 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 380
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge contains(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/String;
 
     .line 380
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 380
@@ -116,12 +116,13 @@
 .end method
 
 .method public get(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 382
     iget-object v0, p0, Lkotlin/text/MatcherMatchResult$groupValues$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v0}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v0
@@ -130,20 +131,21 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const-string v0, ""
 
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 381
     iget-object v0, p0, Lkotlin/text/MatcherMatchResult$groupValues$1;->this$0:Lkotlin/text/MatcherMatchResult;
 
+    # invokes: Lkotlin/text/MatcherMatchResult;->getMatchResult()Ljava/util/regex/MatchResult;
     invoke-static {v0}, Lkotlin/text/MatcherMatchResult;->access$getMatchResult(Lkotlin/text/MatcherMatchResult;)Ljava/util/regex/MatchResult;
 
     move-result-object v0
@@ -158,19 +160,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 380
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -183,7 +185,7 @@
 .end method
 
 .method public bridge indexOf(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/String;
 
     .line 380
@@ -195,19 +197,19 @@
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 380
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -220,7 +222,7 @@
 .end method
 
 .method public bridge lastIndexOf(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/String;
 
     .line 380

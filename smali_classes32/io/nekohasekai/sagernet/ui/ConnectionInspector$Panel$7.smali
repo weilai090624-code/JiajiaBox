@@ -6,14 +6,6 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;"
-    method = "lambda$refresh$3"
-    proto = "(Ljava/lang/String;Lorg/json/JSONArray;Lorg/json/JSONObject;Ljava/util/Map;)V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 

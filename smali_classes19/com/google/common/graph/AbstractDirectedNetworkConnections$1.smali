@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractDirectedNetworkConnections;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
     .line 67
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -58,7 +58,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;->this$0:Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
@@ -68,25 +68,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -99,11 +99,12 @@
     .local p0, "this":Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;, "Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;"
     iget-object v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;->this$0:Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
+    # getter for: Lcom/google/common/graph/AbstractDirectedNetworkConnections;->selfLoopCount:I
     invoke-static {v0}, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->access$000(Lcom/google/common/graph/AbstractDirectedNetworkConnections;)I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 72
     iget-object v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;->this$0:Lcom/google/common/graph/AbstractDirectedNetworkConnections;
@@ -126,10 +127,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_31
 
     .line 73
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;->this$0:Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
     iget-object v0, v0, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->inEdgeMap:Ljava/util/Map;
@@ -150,7 +151,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_31
     nop
 
     .line 74
@@ -167,7 +168,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 67
     .local p0, "this":Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;, "Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;"
@@ -179,7 +180,7 @@
 .end method
 
 .method public size()I
-    .locals 3
+    .registers 4
 
     .line 79
     .local p0, "this":Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;, "Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;"
@@ -201,6 +202,7 @@
 
     iget-object v2, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections$1;->this$0:Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
+    # getter for: Lcom/google/common/graph/AbstractDirectedNetworkConnections;->selfLoopCount:I
     invoke-static {v2}, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->access$000(Lcom/google/common/graph/AbstractDirectedNetworkConnections;)I
 
     move-result v2

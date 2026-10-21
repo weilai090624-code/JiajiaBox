@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/reflect/ParameterizedTypeImpl$getTypeName$1$1;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlin/reflect/TypesJVMKt;
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 208
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/reflect/Type;
 
     const-string v0, "p0"
@@ -101,6 +101,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 208
+    # invokes: Lkotlin/reflect/TypesJVMKt;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
     invoke-static {p1}, Lkotlin/reflect/TypesJVMKt;->access$typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v0

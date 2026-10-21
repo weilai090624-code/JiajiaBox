@@ -79,7 +79,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$UBzSjdTT_FWTCre_igcL-des9zg(Landroidx/preference/PreferenceHeaderFragmentCompat;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->onViewCreated$lambda-10(Landroidx/preference/PreferenceHeaderFragmentCompat;)V
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -97,7 +97,7 @@
 .end method
 
 .method public static final synthetic access$getOnBackPressedCallback$p(Landroidx/preference/PreferenceHeaderFragmentCompat;)Landroidx/activity/OnBackPressedCallback;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/preference/PreferenceHeaderFragmentCompat;
 
     .line 62
@@ -107,7 +107,7 @@
 .end method
 
 .method private final buildContentView(Landroid/view/LayoutInflater;)Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
-    .locals 9
+    .registers 11
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 163
@@ -344,7 +344,7 @@
 .end method
 
 .method private static final onViewCreated$lambda-10(Landroidx/preference/PreferenceHeaderFragmentCompat;)V
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Landroidx/preference/PreferenceHeaderFragmentCompat;
 
     const-string/jumbo v0, "this$0"
@@ -364,16 +364,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_18
     invoke-virtual {v0, v1}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 215
@@ -381,16 +381,16 @@
 .end method
 
 .method private final openPreferenceHeader(Landroid/content/Intent;)V
-    .locals 0
+    .registers 2
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 310
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 312
-    :cond_0
+    :cond_3
     invoke-virtual {p0, p1}, Landroidx/preference/PreferenceHeaderFragmentCompat;->startActivity(Landroid/content/Intent;)V
 
     .line 313
@@ -398,7 +398,7 @@
 .end method
 
 .method private final openPreferenceHeader(Landroidx/preference/Preference;)V
-    .locals 8
+    .registers 10
     .param p1, "header"    # Landroidx/preference/Preference;
 
     .line 273
@@ -406,7 +406,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 274
     invoke-virtual {p1}, Landroidx/preference/Preference;->getIntent()Landroid/content/Intent;
@@ -419,19 +419,19 @@
     return-void
 
     .line 277
-    :cond_0
+    :cond_e
     invoke-virtual {p1}, Landroidx/preference/Preference;->getFragment()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2d
 
     .local v0, "it":Ljava/lang/String;
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
     .line 278
@@ -468,12 +468,12 @@
 
     .line 284
     .local v0, "fragment":Landroidx/fragment/app/Fragment;
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_2d
+    if-nez v0, :cond_30
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_2
+    :cond_30
     move-object v1, v0
 
     .local v1, "$this$openPreferenceHeader_u24lambda_u2d16":Landroidx/fragment/app/Fragment;
@@ -496,7 +496,7 @@
     nop
 
     .line 289
-    :goto_1
+    :goto_3b
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v1
@@ -507,7 +507,7 @@
 
     const/4 v2, 0x1
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_5f
 
     .line 290
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -538,7 +538,7 @@
 
     .line 294
     .end local v1    # "entry":Landroidx/fragment/app/FragmentManager$BackStackEntry;
-    :cond_3
+    :cond_5f
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v1
@@ -591,7 +591,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_8f
 
     .line 298
     const/16 v2, 0x1003
@@ -599,7 +599,7 @@
     invoke-virtual {v6, v2}, Landroidx/fragment/app/FragmentTransaction;->setTransition(I)Landroidx/fragment/app/FragmentTransaction;
 
     .line 300
-    :cond_4
+    :cond_8f
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getSlidingPaneLayout()Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
     move-result-object v2
@@ -634,7 +634,7 @@
 
 # virtual methods
 .method public final getSlidingPaneLayout()Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
-    .locals 1
+    .registers 2
 
     .line 73
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->requireView()Landroid/view/View;
@@ -647,7 +647,7 @@
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -724,7 +724,7 @@
 .end method
 
 .method public onCreateInitialDetailFragment()Landroidx/fragment/app/Fragment;
-    .locals 7
+    .registers 8
 
     .line 245
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -737,7 +737,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5d
 
     check-cast v0, Landroidx/preference/PreferenceFragmentCompat;
 
@@ -753,13 +753,13 @@
 
     const/4 v2, 0x0
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_1a
 
     .line 248
     return-object v2
 
     .line 250
-    :cond_0
+    :cond_1a
     invoke-virtual {v0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object v1
@@ -770,8 +770,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_3
+    :goto_23
+    if-ge v3, v1, :cond_5c
 
     move v4, v3
 
@@ -797,23 +797,23 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3c
 
     .line 253
-    goto :goto_0
+    goto :goto_23
 
     .line 255
-    :cond_1
+    :cond_3c
     invoke-virtual {v5}, Landroidx/preference/Preference;->getFragment()Ljava/lang/String;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_43
 
-    goto :goto_1
+    goto :goto_5a
 
     .local v1, "it":Ljava/lang/String;
-    :cond_2
+    :cond_43
     const/4 v2, 0x0
 
     .line 256
@@ -848,7 +848,7 @@
     .end local v2    # "$i$a$-let-PreferenceHeaderFragmentCompat$onCreateInitialDetailFragment$fragment$1":I
     nop
 
-    :goto_1
+    :goto_5a
     move-object v1, v2
 
     .line 261
@@ -859,12 +859,12 @@
     .end local v1    # "fragment":Landroidx/fragment/app/Fragment;
     .end local v4    # "index":I
     .end local v5    # "header":Landroidx/preference/Preference;
-    :cond_3
+    :cond_5c
     return-object v2
 
     .line 245
     .end local v0    # "headerFragment":Landroidx/preference/PreferenceFragmentCompat;
-    :cond_4
+    :cond_5d
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type androidx.preference.PreferenceFragmentCompat"
@@ -878,7 +878,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 12
+    .registers 16
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -908,7 +908,7 @@
 
     .line 150
     .local v1, "existingHeaderFragment":Landroidx/fragment/app/Fragment;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_45
 
     .line 151
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->onCreatePreferenceHeader()Landroidx/preference/PreferenceFragmentCompat;
@@ -997,7 +997,7 @@
     nop
 
     .line 158
-    :cond_0
+    :cond_45
     const/4 v2, 0x3
 
     invoke-virtual {v0, v2}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout;->setLockMode(I)V
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public onPreferenceStartFragment(Landroidx/preference/PreferenceFragmentCompat;Landroidx/preference/Preference;)Z
-    .locals 9
+    .registers 12
     .param p1, "caller"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "pref"    # Landroidx/preference/Preference;
 
@@ -1032,7 +1032,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     .line 82
     invoke-direct {p0, p2}, Landroidx/preference/PreferenceHeaderFragmentCompat;->openPreferenceHeader(Landroidx/preference/Preference;)V
@@ -1041,14 +1041,14 @@
     return v2
 
     .line 85
-    :cond_0
+    :cond_17
     invoke-virtual {p1}, Landroidx/preference/PreferenceFragmentCompat;->getId()I
 
     move-result v0
 
     sget v1, Landroidx/preference/R$id;->preferences_detail:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_75
 
     .line 87
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -1170,14 +1170,14 @@
 
     .line 101
     .end local v0    # "frag":Landroidx/fragment/app/Fragment;
-    :cond_1
+    :cond_75
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1213,13 +1213,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4a
 
     invoke-virtual {v0}, Landroid/view/View;->isLayoutRequested()Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     .line 349
     move-object v2, v0
@@ -1229,6 +1229,7 @@
 
     .line 210
     .local v3, "$i$a$-doOnLayout-PreferenceHeaderFragmentCompat$onViewCreated$1":I
+    # getter for: Landroidx/preference/PreferenceHeaderFragmentCompat;->onBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
     invoke-static {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->access$getOnBackPressedCallback$p(Landroidx/preference/PreferenceHeaderFragmentCompat;)Landroidx/activity/OnBackPressedCallback;
 
     move-result-object v4
@@ -1244,7 +1245,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->getSlidingPaneLayout()Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
@@ -1254,17 +1255,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_44
     const/4 v5, 0x0
 
     .line 210
-    :goto_0
+    :goto_45
     invoke-virtual {v4, v5}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 212
@@ -1272,10 +1273,10 @@
 
     .end local v2    # "it":Landroid/view/View;
     .end local v3    # "$i$a$-doOnLayout-PreferenceHeaderFragmentCompat$onViewCreated$1":I
-    goto :goto_1
+    goto :goto_57
 
     .line 351
-    :cond_1
+    :cond_4a
     move-object v2, v0
 
     .local v2, "$this$doOnNextLayout$iv$iv":Landroid/view/View;
@@ -1297,7 +1298,7 @@
     .line 354
     .end local v2    # "$this$doOnNextLayout$iv$iv":Landroid/view/View;
     .end local v3    # "$i$f$doOnNextLayout":I
-    :goto_1
+    :goto_57
     nop
 
     .line 355
@@ -1323,23 +1324,23 @@
 
     instance-of v1, v0, Landroidx/activity/OnBackPressedDispatcherOwner;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_70
 
     check-cast v0, Landroidx/activity/OnBackPressedDispatcherOwner;
 
-    goto :goto_2
+    goto :goto_71
 
-    :cond_2
+    :cond_70
     const/4 v0, 0x0
 
     .line 217
     .local v0, "onBackPressedDispatcherOwner":Landroidx/activity/OnBackPressedDispatcherOwner;
-    :goto_2
-    if-nez v0, :cond_3
+    :goto_71
+    if-nez v0, :cond_74
 
-    goto :goto_3
+    goto :goto_88
 
-    :cond_3
+    :cond_74
     move-object v1, v0
 
     .local v1, "it":Landroidx/activity/OnBackPressedDispatcherOwner;
@@ -1373,31 +1374,31 @@
     nop
 
     .line 223
-    :goto_3
+    :goto_88
     return-void
 .end method
 
 .method public onViewStateRestored(Landroid/os/Bundle;)V
-    .locals 9
+    .registers 11
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 226
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onViewStateRestored(Landroid/os/Bundle;)V
 
     .line 227
-    if-nez p1, :cond_1
+    if-nez p1, :cond_35
 
     .line 228
     invoke-virtual {p0}, Landroidx/preference/PreferenceHeaderFragmentCompat;->onCreateInitialDetailFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_0
+    goto :goto_35
 
     .local v0, "it":Landroidx/fragment/app/Fragment;
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     .line 229
@@ -1475,7 +1476,7 @@
     nop
 
     .line 235
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     return-void
 .end method

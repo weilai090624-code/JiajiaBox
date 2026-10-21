@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
 
     .line 444
     iput-object p1, p0, Lcom/google/common/util/concurrent/ClosingFuture$1;->val$closingFuture:Lcom/google/common/util/concurrent/ClosingFuture;
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 451
@@ -57,7 +57,7 @@
 .end method
 
 .method public onSuccess(Ljava/io/Closeable;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/io/Closeable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -66,10 +66,12 @@
     .line 447
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$1;->val$closingFuture:Lcom/google/common/util/concurrent/ClosingFuture;
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     move-result-object v0
 
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
     invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->access$300(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
 
     move-result-object v0
@@ -83,7 +85,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

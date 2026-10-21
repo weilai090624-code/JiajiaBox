@@ -20,11 +20,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 820
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->EMPTY_BB:Landroidx/emoji2/text/flatbuffer/ReadBuf;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$000()Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     move-result-object v1
@@ -39,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)V
-    .locals 0
+    .registers 4
     .param p1, "bb"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -52,7 +53,7 @@
 .end method
 
 .method private binarySearch(Landroidx/emoji2/text/flatbuffer/FlexBuffers$KeyVector;[B)I
-    .locals 5
+    .registers 8
     .param p1, "keys"    # Landroidx/emoji2/text/flatbuffer/FlexBuffers$KeyVector;
     .param p2, "searchedKey"    # [B
 
@@ -69,8 +70,8 @@
 
     .line 905
     .local v1, "high":I
-    :goto_0
-    if-gt v0, v1, :cond_2
+    :goto_7
+    if-gt v0, v1, :cond_20
 
     .line 906
     add-int v2, v0, v1
@@ -91,16 +92,16 @@
 
     .line 909
     .local v4, "cmp":I
-    if-gez v4, :cond_0
+    if-gez v4, :cond_1a
 
     .line 910
     add-int/lit8 v0, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 911
-    :cond_0
-    if-lez v4, :cond_1
+    :cond_1a
+    if-lez v4, :cond_1f
 
     .line 912
     add-int/lit8 v1, v2, -0x1
@@ -109,21 +110,21 @@
     .end local v2    # "mid":I
     .end local v3    # "k":Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
     .end local v4    # "cmp":I
-    :goto_1
-    goto :goto_0
+    :goto_1e
+    goto :goto_7
 
     .line 914
     .restart local v2    # "mid":I
     .restart local v3    # "k":Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
     .restart local v4    # "cmp":I
-    :cond_1
+    :cond_1f
     return v2
 
     .line 916
     .end local v2    # "mid":I
     .end local v3    # "k":Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
     .end local v4    # "cmp":I
-    :cond_2
+    :cond_20
     add-int/lit8 v2, v0, 0x1
 
     neg-int v2, v2
@@ -132,7 +133,7 @@
 .end method
 
 .method public static empty()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;
-    .locals 1
+    .registers 1
 
     .line 831
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;->EMPTY_MAP:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;
@@ -143,7 +144,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/String;)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 839
@@ -161,7 +162,7 @@
 .end method
 
 .method public get([B)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
-    .locals 4
+    .registers 6
     .param p1, "key"    # [B
 
     .line 847
@@ -183,9 +184,9 @@
 
     .line 850
     .local v2, "index":I
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_15
 
-    if-ge v2, v1, :cond_0
+    if-ge v2, v1, :cond_15
 
     .line 851
     invoke-virtual {p0, v2}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;->get(I)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
@@ -195,7 +196,8 @@
     return-object v3
 
     .line 853
-    :cond_0
+    :cond_15
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;->NULL_REFERENCE:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;->access$600()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
 
     move-result-object v3
@@ -204,7 +206,7 @@
 .end method
 
 .method public keys()Landroidx/emoji2/text/flatbuffer/FlexBuffers$KeyVector;
-    .locals 9
+    .registers 10
 
     .line 862
     const/4 v0, 0x3
@@ -232,6 +234,7 @@
     iget v6, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;->byteWidth:I
 
     .line 865
+    # invokes: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->indirect(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
     invoke-static {v5, v1, v6}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$200(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
 
     move-result v5
@@ -245,6 +248,7 @@
     iget v8, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Map;->byteWidth:I
 
     .line 866
+    # invokes: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->readInt(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
     invoke-static {v6, v7, v8}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$100(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
 
     move-result v6
@@ -260,7 +264,7 @@
 .end method
 
 .method public toString(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 6
+    .registers 8
     .param p1, "builder"    # Ljava/lang/StringBuilder;
 
     .line 884
@@ -290,8 +294,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_13
+    if-ge v3, v1, :cond_43
 
     .line 889
     const/16 v4, 0x22
@@ -332,7 +336,7 @@
     .line 893
     add-int/lit8 v4, v1, -0x1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_40
 
     .line 894
     const-string v4, ", "
@@ -340,14 +344,14 @@
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 888
-    :cond_0
+    :cond_40
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 896
     .end local v3    # "i":I
-    :cond_1
+    :cond_43
     const-string v3, " }"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -357,7 +361,7 @@
 .end method
 
 .method public values()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Vector;
-    .locals 4
+    .registers 5
 
     .line 874
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Vector;

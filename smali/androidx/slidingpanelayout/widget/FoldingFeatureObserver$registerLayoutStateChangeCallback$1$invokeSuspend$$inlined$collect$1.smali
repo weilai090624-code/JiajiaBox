@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$collect$1;->this$0:Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,32 +101,33 @@
     .local v2, "$i$a$-collect-FoldingFeatureObserver$registerLayoutStateChangeCallback$1$2":I
     iget-object v3, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$collect$1;->this$0:Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
+    # getter for: Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->onFoldingFeatureChangeListener:Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;
     invoke-static {v3}, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->access$getOnFoldingFeatureChangeListener$p(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_f
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_f
     invoke-interface {v3, v0}, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;->onFoldingFeatureChange(Landroidx/window/layout/FoldingFeature;)V
 
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :goto_0
+    :goto_14
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1b
 
     return-object v3
 
     .line 136
-    :cond_1
+    :cond_1b
     nop
 
     .end local v0    # "nextFeature":Landroidx/window/layout/FoldingFeature;

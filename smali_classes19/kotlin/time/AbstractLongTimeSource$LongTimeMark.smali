@@ -75,7 +75,7 @@
 
 # direct methods
 .method private constructor <init>(JLkotlin/time/AbstractLongTimeSource;J)V
-    .locals 1
+    .registers 7
     .param p1, "startedAt"    # J
     .param p3, "timeSource"    # Lkotlin/time/AbstractLongTimeSource;
     .param p4, "offset"    # J
@@ -97,7 +97,7 @@
 .end method
 
 .method public synthetic constructor <init>(JLkotlin/time/AbstractLongTimeSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     invoke-direct/range {p0 .. p5}, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;-><init>(JLkotlin/time/AbstractLongTimeSource;J)V
 
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 43
@@ -123,7 +123,7 @@
 .end method
 
 .method public compareTo(Lkotlin/time/ComparableTimeMark;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     .line 43
@@ -135,11 +135,12 @@
 .end method
 
 .method public elapsedNow-UwyO8pc()J
-    .locals 5
+    .registers 6
 
     .line 45
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->timeSource:Lkotlin/time/AbstractLongTimeSource;
 
+    # invokes: Lkotlin/time/AbstractLongTimeSource;->adjustedRead()J
     invoke-static {v0}, Lkotlin/time/AbstractLongTimeSource;->access$adjustedRead(Lkotlin/time/AbstractLongTimeSource;)J
 
     move-result-wide v0
@@ -166,13 +167,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 80
     instance-of v0, p1, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->timeSource:Lkotlin/time/AbstractLongTimeSource;
 
@@ -186,7 +187,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     move-object v0, p1
 
@@ -206,21 +207,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public hasNotPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 43
     invoke-static {p0}, Lkotlin/time/ComparableTimeMark$DefaultImpls;->hasNotPassedNow(Lkotlin/time/ComparableTimeMark;)Z
@@ -231,7 +232,7 @@
 .end method
 
 .method public hasPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 43
     invoke-static {p0}, Lkotlin/time/ComparableTimeMark$DefaultImpls;->hasPassedNow(Lkotlin/time/ComparableTimeMark;)Z
@@ -242,7 +243,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 82
     iget-wide v0, p0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->offset:J
@@ -265,7 +266,7 @@
 .end method
 
 .method public minus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 43
@@ -277,7 +278,7 @@
 .end method
 
 .method public bridge synthetic minus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 43
@@ -291,7 +292,7 @@
 .end method
 
 .method public minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
-    .locals 6
+    .registers 8
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     const-string v0, "other"
@@ -301,7 +302,7 @@
     .line 72
     instance-of v0, p1, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->timeSource:Lkotlin/time/AbstractLongTimeSource;
 
@@ -315,7 +316,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     .line 75
     iget-wide v0, p0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->startedAt:J
@@ -358,7 +359,7 @@
 
     .line 73
     .end local v0    # "startedAtDiff":J
-    :cond_0
+    :cond_37
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -395,7 +396,7 @@
 .end method
 
 .method public plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 24
+    .registers 27
     .param p1, "duration"    # J
 
     .line 48
@@ -415,7 +416,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     .line 50
     iget-wide v4, v0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->startedAt:J
@@ -450,7 +451,7 @@
 
     .line 53
     .end local v4    # "newValue":J
-    :cond_0
+    :cond_29
     invoke-static {v1, v2, v3}, Lkotlin/time/Duration;->truncateTo-UwyO8pc$kotlin_stdlib(JLkotlin/time/DurationUnit;)J
 
     move-result-wide v4
@@ -504,17 +505,17 @@
 
     cmp-long v18, v8, v16
 
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_6d
 
     cmp-long v18, v14, v16
 
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_6d
 
     xor-long v18, v8, v14
 
     cmp-long v20, v18, v16
 
-    if-gez v20, :cond_1
+    if-gez v20, :cond_6d
 
     .line 62
     invoke-static {v14, v15}, Lkotlin/math/MathKt;->getSign(J)I
@@ -538,7 +539,7 @@
 
     .line 66
     .end local v1    # "correction":J
-    :cond_1
+    :cond_6d
     move-wide/from16 v17, v8
 
     .line 67
@@ -560,20 +561,20 @@
 
     cmp-long v23, v19, v21
 
-    if-nez v23, :cond_2
+    if-nez v23, :cond_85
 
     const/16 v19, 0x1
 
-    goto :goto_0
+    goto :goto_87
 
-    :cond_2
+    :cond_85
     const/16 v19, 0x0
 
     .line 67
     .end local v1    # "$this$isSaturated$iv":J
     .end local v16    # "$i$f$isSaturated":I
-    :goto_0
-    if-eqz v19, :cond_3
+    :goto_87
+    if-eqz v19, :cond_92
 
     sget-object v1, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
@@ -583,14 +584,14 @@
 
     move-wide/from16 v20, v1
 
-    goto :goto_1
+    goto :goto_94
 
-    :cond_3
+    :cond_92
     move-wide/from16 v20, v12
 
     .line 68
     .local v20, "newOffset":J
-    :goto_1
+    :goto_94
     new-instance v1, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;
 
     iget-object v2, v0, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;->timeSource:Lkotlin/time/AbstractLongTimeSource;
@@ -609,7 +610,7 @@
 .end method
 
 .method public bridge synthetic plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 43
@@ -623,7 +624,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 84
     new-instance v0, Ljava/lang/StringBuilder;

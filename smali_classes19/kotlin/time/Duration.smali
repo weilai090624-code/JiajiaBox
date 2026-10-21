@@ -229,7 +229,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/time/Duration$Companion;
 
@@ -251,6 +251,7 @@
     .line 59
     const-wide v0, 0x3fffffffffffffffL    # 1.9999999999999998
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v0
@@ -260,6 +261,7 @@
     .line 60
     const-wide v0, -0x3fffffffffffffffL    # -2.0000000000000004
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v0
@@ -270,7 +272,7 @@
 .end method
 
 .method private synthetic constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "rawValue"    # J
 
     .line 35
@@ -282,7 +284,7 @@
 .end method
 
 .method public static final synthetic access$getINFINITE$cp()J
-    .locals 2
+    .registers 2
 
     .line 32
     sget-wide v0, Lkotlin/time/Duration;->INFINITE:J
@@ -291,7 +293,7 @@
 .end method
 
 .method public static final synthetic access$getNEG_INFINITE$cp()J
-    .locals 2
+    .registers 2
 
     .line 32
     sget-wide v0, Lkotlin/time/Duration;->NEG_INFINITE:J
@@ -300,7 +302,7 @@
 .end method
 
 .method public static final synthetic access$getZERO$cp()J
-    .locals 2
+    .registers 2
 
     .line 32
     sget-wide v0, Lkotlin/time/Duration;->ZERO:J
@@ -309,12 +311,13 @@
 .end method
 
 .method private static final addValuesMixedRanges-UwyO8pc(JJJ)J
-    .locals 10
+    .registers 16
     .param p0, "arg0"    # J
     .param p2, "thisMillis"    # J
     .param p4, "otherNanos"    # J
 
     .line 495
+    # invokes: Lkotlin/time/DurationKt;->nanosToMillis(J)J
     invoke-static {p4, p5}, Lkotlin/time/DurationKt;->access$nanosToMillis(J)J
 
     move-result-wide v0
@@ -331,20 +334,21 @@
 
     cmp-long v5, v2, v8
 
-    if-gtz v5, :cond_0
+    if-gtz v5, :cond_1a
 
     const-wide v2, 0x431bde82d7bL
 
     cmp-long v5, v8, v2
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1a
 
     const/4 v4, 0x1
 
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_1a
+    if-eqz v4, :cond_2c
 
     .line 498
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v2
@@ -353,21 +357,23 @@
 
     .line 499
     .local v2, "otherNanoRemainder":J
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v8, v9}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v4
 
     add-long/2addr v4, v2
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanos(J)J
     invoke-static {v4, v5}, Lkotlin/time/DurationKt;->access$durationOfNanos(J)J
 
     move-result-wide v2
 
     .end local v2    # "otherNanoRemainder":J
-    goto :goto_0
+    goto :goto_3f
 
     .line 501
-    :cond_1
+    :cond_2c
     const-wide v4, -0x3fffffffffffffffL    # -2.0000000000000004
 
     const-wide v6, 0x3fffffffffffffffL    # 1.9999999999999998
@@ -378,17 +384,18 @@
 
     move-result-wide v2
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v2, v3}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v2
 
     .line 497
-    :goto_0
+    :goto_3f
     return-wide v2
 .end method
 
 .method private static final appendFractional-impl(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V
-    .locals 13
+    .registers 21
     .param p0, "arg0"    # J
     .param p2, "$this$appendFractional"    # Ljava/lang/StringBuilder;
     .param p3, "whole"    # I
@@ -403,7 +410,7 @@
     invoke-virtual/range {p2 .. p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1018
-    if-eqz p4, :cond_5
+    if-eqz p4, :cond_5c
 
     .line 1019
     const/16 v1, 0x2e
@@ -446,9 +453,9 @@
 
     const/4 v9, 0x0
 
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_37
 
-    :cond_0
+    :cond_25
     move v10, v6
 
     .local v10, "index$iv":I
@@ -464,39 +471,39 @@
 
     .line 1021
     .local v12, "$i$a$-indexOfLast-Duration$appendFractional$nonZeroDigits$1":I
-    if-eq v11, v2, :cond_1
+    if-eq v11, v2, :cond_30
 
     const/4 v11, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_1
+    :cond_30
     const/4 v11, 0x0
 
     .line 1503
     .end local v11    # "it":C
     .end local v12    # "$i$a$-indexOfLast-Duration$appendFractional$nonZeroDigits$1":I
-    :goto_0
-    if-eqz v11, :cond_2
+    :goto_31
+    if-eqz v11, :cond_35
 
     .line 1504
     move v7, v10
 
-    goto :goto_1
+    goto :goto_38
 
     .line 1502
-    :cond_2
-    if-gez v6, :cond_0
+    :cond_35
+    if-gez v6, :cond_25
 
     .line 1507
     .end local v10    # "index$iv":I
-    :cond_3
+    :cond_37
     nop
 
     .line 1021
     .end local v4    # "$this$indexOfLast$iv":Ljava/lang/CharSequence;
     .end local v5    # "$i$f$indexOfLast":I
-    :goto_1
+    :goto_38
     add-int/2addr v7, v8
 
     .line 1022
@@ -508,9 +515,9 @@
 
     const/4 v4, 0x3
 
-    if-nez p7, :cond_4
+    if-nez p7, :cond_4c
 
-    if-ge v7, v4, :cond_4
+    if-ge v7, v4, :cond_4c
 
     move-object v4, v1
 
@@ -522,10 +529,10 @@
 
     invoke-static {v4, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 1024
-    :cond_4
+    :cond_4c
     move-object v5, v1
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -542,16 +549,16 @@
 
     invoke-static {v4, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 1018
     .end local v1    # "fracString":Ljava/lang/String;
     .end local v7    # "nonZeroDigits":I
-    :cond_5
+    :cond_5c
     move/from16 v3, p5
 
     .line 1027
-    :goto_2
+    :goto_5e
     move-object/from16 v1, p6
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -561,7 +568,7 @@
 .end method
 
 .method public static final synthetic box-impl(J)Lkotlin/time/Duration;
-    .locals 1
+    .registers 3
 
     new-instance v0, Lkotlin/time/Duration;
 
@@ -571,7 +578,7 @@
 .end method
 
 .method public static compareTo-LRDsOJo(JJ)I
-    .locals 5
+    .registers 9
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -584,18 +591,18 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_21
 
     long-to-int v2, v0
 
     and-int/lit8 v2, v2, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
-    goto :goto_1
+    goto :goto_21
 
     .line 662
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
     .line 1499
@@ -624,22 +631,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1f
 
     neg-int v3, v2
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     move v3, v2
 
-    :goto_0
+    :goto_20
     return v3
 
     .line 660
     .end local v2    # "r":I
-    :cond_2
-    :goto_1
+    :cond_21
+    :goto_21
     invoke-static {p0, p1, p2, p3}, Lkotlin/jvm/internal/Intrinsics;->compare(JJ)I
 
     move-result v2
@@ -648,7 +655,7 @@
 .end method
 
 .method public static constructor-impl(J)J
-    .locals 7
+    .registers 9
     .param p0, "rawValue"    # J
 
     .line 44
@@ -656,7 +663,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_b4
 
     .line 45
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInNanos-impl(J)Z
@@ -667,7 +674,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_47
 
     .line 46
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -678,25 +685,25 @@
 
     cmp-long v0, v5, v3
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_25
 
     const-wide v5, 0x3ffffffffffa14c0L    # 1.999999999913868
 
     cmp-long v0, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_25
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_26
+    if-eqz v1, :cond_2a
 
-    goto/16 :goto_3
+    goto/16 :goto_b4
 
-    :cond_1
+    :cond_2a
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -726,7 +733,7 @@
     throw v0
 
     .line 48
-    :cond_2
+    :cond_47
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v3
@@ -735,23 +742,23 @@
 
     cmp-long v0, v5, v3
 
-    if-gtz v0, :cond_3
+    if-gtz v0, :cond_5c
 
     const-wide/high16 v5, 0x4000000000000000L    # 2.0
 
     cmp-long v0, v3, v5
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_5c
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_3
+    :cond_5c
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_6
+    :goto_5d
+    if-eqz v0, :cond_97
 
     .line 49
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -762,25 +769,25 @@
 
     cmp-long v0, v5, v3
 
-    if-gtz v0, :cond_4
+    if-gtz v0, :cond_76
 
     const-wide v5, 0x431bde82d7bL
 
     cmp-long v0, v3, v5
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_76
 
-    goto :goto_2
+    goto :goto_77
 
-    :cond_4
+    :cond_76
     const/4 v1, 0x0
 
-    :goto_2
-    if-nez v1, :cond_5
+    :goto_77
+    if-nez v1, :cond_7a
 
-    goto :goto_3
+    goto :goto_b4
 
-    :cond_5
+    :cond_7a
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -810,7 +817,7 @@
     throw v0
 
     .line 48
-    :cond_6
+    :cond_97
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -840,13 +847,13 @@
     throw v0
 
     .line 49
-    :cond_7
-    :goto_3
+    :cond_b4
+    :goto_b4
     return-wide p0
 .end method
 
 .method public static final div-LRDsOJo(JJ)D
-    .locals 5
+    .registers 9
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -885,7 +892,7 @@
 .end method
 
 .method public static final div-UwyO8pc(JD)J
-    .locals 6
+    .registers 10
     .param p0, "arg0"    # J
     .param p2, "scale"    # D
 
@@ -900,19 +907,19 @@
 
     cmpg-double v3, v1, p2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_c
+    if-eqz v1, :cond_15
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 617
     invoke-static {p0, p1, v0}, Lkotlin/time/Duration;->div-UwyO8pc(JI)J
@@ -922,7 +929,7 @@
     return-wide v1
 
     .line 620
-    :cond_1
+    :cond_15
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getStorageUnit-impl(J)Lkotlin/time/DurationUnit;
 
     move-result-object v1
@@ -945,12 +952,12 @@
 .end method
 
 .method public static final div-UwyO8pc(JI)J
-    .locals 6
+    .registers 9
     .param p0, "arg0"    # J
     .param p2, "scale"    # I
 
     .line 585
-    if-nez p2, :cond_2
+    if-nez p2, :cond_1d
 
     .line 586
     nop
@@ -960,28 +967,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     sget-wide v0, Lkotlin/time/Duration;->INFINITE:J
 
-    goto :goto_0
+    goto :goto_14
 
     .line 588
-    :cond_0
+    :cond_c
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isNegative-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     sget-wide v0, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     .line 586
-    :goto_0
+    :goto_14
     return-wide v0
 
     .line 589
-    :cond_1
+    :cond_15
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Dividing zero duration by zero yields an undefined result."
@@ -991,12 +998,12 @@
     throw v0
 
     .line 592
-    :cond_2
+    :cond_1d
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInNanos-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
     .line 593
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -1007,6 +1014,7 @@
 
     div-long/2addr v0, v2
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanos(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfNanos(J)J
 
     move-result-wide v0
@@ -1014,12 +1022,12 @@
     return-wide v0
 
     .line 595
-    :cond_3
+    :cond_2e
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInfinite-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     .line 596
     invoke-static {p2}, Lkotlin/math/MathKt;->getSign(I)I
@@ -1033,7 +1041,7 @@
     return-wide v0
 
     .line 598
-    :cond_4
+    :cond_3d
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v0
@@ -1050,18 +1058,18 @@
 
     cmp-long v5, v2, v0
 
-    if-gtz v5, :cond_5
+    if-gtz v5, :cond_57
 
     const-wide v2, 0x431bde82d7bL
 
     cmp-long v5, v0, v2
 
-    if-gez v5, :cond_5
+    if-gez v5, :cond_57
 
     const/4 v4, 0x1
 
-    :cond_5
-    if-eqz v4, :cond_6
+    :cond_57
+    if-eqz v4, :cond_71
 
     .line 601
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -1074,6 +1082,7 @@
 
     sub-long/2addr v2, v4
 
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v2, v3}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v2
@@ -1084,12 +1093,14 @@
 
     .line 602
     .local v2, "rem":J
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v4
 
     add-long/2addr v4, v2
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanos(J)J
     invoke-static {v4, v5}, Lkotlin/time/DurationKt;->access$durationOfNanos(J)J
 
     move-result-wide v4
@@ -1098,7 +1109,8 @@
 
     .line 604
     .end local v2    # "rem":J
-    :cond_6
+    :cond_71
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v2
@@ -1107,17 +1119,17 @@
 .end method
 
 .method public static equals-impl(JLjava/lang/Object;)Z
-    .locals 4
+    .registers 7
 
     instance-of v0, p2, Lkotlin/time/Duration;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p2
 
     check-cast v0, Lkotlin/time/Duration;
@@ -1128,36 +1140,36 @@
 
     cmp-long v0, p0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     return v1
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(JJ)Z
-    .locals 1
+    .registers 5
 
     cmp-long v0, p0, p2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static final getAbsoluteValue-UwyO8pc(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 655
@@ -1165,29 +1177,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->unaryMinus-UwyO8pc(J)J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-wide v0, p0
 
-    :goto_0
+    :goto_c
     return-wide v0
 .end method
 
 .method public static synthetic getHoursComponent$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getHoursComponent-impl(J)I
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # J
 
     .line 737
@@ -1195,13 +1207,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getInWholeHours-impl(J)J
 
     move-result-wide v0
@@ -1214,12 +1226,12 @@
 
     long-to-int v0, v0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public static synthetic getInDays$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeDays property instead or convert toDouble(DAYS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1238,7 +1250,7 @@
 .end method
 
 .method public static final synthetic getInDays-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 809
@@ -1252,7 +1264,7 @@
 .end method
 
 .method public static synthetic getInHours$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeHours property instead or convert toDouble(HOURS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1271,7 +1283,7 @@
 .end method
 
 .method public static final synthetic getInHours-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 815
@@ -1285,7 +1297,7 @@
 .end method
 
 .method public static synthetic getInMicroseconds$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeMicroseconds property instead or convert toDouble(MICROSECONDS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1304,7 +1316,7 @@
 .end method
 
 .method public static final synthetic getInMicroseconds-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 839
@@ -1318,7 +1330,7 @@
 .end method
 
 .method public static synthetic getInMilliseconds$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeMilliseconds property instead or convert toDouble(MILLISECONDS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1337,7 +1349,7 @@
 .end method
 
 .method public static final synthetic getInMilliseconds-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 833
@@ -1351,7 +1363,7 @@
 .end method
 
 .method public static synthetic getInMinutes$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeMinutes property instead or convert toDouble(MINUTES) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1370,7 +1382,7 @@
 .end method
 
 .method public static final synthetic getInMinutes-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 821
@@ -1384,7 +1396,7 @@
 .end method
 
 .method public static synthetic getInNanoseconds$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeNanoseconds property instead or convert toDouble(NANOSECONDS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1403,7 +1415,7 @@
 .end method
 
 .method public static final synthetic getInNanoseconds-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 845
@@ -1417,7 +1429,7 @@
 .end method
 
 .method public static synthetic getInSeconds$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeSeconds property instead or convert toDouble(SECONDS) if a double value is required."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -1436,7 +1448,7 @@
 .end method
 
 .method public static final synthetic getInSeconds-impl(J)D
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 827
@@ -1450,7 +1462,7 @@
 .end method
 
 .method public static final getInWholeDays-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 854
@@ -1464,7 +1476,7 @@
 .end method
 
 .method public static final getInWholeHours-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 862
@@ -1478,7 +1490,7 @@
 .end method
 
 .method public static final getInWholeMicroseconds-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 900
@@ -1492,7 +1504,7 @@
 .end method
 
 .method public static final getInWholeMilliseconds-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 887
@@ -1500,33 +1512,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isFinite-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_11
     sget-object v0, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
 
     invoke-static {p0, p1, v0}, Lkotlin/time/Duration;->toLong-impl(JLkotlin/time/DurationUnit;)J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_17
     return-wide v0
 .end method
 
 .method public static final getInWholeMinutes-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 870
@@ -1540,7 +1552,7 @@
 .end method
 
 .method public static final getInWholeNanoseconds-impl(J)J
-    .locals 5
+    .registers 7
     .param p0, "arg0"    # J
 
     .line 913
@@ -1557,49 +1569,50 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 916
-    :cond_0
+    :cond_d
     const-wide v2, 0x8637bd05af6L
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_1c
 
     const-wide v2, 0x7fffffffffffffffL
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 917
-    :cond_1
+    :cond_1c
     const-wide v2, -0x8637bd05af6L
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_28
 
     const-wide/high16 v2, -0x8000000000000000L
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 918
-    :cond_2
+    :cond_28
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v2
 
     .line 914
-    :goto_0
+    :goto_2c
     return-wide v2
 .end method
 
 .method public static final getInWholeSeconds-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 878
@@ -1613,13 +1626,13 @@
 .end method
 
 .method public static synthetic getMinutesComponent$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getMinutesComponent-impl(J)I
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # J
 
     .line 741
@@ -1627,13 +1640,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getInWholeMinutes-impl(J)J
 
     move-result-wide v0
@@ -1646,18 +1659,18 @@
 
     long-to-int v0, v0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public static synthetic getNanosecondsComponent$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getNanosecondsComponent-impl(J)I
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # J
 
     .line 749
@@ -1668,19 +1681,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 751
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInMillis-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
@@ -1692,16 +1705,17 @@
 
     rem-long/2addr v0, v2
 
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v0
 
     long-to-int v0, v0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 752
-    :cond_1
+    :cond_1d
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v0
@@ -1715,18 +1729,18 @@
     long-to-int v0, v0
 
     .line 753
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public static synthetic getSecondsComponent$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getSecondsComponent-impl(J)I
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # J
 
     .line 745
@@ -1734,13 +1748,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getInWholeSeconds-impl(J)J
 
     move-result-wide v0
@@ -1753,12 +1767,12 @@
 
     long-to-int v0, v0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private static final getStorageUnit-impl(J)Lkotlin/time/DurationUnit;
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # J
 
     .line 41
@@ -1766,21 +1780,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     sget-object v0, Lkotlin/time/DurationUnit;->NANOSECONDS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget-object v0, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
 .method private static final getUnitDiscriminator-impl(J)I
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     const/4 v0, 0x0
@@ -1795,7 +1809,7 @@
 .end method
 
 .method private static final getValue-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
 
     .line 37
@@ -1807,7 +1821,7 @@
 .end method
 
 .method public static hashCode-impl(J)I
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Landroidx/work/impl/model/WorkSpec$$ExternalSyntheticBackport0;->m(J)I
 
@@ -1817,7 +1831,7 @@
 .end method
 
 .method public static final isFinite-impl(J)Z
-    .locals 1
+    .registers 3
     .param p0, "arg0"    # J
 
     .line 652
@@ -1831,7 +1845,7 @@
 .end method
 
 .method private static final isInMillis-impl(J)Z
-    .locals 3
+    .registers 5
     .param p0, "arg0"    # J
 
     .line 40
@@ -1847,19 +1861,19 @@
 
     .line 40
     .end local v0    # "$i$f$getUnitDiscriminator-impl":I
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_9
     return v2
 .end method
 
 .method private static final isInNanos-impl(J)Z
-    .locals 3
+    .registers 5
     .param p0, "arg0"    # J
 
     .line 39
@@ -1875,19 +1889,19 @@
 
     .line 39
     .end local v0    # "$i$f$getUnitDiscriminator-impl":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_9
     return v2
 .end method
 
 .method public static final isInfinite-impl(J)Z
-    .locals 3
+    .registers 5
     .param p0, "arg0"    # J
 
     .line 649
@@ -1895,31 +1909,31 @@
 
     cmp-long v2, p0, v0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_f
 
     sget-wide v0, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public static final isNegative-impl(J)Z
-    .locals 3
+    .registers 5
     .param p0, "arg0"    # J
 
     .line 643
@@ -1927,21 +1941,21 @@
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static final isPositive-impl(J)Z
-    .locals 3
+    .registers 5
     .param p0, "arg0"    # J
 
     .line 646
@@ -1949,21 +1963,21 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static final minus-LRDsOJo(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -1980,7 +1994,7 @@
 .end method
 
 .method public static final plus-LRDsOJo(JJ)J
-    .locals 10
+    .registers 14
     .param p0, "arg0"    # J
     .param p2, "other"    # J
 
@@ -1992,14 +2006,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
     .line 469
     invoke-static {p2, p3}, Lkotlin/time/Duration;->isFinite-impl(J)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     xor-long v0, p0, p2
 
@@ -2007,12 +2021,12 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_16
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 472
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Summing infinite durations of different signs yields an undefined result."
@@ -2022,22 +2036,22 @@
     throw v0
 
     .line 470
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-wide p0
 
     .line 474
-    :cond_2
+    :cond_1f
     invoke-static {p2, p3}, Lkotlin/time/Duration;->isInfinite-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_26
 
     return-wide p2
 
     .line 477
-    :cond_3
+    :cond_26
     nop
 
     .line 478
@@ -2061,7 +2075,7 @@
 
     .line 478
     .end local v1    # "$i$f$getUnitDiscriminator-impl":I
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4b
 
     .line 479
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -2083,31 +2097,33 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_46
 
     .line 482
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanosNormalized(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfNanosNormalized(J)J
 
     move-result-wide v2
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 484
-    :cond_4
+    :cond_46
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillisNormalized(J)J
     invoke-static {v0, v1}, Lkotlin/time/DurationKt;->access$durationOfMillisNormalized(J)J
 
     move-result-wide v2
 
     .end local v0    # "result":J
-    goto :goto_1
+    goto :goto_6c
 
     .line 487
-    :cond_5
+    :cond_4b
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInMillis-impl(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5f
 
     .line 488
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
@@ -2124,10 +2140,10 @@
 
     move-result-wide v2
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 490
-    :cond_6
+    :cond_5f
     invoke-static {p2, p3}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v6
@@ -2143,12 +2159,12 @@
     move-result-wide v2
 
     .line 477
-    :goto_1
+    :goto_6c
     return-wide v2
 .end method
 
 .method public static final times-UwyO8pc(JD)J
-    .locals 6
+    .registers 10
     .param p0, "arg0"    # J
     .param p2, "scale"    # D
 
@@ -2163,17 +2179,17 @@
 
     cmpg-double v3, v1, p2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_c
+    if-eqz v1, :cond_13
 
     .line 570
     invoke-static {p0, p1, v0}, Lkotlin/time/Duration;->times-UwyO8pc(JI)J
@@ -2183,7 +2199,7 @@
     return-wide v1
 
     .line 573
-    :cond_1
+    :cond_13
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getStorageUnit-impl(J)Lkotlin/time/DurationUnit;
 
     move-result-object v1
@@ -2206,7 +2222,7 @@
 .end method
 
 .method public static final times-UwyO8pc(JI)J
-    .locals 20
+    .registers 23
     .param p0, "arg0"    # J
     .param p2, "scale"    # I
 
@@ -2217,33 +2233,33 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1d
 
     .line 521
     nop
 
     .line 522
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 523
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     move-wide/from16 v1, p0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 524
-    :cond_0
+    :cond_10
     invoke-static/range {p0 .. p1}, Lkotlin/time/Duration;->unaryMinus-UwyO8pc(J)J
 
     move-result-wide v1
 
     .line 521
-    :goto_0
+    :goto_14
     return-wide v1
 
     .line 522
-    :cond_1
+    :cond_15
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Multiplying infinite duration by zero yields an undefined result."
@@ -2253,15 +2269,15 @@
     throw v1
 
     .line 527
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_1d
+    if-nez v0, :cond_22
 
     sget-wide v1, Lkotlin/time/Duration;->ZERO:J
 
     return-wide v1
 
     .line 529
-    :cond_3
+    :cond_22
     invoke-static/range {p0 .. p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v1
@@ -2278,7 +2294,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_ac
 
     .line 532
     const-wide/32 v10, -0x7fffffff
@@ -2287,51 +2303,55 @@
 
     cmp-long v12, v10, v1
 
-    if-gtz v12, :cond_4
+    if-gtz v12, :cond_41
 
     const-wide v10, 0x80000000L
 
     cmp-long v12, v1, v10
 
-    if-gez v12, :cond_4
+    if-gez v12, :cond_41
 
     const/4 v5, 0x1
 
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_41
+    if-eqz v5, :cond_49
 
     .line 534
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanos(J)J
     invoke-static {v3, v4}, Lkotlin/time/DurationKt;->access$durationOfNanos(J)J
 
     move-result-wide v5
 
-    goto/16 :goto_1
+    goto/16 :goto_de
 
     .line 536
-    :cond_5
+    :cond_49
     int-to-long v10, v0
 
     div-long v10, v3, v10
 
     cmp-long v5, v10, v1
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_56
 
     .line 537
+    # invokes: Lkotlin/time/DurationKt;->durationOfNanosNormalized(J)J
     invoke-static {v3, v4}, Lkotlin/time/DurationKt;->access$durationOfNanosNormalized(J)J
 
     move-result-wide v5
 
-    goto/16 :goto_1
+    goto/16 :goto_de
 
     .line 539
-    :cond_6
+    :cond_56
+    # invokes: Lkotlin/time/DurationKt;->nanosToMillis(J)J
     invoke-static {v1, v2}, Lkotlin/time/DurationKt;->access$nanosToMillis(J)J
 
     move-result-wide v10
 
     .line 540
     .local v10, "millis":J
+    # invokes: Lkotlin/time/DurationKt;->millisToNanos(J)J
     invoke-static {v10, v11}, Lkotlin/time/DurationKt;->access$millisToNanos(J)J
 
     move-result-wide v12
@@ -2350,6 +2370,7 @@
 
     mul-long v6, v6, v12
 
+    # invokes: Lkotlin/time/DurationKt;->nanosToMillis(J)J
     invoke-static {v6, v7}, Lkotlin/time/DurationKt;->access$nanosToMillis(J)J
 
     move-result-wide v5
@@ -2364,7 +2385,7 @@
 
     cmp-long v9, v7, v10
 
-    if-nez v9, :cond_7
+    if-nez v9, :cond_97
 
     xor-long v7, v5, v14
 
@@ -2372,7 +2393,7 @@
 
     cmp-long v9, v7, v18
 
-    if-ltz v9, :cond_7
+    if-ltz v9, :cond_97
 
     .line 544
     new-instance v7, Lkotlin/ranges/LongRange;
@@ -2393,18 +2414,19 @@
 
     move-result-wide v7
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v7, v8}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v7
 
     move-wide v5, v7
 
-    goto :goto_1
+    goto :goto_de
 
     .line 543
     .end local v16    # "millis":J
     .restart local v10    # "millis":J
-    :cond_7
+    :cond_97
     move-wide/from16 v16, v10
 
     .line 546
@@ -2420,32 +2442,32 @@
 
     mul-int v7, v7, v8
 
-    if-lez v7, :cond_8
+    if-lez v7, :cond_a9
 
     sget-wide v7, Lkotlin/time/Duration;->INFINITE:J
 
     move-wide v5, v7
 
-    goto :goto_1
+    goto :goto_de
 
-    :cond_8
+    :cond_a9
     sget-wide v5, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     .end local v5    # "totalMillis":J
     .end local v12    # "remNanos":J
     .end local v14    # "resultMillis":J
     .end local v16    # "millis":J
-    goto :goto_1
+    goto :goto_de
 
     .line 551
-    :cond_9
+    :cond_ac
     int-to-long v5, v0
 
     div-long v5, v3, v5
 
     cmp-long v7, v5, v1
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_cd
 
     .line 552
     new-instance v5, Lkotlin/ranges/LongRange;
@@ -2462,14 +2484,15 @@
 
     move-result-wide v5
 
+    # invokes: Lkotlin/time/DurationKt;->durationOfMillis(J)J
     invoke-static {v5, v6}, Lkotlin/time/DurationKt;->access$durationOfMillis(J)J
 
     move-result-wide v5
 
-    goto :goto_1
+    goto :goto_de
 
     .line 554
-    :cond_a
+    :cond_cd
     invoke-static {v1, v2}, Lkotlin/math/MathKt;->getSign(J)I
 
     move-result v5
@@ -2480,22 +2503,22 @@
 
     mul-int v5, v5, v6
 
-    if-lez v5, :cond_b
+    if-lez v5, :cond_dc
 
     sget-wide v5, Lkotlin/time/Duration;->INFINITE:J
 
-    goto :goto_1
+    goto :goto_de
 
-    :cond_b
+    :cond_dc
     sget-wide v5, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     .line 531
-    :goto_1
+    :goto_de
     return-wide v5
 .end method
 
 .method public static final toComponents-impl(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -2547,7 +2570,7 @@
 .end method
 
 .method public static final toComponents-impl(JLkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "arg0"    # J
     .param p2, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -2609,7 +2632,7 @@
 .end method
 
 .method public static final toComponents-impl(JLkotlin/jvm/functions/Function4;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "arg0"    # J
     .param p2, "action"    # Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;
@@ -2681,7 +2704,7 @@
 .end method
 
 .method public static final toComponents-impl(JLkotlin/jvm/functions/Function5;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p0, "arg0"    # J
     .param p2, "action"    # Lkotlin/jvm/functions/Function5;
     .annotation system Ldalvik/annotation/Signature;
@@ -2765,7 +2788,7 @@
 .end method
 
 .method public static final toDouble-impl(JLkotlin/time/DurationUnit;)D
-    .locals 3
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -2781,26 +2804,26 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     const-wide/high16 v0, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
 
-    goto :goto_0
+    goto :goto_25
 
     .line 768
-    :cond_0
+    :cond_f
     sget-wide v0, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_18
 
     const-wide/high16 v0, -0x10000000000000L    # Double.NEGATIVE_INFINITY
 
-    goto :goto_0
+    goto :goto_25
 
     .line 771
-    :cond_1
+    :cond_18
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v0
@@ -2816,12 +2839,12 @@
     move-result-wide v0
 
     .line 766
-    :goto_0
+    :goto_25
     return-wide v0
 .end method
 
 .method public static final toInt-impl(JLkotlin/time/DurationUnit;)I
-    .locals 7
+    .registers 10
     .param p0, "arg0"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -2848,7 +2871,7 @@
 .end method
 
 .method public static final toIsoString-impl(J)Ljava/lang/String;
-    .locals 27
+    .registers 29
     .param p0, "arg0"    # J
 
     .line 1067
@@ -2867,14 +2890,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const/16 v1, 0x2d
 
     invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1069
-    :cond_0
+    :cond_12
     const-string v1, "PT"
 
     invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2928,23 +2951,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3f
 
     .line 1075
     const-wide v1, 0x9184e729fffL
 
     move-wide v7, v1
 
-    goto :goto_0
+    goto :goto_40
 
     .line 1073
-    :cond_1
+    :cond_3f
     move-wide v7, v1
 
     .line 1077
     .end local v1    # "hours":J
     .local v7, "hours":J
-    :goto_0
+    :goto_40
     const-wide/16 v1, 0x0
 
     const/4 v3, 0x1
@@ -2953,58 +2976,58 @@
 
     cmp-long v5, v7, v1
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4a
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_2
+    :cond_4a
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_4b
     move/from16 v20, v1
 
     .line 1078
     .local v20, "hasHours":Z
-    if-nez v15, :cond_4
+    if-nez v15, :cond_54
 
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_52
 
-    goto :goto_2
+    goto :goto_54
 
-    :cond_3
+    :cond_52
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_55
 
-    :cond_4
-    :goto_2
+    :cond_54
+    :goto_54
     const/4 v1, 0x1
 
-    :goto_3
+    :goto_55
     move/from16 v21, v1
 
     .line 1079
     .local v21, "hasSeconds":Z
-    if-nez v14, :cond_6
+    if-nez v14, :cond_5f
 
-    if-eqz v21, :cond_5
+    if-eqz v21, :cond_5e
 
-    if-eqz v20, :cond_5
+    if-eqz v20, :cond_5e
 
-    goto :goto_4
+    goto :goto_5f
 
-    :cond_5
+    :cond_5e
     const/4 v3, 0x0
 
-    :cond_6
-    :goto_4
+    :cond_5f
+    :goto_5f
     move/from16 v22, v3
 
     .line 1080
     .local v22, "hasMinutes":Z
-    if-eqz v20, :cond_7
+    if-eqz v20, :cond_6c
 
     .line 1081
     invoke-virtual {v9, v7, v8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
@@ -3016,8 +3039,8 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1083
-    :cond_7
-    if-eqz v22, :cond_8
+    :cond_6c
+    if-eqz v22, :cond_77
 
     .line 1084
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -3029,23 +3052,23 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1086
-    :cond_8
-    if-nez v21, :cond_a
+    :cond_77
+    if-nez v21, :cond_81
 
-    if-nez v20, :cond_9
+    if-nez v20, :cond_7e
 
-    if-nez v22, :cond_9
+    if-nez v22, :cond_7e
 
-    goto :goto_5
+    goto :goto_81
 
-    :cond_9
+    :cond_7e
     move-wide/from16 v25, v7
 
-    goto :goto_6
+    goto :goto_96
 
     .line 1087
-    :cond_a
-    :goto_5
+    :cond_81
+    :goto_81
     const-string v23, "S"
 
     const/16 v24, 0x1
@@ -3071,7 +3094,7 @@
     invoke-static/range {v1 .. v8}, Lkotlin/time/Duration;->appendFractional-impl(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V
 
     .line 1089
-    :goto_6
+    :goto_96
     nop
 
     .line 1510
@@ -3107,7 +3130,7 @@
 .end method
 
 .method public static final toLong-impl(JLkotlin/time/DurationUnit;)J
-    .locals 3
+    .registers 6
     .param p0, "arg0"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -3123,26 +3146,26 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     const-wide v0, 0x7fffffffffffffffL
 
-    goto :goto_0
+    goto :goto_27
 
     .line 788
-    :cond_0
+    :cond_12
     sget-wide v0, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1b
 
     const-wide/high16 v0, -0x8000000000000000L
 
-    goto :goto_0
+    goto :goto_27
 
     .line 789
-    :cond_1
+    :cond_1b
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getValue-impl(J)J
 
     move-result-wide v0
@@ -3156,12 +3179,12 @@
     move-result-wide v0
 
     .line 786
-    :goto_0
+    :goto_27
     return-wide v0
 .end method
 
 .method public static final synthetic toLongMilliseconds-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeMilliseconds property instead."
@@ -3186,7 +3209,7 @@
 .end method
 
 .method public static final synthetic toLongNanoseconds-impl(J)J
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # J
     .annotation runtime Lkotlin/Deprecated;
         message = "Use inWholeNanoseconds property instead."
@@ -3211,7 +3234,7 @@
 .end method
 
 .method public static toString-impl(J)Ljava/lang/String;
-    .locals 31
+    .registers 33
     .param p0, "arg0"    # J
 
     .line 971
@@ -3222,38 +3245,38 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_b
 
     const-string v0, "0s"
 
-    goto/16 :goto_6
+    goto/16 :goto_167
 
     .line 973
-    :cond_0
+    :cond_b
     sget-wide v2, Lkotlin/time/Duration;->INFINITE:J
 
     cmp-long v4, p0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_15
 
     const-string v0, "Infinity"
 
-    goto/16 :goto_6
+    goto/16 :goto_167
 
     .line 974
-    :cond_1
+    :cond_15
     sget-wide v2, Lkotlin/time/Duration;->NEG_INFINITE:J
 
     cmp-long v4, p0, v2
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_1f
 
     const-string v0, "-Infinity"
 
-    goto/16 :goto_6
+    goto/16 :goto_167
 
     .line 976
-    :cond_2
+    :cond_1f
     invoke-static/range {p0 .. p1}, Lkotlin/time/Duration;->isNegative-impl(J)Z
 
     move-result v2
@@ -3271,14 +3294,14 @@
 
     .line 978
     .local v13, "$i$a$-buildString-Duration$toString$1":I
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_31
 
     const/16 v4, 0x2d
 
     invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 979
-    :cond_3
+    :cond_31
     invoke-static/range {p0 .. p1}, Lkotlin/time/Duration;->getAbsoluteValue-UwyO8pc(J)J
 
     move-result-wide v14
@@ -3324,52 +3347,52 @@
 
     cmp-long v5, v10, v0
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_55
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_56
 
-    :cond_4
+    :cond_55
     const/4 v0, 0x0
 
     .line 981
     .local v0, "hasDays":Z
-    :goto_0
-    if-eqz v9, :cond_5
+    :goto_56
+    if-eqz v9, :cond_5a
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_5b
 
-    :cond_5
+    :cond_5a
     const/4 v1, 0x0
 
     .line 982
     .local v1, "hasHours":Z
-    :goto_1
-    if-eqz v8, :cond_6
+    :goto_5b
+    if-eqz v8, :cond_5f
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_60
 
-    :cond_6
+    :cond_5f
     const/4 v5, 0x0
 
-    :goto_2
+    :goto_60
     move/from16 v19, v5
 
     .line 983
     .local v19, "hasMinutes":Z
-    if-nez v17, :cond_7
+    if-nez v17, :cond_66
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_67
 
-    :cond_7
+    :cond_66
     const/4 v4, 0x1
 
-    :cond_8
+    :cond_67
     move/from16 v20, v4
 
     .line 984
@@ -3378,7 +3401,7 @@
 
     .line 985
     .local v4, "components":I
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_77
 
     .line 986
     invoke-virtual {v12, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
@@ -3393,29 +3416,29 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 989
-    :cond_9
+    :cond_77
     const/16 v5, 0x20
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_81
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_92
 
-    if-nez v19, :cond_a
+    if-nez v19, :cond_81
 
-    if-eqz v20, :cond_c
+    if-eqz v20, :cond_92
 
     .line 990
-    :cond_a
+    :cond_81
     add-int/lit8 v6, v4, 0x1
 
     .end local v4    # "components":I
     .local v6, "components":I
-    if-lez v4, :cond_b
+    if-lez v4, :cond_88
 
     invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 991
-    :cond_b
+    :cond_88
     invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -3429,29 +3452,29 @@
     .line 993
     .end local v6    # "components":I
     .restart local v4    # "components":I
-    :cond_c
-    if-nez v19, :cond_d
+    :cond_92
+    if-nez v19, :cond_9a
 
-    if-eqz v20, :cond_f
+    if-eqz v20, :cond_ad
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_9a
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_ad
 
     .line 994
-    :cond_d
+    :cond_9a
     add-int/lit8 v5, v4, 0x1
 
     .end local v4    # "components":I
     .local v5, "components":I
-    if-lez v4, :cond_e
+    if-lez v4, :cond_a3
 
     const/16 v4, 0x20
 
     invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 995
-    :cond_e
+    :cond_a3
     invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -3465,32 +3488,32 @@
     .line 997
     .end local v5    # "components":I
     .restart local v4    # "components":I
-    :cond_f
-    if-eqz v20, :cond_15
+    :cond_ad
+    if-eqz v20, :cond_142
 
     .line 998
     add-int/lit8 v23, v4, 0x1
 
     .end local v4    # "components":I
     .local v23, "components":I
-    if-lez v4, :cond_10
+    if-lez v4, :cond_b8
 
     const/16 v4, 0x20
 
     invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 999
-    :cond_10
+    :cond_b8
     nop
 
     .line 1000
-    if-nez v17, :cond_14
+    if-nez v17, :cond_128
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_128
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_128
 
-    if-eqz v19, :cond_11
+    if-eqz v19, :cond_cc
 
     move/from16 v25, v0
 
@@ -3502,13 +3525,13 @@
 
     move-wide/from16 v29, v10
 
-    goto/16 :goto_3
+    goto/16 :goto_131
 
     .line 1002
-    :cond_11
+    :cond_cc
     const v4, 0xf4240
 
-    if-lt v7, v4, :cond_12
+    if-lt v7, v4, :cond_f8
 
     .line 1003
     div-int v22, v7, v4
@@ -3557,7 +3580,7 @@
 
     move/from16 v0, v28
 
-    goto :goto_4
+    goto :goto_13f
 
     .line 1004
     .end local v21    # "minutes":I
@@ -3568,7 +3591,7 @@
     .restart local v8    # "minutes":I
     .restart local v9    # "hours":I
     .restart local v10    # "days":J
-    :cond_12
+    :cond_f8
     move/from16 v28, v7
 
     move/from16 v21, v8
@@ -3591,7 +3614,7 @@
 
     .end local v28    # "nanoseconds":I
     .local v11, "nanoseconds":I
-    if-lt v11, v4, :cond_13
+    if-lt v11, v4, :cond_11b
 
     .line 1005
     div-int/lit16 v7, v11, 0x3e8
@@ -3619,13 +3642,13 @@
 
     invoke-static/range {v4 .. v11}, Lkotlin/time/Duration;->appendFractional-impl(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V
 
-    goto :goto_4
+    goto :goto_13f
 
     .line 1007
     .end local v25    # "hasDays":Z
     .local v0, "hasDays":Z
     .restart local v11    # "nanoseconds":I
-    :cond_13
+    :cond_11b
     move/from16 v25, v0
 
     move v0, v11
@@ -3641,7 +3664,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_13f
 
     .line 1000
     .end local v21    # "minutes":I
@@ -3653,7 +3676,7 @@
     .restart local v8    # "minutes":I
     .restart local v9    # "hours":I
     .restart local v10    # "days":J
-    :cond_14
+    :cond_128
     move/from16 v25, v0
 
     move v0, v7
@@ -3674,7 +3697,7 @@
     .restart local v22    # "hours":I
     .restart local v25    # "hasDays":Z
     .restart local v29    # "days":J
-    :goto_3
+    :goto_131
     const-string v10, "s"
 
     const/4 v11, 0x0
@@ -3692,10 +3715,10 @@
     invoke-static/range {v4 .. v11}, Lkotlin/time/Duration;->appendFractional-impl(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V
 
     .line 1010
-    :goto_4
+    :goto_13f
     move/from16 v4, v23
 
-    goto :goto_5
+    goto :goto_14b
 
     .line 997
     .end local v21    # "minutes":I
@@ -3709,7 +3732,7 @@
     .restart local v8    # "minutes":I
     .restart local v9    # "hours":I
     .restart local v10    # "days":J
-    :cond_15
+    :cond_142
     move/from16 v25, v0
 
     move v0, v7
@@ -3730,12 +3753,12 @@
     .restart local v22    # "hours":I
     .restart local v25    # "hasDays":Z
     .restart local v29    # "days":J
-    :goto_5
-    if-eqz v2, :cond_16
+    :goto_14b
+    if-eqz v2, :cond_15b
 
     const/4 v5, 0x1
 
-    if-le v4, v5, :cond_16
+    if-le v4, v5, :cond_15b
 
     const/16 v6, 0x28
 
@@ -3748,7 +3771,7 @@
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1011
-    :cond_16
+    :cond_15b
     nop
 
     .line 1501
@@ -3783,12 +3806,12 @@
 
     .line 1014
     .end local v2    # "isNegative":Z
-    :goto_6
+    :goto_167
     return-object v0
 .end method
 
 .method public static final toString-impl(JLkotlin/time/DurationUnit;I)Ljava/lang/String;
-    .locals 4
+    .registers 8
     .param p0, "arg0"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
     .param p3, "decimals"    # I
@@ -3798,17 +3821,17 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1047
-    if-ltz p3, :cond_0
+    if-ltz p3, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_a
+    if-eqz v0, :cond_3b
 
     .line 1048
     invoke-static {p0, p1, p2}, Lkotlin/time/Duration;->toDouble-impl(JLkotlin/time/DurationUnit;)D
@@ -3821,7 +3844,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1b
 
     invoke-static {v0, v1}, Ljava/lang/String;->valueOf(D)Ljava/lang/String;
 
@@ -3830,7 +3853,7 @@
     return-object v2
 
     .line 1050
-    :cond_1
+    :cond_1b
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3865,7 +3888,7 @@
 
     .line 1508
     .end local v0    # "number":D
-    :cond_2
+    :cond_3b
     const/4 v0, 0x0
 
     .line 1047
@@ -3901,16 +3924,16 @@
 .end method
 
 .method public static synthetic toString-impl$default(JLkotlin/time/DurationUnit;IILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 1046
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p3, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/time/Duration;->toString-impl(JLkotlin/time/DurationUnit;I)Ljava/lang/String;
 
     move-result-object p0
@@ -3919,7 +3942,7 @@
 .end method
 
 .method public static final truncateTo-UwyO8pc$kotlin_stdlib(JLkotlin/time/DurationUnit;)J
-    .locals 7
+    .registers 10
     .param p0, "arg0"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
 
@@ -3942,18 +3965,18 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_2e
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->isInfinite-impl(J)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 637
-    :cond_0
+    :cond_19
     const-wide/16 v1, 0x1
 
     invoke-static {v1, v2, p2, v0}, Lkotlin/time/DurationUnitKt;->convertDurationUnit(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J
@@ -3985,13 +4008,13 @@
     .line 636
     .end local v1    # "scale":J
     .end local v3    # "result":J
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     return-wide p0
 .end method
 
 .method public static final unaryMinus-UwyO8pc(J)J
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # J
 
     .line 458
@@ -4011,6 +4034,7 @@
 
     .line 458
     .end local v2    # "$i$f$getUnitDiscriminator-impl":I
+    # invokes: Lkotlin/time/DurationKt;->durationOf(JI)J
     invoke-static {v0, v1, v2}, Lkotlin/time/DurationKt;->access$durationOf(JI)J
 
     move-result-wide v0
@@ -4021,7 +4045,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 32
@@ -4041,7 +4065,7 @@
 .end method
 
 .method public compareTo-LRDsOJo(J)I
-    .locals 2
+    .registers 5
     .param p1, "other"    # J
 
     .line 657
@@ -4056,7 +4080,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-wide v0, p0, Lkotlin/time/Duration;->rawValue:J
 
@@ -4068,7 +4092,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/Duration;->rawValue:J
 
@@ -4080,7 +4104,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 971
     iget-wide v0, p0, Lkotlin/time/Duration;->rawValue:J
@@ -4094,7 +4118,7 @@
 .end method
 
 .method public final synthetic unbox-impl()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/Duration;->rawValue:J
 

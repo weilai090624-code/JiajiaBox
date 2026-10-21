@@ -125,7 +125,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -172,7 +172,7 @@
 
     .line 583
     .local v0, "result":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 584
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate:Lcom/google/common/collect/Multimap;
@@ -201,12 +201,12 @@
     move-object v0, v1
 
     .line 596
-    :cond_0
+    :cond_1a
     return-object v0
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 577
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap<TK;TV;>;"
@@ -218,7 +218,7 @@
 .end method
 
 .method protected delegate()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -235,7 +235,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 557
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap<TK;TV;>;"
@@ -247,7 +247,7 @@
 .end method
 
 .method public entries()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -263,7 +263,7 @@
 
     .line 602
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 603
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate:Lcom/google/common/collect/Multimap;
@@ -272,6 +272,7 @@
 
     move-result-object v1
 
+    # invokes: Lcom/google/common/collect/Multimaps;->unmodifiableEntries(Ljava/util/Collection;)Ljava/util/Collection;
     invoke-static {v1}, Lcom/google/common/collect/Multimaps;->access$100(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v1
@@ -281,12 +282,12 @@
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->entries:Ljava/util/Collection;
 
     .line 605
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -308,6 +309,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Multimaps;->unmodifiableValueCollection(Ljava/util/Collection;)Ljava/util/Collection;
     invoke-static {v0}, Lcom/google/common/collect/Multimaps;->access$000(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v0
@@ -316,7 +318,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -331,7 +333,7 @@
 
     .line 625
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 626
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate:Lcom/google/common/collect/Multimap;
@@ -349,12 +351,12 @@
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->keySet:Ljava/util/Set;
 
     .line 628
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method public keys()Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -369,7 +371,7 @@
 
     .line 616
     .local v0, "result":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 617
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate:Lcom/google/common/collect/Multimap;
@@ -387,12 +389,12 @@
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->keys:Lcom/google/common/collect/Multiset;
 
     .line 619
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -419,7 +421,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -439,7 +441,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -464,7 +466,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -484,7 +486,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -509,7 +511,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -536,7 +538,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -551,7 +553,7 @@
 
     .line 664
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 665
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate:Lcom/google/common/collect/Multimap;
@@ -569,6 +571,6 @@
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->values:Ljava/util/Collection;
 
     .line 667
-    :cond_0
+    :cond_11
     return-object v0
 .end method

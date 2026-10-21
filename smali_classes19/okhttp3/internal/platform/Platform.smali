@@ -89,7 +89,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/Platform$Companion;
 
@@ -102,6 +102,7 @@
     .line 178
     sget-object v0, Lokhttp3/internal/platform/Platform;->Companion:Lokhttp3/internal/platform/Platform$Companion;
 
+    # invokes: Lokhttp3/internal/platform/Platform$Companion;->findPlatform()Lokhttp3/internal/platform/Platform;
     invoke-static {v0}, Lokhttp3/internal/platform/Platform$Companion;->access$findPlatform(Lokhttp3/internal/platform/Platform$Companion;)Lokhttp3/internal/platform/Platform;
 
     move-result-object v0
@@ -125,7 +126,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -134,7 +135,7 @@
 .end method
 
 .method public static final synthetic access$getPlatform$cp()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 1
 
     .line 70
     sget-object v0, Lokhttp3/internal/platform/Platform;->platform:Lokhttp3/internal/platform/Platform;
@@ -143,7 +144,7 @@
 .end method
 
 .method public static final synthetic access$setPlatform$cp(Lokhttp3/internal/platform/Platform;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lokhttp3/internal/platform/Platform;
 
     .line 70
@@ -153,7 +154,7 @@
 .end method
 
 .method public static final get()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -167,32 +168,32 @@
 .end method
 
 .method public static synthetic log$default(Lokhttp3/internal/platform/Platform;Ljava/lang/String;ILjava/lang/Throwable;ILjava/lang/Object;)V
-    .locals 1
+    .registers 7
 
     .line 131
-    if-nez p5, :cond_2
+    if-nez p5, :cond_10
 
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x4
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     const/4 p2, 0x4
 
-    :cond_0
+    :cond_8
     and-int/2addr p4, v0
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lokhttp3/internal/platform/Platform;->log(Ljava/lang/String;ILjava/lang/Throwable;)V
 
     return-void
 
-    :cond_2
+    :cond_10
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: log"
@@ -205,7 +206,7 @@
 
 # virtual methods
 .method public afterHandshake(Ljavax/net/ssl/SSLSocket;)V
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -217,7 +218,7 @@
 .end method
 
 .method public buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 2
+    .registers 4
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -239,7 +240,7 @@
 .end method
 
 .method public buildTrustRootIndex(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/TrustRootIndex;
-    .locals 3
+    .registers 5
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -273,7 +274,7 @@
 .end method
 
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -301,7 +302,7 @@
 .end method
 
 .method public connectSocket(Ljava/net/Socket;Ljava/net/InetSocketAddress;I)V
-    .locals 1
+    .registers 5
     .param p1, "socket"    # Ljava/net/Socket;
     .param p2, "address"    # Ljava/net/InetSocketAddress;
     .param p3, "connectTimeout"    # I
@@ -331,7 +332,7 @@
 .end method
 
 .method public final getPrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     const-string v0, "OkHttp"
@@ -340,7 +341,7 @@
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -354,7 +355,7 @@
 .end method
 
 .method public getStackTraceForCloseable(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "closer"    # Ljava/lang/String;
 
     const-string v0, "closer"
@@ -373,25 +374,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     new-instance v0, Ljava/lang/Throwable;
 
     invoke-direct {v0, p1}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 146
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     .line 144
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public isCleartextTrafficPermitted(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "hostname"    # Ljava/lang/String;
 
     const-string v0, "hostname"
@@ -405,7 +406,7 @@
 .end method
 
 .method public log(Ljava/lang/String;ILjava/lang/Throwable;)V
-    .locals 2
+    .registers 6
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "level"    # I
     .param p3, "t"    # Ljava/lang/Throwable;
@@ -417,18 +418,18 @@
     .line 132
     const/4 v0, 0x5
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_b
 
     sget-object v0, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     sget-object v0, Ljava/util/logging/Level;->INFO:Ljava/util/logging/Level;
 
     .line 133
     .local v0, "logLevel":Ljava/util/logging/Level;
-    :goto_0
+    :goto_d
     sget-object v1, Lokhttp3/internal/platform/Platform;->logger:Ljava/util/logging/Logger;
 
     invoke-virtual {v1, v0, p1, p3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -438,7 +439,7 @@
 .end method
 
 .method public logCloseableLeak(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "stackTrace"    # Ljava/lang/Object;
 
@@ -451,7 +452,7 @@
 
     .line 152
     .local v0, "logMessage":Ljava/lang/String;
-    if-nez p2, :cond_0
+    if-nez p2, :cond_e
 
     .line 153
     const-string v1, " To see where this was allocated, set the OkHttpClient logger level to FINE: Logger.getLogger(OkHttpClient.class.getName()).setLevel(Level.FINE);"
@@ -461,7 +462,7 @@
     move-result-object v0
 
     .line 156
-    :cond_0
+    :cond_e
     const/4 v1, 0x5
 
     move-object v2, p2
@@ -475,7 +476,7 @@
 .end method
 
 .method public newSSLContext()Ljavax/net/ssl/SSLContext;
-    .locals 2
+    .registers 3
 
     .line 75
     const-string v0, "TLS"
@@ -492,7 +493,7 @@
 .end method
 
 .method public newSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
-    .locals 6
+    .registers 8
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -503,7 +504,7 @@
     nop
 
     .line 167
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lokhttp3/internal/platform/Platform;->newSSLContext()Ljavax/net/ssl/SSLContext;
 
     move-result-object v0
@@ -547,14 +548,14 @@
     const-string v1, "newSSLContext().apply {\n\u2026ll)\n      }.socketFactory"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/security/GeneralSecurityException; {:try_start_6 .. :try_end_24} :catch_25
 
     .line 167
     return-object v0
 
     .line 170
-    :catch_0
+    :catch_25
     move-exception v0
 
     .line 171
@@ -577,7 +578,7 @@
 .end method
 
 .method public platformTrustManager()Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 6
 
     .line 79
     invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
@@ -614,32 +615,32 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_22
 
     aget-object v2, v1, v3
 
     instance-of v2, v2, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_2
+    :goto_23
+    if-eqz v4, :cond_34
 
     .line 85
     aget-object v2, v1, v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     check-cast v2, Ljavax/net/ssl/X509TrustManager;
 
     return-object v2
 
-    :cond_1
+    :cond_2c
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type javax.net.ssl.X509TrustManager"
@@ -649,7 +650,7 @@
     throw v2
 
     .line 82
-    :cond_2
+    :cond_34
     const/4 v2, 0x0
 
     .line 83
@@ -684,7 +685,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 175
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -703,7 +704,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 7
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"
@@ -716,7 +717,7 @@
     .line 93
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
     const-string v1, "sun.security.ssl.SSLContextImpl"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -735,13 +736,13 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     return-object v0
 
     .line 95
     .local v2, "context":Ljava/lang/Object;
-    :cond_0
+    :cond_1b
     const-class v3, Ljavax/net/ssl/X509TrustManager;
 
     const-string v4, "trustManager"
@@ -753,16 +754,16 @@
     .end local v1    # "sslContextClass":Ljava/lang/Class;
     .end local v2    # "context":Ljava/lang/Object;
     check-cast v3, Ljavax/net/ssl/X509TrustManager;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_7 .. :try_end_25} :catch_3d
+    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_25} :catch_27
 
     move-object v0, v3
 
-    goto :goto_0
+    goto :goto_41
 
     .line 98
-    :catch_0
+    :catch_27
     move-exception v1
 
     .line 101
@@ -781,22 +782,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
     .line 105
     move-object v2, v0
 
     check-cast v2, Ljavax/net/ssl/X509TrustManager;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 102
-    :cond_1
+    :cond_3c
     throw v1
 
     .line 96
     .end local v1    # "e":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_3d
     move-exception v1
 
     .line 97
@@ -807,6 +808,6 @@
 
     .line 89
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_41
     return-object v0
 .end method

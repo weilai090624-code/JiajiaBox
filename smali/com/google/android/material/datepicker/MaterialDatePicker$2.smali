@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialDatePicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     .line 303
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 2
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -50,6 +50,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$2;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # invokes: Lcom/google/android/material/datepicker/MaterialDatePicker;->getDateSelector()Lcom/google/android/material/datepicker/DateSelector;
     invoke-static {v1}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$100(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/datepicker/DateSelector;
 
     move-result-object v1

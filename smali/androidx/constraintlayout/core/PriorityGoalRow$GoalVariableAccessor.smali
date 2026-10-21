@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/PriorityGoalRow;Landroidx/constraintlayout/core/PriorityGoalRow;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/constraintlayout/core/PriorityGoalRow;
     .param p2, "row"    # Landroidx/constraintlayout/core/PriorityGoalRow;
 
@@ -43,17 +43,17 @@
 
 # virtual methods
 .method public add(Landroidx/constraintlayout/core/SolverVariable;)V
-    .locals 4
+    .registers 6
     .param p1, "other"    # Landroidx/constraintlayout/core/SolverVariable;
 
     .line 81
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x9
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2d
 
     .line 82
     iget-object v1, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -87,7 +87,7 @@
 
     cmpg-float v2, v2, v3
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_2a
 
     .line 85
     iget-object v2, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -100,19 +100,19 @@
 
     .line 81
     .end local v1    # "value":F
-    :cond_0
+    :cond_2a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 88
     .end local v0    # "i":I
-    :cond_1
+    :cond_2d
     return-void
 .end method
 
 .method public addToGoal(Landroidx/constraintlayout/core/SolverVariable;F)Z
-    .locals 8
+    .registers 11
     .param p1, "other"    # Landroidx/constraintlayout/core/SolverVariable;
     .param p2, "value"    # F
 
@@ -127,7 +127,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_44
 
     .line 49
     const/4 v0, 0x1
@@ -137,8 +137,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v2, :cond_1
+    :goto_e
+    if-ge v4, v2, :cond_38
 
     .line 51
     iget-object v5, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -172,7 +172,7 @@
 
     cmpg-float v6, v6, v1
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_34
 
     .line 54
     iget-object v6, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -181,34 +181,35 @@
 
     aput v3, v6, v4
 
-    goto :goto_1
+    goto :goto_35
 
     .line 56
-    :cond_0
+    :cond_34
     const/4 v0, 0x0
 
     .line 50
     .end local v5    # "v":F
-    :goto_1
+    :goto_35
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 59
     .end local v4    # "i":I
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_38
+    if-eqz v0, :cond_41
 
     .line 60
     iget-object v1, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->this$0:Landroidx/constraintlayout/core/PriorityGoalRow;
 
     iget-object v2, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
 
+    # invokes: Landroidx/constraintlayout/core/PriorityGoalRow;->removeGoal(Landroidx/constraintlayout/core/SolverVariable;)V
     invoke-static {v1, v2}, Landroidx/constraintlayout/core/PriorityGoalRow;->access$000(Landroidx/constraintlayout/core/PriorityGoalRow;Landroidx/constraintlayout/core/SolverVariable;)V
 
     .line 62
     .end local v0    # "empty":Z
-    :cond_2
+    :cond_41
     nop
 
     .line 77
@@ -217,12 +218,12 @@
     return v0
 
     .line 63
-    :cond_3
+    :cond_44
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_2
-    if-ge v0, v2, :cond_6
+    :goto_45
+    if-ge v0, v2, :cond_6a
 
     .line 64
     iget-object v4, p1, Landroidx/constraintlayout/core/SolverVariable;->goalStrengthVector:[F
@@ -233,7 +234,7 @@
     .local v4, "strength":F
     cmpl-float v5, v4, v3
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_61
 
     .line 66
     mul-float v5, p2, v4
@@ -246,13 +247,13 @@
 
     cmpg-float v6, v6, v1
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_5a
 
     .line 68
     const/4 v5, 0x0
 
     .line 70
-    :cond_4
+    :cond_5a
     iget-object v6, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
 
     iget-object v6, v6, Landroidx/constraintlayout/core/SolverVariable;->goalStrengthVector:[F
@@ -261,10 +262,10 @@
 
     .line 71
     .end local v5    # "v":F
-    goto :goto_3
+    goto :goto_67
 
     .line 72
-    :cond_5
+    :cond_61
     iget-object v5, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
 
     iget-object v5, v5, Landroidx/constraintlayout/core/SolverVariable;->goalStrengthVector:[F
@@ -273,21 +274,21 @@
 
     .line 63
     .end local v4    # "strength":F
-    :goto_3
+    :goto_67
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
     .line 75
     .end local v0    # "i":I
-    :cond_6
+    :cond_6a
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public init(Landroidx/constraintlayout/core/SolverVariable;)V
-    .locals 0
+    .registers 2
     .param p1, "variable"    # Landroidx/constraintlayout/core/SolverVariable;
 
     .line 44
@@ -298,16 +299,16 @@
 .end method
 
 .method public final isNegative()Z
-    .locals 5
+    .registers 6
 
     .line 91
     const/16 v0, 0x8
 
     .local v0, "i":I
-    :goto_0
+    :goto_2
     const/4 v1, 0x0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_1a
 
     .line 92
     iget-object v2, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -322,16 +323,16 @@
 
     cmpl-float v4, v2, v3
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_11
 
     .line 94
     return v1
 
     .line 96
-    :cond_0
+    :cond_11
     cmpg-float v1, v2, v3
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_17
 
     .line 97
     const/4 v1, 0x1
@@ -340,28 +341,28 @@
 
     .line 91
     .end local v2    # "value":F
-    :cond_1
+    :cond_17
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 100
     .end local v0    # "i":I
-    :cond_2
+    :cond_1a
     return v1
 .end method
 
 .method public final isNull()Z
-    .locals 3
+    .registers 4
 
     .line 120
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x9
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_15
 
     .line 121
     iget-object v1, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -374,7 +375,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 122
     const/4 v1, 0x0
@@ -382,31 +383,31 @@
     return v1
 
     .line 120
-    :cond_0
+    :cond_12
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 125
     .end local v0    # "i":I
-    :cond_1
+    :cond_15
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final isSmallerThan(Landroidx/constraintlayout/core/SolverVariable;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Landroidx/constraintlayout/core/SolverVariable;
 
     .line 104
     const/16 v0, 0x8
 
     .local v0, "i":I
-    :goto_0
+    :goto_2
     const/4 v1, 0x0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_1e
 
     .line 105
     iget-object v2, p1, Landroidx/constraintlayout/core/SolverVariable;->goalStrengthVector:[F
@@ -425,7 +426,7 @@
     .local v3, "value":F
     cmpl-float v4, v3, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_17
 
     .line 108
     nop
@@ -435,15 +436,15 @@
     .end local v3    # "value":F
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 110
     .restart local v2    # "comparedValue":F
     .restart local v3    # "value":F
-    :cond_0
+    :cond_17
     cmpg-float v4, v3, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_1d
 
     .line 111
     const/4 v1, 0x1
@@ -451,19 +452,19 @@
     return v1
 
     .line 113
-    :cond_1
+    :cond_1d
     return v1
 
     .line 116
     .end local v0    # "i":I
     .end local v2    # "comparedValue":F
     .end local v3    # "value":F
-    :cond_2
+    :cond_1e
     return v1
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 129
     iget-object v0, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
@@ -479,7 +480,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 133
     const-string v0, "[ "
@@ -488,16 +489,16 @@
     .local v0, "result":Ljava/lang/String;
     iget-object v1, p0, Landroidx/constraintlayout/core/PriorityGoalRow$GoalVariableAccessor;->variable:Landroidx/constraintlayout/core/SolverVariable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 135
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     const/16 v2, 0x9
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2b
 
     .line 136
     new-instance v2, Ljava/lang/StringBuilder;
@@ -531,11 +532,11 @@
     .line 135
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 139
     .end local v1    # "i":I
-    :cond_0
+    :cond_2b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 673
     const-class v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers;
@@ -30,6 +30,7 @@
     .line 674
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->EMPTY_BB:Landroidx/emoji2/text/flatbuffer/ReadBuf;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$000()Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     move-result-object v1
@@ -44,7 +45,7 @@
 .end method
 
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)V
-    .locals 0
+    .registers 4
     .param p1, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -57,7 +58,7 @@
 .end method
 
 .method public static empty()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;
-    .locals 1
+    .registers 1
 
     .line 682
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->EMPTY:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;
@@ -68,7 +69,7 @@
 
 # virtual methods
 .method public data()Ljava/nio/ByteBuffer;
-    .locals 3
+    .registers 4
 
     .line 690
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
@@ -111,17 +112,17 @@
 .end method
 
 .method public get(I)B
-    .locals 2
+    .registers 4
     .param p1, "pos"    # I
 
     .line 714
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_12
 
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->size()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_12
 
     .line 715
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
@@ -137,7 +138,7 @@
     return v0
 
     .line 714
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -146,7 +147,7 @@
 .end method
 
 .method public getBytes()[B
-    .locals 5
+    .registers 6
 
     .line 701
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->size()I
@@ -162,8 +163,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_7
+    if-ge v2, v0, :cond_17
 
     .line 704
     iget-object v3, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
@@ -181,16 +182,16 @@
     .line 703
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 706
     .end local v2    # "i":I
-    :cond_0
+    :cond_17
     return-object v1
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 673
     invoke-super {p0}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Sized;->size()I
@@ -201,7 +202,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 723
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Blob;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
@@ -220,7 +221,7 @@
 .end method
 
 .method public toString(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 4
+    .registers 6
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 731

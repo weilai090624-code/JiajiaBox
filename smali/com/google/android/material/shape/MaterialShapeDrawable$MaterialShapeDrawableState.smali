@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;)V
-    .locals 2
+    .registers 4
     .param p1, "orig"    # Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;
 
     .line 1434
@@ -244,7 +244,7 @@
     .line 1456
     iget-object v0, p1, Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;->padding:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_93
 
     .line 1457
     new-instance v0, Landroid/graphics/Rect;
@@ -256,12 +256,12 @@
     iput-object v0, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;->padding:Landroid/graphics/Rect;
 
     .line 1459
-    :cond_0
+    :cond_93
     return-void
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/elevation/ElevationOverlayProvider;)V
-    .locals 2
+    .registers 5
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "elevationOverlayProvider"    # Lcom/google/android/material/elevation/ElevationOverlayProvider;
 
@@ -349,7 +349,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 1
+    .registers 2
 
     .line 1472
     const/4 v0, 0x0
@@ -358,7 +358,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 1464
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -371,6 +371,7 @@
     .local v0, "msd":Lcom/google/android/material/shape/MaterialShapeDrawable;
     const/4 v1, 0x1
 
+    # setter for: Lcom/google/android/material/shape/MaterialShapeDrawable;->pathDirty:Z
     invoke-static {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->access$402(Lcom/google/android/material/shape/MaterialShapeDrawable;Z)Z
 
     .line 1467

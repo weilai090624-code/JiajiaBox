@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;Landroid/view/ViewTreeObserver$OnScrollChangedListener;Landroid/view/View$OnLayoutChangeListener;)V
-    .locals 0
+    .registers 5
     .param p1, "$$this$callbackFlow"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p2, "$view"    # Landroid/view/View;
     .param p3, "$scrollChangeListener"    # Landroid/view/ViewTreeObserver$OnScrollChangedListener;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     const-string/jumbo v0, "v"
@@ -108,6 +108,7 @@
 
     iget-object v1, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$attachStateChangeListener$1;->$view:Landroid/view/View;
 
+    # invokes: Landroidx/activity/PipHintTrackerKt;->trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {v1}, Landroidx/activity/PipHintTrackerKt;->access$trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -137,7 +138,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     const-string/jumbo v0, "v"

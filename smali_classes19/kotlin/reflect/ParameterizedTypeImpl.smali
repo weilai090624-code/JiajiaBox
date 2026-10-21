@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Type;Ljava/util/List;)V
-    .locals 4
+    .registers 8
     .param p1, "rawType"    # Ljava/lang/Class;
     .param p2, "ownerType"    # Ljava/lang/reflect/Type;
     .param p3, "typeArguments"    # Ljava/util/List;
@@ -142,13 +142,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 213
     instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->rawType:Ljava/lang/Class;
 
@@ -164,7 +164,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
@@ -180,7 +180,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 214
     invoke-virtual {p0}, Lkotlin/reflect/ParameterizedTypeImpl;->getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -199,21 +199,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_35
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_36
     return v0
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -222,7 +222,7 @@
 .end method
 
 .method public getOwnerType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 194
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
@@ -231,7 +231,7 @@
 .end method
 
 .method public getRawType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 192
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->rawType:Ljava/lang/Class;
@@ -242,7 +242,7 @@
 .end method
 
 .method public getTypeName()Ljava/lang/String;
-    .locals 14
+    .registers 15
 
     .line 198
     new-instance v0, Ljava/lang/StringBuilder;
@@ -258,11 +258,12 @@
     .local v2, "$i$a$-buildString-ParameterizedTypeImpl$getTypeName$1":I
     iget-object v3, p0, Lkotlin/reflect/ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 200
     iget-object v3, p0, Lkotlin/reflect/ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
+    # invokes: Lkotlin/reflect/TypesJVMKt;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
     invoke-static {v3}, Lkotlin/reflect/TypesJVMKt;->access$typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v3
@@ -283,14 +284,15 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 204
-    :cond_0
+    :cond_23
     iget-object v3, p0, Lkotlin/reflect/ParameterizedTypeImpl;->rawType:Ljava/lang/Class;
 
     check-cast v3, Ljava/lang/reflect/Type;
 
+    # invokes: Lkotlin/reflect/TypesJVMKt;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
     invoke-static {v3}, Lkotlin/reflect/TypesJVMKt;->access$typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v3
@@ -298,22 +300,22 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 207
-    :goto_0
+    :goto_2e
     iget-object v3, p0, Lkotlin/reflect/ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
     array-length v3, v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_35
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v3, 0x0
 
-    :goto_1
-    if-nez v3, :cond_2
+    :goto_36
+    if-nez v3, :cond_55
 
     .line 208
     iget-object v4, p0, Lkotlin/reflect/ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -353,7 +355,7 @@
     invoke-static/range {v4 .. v13}, Lkotlin/collections/ArraysKt;->joinTo$default([Ljava/lang/Object;Ljava/lang/Appendable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Appendable;
 
     .line 210
-    :cond_2
+    :cond_55
     nop
 
     .line 198
@@ -372,7 +374,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 217
     iget-object v0, p0, Lkotlin/reflect/ParameterizedTypeImpl;->rawType:Ljava/lang/Class;
@@ -383,18 +385,18 @@
 
     iget-object v1, p0, Lkotlin/reflect/ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     xor-int/2addr v0, v1
 
     invoke-virtual {p0}, Lkotlin/reflect/ParameterizedTypeImpl;->getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -411,7 +413,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 219
     invoke-virtual {p0}, Lkotlin/reflect/ParameterizedTypeImpl;->getTypeName()Ljava/lang/String;

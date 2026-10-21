@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "keyStringIndex"    # I
     .param p2, "data"    # I
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -65,6 +65,7 @@
     .line 532
     const/16 v0, 0x8
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->shortToByteArray(S)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$600(S)[B
 
     move-result-object v1
@@ -74,6 +75,7 @@
     .line 533
     const/4 v1, 0x2
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->shortToByteArray(S)[B
     invoke-static {v1}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$600(S)[B
 
     move-result-object v2
@@ -83,6 +85,7 @@
     .line 534
     iget v2, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResEntry;->keyStringIndex:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v2}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v2
@@ -90,6 +93,7 @@
     invoke-virtual {p1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 535
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->shortToByteArray(S)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$600(S)[B
 
     move-result-object v0
@@ -99,13 +103,14 @@
     .line 536
     new-array v0, v1, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_34
 
     invoke-virtual {p1, v0}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 537
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResEntry;->data:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -117,7 +122,7 @@
 
     nop
 
-    :array_0
+    :array_34
     .array-data 1
         0x0t
         0x1ct

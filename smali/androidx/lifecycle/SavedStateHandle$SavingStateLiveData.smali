@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/SavedStateHandle;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "handle"    # Landroidx/lifecycle/SavedStateHandle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/SavedStateHandle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "handle"    # Landroidx/lifecycle/SavedStateHandle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public final detach()V
-    .locals 1
+    .registers 2
 
     .line 354
     const/4 v0, 0x0
@@ -129,7 +129,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,13 +140,14 @@
     .line 346
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandle$SavingStateLiveData;->handle:Landroidx/lifecycle/SavedStateHandle;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .local v0, "it":Landroidx/lifecycle/SavedStateHandle;
     const/4 v1, 0x0
 
     .line 347
     .local v1, "$i$a$-let-SavedStateHandle$SavingStateLiveData$setValue$1":I
+    # getter for: Landroidx/lifecycle/SavedStateHandle;->regular:Ljava/util/Map;
     invoke-static {v0}, Landroidx/lifecycle/SavedStateHandle;->access$getRegular$p(Landroidx/lifecycle/SavedStateHandle;)Ljava/util/Map;
 
     move-result-object v2
@@ -156,6 +157,7 @@
     invoke-interface {v2, v3, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 348
+    # getter for: Landroidx/lifecycle/SavedStateHandle;->flows:Ljava/util/Map;
     invoke-static {v0}, Landroidx/lifecycle/SavedStateHandle;->access$getFlows$p(Landroidx/lifecycle/SavedStateHandle;)Ljava/util/Map;
 
     move-result-object v2
@@ -168,15 +170,15 @@
 
     check-cast v2, Lkotlinx/coroutines/flow/MutableStateFlow;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1d
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1d
     invoke-interface {v2, p1}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
 
     .line 349
-    :goto_0
+    :goto_20
     nop
 
     .line 346
@@ -185,7 +187,7 @@
     nop
 
     .line 350
-    :cond_1
+    :cond_22
     invoke-super {p0, p1}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
     .line 351

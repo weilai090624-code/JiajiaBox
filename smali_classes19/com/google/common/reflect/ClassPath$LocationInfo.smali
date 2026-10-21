@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "home"    # Ljava/io/File;
     .param p2, "classloader"    # Ljava/lang/ClassLoader;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private scan(Ljava/io/File;Ljava/util/Set;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 6
+    .registers 10
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,16 +80,16 @@
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_4} :catch_16
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 464
     return-void
 
     .line 470
-    :cond_0
+    :cond_7
     nop
 
     .line 471
@@ -97,27 +97,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 472
     invoke-direct {p0, p1, p3}, Lcom/google/common/reflect/ClassPath$LocationInfo;->scanDirectory(Ljava/io/File;Lcom/google/common/collect/ImmutableSet$Builder;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 474
-    :cond_1
+    :cond_12
     invoke-direct {p0, p1, p2, p3}, Lcom/google/common/reflect/ClassPath$LocationInfo;->scanJar(Ljava/io/File;Ljava/util/Set;Lcom/google/common/collect/ImmutableSet$Builder;)V
 
     .line 476
-    :goto_0
+    :goto_15
     return-void
 
     .line 466
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 467
     .local v0, "e":Ljava/lang/SecurityException;
+    # getter for: Lcom/google/common/reflect/ClassPath;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/reflect/ClassPath;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -185,7 +186,7 @@
 .end method
 
 .method private scanDirectory(Ljava/io/File;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 2
+    .registers 5
     .param p1, "directory"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,7 +228,7 @@
 .end method
 
 .method private scanDirectory(Ljava/io/File;Ljava/lang/String;Ljava/util/Set;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 8
+    .registers 13
     .param p1, "directory"    # Ljava/io/File;
     .param p2, "packagePrefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -259,9 +260,10 @@
 
     .line 541
     .local v0, "files":[Ljava/io/File;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2f
 
     .line 542
+    # getter for: Lcom/google/common/reflect/ClassPath;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/reflect/ClassPath;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -304,13 +306,13 @@
     return-void
 
     .line 546
-    :cond_0
+    :cond_2f
     array-length v1, v0
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_5
+    :goto_31
+    if-ge v2, v1, :cond_a7
 
     aget-object v3, v0, v2
 
@@ -326,7 +328,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_7a
 
     .line 549
     invoke-virtual {v3}, Ljava/io/File;->getCanonicalFile()Ljava/io/File;
@@ -339,7 +341,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_79
 
     .line 551
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -391,11 +393,11 @@
 
     .line 554
     .end local v5    # "deref":Ljava/io/File;
-    :cond_1
-    goto :goto_2
+    :cond_79
+    goto :goto_a4
 
     .line 555
-    :cond_2
+    :cond_7a
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
@@ -408,15 +410,15 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_8d
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_93
 
-    :cond_3
+    :cond_8d
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v5}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
@@ -425,14 +427,14 @@
 
     .line 556
     .local v5, "resourceName":Ljava/lang/String;
-    :goto_1
+    :goto_93
     const-string v6, "META-INF/MANIFEST.MF"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_a4
 
     .line 557
     iget-object v6, p0, Lcom/google/common/reflect/ClassPath$LocationInfo;->classloader:Ljava/lang/ClassLoader;
@@ -447,19 +449,19 @@
     .end local v3    # "f":Ljava/io/File;
     .end local v4    # "name":Ljava/lang/String;
     .end local v5    # "resourceName":Ljava/lang/String;
-    :cond_4
-    :goto_2
+    :cond_a4
+    :goto_a4
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 561
-    :cond_5
+    :cond_a7
     return-void
 .end method
 
 .method private scanJar(Ljava/io/File;Ljava/util/Set;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 4
+    .registers 8
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -487,15 +489,15 @@
     new-instance v0, Ljava/util/jar/JarFile;
 
     invoke-direct {v0, p1}, Ljava/util/jar/JarFile;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_3d
 
     .line 487
     .local v0, "jarFile":Ljava/util/jar/JarFile;
     nop
 
     .line 489
-    :try_start_1
+    :try_start_6
     invoke-virtual {v0}, Ljava/util/jar/JarFile;->getManifest()Ljava/util/jar/Manifest;
 
     move-result-object v1
@@ -508,12 +510,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -531,66 +533,66 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     .line 493
     invoke-direct {p0, v2, p2, p3}, Lcom/google/common/reflect/ClassPath$LocationInfo;->scan(Ljava/io/File;Ljava/util/Set;Lcom/google/common/collect/ImmutableSet$Builder;)V
 
     .line 495
     .end local v2    # "path":Ljava/io/File;
-    :cond_0
-    goto :goto_0
+    :cond_2b
+    goto :goto_12
 
     .line 496
-    :cond_1
+    :cond_2c
     invoke-direct {p0, v0, p3}, Lcom/google/common/reflect/ClassPath$LocationInfo;->scanJarFile(Ljava/util/jar/JarFile;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_6 .. :try_end_2f} :catchall_36
 
     .line 499
-    :try_start_2
+    :try_start_2f
     invoke-virtual {v0}, Ljava/util/jar/JarFile;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_2f .. :try_end_32} :catch_33
 
     .line 501
-    goto :goto_1
+    goto :goto_35
 
     .line 500
-    :catch_0
+    :catch_33
     move-exception v1
 
     .line 502
     nop
 
     .line 503
-    :goto_1
+    :goto_35
     return-void
 
     .line 498
-    :catchall_0
+    :catchall_36
     move-exception v1
 
     .line 499
-    :try_start_3
+    :try_start_37
     invoke-virtual {v0}, Ljava/util/jar/JarFile;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_3a
+    .catch Ljava/io/IOException; {:try_start_37 .. :try_end_3a} :catch_3b
 
     .line 501
-    goto :goto_2
+    goto :goto_3c
 
     .line 500
-    :catch_1
+    :catch_3b
     move-exception v2
 
     .line 502
-    :goto_2
+    :goto_3c
     throw v1
 
     .line 484
     .end local v0    # "jarFile":Ljava/util/jar/JarFile;
-    :catch_2
+    :catch_3d
     move-exception v0
 
     .line 486
@@ -599,7 +601,7 @@
 .end method
 
 .method private scanJarFile(Ljava/util/jar/JarFile;Lcom/google/common/collect/ImmutableSet$Builder;)V
-    .locals 5
+    .registers 8
     .param p1, "file"    # Ljava/util/jar/JarFile;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -619,13 +621,13 @@
 
     .line 507
     .local v0, "entries":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;"
-    :cond_0
-    :goto_0
+    :cond_4
+    :goto_4
     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     .line 508
     invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
@@ -640,7 +642,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_4
 
     invoke-virtual {v1}, Ljava/util/jar/JarEntry;->getName()Ljava/lang/String;
 
@@ -652,13 +654,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     .line 510
-    goto :goto_0
+    goto :goto_4
 
     .line 512
-    :cond_1
+    :cond_23
     new-instance v2, Ljava/io/File;
 
     invoke-virtual {p1}, Ljava/util/jar/JarFile;->getName()Ljava/lang/String;
@@ -681,17 +683,17 @@
 
     .line 513
     .end local v1    # "entry":Ljava/util/jar/JarEntry;
-    goto :goto_0
+    goto :goto_4
 
     .line 514
-    :cond_2
+    :cond_3a
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -702,7 +704,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 566
     move-object v0, p1
@@ -719,7 +721,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/reflect/ClassPath$LocationInfo;->classloader:Ljava/lang/ClassLoader;
 
@@ -729,21 +731,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 569
     .end local v0    # "that":Lcom/google/common/reflect/ClassPath$LocationInfo;
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public final file()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 431
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$LocationInfo;->home:Ljava/io/File;
@@ -752,7 +754,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 574
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$LocationInfo;->home:Ljava/io/File;
@@ -765,7 +767,7 @@
 .end method
 
 .method public scanResources()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -794,7 +796,7 @@
 .end method
 
 .method public scanResources(Ljava/util/Set;)Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -839,7 +841,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 579
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$LocationInfo;->home:Ljava/io/File;

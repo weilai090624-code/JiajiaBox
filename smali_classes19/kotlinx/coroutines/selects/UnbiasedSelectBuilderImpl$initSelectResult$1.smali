@@ -77,7 +77,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -179,7 +179,7 @@
     .line 69
     iget v1, p0, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_52
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -189,32 +189,32 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;
     .local p1, "$result":Ljava/lang/Object;
-    :try_start_0
+    :try_start_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_12 .. :try_end_15} :catchall_18
 
     move-object v1, v0
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 72
-    :catchall_0
+    :catchall_18
     move-exception v1
 
-    goto :goto_1
+    goto :goto_44
 
     .line 69
     .end local v0    # "this":Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -225,7 +225,7 @@
     nop
 
     .line 71
-    :try_start_1
+    :try_start_1f
     iget-object v2, v1, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;->this$0:Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;
 
     move-object v3, v1
@@ -239,23 +239,23 @@
     invoke-virtual {v2, v3}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->doSelect(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2b
+    .catchall {:try_start_1f .. :try_end_2b} :catchall_40
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_2e
 
     .line 69
     return-object v0
 
     .line 71
-    :cond_0
+    :cond_2e
     move-object v0, p1
 
     move-object p1, v2
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_30
     nop
 
     .line 70
@@ -265,12 +265,14 @@
     .local p1, "result":Ljava/lang/Object;
     iget-object v2, v1, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;->this$0:Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;
 
+    # getter for: Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->cont:Lkotlinx/coroutines/CancellableContinuationImpl;
     invoke-static {v2}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->access$getCont$p(Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;)Lkotlinx/coroutines/CancellableContinuationImpl;
 
     move-result-object v2
 
     check-cast v2, Lkotlinx/coroutines/CancellableContinuation;
 
+    # invokes: Lkotlinx/coroutines/selects/SelectOldKt;->resumeUndispatched(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;)V
     invoke-static {v2, p1}, Lkotlinx/coroutines/selects/SelectOldKt;->access$resumeUndispatched(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;)V
 
     .line 77
@@ -281,7 +283,7 @@
     .line 72
     .end local v0    # "$result":Ljava/lang/Object;
     .local p1, "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_40
     move-exception v0
 
     move-object v5, v1
@@ -293,15 +295,17 @@
     .line 73
     .local v0, "this":Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;
     .local v1, "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_44
     iget-object v2, v0, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl$initSelectResult$1;->this$0:Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;
 
+    # getter for: Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->cont:Lkotlinx/coroutines/CancellableContinuationImpl;
     invoke-static {v2}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->access$getCont$p(Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;)Lkotlinx/coroutines/CancellableContinuationImpl;
 
     move-result-object v2
 
     check-cast v2, Lkotlinx/coroutines/CancellableContinuation;
 
+    # invokes: Lkotlinx/coroutines/selects/SelectOldKt;->resumeUndispatchedWithException(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Throwable;)V
     invoke-static {v2, v1}, Lkotlinx/coroutines/selects/SelectOldKt;->access$resumeUndispatchedWithException(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Throwable;)V
 
     .line 74
@@ -309,9 +313,9 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_52
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_11
     .end packed-switch
 .end method

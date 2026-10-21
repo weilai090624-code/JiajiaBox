@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;)V
-    .locals 0
+    .registers 2
 
     .line 332
     iput-object p1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectStreamStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/emitter/Emitter$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public expect()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -57,13 +57,14 @@
     .line 334
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectStreamStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/StreamStartEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 335
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectStreamStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -81,13 +82,14 @@
 
     invoke-direct {v1, v2, v3}, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFirstDocumentStart;-><init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->state:Lorg/yaml/snakeyaml/emitter/EmitterState;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$202(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/EmitterState;)Lorg/yaml/snakeyaml/emitter/EmitterState;
 
     .line 340
     return-void
 
     .line 338
-    :cond_0
+    :cond_1d
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -102,6 +104,7 @@
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectStreamStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v2

@@ -95,7 +95,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlin/text/HexFormat$NumberHexFormat$Companion;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZI)V
-    .locals 3
+    .registers 8
     .param p1, "prefix"    # Ljava/lang/String;
     .param p2, "suffix"    # Ljava/lang/String;
     .param p3, "removeLeadingZeros"    # Z
@@ -177,17 +177,17 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_24
+    if-eqz v0, :cond_37
 
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->suffix:Ljava/lang/String;
 
@@ -197,68 +197,70 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_32
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_33
+    if-eqz v0, :cond_37
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_2
+    :cond_37
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_38
     iput-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->isDigitsOnly:Z
 
     .line 514
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->isDigitsOnly:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_44
 
     iget v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->minLength:I
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_44
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_45
 
-    :cond_3
+    :cond_44
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_45
     iput-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->isDigitsOnlyAndNoPadding:Z
 
     .line 520
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->prefix:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_57
 
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->suffix:Ljava/lang/String;
 
+    # invokes: Lkotlin/text/HexFormatKt;->isCaseSensitive(Ljava/lang/String;)Z
     invoke-static {v0}, Lkotlin/text/HexFormatKt;->access$isCaseSensitive(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_58
 
-    :cond_4
+    :cond_57
     const/4 v1, 0x1
 
-    :cond_5
+    :cond_58
     iput-boolean v1, p0, Lkotlin/text/HexFormat$NumberHexFormat;->ignoreCase:Z
 
     .line 445
@@ -266,7 +268,7 @@
 .end method
 
 .method public static final synthetic access$getDefault$cp()Lkotlin/text/HexFormat$NumberHexFormat;
-    .locals 1
+    .registers 1
 
     .line 445
     sget-object v0, Lkotlin/text/HexFormat$NumberHexFormat;->Default:Lkotlin/text/HexFormat$NumberHexFormat;
@@ -275,7 +277,7 @@
 .end method
 
 .method public static synthetic getMinLength$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -283,7 +285,7 @@
 
 # virtual methods
 .method public final appendOptionsTo$kotlin_stdlib(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 5
+    .registers 8
     .param p1, "sb"    # Ljava/lang/StringBuilder;
     .param p2, "indent"    # Ljava/lang/String;
 
@@ -416,7 +418,7 @@
 .end method
 
 .method public final getIgnoreCase$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 520
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->ignoreCase:Z
@@ -425,7 +427,7 @@
 .end method
 
 .method public final getMinLength()I
-    .locals 1
+    .registers 2
 
     .line 509
     iget v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->minLength:I
@@ -434,7 +436,7 @@
 .end method
 
 .method public final getPrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 456
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->prefix:Ljava/lang/String;
@@ -443,7 +445,7 @@
 .end method
 
 .method public final getRemoveLeadingZeros()Z
-    .locals 1
+    .registers 2
 
     .line 485
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->removeLeadingZeros:Z
@@ -452,7 +454,7 @@
 .end method
 
 .method public final getSuffix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 468
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->suffix:Ljava/lang/String;
@@ -461,7 +463,7 @@
 .end method
 
 .method public final isDigitsOnly$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 512
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->isDigitsOnly:Z
@@ -470,7 +472,7 @@
 .end method
 
 .method public final isDigitsOnlyAndNoPadding$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 514
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat;->isDigitsOnlyAndNoPadding:Z
@@ -479,7 +481,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 522
     new-instance v0, Ljava/lang/StringBuilder;

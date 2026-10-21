@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public autoDetectInterfaceControl(I)V
-    .locals 1
+    .registers 3
     .param p1, "fd"    # I
 
     .line 27
@@ -79,17 +79,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/bg/VpnService;->protect(I)Z
 
     .line 28
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public findConnectionOwner(ILjava/lang/String;ILjava/lang/String;I)I
-    .locals 3
+    .registers 9
     .param p1, "ipProto"    # I
     .param p2, "srcIp"    # Ljava/lang/String;
     .param p3, "srcPort"    # I
@@ -129,7 +129,7 @@
 .end method
 
 .method public openTun(Ljava/lang/String;Ljava/lang/String;)J
-    .locals 2
+    .registers 5
     .param p1, "singTunOptionsJson"    # Ljava/lang/String;
     .param p2, "tunPlatformOptionsJson"    # Ljava/lang/String;
 
@@ -148,7 +148,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 34
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -168,7 +168,7 @@
     return-wide v0
 
     .line 32
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/Exception;
 
     const-string v1, "no VpnService"
@@ -179,7 +179,7 @@
 .end method
 
 .method public packageNameByUid(I)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "uid"    # I
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -194,11 +194,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :package_lookup_fallback
+    if-eqz v0, :cond_15
 
     array-length v1, v0
 
-    if-eqz v1, :package_lookup_fallback
+    if-eqz v1, :cond_15
 
     const/4 v1, 0x0
 
@@ -206,8 +206,8 @@
 
     return-object v0
 
-    :package_lookup_fallback
     .line 51
+    :cond_15
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/utils/PackageCache;->awaitLoadSync()V
@@ -219,7 +219,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_24
 
     .line 54
     const-string v0, "android"
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 57
-    :cond_0
+    :cond_24
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/utils/PackageCache;->getUidMap()Ljava/util/HashMap;
@@ -250,27 +250,27 @@
 
     check-cast v1, Ljava/util/Collection;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_42
 
     invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_40
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_1
+    :cond_40
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_2
-    :goto_0
+    :cond_42
+    :goto_42
     const/4 v1, 0x1
 
-    :goto_1
-    if-nez v1, :cond_3
+    :goto_43
+    if-nez v1, :cond_60
 
     invoke-virtual {v0}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
@@ -284,7 +284,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_60
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -301,7 +301,7 @@
     return-object v1
 
     .end local v1    # "packageName":Ljava/lang/String;
-    :cond_3
+    :cond_60
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 62
@@ -333,7 +333,7 @@
 .end method
 
 .method public selector_OnProxySelected(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "selectorTag"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
 
@@ -352,7 +352,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2b
 
     .line 86
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -381,7 +381,7 @@
     return-void
 
     .line 89
-    :cond_0
+    :cond_2b
     const/4 v0, 0x1
 
     invoke-static {v0}, Llibcore/Libcore;->resetAllConnections(Z)V
@@ -393,7 +393,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .local v0, "$this$selector_OnProxySelected_u24lambda_u240":Lio/nekohasekai/sagernet/bg/BaseService$Interface;
     const/4 v1, 0x0
@@ -419,12 +419,12 @@
     nop
 
     .line 107
-    :cond_1
+    :cond_45
     return-void
 .end method
 
 .method public uidByPackageName(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p1, "packageName"    # Ljava/lang/String;
 
     const-string v0, "packageName"
@@ -443,23 +443,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public useOfficialAssets()Z
-    .locals 1
+    .registers 2
 
     .line 81
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -468,42 +468,42 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public useProcFS()Z
-    .locals 2
+    .registers 3
 
     .line 38
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public wifiState()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 73
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;

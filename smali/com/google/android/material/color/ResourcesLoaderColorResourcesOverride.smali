@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$1;
 
     .line 31
@@ -35,9 +35,10 @@
 .end method
 
 .method static getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
-    .locals 1
+    .registers 1
 
     .line 54
+    # getter for: Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$ResourcesLoaderColorResourcesOverrideSingleton;->INSTANCE:Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;
     invoke-static {}, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$ResourcesLoaderColorResourcesOverrideSingleton;->access$000()Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;
 
     move-result-object v0
@@ -48,7 +49,7 @@
 
 # virtual methods
 .method public applyIfPossible(Landroid/content/Context;Ljava/util/Map;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +68,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 47
     sget v0, Lcom/google/android/material/R$style;->ThemeOverlay_Material3_PersonalizedColors:I
@@ -80,7 +81,7 @@
     return v0
 
     .line 50
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return v0

@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final startCoroutineUndispatched(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
-    .locals 10
+    .registers 12
     .param p0, "$this$startCoroutineUndispatched"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,7 +101,7 @@
 
     .line 30
     .local v3, "$i$a$-startDirect-UndispatchedKt$startCoroutineUndispatched$1":I
-    :try_start_0
+    :try_start_a
     invoke-interface {p1}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v4
@@ -117,8 +117,8 @@
     invoke-static {v4, v5}, Lkotlinx/coroutines/internal/ThreadContextKt;->updateThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_3e
 
     .line 146
     .local v7, "oldValue$iv":Ljava/lang/Object;
@@ -131,7 +131,7 @@
     .local v8, "$i$a$-withCoroutineContext-UndispatchedKt$startCoroutineUndispatched$1$1":I
     const/4 v9, 0x1
 
-    :try_start_1
+    :try_start_17
     invoke-static {p0, v9}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v9
@@ -141,18 +141,18 @@
     invoke-interface {v9, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_17 .. :try_end_21} :catchall_39
 
     .line 147
     .end local v8    # "$i$a$-withCoroutineContext-UndispatchedKt$startCoroutineUndispatched$1$1":I
     nop
 
     .line 149
-    :try_start_2
+    :try_start_22
     invoke-static {v4, v7}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_25
+    .catchall {:try_start_22 .. :try_end_25} :catchall_3e
 
     .line 147
     nop
@@ -178,7 +178,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_38
 
     .line 156
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -190,8 +190,8 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 158
-    :cond_0
-    goto :goto_0
+    :cond_38
+    goto :goto_4d
 
     .line 149
     .local v2, "actualCompletion":Lkotlin/coroutines/Continuation;
@@ -200,10 +200,10 @@
     .restart local v5    # "countOrElement$iv":Ljava/lang/Object;
     .restart local v6    # "$i$f$withCoroutineContext":I
     .restart local v7    # "oldValue$iv":Ljava/lang/Object;
-    :catchall_0
+    :catchall_39
     move-exception v8
 
-    :try_start_3
+    :try_start_3a
     invoke-static {v4, v7}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .end local v0    # "$i$f$startDirect":I
@@ -211,8 +211,8 @@
     .end local p0    # "$this$startCoroutineUndispatched":Lkotlin/jvm/functions/Function1;
     .end local p1    # "completion":Lkotlin/coroutines/Continuation;
     throw v8
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_3e
+    .catchall {:try_start_3a .. :try_end_3e} :catchall_3e
 
     .line 150
     .end local v2    # "actualCompletion":Lkotlin/coroutines/Continuation;
@@ -225,7 +225,7 @@
     .restart local v1    # "actualCompletion$iv":Lkotlin/coroutines/Continuation;
     .restart local p0    # "$this$startCoroutineUndispatched":Lkotlin/jvm/functions/Function1;
     .restart local p1    # "completion":Lkotlin/coroutines/Continuation;
-    :catchall_1
+    :catchall_3e
     move-exception v2
 
     .line 151
@@ -249,12 +249,12 @@
     .end local v0    # "$i$f$startDirect":I
     .end local v1    # "actualCompletion$iv":Lkotlin/coroutines/Continuation;
     .end local v2    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4d
     return-void
 .end method
 
 .method public static final startCoroutineUndispatched(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 10
+    .registers 13
     .param p0, "$this$startCoroutineUndispatched"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -305,7 +305,7 @@
 
     .line 43
     .local v3, "$i$a$-startDirect-UndispatchedKt$startCoroutineUndispatched$2":I
-    :try_start_0
+    :try_start_a
     invoke-interface {p2}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v4
@@ -321,8 +321,8 @@
     invoke-static {v4, v5}, Lkotlinx/coroutines/internal/ThreadContextKt;->updateThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_3e
 
     .line 164
     .local v7, "oldValue$iv":Ljava/lang/Object;
@@ -335,7 +335,7 @@
     .local v8, "$i$a$-withCoroutineContext-UndispatchedKt$startCoroutineUndispatched$2$1":I
     const/4 v9, 0x2
 
-    :try_start_1
+    :try_start_17
     invoke-static {p0, v9}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v9
@@ -345,18 +345,18 @@
     invoke-interface {v9, p1, v2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_17 .. :try_end_21} :catchall_39
 
     .line 165
     .end local v8    # "$i$a$-withCoroutineContext-UndispatchedKt$startCoroutineUndispatched$2$1":I
     nop
 
     .line 167
-    :try_start_2
+    :try_start_22
     invoke-static {v4, v7}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_25
+    .catchall {:try_start_22 .. :try_end_25} :catchall_3e
 
     .line 165
     nop
@@ -382,7 +382,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_38
 
     .line 174
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -394,8 +394,8 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 176
-    :cond_0
-    goto :goto_0
+    :cond_38
+    goto :goto_4d
 
     .line 167
     .local v2, "actualCompletion":Lkotlin/coroutines/Continuation;
@@ -404,10 +404,10 @@
     .restart local v5    # "countOrElement$iv":Ljava/lang/Object;
     .restart local v6    # "$i$f$withCoroutineContext":I
     .restart local v7    # "oldValue$iv":Ljava/lang/Object;
-    :catchall_0
+    :catchall_39
     move-exception v8
 
-    :try_start_3
+    :try_start_3a
     invoke-static {v4, v7}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .end local v0    # "$i$f$startDirect":I
@@ -416,8 +416,8 @@
     .end local p1    # "receiver":Ljava/lang/Object;
     .end local p2    # "completion":Lkotlin/coroutines/Continuation;
     throw v8
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_3e
+    .catchall {:try_start_3a .. :try_end_3e} :catchall_3e
 
     .line 168
     .end local v2    # "actualCompletion":Lkotlin/coroutines/Continuation;
@@ -431,7 +431,7 @@
     .restart local p0    # "$this$startCoroutineUndispatched":Lkotlin/jvm/functions/Function2;
     .restart local p1    # "receiver":Ljava/lang/Object;
     .restart local p2    # "completion":Lkotlin/coroutines/Continuation;
-    :catchall_1
+    :catchall_3e
     move-exception v2
 
     .line 169
@@ -455,12 +455,12 @@
     .end local v0    # "$i$f$startDirect":I
     .end local v1    # "actualCompletion$iv":Lkotlin/coroutines/Continuation;
     .end local v2    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4d
     return-void
 .end method
 
 .method public static final startCoroutineUnintercepted(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$startCoroutineUnintercepted"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -510,7 +510,7 @@
     .local v3, "$i$a$-startDirect-UndispatchedKt$startCoroutineUnintercepted$1":I
     const/4 v4, 0x1
 
-    :try_start_0
+    :try_start_b
     invoke-static {p0, v4}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v4
@@ -520,8 +520,8 @@
     invoke-interface {v4, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_b .. :try_end_15} :catchall_27
 
     .line 131
     .end local v2    # "actualCompletion":Lkotlin/coroutines/Continuation;
@@ -537,7 +537,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_26
 
     .line 138
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -549,12 +549,12 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 140
-    :cond_0
-    goto :goto_0
+    :cond_26
+    goto :goto_36
 
     .line 132
     .end local v2    # "value$iv":Ljava/lang/Object;
-    :catchall_0
+    :catchall_27
     move-exception v2
 
     .line 133
@@ -578,12 +578,12 @@
     .end local v0    # "$i$f$startDirect":I
     .end local v1    # "actualCompletion$iv":Lkotlin/coroutines/Continuation;
     .end local v2    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_36
     return-void
 .end method
 
 .method private static final startDirect(Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -623,12 +623,12 @@
     nop
 
     .line 57
-    :try_start_0
+    :try_start_8
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_8 .. :try_end_c} :catchall_1d
 
     .line 56
     nop
@@ -639,7 +639,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_1c
 
     .line 64
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -651,12 +651,12 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 66
-    :cond_0
+    :cond_1c
     return-void
 
     .line 58
     .end local v2    # "value":Ljava/lang/Object;
-    :catchall_0
+    :catchall_1d
     move-exception v2
 
     .line 59
@@ -678,7 +678,7 @@
 .end method
 
 .method public static final startUndispatchedOrReturn(Lkotlinx/coroutines/internal/ScopeCoroutine;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p0, "$this$startUndispatchedOrReturn"    # Lkotlinx/coroutines/internal/ScopeCoroutine;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -718,7 +718,7 @@
     .local v2, "$i$a$-undispatchedResult-UndispatchedKt$startUndispatchedOrReturn$2":I
     const/4 v3, 0x2
 
-    :try_start_0
+    :try_start_5
     invoke-static {p2, v3}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v4
@@ -732,15 +732,15 @@
     invoke-interface {v4, p1, v5}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_5 .. :try_end_12} :catchall_13
 
     .line 179
     .end local v2    # "$i$a$-undispatchedResult-UndispatchedKt$startUndispatchedOrReturn$2":I
-    goto :goto_0
+    goto :goto_1c
 
     .line 180
-    :catchall_0
+    :catchall_13
     move-exception v2
 
     .line 181
@@ -757,7 +757,7 @@
 
     .line 178
     .end local v2    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1c
     move-object v2, v3
 
     .line 182
@@ -766,16 +766,16 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_28
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_63
 
     .line 183
-    :cond_0
+    :cond_28
     invoke-virtual {v0, v2}, Lkotlinx/coroutines/internal/ScopeCoroutine;->makeCompletingOnce$kotlinx_coroutines_core(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -784,7 +784,7 @@
     .local v3, "state$iv":Ljava/lang/Object;
     sget-object v4, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_WAITING_CHILDREN:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_36
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -792,13 +792,13 @@
 
     move-object v3, v4
 
-    goto :goto_2
+    goto :goto_63
 
     .line 185
-    :cond_1
+    :cond_36
     instance-of v4, v3, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5e
 
     .line 186
     nop
@@ -838,20 +838,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_5d
 
     instance-of v7, v5, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 189
-    :cond_2
+    :cond_55
     move-object v7, v5
 
     check-cast v7, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v4, v7}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v7
@@ -861,12 +862,12 @@
     .end local v4    # "exception$iv$iv":Ljava/lang/Throwable;
     .end local v5    # "continuation$iv$iv":Lkotlin/coroutines/Continuation;
     .end local v6    # "$i$f$recoverStackTrace":I
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     throw v4
 
     .line 194
-    :cond_4
+    :cond_5e
     invoke-static {v3}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
@@ -879,12 +880,12 @@
     .end local v1    # "$i$f$undispatchedResult":I
     .end local v2    # "result$iv":Ljava/lang/Object;
     .end local v3    # "state$iv":Ljava/lang/Object;
-    :goto_2
+    :goto_63
     return-object v3
 .end method
 
 .method public static final startUndispatchedOrReturnIgnoreTimeout(Lkotlinx/coroutines/internal/ScopeCoroutine;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p0, "$this$startUndispatchedOrReturnIgnoreTimeout"    # Lkotlinx/coroutines/internal/ScopeCoroutine;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -926,7 +927,7 @@
 
     const/4 v4, 0x2
 
-    :try_start_0
+    :try_start_6
     invoke-static {p2, v4}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v5
@@ -940,15 +941,15 @@
     invoke-interface {v5, p1, v6}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_6 .. :try_end_13} :catchall_14
 
     .line 196
     .end local v2    # "$i$a$-undispatchedResult-UndispatchedKt$startUndispatchedOrReturnIgnoreTimeout$2":I
-    goto :goto_0
+    goto :goto_1c
 
     .line 197
-    :catchall_0
+    :catchall_14
     move-exception v2
 
     .line 198
@@ -963,7 +964,7 @@
 
     .line 195
     .end local v2    # "e$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1c
     move-object v2, v4
 
     .line 199
@@ -972,16 +973,16 @@
 
     move-result-object v4
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_29
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto/16 :goto_4
+    goto/16 :goto_92
 
     .line 200
-    :cond_0
+    :cond_29
     invoke-virtual {v0, v2}, Lkotlinx/coroutines/internal/ScopeCoroutine;->makeCompletingOnce$kotlinx_coroutines_core(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
@@ -990,19 +991,19 @@
     .local v4, "state$iv":Ljava/lang/Object;
     sget-object v5, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_WAITING_CHILDREN:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_36
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_92
 
     .line 202
-    :cond_1
+    :cond_36
     instance-of v5, v4, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_8d
 
     .line 203
     nop
@@ -1021,7 +1022,7 @@
     .local v6, "$i$a$-undispatchedResult-UndispatchedKt$startUndispatchedOrReturnIgnoreTimeout$1":I
     instance-of v7, v5, Lkotlinx/coroutines/TimeoutCancellationException;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4c
 
     move-object v7, v5
 
@@ -1029,16 +1030,16 @@
 
     iget-object v7, v7, Lkotlinx/coroutines/TimeoutCancellationException;->coroutine:Lkotlinx/coroutines/Job;
 
-    if-eq v7, p0, :cond_3
+    if-eq v7, p0, :cond_4d
 
-    :cond_2
+    :cond_4c
     const/4 v3, 0x1
 
     .line 204
     .end local v5    # "e":Ljava/lang/Throwable;
     .end local v6    # "$i$a$-undispatchedResult-UndispatchedKt$startUndispatchedOrReturnIgnoreTimeout$1":I
-    :cond_3
-    if-eqz v3, :cond_6
+    :cond_4d
+    if-eqz v3, :cond_6b
 
     move-object v3, v4
 
@@ -1058,20 +1059,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6a
 
     instance-of v7, v5, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_62
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 206
-    :cond_4
+    :cond_62
     move-object v7, v5
 
     check-cast v7, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v3, v7}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v7
@@ -1081,15 +1083,15 @@
     .end local v3    # "exception$iv$iv":Ljava/lang/Throwable;
     .end local v5    # "continuation$iv$iv":Lkotlin/coroutines/Continuation;
     .end local v6    # "$i$f$recoverStackTrace":I
-    :cond_5
-    :goto_1
+    :cond_6a
+    :goto_6a
     throw v3
 
     .line 207
-    :cond_6
+    :cond_6b
     instance-of v3, v2, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8b
 
     move-object v3, v2
 
@@ -1109,20 +1111,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_8a
 
     instance-of v7, v5, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_82
 
-    goto :goto_2
+    goto :goto_8a
 
     .line 206
-    :cond_7
+    :cond_82
     move-object v7, v5
 
     check-cast v7, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v3, v7}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v7
@@ -1132,24 +1135,24 @@
     .end local v3    # "exception$iv$iv":Ljava/lang/Throwable;
     .end local v5    # "continuation$iv$iv":Lkotlin/coroutines/Continuation;
     .end local v6    # "$i$f$recoverStackTrace":I
-    :cond_8
-    :goto_2
+    :cond_8a
+    :goto_8a
     throw v3
 
     .line 208
-    :cond_9
+    :cond_8b
     move-object v3, v2
 
-    goto :goto_3
+    goto :goto_91
 
     .line 211
-    :cond_a
+    :cond_8d
     invoke-static {v4}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     .line 202
-    :goto_3
+    :goto_91
     nop
 
     .line 88
@@ -1157,12 +1160,12 @@
     .end local v1    # "$i$f$undispatchedResult":I
     .end local v2    # "result$iv":Ljava/lang/Object;
     .end local v4    # "state$iv":Ljava/lang/Object;
-    :goto_4
+    :goto_92
     return-object v3
 .end method
 
 .method private static final undispatchedResult(Lkotlinx/coroutines/internal/ScopeCoroutine;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p0, "$this$undispatchedResult"    # Lkotlinx/coroutines/internal/ScopeCoroutine;
     .param p1, "shouldThrow"    # Lkotlin/jvm/functions/Function1;
     .param p2, "startBlock"    # Lkotlin/jvm/functions/Function0;
@@ -1193,17 +1196,17 @@
     nop
 
     .line 98
-    :try_start_0
+    :try_start_2
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_2 .. :try_end_6} :catchall_7
 
-    goto :goto_0
+    goto :goto_11
 
     .line 99
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     .line 100
@@ -1222,7 +1225,7 @@
 
     .line 97
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     nop
 
     .line 114
@@ -1231,7 +1234,7 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1d
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -1240,7 +1243,7 @@
     return-object v2
 
     .line 115
-    :cond_0
+    :cond_1d
     invoke-virtual {p0, v1}, Lkotlinx/coroutines/internal/ScopeCoroutine;->makeCompletingOnce$kotlinx_coroutines_core(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -1249,7 +1252,7 @@
     .local v2, "state":Ljava/lang/Object;
     sget-object v3, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_WAITING_CHILDREN:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2a
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -1258,10 +1261,10 @@
     return-object v3
 
     .line 117
-    :cond_1
+    :cond_2a
     instance-of v3, v2, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7e
 
     .line 118
     nop
@@ -1283,7 +1286,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5c
 
     move-object v3, v2
 
@@ -1303,20 +1306,21 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5b
 
     instance-of v6, v4, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_53
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 213
-    :cond_2
+    :cond_53
     move-object v6, v4
 
     check-cast v6, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v3, v6}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v6
@@ -1326,15 +1330,15 @@
     .end local v3    # "exception$iv":Ljava/lang/Throwable;
     .end local v4    # "continuation$iv":Lkotlin/coroutines/Continuation;
     .end local v5    # "$i$f$recoverStackTrace":I
-    :cond_3
-    :goto_1
+    :cond_5b
+    :goto_5b
     throw v3
 
     .line 120
-    :cond_4
+    :cond_5c
     instance-of v3, v1, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_7c
 
     move-object v3, v1
 
@@ -1354,20 +1358,21 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7b
 
     instance-of v6, v4, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_73
 
-    goto :goto_2
+    goto :goto_7b
 
     .line 215
-    :cond_5
+    :cond_73
     move-object v6, v4
 
     check-cast v6, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v3, v6}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v6
@@ -1377,23 +1382,23 @@
     .end local v3    # "exception$iv":Ljava/lang/Throwable;
     .end local v4    # "continuation$iv":Lkotlin/coroutines/Continuation;
     .end local v5    # "$i$f$recoverStackTrace":I
-    :cond_6
-    :goto_2
+    :cond_7b
+    :goto_7b
     throw v3
 
     .line 121
-    :cond_7
+    :cond_7c
     move-object v3, v1
 
-    goto :goto_3
+    goto :goto_82
 
     .line 124
-    :cond_8
+    :cond_7e
     invoke-static {v2}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     .line 117
-    :goto_3
+    :goto_82
     return-object v3
 .end method

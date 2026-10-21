@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;Ljava/util/List;)V
-    .locals 7
+    .registers 10
     .param p1, "packageInfo"    # Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,12 +90,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_24
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_39
 
     .line 345
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -104,6 +104,7 @@
 
     check-cast v2, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->name:Ljava/lang/String;
     invoke-static {v2}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$100(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)Ljava/lang/String;
 
     move-result-object v2
@@ -113,11 +114,11 @@
     .line 344
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 347
     .end local v1    # "i":I
-    :cond_0
+    :cond_39
     new-instance v1, Lcom/google/android/material/color/ColorResourcesTableCreator$StringPoolChunk;
 
     const/4 v2, 0x1
@@ -155,7 +156,7 @@
 
 # virtual methods
 .method getChunkSize()I
-    .locals 2
+    .registers 3
 
     .line 376
     iget-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageChunk;->typeStrings:Lcom/google/android/material/color/ColorResourcesTableCreator$StringPoolChunk;
@@ -190,7 +191,7 @@
 .end method
 
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -206,10 +207,12 @@
     .line 355
     iget-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageChunk;->packageInfo:Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
 
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;->id:I
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;->access$1000(Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;)I
 
     move-result v0
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -219,6 +222,7 @@
     .line 356
     iget-object v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageChunk;->packageInfo:Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
 
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;->name:Ljava/lang/String;
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;->access$1100(Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;)Ljava/lang/String;
 
     move-result-object v0
@@ -232,31 +236,33 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_1d
     const/16 v2, 0x80
 
     const/4 v3, 0x0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_39
 
     .line 358
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2f
 
     .line 359
     aget-char v2, v0, v1
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->charToByteArray(C)[B
     invoke-static {v2}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$1200(C)[B
 
     move-result-object v2
 
     invoke-virtual {p1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
-    goto :goto_1
+    goto :goto_36
 
     .line 361
-    :cond_0
+    :cond_2f
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->charToByteArray(C)[B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$1200(C)[B
 
     move-result-object v2
@@ -264,16 +270,17 @@
     invoke-virtual {p1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 357
-    :goto_1
+    :goto_36
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 364
     .end local v1    # "i":I
-    :cond_1
+    :cond_39
     const/16 v1, 0x120
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v1}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v2
@@ -281,6 +288,7 @@
     invoke-virtual {p1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 365
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v2
@@ -297,6 +305,7 @@
 
     add-int/2addr v2, v1
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v2}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v1
@@ -305,6 +314,7 @@
     invoke-virtual {p1, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 368
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v1
@@ -312,6 +322,7 @@
     invoke-virtual {p1, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .line 369
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v1

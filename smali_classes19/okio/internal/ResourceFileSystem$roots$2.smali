@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lokio/internal/ResourceFileSystem$roots$2;->$classLoader:Ljava/lang/ClassLoader;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-virtual {p0}, Lokio/internal/ResourceFileSystem$roots$2;->invoke()Ljava/util/List;
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,6 +96,7 @@
     .end annotation
 
     .line 47
+    # getter for: Lokio/internal/ResourceFileSystem;->Companion:Lokio/internal/ResourceFileSystem$Companion;
     invoke-static {}, Lokio/internal/ResourceFileSystem;->access$getCompanion$p()Lokio/internal/ResourceFileSystem$Companion;
 
     move-result-object v0

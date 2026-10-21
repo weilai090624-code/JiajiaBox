@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken;Ljava/lang/reflect/Constructor;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeToken;
 
     .line 639
@@ -43,12 +43,13 @@
 
 # virtual methods
 .method getGenericExceptionTypes()[Ljava/lang/reflect/Type;
-    .locals 2
+    .registers 3
 
     .line 652
     .local p0, "this":Lcom/google/common/reflect/TypeToken$2;, "Lcom/google/common/reflect/TypeToken$2;"
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken$2;->this$0:Lcom/google/common/reflect/TypeToken;
 
+    # invokes: Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
     invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->access$000(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeResolver;
 
     move-result-object v0
@@ -65,12 +66,13 @@
 .end method
 
 .method getGenericParameterTypes()[Ljava/lang/reflect/Type;
-    .locals 2
+    .registers 3
 
     .line 647
     .local p0, "this":Lcom/google/common/reflect/TypeToken$2;, "Lcom/google/common/reflect/TypeToken$2;"
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken$2;->this$0:Lcom/google/common/reflect/TypeToken;
 
+    # invokes: Lcom/google/common/reflect/TypeToken;->getInvariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
     invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->access$100(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeResolver;
 
     move-result-object v0
@@ -87,12 +89,13 @@
 .end method
 
 .method getGenericReturnType()Ljava/lang/reflect/Type;
-    .locals 2
+    .registers 3
 
     .line 642
     .local p0, "this":Lcom/google/common/reflect/TypeToken$2;, "Lcom/google/common/reflect/TypeToken$2;"
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken$2;->this$0:Lcom/google/common/reflect/TypeToken;
 
+    # invokes: Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
     invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->access$000(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeResolver;
 
     move-result-object v0
@@ -109,7 +112,7 @@
 .end method
 
 .method public getOwnerType()Lcom/google/common/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,7 +129,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 662
     .local p0, "this":Lcom/google/common/reflect/TypeToken$2;, "Lcom/google/common/reflect/TypeToken$2;"

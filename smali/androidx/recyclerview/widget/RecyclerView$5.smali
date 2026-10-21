@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 909
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public addView(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
     .param p2, "index"    # I
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 4
+    .registers 8
     .param p1, "child"    # Landroid/view/View;
     .param p2, "index"    # I
     .param p3, "layoutParams"    # Landroid/view/ViewGroup$LayoutParams;
@@ -68,25 +68,25 @@
 
     .line 981
     .local v0, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 982
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isTmpDetached()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_36
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->shouldIgnore()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
-    goto :goto_0
+    goto :goto_36
 
     .line 983
-    :cond_0
+    :cond_13
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -123,14 +123,15 @@
     throw v1
 
     .line 989
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->clearTmpDetachFlag()V
 
     .line 991
-    :cond_2
+    :cond_39
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
+    # invokes: Landroidx/recyclerview/widget/RecyclerView;->attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     invoke-static {v1, p1, p2, p3}, Landroidx/recyclerview/widget/RecyclerView;->access$000(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     .line 992
@@ -138,7 +139,7 @@
 .end method
 
 .method public detachViewFromParent(I)V
-    .locals 5
+    .registers 7
     .param p1, "offset"    # I
 
     .line 996
@@ -148,7 +149,7 @@
 
     .line 997
     .local v0, "view":Landroid/view/View;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     .line 998
     invoke-static {v0}, Landroidx/recyclerview/widget/RecyclerView;->getChildViewHolderInt(Landroid/view/View;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -157,25 +158,25 @@
 
     .line 999
     .local v1, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_41
 
     .line 1000
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isTmpDetached()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->shouldIgnore()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 1001
-    :cond_0
+    :cond_19
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -212,17 +213,18 @@
     throw v2
 
     .line 1007
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     const/16 v2, 0x100
 
     invoke-virtual {v1, v2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->addFlags(I)V
 
     .line 1010
     .end local v1    # "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    :cond_2
+    :cond_41
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
+    # invokes: Landroidx/recyclerview/widget/RecyclerView;->detachViewFromParent(I)V
     invoke-static {v1, p1}, Landroidx/recyclerview/widget/RecyclerView;->access$100(Landroidx/recyclerview/widget/RecyclerView;I)V
 
     .line 1011
@@ -230,7 +232,7 @@
 .end method
 
 .method public getChildAt(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "offset"    # I
 
     .line 954
@@ -244,7 +246,7 @@
 .end method
 
 .method public getChildCount()I
-    .locals 1
+    .registers 2
 
     .line 912
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -257,7 +259,7 @@
 .end method
 
 .method public getChildViewHolder(Landroid/view/View;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 974
@@ -269,7 +271,7 @@
 .end method
 
 .method public indexOfChild(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 929
@@ -283,7 +285,7 @@
 .end method
 
 .method public onEnteredHiddenState(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
 
     .line 1015
@@ -293,7 +295,7 @@
 
     .line 1016
     .local v0, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1017
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -301,12 +303,12 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->onEnteredHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
 
     .line 1019
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public onLeftHiddenState(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
 
     .line 1023
@@ -316,7 +318,7 @@
 
     .line 1024
     .local v0, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1025
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -324,12 +326,12 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->onLeftHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
 
     .line 1027
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public removeAllViews()V
-    .locals 4
+    .registers 5
 
     .line 959
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$5;->getChildCount()I
@@ -341,8 +343,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_16
 
     .line 961
     invoke-virtual {p0, v1}, Landroidx/recyclerview/widget/RecyclerView$5;->getChildAt(I)Landroid/view/View;
@@ -362,11 +364,11 @@
     .end local v2    # "child":Landroid/view/View;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 969
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView;->removeAllViews()V
@@ -376,7 +378,7 @@
 .end method
 
 .method public removeViewAt(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 934
@@ -388,7 +390,7 @@
 
     .line 935
     .local v0, "child":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 936
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -399,7 +401,7 @@
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
     .line 946
-    :cond_0
+    :cond_10
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$5;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v1, p1}, Landroidx/recyclerview/widget/RecyclerView;->removeViewAt(I)V

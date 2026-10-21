@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ThreadFactory;Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/Boolean;Ljava/lang/Integer;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-    .locals 0
+    .registers 7
 
     .line 163
     iput-object p1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$backingThreadFactory:Ljava/util/concurrent/ThreadFactory;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 5
+    .registers 7
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 166
@@ -70,7 +70,7 @@
     .local v0, "thread":Ljava/lang/Thread;
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$nameFormat:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 169
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$nameFormat:Ljava/lang/String;
@@ -99,6 +99,7 @@
 
     aput-object v2, v3, v4
 
+    # invokes: Lcom/google/common/util/concurrent/ThreadFactoryBuilder;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     invoke-static {v1, v3}, Lcom/google/common/util/concurrent/ThreadFactoryBuilder;->access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -106,10 +107,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
 
     .line 171
-    :cond_0
+    :cond_29
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$daemon:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_36
 
     .line 172
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$daemon:Ljava/lang/Boolean;
@@ -121,10 +122,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 174
-    :cond_1
+    :cond_36
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$priority:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     .line 175
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$priority:Ljava/lang/Integer;
@@ -136,10 +137,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setPriority(I)V
 
     .line 177
-    :cond_2
+    :cond_43
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$uncaughtExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4c
 
     .line 178
     iget-object v1, p0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder$1;->val$uncaughtExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
@@ -147,6 +148,6 @@
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
     .line 180
-    :cond_3
+    :cond_4c
     return-object v0
 .end method

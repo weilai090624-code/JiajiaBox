@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 309
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/concurrent/TaskRunner$Companion;-><init>()V
 
@@ -60,9 +60,10 @@
 
 # virtual methods
 .method public final getLogger()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 2
 
     .line 310
+    # getter for: Lokhttp3/internal/concurrent/TaskRunner;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lokhttp3/internal/concurrent/TaskRunner;->access$getLogger$cp()Ljava/util/logging/Logger;
 
     move-result-object v0

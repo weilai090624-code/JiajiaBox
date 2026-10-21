@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 144
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 8
+    .registers 14
     .param p2, "selectedView"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -55,8 +55,9 @@
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
-    if-gez p3, :cond_0
+    if-gez p3, :cond_d
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v0
@@ -65,9 +66,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->getAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -78,9 +79,10 @@
 
     .line 150
     .local v0, "selectedItem":Ljava/lang/Object;
-    :goto_0
+    :goto_15
     iget-object v1, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # invokes: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->updateText(Ljava/lang/Object;)V
     invoke-static {v1, v0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$100(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;Ljava/lang/Object;)V
 
     .line 152
@@ -92,17 +94,18 @@
 
     .line 153
     .local v1, "userOnItemClickListener":Landroid/widget/AdapterView$OnItemClickListener;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_55
 
     .line 154
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_26
 
-    if-gez p3, :cond_2
+    if-gez p3, :cond_44
 
     .line 155
-    :cond_1
+    :cond_26
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v2
@@ -114,6 +117,7 @@
     .line 156
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v2
@@ -125,6 +129,7 @@
     .line 157
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v2
@@ -134,10 +139,11 @@
     move-result-wide p4
 
     .line 159
-    :cond_2
+    :cond_44
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 160
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v2
@@ -158,9 +164,10 @@
     invoke-interface/range {v2 .. v7}, Landroid/widget/AdapterView$OnItemClickListener;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     .line 163
-    :cond_3
+    :cond_55
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$1;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->modalListPopup:Landroidx/appcompat/widget/ListPopupWindow;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$000(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroidx/appcompat/widget/ListPopupWindow;
 
     move-result-object v2

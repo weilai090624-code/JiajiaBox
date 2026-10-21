@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;
 
     .line 945
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 950
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet$1;, "Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet$1;"
@@ -78,7 +78,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -111,22 +111,22 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 962
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet$1;, "Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet$1;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet$1;->entry:Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "no calls to next() since the last call to remove()"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -155,6 +155,7 @@
 
     move-result v2
 
+    # -= operator for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v1, v2}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$220(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
 
     .line 966

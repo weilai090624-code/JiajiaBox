@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 5
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "bounds"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -68,6 +68,7 @@
     .line 419
     const-string v0, "bound for type variable"
 
+    # invokes: Lcom/google/common/reflect/Types;->disallowPrimitiveType([Ljava/lang/reflect/Type;Ljava/lang/String;)V
     invoke-static {p3, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     .line 420
@@ -102,7 +103,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -116,10 +117,10 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     .line 455
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_4a
 
     .line 456
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -130,7 +131,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     .line 457
     invoke-static {p1}, Ljava/lang/reflect/Proxy;->getInvocationHandler(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;
@@ -139,7 +140,7 @@
 
     instance-of v0, v0, Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     .line 458
     nop
@@ -153,6 +154,7 @@
 
     .line 460
     .local v0, "typeVariableInvocationHandler":Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;
+    # getter for: Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;->typeVariableImpl:Lcom/google/common/reflect/Types$TypeVariableImpl;
     invoke-static {v0}, Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;->access$600(Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;)Lcom/google/common/reflect/Types$TypeVariableImpl;
 
     move-result-object v3
@@ -169,7 +171,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_48
 
     iget-object v4, p0, Lcom/google/common/reflect/Types$TypeVariableImpl;->genericDeclaration:Ljava/lang/reflect/GenericDeclaration;
 
@@ -182,7 +184,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_48
 
     iget-object v4, p0, Lcom/google/common/reflect/Types$TypeVariableImpl;->bounds:Lcom/google/common/collect/ImmutableList;
 
@@ -193,28 +195,28 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_48
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_0
+    :cond_48
     const/4 v1, 0x0
 
     .line 461
-    :goto_0
+    :goto_49
     return v1
 
     .line 465
     .end local v0    # "typeVariableInvocationHandler":Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;
     .end local v3    # "that":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<*>;"
-    :cond_1
+    :cond_4a
     return v2
 
     .line 468
-    :cond_2
+    :cond_4b
     instance-of v0, p1, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6d
 
     .line 469
     move-object v0, p1
@@ -233,7 +235,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6b
 
     iget-object v3, p0, Lcom/google/common/reflect/Types$TypeVariableImpl;->genericDeclaration:Ljava/lang/reflect/GenericDeclaration;
 
@@ -246,30 +248,31 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6b
 
-    goto :goto_1
+    goto :goto_6c
 
-    :cond_3
+    :cond_6b
     const/4 v1, 0x0
 
     .line 470
-    :goto_1
+    :goto_6c
     return v1
 
     .line 473
     .end local v0    # "that":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    :cond_4
+    :cond_6d
     return v2
 .end method
 
 .method public getBounds()[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 426
     .local p0, "this":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<TD;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Types$TypeVariableImpl;->bounds:Lcom/google/common/collect/ImmutableList;
 
+    # invokes: Lcom/google/common/reflect/Types;->toArray(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
     invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
@@ -278,7 +281,7 @@
 .end method
 
 .method public getGenericDeclaration()Ljava/lang/reflect/GenericDeclaration;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TD;"
@@ -293,7 +296,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 434
     .local p0, "this":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<TD;>;"
@@ -303,7 +306,7 @@
 .end method
 
 .method public getTypeName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 438
     .local p0, "this":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<TD;>;"
@@ -313,7 +316,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 448
     .local p0, "this":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<TD;>;"
@@ -335,7 +338,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 443
     .local p0, "this":Lcom/google/common/reflect/Types$TypeVariableImpl;, "Lcom/google/common/reflect/Types$TypeVariableImpl<TD;>;"

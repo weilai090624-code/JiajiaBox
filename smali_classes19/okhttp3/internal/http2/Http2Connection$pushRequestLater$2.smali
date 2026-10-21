@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;ILjava/util/List;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 893
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$pushRequestLater$2;->invoke()V
@@ -104,11 +104,12 @@
 .end method
 
 .method public final invoke()V
-    .locals 7
+    .registers 8
 
     .line 894
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$pushRequestLater$2;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->pushObserver:Lokhttp3/internal/http2/PushObserver;
     invoke-static {v0}, Lokhttp3/internal/http2/Http2Connection;->access$getPushObserver$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/http2/PushObserver;
 
     move-result-object v0
@@ -138,10 +139,10 @@
 
     .line 896
     .local v4, "$i$a$-ignoreIoExceptions-Http2Connection$pushRequestLater$2$1":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 897
-    :try_start_0
+    :try_start_17
     invoke-virtual {v1}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
 
     move-result-object v5
@@ -152,14 +153,15 @@
 
     .line 898
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_21} :catch_32
 
     const/4 v5, 0x0
 
     .line 899
     .local v5, "$i$a$-synchronized-Http2Connection$pushRequestLater$2$1$1":I
-    :try_start_1
+    :try_start_22
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$getCurrentPushRequests$p(Lokhttp3/internal/http2/Http2Connection;)Ljava/util/Set;
 
     move-result-object v6
@@ -169,17 +171,17 @@
     move-result-object v2
 
     invoke-interface {v6, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_22 .. :try_end_2d} :catchall_2f
 
     .line 898
     .end local v5    # "$i$a$-synchronized-Http2Connection$pushRequestLater$2$1$1":I
-    :try_start_2
+    :try_start_2d
     monitor-exit v1
 
-    goto :goto_0
+    goto :goto_34
 
-    :catchall_0
+    :catchall_2f
     move-exception v2
 
     monitor-exit v1
@@ -187,27 +189,27 @@
     .end local v0    # "cancel":Z
     .end local v3    # "$i$f$ignoreIoExceptions":I
     throw v2
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_2d .. :try_end_32} :catch_32
 
     .line 1009
     .end local v4    # "$i$a$-ignoreIoExceptions-Http2Connection$pushRequestLater$2$1":I
     .restart local v0    # "cancel":Z
     .restart local v3    # "$i$f$ignoreIoExceptions":I
-    :catch_0
+    :catch_32
     move-exception v1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 902
     .restart local v4    # "$i$a$-ignoreIoExceptions-Http2Connection$pushRequestLater$2$1":I
-    :cond_0
-    :goto_0
+    :cond_34
+    :goto_34
     nop
 
     .line 1011
     .end local v4    # "$i$a$-ignoreIoExceptions-Http2Connection$pushRequestLater$2$1":I
-    :goto_1
+    :goto_35
     nop
 
     .line 903

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 154
     invoke-direct {p0}, Lcom/google/common/cache/CacheLoader;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,6 +58,7 @@
 
     .line 157
     .local p1, "concreteClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    # invokes: Lcom/google/common/eventbus/SubscriberRegistry;->getAnnotatedMethodsNotCached(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
     invoke-static {p1}, Lcom/google/common/eventbus/SubscriberRegistry;->access$000(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -66,7 +67,7 @@
 .end method
 
 .method public bridge synthetic load(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/activity/ImmLeaksCleaner$Companion;-><init>()V
 
@@ -60,9 +60,10 @@
 
 # virtual methods
 .method public final getCleaner()Landroidx/activity/ImmLeaksCleaner$Cleaner;
-    .locals 1
+    .registers 2
 
     .line 111
+    # getter for: Landroidx/activity/ImmLeaksCleaner;->cleaner$delegate:Lkotlin/Lazy;
     invoke-static {}, Landroidx/activity/ImmLeaksCleaner;->access$getCleaner$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0

@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lokio/AsyncTimeout$Companion;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Lokio/Timeout;-><init>()V
@@ -124,7 +124,7 @@
 .end method
 
 .method public static final synthetic access$getHead$cp()Lokio/AsyncTimeout;
-    .locals 1
+    .registers 1
 
     .line 38
     sget-object v0, Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
@@ -133,7 +133,7 @@
 .end method
 
 .method public static final synthetic access$getIDLE_TIMEOUT_MILLIS$cp()J
-    .locals 2
+    .registers 2
 
     .line 38
     sget-wide v0, Lokio/AsyncTimeout;->IDLE_TIMEOUT_MILLIS:J
@@ -142,7 +142,7 @@
 .end method
 
 .method public static final synthetic access$getIDLE_TIMEOUT_NANOS$cp()J
-    .locals 2
+    .registers 2
 
     .line 38
     sget-wide v0, Lokio/AsyncTimeout;->IDLE_TIMEOUT_NANOS:J
@@ -151,7 +151,7 @@
 .end method
 
 .method public static final synthetic access$getInQueue$p(Lokio/AsyncTimeout;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokio/AsyncTimeout;
 
     .line 38
@@ -161,7 +161,7 @@
 .end method
 
 .method public static final synthetic access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokio/AsyncTimeout;
 
     .line 38
@@ -171,7 +171,7 @@
 .end method
 
 .method public static final synthetic access$remainingNanos(Lokio/AsyncTimeout;J)J
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lokio/AsyncTimeout;
     .param p1, "now"    # J
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final synthetic access$setHead$cp(Lokio/AsyncTimeout;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lokio/AsyncTimeout;
 
     .line 38
@@ -194,7 +194,7 @@
 .end method
 
 .method public static final synthetic access$setInQueue$p(Lokio/AsyncTimeout;Z)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokio/AsyncTimeout;
     .param p1, "<set-?>"    # Z
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public static final synthetic access$setNext$p(Lokio/AsyncTimeout;Lokio/AsyncTimeout;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokio/AsyncTimeout;
     .param p1, "<set-?>"    # Lokio/AsyncTimeout;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final synthetic access$setTimeoutAt$p(Lokio/AsyncTimeout;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokio/AsyncTimeout;
     .param p1, "<set-?>"    # J
 
@@ -227,7 +227,7 @@
 .end method
 
 .method private final remainingNanos(J)J
-    .locals 2
+    .registers 5
     .param p1, "now"    # J
 
     .line 66
@@ -241,7 +241,7 @@
 
 # virtual methods
 .method public final access$newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/io/IOException;
 
     .line 158
@@ -253,7 +253,7 @@
 .end method
 
 .method public final enter()V
-    .locals 6
+    .registers 7
 
     .line 49
     invoke-virtual {p0}, Lokio/AsyncTimeout;->timeoutNanos()J
@@ -272,17 +272,18 @@
 
     cmp-long v5, v0, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_11
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     .line 52
     return-void
 
     .line 54
-    :cond_0
+    :cond_11
     sget-object v3, Lokio/AsyncTimeout;->Companion:Lokio/AsyncTimeout$Companion;
 
+    # invokes: Lokio/AsyncTimeout$Companion;->scheduleTimeout(Lokio/AsyncTimeout;JZ)V
     invoke-static {v3, p0, v0, v1, v2}, Lokio/AsyncTimeout$Companion;->access$scheduleTimeout(Lokio/AsyncTimeout$Companion;Lokio/AsyncTimeout;JZ)V
 
     .line 55
@@ -290,11 +291,12 @@
 .end method
 
 .method public final exit()Z
-    .locals 1
+    .registers 2
 
     .line 59
     sget-object v0, Lokio/AsyncTimeout;->Companion:Lokio/AsyncTimeout$Companion;
 
+    # invokes: Lokio/AsyncTimeout$Companion;->cancelScheduledTimeout(Lokio/AsyncTimeout;)Z
     invoke-static {v0, p0}, Lokio/AsyncTimeout$Companion;->access$cancelScheduledTimeout(Lokio/AsyncTimeout$Companion;Lokio/AsyncTimeout;)Z
 
     move-result v0
@@ -303,7 +305,7 @@
 .end method
 
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/io/IOException;
 
     .line 166
@@ -315,7 +317,7 @@
 
     .line 167
     .local v0, "e":Ljava/io/InterruptedIOException;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 168
     move-object v1, p1
@@ -325,7 +327,7 @@
     invoke-virtual {v0, v1}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 170
-    :cond_0
+    :cond_f
     move-object v1, v0
 
     check-cast v1, Ljava/io/IOException;
@@ -334,7 +336,7 @@
 .end method
 
 .method public final sink(Lokio/Sink;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/Sink;
 
     const-string v0, "sink"
@@ -352,7 +354,7 @@
 .end method
 
 .method public final source(Lokio/Source;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lokio/Source;
 
     const-string v0, "source"
@@ -370,14 +372,14 @@
 .end method
 
 .method protected timedOut()V
-    .locals 0
+    .registers 1
 
     .line 72
     return-void
 .end method
 
 .method public final withTimeout(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -409,13 +411,13 @@
     .line 146
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_c
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_10} :catch_21
+    .catchall {:try_start_c .. :try_end_10} :catchall_1f
 
     .line 147
     .local v3, "result":Ljava/lang/Object;
@@ -432,7 +434,7 @@
 
     .line 153
     .local v4, "timedOut":Z
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1a
 
     .end local v4    # "timedOut":Z
     move-object v2, v3
@@ -444,7 +446,7 @@
     .line 153
     .end local v2    # "result":Ljava/lang/Object;
     .restart local v4    # "timedOut":Z
-    :cond_0
+    :cond_1a
     invoke-virtual {p0, v2}, Lokio/AsyncTimeout;->access$newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
 
     move-result-object v2
@@ -453,31 +455,31 @@
 
     .line 150
     .end local v4    # "timedOut":Z
-    :catchall_0
+    :catchall_1f
     move-exception v3
 
-    goto :goto_1
+    goto :goto_33
 
     .line 149
-    :catch_0
+    :catch_21
     move-exception v3
 
     .line 150
     .local v3, "e":Ljava/io/IOException;
-    :try_start_1
+    :try_start_22
     invoke-virtual {p0}, Lokio/AsyncTimeout;->exit()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2c
 
     move-object v4, v3
 
     check-cast v4, Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
+    :cond_2c
     invoke-virtual {p0, v3}, Lokio/AsyncTimeout;->access$newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
 
     move-result-object v4
@@ -487,26 +489,26 @@
     .end local v0    # "$i$f$withTimeout":I
     .end local v1    # "throwOnTimeout":Z
     .end local p1    # "block":Lkotlin/jvm/functions/Function0;
-    :goto_0
+    :goto_32
     throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_33
+    .catchall {:try_start_22 .. :try_end_33} :catchall_1f
 
     .line 152
     .end local v3    # "e":Ljava/io/IOException;
     .restart local v0    # "$i$f$withTimeout":I
     .restart local v1    # "throwOnTimeout":Z
     .restart local p1    # "block":Lkotlin/jvm/functions/Function0;
-    :goto_1
+    :goto_33
     invoke-virtual {p0}, Lokio/AsyncTimeout;->exit()Z
 
     move-result v4
 
     .line 153
     .restart local v4    # "timedOut":Z
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_40
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_40
 
     invoke-virtual {p0, v2}, Lokio/AsyncTimeout;->access$newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
 
@@ -515,6 +517,6 @@
     throw v2
 
     .end local v4    # "timedOut":Z
-    :cond_2
+    :cond_40
     throw v3
 .end method

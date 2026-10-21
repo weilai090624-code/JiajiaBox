@@ -86,7 +86,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/proto/TestInstance;Lkotlin/coroutines/Continuation;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -186,7 +186,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -195,7 +195,7 @@
     .line 25
     iget v1, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance$doTest$2$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_c8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -206,7 +206,7 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     const/4 v0, 0x0
 
     .local v0, "$i$a$-use-TestInstance$doTest$2$2$1":I
@@ -222,23 +222,23 @@
 
     check-cast v3, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_1e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_21} :catch_23
+    .catchall {:try_start_1e .. :try_end_21} :catchall_c0
 
-    goto/16 :goto_1
+    goto/16 :goto_8b
 
     .line 35
-    :catch_0
+    :catch_23
     move-exception v2
 
-    goto/16 :goto_3
+    goto/16 :goto_b0
 
     .line 25
     .end local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :pswitch_1
+    :pswitch_26
     const/4 v1, 0x0
 
     .local v1, "$i$a$-use-TestInstance$doTest$2$2$1":I
@@ -254,26 +254,26 @@
 
     check-cast v4, Ljava/io/Closeable;
 
-    :try_start_1
+    :try_start_33
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_36
+    .catch Ljava/lang/Exception; {:try_start_33 .. :try_end_36} :catch_3b
+    .catchall {:try_start_33 .. :try_end_36} :catchall_37
 
-    goto :goto_0
+    goto :goto_68
 
     .line 26
     .end local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :catchall_0
+    :catchall_37
     move-exception v0
 
     move-object v3, v4
 
-    goto/16 :goto_5
+    goto/16 :goto_c1
 
     .line 35
     .restart local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :catch_1
+    :catch_3b
     move-exception v0
 
     move-object v3, v4
@@ -286,12 +286,12 @@
 
     move-object v1, v7
 
-    goto/16 :goto_3
+    goto/16 :goto_b0
 
     .line 25
     .end local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_43
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 26
@@ -306,12 +306,12 @@
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance$doTest$2$2;->$c:Lkotlin/coroutines/Continuation;
 
-    :try_start_2
+    :try_start_4f
     move-object v4, v3
 
     check-cast v4, Lio/nekohasekai/sagernet/bg/proto/TestInstance;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_52
+    .catchall {:try_start_4f .. :try_end_52} :catchall_c0
 
     const/4 v4, 0x0
 
@@ -320,7 +320,7 @@
     nop
 
     .line 28
-    :try_start_3
+    :try_start_54
     iput-object v3, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance$doTest$2$2;->L$0:Ljava/lang/Object;
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance$doTest$2$2;->L$1:Ljava/lang/Object;
@@ -334,17 +334,17 @@
     invoke-virtual {v1, p0}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->init(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_61
+    .catch Ljava/lang/Exception; {:try_start_54 .. :try_end_61} :catch_ac
+    .catchall {:try_start_54 .. :try_end_61} :catchall_c0
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_64
 
     .line 25
     return-object v0
 
     .line 28
-    :cond_0
+    :cond_64
     move-object v7, v3
 
     move-object v3, v1
@@ -356,8 +356,8 @@
     .line 29
     .end local v4    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :goto_0
-    :try_start_4
+    :goto_68
+    :try_start_68
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->launch()V
 
     .line 30
@@ -369,7 +369,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_8e
 
     .line 32
     iput-object v4, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance$doTest$2$2;->L$0:Ljava/lang/Object;
@@ -387,17 +387,17 @@
     invoke-static {v5, v6, p0}, Lkotlinx/coroutines/DelayKt;->delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_84
+    .catch Ljava/lang/Exception; {:try_start_68 .. :try_end_84} :catch_3b
+    .catchall {:try_start_68 .. :try_end_84} :catchall_37
 
-    if-ne v5, v0, :cond_1
+    if-ne v5, v0, :cond_87
 
     .line 25
     return-object v0
 
     .line 32
-    :cond_1
+    :cond_87
     move v0, v1
 
     move-object v1, v2
@@ -409,17 +409,17 @@
     .line 34
     .end local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :goto_1
+    :goto_8b
     move-object v4, v3
 
     move-object v3, v2
 
-    goto :goto_2
+    goto :goto_90
 
     .line 30
     .end local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :cond_2
+    :cond_8e
     move v0, v1
 
     move-object v1, v2
@@ -427,8 +427,8 @@
     .line 34
     .end local v1    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :goto_2
-    :try_start_5
+    :goto_90
+    :try_start_90
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->getBox()Llibcore/BoxInstance;
 
     move-result-object v2
@@ -437,6 +437,7 @@
 
     move-result-object v5
 
+    # getter for: Lio/nekohasekai/sagernet/bg/proto/TestInstance;->timeout:I
     invoke-static {v3}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->access$getTimeout$p(Lio/nekohasekai/sagernet/bg/proto/TestInstance;)I
 
     move-result v3
@@ -450,25 +451,25 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->tryResume(Lkotlin/coroutines/Continuation;Ljava/lang/Object;)V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_a7
+    .catch Ljava/lang/Exception; {:try_start_90 .. :try_end_a7} :catch_a9
+    .catchall {:try_start_90 .. :try_end_a7} :catchall_37
 
     move-object v3, v4
 
-    goto :goto_4
+    goto :goto_b6
 
     .line 35
-    :catch_2
+    :catch_a9
     move-exception v2
 
     move-object v3, v4
 
-    goto :goto_3
+    goto :goto_b0
 
     .end local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v4    # "$i$a$-use-TestInstance$doTest$2$2$1":I
-    :catch_3
+    :catch_ac
     move-exception v0
 
     move-object v1, v2
@@ -481,8 +482,8 @@
     .end local v4    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .restart local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     .local v2, "e":Ljava/lang/Exception;
-    :goto_3
-    :try_start_6
+    :goto_b0
+    :try_start_b0
     move-object v4, v2
 
     check-cast v4, Ljava/lang/Throwable;
@@ -491,13 +492,13 @@
 
     .line 38
     .end local v2    # "e":Ljava/lang/Exception;
-    :goto_4
+    :goto_b6
     nop
 
     .end local v0    # "$i$a$-use-TestInstance$doTest$2$2$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_b9
+    .catchall {:try_start_b0 .. :try_end_b9} :catchall_c0
 
     .line 26
     const/4 v0, 0x0
@@ -510,18 +511,18 @@
     return-object v0
 
     .line 26
-    :catchall_1
+    :catchall_c0
     move-exception v0
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :goto_5
-    :try_start_7
+    :goto_c1
+    :try_start_c1
     throw v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    :try_end_c2
+    .catchall {:try_start_c1 .. :try_end_c2} :catchall_c2
 
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_2
+    :catchall_c2
     move-exception v1
 
     invoke-static {v3, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -530,10 +531,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c8
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_43
+        :pswitch_26
+        :pswitch_11
     .end packed-switch
 .end method

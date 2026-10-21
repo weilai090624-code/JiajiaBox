@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,15 +39,17 @@
 
 # virtual methods
 .method public compare(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)I
-    .locals 2
+    .registers 5
     .param p1, "res1"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
     .param p2, "res2"    # Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
 
     .line 63
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->entryId:S
     invoke-static {p1}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$000(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)S
 
     move-result v0
 
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->entryId:S
     invoke-static {p2}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$000(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)S
 
     move-result v1
@@ -58,7 +60,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 60
     check-cast p1, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;

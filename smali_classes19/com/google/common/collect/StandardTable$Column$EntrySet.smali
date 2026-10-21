@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable$Column;)V
-    .locals 0
+    .registers 2
 
     .line 493
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable$Column;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable$Column;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 517
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -81,7 +81,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 523
     move-object v0, p1
@@ -106,6 +106,7 @@
 
     move-result-object v4
 
+    # invokes: Lcom/google/common/collect/StandardTable;->containsMapping(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     invoke-static {v1, v2, v3, v4}, Lcom/google/common/collect/StandardTable;->access$300(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
@@ -114,14 +115,14 @@
 
     .line 526
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 512
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
@@ -143,7 +144,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,7 +168,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -177,7 +178,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 532
     move-object v0, p1
@@ -202,6 +203,7 @@
 
     move-result-object v4
 
+    # invokes: Lcom/google/common/collect/StandardTable;->removeMapping(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     invoke-static {v1, v2, v3, v4}, Lcom/google/common/collect/StandardTable;->access$400(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
@@ -210,14 +212,14 @@
 
     .line 535
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,7 +249,7 @@
 .end method
 
 .method public size()I
-    .locals 4
+    .registers 5
 
     .line 501
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySet;"
@@ -269,12 +271,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -292,17 +294,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 504
     add-int/lit8 v0, v0, 0x1
 
     .line 506
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_27
+    goto :goto_f
 
     .line 507
-    :cond_1
+    :cond_28
     return v0
 .end method

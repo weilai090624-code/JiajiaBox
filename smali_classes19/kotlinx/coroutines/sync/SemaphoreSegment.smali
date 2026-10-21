@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(JLkotlinx/coroutines/sync/SemaphoreSegment;I)V
-    .locals 2
+    .registers 7
     .param p1, "id"    # J
     .param p3, "prev"    # Lkotlinx/coroutines/sync/SemaphoreSegment;
     .param p4, "pointers"    # I
@@ -84,6 +84,7 @@
     new-instance v0, Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     .line 363
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v1
@@ -99,7 +100,7 @@
 
 # virtual methods
 .method public final cas(ILjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .param p1, "index"    # I
     .param p2, "expected"    # Ljava/lang/Object;
     .param p3, "value"    # Ljava/lang/Object;
@@ -120,7 +121,7 @@
 .end method
 
 .method public final get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     const/4 v0, 0x0
@@ -139,7 +140,7 @@
 .end method
 
 .method public final getAcquirers()Ljava/util/concurrent/atomic/AtomicReferenceArray;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/sync/SemaphoreSegment;->acquirers:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
@@ -147,7 +148,7 @@
 .end method
 
 .method public final getAndSet(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -167,9 +168,10 @@
 .end method
 
 .method public getNumberOfSlots()I
-    .locals 1
+    .registers 2
 
     .line 364
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v0
@@ -178,12 +180,13 @@
 .end method
 
 .method public onCancellation(ILjava/lang/Throwable;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 4
+    .registers 8
     .param p1, "index"    # I
     .param p2, "cause"    # Ljava/lang/Throwable;
     .param p3, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 384
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->CANCELLED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getCANCELLED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v0
@@ -216,7 +219,7 @@
 .end method
 
 .method public final set(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -235,7 +238,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 389
     new-instance v0, Ljava/lang/StringBuilder;

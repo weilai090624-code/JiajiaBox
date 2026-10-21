@@ -2,35 +2,6 @@
 .super Landroidx/preference/Preference;
 .source "EditConfigPreference.kt"
 
-.method protected onClick()V
-    .locals 2
-
-    invoke-virtual {p0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "globalCustomConfig"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :original
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->setIntent(Landroid/content/Intent;)V
-
-    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassConfigEditor;->open(Lmoe/matsuri/nb4a/ui/EditConfigPreference;)V
-
-    return-void
-
-    :original
-    invoke-super {p0}, Landroidx/preference/Preference;->onClick()V
-
-    return-void
-.end method
-
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
@@ -89,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -128,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -168,7 +139,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -215,7 +186,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 3
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -259,7 +230,7 @@
 
 # virtual methods
 .method public final getConfigKey()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->configKey:Ljava/lang/String;
@@ -268,12 +239,12 @@
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 10
+    .registers 11
 
     .line 49
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->useConfigStore:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -287,23 +258,23 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_11
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getServerConfig()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_17
+    if-nez v0, :cond_1b
 
     .line 50
     const-string v0, ""
 
     .line 49
-    :cond_1
+    :cond_1b
     nop
 
     .line 48
@@ -319,7 +290,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3d
 
     .line 52
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -345,7 +316,7 @@
     return-object v1
 
     .line 54
-    :cond_2
+    :cond_3d
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v1
@@ -408,7 +379,7 @@
 .end method
 
 .method public final getUseConfigStore()Z
-    .locals 1
+    .registers 2
 
     .line 32
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->useConfigStore:Z
@@ -417,7 +388,7 @@
 .end method
 
 .method public notifyChanged()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-super {p0}, Landroidx/preference/Preference;->notifyChanged()V
@@ -426,8 +397,37 @@
     return-void
 .end method
 
+.method protected onClick()V
+    .registers 3
+
+    invoke-virtual {p0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "globalCustomConfig"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->setIntent(Landroid/content/Intent;)V
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassConfigEditor;->open(Lmoe/matsuri/nb4a/ui/EditConfigPreference;)V
+
+    return-void
+
+    :cond_14
+    invoke-super {p0}, Landroidx/preference/Preference;->onClick()V
+
+    return-void
+.end method
+
 .method public final setConfigKey(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -441,7 +441,7 @@
 .end method
 
 .method public final setUseConfigStore(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 32
@@ -451,7 +451,7 @@
 .end method
 
 .method public final useConfigStore(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -462,7 +462,7 @@
     nop
 
     .line 36
-    :try_start_0
+    :try_start_6
     iput-object p1, p0, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->configKey:Ljava/lang/String;
 
     .line 37
@@ -500,13 +500,13 @@
     .end local v2    # "$this$useConfigStore_u24lambda_u240":Landroid/content/Intent;
     .end local v3    # "$i$a$-apply-EditConfigPreference$useConfigStore$1":I
     invoke-virtual {p0, v1}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->setIntent(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_22} :catch_23
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 42
-    :catch_0
+    :catch_23
     move-exception v0
 
     .line 43
@@ -521,6 +521,6 @@
 
     .line 45
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2c
     return-void
 .end method

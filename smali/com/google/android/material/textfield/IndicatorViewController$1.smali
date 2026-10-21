@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/IndicatorViewController;ILandroid/widget/TextView;ILandroid/widget/TextView;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/android/material/textfield/IndicatorViewController;
 
     .line 269
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 272
@@ -58,6 +58,7 @@
 
     iget v1, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionToShow:I
 
+    # setter for: Lcom/google/android/material/textfield/IndicatorViewController;->captionDisplayed:I
     invoke-static {v0, v1}, Lcom/google/android/material/textfield/IndicatorViewController;->access$002(Lcom/google/android/material/textfield/IndicatorViewController;I)I
 
     .line 273
@@ -65,12 +66,13 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/textfield/IndicatorViewController;->captionAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/google/android/material/textfield/IndicatorViewController;->access$102(Lcom/google/android/material/textfield/IndicatorViewController;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     .line 274
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToHide:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 275
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToHide:Landroid/widget/TextView;
@@ -84,19 +86,21 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_2d
 
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->this$0:Lcom/google/android/material/textfield/IndicatorViewController;
 
+    # getter for: Lcom/google/android/material/textfield/IndicatorViewController;->errorView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/google/android/material/textfield/IndicatorViewController;->access$200(Lcom/google/android/material/textfield/IndicatorViewController;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 277
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->this$0:Lcom/google/android/material/textfield/IndicatorViewController;
 
+    # getter for: Lcom/google/android/material/textfield/IndicatorViewController;->errorView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/google/android/material/textfield/IndicatorViewController;->access$200(Lcom/google/android/material/textfield/IndicatorViewController;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -104,10 +108,10 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 281
-    :cond_0
+    :cond_2d
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToShow:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     .line 282
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToShow:Landroid/widget/TextView;
@@ -124,18 +128,18 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
     .line 285
-    :cond_1
+    :cond_3e
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 289
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToShow:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 290
     iget-object v0, p0, Lcom/google/android/material/textfield/IndicatorViewController$1;->val$captionViewToShow:Landroid/widget/TextView;
@@ -152,6 +156,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
     .line 293
-    :cond_0
+    :cond_10
     return-void
 .end method

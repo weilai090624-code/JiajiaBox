@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/NavBackStackEntry$defaultFactory$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
@@ -64,40 +64,41 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/SavedStateViewModelFactory;
-    .locals 4
+    .registers 5
 
     .line 118
     new-instance v0, Landroidx/lifecycle/SavedStateViewModelFactory;
 
     iget-object v1, p0, Landroidx/navigation/NavBackStackEntry$defaultFactory$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
+    # getter for: Landroidx/navigation/NavBackStackEntry;->context:Landroid/content/Context;
     invoke-static {v1}, Landroidx/navigation/NavBackStackEntry;->access$getContext$p(Landroidx/navigation/NavBackStackEntry;)Landroid/content/Context;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move-object v1, v2
 
-    :goto_0
+    :goto_11
     instance-of v3, v1, Landroid/app/Application;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_18
 
     move-object v2, v1
 
     check-cast v2, Landroid/app/Application;
 
-    :cond_1
+    :cond_18
     iget-object v1, p0, Landroidx/navigation/NavBackStackEntry$defaultFactory$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
     check-cast v1, Landroidx/savedstate/SavedStateRegistryOwner;
@@ -114,7 +115,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 117
     invoke-virtual {p0}, Landroidx/navigation/NavBackStackEntry$defaultFactory$2;->invoke()Landroidx/lifecycle/SavedStateViewModelFactory;

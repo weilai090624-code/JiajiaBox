@@ -149,7 +149,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/io/path/PathTreeWalk;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,7 +200,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -214,7 +214,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,7 +246,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
 
     move-object/from16 v0, p0
 
@@ -263,7 +263,7 @@
 
     const/4 v5, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_270
 
     .end local p0    # "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -275,7 +275,7 @@
     throw v1
 
     .restart local p0    # "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
-    :pswitch_0
+    :pswitch_16
     move-object/from16 v2, p1
 
     .local v2, "$result":Ljava/lang/Object;
@@ -303,14 +303,14 @@
 
     move-object v5, v0
 
-    goto/16 :goto_4
+    goto/16 :goto_260
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v6    # "$i$f$yieldIfNeeded":I
     .end local v7    # "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v9    # "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :pswitch_1
+    :pswitch_2c
     move-object/from16 v2, p1
 
     .restart local v2    # "$result":Ljava/lang/Object;
@@ -353,7 +353,7 @@
 
     move-object v6, v0
 
-    goto/16 :goto_3
+    goto/16 :goto_1f3
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v6    # "$i$f$yieldIfNeeded":I
@@ -363,7 +363,7 @@
     .end local v10    # "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .end local v11    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v12    # "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :pswitch_2
+    :pswitch_4e
     move-object/from16 v2, p1
 
     .restart local v2    # "$result":Ljava/lang/Object;
@@ -387,14 +387,14 @@
     .local v9, "$this$iterator":Lkotlin/sequences/SequenceScope;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_175
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v6    # "$i$f$yieldIfNeeded":I
     .end local v7    # "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .end local v8    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v9    # "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :pswitch_3
+    :pswitch_62
     move-object/from16 v2, p1
 
     .restart local v2    # "$result":Ljava/lang/Object;
@@ -433,7 +433,7 @@
     .restart local v12    # "$this$iterator":Lkotlin/sequences/SequenceScope;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_110
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v6    # "$i$f$yieldIfNeeded":I
@@ -443,7 +443,7 @@
     .end local v10    # "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .end local v11    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v12    # "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :pswitch_4
+    :pswitch_82
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -469,6 +469,7 @@
 
     iget-object v7, v0, Lkotlin/io/path/PathTreeWalk$dfsIterator$1;->this$0:Lkotlin/io/path/PathTreeWalk;
 
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getFollowLinks()Z
     invoke-static {v7}, Lkotlin/io/path/PathTreeWalk;->access$getFollowLinks(Lkotlin/io/path/PathTreeWalk;)Z
 
     move-result v7
@@ -483,22 +484,26 @@
 
     iget-object v10, v0, Lkotlin/io/path/PathTreeWalk$dfsIterator$1;->this$0:Lkotlin/io/path/PathTreeWalk;
 
+    # getter for: Lkotlin/io/path/PathTreeWalk;->start:Ljava/nio/file/Path;
     invoke-static {v10}, Lkotlin/io/path/PathTreeWalk;->access$getStart$p(Lkotlin/io/path/PathTreeWalk;)Ljava/nio/file/Path;
 
     move-result-object v10
 
     iget-object v11, v0, Lkotlin/io/path/PathTreeWalk$dfsIterator$1;->this$0:Lkotlin/io/path/PathTreeWalk;
 
+    # getter for: Lkotlin/io/path/PathTreeWalk;->start:Ljava/nio/file/Path;
     invoke-static {v11}, Lkotlin/io/path/PathTreeWalk;->access$getStart$p(Lkotlin/io/path/PathTreeWalk;)Ljava/nio/file/Path;
 
     move-result-object v11
 
     iget-object v12, v0, Lkotlin/io/path/PathTreeWalk$dfsIterator$1;->this$0:Lkotlin/io/path/PathTreeWalk;
 
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {v12}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v12
 
+    # invokes: Lkotlin/io/path/PathTreeWalkKt;->keyOf(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
     invoke-static {v11, v12}, Lkotlin/io/path/PathTreeWalkKt;->access$keyOf(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
 
     move-result-object v11
@@ -527,13 +532,14 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_0
+    if-eqz v14, :cond_ca
 
     .line 185
     invoke-static {v13}, Lkotlin/io/path/PathsKt;->checkFileName(Ljava/nio/file/Path;)V
 
     .line 187
-    :cond_0
+    :cond_ca
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {v10}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v14
@@ -558,21 +564,23 @@
 
     move-result v14
 
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_14f
 
     .line 188
+    # invokes: Lkotlin/io/path/PathTreeWalkKt;->createsCycle(Lkotlin/io/path/PathNode;)Z
     invoke-static {v6}, Lkotlin/io/path/PathTreeWalkKt;->access$createsCycle(Lkotlin/io/path/PathNode;)Z
 
     move-result v14
 
-    if-nez v14, :cond_4
+    if-nez v14, :cond_145
 
     .line 191
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getIncludeDirectories()Z
     invoke-static {v10}, Lkotlin/io/path/PathTreeWalk;->access$getIncludeDirectories(Lkotlin/io/path/PathTreeWalk;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_11a
 
     .line 192
     move-object v14, v0
@@ -598,13 +606,13 @@
     move-result-object v11
 
     .end local v11    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
-    if-ne v11, v1, :cond_1
+    if-ne v11, v1, :cond_106
 
     .line 65
     return-object v1
 
     .line 192
-    :cond_1
+    :cond_106
     move-object v11, v8
 
     move-object v8, v10
@@ -630,7 +638,7 @@
     .local v10, "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .local v11, "stack":Lkotlin/collections/ArrayDeque;
     .local v12, "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :goto_0
+    :goto_110
     move-object v13, v7
 
     move-object v7, v10
@@ -655,7 +663,8 @@
     .local v10, "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .local v12, "$i$f$yieldIfNeeded":I
     .restart local v13    # "path$iv":Ljava/nio/file/Path;
-    :cond_2
+    :cond_11a
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {v10}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v11
@@ -682,7 +691,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_143
 
     .line 195
     invoke-virtual {v7, v6}, Lkotlin/io/path/DirectoryEntriesReader;->readEntries(Lkotlin/io/path/PathNode;)Ljava/util/List;
@@ -714,17 +723,17 @@
 
     .line 76
     .end local v12    # "$i$f$yieldIfNeeded":I
-    :cond_3
+    :cond_143
     move-object v6, v0
 
-    goto :goto_2
+    goto :goto_178
 
     .line 189
     .restart local v6    # "startNode":Lkotlin/io/path/PathNode;
     .local v10, "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .restart local v12    # "$i$f$yieldIfNeeded":I
     .restart local v13    # "path$iv":Ljava/nio/file/Path;
-    :cond_4
+    :cond_145
     new-instance v1, Ljava/nio/file/FileSystemLoopException;
 
     invoke-virtual {v13}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -739,7 +748,7 @@
     .end local v6    # "startNode":Lkotlin/io/path/PathNode;
     .end local v10    # "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .local v11, "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
-    :cond_5
+    :cond_14f
     new-array v6, v4, [Ljava/nio/file/LinkOption;
 
     sget-object v10, Ljava/nio/file/LinkOption;->NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
@@ -756,7 +765,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_177
 
     .line 198
     move-object v6, v0
@@ -779,29 +788,29 @@
 
     .end local v11    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
     .end local v13    # "path$iv":Ljava/nio/file/Path;
-    if-ne v6, v1, :cond_6
+    if-ne v6, v1, :cond_174
 
     .line 65
     return-object v1
 
     .line 198
-    :cond_6
+    :cond_174
     move v6, v12
 
     .line 200
     .end local v12    # "$i$f$yieldIfNeeded":I
     .local v6, "$i$f$yieldIfNeeded":I
-    :goto_1
+    :goto_175
     move-object v6, v0
 
-    goto :goto_2
+    goto :goto_178
 
     .line 197
     .end local v6    # "$i$f$yieldIfNeeded":I
     .restart local v11    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
     .restart local v12    # "$i$f$yieldIfNeeded":I
     .restart local v13    # "path$iv":Ljava/nio/file/Path;
-    :cond_7
+    :cond_177
     move-object v6, v0
 
     .line 76
@@ -810,7 +819,7 @@
     .end local v13    # "path$iv":Ljava/nio/file/Path;
     .end local p0    # "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
     .local v6, "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
-    :goto_2
+    :goto_178
     move-object v10, v8
 
     check-cast v10, Ljava/util/Collection;
@@ -819,7 +828,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_11
+    if-nez v10, :cond_26d
 
     .line 77
     invoke-virtual {v8}, Lkotlin/collections/ArrayDeque;->last()Ljava/lang/Object;
@@ -844,7 +853,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_10
+    if-eqz v11, :cond_266
 
     .line 81
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -877,13 +886,14 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_1ad
 
     .line 204
     invoke-static {v14}, Lkotlin/io/path/PathsKt;->checkFileName(Ljava/nio/file/Path;)V
 
     .line 206
-    :cond_8
+    :cond_1ad
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {v11}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v15
@@ -908,21 +918,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_232
 
     .line 207
+    # invokes: Lkotlin/io/path/PathTreeWalkKt;->createsCycle(Lkotlin/io/path/PathNode;)Z
     invoke-static {v10}, Lkotlin/io/path/PathTreeWalkKt;->access$createsCycle(Lkotlin/io/path/PathNode;)Z
 
     move-result v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_228
 
     .line 210
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getIncludeDirectories()Z
     invoke-static {v11}, Lkotlin/io/path/PathTreeWalk;->access$getIncludeDirectories(Lkotlin/io/path/PathTreeWalk;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_1fc
 
     .line 211
     move-object v5, v6
@@ -950,13 +962,13 @@
     move-result-object v5
 
     .end local v12    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
-    if-ne v5, v1, :cond_9
+    if-ne v5, v1, :cond_1ea
 
     .line 65
     return-object v1
 
     .line 211
-    :cond_9
+    :cond_1ea
     move-object v12, v9
 
     move-object v9, v10
@@ -979,7 +991,7 @@
     .local v10, "entriesReader":Lkotlin/io/path/DirectoryEntriesReader;
     .local v11, "stack":Lkotlin/collections/ArrayDeque;
     .local v12, "$this$iterator":Lkotlin/sequences/SequenceScope;
-    :goto_3
+    :goto_1f3
     move-object v14, v7
 
     move-object v7, v10
@@ -1001,7 +1013,8 @@
     .local v10, "pathNode":Lkotlin/io/path/PathNode;
     .local v11, "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .restart local v14    # "path$iv":Ljava/nio/file/Path;
-    :cond_a
+    :cond_1fc
+    # invokes: Lkotlin/io/path/PathTreeWalk;->getLinkOptions()[Ljava/nio/file/LinkOption;
     invoke-static {v11}, Lkotlin/io/path/PathTreeWalk;->access$getLinkOptions(Lkotlin/io/path/PathTreeWalk;)[Ljava/nio/file/LinkOption;
 
     move-result-object v5
@@ -1028,7 +1041,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_225
 
     .line 214
     invoke-virtual {v7, v10}, Lkotlin/io/path/DirectoryEntriesReader;->readEntries(Lkotlin/io/path/PathNode;)Ljava/util/List;
@@ -1060,17 +1073,17 @@
 
     .line 76
     .end local v13    # "$i$f$yieldIfNeeded":I
-    :cond_b
+    :cond_225
     const/4 v5, 0x0
 
-    goto/16 :goto_2
+    goto/16 :goto_178
 
     .line 208
     .restart local v10    # "pathNode":Lkotlin/io/path/PathNode;
     .local v11, "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .restart local v13    # "$i$f$yieldIfNeeded":I
     .restart local v14    # "path$iv":Ljava/nio/file/Path;
-    :cond_c
+    :cond_228
     new-instance v1, Ljava/nio/file/FileSystemLoopException;
 
     invoke-virtual {v14}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1085,7 +1098,7 @@
     .end local v10    # "pathNode":Lkotlin/io/path/PathNode;
     .end local v11    # "this_$iv":Lkotlin/io/path/PathTreeWalk;
     .local v12, "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
-    :cond_d
+    :cond_232
     new-array v5, v4, [Ljava/nio/file/LinkOption;
 
     sget-object v10, Ljava/nio/file/LinkOption;->NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
@@ -1102,7 +1115,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_264
 
     .line 217
     move-object v5, v6
@@ -1133,13 +1146,13 @@
 
     .end local v12    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
     .end local v14    # "path$iv":Ljava/nio/file/Path;
-    if-ne v5, v1, :cond_e
+    if-ne v5, v1, :cond_25e
 
     .line 65
     return-object v1
 
     .line 217
-    :cond_e
+    :cond_25e
     move-object v5, v6
 
     move v6, v13
@@ -1148,12 +1161,12 @@
     .end local v13    # "$i$f$yieldIfNeeded":I
     .local v5, "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
     .local v6, "$i$f$yieldIfNeeded":I
-    :goto_4
+    :goto_260
     move-object v6, v5
 
     move-object v5, v11
 
-    goto/16 :goto_2
+    goto/16 :goto_178
 
     .line 216
     .end local v5    # "this":Lkotlin/io/path/PathTreeWalk$dfsIterator$1;
@@ -1161,17 +1174,17 @@
     .restart local v12    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
     .restart local v13    # "$i$f$yieldIfNeeded":I
     .restart local v14    # "path$iv":Ljava/nio/file/Path;
-    :cond_f
+    :cond_264
     const/4 v11, 0x0
 
-    goto :goto_5
+    goto :goto_26a
 
     .line 80
     .end local v12    # "$this$yieldIfNeeded$iv":Lkotlin/sequences/SequenceScope;
     .end local v13    # "$i$f$yieldIfNeeded":I
     .end local v14    # "path$iv":Ljava/nio/file/Path;
     .local v10, "topIterator":Ljava/util/Iterator;
-    :cond_10
+    :cond_266
     move-object v11, v5
 
     .line 88
@@ -1179,23 +1192,23 @@
     invoke-virtual {v8}, Lkotlin/collections/ArrayDeque;->removeLast()Ljava/lang/Object;
 
     .line 76
-    :goto_5
+    :goto_26a
     move-object v5, v11
 
-    goto/16 :goto_2
+    goto/16 :goto_178
 
     .line 91
-    :cond_11
+    :cond_26d
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_270
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_82
+        :pswitch_62
+        :pswitch_4e
+        :pswitch_2c
+        :pswitch_16
     .end packed-switch
 .end method

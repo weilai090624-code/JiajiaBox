@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 732
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -60,7 +60,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -83,7 +83,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -107,12 +107,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 735
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$500(Lcom/google/common/collect/LinkedListMultimap;)Ljava/util/Map;
 
     move-result-object v0

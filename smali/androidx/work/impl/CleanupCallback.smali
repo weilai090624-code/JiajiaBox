@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/CleanupCallback;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 179
     invoke-direct {p0}, Landroidx/room/RoomDatabase$Callback;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method private final getPruneSQL()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 181
     new-instance v0, Ljava/lang/StringBuilder;
@@ -100,13 +100,14 @@
 
 # virtual methods
 .method public final getPruneDate()J
-    .locals 4
+    .registers 5
 
     .line 184
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
+    # getter for: Landroidx/work/impl/WorkDatabaseKt;->PRUNE_THRESHOLD_MILLIS:J
     invoke-static {}, Landroidx/work/impl/WorkDatabaseKt;->access$getPRUNE_THRESHOLD_MILLIS$p()J
 
     move-result-wide v2
@@ -117,7 +118,7 @@
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -134,7 +135,7 @@
     nop
 
     .line 192
-    :try_start_0
+    :try_start_c
     invoke-direct {p0}, Landroidx/work/impl/CleanupCallback;->getPruneSQL()Ljava/lang/String;
 
     move-result-object v0
@@ -143,8 +144,8 @@
 
     .line 193
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_c .. :try_end_16} :catchall_1b
 
     .line 195
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
@@ -156,7 +157,7 @@
     return-void
 
     .line 195
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V

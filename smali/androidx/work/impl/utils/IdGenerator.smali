@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$JQr7FK7MZ2bSJyfHKiwoJ9vBWDc(Landroidx/work/impl/utils/IdGenerator;II)Ljava/lang/Integer;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/work/impl/utils/IdGenerator;->nextJobSchedulerIdWithRange$lambda$0(Landroidx/work/impl/utils/IdGenerator;II)Ljava/lang/Integer;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Or-Y_3PZnHqGqtjwdJP_AQtPLLY(Landroidx/work/impl/utils/IdGenerator;)Ljava/lang/Integer;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/work/impl/utils/IdGenerator;->nextAlarmManagerId$lambda$1(Landroidx/work/impl/utils/IdGenerator;)Ljava/lang/Integer;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
 
     const-string/jumbo v0, "workDatabase"
@@ -73,7 +73,7 @@
 .end method
 
 .method private static final nextAlarmManagerId$lambda$1(Landroidx/work/impl/utils/IdGenerator;)Ljava/lang/Integer;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Landroidx/work/impl/utils/IdGenerator;
 
     const-string/jumbo v0, "this$0"
@@ -85,6 +85,7 @@
 
     const-string v1, "next_alarm_manager_id"
 
+    # invokes: Landroidx/work/impl/utils/IdGeneratorKt;->nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
     invoke-static {v0, v1}, Landroidx/work/impl/utils/IdGeneratorKt;->access$nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
 
     move-result v0
@@ -97,7 +98,7 @@
 .end method
 
 .method private static final nextJobSchedulerIdWithRange$lambda$0(Landroidx/work/impl/utils/IdGenerator;II)Ljava/lang/Integer;
-    .locals 4
+    .registers 7
     .param p0, "this$0"    # Landroidx/work/impl/utils/IdGenerator;
     .param p1, "$minInclusive"    # I
     .param p2, "$maxInclusive"    # I
@@ -111,6 +112,7 @@
 
     const-string v1, "next_job_scheduler_id"
 
+    # invokes: Landroidx/work/impl/utils/IdGeneratorKt;->nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
     invoke-static {v0, v1}, Landroidx/work/impl/utils/IdGeneratorKt;->access$nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
 
     move-result v0
@@ -119,14 +121,14 @@
     .local v0, "id":I
     const/4 v2, 0x0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_14
 
-    if-gt v0, p2, :cond_0
+    if-gt v0, p2, :cond_14
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-nez v2, :cond_1
+    :cond_14
+    if-nez v2, :cond_1e
 
     .line 39
     move v0, p1
@@ -136,10 +138,11 @@
 
     add-int/lit8 v3, v0, 0x1
 
+    # invokes: Landroidx/work/impl/utils/IdGeneratorKt;->updatePreference(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;I)V
     invoke-static {v2, v1, v3}, Landroidx/work/impl/utils/IdGeneratorKt;->access$updatePreference(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;I)V
 
     .line 42
-    :cond_1
+    :cond_1e
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -150,7 +153,7 @@
 
 # virtual methods
 .method public final nextAlarmManagerId()I
-    .locals 2
+    .registers 3
 
     .line 50
     iget-object v0, p0, Landroidx/work/impl/utils/IdGenerator;->workDatabase:Landroidx/work/impl/WorkDatabase;
@@ -177,7 +180,7 @@
 .end method
 
 .method public final nextJobSchedulerIdWithRange(II)I
-    .locals 2
+    .registers 5
     .param p1, "minInclusive"    # I
     .param p2, "maxInclusive"    # I
 

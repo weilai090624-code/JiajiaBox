@@ -81,7 +81,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,7 +110,7 @@
 .end method
 
 .method public constructor <init>(FF)V
-    .locals 1
+    .registers 4
     .param p1, "startX"    # F
     .param p2, "startY"    # F
 
@@ -139,7 +139,7 @@
 .end method
 
 .method private addConnectingShadowIfNecessary(F)V
-    .locals 6
+    .registers 8
     .param p1, "nextShadowAngle"    # F
 
     .line 335
@@ -149,13 +149,13 @@
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 337
     return-void
 
     .line 339
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Lcom/google/android/material/shape/ShapePath;->getCurrentShadowAngle()F
 
     move-result v0
@@ -174,13 +174,13 @@
 
     cmpl-float v1, v0, v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1a
 
     .line 342
     return-void
 
     .line 344
-    :cond_1
+    :cond_1a
     new-instance v1, Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 345
@@ -208,9 +208,11 @@
 
     move-result v2
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->setStartAngle(F)V
     invoke-static {v1, v2}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$600(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
 
     .line 347
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->setSweepAngle(F)V
     invoke-static {v1, v0}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$700(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
 
     .line 348
@@ -230,7 +232,7 @@
 .end method
 
 .method private addShadowCompatOperation(Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;FF)V
-    .locals 1
+    .registers 5
     .param p1, "shadowOperation"    # Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
     .param p2, "startShadowAngle"    # F
     .param p3, "endShadowAngle"    # F
@@ -251,7 +253,7 @@
 .end method
 
 .method private getCurrentShadowAngle()F
-    .locals 1
+    .registers 2
 
     .line 369
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->currentShadowAngle:F
@@ -260,7 +262,7 @@
 .end method
 
 .method private getEndShadowAngle()F
-    .locals 1
+    .registers 2
 
     .line 373
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->endShadowAngle:F
@@ -269,7 +271,7 @@
 .end method
 
 .method private setCurrentShadowAngle(F)V
-    .locals 0
+    .registers 2
     .param p1, "currentShadowAngle"    # F
 
     .line 393
@@ -280,7 +282,7 @@
 .end method
 
 .method private setEndShadowAngle(F)V
-    .locals 0
+    .registers 2
     .param p1, "endShadowAngle"    # F
 
     .line 397
@@ -291,7 +293,7 @@
 .end method
 
 .method private setEndX(F)V
-    .locals 0
+    .registers 2
     .param p1, "endX"    # F
 
     .line 385
@@ -302,7 +304,7 @@
 .end method
 
 .method private setEndY(F)V
-    .locals 0
+    .registers 2
     .param p1, "endY"    # F
 
     .line 389
@@ -313,7 +315,7 @@
 .end method
 
 .method private setStartX(F)V
-    .locals 0
+    .registers 2
     .param p1, "startX"    # F
 
     .line 377
@@ -324,7 +326,7 @@
 .end method
 
 .method private setStartY(F)V
-    .locals 0
+    .registers 2
     .param p1, "startY"    # F
 
     .line 381
@@ -337,7 +339,7 @@
 
 # virtual methods
 .method public addArc(FFFFFF)V
-    .locals 16
+    .registers 23
     .param p1, "left"    # F
     .param p2, "top"    # F
     .param p3, "right"    # F
@@ -366,9 +368,11 @@
 
     .line 254
     .local v7, "operation":Lcom/google/android/material/shape/ShapePath$PathArcOperation;
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->setStartAngle(F)V
     invoke-static {v7, v5}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$600(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
 
     .line 255
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->setSweepAngle(F)V
     invoke-static {v7, v6}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$700(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
 
     .line 256
@@ -391,18 +395,18 @@
 
     cmpg-float v10, v6, v10
 
-    if-gez v10, :cond_0
+    if-gez v10, :cond_2c
 
     const/4 v10, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v10, 0x0
 
     .line 264
     .local v10, "drawShadowInsideBounds":Z
-    :goto_0
+    :goto_2d
     nop
 
     .line 266
@@ -410,32 +414,32 @@
 
     const/high16 v12, 0x43340000    # 180.0f
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_38
 
     add-float v13, v5, v12
 
     rem-float/2addr v13, v11
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_1
+    :cond_38
     move v13, v5
 
     .line 267
-    :goto_1
-    if-eqz v10, :cond_2
+    :goto_39
+    if-eqz v10, :cond_3e
 
     add-float/2addr v12, v9
 
     rem-float/2addr v12, v11
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_2
+    :cond_3e
     move v12, v9
 
     .line 264
-    :goto_2
+    :goto_3f
     invoke-direct {v0, v8, v13, v12}, Lcom/google/android/material/shape/ShapePath;->addShadowCompatOperation(Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;FF)V
 
     .line 269
@@ -511,7 +515,7 @@
 .end method
 
 .method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
-    .locals 3
+    .registers 6
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "path"    # Landroid/graphics/Path;
 
@@ -526,8 +530,8 @@
     move-result v1
 
     .local v1, "size":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_7
+    if-ge v0, v1, :cond_17
 
     .line 285
     iget-object v2, p0, Lcom/google/android/material/shape/ShapePath;->operations:Ljava/util/List;
@@ -546,17 +550,17 @@
     .end local v2    # "operation":Lcom/google/android/material/shape/ShapePath$PathOperation;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 288
     .end local v0    # "i":I
     .end local v1    # "size":I
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method containsIncompatibleShadowOp()Z
-    .locals 1
+    .registers 2
 
     .line 327
     iget-boolean v0, p0, Lcom/google/android/material/shape/ShapePath;->containsIncompatibleShadowOp:Z
@@ -565,7 +569,7 @@
 .end method
 
 .method createShadowCompatOperation(Landroid/graphics/Matrix;)Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
-    .locals 3
+    .registers 5
     .param p1, "transform"    # Landroid/graphics/Matrix;
 
     .line 297
@@ -598,7 +602,7 @@
 .end method
 
 .method public cubicToPoint(FFFFFF)V
-    .locals 8
+    .registers 15
     .param p1, "controlX1"    # F
     .param p2, "controlY1"    # F
     .param p3, "controlX2"    # F
@@ -647,7 +651,7 @@
 .end method
 
 .method getEndX()F
-    .locals 1
+    .registers 2
 
     .line 361
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->endX:F
@@ -656,7 +660,7 @@
 .end method
 
 .method getEndY()F
-    .locals 1
+    .registers 2
 
     .line 365
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->endY:F
@@ -665,7 +669,7 @@
 .end method
 
 .method getStartX()F
-    .locals 1
+    .registers 2
 
     .line 353
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->startX:F
@@ -674,7 +678,7 @@
 .end method
 
 .method getStartY()F
-    .locals 1
+    .registers 2
 
     .line 357
     iget v0, p0, Lcom/google/android/material/shape/ShapePath;->startY:F
@@ -683,7 +687,7 @@
 .end method
 
 .method public lineTo(FF)V
-    .locals 5
+    .registers 8
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -694,9 +698,11 @@
 
     .line 133
     .local v0, "operation":Lcom/google/android/material/shape/ShapePath$PathLineOperation;
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v0, p1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$002(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 134
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0, p2}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$102(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 135
@@ -751,7 +757,7 @@
 .end method
 
 .method public lineTo(FFFF)V
-    .locals 6
+    .registers 11
     .param p1, "x1"    # F
     .param p2, "y1"    # F
     .param p3, "x2"    # F
@@ -772,7 +778,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1f
 
     invoke-virtual {p0}, Lcom/google/android/material/shape/ShapePath;->getEndY()F
 
@@ -786,9 +792,9 @@
 
     cmpg-float v0, v0, v1
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_33
 
-    :cond_0
+    :cond_1f
     sub-float v0, p1, p3
 
     .line 156
@@ -798,7 +804,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_37
 
     sub-float v0, p2, p4
 
@@ -808,26 +814,28 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_37
 
     .line 157
-    :cond_1
+    :cond_33
     invoke-virtual {p0, p3, p4}, Lcom/google/android/material/shape/ShapePath;->lineTo(FF)V
 
     .line 158
     return-void
 
     .line 160
-    :cond_2
+    :cond_37
     new-instance v0, Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
     invoke-direct {v0}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;-><init>()V
 
     .line 161
     .local v0, "operation1":Lcom/google/android/material/shape/ShapePath$PathLineOperation;
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v0, p1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$002(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 162
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0, p2}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$102(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 163
@@ -842,9 +850,11 @@
 
     .line 165
     .local v1, "operation2":Lcom/google/android/material/shape/ShapePath$PathLineOperation;
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v1, p3}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$002(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 166
+    # setter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v1, p4}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$102(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
 
     .line 167
@@ -876,7 +886,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_74
 
     .line 175
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/shape/ShapePath;->lineTo(FF)V
@@ -888,7 +898,7 @@
     return-void
 
     .line 180
-    :cond_3
+    :cond_74
     nop
 
     .line 182
@@ -921,7 +931,7 @@
 .end method
 
 .method public quadToPoint(FFFF)V
-    .locals 2
+    .registers 7
     .param p1, "controlX"    # F
     .param p2, "controlY"    # F
     .param p3, "toX"    # F
@@ -934,15 +944,19 @@
 
     .line 203
     .local v0, "operation":Lcom/google/android/material/shape/ShapePath$PathQuadOperation;
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->setControlX(F)V
     invoke-static {v0, p1}, Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->access$200(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V
 
     .line 204
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->setControlY(F)V
     invoke-static {v0, p2}, Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->access$300(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V
 
     .line 205
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->setEndX(F)V
     invoke-static {v0, p3}, Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->access$400(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V
 
     .line 206
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->setEndY(F)V
     invoke-static {v0, p4}, Lcom/google/android/material/shape/ShapePath$PathQuadOperation;->access$500(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V
 
     .line 207
@@ -966,7 +980,7 @@
 .end method
 
 .method public reset(FF)V
-    .locals 2
+    .registers 5
     .param p1, "startX"    # F
     .param p2, "startY"    # F
 
@@ -982,7 +996,7 @@
 .end method
 
 .method public reset(FFFF)V
-    .locals 2
+    .registers 7
     .param p1, "startX"    # F
     .param p2, "startY"    # F
     .param p3, "shadowStartAngle"    # F

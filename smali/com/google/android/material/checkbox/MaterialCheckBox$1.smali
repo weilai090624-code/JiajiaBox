@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/checkbox/MaterialCheckBox;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/checkbox/MaterialCheckBox;
 
     .line 168
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 183
@@ -45,7 +45,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 185
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$1;->this$0:Lcom/google/android/material/checkbox/MaterialCheckBox;
@@ -55,12 +55,12 @@
     invoke-static {p1, v0}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 189
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .registers 5
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 171
@@ -71,7 +71,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/checkbox/MaterialCheckBox;->buttonTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 174
     iget-object v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$1;->this$0:Lcom/google/android/material/checkbox/MaterialCheckBox;
@@ -81,6 +81,7 @@
     iget-object v1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$1;->this$0:Lcom/google/android/material/checkbox/MaterialCheckBox;
 
     .line 177
+    # getter for: Lcom/google/android/material/checkbox/MaterialCheckBox;->currentStateChecked:[I
     invoke-static {v1}, Lcom/google/android/material/checkbox/MaterialCheckBox;->access$000(Lcom/google/android/material/checkbox/MaterialCheckBox;)[I
 
     move-result-object v1
@@ -102,6 +103,6 @@
     invoke-static {p1, v0}, Landroidx/core/graphics/drawable/DrawableCompat;->setTint(Landroid/graphics/drawable/Drawable;I)V
 
     .line 179
-    :cond_0
+    :cond_22
     return-void
 .end method

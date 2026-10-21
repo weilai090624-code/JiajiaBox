@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/sync/MutexImpl;Lkotlinx/coroutines/sync/MutexImpl$CancellableContinuationWithOwner;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Lkotlinx/coroutines/sync/MutexImpl$CancellableContinuationWithOwner$tryResume$token$1;->this$0:Lkotlinx/coroutines/sync/MutexImpl;
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 258
@@ -91,7 +91,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 5
+    .registers 7
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 259
@@ -103,12 +103,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2b
 
     .line 311
     const/4 v2, 0x0
 
     .local v2, "$i$a$-assert-MutexImpl$CancellableContinuationWithOwner$tryResume$token$1$1":I
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v3
@@ -124,44 +125,46 @@
 
     .line 259
     .local v3, "$i$a$-let-MutexImpl$CancellableContinuationWithOwner$tryResume$token$1$1$1":I
+    # getter for: Lkotlinx/coroutines/sync/MutexKt;->NO_OWNER:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexKt;->access$getNO_OWNER$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v4
 
-    if-eq v0, v4, :cond_1
+    if-eq v0, v4, :cond_21
 
     iget-object v1, v1, Lkotlinx/coroutines/sync/MutexImpl$CancellableContinuationWithOwner;->owner:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1f
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_1f
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 v1, 0x1
 
     .end local v0    # "it":Ljava/lang/Object;
     .end local v2    # "$i$a$-assert-MutexImpl$CancellableContinuationWithOwner$tryResume$token$1$1":I
     .end local v3    # "$i$a$-let-MutexImpl$CancellableContinuationWithOwner$tryResume$token$1$1$1":I
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_22
+    if-eqz v1, :cond_25
 
-    goto :goto_2
+    goto :goto_2b
 
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    :cond_3
-    :goto_2
+    :cond_2b
+    :goto_2b
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v0

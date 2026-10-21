@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/TimeoutFuture;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .registers 12
 
     .line 95
     .local p0, "this":Lcom/google/common/util/concurrent/TimeoutFuture$Fire;, "Lcom/google/common/util/concurrent/TimeoutFuture$Fire<TV;>;"
@@ -75,26 +75,27 @@
 
     .line 96
     .local v0, "timeoutFuture":Lcom/google/common/util/concurrent/TimeoutFuture;, "Lcom/google/common/util/concurrent/TimeoutFuture<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 97
     return-void
 
     .line 99
-    :cond_0
+    :cond_5
+    # getter for: Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
     invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$000(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v1
 
     .line 100
     .local v1, "delegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    if-nez v1, :cond_1
+    if-nez v1, :cond_c
 
     .line 101
     return-void
 
     .line 116
-    :cond_1
+    :cond_c
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/TimeoutFuture$Fire;->timeoutFutureRef:Lcom/google/common/util/concurrent/TimeoutFuture;
@@ -104,37 +105,39 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1a
 
     .line 118
     invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/TimeoutFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_a2
 
     .line 121
-    :cond_2
+    :cond_1a
     const/4 v3, 0x1
 
-    :try_start_0
+    :try_start_1b
+    # getter for: Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
     invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$100(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
 
     move-result-object v4
 
     .line 122
     .local v4, "timer":Ljava/util/concurrent/ScheduledFuture;, "Ljava/util/concurrent/ScheduledFuture<*>;"
+    # setter for: Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
     invoke-static {v0, v2}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$102(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
 
     .line 123
     const-string v5, "Timed out"
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_24
+    .catchall {:try_start_1b .. :try_end_24} :catchall_ae
 
     .line 127
     .local v5, "message":Ljava/lang/String;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_62
 
     .line 128
-    :try_start_1
+    :try_start_26
     sget-object v6, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-interface {v4, v6}, Ljava/util/concurrent/ScheduledFuture;->getDelay(Ljava/util/concurrent/TimeUnit;)J
@@ -151,7 +154,7 @@
 
     cmp-long v10, v6, v8
 
-    if-lez v10, :cond_3
+    if-lez v10, :cond_62
 
     .line 130
     invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -200,7 +203,7 @@
 
     .line 133
     .end local v6    # "overDelayMs":J
-    :cond_3
+    :cond_62
     invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
@@ -250,20 +253,20 @@
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_94
+    .catchall {:try_start_26 .. :try_end_94} :catchall_a3
 
     move-object v5, v6
 
     .line 135
-    :try_start_2
+    :try_start_95
     new-instance v6, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
 
     invoke-direct {v6, v5, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$1;)V
 
     invoke-virtual {v0, v6}, Lcom/google/common/util/concurrent/TimeoutFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_9d
+    .catchall {:try_start_95 .. :try_end_9d} :catchall_ae
 
     .line 136
     nop
@@ -277,16 +280,16 @@
     nop
 
     .line 141
-    :goto_0
+    :goto_a2
     return-void
 
     .line 135
     .restart local v4    # "timer":Ljava/util/concurrent/ScheduledFuture;, "Ljava/util/concurrent/ScheduledFuture<*>;"
     .restart local v5    # "message":Ljava/lang/String;
-    :catchall_0
+    :catchall_a3
     move-exception v6
 
-    :try_start_3
+    :try_start_a4
     new-instance v7, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
 
     invoke-direct {v7, v5, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$1;)V
@@ -299,15 +302,15 @@
     .end local v0    # "timeoutFuture":Lcom/google/common/util/concurrent/TimeoutFuture;, "Lcom/google/common/util/concurrent/TimeoutFuture<TV;>;"
     .end local v1    # "delegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     throw v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_ae
+    .catchall {:try_start_a4 .. :try_end_ae} :catchall_ae
 
     .line 138
     .end local v4    # "timer":Ljava/util/concurrent/ScheduledFuture;, "Ljava/util/concurrent/ScheduledFuture<*>;"
     .end local v5    # "message":Ljava/lang/String;
     .restart local v0    # "timeoutFuture":Lcom/google/common/util/concurrent/TimeoutFuture;, "Lcom/google/common/util/concurrent/TimeoutFuture<TV;>;"
     .restart local v1    # "delegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    :catchall_1
+    :catchall_ae
     move-exception v2
 
     invoke-interface {v1, v3}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z

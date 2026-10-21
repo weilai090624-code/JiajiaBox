@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 0
+    .registers 2
 
     .line 1452
     iput-object p1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getRadius()F
-    .locals 2
+    .registers 3
 
     .line 1456
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -55,7 +55,7 @@
 .end method
 
 .method public isCompatPaddingEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 1475
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -66,24 +66,25 @@
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .line 1468
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 1469
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
+    # invokes: Lcom/google/android/material/internal/VisibilityAwareImageButton;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     invoke-static {v0, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->access$101(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Landroid/graphics/drawable/Drawable;)V
 
     .line 1471
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setShadowPadding(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -102,6 +103,7 @@
     iget-object v1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 1463
+    # getter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->imagePadding:I
     invoke-static {v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->access$000(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I
 
     move-result v1
@@ -110,6 +112,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
+    # getter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->imagePadding:I
     invoke-static {v2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->access$000(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I
 
     move-result v2
@@ -118,6 +121,7 @@
 
     iget-object v3, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
+    # getter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->imagePadding:I
     invoke-static {v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->access$000(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I
 
     move-result v3
@@ -126,6 +130,7 @@
 
     iget-object v4, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
+    # getter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->imagePadding:I
     invoke-static {v4}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->access$000(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I
 
     move-result v4

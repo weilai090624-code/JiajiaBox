@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 2
 
     .line 82
     iput-object p1, p0, Lcom/google/common/collect/MutableClassToInstanceMap$1;->val$entry:Ljava/util/Map$Entry;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 82
     invoke-virtual {p0}, Lcom/google/common/collect/MutableClassToInstanceMap$1;->delegate()Ljava/util/Map$Entry;
@@ -52,7 +52,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)TB;"
@@ -84,6 +84,7 @@
 
     check-cast v0, Ljava/lang/Class;
 
+    # invokes: Lcom/google/common/collect/MutableClassToInstanceMap;->cast(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, p1}, Lcom/google/common/collect/MutableClassToInstanceMap;->access$000(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

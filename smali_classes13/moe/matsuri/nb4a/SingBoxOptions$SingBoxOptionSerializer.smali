@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic serialize(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -64,7 +64,7 @@
 .end method
 
 .method public serialize(Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;
-    .locals 4
+    .registers 8
     .param p1, "src"    # Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;
     .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
     .param p3, "context"    # Lcom/google/gson/JsonSerializationContext;
@@ -82,6 +82,7 @@
     .end annotation
 
     .line 73
+    # getter for: Lmoe/matsuri/nb4a/SingBoxOptions;->gsonSingbox:Lcom/google/gson/Gson;
     invoke-static {}, Lmoe/matsuri/nb4a/SingBoxOptions;->access$000()Lcom/google/gson/Gson;
 
     move-result-object v0
@@ -108,7 +109,7 @@
     .local v0, "delegate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
     instance-of v1, p1, Lmoe/matsuri/nb4a/SingBoxOptions$CustomSingBoxOption;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 84
     move-object v1, p1
@@ -120,11 +121,12 @@
     move-result-object v1
 
     .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_31
 
     .line 86
     .end local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    :cond_0
+    :cond_21
+    # getter for: Lmoe/matsuri/nb4a/SingBoxOptions;->gsonSingbox:Lcom/google/gson/Gson;
     invoke-static {}, Lmoe/matsuri/nb4a/SingBoxOptions;->access$000()Lcom/google/gson/Gson;
 
     move-result-object v1
@@ -143,10 +145,10 @@
 
     .line 88
     .restart local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    :goto_0
+    :goto_31
     iget-object v2, p1, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;->_hack_config_map:Ljava/util/Map;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_44
 
     iget-object v2, p1, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;->_hack_config_map:Ljava/util/Map;
 
@@ -154,7 +156,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_44
 
     .line 89
     sget-object v2, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -164,10 +166,10 @@
     invoke-virtual {v2, v1, v3}, Lmoe/matsuri/nb4a/utils/Util;->mergeMap(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
 
     .line 91
-    :cond_1
+    :cond_44
     iget-object v2, p1, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;->_hack_custom_config:Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_57
 
     iget-object v2, p1, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;->_hack_custom_config:Ljava/lang/String;
 
@@ -175,7 +177,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_57
 
     .line 92
     sget-object v2, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -185,7 +187,8 @@
     invoke-virtual {v2, v1, v3}, Lmoe/matsuri/nb4a/utils/Util;->mergeJSON(Ljava/util/Map;Ljava/lang/String;)V
 
     .line 94
-    :cond_2
+    :cond_57
+    # getter for: Lmoe/matsuri/nb4a/SingBoxOptions;->gsonSingbox:Lcom/google/gson/Gson;
     invoke-static {}, Lmoe/matsuri/nb4a/SingBoxOptions;->access$000()Lcom/google/gson/Gson;
 
     move-result-object v2

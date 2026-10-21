@@ -99,7 +99,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 253
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -155,7 +155,7 @@
 .end method
 
 .method private drawCorner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 7
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
@@ -419,7 +419,7 @@
 .end method
 
 .method private drawExterior(Landroid/graphics/Canvas;Landroid/graphics/Rect;II)V
-    .locals 8
+    .registers 13
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
     .param p3, "width"    # I
@@ -428,7 +428,7 @@
     .line 559
     iget v0, p0, Lcom/king/zxing/ViewfinderView;->maskColor:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_41
 
     .line 560
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->paint:Landroid/graphics/Paint;
@@ -510,12 +510,12 @@
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 566
-    :cond_0
+    :cond_41
     return-void
 .end method
 
 .method private drawFrame(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 7
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
@@ -639,7 +639,7 @@
 .end method
 
 .method private drawGridScanner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 16
+    .registers 19
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
@@ -661,7 +661,7 @@
     .line 499
     iget v3, v0, Lcom/king/zxing/ViewfinderView;->gridHeight:I
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1e
 
     iget v3, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
@@ -671,7 +671,7 @@
 
     iget v4, v0, Lcom/king/zxing/ViewfinderView;->gridHeight:I
 
-    if-le v3, v4, :cond_0
+    if-le v3, v4, :cond_1e
 
     iget v3, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
@@ -679,14 +679,14 @@
 
     sub-int/2addr v3, v4
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1e
     iget v3, v1, Landroid/graphics/Rect;->top:I
 
     .line 501
     .local v3, "startY":I
-    :goto_0
+    :goto_20
     new-instance v12, Landroid/graphics/LinearGradient;
 
     iget v4, v1, Landroid/graphics/Rect;->left:I
@@ -735,7 +735,7 @@
 
     new-array v11, v6, [F
 
-    fill-array-data v11, :array_0
+    fill-array-data v11, :array_dc
 
     sget-object v13, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -787,10 +787,10 @@
     const/4 v7, 0x1
 
     .local v7, "i":I
-    :goto_1
+    :goto_6a
     iget v8, v0, Lcom/king/zxing/ViewfinderView;->gridColumn:I
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_8c
 
     .line 509
     iget v8, v1, Landroid/graphics/Rect;->left:I
@@ -828,14 +828,14 @@
     .line 508
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 512
     .end local v7    # "i":I
-    :cond_1
+    :cond_8c
     iget v7, v0, Lcom/king/zxing/ViewfinderView;->gridHeight:I
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_9c
 
     iget v7, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
@@ -845,13 +845,13 @@
 
     iget v8, v0, Lcom/king/zxing/ViewfinderView;->gridHeight:I
 
-    if-le v7, v8, :cond_2
+    if-le v7, v8, :cond_9c
 
     iget v7, v0, Lcom/king/zxing/ViewfinderView;->gridHeight:I
 
-    goto :goto_2
+    goto :goto_a1
 
-    :cond_2
+    :cond_9c
     iget v7, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
     iget v8, v1, Landroid/graphics/Rect;->top:I
@@ -860,11 +860,11 @@
 
     .line 515
     .local v7, "height":I
-    :goto_2
+    :goto_a1
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_3
+    :goto_a2
     int-to-float v9, v8
 
     int-to-float v10, v7
@@ -873,7 +873,7 @@
 
     cmpg-float v9, v9, v10
 
-    if-gtz v9, :cond_3
+    if-gtz v9, :cond_c9
 
     .line 516
     iget v9, v1, Landroid/graphics/Rect;->left:I
@@ -913,16 +913,16 @@
     .line 515
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_a2
 
     .line 519
     .end local v8    # "i":I
-    :cond_3
+    :cond_c9
     iget v8, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
     iget v9, v0, Lcom/king/zxing/ViewfinderView;->scannerEnd:I
 
-    if-ge v8, v9, :cond_4
+    if-ge v8, v9, :cond_d7
 
     .line 520
     iget v8, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
@@ -933,19 +933,19 @@
 
     iput v8, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
-    goto :goto_4
+    goto :goto_db
 
     .line 522
-    :cond_4
+    :cond_d7
     iget v8, v1, Landroid/graphics/Rect;->top:I
 
     iput v8, v0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
     .line 525
-    :goto_4
+    :goto_db
     return-void
 
-    :array_0
+    :array_dc
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -953,14 +953,14 @@
 .end method
 
 .method private drawLaserScanner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 2
+    .registers 5
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
     .line 451
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->laserStyle:Lcom/king/zxing/ViewfinderView$LaserStyle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 452
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->paint:Landroid/graphics/Paint;
@@ -980,25 +980,25 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_28
 
-    goto :goto_0
+    goto :goto_21
 
     .line 458
-    :pswitch_0
+    :pswitch_19
     invoke-direct {p0, p1, p2}, Lcom/king/zxing/ViewfinderView;->drawGridScanner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 455
-    :pswitch_1
+    :pswitch_1d
     invoke-direct {p0, p1, p2}, Lcom/king/zxing/ViewfinderView;->drawLineScanner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
 
     .line 456
     nop
 
     .line 461
-    :goto_0
+    :goto_21
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->paint:Landroid/graphics/Paint;
 
     const/4 v1, 0x0
@@ -1006,18 +1006,18 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 463
-    :cond_0
+    :cond_27
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method private drawLineScanner(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 9
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
@@ -1070,7 +1070,7 @@
 
     iget v2, p0, Lcom/king/zxing/ViewfinderView;->scannerEnd:I
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_55
 
     .line 482
     new-instance v1, Landroid/graphics/RectF;
@@ -1126,21 +1126,21 @@
 
     .line 485
     .end local v1    # "rectF":Landroid/graphics/RectF;
-    goto :goto_0
+    goto :goto_59
 
     .line 486
-    :cond_0
+    :cond_55
     iget v1, p2, Landroid/graphics/Rect;->top:I
 
     iput v1, p0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
     .line 488
-    :goto_0
+    :goto_59
     return-void
 .end method
 
 .method private drawTextInfo(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 10
+    .registers 13
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "frame"    # Landroid/graphics/Rect;
 
@@ -1151,7 +1151,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_66
 
     .line 410
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->textPaint:Landroid/text/TextPaint;
@@ -1201,7 +1201,7 @@
 
     sget-object v2, Lcom/king/zxing/ViewfinderView$TextLocation;->BOTTOM:Lcom/king/zxing/ViewfinderView$TextLocation;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_4a
 
     .line 415
     iget v1, p2, Landroid/graphics/Rect;->left:I
@@ -1226,10 +1226,10 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    goto :goto_0
+    goto :goto_63
 
     .line 417
-    :cond_0
+    :cond_4a
     iget v1, p2, Landroid/graphics/Rect;->left:I
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
@@ -1261,17 +1261,17 @@
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 419
-    :goto_0
+    :goto_63
     invoke-virtual {v0, p1}, Landroid/text/StaticLayout;->draw(Landroid/graphics/Canvas;)V
 
     .line 422
     .end local v0    # "staticLayout":Landroid/text/StaticLayout;
-    :cond_1
+    :cond_66
     return-void
 .end method
 
 .method private getDisplayMetrics()Landroid/util/DisplayMetrics;
-    .locals 1
+    .registers 2
 
     .line 312
     invoke-virtual {p0}, Lcom/king/zxing/ViewfinderView;->getResources()Landroid/content/res/Resources;
@@ -1286,7 +1286,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -1450,6 +1450,7 @@
 
     move-result v1
 
+    # invokes: Lcom/king/zxing/ViewfinderView$TextLocation;->getFromInt(I)Lcom/king/zxing/ViewfinderView$TextLocation;
     invoke-static {v1}, Lcom/king/zxing/ViewfinderView$TextLocation;->access$000(I)Lcom/king/zxing/ViewfinderView$TextLocation;
 
     move-result-object v1
@@ -1479,6 +1480,7 @@
 
     sget-object v2, Lcom/king/zxing/ViewfinderView$LaserStyle;->LINE:Lcom/king/zxing/ViewfinderView$LaserStyle;
 
+    # getter for: Lcom/king/zxing/ViewfinderView$LaserStyle;->mValue:I
     invoke-static {v2}, Lcom/king/zxing/ViewfinderView$LaserStyle;->access$100(Lcom/king/zxing/ViewfinderView$LaserStyle;)I
 
     move-result v2
@@ -1487,6 +1489,7 @@
 
     move-result v1
 
+    # invokes: Lcom/king/zxing/ViewfinderView$LaserStyle;->getFromInt(I)Lcom/king/zxing/ViewfinderView$LaserStyle;
     invoke-static {v1}, Lcom/king/zxing/ViewfinderView$LaserStyle;->access$200(I)Lcom/king/zxing/ViewfinderView$LaserStyle;
 
     move-result-object v1
@@ -1717,6 +1720,7 @@
 
     sget-object v2, Lcom/king/zxing/ViewfinderView$FrameGravity;->CENTER:Lcom/king/zxing/ViewfinderView$FrameGravity;
 
+    # getter for: Lcom/king/zxing/ViewfinderView$FrameGravity;->mValue:I
     invoke-static {v2}, Lcom/king/zxing/ViewfinderView$FrameGravity;->access$300(Lcom/king/zxing/ViewfinderView$FrameGravity;)I
 
     move-result v2
@@ -1725,6 +1729,7 @@
 
     move-result v1
 
+    # invokes: Lcom/king/zxing/ViewfinderView$FrameGravity;->getFromInt(I)Lcom/king/zxing/ViewfinderView$FrameGravity;
     invoke-static {v1}, Lcom/king/zxing/ViewfinderView$FrameGravity;->access$400(I)Lcom/king/zxing/ViewfinderView$FrameGravity;
 
     move-result-object v1
@@ -1780,7 +1785,7 @@
 .end method
 
 .method private initFrame(II)V
-    .locals 9
+    .registers 12
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -1801,35 +1806,35 @@
     .local v0, "size":I
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->frameWidth:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_12
 
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->frameWidth:I
 
-    if-le v1, p1, :cond_1
+    if-le v1, p1, :cond_14
 
     .line 343
-    :cond_0
+    :cond_12
     iput v0, p0, Lcom/king/zxing/ViewfinderView;->frameWidth:I
 
     .line 346
-    :cond_1
+    :cond_14
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->frameHeight:I
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_1c
 
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->frameHeight:I
 
-    if-le v1, p2, :cond_3
+    if-le v1, p2, :cond_1e
 
     .line 347
-    :cond_2
+    :cond_1c
     iput v0, p0, Lcom/king/zxing/ViewfinderView;->frameHeight:I
 
     .line 350
-    :cond_3
+    :cond_1e
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->labelTextWidth:I
 
-    if-gtz v1, :cond_4
+    if-gtz v1, :cond_2f
 
     .line 351
     invoke-virtual {p0}, Lcom/king/zxing/ViewfinderView;->getPaddingLeft()I
@@ -1847,7 +1852,7 @@
     iput v1, p0, Lcom/king/zxing/ViewfinderView;->labelTextWidth:I
 
     .line 354
-    :cond_4
+    :cond_2f
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->frameWidth:I
 
     sub-int v1, p1, v1
@@ -1894,12 +1899,12 @@
 
     aget v3, v3, v4
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_84
 
-    goto :goto_0
+    goto :goto_71
 
     .line 367
-    :pswitch_0
+    :pswitch_57
     iget v3, p0, Lcom/king/zxing/ViewfinderView;->frameHeight:I
 
     sub-int v3, p2, v3
@@ -1910,10 +1915,10 @@
 
     add-float v2, v3, v4
 
-    goto :goto_0
+    goto :goto_71
 
     .line 364
-    :pswitch_1
+    :pswitch_61
     iget v3, p0, Lcom/king/zxing/ViewfinderView;->frameWidth:I
 
     sub-int v3, p1, v3
@@ -1925,24 +1930,24 @@
     add-float v1, v3, v4
 
     .line 365
-    goto :goto_0
+    goto :goto_71
 
     .line 361
-    :pswitch_2
+    :pswitch_6b
     iget v2, p0, Lcom/king/zxing/ViewfinderView;->framePaddingTop:F
 
     .line 362
-    goto :goto_0
+    goto :goto_71
 
     .line 358
-    :pswitch_3
+    :pswitch_6e
     iget v1, p0, Lcom/king/zxing/ViewfinderView;->framePaddingLeft:F
 
     .line 359
     nop
 
     .line 371
-    :goto_0
+    :goto_71
     new-instance v3, Landroid/graphics/Rect;
 
     float-to-int v4, v1
@@ -1970,19 +1975,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6e
+        :pswitch_6b
+        :pswitch_61
+        :pswitch_57
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public drawViewfinder()V
-    .locals 0
+    .registers 1
 
     .line 570
     invoke-virtual {p0}, Lcom/king/zxing/ViewfinderView;->invalidate()V
@@ -1992,29 +1997,29 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 10
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 377
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->frame:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 378
     return-void
 
     .line 381
-    :cond_0
+    :cond_5
     iget v0, p0, Lcom/king/zxing/ViewfinderView;->scannerStart:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     iget v0, p0, Lcom/king/zxing/ViewfinderView;->scannerEnd:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1c
 
     .line 382
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/king/zxing/ViewfinderView;->frame:Landroid/graphics/Rect;
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
@@ -2033,7 +2038,7 @@
     iput v0, p0, Lcom/king/zxing/ViewfinderView;->scannerEnd:I
 
     .line 386
-    :cond_2
+    :cond_1c
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v0
@@ -2100,7 +2105,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -2117,7 +2122,7 @@
 .end method
 
 .method public setLabelText(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "labelText"    # Ljava/lang/String;
 
     .line 316
@@ -2128,7 +2133,7 @@
 .end method
 
 .method public setLabelTextColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "color"    # I
 
     .line 320
@@ -2139,7 +2144,7 @@
 .end method
 
 .method public setLabelTextColorResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 324
@@ -2158,7 +2163,7 @@
 .end method
 
 .method public setLabelTextSize(F)V
-    .locals 0
+    .registers 2
     .param p1, "textSize"    # F
 
     .line 328
@@ -2169,7 +2174,7 @@
 .end method
 
 .method public setLaserStyle(Lcom/king/zxing/ViewfinderView$LaserStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "laserStyle"    # Lcom/king/zxing/ViewfinderView$LaserStyle;
 
     .line 574
@@ -2180,7 +2185,7 @@
 .end method
 
 .method public shadeColor(I)I
-    .locals 3
+    .registers 5
     .param p1, "color"    # I
 
     .line 533

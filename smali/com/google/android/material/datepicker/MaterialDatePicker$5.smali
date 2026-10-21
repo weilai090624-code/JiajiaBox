@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialDatePicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     .line 456
@@ -42,12 +42,13 @@
 
 # virtual methods
 .method public onIncompleteSelectionChanged()V
-    .locals 2
+    .registers 3
 
     .line 465
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialDatePicker$5;, "Lcom/google/android/material/datepicker/MaterialDatePicker$5;"
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$5;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->confirmButton:Landroid/widget/Button;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$300(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;
 
     move-result-object v0
@@ -61,7 +62,7 @@
 .end method
 
 .method public onSelectionChanged(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TS;)V"
@@ -84,12 +85,14 @@
     .line 460
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$5;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->confirmButton:Landroid/widget/Button;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$300(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$5;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # invokes: Lcom/google/android/material/datepicker/MaterialDatePicker;->getDateSelector()Lcom/google/android/material/datepicker/DateSelector;
     invoke-static {v1}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$100(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/datepicker/DateSelector;
 
     move-result-object v1

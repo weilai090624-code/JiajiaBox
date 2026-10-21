@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Long;
-    .locals 10
+    .registers 11
 
     .line 153
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
@@ -80,11 +80,13 @@
 
     .line 154
     .local v2, "$i$a$-synchronized-Http2Connection$1$failDueToMissingPong$1":I
-    :try_start_0
+    :try_start_6
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->intervalPongsReceived:J
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$getIntervalPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;)J
 
     move-result-wide v3
 
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->intervalPingsSent:J
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$getIntervalPingsSent$p(Lokhttp3/internal/http2/Http2Connection;)J
 
     move-result-wide v5
@@ -95,15 +97,16 @@
 
     cmp-long v9, v3, v5
 
-    if-gez v9, :cond_0
+    if-gez v9, :cond_16
 
     .line 155
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
     .line 157
-    :cond_0
+    :cond_16
+    # getter for: Lokhttp3/internal/http2/Http2Connection;->intervalPingsSent:J
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$getIntervalPingsSent$p(Lokhttp3/internal/http2/Http2Connection;)J
 
     move-result-wide v3
@@ -113,28 +116,29 @@
     add-long/2addr v3, v5
 
     invoke-static {v1, v3, v4}, Lokhttp3/internal/http2/Http2Connection;->access$setIntervalPingsSent$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_6 .. :try_end_20} :catchall_3e
 
     .line 158
     const/4 v1, 0x0
 
     .line 153
     .end local v2    # "$i$a$-synchronized-Http2Connection$1$failDueToMissingPong$1":I
-    :goto_0
+    :goto_21
     monitor-exit v0
 
     move v0, v1
 
     .line 161
     .local v0, "failDueToMissingPong":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 162
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
     const/4 v2, 0x0
 
+    # invokes: Lokhttp3/internal/http2/Http2Connection;->failConnection(Ljava/io/IOException;)V
     invoke-static {v1, v2}, Lokhttp3/internal/http2/Http2Connection;->access$failConnection(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
 
     .line 163
@@ -147,7 +151,7 @@
     return-object v1
 
     .line 165
-    :cond_1
+    :cond_32
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
     invoke-virtual {v1, v8, v7, v8}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
@@ -163,7 +167,7 @@
 
     .line 153
     .end local v0    # "failDueToMissingPong":Z
-    :catchall_0
+    :catchall_3e
     move-exception v1
 
     monitor-exit v0
@@ -172,7 +176,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 152
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$1;->invoke()Ljava/lang/Long;

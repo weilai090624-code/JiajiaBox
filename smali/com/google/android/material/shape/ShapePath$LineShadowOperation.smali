@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/shape/ShapePath$PathLineOperation;FF)V
-    .locals 0
+    .registers 4
     .param p1, "operation"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
     .param p2, "startX"    # F
     .param p3, "startY"    # F
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V
-    .locals 7
+    .registers 12
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "shadowRenderer"    # Lcom/google/android/material/shadow/ShadowRenderer;
     .param p3, "shadowElevation"    # I
@@ -57,6 +57,7 @@
     .line 438
     iget-object v0, p0, Lcom/google/android/material/shape/ShapePath$LineShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v0
@@ -69,6 +70,7 @@
     .local v0, "height":F
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$LineShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v1
@@ -129,11 +131,12 @@
 .end method
 
 .method getAngle()F
-    .locals 3
+    .registers 4
 
     .line 449
     iget-object v0, p0, Lcom/google/android/material/shape/ShapePath$LineShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->y:F
     invoke-static {v0}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v0
@@ -144,6 +147,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$LineShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
+    # getter for: Lcom/google/android/material/shape/ShapePath$PathLineOperation;->x:F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathLineOperation;->access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
 
     move-result v1

@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;-><init>()V
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final buildIfSupported()Lokhttp3/internal/platform/BouncyCastlePlatform;
-    .locals 2
+    .registers 3
 
     .line 94
     invoke-virtual {p0}, Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;->isSupported()Z
@@ -68,7 +68,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     new-instance v0, Lokhttp3/internal/platform/BouncyCastlePlatform;
 
@@ -76,14 +76,15 @@
 
     move-object v1, v0
 
-    :cond_0
+    :cond_d
     return-object v1
 .end method
 
 .method public final isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 85
+    # getter for: Lokhttp3/internal/platform/BouncyCastlePlatform;->isSupported:Z
     invoke-static {}, Lokhttp3/internal/platform/BouncyCastlePlatform;->access$isSupported$cp()Z
 
     move-result v0

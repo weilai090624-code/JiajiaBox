@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1384
     new-instance v0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner$3;
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>(ZLjava/lang/Iterable;)V
-    .locals 3
+    .registers 6
     .param p1, "allMustSucceed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,12 +110,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -127,19 +127,20 @@
     .local v1, "input":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<*>;"
     iget-object v2, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
+    # invokes: Lcom/google/common/util/concurrent/ClosingFuture;->becomeSubsumedInto(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
     invoke-static {v1, v2}, Lcom/google/common/util/concurrent/ClosingFuture;->access$1000(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
 
     .line 1284
     .end local v1    # "input":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<*>;"
-    goto :goto_0
+    goto :goto_17
 
     .line 1285
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method synthetic constructor <init>(ZLjava/lang/Iterable;Lcom/google/common/util/concurrent/ClosingFuture$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Z
     .param p2, "x1"    # Ljava/lang/Iterable;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/ClosingFuture$1;
@@ -151,7 +152,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/google/common/util/concurrent/ClosingFuture$Combiner;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner;
 
     .line 1233
@@ -161,7 +162,7 @@
 .end method
 
 .method private futureCombiner()Lcom/google/common/util/concurrent/Futures$FutureCombiner;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -174,7 +175,7 @@
     .line 1379
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner;->allMustSucceed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1380
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner;->inputFutures()Lcom/google/common/collect/ImmutableList;
@@ -185,10 +186,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1381
-    :cond_0
+    :cond_d
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner;->inputFutures()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -198,12 +199,12 @@
     move-result-object v0
 
     .line 1379
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method private inputFutures()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -236,7 +237,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$Combiner$CombiningCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 5
+    .registers 8
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -276,6 +277,7 @@
 
     .line 1317
     .local v1, "derived":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
     invoke-static {v1}, Lcom/google/common/util/concurrent/ClosingFuture;->access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     move-result-object v2
@@ -293,7 +295,7 @@
 .end method
 
 .method public callAsync(Lcom/google/common/util/concurrent/ClosingFuture$Combiner$AsyncCombiningCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 5
+    .registers 8
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,6 +336,7 @@
 
     .line 1374
     .local v1, "derived":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture;->closeables:Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
     invoke-static {v1}, Lcom/google/common/util/concurrent/ClosingFuture;->access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     move-result-object v2

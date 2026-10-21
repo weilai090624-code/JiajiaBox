@@ -71,16 +71,16 @@
 
 .field final synthetic $subName:Ljava/lang/String;
 
-.field label:I
-
 .field private createdGroupId:J
+
+.field label:I
 
 .field final synthetic this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 22
+    .registers 24
 
     move-object/from16 v1, p0
 
@@ -195,7 +195,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_e6
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -205,39 +205,39 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_14
     move-object/from16 v2, p1
 
     .local v2, "$result":Ljava/lang/Object;
-    :try_start_0
+    :try_start_16
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v4, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_aa
 
     .end local v2    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1c
     move-object/from16 v2, p1
 
     .restart local v2    # "$result":Ljava/lang/Object;
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_21} :catch_24
 
     move-object v4, v2
 
-    goto/16 :goto_1
+    goto/16 :goto_90
 
     .line 672
-    :catch_0
+    :catch_24
     move-exception v0
 
-    goto/16 :goto_3
+    goto/16 :goto_b3
 
     .line 663
     .end local v2    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_27
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -247,7 +247,7 @@
     nop
 
     .line 665
-    :try_start_1
+    :try_start_2d
     new-instance v21, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const/16 v19, 0x3ef
@@ -299,17 +299,17 @@
 
     const/4 v10, 0x1
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_5a
 
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_5b
 
-    :cond_0
+    :cond_5a
     const/4 v9, 0x0
 
-    :goto_0
-    if-eqz v9, :cond_1
+    :goto_5b
+    if-eqz v9, :cond_6c
 
     .line 1014
     const/4 v4, 0x0
@@ -329,7 +329,7 @@
     const-string v4, "Subscription #"
 
     .end local v4    # "$i$a$-ifEmpty-JJHomeFragment$createSubscription$1$ok$1$group$1$1":I
-    :cond_1
+    :cond_6c
     check-cast v4, Ljava/lang/String;
 
     invoke-virtual {v7, v4}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setName(Ljava/lang/String;)V
@@ -374,17 +374,17 @@
     invoke-virtual {v5, v4, v6}, Lio/nekohasekai/sagernet/database/GroupManager;->createGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_8b
+    .catch Ljava/lang/Exception; {:try_start_2d .. :try_end_8b} :catch_24
 
     .end local v4    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-ne v5, v0, :cond_2
+    if-ne v5, v0, :cond_8e
 
     .line 663
     return-object v0
 
     .line 669
-    :cond_2
+    :cond_8e
     move-object v4, v2
 
     move-object v2, v5
@@ -392,8 +392,8 @@
     .line 663
     .end local v2    # "$result":Ljava/lang/Object;
     .local v4, "$result":Ljava/lang/Object;
-    :goto_1
-    :try_start_2
+    :goto_90
+    :try_start_90
     check-cast v2, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     .line 670
@@ -417,33 +417,34 @@
 
     iput v7, v1, Lio/nekohasekai/sagernet/ui/JJHomeFragment$createSubscription$1$ok$1;->label:I
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updateGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v5, v2, v6}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$updateGroup(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
 
     .end local v2    # "created":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-ne v5, v0, :cond_3
+    if-ne v5, v0, :cond_a9
 
     .line 663
     return-object v0
 
     .line 671
-    :cond_3
+    :cond_a9
     move-object v2, v5
 
-    :goto_2
+    :goto_aa
     check-cast v2, Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_b0
+    .catch Ljava/lang/Exception; {:try_start_90 .. :try_end_b0} :catch_b1
 
-    goto :goto_4
+    goto :goto_bc
 
     .line 672
-    :catch_1
+    :catch_b1
     move-exception v0
 
     move-object v2, v4
@@ -452,7 +453,7 @@
     .end local v4    # "$result":Ljava/lang/Object;
     .local v0, "e":Ljava/lang/Exception;
     .local v2, "$result":Ljava/lang/Object;
-    :goto_3
+    :goto_b3
     sget-object v4, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v5, v0
@@ -467,8 +468,8 @@
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v4    # "$result":Ljava/lang/Object;
-    :goto_4
-    if-eqz v3, :rollback_import
+    :goto_bc
+    if-eqz v3, :cond_c6
 
     sget-object v5, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -476,16 +477,16 @@
 
     invoke-virtual {v5, v6, v7}, Lio/nekohasekai/sagernet/database/DataStore;->setSelectedGroup(J)V
 
-    goto :import_finished
+    goto :goto_e1
 
-    :rollback_import
+    :cond_c6
     iget-wide v6, v1, Lio/nekohasekai/sagernet/ui/JJHomeFragment$createSubscription$1$ok$1;->createdGroupId:J
 
     const-wide/16 v8, 0x0
 
     cmp-long v5, v6, v8
 
-    if-lez v5, :import_finished
+    if-lez v5, :cond_e1
 
     sget-object v5, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
@@ -501,14 +502,15 @@
 
     move-result-object v0
 
-    if-ne v5, v0, :import_finished
+    if-ne v5, v0, :cond_e1
 
     return-object v0
 
-    :rollback_resumed
+    :pswitch_de
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    :import_finished
+    :cond_e1
+    :goto_e1
     invoke-static {v3}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -516,13 +518,11 @@
     .line 675
     return-object v0
 
-    nop
-
-    :pswitch_data_0
+    :pswitch_data_e6
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :rollback_resumed
+        :pswitch_27
+        :pswitch_1c
+        :pswitch_14
+        :pswitch_de
     .end packed-switch
 .end method

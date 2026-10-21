@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 124
+    .line 139
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$3;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
         }
     .end annotation
 
-    .line 124
+    .line 139
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$3;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->render()V
@@ -73,6 +73,5 @@
         }
     .end annotation
 
-    .line 124
     return-void
 .end method

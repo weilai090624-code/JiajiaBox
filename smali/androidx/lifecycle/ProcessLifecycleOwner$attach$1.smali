@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/lifecycle/ProcessLifecycleOwner;
 
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$attach$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -74,7 +74,7 @@
 
     const/16 v1, 0x1d
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1a
 
     .line 174
     sget-object v0, Landroidx/lifecycle/ReportFragment;->Companion:Landroidx/lifecycle/ReportFragment$Companion;
@@ -85,6 +85,7 @@
 
     iget-object v1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$attach$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
+    # getter for: Landroidx/lifecycle/ProcessLifecycleOwner;->initializationListener:Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;
     invoke-static {v1}, Landroidx/lifecycle/ProcessLifecycleOwner;->access$getInitializationListener$p(Landroidx/lifecycle/ProcessLifecycleOwner;)Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;
 
     move-result-object v1
@@ -92,12 +93,12 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/ReportFragment;->setProcessListener(Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;)V
 
     .line 176
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -114,7 +115,7 @@
 .end method
 
 .method public onActivityPreCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -142,7 +143,7 @@
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"

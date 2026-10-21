@@ -109,7 +109,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/Headers$Companion;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method private constructor <init>([Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "namesAndValues"    # [Ljava/lang/String;
 
     .line 50
@@ -137,7 +137,7 @@
 .end method
 
 .method public synthetic constructor <init>([Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1}, Lokhttp3/Headers;-><init>([Ljava/lang/String;)V
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public static final of(Ljava/util/Map;)Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final varargs of([Ljava/lang/String;)Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public final -deprecated_size()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -205,7 +205,7 @@
 .end method
 
 .method public final byteCount()J
-    .locals 7
+    .registers 8
 
     .line 123
     iget-object v0, p0, Lokhttp3/Headers;->namesAndValues:[Ljava/lang/String;
@@ -222,11 +222,11 @@
 
     array-length v2, v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1b
 
     const/4 v3, 0x0
 
-    :cond_0
+    :cond_c
     move v4, v3
 
     .local v4, "i":I
@@ -246,22 +246,22 @@
     add-long/2addr v0, v5
 
     .line 125
-    if-lt v3, v2, :cond_0
+    if-lt v3, v2, :cond_c
 
     .line 129
     .end local v4    # "i":I
-    :cond_1
+    :cond_1b
     return-wide v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 179
     instance-of v0, p1, Lokhttp3/Headers;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lokhttp3/Headers;->namesAndValues:[Ljava/lang/String;
 
@@ -275,21 +275,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public final get(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -301,6 +301,7 @@
 
     iget-object v1, p0, Lokhttp3/Headers;->namesAndValues:[Ljava/lang/String;
 
+    # invokes: Lokhttp3/Headers$Companion;->get([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v0, v1, p1}, Lokhttp3/Headers$Companion;->access$get(Lokhttp3/Headers$Companion;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -309,7 +310,7 @@
 .end method
 
 .method public final getDate(Ljava/lang/String;)Ljava/util/Date;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -321,23 +322,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lokhttp3/internal/http/DatesKt;->toHttpDateOrNull(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public final getInstant(Ljava/lang/String;)Lj$/time/Instant;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -351,23 +352,23 @@
 
     .line 70
     .local v0, "value":Ljava/util/Date;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lj$/util/DateRetargetClass;->toInstant(Ljava/util/Date;)Lj$/time/Instant;
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 182
     iget-object v0, p0, Lokhttp3/Headers;->namesAndValues:[Ljava/lang/String;
@@ -380,7 +381,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -401,8 +402,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_7
+    if-ge v2, v0, :cond_1a
 
     invoke-virtual {p0, v2}, Lokhttp3/Headers;->name(I)Ljava/lang/String;
 
@@ -420,9 +421,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_1a
     invoke-static {v1}, Lkotlin/jvm/internal/ArrayIteratorKt;->iterator([Ljava/lang/Object;)Ljava/util/Iterator;
 
     move-result-object v0
@@ -431,7 +432,7 @@
 .end method
 
 .method public final name(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 85
@@ -445,7 +446,7 @@
 .end method
 
 .method public final names()Ljava/util/Set;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -472,11 +473,11 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1e
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_12
     move v3, v2
 
     .local v3, "i":I
@@ -490,11 +491,11 @@
     invoke-virtual {v0, v4}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
     .line 93
-    if-lt v2, v1, :cond_0
+    if-lt v2, v1, :cond_12
 
     .line 96
     .end local v3    # "i":I
-    :cond_1
+    :cond_1e
     move-object v1, v0
 
     check-cast v1, Ljava/util/Set;
@@ -511,7 +512,7 @@
 .end method
 
 .method public final newBuilder()Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 4
 
     .line 137
     new-instance v0, Lokhttp3/Headers$Builder;
@@ -535,7 +536,7 @@
 .end method
 
 .method public final size()I
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Lokhttp3/Headers;->namesAndValues:[Ljava/lang/String;
@@ -548,7 +549,7 @@
 .end method
 
 .method public final toMultimap()Ljava/util/Map;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -577,11 +578,11 @@
 
     move-result v1
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_54
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_12
     move v3, v2
 
     .local v3, "i":I
@@ -598,7 +599,7 @@
 
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4c
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
@@ -618,7 +619,7 @@
 
     .line 215
     .local v5, "values":Ljava/util/List;
-    if-nez v5, :cond_1
+    if-nez v5, :cond_42
 
     .line 216
     new-instance v6, Ljava/util/ArrayList;
@@ -639,7 +640,7 @@
     invoke-interface {v6, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 219
-    :cond_1
+    :cond_42
     invoke-virtual {p0, v3}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
 
     move-result-object v6
@@ -649,12 +650,12 @@
     .line 212
     .end local v4    # "name":Ljava/lang/String;
     .end local v5    # "values":Ljava/util/List;
-    if-lt v2, v1, :cond_0
+    if-lt v2, v1, :cond_12
 
-    goto :goto_0
+    goto :goto_54
 
     .line 213
-    :cond_2
+    :cond_4c
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type java.lang.String"
@@ -665,8 +666,8 @@
 
     .line 221
     .end local v3    # "i":I
-    :cond_3
-    :goto_0
+    :cond_54
+    :goto_54
     move-object v1, v0
 
     check-cast v1, Ljava/util/Map;
@@ -675,7 +676,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     .line 198
     new-instance v0, Ljava/lang/StringBuilder;
@@ -693,11 +694,11 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_35
 
     const/4 v4, 0x0
 
-    :cond_0
+    :cond_e
     move v5, v4
 
     .local v5, "i":I
@@ -728,16 +729,16 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2a
 
     const-string v8, "\u2588\u2588"
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     move-object v8, v7
 
-    :goto_0
+    :goto_2b
     invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 205
@@ -748,11 +749,11 @@
     .line 199
     .end local v6    # "name":Ljava/lang/String;
     .end local v7    # "value":Ljava/lang/String;
-    if-lt v4, v3, :cond_0
+    if-lt v4, v3, :cond_e
 
     .line 207
     .end local v5    # "i":I
-    :cond_2
+    :cond_35
     nop
 
     .line 198
@@ -770,7 +771,7 @@
 .end method
 
 .method public final value(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 88
@@ -786,7 +787,7 @@
 .end method
 
 .method public final values(Ljava/lang/String;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -812,11 +813,11 @@
 
     move-result v1
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_2e
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_d
     move v3, v2
 
     .local v3, "i":I
@@ -833,10 +834,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2c
 
     .line 104
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -849,7 +850,7 @@
     check-cast v0, Ljava/util/List;
 
     .line 105
-    :cond_1
+    :cond_25
     invoke-virtual {p0, v3}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
 
     move-result-object v4
@@ -857,13 +858,13 @@
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 102
-    :cond_2
-    if-lt v2, v1, :cond_0
+    :cond_2c
+    if-lt v2, v1, :cond_d
 
     .line 108
     .end local v3    # "i":I
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_2e
+    if-eqz v0, :cond_3a
 
     .line 109
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -875,15 +876,15 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 111
-    :cond_4
+    :cond_3a
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v1
 
     .line 108
-    :goto_0
+    :goto_3e
     return-object v1
 .end method

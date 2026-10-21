@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/helper/widget/Carousel$1;F)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/constraintlayout/helper/widget/Carousel$1;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,13 +51,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 286
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$1$1;->this$1:Landroidx/constraintlayout/helper/widget/Carousel$1;
 
     iget-object v0, v0, Landroidx/constraintlayout/helper/widget/Carousel$1;->this$0:Landroidx/constraintlayout/helper/widget/Carousel;
 
+    # getter for: Landroidx/constraintlayout/helper/widget/Carousel;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
     invoke-static {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->access$000(Landroidx/constraintlayout/helper/widget/Carousel;)Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     move-result-object v0

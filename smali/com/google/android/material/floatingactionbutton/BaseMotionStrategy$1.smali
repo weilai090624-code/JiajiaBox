@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;
     .param p3, "arg1"    # Ljava/lang/String;
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public get(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Ljava/lang/Float;
-    .locals 5
+    .registers 7
     .param p1, "object"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 161
@@ -58,6 +58,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy$1;->this$0:Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;
 
+    # getter for: Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
     invoke-static {v2}, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->access$000(Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;)Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     move-result-object v2
@@ -116,7 +117,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 156
     check-cast p1, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -129,7 +130,7 @@
 .end method
 
 .method public set(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Ljava/lang/Float;)V
-    .locals 6
+    .registers 9
     .param p1, "object"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
     .param p2, "value"    # Ljava/lang/Float;
 
@@ -143,6 +144,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy$1;->this$0:Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;
 
+    # getter for: Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
     invoke-static {v2}, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->access$000(Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;)Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     move-result-object v2
@@ -225,26 +227,26 @@
 
     cmpl-float v4, v4, v5
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_4f
 
     .line 196
     iget-object v4, p1, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->originalTextCsl:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v4}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->silentlyUpdateTextColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_52
 
     .line 198
-    :cond_0
+    :cond_4f
     invoke-virtual {p1, v3}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->silentlyUpdateTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 200
-    :goto_0
+    :goto_52
     return-void
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 156
     check-cast p1, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;

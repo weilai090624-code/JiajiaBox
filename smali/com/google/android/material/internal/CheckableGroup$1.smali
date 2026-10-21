@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/CheckableGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/CheckableGroup;
 
     .line 79
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Lcom/google/android/material/internal/MaterialCheckable;Z)V
-    .locals 2
+    .registers 5
     .param p2, "isChecked"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,42 +59,46 @@
     .local p1, "checkable":Lcom/google/android/material/internal/MaterialCheckable;, "TT;"
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup$1;->this$0:Lcom/google/android/material/internal/CheckableGroup;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
+    # invokes: Lcom/google/android/material/internal/CheckableGroup;->checkInternal(Lcom/google/android/material/internal/MaterialCheckable;)Z
     invoke-static {v0, p1}, Lcom/google/android/material/internal/CheckableGroup;->access$000(Lcom/google/android/material/internal/CheckableGroup;Lcom/google/android/material/internal/MaterialCheckable;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/android/material/internal/CheckableGroup$1;->this$0:Lcom/google/android/material/internal/CheckableGroup;
 
+    # getter for: Lcom/google/android/material/internal/CheckableGroup;->selectionRequired:Z
     invoke-static {v1}, Lcom/google/android/material/internal/CheckableGroup;->access$100(Lcom/google/android/material/internal/CheckableGroup;)Z
 
     move-result v1
 
+    # invokes: Lcom/google/android/material/internal/CheckableGroup;->uncheckInternal(Lcom/google/android/material/internal/MaterialCheckable;Z)Z
     invoke-static {v0, p1, v1}, Lcom/google/android/material/internal/CheckableGroup;->access$200(Lcom/google/android/material/internal/CheckableGroup;Lcom/google/android/material/internal/MaterialCheckable;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 83
-    :goto_0
+    :goto_17
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup$1;->this$0:Lcom/google/android/material/internal/CheckableGroup;
 
+    # invokes: Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChanged()V
     invoke-static {v0}, Lcom/google/android/material/internal/CheckableGroup;->access$300(Lcom/google/android/material/internal/CheckableGroup;)V
 
     .line 85
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method public bridge synthetic onCheckedChanged(Ljava/lang/Object;Z)V
-    .locals 0
+    .registers 3
 
     .line 79
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup$1;, "Lcom/google/android/material/internal/CheckableGroup$1;"

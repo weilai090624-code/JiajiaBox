@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>([D)V
-    .locals 2
+    .registers 4
     .param p1, "array"    # [D
 
     .line 531
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>([DII)V
-    .locals 0
+    .registers 4
     .param p1, "array"    # [D
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -90,7 +90,7 @@
     .line 559
     instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
 
@@ -107,28 +107,29 @@
 
     iget v4, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Doubles;->indexOf([DDII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Doubles;->access$000([DDII)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     .line 559
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 10
+    .registers 12
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -137,16 +138,16 @@
     .line 608
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 609
     return v0
 
     .line 611
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_31
 
     .line 612
     move-object v1, p1
@@ -167,18 +168,18 @@
 
     const/4 v4, 0x0
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_17
 
     .line 615
     return v4
 
     .line 617
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_18
+    if-ge v3, v2, :cond_30
 
     .line 618
     iget-object v5, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
@@ -199,26 +200,26 @@
 
     cmpl-double v5, v6, v8
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2d
 
     .line 619
     return v4
 
     .line 617
-    :cond_2
+    :cond_2d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 622
     .end local v3    # "i":I
-    :cond_3
+    :cond_30
     return v0
 
     .line 624
     .end local v1    # "that":Lcom/google/common/primitives/Doubles$DoubleArrayAsList;
     .end local v2    # "size":I
-    :cond_4
+    :cond_31
     invoke-super {p0, p1}, Ljava/util/AbstractList;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -227,7 +228,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Double;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 552
@@ -254,7 +255,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 523
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->get(I)Ljava/lang/Double;
@@ -265,7 +266,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 629
     const/4 v0, 0x1
@@ -275,10 +276,10 @@
     iget v1, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->start:I
 
     .local v1, "i":I
-    :goto_0
+    :goto_3
     iget v2, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 631
     mul-int/lit8 v2, v0, 0x1f
@@ -296,16 +297,16 @@
     .line 630
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 633
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -314,7 +315,7 @@
     .line 566
     instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 567
     iget-object v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
@@ -331,13 +332,14 @@
 
     iget v4, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Doubles;->indexOf([DDII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Doubles;->access$000([DDII)I
 
     move-result v0
 
     .line 568
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 569
     iget v1, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->start:I
@@ -348,14 +350,14 @@
 
     .line 572
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 547
     const/4 v0, 0x0
@@ -364,7 +366,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -373,7 +375,7 @@
     .line 578
     instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 579
     iget-object v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
@@ -390,13 +392,14 @@
 
     iget v4, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Doubles;->lastIndexOf([DDII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Doubles;->access$100([DDII)I
 
     move-result v0
 
     .line 580
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 581
     iget v1, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->start:I
@@ -407,14 +410,14 @@
 
     .line 584
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public set(ILjava/lang/Double;)Ljava/lang/Double;
-    .locals 6
+    .registers 9
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Double;
 
@@ -463,7 +466,7 @@
 .end method
 
 .method public bridge synthetic set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 523
     check-cast p2, Ljava/lang/Double;
@@ -476,7 +479,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 542
     iget v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
@@ -489,7 +492,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 5
+    .registers 8
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -511,7 +514,7 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 600
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_e
 
     .line 601
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -521,7 +524,7 @@
     return-object v1
 
     .line 603
-    :cond_0
+    :cond_e
     new-instance v1, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;
 
     iget-object v2, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
@@ -540,7 +543,7 @@
 .end method
 
 .method toDoubleArray()[D
-    .locals 3
+    .registers 4
 
     .line 647
     iget-object v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->array:[D
@@ -557,7 +560,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 638
     new-instance v0, Ljava/lang/StringBuilder;
@@ -592,10 +595,10 @@
     add-int/lit8 v1, v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_1e
     iget v2, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_32
 
     .line 641
     const-string v2, ", "
@@ -613,11 +616,11 @@
     .line 640
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 643
     .end local v1    # "i":I
-    :cond_0
+    :cond_32
     const/16 v1, 0x5d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

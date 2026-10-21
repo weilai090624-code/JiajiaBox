@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/LineReader;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/io/LineReader;
 
     .line 49
@@ -34,13 +34,14 @@
 
 # virtual methods
 .method protected handleLine(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "line"    # Ljava/lang/String;
     .param p2, "end"    # Ljava/lang/String;
 
     .line 52
     iget-object v0, p0, Lcom/google/common/io/LineReader$1;->this$0:Lcom/google/common/io/LineReader;
 
+    # getter for: Lcom/google/common/io/LineReader;->lines:Ljava/util/Queue;
     invoke-static {v0}, Lcom/google/common/io/LineReader;->access$000(Lcom/google/common/io/LineReader;)Ljava/util/Queue;
 
     move-result-object v0

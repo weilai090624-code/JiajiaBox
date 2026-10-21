@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokhttp3/HttpUrl;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .param p2, "url"    # Lokhttp3/HttpUrl;
     .annotation system Ldalvik/annotation/Signature;
@@ -106,7 +106,7 @@
 .end method
 
 .method private final readChunkSize()V
-    .locals 7
+    .registers 8
 
     .line 427
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
@@ -115,11 +115,12 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_11
 
     .line 428
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -127,13 +128,14 @@
     invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     .line 430
-    :cond_0
+    :cond_11
     nop
 
     .line 431
-    :try_start_0
+    :try_start_12
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -147,6 +149,7 @@
     .line 432
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -155,7 +158,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b1
 
     check-cast v0, Ljava/lang/CharSequence;
 
@@ -175,7 +178,7 @@
 
     cmp-long v5, v1, v3
 
-    if-ltz v5, :cond_4
+    if-ltz v5, :cond_8b
 
     move-object v1, v0
 
@@ -187,17 +190,17 @@
 
     const/4 v2, 0x0
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_48
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_1
+    :cond_48
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_49
+    if-eqz v1, :cond_55
 
     const-string v1, ";"
 
@@ -208,19 +211,19 @@
     invoke-static {v0, v1, v2, v5, v6}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_53
+    .catch Ljava/lang/NumberFormatException; {:try_start_12 .. :try_end_53} :catch_b9
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_8b
 
     .line 441
     .end local v0    # "extensions":Ljava/lang/String;
-    :cond_2
+    :cond_55
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
 
     cmp-long v5, v0, v3
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_8a
 
     .line 442
     iput-boolean v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->hasMoreChunks:Z
@@ -230,6 +233,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->headersReader:Lokhttp3/internal/http1/HeadersReader;
     invoke-static {v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getHeadersReader$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/internal/http1/HeadersReader;
 
     move-result-object v1
@@ -243,6 +247,7 @@
     .line 444
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->client:Lokhttp3/OkHttpClient;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getClient$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/OkHttpClient;
 
     move-result-object v0
@@ -257,6 +262,7 @@
 
     iget-object v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->trailers:Lokhttp3/Headers;
     invoke-static {v2}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getTrailers$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/Headers;
 
     move-result-object v2
@@ -269,13 +275,13 @@
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->responseBodyComplete()V
 
     .line 447
-    :cond_3
+    :cond_8a
     return-void
 
     .line 434
     .restart local v0    # "extensions":Ljava/lang/String;
-    :cond_4
-    :try_start_1
+    :cond_8b
+    :try_start_8b
     new-instance v1, Ljava/net/ProtocolException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -320,7 +326,7 @@
 
     .line 432
     .end local v0    # "extensions":Ljava/lang/String;
-    :cond_5
+    :cond_b1
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.CharSequence"
@@ -328,11 +334,11 @@
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_b9
+    .catch Ljava/lang/NumberFormatException; {:try_start_8b .. :try_end_b9} :catch_b9
 
     .line 437
-    :catch_0
+    :catch_b9
     move-exception v0
 
     .line 438
@@ -351,22 +357,22 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 450
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->getClosed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 451
-    :cond_0
+    :cond_7
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->hasMoreChunks:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 452
     move-object v0, p0
@@ -381,7 +387,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 453
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
@@ -396,7 +402,7 @@
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->responseBodyComplete()V
 
     .line 456
-    :cond_1
+    :cond_24
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->setClosed(Z)V
@@ -406,7 +412,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 7
+    .registers 11
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -419,61 +425,61 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_6
+    :goto_e
+    if-eqz v2, :cond_69
 
     .line 406
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->getClosed()Z
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_59
 
     .line 407
     iget-boolean v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->hasMoreChunks:Z
 
     const-wide/16 v3, -0x1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     return-wide v3
 
     .line 409
-    :cond_1
+    :cond_1d
     iget-wide v5, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
 
     cmp-long v2, v5, v0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
 
     cmp-long v2, v0, v3
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_31
 
     .line 410
-    :cond_2
+    :cond_29
     invoke-direct {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->readChunkSize()V
 
     .line 411
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->hasMoreChunks:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_31
 
     return-wide v3
 
     .line 414
-    :cond_3
+    :cond_31
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
 
     invoke-static {p2, p3, v0, v1}, Ljava/lang/Math;->min(JJ)J
@@ -488,7 +494,7 @@
     .local v0, "read":J
     cmp-long v2, v0, v3
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_45
 
     .line 421
     iget-wide v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->bytesRemainingInChunk:J
@@ -501,7 +507,7 @@
     return-wide v0
 
     .line 416
-    :cond_4
+    :cond_45
     iget-object v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     invoke-virtual {v2}, Lokhttp3/internal/http1/Http1ExchangeCodec;->getConnection()Lokhttp3/internal/connection/RealConnection;
@@ -527,7 +533,7 @@
     .line 500
     .end local v0    # "read":J
     .end local v2    # "e":Ljava/net/ProtocolException;
-    :cond_5
+    :cond_59
     const/4 v0, 0x0
 
     .line 406
@@ -550,7 +556,7 @@
     throw v0
 
     .line 500
-    :cond_6
+    :cond_69
     const/4 v0, 0x0
 
     .line 405

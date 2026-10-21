@@ -102,7 +102,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Kk-Lu2KZEHcDJk0z9exQUgAxieU(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->reload$lambda$3(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Yh1mP37N7tpIjVwyt3YD48eAYtM(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->reload$lambda$2(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -138,6 +138,7 @@
     .line 106
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->apps:Ljava/util/List;
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Ljava/util/List;
 
     move-result-object v0
@@ -158,7 +159,7 @@
 .end method
 
 .method private static final reload$lambda$2(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity;
     .param p1, "it"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
 
@@ -167,6 +168,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 113
+    # invokes: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
 
     move-result v0
@@ -183,7 +185,7 @@
 .end method
 
 .method private static final reload$lambda$3(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
 
     const-string v0, "it"
@@ -207,7 +209,7 @@
 
 # virtual methods
 .method public getFilter()Landroid/widget/Filter;
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->filterImpl:Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter$filterImpl$1;
@@ -218,7 +220,7 @@
 .end method
 
 .method public final getFilteredApps()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -235,7 +237,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->filteredApps:Ljava/util/List;
@@ -248,7 +250,7 @@
 .end method
 
 .method public getSectionName(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 155
@@ -268,23 +270,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-virtual {v0}, Ljava/lang/Character;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
-    :cond_0
+    :cond_18
     const-string v0, ""
 
-    :cond_1
+    :cond_1a
     return-object v0
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "p1"    # I
 
@@ -299,7 +301,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILjava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "p0"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "p1"    # I
     .param p3, "p2"    # Ljava/util/List;
@@ -315,7 +317,7 @@
 .end method
 
 .method public onBindViewHolder(Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "holder"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;
     .param p2, "position"    # I
 
@@ -338,7 +340,7 @@
 .end method
 
 .method public onBindViewHolder(Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;ILjava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "holder"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;
     .param p2, "position"    # I
     .param p3, "payloads"    # Ljava/util/List;
@@ -371,7 +373,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 121
     invoke-virtual {p1, p3}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;->handlePayload(Ljava/util/List;)V
@@ -380,7 +382,7 @@
     return-void
 
     .line 125
-    :cond_0
+    :cond_17
     invoke-virtual {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppsAdapter;->onBindViewHolder(Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;I)V
 
     .line 126
@@ -388,7 +390,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/view/ViewGroup;
     .param p2, "p1"    # I
 
@@ -403,7 +405,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lio/nekohasekai/sagernet/ui/AppManagerActivity$AppViewHolder;
-    .locals 4
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -438,7 +440,7 @@
 .end method
 
 .method public final reload(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 22
+    .registers 24
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -463,6 +465,7 @@
 
     sget-object v2, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->Companion:Lio/nekohasekai/sagernet/ui/AppManagerActivity$Companion;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/AppManagerActivity$Companion;->getCachedApps()Ljava/util/Map;
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$Companion;->access$getCachedApps(Lio/nekohasekai/sagernet/ui/AppManagerActivity$Companion;)Ljava/util/Map;
 
     move-result-object v2
@@ -503,12 +506,12 @@
 
     move-result-object v10
 
-    :goto_0
+    :goto_25
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_8c
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -580,7 +583,7 @@
     .line 112
     iget-object v4, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_78
 
     .line 415
     .local v4, "it":Landroid/content/pm/ApplicationInfo;
@@ -612,11 +615,11 @@
 
     .end local v4    # "it":Landroid/content/pm/ApplicationInfo;
     .end local v20    # "$i$a$-let-AppManagerActivity$AppsAdapter$reload$2$1":I
-    goto :goto_1
+    goto :goto_7d
 
     .end local v18    # "packageInfo":Landroid/content/pm/PackageInfo;
     .restart local v2    # "packageInfo":Landroid/content/pm/PackageInfo;
-    :cond_0
+    :cond_78
     move-object/from16 v18, v2
 
     move-object/from16 v21, v3
@@ -629,8 +632,8 @@
     .end local v14    # "$i$a$-mapNotNull-AppManagerActivity$AppsAdapter$reload$2":I
     .end local v15    # "packageName":Ljava/lang/String;
     .end local v18    # "packageInfo":Landroid/content/pm/PackageInfo;
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_7d
+    if-eqz v2, :cond_83
 
     .line 416
     .local v2, "it$iv$iv":Ljava/lang/Object;
@@ -645,7 +648,7 @@
     .end local v3    # "$i$a$-let-MapsKt___MapsKt$mapNotNullTo$1$1$iv$iv":I
     .end local v12    # "element$iv$iv":Ljava/util/Map$Entry;
     .end local v13    # "$i$a$-forEach-MapsKt___MapsKt$mapNotNullTo$1$iv$iv":I
-    :cond_1
+    :cond_83
     move/from16 v4, v16
 
     move-object/from16 v2, v17
@@ -655,7 +658,7 @@
     move-object/from16 v3, v21
 
     .end local v11    # "element$iv$iv$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_25
 
     .line 417
     .end local v16    # "$i$f$mapNotNull":I
@@ -664,7 +667,7 @@
     .local v2, "$this$mapNotNull$iv":Ljava/util/Map;
     .local v4, "$i$f$mapNotNull":I
     .local v6, "$this$mapNotNullTo$iv$iv":Ljava/util/Map;
-    :cond_2
+    :cond_8c
     move-object/from16 v17, v2
 
     move/from16 v16, v4
@@ -733,7 +736,7 @@
 .end method
 
 .method public final setFilteredApps(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

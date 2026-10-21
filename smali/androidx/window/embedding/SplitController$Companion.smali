@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/embedding/SplitController$Companion;-><init>()V
 
@@ -67,18 +67,20 @@
 
 # virtual methods
 .method public final getInstance()Landroidx/window/embedding/SplitController;
-    .locals 4
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 131
+    # getter for: Landroidx/window/embedding/SplitController;->globalInstance:Landroidx/window/embedding/SplitController;
     invoke-static {}, Landroidx/window/embedding/SplitController;->access$getGlobalInstance$cp()Landroidx/window/embedding/SplitController;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 132
+    # getter for: Landroidx/window/embedding/SplitController;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
     invoke-static {}, Landroidx/window/embedding/SplitController;->access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
 
     move-result-object v0
@@ -91,12 +93,13 @@
 
     .line 133
     .local v1, "$i$a$-withLock-SplitController$Companion$getInstance$1":I
-    :try_start_0
+    :try_start_10
+    # getter for: Landroidx/window/embedding/SplitController;->globalInstance:Landroidx/window/embedding/SplitController;
     invoke-static {}, Landroidx/window/embedding/SplitController;->access$getGlobalInstance$cp()Landroidx/window/embedding/SplitController;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_21
 
     .line 134
     sget-object v2, Landroidx/window/embedding/SplitController;->Companion:Landroidx/window/embedding/SplitController$Companion;
@@ -110,20 +113,20 @@
     invoke-static {v2}, Landroidx/window/embedding/SplitController;->access$setGlobalInstance$cp(Landroidx/window/embedding/SplitController;)V
 
     .line 136
-    :cond_0
+    :cond_21
     nop
 
     .end local v1    # "$i$a$-withLock-SplitController$Companion$getInstance$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_10 .. :try_end_24} :catchall_28
 
     .line 132
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -131,8 +134,9 @@
     throw v1
 
     .line 138
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
+    # getter for: Landroidx/window/embedding/SplitController;->globalInstance:Landroidx/window/embedding/SplitController;
     invoke-static {}, Landroidx/window/embedding/SplitController;->access$getGlobalInstance$cp()Landroidx/window/embedding/SplitController;
 
     move-result-object v0
@@ -143,7 +147,7 @@
 .end method
 
 .method public final initialize(Landroid/content/Context;I)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "staticRuleResourceId"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -172,18 +176,19 @@
 
     .line 152
     .local v2, "controllerInstance":Landroidx/window/embedding/SplitController;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move-object v3, v1
 
-    :goto_0
+    :goto_1a
+    # invokes: Landroidx/window/embedding/SplitController;->setStaticSplitRules(Ljava/util/Set;)V
     invoke-static {v2, v3}, Landroidx/window/embedding/SplitController;->access$setStaticSplitRules(Landroidx/window/embedding/SplitController;Ljava/util/Set;)V
 
     .line 153

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap$View;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/HashBiMap$View;
 
     .line 693
@@ -53,6 +53,7 @@
 
     iget-object v0, v0, Lcom/google/common/collect/HashBiMap$View;->biMap:Lcom/google/common/collect/HashBiMap;
 
+    # getter for: Lcom/google/common/collect/HashBiMap;->firstInInsertionOrder:I
     invoke-static {v0}, Lcom/google/common/collect/HashBiMap;->access$000(Lcom/google/common/collect/HashBiMap;)I
 
     move-result v0
@@ -86,7 +87,7 @@
 .end method
 
 .method private checkForComodification()V
-    .locals 2
+    .registers 3
 
     .line 703
     .local p0, "this":Lcom/google/common/collect/HashBiMap$View$1;, "Lcom/google/common/collect/HashBiMap$View$1;"
@@ -98,13 +99,13 @@
 
     iget v1, p0, Lcom/google/common/collect/HashBiMap$View$1;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 706
     return-void
 
     .line 704
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -115,7 +116,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 710
     .local p0, "this":Lcom/google/common/collect/HashBiMap$View$1;, "Lcom/google/common/collect/HashBiMap$View$1;"
@@ -126,25 +127,25 @@
 
     const/4 v1, -0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     iget v0, p0, Lcom/google/common/collect/HashBiMap$View$1;->remaining:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -160,7 +161,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 720
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$View$1;->this$0:Lcom/google/common/collect/HashBiMap$View;
@@ -182,6 +183,7 @@
 
     iget-object v1, v1, Lcom/google/common/collect/HashBiMap$View;->biMap:Lcom/google/common/collect/HashBiMap;
 
+    # getter for: Lcom/google/common/collect/HashBiMap;->nextInInsertionOrder:[I
     invoke-static {v1}, Lcom/google/common/collect/HashBiMap;->access$100(Lcom/google/common/collect/HashBiMap;)[I
 
     move-result-object v1
@@ -204,7 +206,7 @@
 
     .line 718
     .end local v0    # "result":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_27
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -213,7 +215,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 729
     .local p0, "this":Lcom/google/common/collect/HashBiMap$View$1;, "Lcom/google/common/collect/HashBiMap$View$1;"
@@ -224,16 +226,16 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
     .line 731
@@ -254,7 +256,7 @@
 
     iget v2, v2, Lcom/google/common/collect/HashBiMap;->size:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_25
 
     .line 733
     iget v0, p0, Lcom/google/common/collect/HashBiMap$View$1;->indexToRemove:I
@@ -262,7 +264,7 @@
     iput v0, p0, Lcom/google/common/collect/HashBiMap$View$1;->index:I
 
     .line 735
-    :cond_1
+    :cond_25
     iput v1, p0, Lcom/google/common/collect/HashBiMap$View$1;->indexToRemove:I
 
     .line 736

@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 337
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/fragment/NavHostFragment$Companion;-><init>()V
 
@@ -67,18 +67,18 @@
 .end method
 
 .method public static synthetic create$default(Landroidx/navigation/fragment/NavHostFragment$Companion;ILandroid/os/Bundle;ILjava/lang/Object;)Landroidx/navigation/fragment/NavHostFragment;
-    .locals 0
+    .registers 5
 
     .line 406
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 408
     const/4 p2, 0x0
 
     .line 406
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/fragment/NavHostFragment$Companion;->create(ILandroid/os/Bundle;)Landroidx/navigation/fragment/NavHostFragment;
 
     move-result-object p0
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final create(I)Landroidx/navigation/fragment/NavHostFragment;
-    .locals 2
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public final create(ILandroid/os/Bundle;)Landroidx/navigation/fragment/NavHostFragment;
-    .locals 2
+    .registers 5
     .param p1, "graphResId"    # I
     .param p2, "startDestinationArgs"    # Landroid/os/Bundle;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -116,7 +116,7 @@
 
     .line 411
     .local v0, "b":Landroid/os/Bundle;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 412
     new-instance v1, Landroid/os/Bundle;
@@ -131,11 +131,11 @@
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 415
-    :cond_0
-    if-eqz p2, :cond_2
+    :cond_e
+    if-eqz p2, :cond_1d
 
     .line 416
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 417
     new-instance v1, Landroid/os/Bundle;
@@ -145,31 +145,31 @@
     move-object v0, v1
 
     .line 419
-    :cond_1
+    :cond_18
     const-string v1, "android-support-nav:fragment:startDestinationArgs"
 
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 421
-    :cond_2
+    :cond_1d
     new-instance v1, Landroidx/navigation/fragment/NavHostFragment;
 
     invoke-direct {v1}, Landroidx/navigation/fragment/NavHostFragment;-><init>()V
 
     .line 422
     .local v1, "result":Landroidx/navigation/fragment/NavHostFragment;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_27
 
     .line 423
     invoke-virtual {v1, v0}, Landroidx/navigation/fragment/NavHostFragment;->setArguments(Landroid/os/Bundle;)V
 
     .line 425
-    :cond_3
+    :cond_27
     return-object v1
 .end method
 
 .method public final findNavController(Landroidx/fragment/app/Fragment;)Landroidx/navigation/NavController;
-    .locals 6
+    .registers 8
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -183,32 +183,33 @@
 
     .line 371
     .local v0, "findFragment":Landroidx/fragment/app/Fragment;
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_6
+    if-eqz v0, :cond_44
 
     .line 372
     instance-of v1, v0, Landroidx/navigation/fragment/NavHostFragment;
 
     const-string v2, "null cannot be cast to non-null type androidx.navigation.NavController"
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 373
     move-object v1, v0
 
     check-cast v1, Landroidx/navigation/fragment/NavHostFragment;
 
+    # getter for: Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
     invoke-static {v1}, Landroidx/navigation/fragment/NavHostFragment;->access$getNavHostController$p(Landroidx/navigation/fragment/NavHostFragment;)Landroidx/navigation/NavHostController;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     check-cast v1, Landroidx/navigation/NavController;
 
     return-object v1
 
-    :cond_0
+    :cond_1a
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -216,7 +217,7 @@
     throw v1
 
     .line 375
-    :cond_1
+    :cond_20
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v1
@@ -233,24 +234,25 @@
     .local v1, "primaryNavFragment":Landroidx/fragment/app/Fragment;
     instance-of v3, v1, Landroidx/navigation/fragment/NavHostFragment;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3f
 
     .line 378
     move-object v3, v1
 
     check-cast v3, Landroidx/navigation/fragment/NavHostFragment;
 
+    # getter for: Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
     invoke-static {v3}, Landroidx/navigation/fragment/NavHostFragment;->access$getNavHostController$p(Landroidx/navigation/fragment/NavHostFragment;)Landroidx/navigation/NavHostController;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_39
 
     check-cast v3, Landroidx/navigation/NavController;
 
     return-object v3
 
-    :cond_2
+    :cond_39
     new-instance v3, Ljava/lang/NullPointerException;
 
     invoke-direct {v3, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -258,23 +260,23 @@
     throw v3
 
     .line 380
-    :cond_3
+    :cond_3f
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
     .end local v1    # "primaryNavFragment":Landroidx/fragment/app/Fragment;
-    goto :goto_0
+    goto :goto_6
 
     .line 384
-    :cond_4
+    :cond_44
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v1
 
     .line 385
     .local v1, "view":Landroid/view/View;
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4f
 
     .line 386
     invoke-static {v1}, Landroidx/navigation/Navigation;->findNavController(Landroid/view/View;)Landroidx/navigation/NavController;
@@ -284,47 +286,47 @@
     return-object v2
 
     .line 390
-    :cond_5
+    :cond_4f
     instance-of v2, p1, Landroidx/fragment/app/DialogFragment;
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_58
 
     move-object v2, p1
 
     check-cast v2, Landroidx/fragment/app/DialogFragment;
 
-    goto :goto_1
+    goto :goto_59
 
-    :cond_6
+    :cond_58
     move-object v2, v3
 
-    :goto_1
-    if-eqz v2, :cond_7
+    :goto_59
+    if-eqz v2, :cond_6b
 
     invoke-virtual {v2}, Landroidx/fragment/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6b
 
     invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6b
 
     invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v3
 
-    :cond_7
+    :cond_6b
     move-object v2, v3
 
     .line 391
     .local v2, "dialogDecorView":Landroid/view/View;
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_73
 
     .line 392
     invoke-static {v2}, Landroidx/navigation/Navigation;->findNavController(Landroid/view/View;)Landroidx/navigation/NavController;
@@ -334,7 +336,7 @@
     return-object v3
 
     .line 394
-    :cond_8
+    :cond_73
     new-instance v3, Ljava/lang/IllegalStateException;
 
     new-instance v4, Ljava/lang/StringBuilder;

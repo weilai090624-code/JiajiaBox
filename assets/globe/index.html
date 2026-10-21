@@ -1,0 +1,289 @@
+<!doctype html>
+<!--
+Copyright (c) 2026 weilai090624-code
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+Original WebGL renderer. Bundled Earth textures: Solar System Scope / INOVE,
+CC BY 4.0; resized and converted to WebP. See Global-Globe-NOTICE.txt.
+No zashboard or Three.js code. No runtime external scripts or services.
+-->
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;user-select:none;-webkit-user-select:none;touch-action:none}
+body{border-radius:10px;background:transparent}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}#labels{pointer-events:none}#credit{position:absolute;left:6px;bottom:4px;color:#a4b0c0;font:8px sans-serif;pointer-events:none;text-shadow:0 1px 2px #000}
+#error{display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:#c7d0df;font:12px sans-serif;text-align:center;padding:12px}
+</style></head><body><canvas id="globe" aria-label="写实昼夜地球与大气辉光，可自转和拖动缩放"></canvas><canvas id="labels" aria-hidden="true"></canvas><span id="credit">Earth: Solar System Scope · CC BY 4.0</span><div id="error" role="status"></div>
+<script>
+'use strict';
+(() => {
+  const canvas=document.getElementById('globe'),overlay=document.getElementById('labels');
+  const error=document.getElementById('error'),ctx=overlay.getContext('2d');
+  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:true,depth:false,stencil:false,preserveDrawingBuffer:false});
+  let dark=false,countries=[],routeNodes=[],routeLinks=[],selectedNode='',selected=-1,paused=true,lost=false,raf=0,dirty=true,lastFrame=null;
+  let yaw=-100*Math.PI/180,pitch=22*Math.PI/180,zoom=1,draws=0,program,vertices;
+  let targetYaw=yaw,targetPitch=pitch,targetZoom=zoom,velocityYaw=0,velocityPitch=0;
+  let autoRotate=true,holdUntil=0,lastMove=0,surfaceBuilds=0,sunTimer=0,sunStamp=-Infinity,sunlight=null;
+  // These placeholders are replaced by the native worker with APK-bundled data URLs.
+  const sources=['@@EARTH_DAY@@','@@EARTH_NIGHT@@','@@EARTH_CLOUDS@@'];
+  const images=[],textures=[];let ready=false;
+  let size={w:1,h:1},uniforms={},failed=false;
+  const pointers=new Map();let previousPinch=0,lastTap=0,travel=0;
+  function fail(message){failed=true;error.textContent=message;error.style.display='flex';}
+  function shader(type,source){const result=gl.createShader(type);gl.shaderSource(result,source);gl.compileShader(result);if(!gl.getShaderParameter(result,gl.COMPILE_STATUS))throw Error('shader');return result;}
+  function bindTexture(index,image){
+    gl.activeTexture(gl.TEXTURE0+index);gl.bindTexture(gl.TEXTURE_2D,textures[index]);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);
+    const anisotropy=gl.getExtension('EXT_texture_filter_anisotropic');
+    if(anisotropy)gl.texParameterf(gl.TEXTURE_2D,anisotropy.TEXTURE_MAX_ANISOTROPY_EXT,Math.min(4,gl.getParameter(anisotropy.MAX_TEXTURE_MAX_ANISOTROPY_EXT)||1));
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  }
+  function loadTextures(){
+    for(let i=0;i<3;i++){
+      if(images[i]&&images[i].complete&&images[i].naturalWidth){bindTexture(i,images[i]);continue;}
+      const image=new Image();images[i]=image;
+      image.onload=()=>{if(lost)return;bindTexture(i,image);ready=images.every(value=>value.complete&&value.naturalWidth>0)&&images.length===3;if(ready)surfaceBuilds++;request();};
+      image.onerror=()=>fail('本地地球贴图加载失败，请重新进入扩展页');image.src=sources[i];
+    }
+    ready=images.length===3&&images.every(value=>value.complete&&value.naturalWidth>0);
+  }
+  function init(){
+    const vs=shader(gl.VERTEX_SHADER,`attribute vec2 a_position;varying vec2 v_screen;
+      void main(){v_screen=a_position;gl_Position=vec4(a_position,0.,1.);}`);
+    const fs=shader(gl.FRAGMENT_SHADER,`
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
+      precision mediump float;
+      #endif
+      uniform vec4 u_rotation;uniform vec2 u_projection;uniform vec2 u_resolution;uniform float u_zoom;uniform vec3 u_sun;
+      uniform sampler2D u_day;uniform sampler2D u_night;uniform sampler2D u_clouds;
+      varying vec2 v_screen;
+      void main(){
+        vec3 origin=vec3(0.,0.,3.5);
+        vec3 ray=normalize(vec3(v_screen/u_projection,-1.));
+        float b=dot(origin,ray),c=dot(origin,origin)-u_zoom*u_zoom;
+        float discriminant=b*b-c;
+        // Sun direction is Earth-fixed; rotate it with geographic coordinates for view effects.
+        vec3 sun=vec3(u_rotation.x*u_sun.x+u_rotation.y*u_sun.z,u_sun.y,-u_rotation.y*u_sun.x+u_rotation.x*u_sun.z);
+        sun=vec3(sun.x,u_rotation.z*sun.y-u_rotation.w*sun.z,u_rotation.w*sun.y+u_rotation.z*sun.z);
+        float limb=u_zoom/sqrt(c);
+        float edgeDistance=(limb-length(v_screen/u_projection))*u_projection.y*u_resolution.y*.5;
+        float coverage=smoothstep(-.7,.7,edgeDistance);
+        vec3 closest=origin-ray*b;float altitude=max(0.,length(closest)/u_zoom-1.);
+        float light=smoothstep(-.4,.6,dot(normalize(closest),sun));
+        float halo=exp(-altitude*70.)*(1.-smoothstep(0.,.085,altitude))*(.12+.48*light);
+        vec3 haze=vec3(.12,.42,1.);
+        if(coverage<=0.){gl_FragColor=vec4(haze*halo,halo);return;}
+        vec3 n=normalize(origin+ray*(-b-sqrt(max(discriminant,0.))));
+        // Undo pitch and yaw to sample the equirectangular maps at the real longitude.
+        vec3 p=vec3(n.x,u_rotation.z*n.y+u_rotation.w*n.z,-u_rotation.w*n.y+u_rotation.z*n.z);
+        p=vec3(u_rotation.x*p.x-u_rotation.y*p.z,p.y,u_rotation.y*p.x+u_rotation.x*p.z);
+        vec2 uv=vec2(atan(p.x,p.z)/6.283185307+.5,asin(clamp(p.y,-1.,1.))/3.141592654+.5);
+        vec3 day=pow(texture2D(u_day,uv).rgb,vec3(2.2));
+        vec3 night=pow(texture2D(u_night,uv).rgb,vec3(2.2));
+        float cloud=smoothstep(.14,.9,texture2D(u_clouds,uv).r)*.70;
+        float illumination=dot(p,u_sun),daylight=smoothstep(-.06,.04,illumination);
+        vec3 color=day*(.025+.98*max(illumination,0.))*daylight;
+        color+=night*(1.-daylight)*1.7;
+        color=mix(color,vec3(.014+.85*max(illumination,0.))*mix(vec3(.4,.55,.8),vec3(1.),daylight),cloud);
+        float ocean=smoothstep(.015,.12,day.b-day.r)*smoothstep(.0,.05,day.b-day.g);
+        vec3 halfway=normalize(sun-ray);
+        color+=vec3(.65,.8,1.)*pow(max(dot(n,halfway),0.),60.)*ocean*.30*(1.-cloud);
+        float rim=pow(1.-max(dot(n,-ray),0.),3.5);
+        vec3 air=mix(vec3(.55,.12,.025),vec3(.04,.25,.8),daylight);
+        color+=air*rim*smoothstep(-.35,.5,illumination)*.6;
+        vec3 surface=pow(max(color,vec3(0.)),vec3(1./2.2));
+        // Premultiplied coverage avoids dark fringes on the transparent WebView.
+        gl_FragColor=vec4(mix(haze*halo,surface,coverage),mix(halo,1.,coverage));
+      }`);
+    program=gl.createProgram();gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);
+    gl.deleteShader(vs);gl.deleteShader(fs);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('program');
+    vertices=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vertices);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    gl.useProgram(program);const position=gl.getAttribLocation(program,'a_position');
+    gl.enableVertexAttribArray(position);gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
+    for(const name of ['rotation','projection','resolution','zoom','sun','day','night','clouds'])uniforms[name]=gl.getUniformLocation(program,'u_'+name);
+    for(let i=0;i<3;i++){textures[i]=gl.createTexture();gl.uniform1i(uniforms[['day','night','clouds'][i]],i);}
+    gl.disable(gl.DEPTH_TEST);gl.disable(gl.BLEND);
+    gl.clearColor(0,0,0,0);failed=false;error.style.display='none';loadTextures();
+  }
+  function point(lon,lat){
+    lon=lon*Math.PI/180+yaw;lat*=Math.PI/180;const x=Math.cos(lat)*Math.sin(lon),y=Math.sin(lat),z=Math.cos(lat)*Math.cos(lon);
+    return [x,Math.cos(pitch)*y-Math.sin(pitch)*z,Math.sin(pitch)*y+Math.cos(pitch)*z];
+  }
+  // Solar declination and equation of time (Julian-century equations used by NOAA).
+  // https://gml.noaa.gov/grad/solcalc/calcdetails.html
+  function solarPosition(timestamp){
+    const rad=Math.PI/180,deg=180/Math.PI,wrap=value=>((value+180)%360+360)%360-180;
+    const t=(timestamp/86400000+2440587.5-2451545)/36525;
+    const meanLongitude=((280.46646+t*(36000.76983+t*.0003032))%360+360)%360;
+    const anomaly=(357.52911+t*(35999.05029-.0001537*t))*rad;
+    const eccentricity=.016708634-t*(.000042037+.0000001267*t);
+    const center=Math.sin(anomaly)*(1.914602-t*(.004817+.000014*t))+Math.sin(2*anomaly)*(.019993-.000101*t)+Math.sin(3*anomaly)*.000289;
+    const omega=(125.04-1934.136*t)*rad;
+    const apparent=(meanLongitude+center-.00569-.00478*Math.sin(omega))*rad;
+    const seconds=21.448-t*(46.815+t*(.00059-t*.001813));
+    const obliquity=(23+(26+seconds/60)/60+.00256*Math.cos(omega))*rad;
+    const latitude=Math.asin(Math.sin(obliquity)*Math.sin(apparent))*deg;
+    const y=Math.tan(obliquity/2)**2,l=meanLongitude*rad;
+    const equation=4*deg*(y*Math.sin(2*l)-2*eccentricity*Math.sin(anomaly)+4*eccentricity*y*Math.sin(anomaly)*Math.cos(2*l)-.5*y*y*Math.sin(4*l)-1.25*eccentricity*eccentricity*Math.sin(2*anomaly));
+    const date=new Date(timestamp),minutes=date.getUTCHours()*60+date.getUTCMinutes()+date.getUTCSeconds()/60+date.getUTCMilliseconds()/60000;
+    const longitude=wrap((720-minutes-equation)/4);
+    return {timestamp,longitude,latitude,vector:vector(longitude,latitude)};
+  }
+  function syncSun(){const now=Date.now();if(!sunlight||Math.abs(now-sunStamp)>=15000){sunlight=solarPosition(now);sunStamp=now;}}
+  function armSunClock(){
+    if(!sunTimer&&!paused&&!lost&&!failed&&!document.hidden)sunTimer=setTimeout(()=>{sunTimer=0;request();},15000);
+  }
+  function rotate(p){const x=Math.cos(yaw)*p[0]+Math.sin(yaw)*p[2],z=-Math.sin(yaw)*p[0]+Math.cos(yaw)*p[2];return [x,Math.cos(pitch)*p[1]-Math.sin(pitch)*z,Math.sin(pitch)*p[1]+Math.cos(pitch)*z];}
+  function vector(lon,lat){lon*=Math.PI/180;lat*=Math.PI/180;return [Math.cos(lat)*Math.sin(lon),Math.sin(lat),Math.cos(lat)*Math.cos(lon)];}
+  function projection(p){const d=3.5-p[2]*zoom;return [size.w/2+p[0]*zoom*3/d*size.h/2,size.h/2-p[1]*zoom*3/d*size.h/2];}
+  function visible(p){
+    const q=[p[0]*zoom,p[1]*zoom,p[2]*zoom-3.5],a=q[0]*q[0]+q[1]*q[1]+q[2]*q[2],b=3.5*q[2];
+    const disc=b*b-a*(12.25-zoom*zoom);return disc<0||(-b-Math.sqrt(disc))/a>=.998;
+  }
+  function arc(from,to){
+    const a=vector(from.lon,from.lat),b=vector(to.lon,to.lat),dot=Math.max(-1,Math.min(1,a.reduce((n,x,i)=>n+x*b[i],0))),angle=Math.acos(dot);
+    const axis=Math.abs(a[1])<.9?[0,1,0]:[1,0,0],cross=[a[1]*axis[2]-a[2]*axis[1],a[2]*axis[0]-a[0]*axis[2],a[0]*axis[1]-a[1]*axis[0]],length=Math.hypot(...cross),tangent=cross.map(x=>x/length);
+    const samples=Math.ceil(Math.min(routeLinks.length>200?48:112,Math.max(40,angle*44+24))),points=[a.slice()];
+    const stem=.025+Math.min(angle,2)*.012;
+    for(let i=0;i<=samples;i++){
+      const t=i/samples,height=stem+Math.pow(Math.max(0,Math.sin(Math.PI*t)),.72)*(.08+angle*.12);let p;
+      if(dot>.9999){const spread=.08*Math.sin(2*Math.PI*t);p=a.map((x,j)=>x+tangent[j]*spread);const length=Math.hypot(...p);p=p.map(x=>x/length);}
+      else if(dot<-.9999)p=a.map((x,j)=>x*Math.cos(Math.PI*t)+tangent[j]*Math.sin(Math.PI*t));
+      else p=a.map((x,j)=>(x*Math.sin((1-t)*angle)+b[j]*Math.sin(t*angle))/Math.sin(angle));
+      points.push(p.map(x=>x*(1+height)));
+    }
+    // Every edge starts and ends at radius 1, including the shared exit junction.
+    points.push(b.slice());return points;
+  }
+  let curves=[];
+  function rebuildRoutes(){
+    const byID=new Map(routeNodes.map(node=>[node.id,node]));curves=[];
+    for(const edge of routeLinks){const from=byID.get(edge.from),to=byID.get(edge.to);if(!from||!to)continue;curves.push({...edge,points:arc(from,to)});}
+  }
+  function labels(){
+    const dpr=overlay.width/size.w;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size.w,size.h);
+    // All path samples rotate with the same globe and are clipped behind its surface.
+    for(const curve of curves){
+      ctx.strokeStyle=curve.kind==='uplink'?'#39c9b3':curve.kind==='direct'?'#7aafd1':'#bfa4e8';
+      ctx.lineWidth=curve.kind==='uplink'?1.6:1.15;ctx.lineCap='round';ctx.lineJoin='round';ctx.globalAlpha=.85;ctx.beginPath();let open=false;
+      for(const value of curve.points){const p=rotate(value);if(!visible(p)){open=false;continue;}const q=projection(p);if(!open){ctx.moveTo(q[0],q[1]);open=true;}else ctx.lineTo(q[0],q[1]);}ctx.stroke();
+      const index=Math.floor(curve.points.length*.56),middle=rotate(curve.points[index]),next=rotate(curve.points[index+1]);
+      if(visible(middle)&&visible(next)){
+        const q=projection(middle),r=projection(next),angle=Math.atan2(r[1]-q[1],r[0]-q[0]);
+        ctx.beginPath();ctx.moveTo(q[0]-3.5*Math.cos(angle-.55),q[1]-3.5*Math.sin(angle-.55));ctx.lineTo(q[0],q[1]);ctx.lineTo(q[0]-3.5*Math.cos(angle+.55),q[1]-3.5*Math.sin(angle+.55));ctx.stroke();
+      }
+    }
+    ctx.globalAlpha=1;
+    const nodes=routeNodes.length?routeNodes:countries.map(country=>({...country,id:'dest:'+country.code,role:'destination'}));
+    const groups=new Map();for(const node of nodes){const key=node.lon+','+node.lat;const group=groups.get(key)||[];group.push(node);groups.set(key,group);}
+    let labelCount=0;
+    for(const group of groups.values()){
+      const node=group[0],p=point(node.lon,node.lat);if(!visible(p))continue;const q=projection(p),x=q[0],y=q[1];if(x<0||x>size.w||y<0||y>size.h)continue;
+      group.sort((a,b)=>({origin:0,exit:1,destination:2}[a.role]-{origin:0,exit:1,destination:2}[b.role]));
+      const chosen=group.some(value=>value.id===selectedNode||value.role==='destination'&&countries[selected]&&value.code===countries[selected].code);
+      group.forEach((value,i)=>{ctx.strokeStyle=value.role==='origin'?'#39d9b8':value.role==='exit'?'#ffbe70':'#8fc7ff';ctx.fillStyle=ctx.strokeStyle;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,3+i*2,0,Math.PI*2);i?ctx.stroke():ctx.fill();});
+      if(chosen||labelCount<8||group.some(value=>value.role==='origin')){
+        const names=group.map(value=>({origin:'本机',exit:'出口',destination:'请求'}[value.role]));const title=[...new Set(names)].join('/')+' '+node.code;
+        ctx.font='600 9px sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';ctx.lineWidth=2.6;ctx.strokeStyle=dark?'#152031':'#ffffff';ctx.strokeText(title,x,y-8);ctx.fillStyle=dark?'#f3f6fc':'#354459';ctx.fillText(title,x,y-8);labelCount++;
+      }
+    }
+  }
+  function draw(){
+    const w=Math.max(1,canvas.clientWidth),h=Math.max(1,canvas.clientHeight);
+    const ratio=Math.min(window.devicePixelRatio||1,3,Math.sqrt(768000/(w*h)));
+    size={w,h};syncSun();const pw=Math.round(w*ratio),ph=Math.round(h*ratio);
+    if(canvas.width!==pw||canvas.height!==ph){canvas.width=overlay.width=pw;canvas.height=overlay.height=ph;}
+    if(!ready)return;
+    gl.viewport(0,0,pw,ph);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);
+    gl.uniform4f(uniforms.rotation,Math.cos(yaw),Math.sin(yaw),Math.cos(pitch),Math.sin(pitch));
+    gl.uniform2f(uniforms.projection,3*h/w,3);gl.uniform2f(uniforms.resolution,pw,ph);gl.uniform1f(uniforms.zoom,zoom);
+    gl.uniform3f(uniforms.sun,sunlight.vector[0],sunlight.vector[1],sunlight.vector[2]);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);labels();draws++;
+  }
+  const clampPitch=value=>Math.max(-1.3,Math.min(1.3,value));
+  const nearestYaw=angle=>yaw+Math.atan2(Math.sin(angle-yaw),Math.cos(angle-yaw));
+  function moving(){return Math.abs(velocityYaw)+Math.abs(velocityPitch)>.0001||Math.abs(targetYaw-yaw)+Math.abs(targetPitch-pitch)+Math.abs(targetZoom-zoom)>.0001;}
+  function frame(now){
+    raf=0;if(paused||lost||failed)return;
+    if(lastFrame!==null&&now-lastFrame<32){raf=requestAnimationFrame(frame);return;}
+    const dt=lastFrame===null?1/30:Math.min(.064,(now-lastFrame)/1000);lastFrame=now;
+    if(pointers.size===0){
+      targetYaw+=velocityYaw*dt;targetPitch=clampPitch(targetPitch+velocityPitch*dt);
+      const friction=Math.exp(-5.2*dt);velocityYaw*=friction;velocityPitch*=friction;
+      if(Math.abs(velocityYaw)<.0001)velocityYaw=0;if(Math.abs(velocityPitch)<.0001)velocityPitch=0;
+      if(autoRotate&&now>=holdUntil){targetYaw+=.055*dt;dirty=true;}
+    }
+    const easing=1-Math.exp(-14*dt);
+    yaw+=(targetYaw-yaw)*easing;pitch+=(targetPitch-pitch)*easing;zoom+=(targetZoom-zoom)*(1-Math.exp(-12*dt));
+    if(dirty||moving()){dirty=false;draw();}
+    if(autoRotate||moving())raf=requestAnimationFrame(frame);
+  }
+  function request(){dirty=true;armSunClock();if(!paused&&!lost&&!failed&&!raf)raf=requestAnimationFrame(frame);}
+  function stop(){if(sunTimer)clearTimeout(sunTimer);sunTimer=0;sunStamp=-Infinity;if(raf)cancelAnimationFrame(raf);raf=0;pointers.clear();previousPinch=0;velocityYaw=velocityPitch=0;lastFrame=null;}
+  function reset(){targetYaw=nearestYaw(-100*Math.PI/180);targetPitch=22*Math.PI/180;targetZoom=1;selected=-1;selectedNode='';velocityYaw=velocityPitch=0;holdUntil=performance.now()+2200;request();}
+  window.Globe={
+    setState(state){
+      if(typeof state.dark==='boolean'){dark=state.dark;document.getElementById('credit').style.color=dark?'#a4b0c0':'#69778b';}
+      if(Array.isArray(state.countries)){
+        const previous=selected>=0&&countries[selected]?countries[selected].code:null;
+        countries=state.countries.filter(value=>value&&/^[A-Z]{2}$/.test(value.code)&&Number.isFinite(value.count)&&value.count>0).slice(0,250).map(value=>({code:value.code,count:Math.floor(value.count),lon:Number.isFinite(value.lon)&&Math.abs(value.lon)<=180?value.lon:null,lat:Number.isFinite(value.lat)&&Math.abs(value.lat)<=90?value.lat:null}));
+        selected=countries.findIndex(value=>value.code===previous);
+      }
+      if(Array.isArray(state.nodes))routeNodes=state.nodes.filter(value=>value&&typeof value.id==='string'&&['origin','exit','destination'].includes(value.role)&&/^[A-Z]{2}$/.test(value.code)&&Number.isFinite(value.lon)&&Math.abs(value.lon)<=180&&Number.isFinite(value.lat)&&Math.abs(value.lat)<=90).map(value=>({...value}));
+      if(Array.isArray(state.links))routeLinks=state.links.filter(value=>value&&typeof value.from==='string'&&typeof value.to==='string'&&['uplink','request','direct'].includes(value.kind)&&Number.isFinite(value.count)&&value.count>0).map(value=>({...value}));
+      if(Array.isArray(state.nodes)||Array.isArray(state.links))rebuildRoutes();
+      if(typeof state.autoRotate==='boolean')autoRotate=state.autoRotate;
+      if(typeof state.paused==='boolean'){paused=state.paused;if(paused)stop();}
+      request();
+    },
+    focus(index){if(index<0||index>=countries.length)return;const country=countries[index];if(!Number.isFinite(country.lon)||!Number.isFinite(country.lat))return;selected=index;targetYaw=nearestYaw(-country.lon*Math.PI/180);targetPitch=country.lat*Math.PI/180;velocityYaw=velocityPitch=0;holdUntil=performance.now()+3000;request();},
+    focusCountry(code){selectedNode='dest:'+code;this.focus(countries.findIndex(country=>country.code===code));},
+    focusNode(id){const node=routeNodes.find(value=>value.id===id);if(!node)return;selectedNode=id;selected=-1;targetYaw=nearestYaw(-node.lon*Math.PI/180);targetPitch=node.lat*Math.PI/180;velocityYaw=velocityPitch=0;holdUntil=performance.now()+3000;request();},
+    reset,
+    inspect(){return {draws,yaw,pitch,zoom,paused,lost,failed,countries:countries.map(value=>({...value})),selected,autoRotate,velocityYaw,velocityPitch,targetYaw,targetPitch,targetZoom,surfaceBuilds,ready,nodes:routeNodes.map(value=>({...value})),links:routeLinks.map(value=>({...value})),curves:curves.length,selectedNode,sun:sunlight?{...sunlight,vector:sunlight.vector.slice()}:null,
+      landings:curves.map(curve=>({from:curve.from,to:curve.to,start:curve.points[0].slice(),end:curve.points[curve.points.length-1].slice(),liftStart:Math.hypot(...curve.points[1]),liftEnd:Math.hypot(...curve.points[curve.points.length-2]),samples:curve.points.length}))};}
+  };
+  canvas.addEventListener('pointerdown',event=>{if(paused)return;event.preventDefault();canvas.setPointerCapture(event.pointerId);pointers.set(event.pointerId,[event.clientX,event.clientY]);previousPinch=0;travel=0;velocityYaw=velocityPitch=0;lastMove=performance.now();holdUntil=lastMove+2200;});
+  canvas.addEventListener('pointermove',event=>{
+    if(paused||!pointers.has(event.pointerId))return;event.preventDefault();const old=pointers.get(event.pointerId),dx=event.clientX-old[0],dy=event.clientY-old[1];
+    pointers.set(event.pointerId,[event.clientX,event.clientY]);travel+=Math.abs(dx)+Math.abs(dy);
+    const now=performance.now(),elapsed=Math.max(.008,Math.min(.08,(now-lastMove)/1000));lastMove=now;holdUntil=now+2200;
+    if(pointers.size===1){targetYaw+=dx*.009;targetPitch=clampPitch(targetPitch+dy*.009);
+      velocityYaw=.35*velocityYaw+.65*Math.max(-2,Math.min(2,dx*.009/elapsed));velocityPitch=.35*velocityPitch+.65*Math.max(-1.5,Math.min(1.5,dy*.009/elapsed));}
+    else {const a=Array.from(pointers.values()),distance=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);
+      velocityYaw=velocityPitch=0;if(previousPinch>0)targetZoom=Math.max(.72,Math.min(1.45,targetZoom*distance/previousPinch));previousPinch=distance;}
+    request();
+  });
+  function up(event){const held=pointers.delete(event.pointerId);previousPinch=0;
+    if(held){const now=performance.now();holdUntil=now+2200;if(event.type!=='pointerup'||now-lastMove>100)velocityYaw=velocityPitch=0;
+      if(event.type==='pointerup'&&travel<5){if(lastTap>0&&now-lastTap<280)reset();lastTap=now;}request();}}
+  for(const name of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(name,up);
+  canvas.addEventListener('wheel',event=>{event.preventDefault();if(!paused){targetZoom=Math.max(.72,Math.min(1.45,targetZoom*Math.exp(-event.deltaY*.001)));holdUntil=performance.now()+1800;request();}},{passive:false});
+  canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;stop();});
+  canvas.addEventListener('webglcontextrestored',()=>{try{init();lost=false;request();}catch(_){fail('3D 渲染恢复失败，请重新进入扩展页');}});
+  if(window.ResizeObserver)new ResizeObserver(request).observe(canvas);else window.addEventListener('resize',request);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){paused=true;stop();}});
+  window.addEventListener('pagehide',stop);
+  if(!gl){fail('当前 WebView 不支持 3D 加速');return;}
+  try{init();}catch(_){fail('无法初始化 3D 地球');}
+})();
+</script></body></html>

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/chip/ChipGroup;
 
     .line 335
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Lcom/google/android/material/chip/ChipGroup;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "group"    # Lcom/google/android/material/chip/ChipGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,6 +57,7 @@
     .local p2, "checkedIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$2;->this$0:Lcom/google/android/material/chip/ChipGroup;
 
+    # getter for: Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
     invoke-static {v0}, Lcom/google/android/material/chip/ChipGroup;->access$200(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/internal/CheckableGroup;
 
     move-result-object v0
@@ -65,13 +66,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 340
     return-void
 
     .line 342
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup$2;->val$listener:Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;
 
     iget-object v1, p0, Lcom/google/android/material/chip/ChipGroup$2;->this$0:Lcom/google/android/material/chip/ChipGroup;

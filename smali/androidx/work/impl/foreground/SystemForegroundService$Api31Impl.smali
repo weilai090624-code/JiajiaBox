@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
-    .locals 4
+    .registers 8
     .param p0, "service"    # Landroid/app/Service;
     .param p1, "id"    # I
     .param p2, "notification"    # Landroid/app/Notification;
@@ -49,14 +49,14 @@
     .line 194
     :try_start_0
     invoke-virtual {p0, p1, p2, p3}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;I)V
-    :try_end_0
-    .catch Landroid/app/ForegroundServiceStartNotAllowedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Landroid/app/ForegroundServiceStartNotAllowedException; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 200
-    goto :goto_0
+    goto :goto_12
 
     .line 195
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 199
@@ -65,6 +65,7 @@
 
     move-result-object v1
 
+    # getter for: Landroidx/work/impl/foreground/SystemForegroundService;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/foreground/SystemForegroundService;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -75,6 +76,6 @@
 
     .line 201
     .end local v0    # "exception":Landroid/app/ForegroundServiceStartNotAllowedException;
-    :goto_0
+    :goto_12
     return-void
 .end method

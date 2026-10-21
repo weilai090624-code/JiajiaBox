@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 2734
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic onActivityResult(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 2734
     check-cast p1, Ljava/util/Map;
@@ -59,7 +59,7 @@
 .end method
 
 .method public onActivityResult(Ljava/util/Map;)V
-    .locals 10
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -109,12 +109,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_1d
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_37
 
     .line 2742
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -127,28 +127,28 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_31
 
     .line 2743
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_32
 
     .line 2744
-    :cond_0
+    :cond_31
     const/4 v5, -0x1
 
-    :goto_1
+    :goto_32
     aput v5, v3, v4
 
     .line 2741
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 2746
     .end local v4    # "i":I
-    :cond_1
+    :cond_37
     iget-object v1, p0, Landroidx/fragment/app/FragmentManager$10;->this$0:Landroidx/fragment/app/FragmentManager;
 
     iget-object v1, v1, Landroidx/fragment/app/FragmentManager;->mLaunchedFragments:Ljava/util/ArrayDeque;
@@ -163,7 +163,7 @@
     .local v1, "requestInfo":Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;
     const-string v4, "FragmentManager"
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_5c
 
     .line 2748
     new-instance v5, Ljava/lang/StringBuilder;
@@ -190,7 +190,7 @@
     return-void
 
     .line 2751
-    :cond_2
+    :cond_5c
     iget-object v5, v1, Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;->mWho:Ljava/lang/String;
 
     .line 2752
@@ -201,6 +201,7 @@
     .local v6, "requestCode":I
     iget-object v7, p0, Landroidx/fragment/app/FragmentManager$10;->this$0:Landroidx/fragment/app/FragmentManager;
 
+    # getter for: Landroidx/fragment/app/FragmentManager;->mFragmentStore:Landroidx/fragment/app/FragmentStore;
     invoke-static {v7}, Landroidx/fragment/app/FragmentManager;->access$200(Landroidx/fragment/app/FragmentManager;)Landroidx/fragment/app/FragmentStore;
 
     move-result-object v7
@@ -211,7 +212,7 @@
 
     .line 2757
     .local v7, "fragment":Landroidx/fragment/app/Fragment;
-    if-nez v7, :cond_3
+    if-nez v7, :cond_83
 
     .line 2758
     new-instance v8, Ljava/lang/StringBuilder;
@@ -238,7 +239,7 @@
     return-void
 
     .line 2762
-    :cond_3
+    :cond_83
     invoke-virtual {v7, v6, v0, v3}, Landroidx/fragment/app/Fragment;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
     .line 2764

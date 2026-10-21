@@ -95,7 +95,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1556
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,7 +104,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/HttpUrl$Companion;-><init>()V
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static synthetic canonicalize$okhttp$default(Lokhttp3/HttpUrl$Companion;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 13
+    .registers 25
 
     .line 1771
     move/from16 v0, p10
@@ -121,21 +121,21 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 1772
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 1771
-    :cond_0
+    :cond_9
     move v5, p2
 
-    :goto_0
+    :goto_a
     and-int/lit8 v1, v0, 0x2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 1773
     nop
@@ -150,85 +150,85 @@
 
     move v6, v1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 1771
-    :cond_1
+    :cond_16
     move/from16 v6, p3
 
-    :goto_1
+    :goto_18
     and-int/lit8 v1, v0, 0x8
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1e
 
     .line 1775
     const/4 v8, 0x0
 
-    goto :goto_2
+    goto :goto_20
 
     .line 1771
-    :cond_2
+    :cond_1e
     move/from16 v8, p5
 
-    :goto_2
+    :goto_20
     and-int/lit8 v1, v0, 0x10
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_26
 
     .line 1776
     const/4 v9, 0x0
 
-    goto :goto_3
+    goto :goto_28
 
     .line 1771
-    :cond_3
+    :cond_26
     move/from16 v9, p6
 
-    :goto_3
+    :goto_28
     and-int/lit8 v1, v0, 0x20
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2e
 
     .line 1777
     const/4 v10, 0x0
 
-    goto :goto_4
+    goto :goto_30
 
     .line 1771
-    :cond_4
+    :cond_2e
     move/from16 v10, p7
 
-    :goto_4
+    :goto_30
     and-int/lit8 v1, v0, 0x40
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_36
 
     .line 1778
     const/4 v11, 0x0
 
-    goto :goto_5
+    goto :goto_38
 
     .line 1771
-    :cond_5
+    :cond_36
     move/from16 v11, p8
 
-    :goto_5
+    :goto_38
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_3f
 
     .line 1779
     const/4 v0, 0x0
 
     move-object v12, v0
 
-    goto :goto_6
+    goto :goto_41
 
     .line 1771
-    :cond_6
+    :cond_3f
     move-object/from16 v12, p9
 
-    :goto_6
+    :goto_41
     move-object v3, p0
 
     move-object v4, p1
@@ -243,7 +243,7 @@
 .end method
 
 .method private final isPercentEncoded(Ljava/lang/String;II)Z
-    .locals 2
+    .registers 6
     .param p1, "$this$isPercentEncoded"    # Ljava/lang/String;
     .param p2, "pos"    # I
     .param p3, "limit"    # I
@@ -251,7 +251,7 @@
     .line 1745
     add-int/lit8 v0, p2, 0x2
 
-    if-ge v0, p3, :cond_0
+    if-ge v0, p3, :cond_27
 
     .line 1746
     invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
@@ -260,7 +260,7 @@
 
     const/16 v1, 0x25
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_27
 
     .line 1747
     add-int/lit8 v0, p2, 0x1
@@ -275,7 +275,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_27
 
     .line 1748
     add-int/lit8 v0, p2, 0x2
@@ -288,38 +288,38 @@
 
     move-result v0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_27
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
     .line 1745
-    :goto_0
+    :goto_28
     return v0
 .end method
 
 .method public static synthetic percentDecode$okhttp$default(Lokhttp3/HttpUrl$Companion;Ljava/lang/String;IIZILjava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 8
 
     .line 1695
     and-int/lit8 p6, p5, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     .line 1696
     const/4 p2, 0x0
 
     .line 1695
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_10
 
     .line 1697
     nop
@@ -333,16 +333,16 @@
     move-result p3
 
     .line 1695
-    :cond_1
+    :cond_10
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_15
 
     .line 1698
     const/4 p4, 0x0
 
     .line 1695
-    :cond_2
+    :cond_15
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/HttpUrl$Companion;->percentDecode$okhttp(Ljava/lang/String;IIZ)Ljava/lang/String;
 
     move-result-object p0
@@ -351,7 +351,7 @@
 .end method
 
 .method private final writeCanonicalized(Lokio/Buffer;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
-    .locals 14
+    .registers 25
     .param p1, "$this$writeCanonicalized"    # Lokio/Buffer;
     .param p2, "input"    # Ljava/lang/String;
     .param p3, "pos"    # I
@@ -385,117 +385,117 @@
 
     .line 1829
     .local v7, "i":I
-    :goto_0
-    if-ge v7, v2, :cond_14
+    :goto_d
+    if-ge v7, v2, :cond_df
 
     .line 1830
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_d6
 
     invoke-virtual {v1, v7}, Ljava/lang/String;->codePointAt(I)I
 
     move-result v6
 
     .line 1831
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_2d
 
     const/16 v8, 0x9
 
-    if-eq v6, v8, :cond_1
+    if-eq v6, v8, :cond_2a
 
     const/16 v8, 0xa
 
-    if-eq v6, v8, :cond_1
+    if-eq v6, v8, :cond_2a
 
     .line 1832
     const/16 v8, 0xc
 
-    if-eq v6, v8, :cond_0
+    if-eq v6, v8, :cond_27
 
     const/16 v8, 0xd
 
-    if-ne v6, v8, :cond_2
+    if-ne v6, v8, :cond_2d
 
-    :cond_0
+    :cond_27
     move-object v9, p0
 
-    goto/16 :goto_7
+    goto/16 :goto_cf
 
     .line 1831
-    :cond_1
+    :cond_2a
     move-object v9, p0
 
-    goto/16 :goto_7
+    goto/16 :goto_cf
 
     .line 1834
-    :cond_2
+    :cond_2d
     const-string v8, "+"
 
     const/16 v9, 0x20
 
-    if-ne v6, v9, :cond_3
+    if-ne v6, v9, :cond_3d
 
     const-string v10, " !\"#$&\'()+,/:;<=>?@[\\]^`{|}~"
 
-    if-ne v3, v10, :cond_3
+    if-ne v3, v10, :cond_3d
 
     .line 1836
     invoke-virtual {p1, v8}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     move-object v9, p0
 
-    goto/16 :goto_7
+    goto/16 :goto_cf
 
     .line 1837
-    :cond_3
+    :cond_3d
     const/16 v10, 0x2b
 
-    if-ne v6, v10, :cond_5
+    if-ne v6, v10, :cond_4e
 
-    if-eqz p8, :cond_5
+    if-eqz p8, :cond_4e
 
     .line 1839
-    if-eqz p6, :cond_4
+    if-eqz p6, :cond_46
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_4
+    :cond_46
     const-string v8, "%2B"
 
-    :goto_1
+    :goto_48
     invoke-virtual {p1, v8}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     move-object v9, p0
 
-    goto/16 :goto_7
+    goto/16 :goto_cf
 
     .line 1840
-    :cond_5
+    :cond_4e
     const/16 v8, 0x25
 
-    if-lt v6, v9, :cond_e
+    if-lt v6, v9, :cond_87
 
     .line 1841
     const/16 v9, 0x7f
 
-    if-eq v6, v9, :cond_d
+    if-eq v6, v9, :cond_85
 
     .line 1842
     const/16 v9, 0x80
 
-    if-lt v6, v9, :cond_7
+    if-lt v6, v9, :cond_5f
 
-    if-eqz p9, :cond_6
+    if-eqz p9, :cond_5d
 
-    goto :goto_2
+    goto :goto_5f
 
-    :cond_6
+    :cond_5d
     move-object v9, p0
 
-    goto :goto_4
+    goto :goto_88
 
     .line 1843
-    :cond_7
-    :goto_2
+    :cond_5f
+    :goto_5f
     move-object v9, v3
 
     check-cast v9, Ljava/lang/CharSequence;
@@ -512,15 +512,15 @@
 
     move-result v9
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_83
 
     .line 1844
-    if-ne v6, v8, :cond_a
+    if-ne v6, v8, :cond_7e
 
     .line 1845
-    if-eqz p6, :cond_9
+    if-eqz p6, :cond_7c
 
-    if-eqz p7, :cond_8
+    if-eqz p7, :cond_7a
 
     move-object v9, p0
 
@@ -528,50 +528,50 @@
 
     move-result v10
 
-    if-nez v10, :cond_b
+    if-nez v10, :cond_7f
 
-    goto :goto_4
+    goto :goto_88
 
-    :cond_8
+    :cond_7a
     move-object v9, p0
 
-    goto :goto_3
+    goto :goto_7f
 
-    :cond_9
+    :cond_7c
     move-object v9, p0
 
-    goto :goto_4
+    goto :goto_88
 
     .line 1844
-    :cond_a
+    :cond_7e
     move-object v9, p0
 
     .line 1865
-    :cond_b
-    :goto_3
+    :cond_7f
+    :goto_7f
     invoke-virtual {p1, v6}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
-    goto :goto_7
+    goto :goto_cf
 
     .line 1843
-    :cond_c
+    :cond_83
     move-object v9, p0
 
-    goto :goto_4
+    goto :goto_88
 
     .line 1841
-    :cond_d
+    :cond_85
     move-object v9, p0
 
-    goto :goto_4
+    goto :goto_88
 
     .line 1840
-    :cond_e
+    :cond_87
     move-object v9, p0
 
     .line 1847
-    :goto_4
-    if-nez v5, :cond_f
+    :goto_88
+    if-nez v5, :cond_90
 
     .line 1848
     new-instance v10, Lokio/Buffer;
@@ -581,8 +581,8 @@
     move-object v5, v10
 
     .line 1851
-    :cond_f
-    if-eqz v4, :cond_11
+    :cond_90
+    if-eqz v4, :cond_a4
 
     sget-object v10, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -590,12 +590,12 @@
 
     move-result v10
 
-    if-eqz v10, :cond_10
+    if-eqz v10, :cond_9b
 
-    goto :goto_5
+    goto :goto_a4
 
     .line 1854
-    :cond_10
+    :cond_9b
     invoke-static {v6}, Ljava/lang/Character;->charCount(I)I
 
     move-result v10
@@ -604,20 +604,20 @@
 
     invoke-virtual {v5, v1, v7, v10, v4}, Lokio/Buffer;->writeString(Ljava/lang/String;IILjava/nio/charset/Charset;)Lokio/Buffer;
 
-    goto :goto_6
+    goto :goto_a7
 
     .line 1852
-    :cond_11
-    :goto_5
+    :cond_a4
+    :goto_a4
     invoke-virtual {v5, v6}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 1857
-    :goto_6
+    :goto_a7
     invoke-virtual {v5}, Lokio/Buffer;->exhausted()Z
 
     move-result v10
 
-    if-nez v10, :cond_12
+    if-nez v10, :cond_cf
 
     .line 1858
     invoke-virtual {v5}, Lokio/Buffer;->readByte()B
@@ -631,6 +631,7 @@
     invoke-virtual {p1, v8}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 1860
+    # getter for: Lokhttp3/HttpUrl;->HEX_DIGITS:[C
     invoke-static {}, Lokhttp3/HttpUrl;->access$getHEX_DIGITS$cp()[C
 
     move-result-object v11
@@ -644,6 +645,7 @@
     invoke-virtual {p1, v11}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 1861
+    # getter for: Lokhttp3/HttpUrl;->HEX_DIGITS:[C
     invoke-static {}, Lokhttp3/HttpUrl;->access$getHEX_DIGITS$cp()[C
 
     move-result-object v11
@@ -654,22 +656,22 @@
 
     invoke-virtual {p1, v11}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    goto :goto_6
+    goto :goto_a7
 
     .line 1867
     .end local v10    # "b":I
-    :cond_12
-    :goto_7
+    :cond_cf
+    :goto_cf
     invoke-static {v6}, Ljava/lang/Character;->charCount(I)I
 
     move-result v8
 
     add-int/2addr v7, v8
 
-    goto/16 :goto_0
+    goto/16 :goto_d
 
     .line 1830
-    :cond_13
+    :cond_d6
     move-object v9, p0
 
     new-instance v8, Ljava/lang/NullPointerException;
@@ -681,14 +683,14 @@
     throw v8
 
     .line 1869
-    :cond_14
+    :cond_df
     move-object v9, p0
 
     return-void
 .end method
 
 .method private final writePercentDecoded(Lokio/Buffer;Ljava/lang/String;IIZ)V
-    .locals 5
+    .registers 11
     .param p1, "$this$writePercentDecoded"    # Lokio/Buffer;
     .param p2, "encoded"    # Ljava/lang/String;
     .param p3, "pos"    # I
@@ -703,11 +705,11 @@
 
     .line 1723
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p4, :cond_3
+    :goto_2
+    if-ge v1, p4, :cond_58
 
     .line 1724
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_50
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->codePointAt(I)I
 
@@ -716,11 +718,11 @@
     .line 1725
     const/16 v2, 0x25
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_39
 
     add-int/lit8 v2, v1, 0x2
 
-    if-ge v2, p4, :cond_0
+    if-ge v2, p4, :cond_39
 
     .line 1726
     add-int/lit8 v2, v1, 0x1
@@ -749,9 +751,9 @@
     .local v3, "d2":I
     const/4 v4, -0x1
 
-    if-eq v2, v4, :cond_1
+    if-eq v2, v4, :cond_47
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_47
 
     .line 1729
     shl-int/lit8 v4, v2, 0x4
@@ -771,17 +773,17 @@
     add-int/2addr v1, v4
 
     .line 1732
-    goto :goto_0
+    goto :goto_2
 
     .line 1734
     .end local v2    # "d1":I
     .end local v3    # "d2":I
-    :cond_0
+    :cond_39
     const/16 v2, 0x2b
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_47
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_47
 
     .line 1735
     const/16 v2, 0x20
@@ -792,10 +794,10 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 1737
-    goto :goto_0
+    goto :goto_2
 
     .line 1739
-    :cond_1
+    :cond_47
     invoke-virtual {p1, v0}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 1740
@@ -805,10 +807,10 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_2
 
     .line 1724
-    :cond_2
+    :cond_50
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type java.lang.String"
@@ -818,14 +820,14 @@
     throw v2
 
     .line 1742
-    :cond_3
+    :cond_58
     return-void
 .end method
 
 
 # virtual methods
 .method public final -deprecated_get(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -851,7 +853,7 @@
 .end method
 
 .method public final -deprecated_get(Ljava/net/URI;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 3
     .param p1, "uri"    # Ljava/net/URI;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -877,7 +879,7 @@
 .end method
 
 .method public final -deprecated_get(Ljava/net/URL;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/net/URL;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -903,7 +905,7 @@
 .end method
 
 .method public final -deprecated_parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -929,7 +931,7 @@
 .end method
 
 .method public final canonicalize$okhttp(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 17
+    .registers 27
     .param p1, "$this$canonicalize"    # Ljava/lang/String;
     .param p2, "pos"    # I
     .param p3, "limit"    # I
@@ -964,8 +966,8 @@
 
     .line 1783
     .local v14, "i":I
-    :goto_0
-    if-ge v14, v12, :cond_a
+    :goto_14
+    if-ge v14, v12, :cond_9b
 
     .line 1784
     invoke-virtual {v11, v14}, Ljava/lang/String;->codePointAt(I)I
@@ -977,30 +979,30 @@
     .local v15, "codePoint":I
     const/16 v0, 0x20
 
-    if-lt v15, v0, :cond_8
+    if-lt v15, v0, :cond_66
 
     .line 1786
     const/16 v0, 0x7f
 
-    if-eq v15, v0, :cond_7
+    if-eq v15, v0, :cond_63
 
     .line 1787
     const/16 v0, 0x80
 
-    if-lt v15, v0, :cond_1
+    if-lt v15, v0, :cond_2c
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_29
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_0
+    :cond_29
     move-object/from16 v10, p0
 
-    goto :goto_3
+    goto :goto_68
 
     .line 1788
-    :cond_1
-    :goto_1
+    :cond_2c
+    :goto_2c
     move-object v0, v13
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -1017,17 +1019,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_60
 
     .line 1789
     const/16 v0, 0x25
 
-    if-ne v15, v0, :cond_4
+    if-ne v15, v0, :cond_50
 
     .line 1790
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_4d
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_4a
 
     move-object/from16 v10, p0
 
@@ -1035,36 +1037,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_68
 
-    goto :goto_2
+    goto :goto_52
 
-    :cond_2
+    :cond_4a
     move-object/from16 v10, p0
 
-    goto :goto_2
+    goto :goto_52
 
-    :cond_3
+    :cond_4d
     move-object/from16 v10, p0
 
-    goto :goto_3
+    goto :goto_68
 
     .line 1789
-    :cond_4
+    :cond_50
     move-object/from16 v10, p0
 
     .line 1791
-    :goto_2
+    :goto_52
     const/16 v0, 0x2b
 
-    if-ne v15, v0, :cond_5
+    if-ne v15, v0, :cond_59
 
-    if-eqz p7, :cond_5
+    if-eqz p7, :cond_59
 
-    goto :goto_3
+    goto :goto_68
 
     .line 1808
-    :cond_5
+    :cond_59
     invoke-static {v15}, Ljava/lang/Character;->charCount(I)I
 
     move-result v0
@@ -1073,27 +1075,27 @@
 
     move v0, v15
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1788
-    :cond_6
+    :cond_60
     move-object/from16 v10, p0
 
-    goto :goto_3
+    goto :goto_68
 
     .line 1786
-    :cond_7
+    :cond_63
     move-object/from16 v10, p0
 
-    goto :goto_3
+    goto :goto_68
 
     .line 1785
-    :cond_8
+    :cond_66
     move-object/from16 v10, p0
 
     .line 1793
-    :cond_9
-    :goto_3
+    :cond_68
+    :goto_68
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
@@ -1176,7 +1178,7 @@
     .end local v15    # "codePoint":I
     .end local v16    # "out":Lokio/Buffer;
     .restart local v0    # "codePoint":I
-    :cond_a
+    :cond_9b
     invoke-virtual/range {p1 .. p3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
@@ -1189,7 +1191,7 @@
 .end method
 
 .method public final defaultPort(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p1, "scheme"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1208,37 +1210,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const/16 v0, 0x50
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 1576
-    :cond_0
+    :cond_11
     const-string v0, "https"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     const/16 v0, 0x1bb
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 1577
-    :cond_1
+    :cond_1c
     const/4 v0, -0x1
 
     .line 1574
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public final get(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 2
+    .registers 4
     .param p1, "$this$toHttpUrl"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1266,7 +1268,7 @@
 .end method
 
 .method public final get(Ljava/net/URI;)Lokhttp3/HttpUrl;
-    .locals 2
+    .registers 4
     .param p1, "$this$toHttpUrlOrNull"    # Ljava/net/URI;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1292,7 +1294,7 @@
 .end method
 
 .method public final get(Ljava/net/URL;)Lokhttp3/HttpUrl;
-    .locals 2
+    .registers 4
     .param p1, "$this$toHttpUrlOrNull"    # Ljava/net/URL;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1318,7 +1320,7 @@
 .end method
 
 .method public final parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 3
+    .registers 5
     .param p1, "$this$toHttpUrlOrNull"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1331,17 +1333,17 @@
     nop
 
     .line 1643
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0, p1}, Lokhttp3/HttpUrl$Companion;->get(Ljava/lang/String;)Lokhttp3/HttpUrl;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1644
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 1645
@@ -1356,12 +1358,12 @@
 
     .line 1642
     .end local v0    # "_":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public final percentDecode$okhttp(Ljava/lang/String;IIZ)Ljava/lang/String;
-    .locals 9
+    .registers 14
     .param p1, "$this$percentDecode"    # Ljava/lang/String;
     .param p2, "pos"    # I
     .param p3, "limit"    # I
@@ -1372,11 +1374,11 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1700
-    if-ge p2, p3, :cond_3
+    if-ge p2, p3, :cond_33
 
     move v0, p2
 
-    :cond_0
+    :cond_8
     move v7, v0
 
     .local v7, "i":I
@@ -1391,27 +1393,27 @@
     .local v8, "c":C
     const/16 v1, 0x25
 
-    if-eq v8, v1, :cond_2
+    if-eq v8, v1, :cond_1d
 
     const/16 v1, 0x2b
 
-    if-ne v8, v1, :cond_1
+    if-ne v8, v1, :cond_1a
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_1a
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 1700
     .end local v8    # "c":C
-    :cond_1
-    if-lt v0, p3, :cond_0
+    :cond_1a
+    if-lt v0, p3, :cond_8
 
-    goto :goto_1
+    goto :goto_33
 
     .line 1704
     .restart local v8    # "c":C
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
@@ -1446,8 +1448,8 @@
     .end local v0    # "out":Lokio/Buffer;
     .end local v7    # "i":I
     .end local v8    # "c":C
-    :cond_3
-    :goto_1
+    :cond_33
+    :goto_33
     invoke-virtual {p1, p2, p3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
@@ -1460,7 +1462,7 @@
 .end method
 
 .method public final toPathString$okhttp(Ljava/util/List;Ljava/lang/StringBuilder;)V
-    .locals 4
+    .registers 7
     .param p1, "$this$toPathString"    # Ljava/util/List;
     .param p2, "out"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
@@ -1487,11 +1489,11 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_24
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_11
     move v2, v1
 
     .local v2, "i":I
@@ -1512,16 +1514,16 @@
     invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1583
-    if-lt v1, v0, :cond_0
+    if-lt v1, v0, :cond_11
 
     .line 1587
     .end local v2    # "i":I
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method public final toQueryNamesAndValues$okhttp(Ljava/lang/String;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "$this$toQueryNamesAndValues"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1551,12 +1553,12 @@
 
     .line 1611
     .local v1, "pos":I
-    :goto_0
+    :goto_d
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_64
 
     .line 1612
     move-object v2, p1
@@ -1581,13 +1583,13 @@
     .local v2, "ampersandOffset":I
     const/4 v8, -0x1
 
-    if-ne v2, v8, :cond_0
+    if-ne v2, v8, :cond_27
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    :cond_0
+    :cond_27
     move v9, v2
 
     .line 1615
@@ -1615,14 +1617,14 @@
     .local v2, "equalsOffset":I
     const-string v3, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
 
-    if-eq v2, v8, :cond_2
+    if-eq v2, v8, :cond_53
 
-    if-le v2, v9, :cond_1
+    if-le v2, v9, :cond_3c
 
-    goto :goto_1
+    goto :goto_53
 
     .line 1620
-    :cond_1
+    :cond_3c
     invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
@@ -1642,11 +1644,11 @@
 
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_61
 
     .line 1617
-    :cond_2
-    :goto_1
+    :cond_53
+    :goto_53
     invoke-virtual {p1, v1, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
@@ -1661,20 +1663,20 @@
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1623
-    :goto_2
+    :goto_61
     add-int/lit8 v1, v9, 0x1
 
     .end local v2    # "equalsOffset":I
     .end local v9    # "ampersandOffset":I
-    goto :goto_0
+    goto :goto_d
 
     .line 1625
-    :cond_3
+    :cond_64
     return-object v0
 .end method
 
 .method public final toQueryString$okhttp(Ljava/util/List;Ljava/lang/StringBuilder;)V
-    .locals 7
+    .registers 10
     .param p1, "$this$toQueryString"    # Ljava/util/List;
     .param p2, "out"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
@@ -1727,16 +1729,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2a
 
-    if-le v1, v2, :cond_1
+    if-le v1, v2, :cond_2e
 
-    :cond_0
-    if-gez v0, :cond_4
+    :cond_2a
+    if-gez v0, :cond_54
 
-    if-gt v2, v1, :cond_4
+    if-gt v2, v1, :cond_54
 
-    :cond_1
+    :cond_2e
     move v3, v1
 
     .local v3, "i":I
@@ -1761,18 +1763,18 @@
 
     .line 1594
     .local v5, "value":Ljava/lang/String;
-    if-lez v3, :cond_2
+    if-lez v3, :cond_45
 
     const/16 v6, 0x26
 
     invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1595
-    :cond_2
+    :cond_45
     invoke-virtual {p2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1596
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_52
 
     .line 1597
     const/16 v6, 0x3d
@@ -1785,11 +1787,11 @@
     .line 1591
     .end local v4    # "name":Ljava/lang/String;
     .end local v5    # "value":Ljava/lang/String;
-    :cond_3
-    if-ne v3, v2, :cond_1
+    :cond_52
+    if-ne v3, v2, :cond_2e
 
     .line 1601
     .end local v3    # "i":I
-    :cond_4
+    :cond_54
     return-void
 .end method

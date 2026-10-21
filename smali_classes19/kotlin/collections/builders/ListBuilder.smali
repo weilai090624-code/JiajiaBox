@@ -159,7 +159,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlin/collections/builders/ListBuilder$Companion;
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 12
@@ -228,23 +228,23 @@
 .end method
 
 .method public synthetic constructor <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 12
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0xa
 
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1}, Lkotlin/collections/builders/ListBuilder;-><init>(I)V
 
     return-void
 .end method
 
 .method public static final synthetic access$addAllInternal(Lkotlin/collections/builders/ListBuilder;ILjava/util/Collection;I)V
-    .locals 0
+    .registers 4
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
     .param p1, "i"    # I
     .param p2, "elements"    # Ljava/util/Collection;
@@ -257,7 +257,7 @@
 .end method
 
 .method public static final synthetic access$addAtInternal(Lkotlin/collections/builders/ListBuilder;ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
     .param p1, "i"    # I
     .param p2, "element"    # Ljava/lang/Object;
@@ -269,7 +269,7 @@
 .end method
 
 .method public static final synthetic access$getBacking$p(Lkotlin/collections/builders/ListBuilder;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
 
     .line 12
@@ -279,7 +279,7 @@
 .end method
 
 .method public static final synthetic access$getLength$p(Lkotlin/collections/builders/ListBuilder;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
 
     .line 12
@@ -289,7 +289,7 @@
 .end method
 
 .method public static final synthetic access$getModCount$p$s-2084097795(Lkotlin/collections/builders/ListBuilder;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
 
     .line 12
@@ -299,7 +299,7 @@
 .end method
 
 .method public static final synthetic access$isReadOnly$p(Lkotlin/collections/builders/ListBuilder;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
 
     .line 12
@@ -309,7 +309,7 @@
 .end method
 
 .method public static final synthetic access$removeAtInternal(Lkotlin/collections/builders/ListBuilder;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
     .param p1, "i"    # I
 
@@ -322,7 +322,7 @@
 .end method
 
 .method public static final synthetic access$removeRangeInternal(Lkotlin/collections/builders/ListBuilder;II)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
     .param p1, "rangeOffset"    # I
     .param p2, "rangeLength"    # I
@@ -334,7 +334,7 @@
 .end method
 
 .method public static final synthetic access$retainOrRemoveAllInternal(Lkotlin/collections/builders/ListBuilder;IILjava/util/Collection;Z)I
-    .locals 1
+    .registers 6
     .param p0, "$this"    # Lkotlin/collections/builders/ListBuilder;
     .param p1, "rangeOffset"    # I
     .param p2, "rangeLength"    # I
@@ -350,7 +350,7 @@
 .end method
 
 .method private final addAllInternal(ILjava/util/Collection;I)V
-    .locals 5
+    .registers 9
     .param p1, "i"    # I
     .param p2, "elements"    # Ljava/util/Collection;
     .param p3, "n"    # I
@@ -379,8 +379,8 @@
 
     .line 209
     .local v1, "it":Ljava/util/Iterator;
-    :goto_0
-    if-ge v0, p3, :cond_0
+    :goto_b
+    if-ge v0, p3, :cond_1a
 
     .line 210
     iget-object v2, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -396,15 +396,15 @@
     .line 211
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 213
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method private final addAtInternal(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "i"    # I
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -431,18 +431,18 @@
 .end method
 
 .method private final checkIsMutable()V
-    .locals 1
+    .registers 2
 
     .line 173
     iget-boolean v0, p0, Lkotlin/collections/builders/ListBuilder;->isReadOnly:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 174
     return-void
 
     .line 173
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -451,7 +451,7 @@
 .end method
 
 .method private final contentEquals(Ljava/util/List;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -468,6 +468,7 @@
 
     iget v2, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
+    # invokes: Lkotlin/collections/builders/ListBuilderKt;->subarrayContentEquals([Ljava/lang/Object;IILjava/util/List;)Z
     invoke-static {v0, v1, v2, p1}, Lkotlin/collections/builders/ListBuilderKt;->access$subarrayContentEquals([Ljava/lang/Object;IILjava/util/List;)Z
 
     move-result v0
@@ -476,18 +477,18 @@
 .end method
 
 .method private final ensureCapacityInternal(I)V
-    .locals 2
+    .registers 4
     .param p1, "minCapacity"    # I
 
     .line 181
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_19
 
     .line 182
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
 
     array-length v0, v0
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_18
 
     .line 183
     sget-object v0, Lkotlin/collections/AbstractList;->Companion:Lkotlin/collections/AbstractList$Companion;
@@ -512,11 +513,11 @@
 
     .line 186
     .end local v0    # "newSize":I
-    :cond_0
+    :cond_18
     return-void
 
     .line 181
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/lang/OutOfMemoryError;
 
     invoke-direct {v0}, Ljava/lang/OutOfMemoryError;-><init>()V
@@ -525,7 +526,7 @@
 .end method
 
 .method private final ensureExtraCapacity(I)V
-    .locals 1
+    .registers 3
     .param p1, "n"    # I
 
     .line 177
@@ -540,7 +541,7 @@
 .end method
 
 .method private final insertAtInternal(II)V
-    .locals 4
+    .registers 7
     .param p1, "i"    # I
     .param p2, "n"    # I
 
@@ -570,7 +571,7 @@
 .end method
 
 .method private final registerModification()V
-    .locals 1
+    .registers 2
 
     .line 169
     iget v0, p0, Lkotlin/collections/builders/ListBuilder;->modCount:I
@@ -584,7 +585,7 @@
 .end method
 
 .method private final removeAtInternal(I)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -633,17 +634,17 @@
 .end method
 
 .method private final removeRangeInternal(II)V
-    .locals 4
+    .registers 7
     .param p1, "rangeOffset"    # I
     .param p2, "rangeLength"    # I
 
     .line 225
-    if-lez p2, :cond_0
+    if-lez p2, :cond_5
 
     invoke-direct {p0}, Lkotlin/collections/builders/ListBuilder;->registerModification()V
 
     .line 226
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
 
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -677,7 +678,7 @@
 .end method
 
 .method private final retainOrRemoveAllInternal(IILjava/util/Collection;Z)I
-    .locals 8
+    .registers 13
     .param p1, "rangeOffset"    # I
     .param p2, "rangeLength"    # I
     .param p3, "elements"    # Ljava/util/Collection;
@@ -699,8 +700,8 @@
 
     .line 235
     .local v1, "j":I
-    :goto_0
-    if-ge v0, p2, :cond_1
+    :goto_2
+    if-ge v0, p2, :cond_24
 
     .line 236
     iget-object v2, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -713,7 +714,7 @@
 
     move-result v2
 
-    if-ne v2, p4, :cond_0
+    if-ne v2, p4, :cond_21
 
     .line 237
     iget-object v2, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -740,20 +741,20 @@
 
     move v0, v5
 
-    goto :goto_0
+    goto :goto_2
 
     .line 239
     .end local v3    # "j":I
     .end local v5    # "i":I
     .restart local v0    # "i":I
     .restart local v1    # "j":I
-    :cond_0
+    :cond_21
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 242
-    :cond_1
+    :cond_24
     sub-int v2, p2, v1
 
     .line 243
@@ -782,12 +783,12 @@
     invoke-static {v3, v4, v5}, Lkotlin/collections/builders/ListBuilderKt;->resetRange([Ljava/lang/Object;II)V
 
     .line 245
-    if-lez v2, :cond_2
+    if-lez v2, :cond_42
 
     invoke-direct {p0}, Lkotlin/collections/builders/ListBuilder;->registerModification()V
 
     .line 246
-    :cond_2
+    :cond_42
     iget v3, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
     sub-int/2addr v3, v2
@@ -799,12 +800,12 @@
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 28
     iget-boolean v0, p0, Lkotlin/collections/builders/ListBuilder;->isReadOnly:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 29
     new-instance v0, Lkotlin/collections/builders/SerializedCollection;
@@ -820,7 +821,7 @@
     .line 31
     return-object v0
 
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/io/NotSerializableException;
 
     const-string v1, "The list cannot be serialized while it is being built."
@@ -833,7 +834,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -860,7 +861,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -883,7 +884,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -918,21 +919,21 @@
     invoke-direct {p0, p1, p2, v0}, Lkotlin/collections/builders/ListBuilder;->addAllInternal(ILjava/util/Collection;I)V
 
     .line 101
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -961,21 +962,21 @@
     invoke-direct {p0, v1, p1, v0}, Lkotlin/collections/builders/ListBuilder;->addAllInternal(ILjava/util/Collection;I)V
 
     .line 93
-    if-lez v0, :cond_0
+    if-lez v0, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     return v1
 .end method
 
 .method public final build()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -995,25 +996,25 @@
     .line 24
     iget v0, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     move-object v0, p0
 
     check-cast v0, Ljava/util/List;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     sget-object v0, Lkotlin/collections/builders/ListBuilder;->Empty:Lkotlin/collections/builders/ListBuilder;
 
     check-cast v0, Ljava/util/List;
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 105
     invoke-direct {p0}, Lkotlin/collections/builders/ListBuilder;->checkIsMutable()V
@@ -1030,16 +1031,16 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 154
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_12
 
     .line 155
     instance-of v0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     move-object v0, p1
 
@@ -1049,26 +1050,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x1
 
     .line 154
-    :goto_1
+    :goto_13
     return v0
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1092,7 +1093,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 34
     iget v0, p0, Lkotlin/collections/builders/ListBuilder;->length:I
@@ -1101,7 +1102,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 159
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1110,6 +1111,7 @@
 
     iget v2, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
+    # invokes: Lkotlin/collections/builders/ListBuilderKt;->subarrayContentHashCode([Ljava/lang/Object;II)I
     invoke-static {v0, v1, v2}, Lkotlin/collections/builders/ListBuilderKt;->access$subarrayContentHashCode([Ljava/lang/Object;II)I
 
     move-result v0
@@ -1118,7 +1120,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 52
@@ -1126,10 +1128,10 @@
 
     .line 53
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_13
 
     .line 54
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1140,44 +1142,44 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     return v0
 
     .line 55
-    :cond_0
+    :cond_10
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 57
-    :cond_1
+    :cond_13
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 36
     iget v0, p0, Lkotlin/collections/builders/ListBuilder;->length:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1199,7 +1201,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 61
@@ -1209,8 +1211,8 @@
 
     .line 62
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_4
+    if-ltz v0, :cond_14
 
     .line 63
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1221,25 +1223,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     return v0
 
     .line 64
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 66
-    :cond_1
+    :cond_14
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1259,7 +1261,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1287,7 +1289,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 116
@@ -1300,27 +1302,27 @@
 
     .line 118
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_c
 
     invoke-virtual {p0, v0}, Lkotlin/collections/builders/ListBuilder;->remove(I)Ljava/lang/Object;
 
     .line 119
-    :cond_0
-    if-ltz v0, :cond_1
+    :cond_c
+    if-ltz v0, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     return v1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1348,16 +1350,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_12
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_12
     return v1
 .end method
 
 .method public removeAt(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1384,7 +1386,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1414,16 +1416,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_13
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_13
     return v1
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1458,7 +1460,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 8
+    .registers 11
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1499,7 +1501,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 150
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1516,7 +1518,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1537,7 +1539,7 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1d
 
     .line 140
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1559,7 +1561,7 @@
     return-object v0
 
     .line 143
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
 
     iget v1, p0, Lkotlin/collections/builders/ListBuilder;->length:I
@@ -1577,7 +1579,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 163
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder;->backing:[Ljava/lang/Object;
@@ -1590,6 +1592,7 @@
 
     const/4 v3, 0x0
 
+    # invokes: Lkotlin/collections/builders/ListBuilderKt;->subarrayContentToString([Ljava/lang/Object;IILjava/util/Collection;)Ljava/lang/String;
     invoke-static {v0, v3, v1, v2}, Lkotlin/collections/builders/ListBuilderKt;->access$subarrayContentToString([Ljava/lang/Object;IILjava/util/Collection;)Ljava/lang/String;
 
     move-result-object v0

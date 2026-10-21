@@ -177,7 +177,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,7 +199,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper$loop$1;->result:Ljava/lang/Object;
 
@@ -217,6 +217,7 @@
 
     check-cast v1, Lkotlin/coroutines/Continuation;
 
+    # invokes: Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->loop(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->access$loop(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010
@@ -276,7 +276,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_f6
 
     const/4 v1, 0x0
 
@@ -308,7 +308,7 @@
     .line 3164
     iget-boolean p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPresentationMode:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f4
 
     .line 3165
     iget-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPaint:Landroid/graphics/Paint;
@@ -333,12 +333,12 @@
     iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mShadowTranslate:I
 
     .line 3170
-    :cond_0
+    :cond_f4
     return-void
 
     nop
 
-    :array_0
+    :array_f6
     .array-data 4
         0x40800000    # 4.0f
         0x41000000    # 8.0f
@@ -346,7 +346,7 @@
 .end method
 
 .method private drawBasicPath(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -369,7 +369,7 @@
 .end method
 
 .method private drawPathAsConfigured(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -392,10 +392,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_3
     iget v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mKeyFrameCount:I
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_19
 
     .line 3319
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
@@ -404,50 +404,50 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_f
 
     .line 3320
     const/4 v0, 0x1
 
     .line 3322
-    :cond_0
+    :cond_f
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
     aget v3, v3, v2
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_16
 
     .line 3323
     const/4 v1, 0x1
 
     .line 3318
-    :cond_1
+    :cond_16
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 3326
     .end local v2    # "i":I
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_19
+    if-eqz v0, :cond_1e
 
     .line 3327
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathRelative(Landroid/graphics/Canvas;)V
 
     .line 3329
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_1e
+    if-eqz v1, :cond_23
 
     .line 3330
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathCartesian(Landroid/graphics/Canvas;)V
 
     .line 3332
-    :cond_4
+    :cond_23
     return-void
 .end method
 
 .method private drawPathCartesian(Landroid/graphics/Canvas;)V
-    .locals 17
+    .registers 19
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -557,7 +557,7 @@
 .end method
 
 .method private drawPathCartesianTicks(Landroid/graphics/Canvas;FF)V
-    .locals 24
+    .registers 28
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "x"    # F
     .param p3, "y"    # F
@@ -857,7 +857,7 @@
 .end method
 
 .method private drawPathRelative(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -912,7 +912,7 @@
 .end method
 
 .method private drawPathRelativeTicks(Landroid/graphics/Canvas;FF)V
-    .locals 23
+    .registers 27
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "x"    # F
     .param p3, "y"    # F
@@ -1167,7 +1167,7 @@
 .end method
 
 .method private drawPathScreenTicks(Landroid/graphics/Canvas;FFII)V
-    .locals 24
+    .registers 30
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "x"    # F
     .param p3, "y"    # F
@@ -1457,7 +1457,7 @@
 .end method
 
 .method private drawRectangle(Landroid/graphics/Canvas;Landroidx/constraintlayout/motion/widget/MotionController;)V
-    .locals 7
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "motionController"    # Landroidx/constraintlayout/motion/widget/MotionController;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1484,8 +1484,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-gt v1, v0, :cond_0
+    :goto_8
+    if-gt v1, v0, :cond_56
 
     .line 3427
     int-to-float v2, v1
@@ -1577,11 +1577,11 @@
     .end local v2    # "p":F
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 3435
     .end local v1    # "i":I
-    :cond_0
+    :cond_56
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPaint:Landroid/graphics/Paint;
 
     const/high16 v2, 0x44000000    # 512.0f
@@ -1624,7 +1624,7 @@
 .end method
 
 .method private drawTicks(Landroid/graphics/Canvas;IILandroidx/constraintlayout/motion/widget/MotionController;)V
-    .locals 19
+    .registers 24
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "mode"    # I
     .param p3, "keyFrames"    # I
@@ -1663,7 +1663,7 @@
     .local v1, "viewHeight":I
     iget-object v2, v9, Landroidx/constraintlayout/motion/widget/MotionController;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 3249
     iget-object v2, v9, Landroidx/constraintlayout/motion/widget/MotionController;->mView:Landroid/view/View;
@@ -1683,10 +1683,10 @@
 
     move v11, v1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 3248
-    :cond_0
+    :cond_1d
     move v10, v0
 
     move v11, v1
@@ -1696,25 +1696,25 @@
     .end local v1    # "viewHeight":I
     .local v10, "viewWidth":I
     .local v11, "viewHeight":I
-    :goto_0
+    :goto_1f
     const/4 v0, 0x1
 
     move v12, v0
 
     .local v12, "i":I
-    :goto_1
+    :goto_21
     add-int/lit8 v0, p3, -0x1
 
     const/4 v13, 0x2
 
     const/4 v1, 0x1
 
-    if-ge v12, v0, :cond_b
+    if-ge v12, v0, :cond_f7
 
     .line 3253
     const/4 v0, 0x4
 
-    if-ne v8, v0, :cond_1
+    if-ne v8, v0, :cond_34
 
     iget-object v2, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
@@ -1722,13 +1722,13 @@
 
     aget v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
     .line 3255
-    goto/16 :goto_4
+    goto/16 :goto_f3
 
     .line 3258
-    :cond_1
+    :cond_34
     iget-object v2, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mKeyFramePoints:[F
 
     mul-int/lit8 v3, v12, 0x2
@@ -1803,7 +1803,7 @@
 
     .line 3270
     .local v18, "dy":F
-    if-ne v8, v0, :cond_5
+    if-ne v8, v0, :cond_b1
 
     .line 3272
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
@@ -1812,7 +1812,7 @@
 
     aget v0, v0, v2
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_85
 
     .line 3273
     sub-float v0, v14, v17
@@ -1821,17 +1821,17 @@
 
     invoke-direct {v6, v7, v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathRelativeTicks(Landroid/graphics/Canvas;FF)V
 
-    goto :goto_2
+    goto :goto_aa
 
     .line 3274
-    :cond_2
+    :cond_85
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
     add-int/lit8 v1, v12, -0x1
 
     aget v0, v0, v1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_95
 
     .line 3275
     sub-float v0, v14, v17
@@ -1840,17 +1840,17 @@
 
     invoke-direct {v6, v7, v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathCartesianTicks(Landroid/graphics/Canvas;FF)V
 
-    goto :goto_2
+    goto :goto_aa
 
     .line 3276
-    :cond_3
+    :cond_95
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
     add-int/lit8 v1, v12, -0x1
 
     aget v0, v0, v1
 
-    if-ne v0, v13, :cond_4
+    if-ne v0, v13, :cond_aa
 
     .line 3277
     sub-float v2, v14, v17
@@ -1868,8 +1868,8 @@
     invoke-direct/range {v0 .. v5}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathScreenTicks(Landroid/graphics/Canvas;FFII)V
 
     .line 3280
-    :cond_4
-    :goto_2
+    :cond_aa
+    :goto_aa
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPath:Landroid/graphics/Path;
 
     iget-object v1, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mFillPaint:Landroid/graphics/Paint;
@@ -1877,8 +1877,8 @@
     invoke-virtual {v7, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 3282
-    :cond_5
-    if-ne v8, v13, :cond_6
+    :cond_b1
+    if-ne v8, v13, :cond_ba
 
     .line 3283
     sub-float v0, v14, v17
@@ -1888,10 +1888,10 @@
     invoke-direct {v6, v7, v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathRelativeTicks(Landroid/graphics/Canvas;FF)V
 
     .line 3285
-    :cond_6
+    :cond_ba
     const/4 v0, 0x3
 
-    if-ne v8, v0, :cond_7
+    if-ne v8, v0, :cond_c4
 
     .line 3286
     sub-float v0, v14, v17
@@ -1901,10 +1901,10 @@
     invoke-direct {v6, v7, v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathCartesianTicks(Landroid/graphics/Canvas;FF)V
 
     .line 3288
-    :cond_7
+    :cond_c4
     const/4 v0, 0x6
 
-    if-ne v8, v0, :cond_8
+    if-ne v8, v0, :cond_d4
 
     .line 3289
     sub-float v2, v14, v17
@@ -1922,32 +1922,32 @@
     invoke-direct/range {v0 .. v5}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathScreenTicks(Landroid/graphics/Canvas;FFII)V
 
     .line 3291
-    :cond_8
+    :cond_d4
     const/4 v0, 0x0
 
     cmpl-float v1, v17, v0
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_e6
 
     cmpl-float v0, v18, v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_de
 
-    goto :goto_3
+    goto :goto_e6
 
     .line 3294
-    :cond_9
+    :cond_de
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPath:Landroid/graphics/Path;
 
     iget-object v1, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mFillPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v7, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    goto :goto_4
+    goto :goto_f3
 
     .line 3292
-    :cond_a
-    :goto_3
+    :cond_e6
+    :goto_e6
     sub-float v2, v14, v17
 
     sub-float v3, v15, v18
@@ -1968,19 +1968,19 @@
     .end local v16    # "framePoint":Landroidx/constraintlayout/motion/widget/MotionPaths;
     .end local v17    # "dx":F
     .end local v18    # "dy":F
-    :goto_4
+    :goto_f3
     add-int/lit8 v12, v12, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_21
 
     .line 3297
     .end local v12    # "i":I
-    :cond_b
+    :cond_f7
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPoints:[F
 
     array-length v0, v0
 
-    if-le v0, v1, :cond_c
+    if-le v0, v1, :cond_121
 
     .line 3299
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPoints:[F
@@ -2025,12 +2025,12 @@
     invoke-virtual {v7, v0, v1, v4, v2}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     .line 3303
-    :cond_c
+    :cond_121
     return-void
 .end method
 
 .method private drawTranslation(Landroid/graphics/Canvas;FFFF)V
-    .locals 13
+    .registers 19
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "x1"    # F
     .param p3, "y1"    # F
@@ -2092,7 +2092,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/util/HashMap;II)V
-    .locals 6
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p3, "duration"    # I
     .param p4, "debugPath"    # I
@@ -2124,18 +2124,18 @@
 
     .line 3175
     .local p2, "frameArrayList":Ljava/util/HashMap;, "Ljava/util/HashMap<Landroid/view/View;Landroidx/constraintlayout/motion/widget/MotionController;>;"
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_113
 
     invoke-virtual {p2}, Ljava/util/HashMap;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto/16 :goto_1
+    goto/16 :goto_113
 
     .line 3178
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 3179
@@ -2145,13 +2145,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_6b
 
     and-int/lit8 v0, p4, 0x1
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_6b
 
     .line 3180
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2170,6 +2170,7 @@
 
     iget-object v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
+    # getter for: Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
     invoke-static {v2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->access$100(Landroidx/constraintlayout/motion/widget/MotionLayout;)I
 
     move-result v2
@@ -2239,7 +2240,7 @@
 
     .line 3184
     .end local v0    # "str":Ljava/lang/String;
-    :cond_1
+    :cond_6b
     invoke-virtual {p2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
@@ -2248,12 +2249,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_73
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_10f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2269,22 +2270,22 @@
 
     .line 3186
     .local v2, "mode":I
-    if-lez p4, :cond_2
+    if-lez p4, :cond_88
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_88
 
     .line 3187
     const/4 v2, 0x1
 
     .line 3189
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_88
+    if-nez v2, :cond_8b
 
     .line 3190
-    goto :goto_0
+    goto :goto_73
 
     .line 3193
-    :cond_3
+    :cond_8b
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mKeyFramePoints:[F
 
     iget-object v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
@@ -2298,7 +2299,7 @@
     .line 3195
     const/4 v3, 0x1
 
-    if-lt v2, v3, :cond_6
+    if-lt v2, v3, :cond_10d
 
     .line 3197
     div-int/lit8 v3, p3, 0x10
@@ -2307,7 +2308,7 @@
     .local v3, "frames":I
     iget-object v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPoints:[F
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_a5
 
     iget-object v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPoints:[F
 
@@ -2315,10 +2316,10 @@
 
     mul-int/lit8 v5, v3, 0x2
 
-    if-eq v4, v5, :cond_5
+    if-eq v4, v5, :cond_b2
 
     .line 3199
-    :cond_4
+    :cond_a5
     mul-int/lit8 v4, v3, 0x2
 
     new-array v4, v4, [F
@@ -2333,7 +2334,7 @@
     iput-object v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPath:Landroid/graphics/Path;
 
     .line 3203
-    :cond_5
+    :cond_b2
     iget v4, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mShadowTranslate:I
 
     int-to-float v4, v4
@@ -2425,7 +2426,7 @@
     .line 3218
     const/4 v4, 0x5
 
-    if-ne v2, v4, :cond_6
+    if-ne v2, v4, :cond_10d
 
     .line 3219
     invoke-direct {p0, p1, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawRectangle(Landroid/graphics/Canvas;Landroidx/constraintlayout/motion/widget/MotionController;)V
@@ -2434,24 +2435,24 @@
     .end local v1    # "motionController":Landroidx/constraintlayout/motion/widget/MotionController;
     .end local v2    # "mode":I
     .end local v3    # "frames":I
-    :cond_6
-    goto/16 :goto_0
+    :cond_10d
+    goto/16 :goto_73
 
     .line 3224
-    :cond_7
+    :cond_10f
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 3225
     return-void
 
     .line 3176
-    :cond_8
-    :goto_1
+    :cond_113
+    :goto_113
     return-void
 .end method
 
 .method public drawAll(Landroid/graphics/Canvas;IILandroidx/constraintlayout/motion/widget/MotionController;)V
-    .locals 1
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "mode"    # I
     .param p3, "keyFrames"    # I
@@ -2474,31 +2475,31 @@
     .line 3228
     const/4 v0, 0x4
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_6
 
     .line 3229
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathAsConfigured(Landroid/graphics/Canvas;)V
 
     .line 3231
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_c
 
     .line 3232
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathRelative(Landroid/graphics/Canvas;)V
 
     .line 3234
-    :cond_1
+    :cond_c
     const/4 v0, 0x3
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_12
 
     .line 3235
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawPathCartesian(Landroid/graphics/Canvas;)V
 
     .line 3237
-    :cond_2
+    :cond_12
     invoke-direct {p0, p1}, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->drawBasicPath(Landroid/graphics/Canvas;)V
 
     .line 3238
@@ -2509,7 +2510,7 @@
 .end method
 
 .method getTextBounds(Ljava/lang/String;Landroid/graphics/Paint;)V
-    .locals 3
+    .registers 6
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "paint"    # Landroid/graphics/Paint;
     .annotation system Ldalvik/annotation/MethodParameters;

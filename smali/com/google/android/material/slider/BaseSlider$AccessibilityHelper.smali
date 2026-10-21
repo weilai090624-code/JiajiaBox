@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/slider/BaseSlider;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method private startOrEndDescription(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "virtualViewId"    # I
 
     .line 2771
@@ -75,7 +75,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_1b
 
     .line 2773
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
@@ -93,8 +93,8 @@
     return-object v1
 
     .line 2776
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_1b
+    if-nez p1, :cond_2a
 
     .line 2777
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
@@ -112,7 +112,7 @@
     return-object v1
 
     .line 2780
-    :cond_1
+    :cond_2a
     const-string v1, ""
 
     return-object v1
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method protected getVirtualViewAt(FF)I
-    .locals 4
+    .registers 7
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -129,7 +129,7 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
     invoke-virtual {v1}, Lcom/google/android/material/slider/BaseSlider;->getValues()Ljava/util/List;
@@ -140,7 +140,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_22
 
     .line 2713
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
@@ -160,27 +160,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 2715
     return v0
 
     .line 2712
-    :cond_0
+    :cond_1f
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 2719
     .end local v0    # "i":I
-    :cond_1
+    :cond_22
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method protected getVisibleVirtualViews(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -195,7 +195,7 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
     invoke-virtual {v1}, Lcom/google/android/material/slider/BaseSlider;->getValues()Ljava/util/List;
@@ -206,7 +206,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
     .line 2725
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -218,16 +218,16 @@
     .line 2724
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 2727
     .end local v0    # "i":I
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method protected onPerformActionForVirtualView(IILandroid/os/Bundle;)Z
-    .locals 7
+    .registers 11
     .param p1, "virtualViewId"    # I
     .param p2, "action"    # I
     .param p3, "arguments"    # Landroid/os/Bundle;
@@ -241,23 +241,23 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 2787
     return v1
 
     .line 2790
-    :cond_0
+    :cond_a
     const/4 v0, 0x1
 
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_86
 
     .line 2836
     return v1
 
     .line 2793
-    :sswitch_0
-    if-eqz p3, :cond_3
+    :sswitch_f
+    if-eqz p3, :cond_36
 
     .line 2794
     const-string v2, "android.view.accessibility.action.ARGUMENT_PROGRESS_VALUE"
@@ -266,12 +266,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1a
 
-    goto :goto_0
+    goto :goto_36
 
     .line 2798
-    :cond_1
+    :cond_1a
     nop
 
     .line 2799
@@ -283,15 +283,17 @@
     .local v2, "value":F
     iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->snapThumbToValue(IF)Z
     invoke-static {v3, p1, v2}, Lcom/google/android/material/slider/BaseSlider;->access$500(Lcom/google/android/material/slider/BaseSlider;IF)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_35
 
     .line 2801
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
     invoke-static {v1}, Lcom/google/android/material/slider/BaseSlider;->access$600(Lcom/google/android/material/slider/BaseSlider;)V
 
     .line 2802
@@ -306,21 +308,22 @@
     return v0
 
     .line 2806
-    :cond_2
+    :cond_35
     return v1
 
     .line 2796
     .end local v2    # "value":F
-    :cond_3
-    :goto_0
+    :cond_36
+    :goto_36
     return v1
 
     .line 2811
-    :sswitch_1
+    :sswitch_37
     iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
     const/16 v3, 0x14
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->calculateStepIncrement(I)F
     invoke-static {v2, v3}, Lcom/google/android/material/slider/BaseSlider;->access$700(Lcom/google/android/material/slider/BaseSlider;I)F
 
     move-result v2
@@ -329,26 +332,26 @@
     .local v2, "increment":F
     const/16 v3, 0x2000
 
-    if-ne p2, v3, :cond_4
+    if-ne p2, v3, :cond_44
 
     .line 2813
     neg-float v2, v2
 
     .line 2817
-    :cond_4
+    :cond_44
     iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
     invoke-virtual {v3}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4d
 
     .line 2818
     neg-float v2, v2
 
     .line 2821
-    :cond_5
+    :cond_4d
     iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
     invoke-virtual {v3}, Lcom/google/android/material/slider/BaseSlider;->getValues()Ljava/util/List;
@@ -395,15 +398,17 @@
     .local v4, "clamped":F
     iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->snapThumbToValue(IF)Z
     invoke-static {v5, p1, v4}, Lcom/google/android/material/slider/BaseSlider;->access$500(Lcom/google/android/material/slider/BaseSlider;IF)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_85
 
     .line 2828
     iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
     invoke-static {v1}, Lcom/google/android/material/slider/BaseSlider;->access$600(Lcom/google/android/material/slider/BaseSlider;)V
 
     .line 2829
@@ -418,19 +423,19 @@
     return v0
 
     .line 2833
-    :cond_6
+    :cond_85
     return v1
 
-    :sswitch_data_0
+    :sswitch_data_86
     .sparse-switch
-        0x1000 -> :sswitch_1
-        0x2000 -> :sswitch_1
-        0x102003d -> :sswitch_0
+        0x1000 -> :sswitch_37
+        0x2000 -> :sswitch_37
+        0x102003d -> :sswitch_f
     .end sparse-switch
 .end method
 
 .method protected onPopulateNodeForVirtualView(ILandroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 11
+    .registers 14
     .param p1, "virtualViewId"    # I
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -482,12 +487,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3b
 
     .line 2741
     cmpl-float v4, v1, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_32
 
     .line 2742
     const/16 v4, 0x2000
@@ -495,10 +500,10 @@
     invoke-virtual {p2, v4}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 2744
-    :cond_0
+    :cond_32
     cmpg-float v4, v1, v3
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_3b
 
     .line 2745
     const/16 v4, 0x1000
@@ -506,7 +511,7 @@
     invoke-virtual {p2, v4}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 2749
-    :cond_1
+    :cond_3b
     const/4 v4, 0x1
 
     invoke-static {v4, v2, v3, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->obtain(IFFF)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;
@@ -537,7 +542,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_68
 
     .line 2754
     iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
@@ -555,9 +560,10 @@
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2757
-    :cond_2
+    :cond_68
     iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->slider:Lcom/google/android/material/slider/BaseSlider;
 
+    # invokes: Lcom/google/android/material/slider/BaseSlider;->formatValue(F)Ljava/lang/String;
     invoke-static {v6, v1}, Lcom/google/android/material/slider/BaseSlider;->access$400(Lcom/google/android/material/slider/BaseSlider;F)Ljava/lang/String;
 
     move-result-object v6
@@ -582,7 +588,7 @@
 
     move-result v8
 
-    if-le v8, v4, :cond_3
+    if-le v8, v4, :cond_84
 
     .line 2760
     invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;->startOrEndDescription(I)Ljava/lang/String;
@@ -590,7 +596,7 @@
     move-result-object v7
 
     .line 2762
-    :cond_3
+    :cond_84
     sget-object v8, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const/4 v9, 0x2

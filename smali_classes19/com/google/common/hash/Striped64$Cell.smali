@@ -54,10 +54,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 116
     :try_start_0
+    # invokes: Lcom/google/common/hash/Striped64;->getUnsafe()Lsun/misc/Unsafe;
     invoke-static {}, Lcom/google/common/hash/Striped64;->access$000()Lsun/misc/Unsafe;
 
     move-result-object v0
@@ -82,8 +83,8 @@
     move-result-wide v1
 
     sput-wide v1, Lcom/google/common/hash/Striped64$Cell;->valueOffset:J
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_16} :catch_18
 
     .line 121
     .end local v0    # "ak":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -93,7 +94,7 @@
     return-void
 
     .line 119
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 120
@@ -106,7 +107,7 @@
 .end method
 
 .method constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "x"    # J
 
     .line 102
@@ -122,7 +123,7 @@
 
 # virtual methods
 .method final cas(JJ)Z
-    .locals 8
+    .registers 13
     .param p1, "cmp"    # J
     .param p3, "val"    # J
 

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/CartesianList;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/CartesianList;
 
     .line 117
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "axis"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,6 +67,7 @@
 
     iget v1, p0, Lcom/google/common/collect/CartesianList$1;->val$index:I
 
+    # invokes: Lcom/google/common/collect/CartesianList;->getAxisIndexForProductIndex(II)I
     invoke-static {v0, v1, p1}, Lcom/google/common/collect/CartesianList;->access$100(Lcom/google/common/collect/CartesianList;II)I
 
     move-result v0
@@ -75,6 +76,7 @@
     .local v0, "axisIndex":I
     iget-object v1, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
+    # getter for: Lcom/google/common/collect/CartesianList;->axes:Lcom/google/common/collect/ImmutableList;
     invoke-static {v1}, Lcom/google/common/collect/CartesianList;->access$000(Lcom/google/common/collect/CartesianList;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -93,7 +95,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 133
     .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList$1;"
@@ -103,12 +105,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 121
     .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList$1;"
     iget-object v0, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
+    # getter for: Lcom/google/common/collect/CartesianList;->axes:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/CartesianList;->access$000(Lcom/google/common/collect/CartesianList;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0

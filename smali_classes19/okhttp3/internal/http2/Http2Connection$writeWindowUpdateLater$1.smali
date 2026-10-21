@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;IJ)V
-    .locals 1
+    .registers 6
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$writeWindowUpdateLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 361
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$writeWindowUpdateLater$1;->invoke()V
@@ -82,13 +82,13 @@
 .end method
 
 .method public final invoke()V
-    .locals 4
+    .registers 5
 
     .line 362
     nop
 
     .line 363
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$writeWindowUpdateLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
     invoke-virtual {v0}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
@@ -100,23 +100,24 @@
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection$writeWindowUpdateLater$1;->$unacknowledgedBytesRead:J
 
     invoke-virtual {v0, v1, v2, v3}, Lokhttp3/internal/http2/Http2Writer;->windowUpdate(IJ)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_e} :catch_f
 
-    goto :goto_0
+    goto :goto_15
 
     .line 364
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 365
     .local v0, "e":Ljava/io/IOException;
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$writeWindowUpdateLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
+    # invokes: Lokhttp3/internal/http2/Http2Connection;->failConnection(Ljava/io/IOException;)V
     invoke-static {v1, v0}, Lokhttp3/internal/http2/Http2Connection;->access$failConnection(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
 
     .line 367
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_15
     return-void
 .end method

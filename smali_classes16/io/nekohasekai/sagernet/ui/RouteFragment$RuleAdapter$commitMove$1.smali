@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/ui/RouteFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,14 +166,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 198
     iget v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$commitMove$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -183,13 +183,14 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 199
     .local p1, "$result":Ljava/lang/Object;
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$commitMove$1;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->updated:Ljava/util/HashSet;
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->access$getUpdated$p(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;)Ljava/util/HashSet;
 
     move-result-object v0
@@ -200,7 +201,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_46
 
     .line 200
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
@@ -211,6 +212,7 @@
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$commitMove$1;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->updated:Ljava/util/HashSet;
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->access$getUpdated$p(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;)Ljava/util/HashSet;
 
     move-result-object v1
@@ -226,6 +228,7 @@
     .line 201
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$commitMove$1;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->updated:Ljava/util/HashSet;
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->access$getUpdated$p(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;)Ljava/util/HashSet;
 
     move-result-object v0
@@ -240,15 +243,15 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->needReload(Landroidx/fragment/app/Fragment;)V
 
     .line 204
-    :cond_0
+    :cond_46
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

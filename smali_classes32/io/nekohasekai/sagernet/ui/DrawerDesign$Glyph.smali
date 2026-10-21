@@ -28,10 +28,10 @@
 .method constructor <init>(Landroid/content/Context;I)V
     .registers 5
 
-    .line 83
+    .line 98
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 82
+    .line 97
     new-instance v0, Landroid/graphics/Paint;
 
     const/4 v1, 0x1
@@ -46,7 +46,7 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->path:Landroid/graphics/Path;
 
-    .line 83
+    .line 98
     iput p2, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->kind:I
 
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->muted(Landroid/content/Context;)I
@@ -87,7 +87,7 @@
 
     move-object/from16 v1, p1
 
-    .line 84
+    .line 99
     invoke-super/range {p0 .. p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {v1}, Landroid/graphics/Canvas;->save()I
@@ -124,7 +124,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
-    .line 85
+    .line 100
     iget v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->kind:I
 
     const/high16 v3, 0x41100000    # 9.0f
@@ -171,7 +171,7 @@
 
     if-eq v2, v7, :cond_6a
 
-    .line 92
+    .line 107
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->path:Landroid/graphics/Path;
 
     invoke-virtual {v2, v14, v8}, Landroid/graphics/Path;->moveTo(FF)V
@@ -194,7 +194,7 @@
 
     goto/16 :goto_1b8
 
-    .line 91
+    .line 106
     :cond_6a
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->pen:Landroid/graphics/Paint;
 
@@ -218,7 +218,7 @@
 
     goto/16 :goto_1b8
 
-    .line 90
+    .line 105
     :cond_83
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->pen:Landroid/graphics/Paint;
 
@@ -302,7 +302,7 @@
     :cond_c6
     const/high16 v7, 0x40000000    # 2.0f
 
-    .line 89
+    .line 104
     iget-object v8, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->pen:Landroid/graphics/Paint;
 
     const/high16 v2, 0x40400000    # 3.0f
@@ -373,7 +373,7 @@
     :goto_108
     sub-float v4, v10, v15
 
-    .line 88
+    .line 103
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->pen:Landroid/graphics/Paint;
 
     const/high16 v2, 0x40400000    # 3.0f
@@ -405,7 +405,7 @@
 
     goto/16 :goto_1b8
 
-    .line 87
+    .line 102
     :cond_129
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->pen:Landroid/graphics/Paint;
 
@@ -472,7 +472,7 @@
     :cond_172
     const/high16 v16, 0x41200000    # 10.0f
 
-    .line 86
+    .line 101
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->path:Landroid/graphics/Path;
 
     const/high16 v7, 0x40400000    # 3.0f
@@ -529,7 +529,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 93
+    .line 108
     :goto_1b8
     invoke-virtual {v1, v9}, Landroid/graphics/Canvas;->restoreToCount(I)V
 

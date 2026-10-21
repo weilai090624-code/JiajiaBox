@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 245
     nop
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 262
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -112,7 +112,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/material/datepicker/CalendarConstraints;)V
-    .locals 2
+    .registers 4
     .param p1, "clone"    # Lcom/google/android/material/datepicker/CalendarConstraints;
 
     .line 264
@@ -138,6 +138,7 @@
     iput-object v0, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->validator:Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
 
     .line 265
+    # getter for: Lcom/google/android/material/datepicker/CalendarConstraints;->start:Lcom/google/android/material/datepicker/Month;
     invoke-static {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->access$100(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;
 
     move-result-object v0
@@ -147,6 +148,7 @@
     iput-wide v0, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->start:J
 
     .line 266
+    # getter for: Lcom/google/android/material/datepicker/CalendarConstraints;->end:Lcom/google/android/material/datepicker/Month;
     invoke-static {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->access$200(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;
 
     move-result-object v0
@@ -156,6 +158,7 @@
     iput-wide v0, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->end:J
 
     .line 267
+    # getter for: Lcom/google/android/material/datepicker/CalendarConstraints;->openAt:Lcom/google/android/material/datepicker/Month;
     invoke-static {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->access$300(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;
 
     move-result-object v0
@@ -169,6 +172,7 @@
     iput-object v0, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->openAt:Ljava/lang/Long;
 
     .line 268
+    # getter for: Lcom/google/android/material/datepicker/CalendarConstraints;->firstDayOfWeek:I
     invoke-static {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->access$400(Lcom/google/android/material/datepicker/CalendarConstraints;)I
 
     move-result v0
@@ -176,6 +180,7 @@
     iput v0, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->firstDayOfWeek:I
 
     .line 269
+    # getter for: Lcom/google/android/material/datepicker/CalendarConstraints;->validator:Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
     invoke-static {p1}, Lcom/google/android/material/datepicker/CalendarConstraints;->access$500(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
 
     move-result-object v0
@@ -189,7 +194,7 @@
 
 # virtual methods
 .method public build()Lcom/google/android/material/datepicker/CalendarConstraints;
-    .locals 10
+    .registers 11
 
     .line 385
     new-instance v0, Landroid/os/Bundle;
@@ -233,13 +238,13 @@
     .line 391
     iget-object v2, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->openAt:Ljava/lang/Long;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_27
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_27
     iget-object v2, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->openAt:Ljava/lang/Long;
 
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
@@ -250,7 +255,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_31
     move-object v7, v2
 
     iget v8, p0, Lcom/google/android/material/datepicker/CalendarConstraints$Builder;->firstDayOfWeek:I
@@ -266,7 +271,7 @@
 .end method
 
 .method public setEnd(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
-    .locals 0
+    .registers 3
     .param p1, "month"    # J
 
     .line 324
@@ -277,7 +282,7 @@
 .end method
 
 .method public setFirstDayOfWeek(I)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
-    .locals 0
+    .registers 2
     .param p1, "firstDayOfWeek"    # I
 
     .line 366
@@ -288,7 +293,7 @@
 .end method
 
 .method public setOpenAt(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
-    .locals 1
+    .registers 4
     .param p1, "month"    # J
 
     .line 352
@@ -303,7 +308,7 @@
 .end method
 
 .method public setStart(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
-    .locals 0
+    .registers 3
     .param p1, "month"    # J
 
     .line 296
@@ -314,7 +319,7 @@
 .end method
 
 .method public setValidator(Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;
-    .locals 1
+    .registers 3
     .param p1, "validator"    # Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
 
     .line 377

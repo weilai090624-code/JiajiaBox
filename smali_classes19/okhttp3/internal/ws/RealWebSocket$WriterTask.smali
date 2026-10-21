@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/ws/RealWebSocket;)V
-    .locals 4
+    .registers 6
     .param p1, "this$0"    # Lokhttp3/internal/ws/RealWebSocket;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,6 +56,7 @@
     .line 617
     iput-object p1, p0, Lokhttp3/internal/ws/RealWebSocket$WriterTask;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
+    # getter for: Lokhttp3/internal/ws/RealWebSocket;->name:Ljava/lang/String;
     invoke-static {p1}, Lokhttp3/internal/ws/RealWebSocket;->access$getName$p(Lokhttp3/internal/ws/RealWebSocket;)Ljava/lang/String;
 
     move-result-object v0
@@ -80,29 +81,29 @@
 
 # virtual methods
 .method public runOnce()J
-    .locals 4
+    .registers 5
 
     .line 619
     nop
 
     .line 620
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$WriterTask;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
     invoke-virtual {v0}, Lokhttp3/internal/ws/RealWebSocket;->writeOneFrame$okhttp()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_7} :catch_c
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     .line 621
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 622
@@ -119,7 +120,7 @@
 
     .line 624
     .end local v0    # "e":Ljava/io/IOException;
-    :cond_0
+    :cond_16
     const-wide/16 v0, -0x1
 
     return-wide v0

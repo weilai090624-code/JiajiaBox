@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
 
     .line 159
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 2
+    .registers 12
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -51,6 +51,7 @@
     .line 171
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$200(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -59,20 +60,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 172
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$200(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
 
     move-result-object v1
 
+    # invokes: Lcom/google/android/material/navigation/NavigationBarItemView;->tryUpdateBadgeBounds(Landroid/view/View;)V
     invoke-static {v0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$300(Lcom/google/android/material/navigation/NavigationBarItemView;Landroid/view/View;)V
 
     .line 174
-    :cond_0
+    :cond_17
     return-void
 .end method

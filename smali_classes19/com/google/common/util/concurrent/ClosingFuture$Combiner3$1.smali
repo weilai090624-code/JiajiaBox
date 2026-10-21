@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$ClosingFunction3;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1651
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;Lcom/google/common/util/concurrent/ClosingFuture$Peeker;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "closer"    # Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
     .param p2, "peeker"    # Lcom/google/common/util/concurrent/ClosingFuture$Peeker;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -78,6 +78,7 @@
     iget-object v1, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$1;->this$0:Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1657
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->future1:Lcom/google/common/util/concurrent/ClosingFuture;
     invoke-static {v1}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->access$2000(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object v1
@@ -89,6 +90,7 @@
     iget-object v2, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$1;->this$0:Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1658
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->future2:Lcom/google/common/util/concurrent/ClosingFuture;
     invoke-static {v2}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->access$2100(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object v2
@@ -100,6 +102,7 @@
     iget-object v3, p0, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$1;->this$0:Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1659
+    # getter for: Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->future3:Lcom/google/common/util/concurrent/ClosingFuture;
     invoke-static {v3}, Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;->access$2200(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object v3
@@ -117,7 +120,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1664
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$1;, "Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$1;"

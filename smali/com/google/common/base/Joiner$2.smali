@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Joiner;Lcom/google/common/base/Joiner;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/base/Joiner;
     .param p2, "prototype"    # Lcom/google/common/base/Joiner;
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Iterator;)Ljava/lang/Appendable;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -69,12 +69,12 @@
     invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 270
-    :goto_0
+    :goto_a
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 271
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -83,7 +83,7 @@
 
     .line 272
     .local v0, "part":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 273
     iget-object v1, p0, Lcom/google/common/base/Joiner$2;->this$0:Lcom/google/common/base/Joiner;
@@ -95,21 +95,21 @@
     invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 274
-    goto :goto_1
+    goto :goto_21
 
     .line 276
     .end local v0    # "part":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_a
 
     .line 277
-    :cond_1
-    :goto_1
+    :cond_21
+    :goto_21
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_40
 
     .line 278
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -118,11 +118,12 @@
 
     .line 279
     .restart local v0    # "part":Ljava/lang/Object;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3f
 
     .line 280
     iget-object v1, p0, Lcom/google/common/base/Joiner$2;->this$0:Lcom/google/common/base/Joiner;
 
+    # getter for: Lcom/google/common/base/Joiner;->separator:Ljava/lang/String;
     invoke-static {v1}, Lcom/google/common/base/Joiner;->access$100(Lcom/google/common/base/Joiner;)Ljava/lang/String;
 
     move-result-object v1
@@ -140,16 +141,16 @@
 
     .line 283
     .end local v0    # "part":Ljava/lang/Object;
-    :cond_2
-    goto :goto_1
+    :cond_3f
+    goto :goto_21
 
     .line 284
-    :cond_3
+    :cond_40
     return-object p1
 .end method
 
 .method public useForNull(Ljava/lang/String;)Lcom/google/common/base/Joiner;
-    .locals 2
+    .registers 4
     .param p1, "nullText"    # Ljava/lang/String;
 
     .line 289
@@ -163,7 +164,7 @@
 .end method
 
 .method public withKeyValueSeparator(Ljava/lang/String;)Lcom/google/common/base/Joiner$MapJoiner;
-    .locals 2
+    .registers 4
     .param p1, "kvs"    # Ljava/lang/String;
 
     .line 294

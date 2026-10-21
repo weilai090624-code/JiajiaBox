@@ -73,7 +73,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$4dN6lgBlEig7ohEtibLhqeMfwno(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$1(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/CharSequence;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$SkFgFaBkgdnvtFnnYldAeV-nTdU(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$3(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$z5ui-m_nH8DJPwcQrcDv4ojsaZY(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$2(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$1(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
 
     .line 277
@@ -139,11 +139,12 @@
 .end method
 
 .method private static final invokeSuspend$lambda$2(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity;
     .param p1, "it"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
 
     .line 278
+    # invokes: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
 
     move-result v0
@@ -160,7 +161,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$3(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
 
     .line 278
@@ -180,7 +181,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,7 +206,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -219,7 +220,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,7 +249,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 18
+    .registers 20
 
     move-object/from16 v0, p0
 
@@ -259,7 +260,7 @@
     .line 267
     iget v2, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_10a
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -269,16 +270,16 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v1, p1
 
     .local v1, "$result":Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_106
 
     .end local v1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -287,6 +288,7 @@
     .local v2, "$result":Ljava/lang/Object;
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v3
@@ -303,6 +305,7 @@
     .local v3, "proxiedUidsOld":Landroid/util/SparseBooleanArray;
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->apps:Ljava/util/List;
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Ljava/util/List;
 
     move-result-object v4
@@ -311,7 +314,7 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_38
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
@@ -320,7 +323,7 @@
 
     const/4 v7, 0x1
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_75
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -346,7 +349,7 @@
 
     move-result v11
 
-    if-ltz v11, :cond_0
+    if-ltz v11, :cond_54
 
     const/4 v6, 0x1
 
@@ -356,12 +359,13 @@
     .end local v8    # "key$iv":I
     .end local v9    # "$this$contains$iv":Landroid/util/SparseBooleanArray;
     .end local v10    # "$i$f$contains":I
-    :cond_0
-    if-eqz v6, :cond_1
+    :cond_54
+    if-eqz v6, :cond_64
 
     .line 271
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v6
@@ -372,12 +376,13 @@
 
     invoke-virtual {v6, v7}, Landroid/util/SparseBooleanArray;->delete(I)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 273
-    :cond_1
+    :cond_64
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v6
@@ -403,15 +408,16 @@
     invoke-virtual {v6, v8, v7}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     .end local v9    # "$i$f$set":I
-    goto :goto_0
+    goto :goto_38
 
     .line 276
     .end local v3    # "proxiedUidsOld":Landroid/util/SparseBooleanArray;
-    :cond_2
+    :cond_75
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->apps:Ljava/util/List;
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Ljava/util/List;
 
     move-result-object v4
@@ -442,13 +448,13 @@
     move-result-object v11
 
     .end local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_3
-    :goto_1
+    :cond_8e
+    :goto_8e
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_a6
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -464,6 +470,7 @@
 
     .line 276
     .local v13, "$i$a$-filter-AppManagerActivity$onOptionsItemSelected$1$1":I
+    # invokes: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
     invoke-static {v5, v12}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppManagerActivity;Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;)Z
 
     move-result v12
@@ -471,15 +478,15 @@
     .line 408
     .end local v12    # "it":Lio/nekohasekai/sagernet/ui/AppManagerActivity$ProxiedApp;
     .end local v13    # "$i$a$-filter-AppManagerActivity$onOptionsItemSelected$1$1":I
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_8e
 
     invoke-interface {v9, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 409
     .end local v4    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_a6
     nop
 
     .end local v9    # "destination$iv$iv":Ljava/util/Collection;
@@ -531,6 +538,7 @@
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/AppManagerActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppManagerActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppManagerActivity;->apps:Ljava/util/List;
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AppManagerActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppManagerActivity;)Ljava/util/List;
 
     move-result-object v4
@@ -586,28 +594,28 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_5
+    if-ne v3, v1, :cond_105
 
     .line 267
     return-object v1
 
     .line 279
-    :cond_5
+    :cond_105
     move-object v1, v2
 
     .line 282
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_106
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_10a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 .end method

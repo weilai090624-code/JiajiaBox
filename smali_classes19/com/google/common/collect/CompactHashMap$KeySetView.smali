@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/CompactHashMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/CompactHashMap;
 
     .line 685
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 711
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$KeySetView;, "Lcom/google/common/collect/CompactHashMap<TK;TV;>.KeySetView;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -110,7 +110,7 @@
 
     .line 699
     .local v0, "delegate":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 700
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -121,36 +121,38 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 701
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lcom/google/common/collect/CompactHashMap$KeySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
+    # invokes: Lcom/google/common/collect/CompactHashMap;->removeHelper(Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v1, p1}, Lcom/google/common/collect/CompactHashMap;->access$200(Lcom/google/common/collect/CompactHashMap;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
+    # getter for: Lcom/google/common/collect/CompactHashMap;->NOT_FOUND:Ljava/lang/Object;
     invoke-static {}, Lcom/google/common/collect/CompactHashMap;->access$300()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v1, 0x0
 
     .line 699
-    :goto_0
+    :goto_20
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 688
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$KeySetView;, "Lcom/google/common/collect/CompactHashMap<TK;TV;>.KeySetView;"

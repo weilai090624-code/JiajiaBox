@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/MaterialShapeDrawable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     .line 219
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCornerPathCreated(Lcom/google/android/material/shape/ShapePath;Landroid/graphics/Matrix;I)V
-    .locals 2
+    .registers 6
     .param p1, "cornerPath"    # Lcom/google/android/material/shape/ShapePath;
     .param p2, "transform"    # Landroid/graphics/Matrix;
     .param p3, "count"    # I
@@ -45,6 +45,7 @@
     .line 223
     iget-object v0, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$1;->this$0:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
+    # getter for: Lcom/google/android/material/shape/MaterialShapeDrawable;->containsIncompatibleShadowOp:Ljava/util/BitSet;
     invoke-static {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->access$000(Lcom/google/android/material/shape/MaterialShapeDrawable;)Ljava/util/BitSet;
 
     move-result-object v0
@@ -58,6 +59,7 @@
     .line 224
     iget-object v0, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$1;->this$0:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
+    # getter for: Lcom/google/android/material/shape/MaterialShapeDrawable;->cornerShadowOperation:[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
     invoke-static {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->access$100(Lcom/google/android/material/shape/MaterialShapeDrawable;)[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
 
     move-result-object v0
@@ -73,7 +75,7 @@
 .end method
 
 .method public onEdgePathCreated(Lcom/google/android/material/shape/ShapePath;Landroid/graphics/Matrix;I)V
-    .locals 3
+    .registers 7
     .param p1, "edgePath"    # Lcom/google/android/material/shape/ShapePath;
     .param p2, "transform"    # Landroid/graphics/Matrix;
     .param p3, "count"    # I
@@ -81,6 +83,7 @@
     .line 229
     iget-object v0, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$1;->this$0:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
+    # getter for: Lcom/google/android/material/shape/MaterialShapeDrawable;->containsIncompatibleShadowOp:Ljava/util/BitSet;
     invoke-static {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->access$000(Lcom/google/android/material/shape/MaterialShapeDrawable;)Ljava/util/BitSet;
 
     move-result-object v0
@@ -96,6 +99,7 @@
     .line 230
     iget-object v0, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$1;->this$0:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
+    # getter for: Lcom/google/android/material/shape/MaterialShapeDrawable;->edgeShadowOperation:[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
     invoke-static {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->access$200(Lcom/google/android/material/shape/MaterialShapeDrawable;)[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
 
     move-result-object v0

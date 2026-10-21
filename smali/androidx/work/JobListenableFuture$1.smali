@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/JobListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 83
@@ -98,17 +98,18 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 84
     nop
 
     .line 85
-    if-nez p1, :cond_1
+    if-nez p1, :cond_1c
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture$1;->this$0:Landroidx/work/JobListenableFuture;
 
+    # getter for: Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
     invoke-static {v0}, Landroidx/work/JobListenableFuture;->access$getUnderlying$p(Landroidx/work/JobListenableFuture;)Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v0
@@ -117,11 +118,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -135,13 +136,14 @@
     throw v0
 
     .line 86
-    :cond_1
+    :cond_1c
     instance-of v0, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture$1;->this$0:Landroidx/work/JobListenableFuture;
 
+    # getter for: Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
     invoke-static {v0}, Landroidx/work/JobListenableFuture;->access$getUnderlying$p(Landroidx/work/JobListenableFuture;)Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v0
@@ -150,12 +152,13 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->cancel(Z)Z
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 87
-    :cond_2
+    :cond_2b
     iget-object v0, p0, Landroidx/work/JobListenableFuture$1;->this$0:Landroidx/work/JobListenableFuture;
 
+    # getter for: Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
     invoke-static {v0}, Landroidx/work/JobListenableFuture;->access$getUnderlying$p(Landroidx/work/JobListenableFuture;)Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v0
@@ -164,14 +167,14 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_38
 
     move-object v1, p1
 
-    :cond_3
+    :cond_38
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
     .line 89
-    :goto_0
+    :goto_3b
     return-void
 .end method

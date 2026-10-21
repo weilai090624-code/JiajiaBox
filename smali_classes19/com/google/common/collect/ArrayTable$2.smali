@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/ArrayTable;
 
     .line 565
@@ -49,6 +49,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$2;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # getter for: Lcom/google/common/collect/ArrayTable;->columnList:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ArrayTable;->access$100(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -66,6 +67,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$2;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # getter for: Lcom/google/common/collect/ArrayTable;->columnList:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ArrayTable;->access$100(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -84,7 +86,7 @@
 
 # virtual methods
 .method public getColumnKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -95,6 +97,7 @@
     .local p0, "this":Lcom/google/common/collect/ArrayTable$2;, "Lcom/google/common/collect/ArrayTable$2;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$2;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # getter for: Lcom/google/common/collect/ArrayTable;->columnList:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ArrayTable;->access$100(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -109,7 +112,7 @@
 .end method
 
 .method public getRowKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -120,6 +123,7 @@
     .local p0, "this":Lcom/google/common/collect/ArrayTable$2;, "Lcom/google/common/collect/ArrayTable$2;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$2;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # getter for: Lcom/google/common/collect/ArrayTable;->rowList:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ArrayTable;->access$200(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -134,7 +138,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

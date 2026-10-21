@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;Landroid/app/Activity;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;
 
     .line 262
@@ -38,17 +38,19 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 266
+    # getter for: Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
     invoke-static {}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->access$200()Ljava/lang/ref/WeakReference;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 267
+    # getter for: Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
     invoke-static {}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->access$200()Ljava/lang/ref/WeakReference;
 
     move-result-object v0
@@ -61,7 +63,7 @@
 
     .line 268
     .local v0, "sharedElement":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 269
     const/high16 v1, 0x3f800000    # 1.0f
@@ -71,11 +73,12 @@
     .line 270
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
     invoke-static {v1}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->access$202(Ljava/lang/ref/WeakReference;)Ljava/lang/ref/WeakReference;
 
     .line 275
     .end local v0    # "sharedElement":Landroid/view/View;
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$2;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V

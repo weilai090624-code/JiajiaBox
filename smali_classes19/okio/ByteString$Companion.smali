@@ -73,7 +73,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,7 +82,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/ByteString$Companion;-><init>()V
 
@@ -90,16 +90,16 @@
 .end method
 
 .method public static synthetic encodeString$default(Lokio/ByteString$Companion;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)Lokio/ByteString;
-    .locals 0
+    .registers 5
 
     .line 255
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2}, Lokio/ByteString$Companion;->encodeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/ByteString;
 
     move-result-object p0
@@ -108,21 +108,21 @@
 .end method
 
 .method public static synthetic of$default(Lokio/ByteString$Companion;[BIIILjava/lang/Object;)Lokio/ByteString;
-    .locals 0
+    .registers 6
 
     .line 237
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 213
     const/4 p2, 0x0
 
     .line 237
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 213
     nop
@@ -134,7 +134,7 @@
     array-length p3, p1
 
     .line 237
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lokio/ByteString$Companion;->of([BII)Lokio/ByteString;
 
     move-result-object p0
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public final -deprecated_decodeBase64(Ljava/lang/String;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -171,7 +171,7 @@
 .end method
 
 .method public final -deprecated_decodeHex(Ljava/lang/String;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -197,7 +197,7 @@
 .end method
 
 .method public final -deprecated_encodeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/ByteString;
-    .locals 1
+    .registers 4
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
     .annotation runtime Lkotlin/Deprecated;
@@ -228,7 +228,7 @@
 .end method
 
 .method public final -deprecated_encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -254,7 +254,7 @@
 .end method
 
 .method public final -deprecated_of(Ljava/nio/ByteBuffer;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -280,7 +280,7 @@
 .end method
 
 .method public final -deprecated_of([BII)Lokio/ByteString;
-    .locals 1
+    .registers 5
     .param p1, "array"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -308,7 +308,7 @@
 .end method
 
 .method public final -deprecated_read(Ljava/io/InputStream;I)Lokio/ByteString;
-    .locals 1
+    .registers 4
     .param p1, "inputstream"    # Ljava/io/InputStream;
     .param p2, "byteCount"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -335,7 +335,7 @@
 .end method
 
 .method public final decodeBase64(Ljava/lang/String;)Lokio/ByteString;
-    .locals 4
+    .registers 6
     .param p1, "$this$decodeBase64"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -358,27 +358,27 @@
 
     .line 371
     .local v2, "decoded$iv":[B
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     new-instance v3, Lokio/ByteString;
 
     invoke-direct {v3, v2}, Lokio/ByteString;-><init>([B)V
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v3, 0x0
 
     .line 258
     .end local v0    # "$this$commonDecodeBase64$iv":Ljava/lang/String;
     .end local v1    # "$i$f$commonDecodeBase64":I
     .end local v2    # "decoded$iv":[B
-    :goto_0
+    :goto_14
     return-object v3
 .end method
 
 .method public final decodeHex(Ljava/lang/String;)Lokio/ByteString;
-    .locals 10
+    .registers 12
     .param p1, "$this$decodeHex"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -405,17 +405,17 @@
 
     const/4 v4, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_14
+    if-eqz v2, :cond_49
 
     .line 374
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -432,9 +432,9 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ltz v5, :cond_2
+    if-ltz v5, :cond_43
 
-    :cond_1
+    :cond_23
     move v6, v3
 
     .local v6, "i$iv":I
@@ -447,6 +447,7 @@
 
     move-result v7
 
+    # invokes: Lokio/internal/_ByteStringKt;->decodeHexDigit(C)I
     invoke-static {v7}, Lokio/internal/_ByteStringKt;->access$decodeHexDigit(C)I
 
     move-result v7
@@ -463,6 +464,7 @@
 
     move-result v8
 
+    # invokes: Lokio/internal/_ByteStringKt;->decodeHexDigit(C)I
     invoke-static {v8}, Lokio/internal/_ByteStringKt;->access$decodeHexDigit(C)I
 
     move-result v8
@@ -478,11 +480,11 @@
     .line 375
     .end local v7    # "d1$iv":I
     .end local v8    # "d2$iv":I
-    if-le v3, v5, :cond_1
+    if-le v3, v5, :cond_23
 
     .line 380
     .end local v6    # "i$iv":I
-    :cond_2
+    :cond_43
     new-instance v3, Lokio/ByteString;
 
     invoke-direct {v3, v2}, Lokio/ByteString;-><init>([B)V
@@ -496,7 +498,7 @@
     .line 373
     .restart local v0    # "$this$commonDecodeHex$iv":Ljava/lang/String;
     .restart local v1    # "$i$f$commonDecodeHex":I
-    :cond_3
+    :cond_49
     const/4 v2, 0x0
 
     .line 372
@@ -522,7 +524,7 @@
 .end method
 
 .method public final encodeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/ByteString;
-    .locals 3
+    .registers 6
     .param p1, "$this$encode"    # Ljava/lang/String;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -553,7 +555,7 @@
 .end method
 
 .method public final encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
-    .locals 4
+    .registers 6
     .param p1, "$this$encodeUtf8"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -593,7 +595,7 @@
 .end method
 
 .method public final of(Ljava/nio/ByteBuffer;)Lokio/ByteString;
-    .locals 2
+    .registers 4
     .param p1, "$this$toByteString"    # Ljava/nio/ByteBuffer;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -622,7 +624,7 @@
 .end method
 
 .method public final varargs of([B)Lokio/ByteString;
-    .locals 4
+    .registers 6
     .param p1, "data"    # [B
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -656,7 +658,7 @@
 .end method
 
 .method public final of([BII)Lokio/ByteString;
-    .locals 9
+    .registers 13
     .param p1, "$this$toByteString"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -703,7 +705,7 @@
 .end method
 
 .method public final read(Ljava/io/InputStream;I)Lokio/ByteString;
-    .locals 4
+    .registers 7
     .param p1, "$this$readByteString"    # Ljava/io/InputStream;
     .param p2, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -720,17 +722,17 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 272
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_a
+    if-eqz v0, :cond_29
 
     .line 274
     new-array v0, p2, [B
@@ -744,8 +746,8 @@
 
     .line 277
     .local v2, "read":I
-    :goto_1
-    if-ge v1, p2, :cond_2
+    :goto_10
+    if-ge v1, p2, :cond_23
 
     .line 278
     sub-int v3, p2, v1
@@ -757,15 +759,15 @@
     .line 279
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_1d
 
     .line 280
     add-int/2addr v1, v2
 
-    goto :goto_1
+    goto :goto_10
 
     .line 279
-    :cond_1
+    :cond_1d
     new-instance v3, Ljava/io/EOFException;
 
     invoke-direct {v3}, Ljava/io/EOFException;-><init>()V
@@ -773,7 +775,7 @@
     throw v3
 
     .line 282
-    :cond_2
+    :cond_23
     new-instance v3, Lokio/ByteString;
 
     invoke-direct {v3, v0}, Lokio/ByteString;-><init>([B)V
@@ -784,7 +786,7 @@
     .end local v0    # "result":[B
     .end local v1    # "offset":I
     .end local v2    # "read":I
-    :cond_3
+    :cond_29
     const/4 v0, 0x0
 
     .line 272

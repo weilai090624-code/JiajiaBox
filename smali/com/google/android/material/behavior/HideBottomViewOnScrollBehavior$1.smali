@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;
 
     .line 266
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 269
@@ -44,6 +44,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->currentAnimator:Landroid/view/ViewPropertyAnimator;
     invoke-static {v0, v1}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->access$002(Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
 
     .line 270

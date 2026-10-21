@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
-    .locals 0
+    .registers 2
 
     .line 618
     iput-object p1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseBlockMappingFirstKey;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/parser/ParserImpl$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public produce()Lorg/yaml/snakeyaml/events/Event;
-    .locals 4
+    .registers 5
 
     .line 620
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseBlockMappingFirstKey;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -62,6 +62,7 @@
     .local v0, "token":Lorg/yaml/snakeyaml/tokens/Token;
     iget-object v1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseBlockMappingFirstKey;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
 
+    # getter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->marks:Lorg/yaml/snakeyaml/util/ArrayStack;
     invoke-static {v1}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$1200(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
 
     move-result-object v1

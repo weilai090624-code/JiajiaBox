@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/FilteredEntryMultimap;
 
     .line 350
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 6
+    .registers 9
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -78,7 +78,7 @@
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 357
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 358
     invoke-virtual {p0, p1}, Lcom/google/common/collect/FilteredEntryMultimap$Keys;->count(Ljava/lang/Object;)I
@@ -88,7 +88,7 @@
     return v0
 
     .line 360
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/common/collect/FilteredEntryMultimap$Keys;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
     iget-object v0, v0, Lcom/google/common/collect/FilteredEntryMultimap;->unfiltered:Lcom/google/common/collect/Multimap;
@@ -105,7 +105,7 @@
 
     .line 361
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 362
     const/4 v1, 0x0
@@ -113,7 +113,7 @@
     return v1
 
     .line 365
-    :cond_1
+    :cond_1e
     move-object v1, p1
 
     .line 366
@@ -128,12 +128,12 @@
 
     .line 368
     .local v3, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :goto_0
+    :goto_24
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3e
 
     .line 369
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -144,27 +144,28 @@
     .local v4, "v":Ljava/lang/Object;, "TV;"
     iget-object v5, p0, Lcom/google/common/collect/FilteredEntryMultimap$Keys;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
+    # invokes: Lcom/google/common/collect/FilteredEntryMultimap;->satisfies(Ljava/lang/Object;Ljava/lang/Object;)Z
     invoke-static {v5, v1, v4}, Lcom/google/common/collect/FilteredEntryMultimap;->access$000(Lcom/google/common/collect/FilteredEntryMultimap;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3d
 
     .line 371
     add-int/lit8 v2, v2, 0x1
 
     .line 372
-    if-gt v2, p2, :cond_2
+    if-gt v2, p2, :cond_3d
 
     .line 373
     invoke-interface {v3}, Ljava/util/Iterator;->remove()V
 
     .line 376
     .end local v4    # "v":Ljava/lang/Object;, "TV;"
-    :cond_2
-    goto :goto_0
+    :cond_3d
+    goto :goto_24
 
     .line 377
-    :cond_3
+    :cond_3e
     return v2
 .end method

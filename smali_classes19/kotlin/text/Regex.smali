@@ -106,7 +106,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/text/Regex$Companion;
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "pattern"    # Ljava/lang/String;
 
     const-string v0, "pattern"
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Set;)V
-    .locals 2
+    .registers 5
     .param p1, "pattern"    # Ljava/lang/String;
     .param p2, "options"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -171,10 +171,12 @@
 
     check-cast v1, Ljava/lang/Iterable;
 
+    # invokes: Lkotlin/text/RegexKt;->toInt(Ljava/lang/Iterable;)I
     invoke-static {v1}, Lkotlin/text/RegexKt;->access$toInt(Ljava/lang/Iterable;)I
 
     move-result v1
 
+    # invokes: Lkotlin/text/Regex$Companion;->ensureUnicodeCase(I)I
     invoke-static {v0, v1}, Lkotlin/text/Regex$Companion;->access$ensureUnicodeCase(Lkotlin/text/Regex$Companion;I)I
 
     move-result v0
@@ -193,7 +195,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lkotlin/text/RegexOption;)V
-    .locals 2
+    .registers 5
     .param p1, "pattern"    # Ljava/lang/String;
     .param p2, "option"    # Lkotlin/text/RegexOption;
 
@@ -212,6 +214,7 @@
 
     move-result v1
 
+    # invokes: Lkotlin/text/Regex$Companion;->ensureUnicodeCase(I)I
     invoke-static {v0, v1}, Lkotlin/text/Regex$Companion;->access$ensureUnicodeCase(Lkotlin/text/Regex$Companion;I)I
 
     move-result v0
@@ -230,7 +233,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/regex/Pattern;)V
-    .locals 1
+    .registers 3
     .param p1, "nativePattern"    # Ljava/util/regex/Pattern;
 
     const-string v0, "nativePattern"
@@ -247,7 +250,7 @@
 .end method
 
 .method public static final synthetic access$getNativePattern$p(Lkotlin/text/Regex;)Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/Regex;
 
     .line 81
@@ -257,16 +260,16 @@
 .end method
 
 .method public static synthetic find$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/text/MatchResult;
-    .locals 0
+    .registers 5
 
     .line 120
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lkotlin/text/Regex;->find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
 
     move-result-object p0
@@ -275,16 +278,16 @@
 .end method
 
 .method public static synthetic findAll$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 5
 
     .line 131
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lkotlin/text/Regex;->findAll(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -293,16 +296,16 @@
 .end method
 
 .method public static synthetic split$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 5
 
     .line 238
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lkotlin/text/Regex;->split(Ljava/lang/CharSequence;I)Ljava/util/List;
 
     move-result-object p0
@@ -311,16 +314,16 @@
 .end method
 
 .method public static synthetic splitToSequence$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 5
 
     .line 269
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lkotlin/text/Regex;->splitToSequence(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -329,7 +332,7 @@
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 306
     new-instance v0, Lkotlin/text/Regex$Serialized;
@@ -358,7 +361,7 @@
 
 # virtual methods
 .method public final containsMatchIn(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     const-string v0, "input"
@@ -380,7 +383,7 @@
 .end method
 
 .method public final find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
 
@@ -399,6 +402,7 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Lkotlin/text/RegexKt;->findNext(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Lkotlin/text/MatchResult;
     invoke-static {v0, p2, p1}, Lkotlin/text/RegexKt;->access$findNext(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Lkotlin/text/MatchResult;
 
     move-result-object v0
@@ -407,7 +411,7 @@
 .end method
 
 .method public final findAll(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 6
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -426,13 +430,13 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 132
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_1d
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_1d
 
     .line 135
     new-instance v0, Lkotlin/text/Regex$findAll$1;
@@ -452,7 +456,7 @@
     return-object v0
 
     .line 133
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -493,7 +497,7 @@
 .end method
 
 .method public final getOptions()Ljava/util/Set;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -506,7 +510,7 @@
     .line 103
     iget-object v0, p0, Lkotlin/text/Regex;->_options:Ljava/util/Set;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_34
 
     iget-object v0, p0, Lkotlin/text/Regex;->nativePattern:Ljava/util/regex/Pattern;
 
@@ -580,12 +584,12 @@
 
     .end local v0    # "it":Ljava/util/Set;
     .end local v1    # "$i$a$-also-Regex$options$1":I
-    :cond_0
+    :cond_34
     return-object v0
 .end method
 
 .method public final getPattern()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 99
     iget-object v0, p0, Lkotlin/text/Regex;->nativePattern:Ljava/util/regex/Pattern;
@@ -602,7 +606,7 @@
 .end method
 
 .method public final matchAt(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
-    .locals 3
+    .registers 6
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "index"    # I
 
@@ -646,7 +650,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     new-instance v2, Lkotlin/text/MatcherMatchResult;
 
@@ -654,15 +658,15 @@
 
     invoke-direct {v2, v0, p1}, Lkotlin/text/MatcherMatchResult;-><init>(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2d
     const/4 v2, 0x0
 
     .line 148
     .end local v0    # "$this$matchAt_u24lambda_u241":Ljava/util/regex/Matcher;
     .end local v1    # "$i$a$-run-Regex$matchAt$1":I
-    :goto_0
+    :goto_2e
     check-cast v2, Lkotlin/text/MatchResult;
 
     .line 150
@@ -670,7 +674,7 @@
 .end method
 
 .method public final matchEntire(Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     const-string v0, "input"
@@ -688,6 +692,7 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Lkotlin/text/RegexKt;->matchEntire(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
     invoke-static {v0, p1}, Lkotlin/text/RegexKt;->access$matchEntire(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
 
     move-result-object v0
@@ -696,7 +701,7 @@
 .end method
 
 .method public final matches(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     const-string v0, "input"
@@ -718,7 +723,7 @@
 .end method
 
 .method public final matchesAt(Ljava/lang/CharSequence;I)Z
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "index"    # I
 
@@ -761,7 +766,7 @@
 .end method
 
 .method public final replace(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # Ljava/lang/String;
 
@@ -792,7 +797,7 @@
 .end method
 
 .method public final replace(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -828,7 +833,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -838,7 +843,7 @@
 
     .line 188
     .local v0, "match":Lkotlin/text/MatchResult;
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
     .line 189
@@ -855,7 +860,7 @@
 
     .line 192
     .local v3, "sb":Ljava/lang/StringBuilder;
-    :cond_1
+    :cond_22
     move-object v4, v0
 
     .line 193
@@ -905,19 +910,19 @@
 
     .line 197
     .end local v4    # "foundMatch":Lkotlin/text/MatchResult;
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_51
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     .line 199
-    :cond_2
-    if-ge v1, v2, :cond_3
+    :cond_51
+    if-ge v1, v2, :cond_56
 
     .line 200
     invoke-virtual {v3, p1, v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
 
     .line 203
-    :cond_3
+    :cond_56
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -930,7 +935,7 @@
 .end method
 
 .method public final replaceFirst(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # Ljava/lang/String;
 
@@ -961,7 +966,7 @@
 .end method
 
 .method public final split(Ljava/lang/CharSequence;I)Ljava/util/List;
-    .locals 5
+    .registers 8
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "limit"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -993,29 +998,29 @@
     .local v0, "matcher":Ljava/util/regex/Matcher;
     const/4 v1, 0x1
 
-    if-eq p2, v1, :cond_5
+    if-eq p2, v1, :cond_5c
 
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 244
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/util/ArrayList;
 
     const/16 v2, 0xa
 
-    if-lez p2, :cond_1
+    if-lez p2, :cond_22
 
     invoke-static {p2, v2}, Lkotlin/ranges/RangesKt;->coerceAtMost(II)I
 
     move-result v2
 
-    :cond_1
+    :cond_22
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 245
@@ -1028,7 +1033,7 @@
 
     .line 249
     .local v3, "lastSplit":I
-    :cond_2
+    :cond_28
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->start()I
 
     move-result v4
@@ -1049,24 +1054,24 @@
     move-result v2
 
     .line 251
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_43
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-eq v4, v3, :cond_4
+    if-eq v4, v3, :cond_49
 
     .line 252
-    :cond_3
+    :cond_43
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_28
 
     .line 254
-    :cond_4
+    :cond_49
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
@@ -1092,8 +1097,8 @@
     .end local v1    # "result":Ljava/util/ArrayList;
     .end local v2    # "lastStart":I
     .end local v3    # "lastSplit":I
-    :cond_5
-    :goto_0
+    :cond_5c
+    :goto_5c
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1106,7 +1111,7 @@
 .end method
 
 .method public final splitToSequence(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "limit"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1144,7 +1149,7 @@
 .end method
 
 .method public final toPattern()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 2
 
     .line 304
     iget-object v0, p0, Lkotlin/text/Regex;->nativePattern:Ljava/util/regex/Pattern;
@@ -1153,7 +1158,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 297
     iget-object v0, p0, Lkotlin/text/Regex;->nativePattern:Ljava/util/regex/Pattern;

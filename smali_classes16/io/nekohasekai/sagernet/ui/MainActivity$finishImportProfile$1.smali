@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/MainActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$finishImportProfile$1;->result:Ljava/lang/Object;
 
@@ -97,6 +97,7 @@
 
     check-cast v2, Lkotlin/coroutines/Continuation;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/MainActivity;->finishImportProfile(Lio/nekohasekai/sagernet/fmt/AbstractBean;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/MainActivity;->access$finishImportProfile(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/fmt/AbstractBean;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0

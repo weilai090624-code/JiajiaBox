@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/preference/PreferenceHeaderFragmentCompat;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Landroidx/preference/PreferenceHeaderFragmentCompat$onViewCreated$$inlined$doOnLayout$1;->this$0:Landroidx/preference/PreferenceHeaderFragmentCompat;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 6
+    .registers 16
     .param p1, "view"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -110,6 +110,7 @@
     .local v3, "$i$a$-doOnLayout-PreferenceHeaderFragmentCompat$onViewCreated$1":I
     iget-object v4, p0, Landroidx/preference/PreferenceHeaderFragmentCompat$onViewCreated$$inlined$doOnLayout$1;->this$0:Landroidx/preference/PreferenceHeaderFragmentCompat;
 
+    # getter for: Landroidx/preference/PreferenceHeaderFragmentCompat;->onBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
     invoke-static {v4}, Landroidx/preference/PreferenceHeaderFragmentCompat;->access$getOnBackPressedCallback$p(Landroidx/preference/PreferenceHeaderFragmentCompat;)Landroidx/activity/OnBackPressedCallback;
 
     move-result-object v4
@@ -127,7 +128,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     iget-object v5, p0, Landroidx/preference/PreferenceHeaderFragmentCompat$onViewCreated$$inlined$doOnLayout$1;->this$0:Landroidx/preference/PreferenceHeaderFragmentCompat;
 
@@ -139,17 +140,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_33
     const/4 v5, 0x0
 
     .line 338
-    :goto_0
+    :goto_34
     invoke-virtual {v4, v5}, Landroidx/activity/OnBackPressedCallback;->setEnabled(Z)V
 
     .line 340

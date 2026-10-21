@@ -24,11 +24,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 986
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->EMPTY_BB:Landroidx/emoji2/text/flatbuffer/ReadBuf;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$000()Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     move-result-object v1
@@ -43,7 +44,7 @@
 .end method
 
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;III)V
-    .locals 0
+    .registers 5
     .param p1, "bb"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -60,7 +61,7 @@
 .end method
 
 .method public static empty()Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;
-    .locals 1
+    .registers 1
 
     .line 996
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;->EMPTY_VECTOR:Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;
@@ -71,7 +72,7 @@
 
 # virtual methods
 .method public get(I)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
-    .locals 9
+    .registers 11
     .param p1, "pos"    # I
 
     .line 1025
@@ -81,8 +82,9 @@
 
     .line 1026
     .local v0, "len":I
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;->NULL_REFERENCE:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;->access$600()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
 
     move-result-object v1
@@ -90,7 +92,7 @@
     return-object v1
 
     .line 1027
-    :cond_0
+    :cond_b
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;->end:I
 
     iget v2, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;->byteWidth:I
@@ -121,7 +123,7 @@
 .end method
 
 .method public getElemType()I
-    .locals 1
+    .registers 2
 
     .line 1014
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;->elemType:I
@@ -130,20 +132,20 @@
 .end method
 
 .method public isEmptyVector()Z
-    .locals 1
+    .registers 2
 
     .line 1005
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;->EMPTY_VECTOR:Landroidx/emoji2/text/flatbuffer/FlexBuffers$TypedVector;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

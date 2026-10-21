@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/RegularContiguousSet;Ljava/lang/Comparable;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/RegularContiguousSet;
 
     .line 97
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method protected computeNext(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)TC;"
@@ -75,17 +75,18 @@
     .local p1, "previous":Ljava/lang/Comparable;, "TC;"
     iget-object v0, p0, Lcom/google/common/collect/RegularContiguousSet$2;->first:Ljava/lang/Comparable;
 
+    # invokes: Lcom/google/common/collect/RegularContiguousSet;->equalsOrThrow(Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
     invoke-static {p1, v0}, Lcom/google/common/collect/RegularContiguousSet;->access$000(Ljava/lang/Comparable;Ljava/lang/Comparable;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/common/collect/RegularContiguousSet$2;->this$0:Lcom/google/common/collect/RegularContiguousSet;
 
     iget-object v0, v0, Lcom/google/common/collect/RegularContiguousSet;->domain:Lcom/google/common/collect/DiscreteDomain;
@@ -94,12 +95,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method protected bridge synthetic computeNext(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/sidesheet/SideSheetBehavior;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 686
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public clampViewPositionHorizontal(Landroid/view/View;II)I
-    .locals 2
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "dx"    # I
@@ -50,6 +50,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->parentWidth:I
     invoke-static {v1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$600(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
 
     move-result v1
@@ -62,7 +63,7 @@
 .end method
 
 .method public clampViewPositionVertical(Landroid/view/View;II)I
-    .locals 1
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "top"    # I
     .param p3, "dy"    # I
@@ -77,13 +78,14 @@
 .end method
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p1, "child"    # Landroid/view/View;
 
     .line 740
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior$1;, "Lcom/google/android/material/sidesheet/SideSheetBehavior$1;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->parentWidth:I
     invoke-static {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$600(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
 
     move-result v0
@@ -92,22 +94,23 @@
 .end method
 
 .method public onViewDragStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 715
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior$1;, "Lcom/google/android/material/sidesheet/SideSheetBehavior$1;"
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_10
 
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->draggable:Z
     invoke-static {v1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$400(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 716
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
@@ -115,12 +118,12 @@
     invoke-virtual {v1, v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->setStateInternal(I)V
 
     .line 718
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onViewPositionChanged(Landroid/view/View;IIII)V
-    .locals 5
+    .registers 11
     .param p1, "changedView"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -137,7 +140,7 @@
 
     .line 700
     .local v0, "coplanarSiblingView":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 701
     nop
@@ -151,11 +154,12 @@
 
     .line 703
     .local v1, "layoutParams":Landroid/view/ViewGroup$MarginLayoutParams;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 704
     iget-object v2, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
     invoke-static {v2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$200(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Lcom/google/android/material/sidesheet/SheetDelegate;
 
     move-result-object v2
@@ -177,9 +181,10 @@
 
     .line 710
     .end local v1    # "layoutParams":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_0
+    :cond_25
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # invokes: Lcom/google/android/material/sidesheet/SideSheetBehavior;->dispatchOnSlide(Landroid/view/View;I)V
     invoke-static {v1, p1, p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$300(Lcom/google/android/material/sidesheet/SideSheetBehavior;Landroid/view/View;I)V
 
     .line 711
@@ -187,7 +192,7 @@
 .end method
 
 .method public onViewReleased(Landroid/view/View;FF)V
-    .locals 3
+    .registers 7
     .param p1, "releasedChild"    # Landroid/view/View;
     .param p2, "xVelocity"    # F
     .param p3, "yVelocity"    # F
@@ -197,6 +202,7 @@
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 724
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
     invoke-static {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$200(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Lcom/google/android/material/sidesheet/SheetDelegate;
 
     move-result-object v0
@@ -215,6 +221,7 @@
 
     move-result v2
 
+    # invokes: Lcom/google/android/material/sidesheet/SideSheetBehavior;->startSettling(Landroid/view/View;IZ)V
     invoke-static {v1, p1, v0, v2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$500(Lcom/google/android/material/sidesheet/SideSheetBehavior;Landroid/view/View;IZ)V
 
     .line 726
@@ -222,7 +229,7 @@
 .end method
 
 .method public tryCaptureView(Landroid/view/View;I)Z
-    .locals 3
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "pointerId"    # I
 
@@ -230,6 +237,7 @@
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior$1;, "Lcom/google/android/material/sidesheet/SideSheetBehavior$1;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
     invoke-static {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$000(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
 
     move-result v0
@@ -238,23 +246,25 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_b
 
     .line 691
     return v1
 
     .line 693
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
     invoke-static {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$100(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$1;->this$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
+    # getter for: Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
     invoke-static {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$100(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
@@ -263,10 +273,10 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_1
+    if-ne v0, p1, :cond_20
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_20
     return v1
 .end method

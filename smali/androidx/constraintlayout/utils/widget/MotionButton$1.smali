@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/utils/widget/MotionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/utils/widget/MotionButton;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
-    .locals 9
+    .registers 12
     .param p1, "view"    # Landroid/view/View;
     .param p2, "outline"    # Landroid/graphics/Outline;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -81,6 +81,7 @@
 
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton$1;->this$0:Landroidx/constraintlayout/utils/widget/MotionButton;
 
+    # getter for: Landroidx/constraintlayout/utils/widget/MotionButton;->mRoundPercent:F
     invoke-static {v2}, Landroidx/constraintlayout/utils/widget/MotionButton;->access$000(Landroidx/constraintlayout/utils/widget/MotionButton;)F
 
     move-result v2

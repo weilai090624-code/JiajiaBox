@@ -107,7 +107,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ConcurrentLinkedQueue;Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/bg/proto/UrlTest;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -213,7 +213,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -226,7 +226,7 @@
 
     const/4 v3, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_de
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -239,7 +239,7 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_13
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->L$0:Ljava/lang/Object;
 
     check-cast v1, Lkotlinx/coroutines/CoroutineScope;
@@ -249,10 +249,10 @@
 
     move-object v4, p0
 
-    goto/16 :goto_5
+    goto/16 :goto_d8
 
     .end local v1    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :pswitch_1
+    :pswitch_1d
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->L$2:Ljava/lang/Object;
 
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -267,10 +267,10 @@
     check-cast v5, Lkotlinx/coroutines/CoroutineScope;
 
     .local v5, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :try_start_0
+    :try_start_29
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2c
+    .catch Ljava/lang/Exception; {:try_start_29 .. :try_end_2c} :catch_34
 
     move-object v6, p0
 
@@ -284,20 +284,20 @@
 
     move-object v0, p1
 
-    goto/16 :goto_2
+    goto/16 :goto_96
 
     .line 843
-    :catch_0
+    :catch_34
     move-exception v1
 
     move-object v6, p0
 
-    goto/16 :goto_3
+    goto/16 :goto_b3
 
     .line 835
     .end local v4    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v5    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :pswitch_2
+    :pswitch_38
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->L$1:Ljava/lang/Object;
 
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -314,12 +314,12 @@
 
     move-object v4, p0
 
-    goto :goto_1
+    goto :goto_79
 
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v4    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_46
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -333,12 +333,12 @@
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     .local v1, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local v4, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
-    :goto_0
+    :goto_4e
     invoke-static {v1}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_da
 
     .line 837
     iget-object v5, v4, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->$queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -349,13 +349,13 @@
 
     check-cast v5, Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_60
 
-    goto/16 :goto_6
+    goto/16 :goto_da
 
     .line 838
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_0
+    :cond_60
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -373,17 +373,18 @@
 
     iput v3, v4, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->label:I
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->notifyRowChanged(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v6, v5, v7}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$notifyRowChanged(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
 
-    if-ne v6, v0, :cond_1
+    if-ne v6, v0, :cond_76
 
     .line 835
     return-object v0
 
     .line 839
-    :cond_1
+    :cond_76
     move-object v9, v5
 
     move-object v5, v1
@@ -393,11 +394,11 @@
     .line 840
     .local v1, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .local v5, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_1
+    :goto_79
     nop
 
     .line 841
-    :try_start_1
+    :try_start_7a
     iget-object v6, v4, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->$urlTest:Lio/nekohasekai/sagernet/bg/proto/UrlTest;
 
     move-object v7, v4
@@ -417,16 +418,16 @@
     invoke-virtual {v6, v1, v7}, Lio/nekohasekai/sagernet/bg/proto/UrlTest;->doTest(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_8c
+    .catch Ljava/lang/Exception; {:try_start_7a .. :try_end_8c} :catch_ae
 
-    if-ne v6, v0, :cond_2
+    if-ne v6, v0, :cond_8f
 
     .line 835
     return-object v0
 
     .line 841
-    :cond_2
+    :cond_8f
     move-object v7, v5
 
     move-object v5, v1
@@ -448,8 +449,8 @@
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .local v6, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     .local v7, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_2
-    :try_start_2
+    :goto_96
+    :try_start_96
     check-cast p1, Ljava/lang/Number;
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
@@ -460,8 +461,8 @@
 
     .line 842
     invoke-virtual {v5, v3}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_a2
+    .catch Ljava/lang/Exception; {:try_start_96 .. :try_end_a2} :catch_a6
 
     move-object p1, v0
 
@@ -469,10 +470,10 @@
 
     move-object v1, v7
 
-    goto :goto_4
+    goto :goto_c2
 
     .line 843
-    :catch_1
+    :catch_a6
     move-exception p1
 
     move-object v4, v5
@@ -487,7 +488,7 @@
 
     move-object v0, v9
 
-    goto :goto_3
+    goto :goto_b3
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
@@ -496,7 +497,7 @@
     .restart local v4    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     .local v5, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_2
+    :catch_ae
     move-exception v6
 
     move-object v9, v4
@@ -511,7 +512,7 @@
     .local v1, "e":Ljava/lang/Exception;
     .local v4, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v6    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
-    :goto_3
+    :goto_b3
     invoke-virtual {v4, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
 
     .line 845
@@ -533,7 +534,7 @@
     .end local v4    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .local v1, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :goto_4
+    :goto_c2
     iget-object v4, v6, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     move-object v7, v6
@@ -550,40 +551,41 @@
 
     iput v2, v6, Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;->label:I
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->notifyRowChanged(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v4, v5, v7}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$notifyRowChanged(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v4
 
     .end local v5    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    if-ne v4, v0, :cond_3
+    if-ne v4, v0, :cond_d7
 
     .line 835
     return-object v0
 
     .line 847
-    :cond_3
+    :cond_d7
     move-object v4, v6
 
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
     .local v4, "this":Lio/nekohasekai/sagernet/ui/JJHomeFragment$speedTest$1$1$workers$1$1;
-    :goto_5
-    goto/16 :goto_0
+    :goto_d8
+    goto/16 :goto_4e
 
     .line 849
     .end local v1    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :cond_4
-    :goto_6
+    :cond_da
+    :goto_da
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_de
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_38
+        :pswitch_1d
+        :pswitch_13
     .end packed-switch
 .end method

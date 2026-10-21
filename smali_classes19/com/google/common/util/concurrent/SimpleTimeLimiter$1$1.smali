@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/SimpleTimeLimiter$1;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$1"    # Lcom/google/common/util/concurrent/SimpleTimeLimiter$1;
 
     .line 96
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -77,19 +77,20 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_c} :catch_d
 
     return-object v0
 
     .line 102
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 103
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     const/4 v1, 0x0
 
+    # invokes: Lcom/google/common/util/concurrent/SimpleTimeLimiter;->throwCause(Ljava/lang/Exception;Z)Ljava/lang/Exception;
     invoke-static {v0, v1}, Lcom/google/common/util/concurrent/SimpleTimeLimiter;->access$000(Ljava/lang/Exception;Z)Ljava/lang/Exception;
 
     move-result-object v1

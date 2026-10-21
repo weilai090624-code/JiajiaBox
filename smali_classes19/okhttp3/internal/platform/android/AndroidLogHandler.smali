@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/platform/android/AndroidLogHandler;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/util/logging/Handler;-><init>()V
@@ -59,21 +59,21 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 46
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 43
     return-void
 .end method
 
 .method public publish(Ljava/util/logging/LogRecord;)V
-    .locals 5
+    .registers 7
     .param p1, "record"    # Ljava/util/logging/LogRecord;
 
     const-string v0, "record"
@@ -91,6 +91,7 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Lokhttp3/internal/platform/android/AndroidLogKt;->getAndroidLevel(Ljava/util/logging/LogRecord;)I
     invoke-static {p1}, Lokhttp3/internal/platform/android/AndroidLogKt;->access$getAndroidLevel(Ljava/util/logging/LogRecord;)I
 
     move-result v2

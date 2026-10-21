@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;Lcom/google/common/util/concurrent/AsyncCallable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     .line 175
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public call()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -67,11 +67,12 @@
     .line 178
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$2;->val$taskExecutor:Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;
 
+    # invokes: Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->trySetStarted()Z
     invoke-static {v0}, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->access$200(Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 179
     invoke-static {}, Lcom/google/common/util/concurrent/Futures;->immediateCancelledFuture()Lcom/google/common/util/concurrent/ListenableFuture;
@@ -81,7 +82,7 @@
     return-object v0
 
     .line 181
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$2;->val$callable:Lcom/google/common/util/concurrent/AsyncCallable;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/AsyncCallable;->call()Lcom/google/common/util/concurrent/ListenableFuture;
@@ -92,7 +93,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 186
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$2;->val$callable:Lcom/google/common/util/concurrent/AsyncCallable;

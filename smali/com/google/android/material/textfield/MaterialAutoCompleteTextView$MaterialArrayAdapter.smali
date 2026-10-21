@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;Landroid/content/Context;I[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "resource"    # I
     .param p4, "objects"    # [Ljava/lang/String;
@@ -55,7 +55,7 @@
 .end method
 
 .method private createItemSelectedColorStateList()Landroid/content/res/ColorStateList;
-    .locals 8
+    .registers 9
 
     .line 509
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"
@@ -63,14 +63,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_64
 
     .line 510
     invoke-direct {p0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->hasSelectedRippleColor()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_64
 
     .line 514
     const v0, 0x1010367
@@ -94,6 +94,7 @@
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 518
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedRippleColor:Landroid/content/res/ColorStateList;
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$300(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -109,6 +110,7 @@
     iget-object v4, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 520
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedRippleColor:Landroid/content/res/ColorStateList;
     invoke-static {v4}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$300(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroid/content/res/ColorStateList;
 
     move-result-object v4
@@ -122,6 +124,7 @@
     iget-object v5, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 524
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedColor:I
     invoke-static {v5}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$200(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)I
 
     move-result v5
@@ -133,6 +136,7 @@
     iget-object v6, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 525
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedColor:I
     invoke-static {v6}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$200(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)I
 
     move-result v6
@@ -144,6 +148,7 @@
     iget-object v7, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 526
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedColor:I
     invoke-static {v7}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$200(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)I
 
     move-result v7
@@ -187,14 +192,14 @@
     .end local v3    # "states":[[I
     .end local v4    # "colorHovered":I
     .end local v5    # "colors":[I
-    :cond_0
+    :cond_64
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private getSelectedItemDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 5
 
     .line 485
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"
@@ -204,13 +209,14 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 493
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedColor:I
     invoke-static {v2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$200(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)I
 
     move-result v2
@@ -221,7 +227,7 @@
     .local v0, "colorDrawable":Landroid/graphics/drawable/Drawable;
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->pressedRippleColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 500
     iget-object v2, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->selectedItemRippleOverlaidColor:Landroid/content/res/ColorStateList;
@@ -238,65 +244,67 @@
     return-object v2
 
     .line 503
-    :cond_0
+    :cond_23
     return-object v0
 
     .line 486
     .end local v0    # "colorDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_1
+    :cond_24
     return-object v1
 .end method
 
 .method private hasSelectedColor()Z
-    .locals 1
+    .registers 2
 
     .line 551
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"
     iget-object v0, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedColor:I
     invoke-static {v0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$200(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private hasSelectedRippleColor()Z
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"
     iget-object v0, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedRippleColor:Landroid/content/res/ColorStateList;
     invoke-static {v0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$300(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private sanitizeDropdownItemSelectedRippleColor()Landroid/content/res/ColorStateList;
-    .locals 5
+    .registers 6
 
     .line 534
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"
@@ -304,7 +312,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 535
     const/4 v0, 0x0
@@ -312,7 +320,7 @@
     return-object v0
 
     .line 540
-    :cond_0
+    :cond_8
     const v0, 0x10100a7
 
     filled-new-array {v0}, [I
@@ -324,6 +332,7 @@
     iget-object v1, p0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->this$0:Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
     .line 543
+    # getter for: Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->simpleItemSelectedRippleColor:Landroid/content/res/ColorStateList;
     invoke-static {v1}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;->access$300(Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;)Landroid/content/res/ColorStateList;
 
     move-result-object v1
@@ -366,7 +375,7 @@
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -381,7 +390,7 @@
     .local v0, "view":Landroid/view/View;
     instance-of v1, v0, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 475
     move-object v1, v0
@@ -410,29 +419,29 @@
 
     .line 477
     .local v2, "isSelectedItem":Z
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     invoke-direct {p0}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;->getSelectedItemDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_25
     invoke-static {v1, v3}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 480
     .end local v1    # "textView":Landroid/widget/TextView;
     .end local v2    # "isSelectedItem":Z
-    :cond_1
+    :cond_28
     return-object v0
 .end method
 
 .method updateSelectedItemColorStateList()V
-    .locals 1
+    .registers 2
 
     .line 466
     .local p0, "this":Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter;, "Lcom/google/android/material/textfield/MaterialAutoCompleteTextView$MaterialArrayAdapter<TT;>;"

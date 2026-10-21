@@ -61,7 +61,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 122
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;-><init>()V
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final executeUpdate(Lio/nekohasekai/sagernet/database/ProxyGroup;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "proxyGroup"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "byUser"    # Z
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -114,7 +114,7 @@
 .end method
 
 .method public final finishUpdate(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "proxyGroup"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -170,11 +170,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2b
 
     return-object v0
 
-    :cond_0
+    :cond_2b
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 167
@@ -182,7 +182,7 @@
 .end method
 
 .method public final getProgress()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -194,6 +194,7 @@
     .end annotation
 
     .line 125
+    # getter for: Lio/nekohasekai/sagernet/group/GroupUpdater;->progress:Ljava/util/Map;
     invoke-static {}, Lio/nekohasekai/sagernet/group/GroupUpdater;->access$getProgress$cp()Ljava/util/Map;
 
     move-result-object v0
@@ -202,7 +203,7 @@
 .end method
 
 .method public final getUpdating()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,6 +214,7 @@
     .end annotation
 
     .line 124
+    # getter for: Lio/nekohasekai/sagernet/group/GroupUpdater;->updating:Ljava/util/Set;
     invoke-static {}, Lio/nekohasekai/sagernet/group/GroupUpdater;->access$getUpdating$cp()Ljava/util/Set;
 
     move-result-object v0
@@ -221,7 +223,7 @@
 .end method
 
 .method public final startUpdate(Lio/nekohasekai/sagernet/database/ProxyGroup;Z)V
-    .locals 2
+    .registers 5
     .param p1, "proxyGroup"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "byUser"    # Z
 

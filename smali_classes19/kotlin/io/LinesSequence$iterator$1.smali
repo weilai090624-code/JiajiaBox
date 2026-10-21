@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/io/LinesSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lkotlin/io/LinesSequence;
 
     iput-object p1, p0, Lkotlin/io/LinesSequence$iterator$1;->this$0:Lkotlin/io/LinesSequence;
@@ -76,22 +76,23 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 84
     iget-object v0, p0, Lkotlin/io/LinesSequence$iterator$1;->nextValue:Ljava/lang/String;
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     iget-boolean v0, p0, Lkotlin/io/LinesSequence$iterator$1;->done:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 85
     iget-object v0, p0, Lkotlin/io/LinesSequence$iterator$1;->this$0:Lkotlin/io/LinesSequence;
 
+    # getter for: Lkotlin/io/LinesSequence;->reader:Ljava/io/BufferedReader;
     invoke-static {v0}, Lkotlin/io/LinesSequence;->access$getReader$p(Lkotlin/io/LinesSequence;)Ljava/io/BufferedReader;
 
     move-result-object v0
@@ -105,27 +106,27 @@
     .line 86
     iget-object v0, p0, Lkotlin/io/LinesSequence$iterator$1;->nextValue:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     iput-boolean v1, p0, Lkotlin/io/LinesSequence$iterator$1;->done:Z
 
     .line 88
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lkotlin/io/LinesSequence$iterator$1;->nextValue:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_21
     return v1
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 79
     invoke-virtual {p0}, Lkotlin/io/LinesSequence$iterator$1;->next()Ljava/lang/String;
@@ -136,14 +137,14 @@
 .end method
 
 .method public next()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 92
     invoke-virtual {p0}, Lkotlin/io/LinesSequence$iterator$1;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 95
     iget-object v0, p0, Lkotlin/io/LinesSequence$iterator$1;->nextValue:Ljava/lang/String;
@@ -161,7 +162,7 @@
 
     .line 93
     .end local v0    # "answer":Ljava/lang/String;
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -170,7 +171,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

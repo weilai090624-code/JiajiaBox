@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
     iput-object p1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$getFilter$1;->this$0:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method protected performFiltering(Ljava/lang/CharSequence;)Landroid/widget/Filter$FilterResults;
-    .locals 9
+    .registers 11
     .param p1, "constraint"    # Ljava/lang/CharSequence;
 
     .line 48
@@ -93,11 +93,12 @@
     .line 49
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$getFilter$1;->this$0:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;->suggestionProvider:Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
     invoke-static {v0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;->access$getSuggestionProvider$p(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;)Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_44
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$getFilter$1;->this$0:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
@@ -120,13 +121,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_1c
+    :goto_1c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_42
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -148,14 +149,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1c
 
     .line 54
     invoke-static {v6, v3, v7}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1c
 
     .line 56
     invoke-static {v1, v3}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;->access$setQueryText$p(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;Ljava/lang/String;)V
@@ -165,12 +166,12 @@
 
     invoke-interface {v7, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 60
     .end local v5    # "suggestion":Lcom/blacksquircle/ui/language/base/model/Suggestion;
     .end local v6    # "word":Ljava/lang/String;
-    :cond_1
+    :cond_42
     nop
 
     .line 49
@@ -180,7 +181,7 @@
     nop
 
     .line 61
-    :cond_2
+    :cond_44
     new-instance v0, Landroid/widget/Filter$FilterResults;
 
     invoke-direct {v0}, Landroid/widget/Filter$FilterResults;-><init>()V
@@ -215,7 +216,7 @@
 .end method
 
 .method protected publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
-    .locals 2
+    .registers 5
     .param p1, "constraint"    # Ljava/lang/CharSequence;
     .param p2, "results"    # Landroid/widget/Filter$FilterResults;
 

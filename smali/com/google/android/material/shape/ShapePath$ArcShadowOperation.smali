@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)V
-    .locals 0
+    .registers 2
     .param p1, "operation"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 547
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V
-    .locals 9
+    .registers 14
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "shadowRenderer"    # Lcom/google/android/material/shadow/ShadowRenderer;
     .param p3, "shadowElevation"    # I
@@ -45,6 +45,7 @@
     .line 557
     iget-object v0, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getStartAngle()F
     invoke-static {v0}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$800(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v0
@@ -53,6 +54,7 @@
     .local v0, "startAngle":F
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getSweepAngle()F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$900(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v8
@@ -64,24 +66,28 @@
     iget-object v1, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 561
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getLeft()F
     invoke-static {v1}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$1000(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v1
 
     iget-object v2, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getTop()F
     invoke-static {v2}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$1100(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v2
 
     iget-object v3, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getRight()F
     invoke-static {v3}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$1200(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v3
 
     iget-object v5, p0, Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;->operation:Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
+    # invokes: Lcom/google/android/material/shape/ShapePath$PathArcOperation;->getBottom()F
     invoke-static {v5}, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->access$1300(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
 
     move-result v5

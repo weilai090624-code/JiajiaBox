@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/SingleDateSelector;
-    .locals 2
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 205
@@ -61,6 +61,7 @@
 
     check-cast v1, Ljava/lang/Long;
 
+    # setter for: Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
     invoke-static {v0, v1}, Lcom/google/android/material/datepicker/SingleDateSelector;->access$202(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/Long;)Ljava/lang/Long;
 
     .line 207
@@ -68,7 +69,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 201
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/SingleDateSelector$2;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/SingleDateSelector;
@@ -79,7 +80,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/datepicker/SingleDateSelector;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 213
@@ -89,7 +90,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 201
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/SingleDateSelector$2;->newArray(I)[Lcom/google/android/material/datepicker/SingleDateSelector;

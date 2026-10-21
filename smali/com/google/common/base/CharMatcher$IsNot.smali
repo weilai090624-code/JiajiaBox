@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(C)V
-    .locals 0
+    .registers 2
     .param p1, "match"    # C
 
     .line 1656
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public and(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1667
@@ -46,43 +46,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-super {p0, p1}, Lcom/google/common/base/CharMatcher$FastMatcher;->and(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p1
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1662
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsNot;->match:C
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public negate()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 1684
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsNot;->match:C
@@ -95,7 +95,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1672
@@ -105,23 +105,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-static {}, Lcom/google/common/base/CharMatcher$IsNot;->any()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 2
+    .registers 4
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 1678
@@ -145,11 +145,12 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1689
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsNot;->match:C
 
+    # invokes: Lcom/google/common/base/CharMatcher;->showCharacter(C)Ljava/lang/String;
     invoke-static {v0}, Lcom/google/common/base/CharMatcher;->access$100(C)Ljava/lang/String;
 
     move-result-object v0

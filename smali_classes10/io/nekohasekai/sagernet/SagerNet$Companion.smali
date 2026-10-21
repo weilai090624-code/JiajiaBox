@@ -113,7 +113,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -122,7 +122,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;-><init>()V
 
@@ -132,9 +132,10 @@
 
 # virtual methods
 .method public final getActivity()Landroid/app/ActivityManager;
-    .locals 1
+    .registers 2
 
     .line 155
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->activity$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getActivity$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -149,9 +150,10 @@
 .end method
 
 .method public final getAppVersionNameForDisplay()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 216
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->appVersionNameForDisplay:Ljava/lang/String;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getAppVersionNameForDisplay$cp()Ljava/lang/String;
 
     move-result-object v0
@@ -160,16 +162,16 @@
 .end method
 
 .method public final getApplication()Lio/nekohasekai/sagernet/SagerNet;
-    .locals 1
+    .registers 2
 
     .line 137
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->application:Lio/nekohasekai/sagernet/SagerNet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "application"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -180,9 +182,10 @@
 .end method
 
 .method public final getClipboard()Landroid/content/ClipboardManager;
-    .locals 1
+    .registers 2
 
     .line 156
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->clipboard$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getClipboard$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -197,7 +200,7 @@
 .end method
 
 .method public final getClipboardText()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 164
     nop
@@ -214,7 +217,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     move-object v1, v0
 
@@ -230,28 +233,28 @@
 
     const/4 v4, 0x0
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
     .end local v1    # "it":Landroid/content/ClipData;
     .end local v2    # "$i$a$-takeIf-SagerNet$Companion$getClipboardText$1":I
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_18
+    if-eqz v3, :cond_1b
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     .line 165
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_1c
+    if-eqz v0, :cond_34
 
     .line 164
     nop
@@ -261,7 +264,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 164
     nop
@@ -271,7 +274,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 164
     nop
@@ -282,21 +285,21 @@
     move-result-object v0
 
     .line 164
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
-    goto :goto_2
+    goto :goto_36
 
     .line 165
-    :cond_2
+    :cond_34
     const-string v0, ""
 
     .line 164
-    :goto_2
+    :goto_36
     return-object v0
 .end method
 
 .method public final getConfigureIntent()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -308,6 +311,7 @@
     .end annotation
 
     .line 143
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->configureIntent$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getConfigureIntent$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -322,9 +326,10 @@
 .end method
 
 .method public final getConnectivity()Landroid/net/ConnectivityManager;
-    .locals 1
+    .registers 2
 
     .line 157
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->connectivity$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getConnectivity$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -339,9 +344,10 @@
 .end method
 
 .method public final getNotification()Landroid/app/NotificationManager;
-    .locals 1
+    .registers 2
 
     .line 158
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->notification$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getNotification$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -356,9 +362,10 @@
 .end method
 
 .method public final getPower()Landroid/os/PowerManager;
-    .locals 1
+    .registers 2
 
     .line 161
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->power$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getPower$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -373,9 +380,10 @@
 .end method
 
 .method public final getUiMode()Landroid/app/UiModeManager;
-    .locals 1
+    .registers 2
 
     .line 160
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->uiMode$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getUiMode$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -390,9 +398,10 @@
 .end method
 
 .method public final getUnderlyingNetwork()Landroid/net/Network;
-    .locals 1
+    .registers 2
 
     .line 214
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->underlyingNetwork:Landroid/net/Network;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getUnderlyingNetwork$cp()Landroid/net/Network;
 
     move-result-object v0
@@ -401,9 +410,10 @@
 .end method
 
 .method public final getUser()Landroid/os/UserManager;
-    .locals 1
+    .registers 2
 
     .line 159
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->user$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$getUser$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -418,9 +428,10 @@
 .end method
 
 .method public final isTv()Z
-    .locals 1
+    .registers 2
 
     .line 139
+    # getter for: Lio/nekohasekai/sagernet/SagerNet;->isTv$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/SagerNet;->access$isTv$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -439,7 +450,7 @@
 .end method
 
 .method public final reloadService()V
-    .locals 3
+    .registers 4
 
     .line 209
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getApplication()Lio/nekohasekai/sagernet/SagerNet;
@@ -470,7 +481,7 @@
 .end method
 
 .method public final setAppVersionNameForDisplay(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -485,7 +496,7 @@
 .end method
 
 .method public final setApplication(Lio/nekohasekai/sagernet/SagerNet;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/SagerNet;
 
     const-string v0, "<set-?>"
@@ -499,7 +510,7 @@
 .end method
 
 .method public final setUnderlyingNetwork(Landroid/net/Network;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroid/net/Network;
 
     .line 214
@@ -509,7 +520,7 @@
 .end method
 
 .method public final startService()V
-    .locals 4
+    .registers 5
 
     .line 205
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getApplication()Lio/nekohasekai/sagernet/SagerNet;
@@ -542,7 +553,7 @@
 .end method
 
 .method public final stopService()V
-    .locals 3
+    .registers 4
 
     .line 212
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getApplication()Lio/nekohasekai/sagernet/SagerNet;
@@ -573,7 +584,7 @@
 .end method
 
 .method public final trySetPrimaryClip(Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p1, "clip"    # Ljava/lang/String;
 
     const-string v0, "clip"
@@ -584,7 +595,7 @@
     nop
 
     .line 169
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getClipboard()Landroid/content/ClipboardManager;
 
     move-result-object v0
@@ -600,16 +611,16 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_15} :catch_17
 
     .line 170
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 171
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 172
@@ -629,19 +640,19 @@
 
     .line 174
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_22
     return v0
 .end method
 
 .method public final updateNotificationChannels()V
-    .locals 8
+    .registers 9
 
     .line 177
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_7b
 
     .line 178
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getNotification()Landroid/app/NotificationManager;
@@ -678,18 +689,18 @@
 
     const/4 v7, 0x2
 
-    if-lt v4, v5, :cond_0
+    if-lt v4, v5, :cond_25
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 184
-    :cond_0
+    :cond_25
     const/4 v4, 0x2
 
     .line 180
-    :goto_0
+    :goto_26
     const-string v5, "service-vpn"
 
     invoke-direct {v2, v5, v3, v4}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
@@ -799,6 +810,6 @@
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->createNotificationChannels(Ljava/util/List;)V
 
     .line 202
-    :cond_1
+    :cond_7b
     return-void
 .end method

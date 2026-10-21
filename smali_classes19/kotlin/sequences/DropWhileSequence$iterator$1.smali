@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/DropWhileSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/DropWhileSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,6 +113,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 542
+    # getter for: Lkotlin/sequences/DropWhileSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/DropWhileSequence;->access$getSequence$p(Lkotlin/sequences/DropWhileSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -133,19 +134,19 @@
 .end method
 
 .method private final drop()V
-    .locals 2
+    .registers 3
 
     .line 547
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 548
     iget-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -158,6 +159,7 @@
     .local v0, "item":Ljava/lang/Object;
     iget-object v1, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->this$0:Lkotlin/sequences/DropWhileSequence;
 
+    # getter for: Lkotlin/sequences/DropWhileSequence;->predicate:Lkotlin/jvm/functions/Function1;
     invoke-static {v1}, Lkotlin/sequences/DropWhileSequence;->access$getPredicate$p(Lkotlin/sequences/DropWhileSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v1
@@ -172,7 +174,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     .line 550
     iput-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->nextItem:Ljava/lang/Object;
@@ -187,7 +189,7 @@
 
     .line 555
     .end local v0    # "item":Ljava/lang/Object;
-    :cond_1
+    :cond_27
     const/4 v0, 0x0
 
     iput v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->dropState:I
@@ -199,7 +201,7 @@
 
 # virtual methods
 .method public final getDropState()I
-    .locals 1
+    .registers 2
 
     .line 543
     iget v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->dropState:I
@@ -208,7 +210,7 @@
 .end method
 
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -224,7 +226,7 @@
 .end method
 
 .method public final getNextItem()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -238,25 +240,25 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 573
     iget v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->dropState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 574
     invoke-direct {p0}, Lkotlin/sequences/DropWhileSequence$iterator$1;->drop()V
 
     .line 575
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->dropState:I
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_17
 
     iget-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
@@ -264,20 +266,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
-    :cond_2
-    :goto_0
+    :cond_17
+    :goto_17
     return v1
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -289,18 +291,18 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 560
     invoke-direct {p0}, Lkotlin/sequences/DropWhileSequence$iterator$1;->drop()V
 
     .line 562
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->dropState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_16
 
     .line 564
     iget-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->nextItem:Ljava/lang/Object;
@@ -321,7 +323,7 @@
 
     .line 569
     .end local v0    # "result":Ljava/lang/Object;
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lkotlin/sequences/DropWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -332,7 +334,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -344,7 +346,7 @@
 .end method
 
 .method public final setDropState(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 543
@@ -354,7 +356,7 @@
 .end method
 
 .method public final setNextItem(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

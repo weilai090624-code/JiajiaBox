@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transformation/ExpandableBehavior;Landroid/view/View;ILcom/google/android/material/expandable/ExpandableWidget;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/transformation/ExpandableBehavior;
 
     .line 106
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 5
+    .registers 6
 
     .line 109
     iget-object v0, p0, Lcom/google/android/material/transformation/ExpandableBehavior$1;->val$child:Landroid/view/View;
@@ -63,6 +63,7 @@
     .line 111
     iget-object v0, p0, Lcom/google/android/material/transformation/ExpandableBehavior$1;->this$0:Lcom/google/android/material/transformation/ExpandableBehavior;
 
+    # getter for: Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
     invoke-static {v0}, Lcom/google/android/material/transformation/ExpandableBehavior;->access$000(Lcom/google/android/material/transformation/ExpandableBehavior;)I
 
     move-result v0
@@ -71,7 +72,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_25
 
     .line 112
     iget-object v0, p0, Lcom/google/android/material/transformation/ExpandableBehavior$1;->this$0:Lcom/google/android/material/transformation/ExpandableBehavior;
@@ -91,6 +92,6 @@
     invoke-virtual {v0, v1, v3, v4, v2}, Lcom/google/android/material/transformation/ExpandableBehavior;->onExpandedStateChange(Landroid/view/View;Landroid/view/View;ZZ)Z
 
     .line 114
-    :cond_0
+    :cond_25
     return v2
 .end method

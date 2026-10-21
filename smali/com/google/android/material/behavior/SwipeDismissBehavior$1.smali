@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/behavior/SwipeDismissBehavior;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     .line 238
@@ -46,7 +46,7 @@
 .end method
 
 .method private shouldDismiss(Landroid/view/View;F)Z
-    .locals 6
+    .registers 9
     .param p1, "child"    # Landroid/view/View;
     .param p2, "xVelocity"    # F
 
@@ -60,7 +60,7 @@
 
     cmpl-float v3, p2, v2
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_41
 
     .line 305
     nop
@@ -70,95 +70,95 @@
 
     move-result v3
 
-    if-ne v3, v1, :cond_0
+    if-ne v3, v1, :cond_10
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v3, 0x0
 
     .line 308
     .local v3, "isRtl":Z
-    :goto_0
+    :goto_11
     iget-object v4, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget v4, v4, Lcom/google/android/material/behavior/SwipeDismissBehavior;->swipeDirection:I
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_19
 
     .line 310
     return v1
 
     .line 311
-    :cond_1
+    :cond_19
     iget-object v4, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget v4, v4, Lcom/google/android/material/behavior/SwipeDismissBehavior;->swipeDirection:I
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_2c
 
     .line 314
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_26
 
     cmpg-float v2, p2, v2
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_2b
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_2
+    :cond_26
     cmpl-float v2, p2, v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_2b
 
-    :goto_1
+    :goto_2a
     const/4 v0, 0x1
 
-    :cond_3
+    :cond_2b
     return v0
 
     .line 315
-    :cond_4
+    :cond_2c
     iget-object v4, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget v4, v4, Lcom/google/android/material/behavior/SwipeDismissBehavior;->swipeDirection:I
 
-    if-ne v4, v1, :cond_7
+    if-ne v4, v1, :cond_3f
 
     .line 318
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_39
 
     cmpl-float v2, p2, v2
 
-    if-lez v2, :cond_6
+    if-lez v2, :cond_3e
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_5
+    :cond_39
     cmpg-float v2, p2, v2
 
-    if-gez v2, :cond_6
+    if-gez v2, :cond_3e
 
-    :goto_2
+    :goto_3d
     const/4 v0, 0x1
 
-    :cond_6
+    :cond_3e
     return v0
 
     .line 320
     .end local v3    # "isRtl":Z
-    :cond_7
+    :cond_3f
     nop
 
     .line 326
     return v0
 
     .line 321
-    :cond_8
+    :cond_41
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v2
@@ -191,18 +191,18 @@
 
     move-result v4
 
-    if-lt v4, v3, :cond_9
+    if-lt v4, v3, :cond_5e
 
     const/4 v0, 0x1
 
-    :cond_9
+    :cond_5e
     return v0
 .end method
 
 
 # virtual methods
 .method public clampViewPositionHorizontal(Landroid/view/View;II)I
-    .locals 4
+    .registers 8
     .param p1, "child"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "dx"    # I
@@ -218,26 +218,26 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 341
     .local v0, "isRtl":Z
-    :goto_0
+    :goto_b
     iget-object v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget v2, v2, Lcom/google/android/material/behavior/SwipeDismissBehavior;->swipeDirection:I
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_27
 
     .line 342
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 343
     iget v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
@@ -253,12 +253,12 @@
     iget v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     .local v2, "max":I
-    goto :goto_1
+    goto :goto_51
 
     .line 346
     .end local v1    # "min":I
     .end local v2    # "max":I
-    :cond_1
+    :cond_1d
     iget v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     .line 347
@@ -272,20 +272,20 @@
     add-int/2addr v2, v3
 
     .restart local v2    # "max":I
-    goto :goto_1
+    goto :goto_51
 
     .line 349
     .end local v1    # "min":I
     .end local v2    # "max":I
-    :cond_2
+    :cond_27
     iget-object v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget v2, v2, Lcom/google/android/material/behavior/SwipeDismissBehavior;->swipeDirection:I
 
-    if-ne v2, v1, :cond_4
+    if-ne v2, v1, :cond_43
 
     .line 350
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_39
 
     .line 351
     iget v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
@@ -301,12 +301,12 @@
     add-int/2addr v2, v3
 
     .restart local v2    # "max":I
-    goto :goto_1
+    goto :goto_51
 
     .line 354
     .end local v1    # "min":I
     .end local v2    # "max":I
-    :cond_3
+    :cond_39
     iget v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -320,12 +320,12 @@
     iget v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     .restart local v2    # "max":I
-    goto :goto_1
+    goto :goto_51
 
     .line 358
     .end local v1    # "min":I
     .end local v2    # "max":I
-    :cond_4
+    :cond_43
     iget v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -346,7 +346,7 @@
 
     .line 362
     .restart local v2    # "max":I
-    :goto_1
+    :goto_51
     invoke-static {v1, p2, v2}, Lcom/google/android/material/behavior/SwipeDismissBehavior;->clamp(III)I
 
     move-result v3
@@ -355,7 +355,7 @@
 .end method
 
 .method public clampViewPositionVertical(Landroid/view/View;II)I
-    .locals 1
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "top"    # I
     .param p3, "dy"    # I
@@ -370,7 +370,7 @@
 .end method
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p1, "child"    # Landroid/view/View;
 
     .line 331
@@ -383,7 +383,7 @@
 .end method
 
 .method public onViewCaptured(Landroid/view/View;I)V
-    .locals 3
+    .registers 6
     .param p1, "capturedChild"    # Landroid/view/View;
     .param p2, "activePointerId"    # I
 
@@ -405,13 +405,14 @@
 
     .line 259
     .local v0, "parent":Landroid/view/ViewParent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 263
     iget-object v1, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     const/4 v2, 0x1
 
+    # setter for: Lcom/google/android/material/behavior/SwipeDismissBehavior;->requestingDisallowInterceptTouchEvent:Z
     invoke-static {v1, v2}, Lcom/google/android/material/behavior/SwipeDismissBehavior;->access$002(Lcom/google/android/material/behavior/SwipeDismissBehavior;Z)Z
 
     .line 264
@@ -422,15 +423,16 @@
 
     const/4 v2, 0x0
 
+    # setter for: Lcom/google/android/material/behavior/SwipeDismissBehavior;->requestingDisallowInterceptTouchEvent:Z
     invoke-static {v1, v2}, Lcom/google/android/material/behavior/SwipeDismissBehavior;->access$002(Lcom/google/android/material/behavior/SwipeDismissBehavior;Z)Z
 
     .line 267
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public onViewDragStateChanged(I)V
-    .locals 1
+    .registers 3
     .param p1, "state"    # I
 
     .line 271
@@ -439,7 +441,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/behavior/SwipeDismissBehavior;->listener:Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 272
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
@@ -449,12 +451,12 @@
     invoke-interface {v0, p1}, Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;->onDragStateChanged(I)V
 
     .line 274
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onViewPositionChanged(Landroid/view/View;IIII)V
-    .locals 7
+    .registers 13
     .param p1, "child"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -513,28 +515,28 @@
 
     cmpg-float v4, v2, v0
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_2b
 
     .line 379
     invoke-virtual {p1, v3}, Landroid/view/View;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 380
-    :cond_0
+    :cond_2b
     const/4 v4, 0x0
 
     cmpl-float v5, v2, v1
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_34
 
     .line 381
     invoke-virtual {p1, v4}, Landroid/view/View;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 384
-    :cond_1
+    :cond_34
     invoke-static {v0, v1, v2}, Lcom/google/android/material/behavior/SwipeDismissBehavior;->fraction(FFF)F
 
     move-result v5
@@ -551,12 +553,12 @@
 
     .line 387
     .end local v5    # "distance":F
-    :goto_0
+    :goto_41
     return-void
 .end method
 
 .method public onViewReleased(Landroid/view/View;FF)V
-    .locals 5
+    .registers 9
     .param p1, "child"    # Landroid/view/View;
     .param p2, "xVelocity"    # F
     .param p3, "yVelocity"    # F
@@ -582,14 +584,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_26
 
     .line 287
     const/4 v2, 0x0
 
     cmpg-float v2, p2, v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_20
 
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
@@ -597,43 +599,43 @@
 
     iget v3, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1c
 
-    goto :goto_0
+    goto :goto_20
 
     .line 289
-    :cond_0
+    :cond_1c
     iget v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     add-int/2addr v2, v0
 
-    goto :goto_1
+    goto :goto_23
 
     .line 288
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     iget v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     sub-int/2addr v2, v0
 
     .line 289
-    :goto_1
+    :goto_23
     nop
 
     .line 290
     .local v2, "targetLeft":I
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_28
 
     .line 293
     .end local v2    # "targetLeft":I
-    :cond_2
+    :cond_26
     iget v2, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->originalCapturedViewLeft:I
 
     .line 296
     .restart local v2    # "targetLeft":I
-    :goto_2
+    :goto_28
     iget-object v3, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget-object v3, v3, Lcom/google/android/material/behavior/SwipeDismissBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
@@ -646,7 +648,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_41
 
     .line 297
     new-instance v3, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;
@@ -657,17 +659,17 @@
 
     invoke-static {p1, v3}, Landroidx/core/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_3
+    goto :goto_50
 
     .line 298
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_41
+    if-eqz v1, :cond_50
 
     iget-object v3, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget-object v3, v3, Lcom/google/android/material/behavior/SwipeDismissBehavior;->listener:Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_50
 
     .line 299
     iget-object v3, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
@@ -677,13 +679,13 @@
     invoke-interface {v3, p1}, Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;->onDismiss(Landroid/view/View;)V
 
     .line 301
-    :cond_4
-    :goto_3
+    :cond_50
+    :goto_50
     return-void
 .end method
 
 .method public tryCaptureView(Landroid/view/View;I)Z
-    .locals 2
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "pointerId"    # I
 
@@ -693,13 +695,13 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     iget v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->activePointerId:I
 
-    if-ne v0, p2, :cond_1
+    if-ne v0, p2, :cond_13
 
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$1;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     .line 248
@@ -707,16 +709,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
     .line 247
-    :goto_0
+    :goto_14
     return v0
 .end method

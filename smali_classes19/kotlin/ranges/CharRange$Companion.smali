@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/ranges/CharRange$Companion;-><init>()V
 
@@ -58,9 +58,10 @@
 
 # virtual methods
 .method public final getEMPTY()Lkotlin/ranges/CharRange;
-    .locals 1
+    .registers 2
 
     .line 46
+    # getter for: Lkotlin/ranges/CharRange;->EMPTY:Lkotlin/ranges/CharRange;
     invoke-static {}, Lkotlin/ranges/CharRange;->access$getEMPTY$cp()Lkotlin/ranges/CharRange;
 
     move-result-object v0

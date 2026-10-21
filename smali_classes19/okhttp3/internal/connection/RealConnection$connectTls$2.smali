@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/connection/RealConnection;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lokhttp3/internal/connection/RealConnection$connectTls$2;->this$0:Lokhttp3/internal/connection/RealConnection;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 410
     invoke-virtual {p0}, Lokhttp3/internal/connection/RealConnection$connectTls$2;->invoke()Ljava/util/List;
@@ -81,7 +81,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,6 +94,7 @@
     .line 411
     iget-object v0, p0, Lokhttp3/internal/connection/RealConnection$connectTls$2;->this$0:Lokhttp3/internal/connection/RealConnection;
 
+    # getter for: Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
     invoke-static {v0}, Lokhttp3/internal/connection/RealConnection;->access$getHandshake$p(Lokhttp3/internal/connection/RealConnection;)Lokhttp3/Handshake;
 
     move-result-object v0
@@ -135,12 +136,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_23
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_37
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -165,10 +166,10 @@
 
     .line 767
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_23
 
     .line 769
-    :cond_0
+    :cond_37
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;

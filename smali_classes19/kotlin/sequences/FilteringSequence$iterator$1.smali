@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/FilteringSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/FilteringSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,6 +113,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 164
+    # getter for: Lkotlin/sequences/FilteringSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/FilteringSequence;->access$getSequence$p(Lkotlin/sequences/FilteringSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -133,19 +134,19 @@
 .end method
 
 .method private final calcNext()V
-    .locals 3
+    .registers 4
 
     .line 169
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 170
     iget-object v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -158,6 +159,7 @@
     .local v0, "item":Ljava/lang/Object;
     iget-object v1, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->this$0:Lkotlin/sequences/FilteringSequence;
 
+    # getter for: Lkotlin/sequences/FilteringSequence;->predicate:Lkotlin/jvm/functions/Function1;
     invoke-static {v1}, Lkotlin/sequences/FilteringSequence;->access$getPredicate$p(Lkotlin/sequences/FilteringSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v1
@@ -174,11 +176,12 @@
 
     iget-object v2, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->this$0:Lkotlin/sequences/FilteringSequence;
 
+    # getter for: Lkotlin/sequences/FilteringSequence;->sendWhen:Z
     invoke-static {v2}, Lkotlin/sequences/FilteringSequence;->access$getSendWhen$p(Lkotlin/sequences/FilteringSequence;)Z
 
     move-result v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1
 
     .line 172
     iput-object v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextItem:Ljava/lang/Object;
@@ -193,7 +196,7 @@
 
     .line 177
     .end local v0    # "item":Ljava/lang/Object;
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
     iput v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextState:I
@@ -205,7 +208,7 @@
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -221,7 +224,7 @@
 .end method
 
 .method public final getNextItem()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -235,7 +238,7 @@
 .end method
 
 .method public final getNextState()I
-    .locals 1
+    .registers 2
 
     .line 165
     iget v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextState:I
@@ -244,37 +247,37 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 193
     iget v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 194
     invoke-direct {p0}, Lkotlin/sequences/FilteringSequence$iterator$1;->calcNext()V
 
     .line 195
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -286,16 +289,16 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 182
     invoke-direct {p0}, Lkotlin/sequences/FilteringSequence$iterator$1;->calcNext()V
 
     .line 183
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextState:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 185
     iget-object v0, p0, Lkotlin/sequences/FilteringSequence$iterator$1;->nextItem:Ljava/lang/Object;
@@ -314,7 +317,7 @@
 
     .line 184
     .end local v0    # "result":Ljava/lang/Object;
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -323,7 +326,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -335,7 +338,7 @@
 .end method
 
 .method public final setNextItem(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,7 +353,7 @@
 .end method
 
 .method public final setNextState(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 165

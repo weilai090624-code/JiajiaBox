@@ -39,6 +39,7 @@ func init() {
 var _ adapter.LifecycleService = (*Server)(nil)
 
 type Server struct {
+	globe          *globeCache
 	ctx            context.Context
 	network        adapter.NetworkManager
 	router         adapter.Router
@@ -74,6 +75,7 @@ func NewServer(ctx context.Context, logFactory log.ObservableFactory, options op
 	}
 	chiRouter := chi.NewRouter()
 	s := &Server{
+		globe:     newGlobeCache(),
 		ctx:       ctx,
 		network:   service.FromContext[adapter.NetworkManager](ctx),
 		router:    service.FromContext[adapter.Router](ctx),
@@ -116,6 +118,7 @@ func NewServer(ctx context.Context, logFactory log.ObservableFactory, options op
 		r.Get("/logs", getLogs(s.ctx, logFactory))
 		r.Get("/traffic", traffic(s.ctx, trafficManager))
 		r.Get("/version", version)
+		r.Get("/globe-egress", globeEgress(s))
 		r.Get("/app-traffic", func(w http.ResponseWriter, request *http.Request) {
 			trafficcontrol.FlushAppTraffic()
 			w.Header().Set("Content-Type", "application/json")

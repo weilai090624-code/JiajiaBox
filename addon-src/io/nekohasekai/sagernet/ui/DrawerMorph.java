@@ -51,7 +51,9 @@ public final class DrawerMorph {
         layout.union(target);
         State next=new State(capsule,overlay,page,menu,from,new Rect(target),layout,new Rect(menuBounds),
                              expanding,pageAlpha,menuWidth,onEnd,previous);
-        capsule.setTag(STATE_TAG,next);next.prepare();return next.animator;
+        capsule.setTag(STATE_TAG,next);
+        try{next.prepare();}catch(RuntimeException error){next.stop(true);throw error;}
+        return next.animator;
     }
 
     /** For an immediate dismissal or activity teardown; no obsolete completion is invoked. */
@@ -71,6 +73,7 @@ public final class DrawerMorph {
         final ValueAnimator animator=ValueAnimator.ofFloat(0f,1f);
         final View shield;
         ViewTreeObserver observer;
+        DrawerWorkGate.Lease motionLease;
         boolean stopped,finished;
         State(JJGlassCapsule capsule,ViewGroup overlay,View page,View menu,Rect from,Rect target,Rect layout,
               Rect menuBounds,boolean expanding,float pageAlpha,int menuWidth,Function0<?> onEnd,State previous){
@@ -98,6 +101,7 @@ public final class DrawerMorph {
             });
         }
         void prepare(){
+            motionLease=DrawerWorkGate.begin(capsule);
             RosePalette.prepareForDisplay(page);if(menu!=null)RosePalette.prepareForDisplay(menu);
             page.animate().withEndAction(null).cancel();page.setVisibility(View.VISIBLE);
             if(menu!=null){menu.animate().withEndAction(null).cancel();menu.setVisibility(View.VISIBLE);
@@ -140,17 +144,18 @@ public final class DrawerMorph {
             lp.width=target.width();lp.height=target.height();capsule.setLayoutParams(lp);
             page.setVisibility(expanding?View.VISIBLE:View.GONE);if(menu!=null)menu.setVisibility(expanding?View.GONE:View.VISIBLE);
             // Activity completion may reparent the capsule; all listeners and clips are gone first.
-            if(onEnd!=null)onEnd.invoke();
+            try{if(onEnd!=null)onEnd.invoke();}finally{releaseMotion();}
         }
         void stop(boolean reset){
             if(finished)return;
             if(!stopped){stopped=true;removePreDraw();capsule.removeOnAttachStateChangeListener(this);
-                overlay.removeView(shield);animator.cancel();}
+                overlay.removeView(shield);animator.cancel();releaseMotion();}
             if(reset){capsule.setTag(STATE_TAG,null);capsule.setMorphClip(null);resetTransform(page);
                 if(menu!=null){restoreMenuWidth();resetTransform(menu);}}
             // Keep current geometry/compositing for an immediate reverse transition.
         }
         void restoreMenuWidth(){ViewGroup.LayoutParams lp=menu.getLayoutParams();if(lp.width!=menuWidth){lp.width=menuWidth;menu.setLayoutParams(lp);}}
+        void releaseMotion(){if(motionLease!=null){motionLease.close();motionLease=null;}}
         @Override public void onViewAttachedToWindow(View view){}
         @Override public void onViewDetachedFromWindow(View view){stop(true);}
     }

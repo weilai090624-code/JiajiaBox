@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/widget/ActionMenuPresenter;Landroid/content/Context;Landroidx/appcompat/view/menu/SubMenuBuilder;Landroid/view/View;)V
-    .locals 6
+    .registers 11
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "subMenu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
     .param p4, "anchorView"    # Landroid/view/View;
@@ -56,29 +56,30 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_28
 
     .line 739
     iget-object v1, p1, Landroidx/appcompat/widget/ActionMenuPresenter;->mOverflowButton:Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_23
 
+    # getter for: Landroidx/appcompat/widget/ActionMenuPresenter;->mMenuView:Landroidx/appcompat/view/menu/MenuView;
     invoke-static {p1}, Landroidx/appcompat/widget/ActionMenuPresenter;->access$200(Landroidx/appcompat/widget/ActionMenuPresenter;)Landroidx/appcompat/view/menu/MenuView;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     iget-object v1, p1, Landroidx/appcompat/widget/ActionMenuPresenter;->mOverflowButton:Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;
 
-    :goto_0
+    :goto_25
     invoke-virtual {p0, v1}, Landroidx/appcompat/widget/ActionMenuPresenter$ActionButtonSubmenu;->setAnchorView(Landroid/view/View;)V
 
     .line 742
-    :cond_1
+    :cond_28
     iget-object p1, p1, Landroidx/appcompat/widget/ActionMenuPresenter;->mPopupPresenterCallback:Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ActionMenuPresenter$ActionButtonSubmenu;->setPresenterCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
@@ -90,7 +91,7 @@
 
 # virtual methods
 .method protected onDismiss()V
-    .locals 2
+    .registers 3
 
     .line 747
     iget-object v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;

@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(I[I)V
-    .locals 4
+    .registers 7
     .param p1, "scale"    # I
     .param p2, "indexes"    # [I
 
@@ -36,30 +36,31 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_6
+    if-ge v2, v0, :cond_10
 
     aget v3, p2, v2
 
     .line 322
     .local v3, "index":I
+    # invokes: Lcom/google/common/math/Quantiles;->checkIndex(II)V
     invoke-static {v3, p1}, Lcom/google/common/math/Quantiles;->access$300(II)V
 
     .line 321
     .end local v3    # "index":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 324
-    :cond_0
+    :cond_10
     array-length v0, p2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_14
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_14
     const-string v0, "Indexes must be a non empty array"
 
     invoke-static {v1, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -75,7 +76,7 @@
 .end method
 
 .method synthetic constructor <init>(I[ILcom/google/common/math/Quantiles$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # I
     .param p2, "x1"    # [I
     .param p3, "x2"    # Lcom/google/common/math/Quantiles$1;
@@ -89,7 +90,7 @@
 
 # virtual methods
 .method public compute(Ljava/util/Collection;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +119,7 @@
 .end method
 
 .method public varargs compute([D)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "dataset"    # [D
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,7 +146,7 @@
 .end method
 
 .method public varargs compute([I)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "dataset"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,6 +159,7 @@
     .end annotation
 
     .line 384
+    # invokes: Lcom/google/common/math/Quantiles;->intsToDoubles([I)[D
     invoke-static {p1}, Lcom/google/common/math/Quantiles;->access$500([I)[D
 
     move-result-object v0
@@ -170,7 +172,7 @@
 .end method
 
 .method public varargs compute([J)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "dataset"    # [J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -183,6 +185,7 @@
     .end annotation
 
     .line 370
+    # invokes: Lcom/google/common/math/Quantiles;->longsToDoubles([J)[D
     invoke-static {p1}, Lcom/google/common/math/Quantiles;->access$400([J)[D
 
     move-result-object v0
@@ -195,7 +198,7 @@
 .end method
 
 .method public varargs computeInPlace([D)Ljava/util/Map;
-    .locals 22
+    .registers 24
     .param p1, "dataset"    # [D
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -218,26 +221,27 @@
 
     const/4 v3, 0x1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     const-string v4, "Cannot calculate quantiles of an empty dataset"
 
     invoke-static {v1, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 399
+    # invokes: Lcom/google/common/math/Quantiles;->containsNaN([D)Z
     invoke-static/range {p1 .. p1}, Lcom/google/common/math/Quantiles;->access$600([D)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 400
     new-instance v1, Ljava/util/LinkedHashMap;
@@ -250,8 +254,8 @@
 
     array-length v4, v3
 
-    :goto_1
-    if-ge v2, v4, :cond_1
+    :goto_1f
+    if-ge v2, v4, :cond_33
 
     aget v5, v3, v2
 
@@ -273,10 +277,10 @@
     .end local v5    # "index":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 404
-    :cond_1
+    :cond_33
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v2
@@ -285,7 +289,7 @@
 
     .line 412
     .end local v1    # "nanMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Double;>;"
-    :cond_2
+    :cond_38
     iget-object v1, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
 
     array-length v1, v1
@@ -323,12 +327,12 @@
     .end local v1    # "requiredSelectionsCount":I
     .local v4, "i":I
     .local v11, "requiredSelectionsCount":I
-    :goto_2
+    :goto_4c
     iget-object v1, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
 
     array-length v1, v1
 
-    if-ge v4, v1, :cond_4
+    if-ge v4, v1, :cond_81
 
     .line 420
     iget-object v1, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
@@ -387,7 +391,7 @@
     add-int/lit8 v11, v11, 0x1
 
     .line 431
-    if-eqz v13, :cond_3
+    if-eqz v13, :cond_7e
 
     .line 432
     add-int/lit8 v12, v1, 0x1
@@ -401,14 +405,14 @@
     .end local v1    # "quotient":I
     .end local v5    # "numerator":J
     .end local v13    # "remainder":I
-    :cond_3
+    :cond_7e
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 436
     .end local v4    # "i":I
-    :cond_4
+    :cond_81
     invoke-static {v10, v2, v11}, Ljava/util/Arrays;->sort([III)V
 
     .line 437
@@ -428,6 +432,7 @@
 
     move-object/from16 v4, p1
 
+    # invokes: Lcom/google/common/math/Quantiles;->selectAllInPlace([III[DII)V
     invoke-static/range {v1 .. v6}, Lcom/google/common/math/Quantiles;->access$900([III[DII)V
 
     .line 439
@@ -440,12 +445,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_3
+    :goto_98
     iget-object v3, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_6
+    if-ge v2, v3, :cond_df
 
     .line 441
     aget v3, v8, v2
@@ -456,7 +461,7 @@
 
     .line 443
     .local v4, "remainder":I
-    if-nez v4, :cond_5
+    if-nez v4, :cond_b5
 
     .line 444
     iget-object v5, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
@@ -475,10 +480,10 @@
 
     invoke-interface {v1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_4
+    goto :goto_da
 
     .line 446
-    :cond_5
+    :cond_b5
     iget-object v5, v0, Lcom/google/common/math/Quantiles$ScaleAndIndexes;->indexes:[I
 
     aget v5, v5, v2
@@ -512,6 +517,7 @@
 
     move-wide/from16 v18, v3
 
+    # invokes: Lcom/google/common/math/Quantiles;->interpolate(DDDD)D
     invoke-static/range {v12 .. v19}, Lcom/google/common/math/Quantiles;->access$800(DDDD)D
 
     move-result-wide v3
@@ -526,16 +532,16 @@
     .line 440
     .end local v20    # "quotient":I
     .end local v21    # "remainder":I
-    :goto_4
+    :goto_da
     add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v7, p1
 
-    goto :goto_3
+    goto :goto_98
 
     .line 450
     .end local v2    # "i":I
-    :cond_6
+    :cond_df
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v2

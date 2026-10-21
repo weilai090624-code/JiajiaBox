@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/AndroidPlatform$Companion;-><init>()V
 
@@ -59,14 +59,14 @@
 
 # virtual methods
 .method public final buildIfSupported()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
 
     .line 147
     invoke-virtual {p0}, Lokhttp3/internal/platform/AndroidPlatform$Companion;->isSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     new-instance v0, Lokhttp3/internal/platform/AndroidPlatform;
 
@@ -74,19 +74,20 @@
 
     check-cast v0, Lokhttp3/internal/platform/Platform;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public final isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 135
+    # getter for: Lokhttp3/internal/platform/AndroidPlatform;->isSupported:Z
     invoke-static {}, Lokhttp3/internal/platform/AndroidPlatform;->access$isSupported$cp()Z
 
     move-result v0

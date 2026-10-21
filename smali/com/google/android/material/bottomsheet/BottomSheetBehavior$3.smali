@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     .line 1586
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 10
+    .registers 14
     .param p1, "view"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p3, "initialPadding"    # Lcom/google/android/material/internal/ViewUtils$RelativePadding;
@@ -76,6 +76,7 @@
 
     iget v3, v0, Landroidx/core/graphics/Insets;->top:I
 
+    # setter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->insetTop:I
     invoke-static {v2, v3}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$302(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;I)I
 
     .line 1597
@@ -105,11 +106,12 @@
     .local v5, "rightPadding":I
     iget-object v6, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->paddingBottomSystemWindowInsets:Z
     invoke-static {v6}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$400(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_43
 
     .line 1606
     iget-object v6, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -118,6 +120,7 @@
 
     move-result v7
 
+    # setter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->insetBottom:I
     invoke-static {v6, v7}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$502(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;I)I
 
     .line 1607
@@ -125,6 +128,7 @@
 
     iget-object v7, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->insetBottom:I
     invoke-static {v7}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$500(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)I
 
     move-result v7
@@ -132,26 +136,27 @@
     add-int v3, v6, v7
 
     .line 1610
-    :cond_0
+    :cond_43
     iget-object v6, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->paddingLeftSystemWindowInsets:Z
     invoke-static {v6}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$600(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_56
 
     .line 1611
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_50
 
     iget v6, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
-    goto :goto_0
+    goto :goto_52
 
-    :cond_1
+    :cond_50
     iget v6, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
-    :goto_0
+    :goto_52
     move v4, v6
 
     .line 1612
@@ -160,26 +165,27 @@
     add-int/2addr v4, v6
 
     .line 1615
-    :cond_2
+    :cond_56
     iget-object v6, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->paddingRightSystemWindowInsets:Z
     invoke-static {v6}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$700(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_69
 
     .line 1616
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_63
 
     iget v6, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
-    goto :goto_1
+    goto :goto_65
 
-    :cond_3
+    :cond_63
     iget v6, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
-    :goto_1
+    :goto_65
     move v5, v6
 
     .line 1617
@@ -188,7 +194,7 @@
     add-int/2addr v5, v6
 
     .line 1620
-    :cond_4
+    :cond_69
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
@@ -203,17 +209,18 @@
     .local v7, "marginUpdated":Z
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->marginLeftSystemWindowInsets:Z
     invoke-static {v8}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$800(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_83
 
     iget v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     iget v9, v0, Landroidx/core/graphics/Insets;->left:I
 
-    if-eq v8, v9, :cond_5
+    if-eq v8, v9, :cond_83
 
     .line 1624
     iget v8, v0, Landroidx/core/graphics/Insets;->left:I
@@ -224,20 +231,21 @@
     const/4 v7, 0x1
 
     .line 1628
-    :cond_5
+    :cond_83
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->marginRightSystemWindowInsets:Z
     invoke-static {v8}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$900(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_96
 
     iget v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     iget v9, v0, Landroidx/core/graphics/Insets;->right:I
 
-    if-eq v8, v9, :cond_6
+    if-eq v8, v9, :cond_96
 
     .line 1629
     iget v8, v0, Landroidx/core/graphics/Insets;->right:I
@@ -248,20 +256,21 @@
     const/4 v7, 0x1
 
     .line 1633
-    :cond_6
+    :cond_96
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->marginTopSystemWindowInsets:Z
     invoke-static {v8}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$1000(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_a9
 
     iget v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     iget v9, v0, Landroidx/core/graphics/Insets;->top:I
 
-    if-eq v8, v9, :cond_7
+    if-eq v8, v9, :cond_a9
 
     .line 1634
     iget v8, v0, Landroidx/core/graphics/Insets;->top:I
@@ -272,14 +281,14 @@
     const/4 v7, 0x1
 
     .line 1638
-    :cond_7
-    if-eqz v7, :cond_8
+    :cond_a9
+    if-eqz v7, :cond_ae
 
     .line 1639
     invoke-virtual {p1, v6}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1641
-    :cond_8
+    :cond_ae
     invoke-virtual {p1}, Landroid/view/View;->getPaddingTop()I
 
     move-result v8
@@ -289,38 +298,41 @@
     .line 1643
     iget-boolean v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->val$shouldHandleGestureInsets:Z
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_c0
 
     .line 1644
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     iget v9, v1, Landroidx/core/graphics/Insets;->bottom:I
 
+    # setter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->gestureInsetBottom:I
     invoke-static {v8, v9}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$1102(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;I)I
 
     .line 1649
-    :cond_9
+    :cond_c0
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->paddingBottomSystemWindowInsets:Z
     invoke-static {v8}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$400(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v8
 
-    if-nez v8, :cond_a
+    if-nez v8, :cond_cc
 
     iget-boolean v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->val$shouldHandleGestureInsets:Z
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_d2
 
     .line 1650
-    :cond_a
+    :cond_cc
     iget-object v8, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     const/4 v9, 0x0
 
+    # invokes: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->updatePeekHeight(Z)V
     invoke-static {v8, v9}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$1200(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
 
     .line 1652
-    :cond_b
+    :cond_d2
     return-object p2
 .end method

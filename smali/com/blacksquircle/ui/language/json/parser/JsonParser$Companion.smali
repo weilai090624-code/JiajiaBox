@@ -38,7 +38,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/parser/JsonParser$Companion;-><init>()V
 
@@ -57,14 +57,15 @@
 
 # virtual methods
 .method public final getInstance()Lcom/blacksquircle/ui/language/json/parser/JsonParser;
-    .locals 4
+    .registers 5
 
     .line 30
+    # getter for: Lcom/blacksquircle/ui/language/json/parser/JsonParser;->jsonParser:Lcom/blacksquircle/ui/language/json/parser/JsonParser;
     invoke-static {}, Lcom/blacksquircle/ui/language/json/parser/JsonParser;->access$getJsonParser$cp()Lcom/blacksquircle/ui/language/json/parser/JsonParser;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/parser/JsonParser;
 
@@ -91,6 +92,6 @@
     .end local v2    # "$i$a$-also-JsonParser$Companion$getInstance$1":I
     nop
 
-    :cond_0
+    :cond_15
     return-object v0
 .end method

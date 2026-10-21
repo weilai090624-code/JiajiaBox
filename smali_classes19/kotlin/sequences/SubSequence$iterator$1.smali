@@ -84,7 +84,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/SubSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/SubSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,6 +100,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 385
+    # getter for: Lkotlin/sequences/SubSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/SubSequence;->access$getSequence$p(Lkotlin/sequences/SubSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -115,21 +116,22 @@
 .end method
 
 .method private final drop()V
-    .locals 2
+    .registers 3
 
     .line 390
     nop
 
-    :goto_0
+    :goto_1
     iget v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->position:I
 
     iget-object v1, p0, Lkotlin/sequences/SubSequence$iterator$1;->this$0:Lkotlin/sequences/SubSequence;
 
+    # getter for: Lkotlin/sequences/SubSequence;->startIndex:I
     invoke-static {v1}, Lkotlin/sequences/SubSequence;->access$getStartIndex$p(Lkotlin/sequences/SubSequence;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1f
 
     iget-object v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
@@ -137,7 +139,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 391
     iget-object v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -151,17 +153,17 @@
 
     iput v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->position:I
 
-    goto :goto_0
+    goto :goto_1
 
     .line 394
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +179,7 @@
 .end method
 
 .method public final getPosition()I
-    .locals 1
+    .registers 2
 
     .line 386
     iget v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->position:I
@@ -186,7 +188,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 397
     invoke-direct {p0}, Lkotlin/sequences/SubSequence$iterator$1;->drop()V
@@ -196,11 +198,12 @@
 
     iget-object v1, p0, Lkotlin/sequences/SubSequence$iterator$1;->this$0:Lkotlin/sequences/SubSequence;
 
+    # getter for: Lkotlin/sequences/SubSequence;->endIndex:I
     invoke-static {v1}, Lkotlin/sequences/SubSequence;->access$getEndIndex$p(Lkotlin/sequences/SubSequence;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
     iget-object v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
@@ -208,21 +211,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -237,11 +240,12 @@
 
     iget-object v1, p0, Lkotlin/sequences/SubSequence$iterator$1;->this$0:Lkotlin/sequences/SubSequence;
 
+    # getter for: Lkotlin/sequences/SubSequence;->endIndex:I
     invoke-static {v1}, Lkotlin/sequences/SubSequence;->access$getEndIndex$p(Lkotlin/sequences/SubSequence;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1a
 
     .line 405
     iget v0, p0, Lkotlin/sequences/SubSequence$iterator$1;->position:I
@@ -260,7 +264,7 @@
     return-object v0
 
     .line 404
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -269,7 +273,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -281,7 +285,7 @@
 .end method
 
 .method public final setPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 386

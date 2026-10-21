@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultimap;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -111,21 +111,22 @@
     .line 811
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    # operator++ for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$208(Lcom/google/common/collect/AbstractMapBasedMultimap;)I
 
     .line 812
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 813
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->addToMap()V
 
     .line 815
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 5
+    .registers 8
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -142,7 +143,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 778
     const/4 v0, 0x0
@@ -150,7 +151,7 @@
     return v0
 
     .line 780
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->size()I
 
     move-result v0
@@ -167,7 +168,7 @@
 
     .line 782
     .local v1, "changed":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 783
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->getDelegate()Ljava/util/Collection;
@@ -184,22 +185,23 @@
 
     sub-int v4, v2, v0
 
+    # += operator for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v3, v4}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$212(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
 
     .line 785
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 786
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->addToMap()V
 
     .line 789
     .end local v2    # "newSize":I
-    :cond_1
+    :cond_2a
     return v1
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -227,7 +229,7 @@
 .end method
 
 .method getListDelegate()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -248,7 +250,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -271,7 +273,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -294,7 +296,7 @@
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -316,7 +318,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -339,7 +341,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -367,6 +369,7 @@
     .local v0, "value":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    # operator-- for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$210(Lcom/google/common/collect/AbstractMapBasedMultimap;)I
 
     .line 823
@@ -377,7 +380,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -410,7 +413,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 4
+    .registers 7
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -447,19 +450,19 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_19
 
     move-object v3, p0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_19
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
     move-result-object v3
 
     .line 854
-    :goto_0
+    :goto_1d
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/collect/AbstractMapBasedMultimap;->wrapList(Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)Ljava/util/List;
 
     move-result-object v0

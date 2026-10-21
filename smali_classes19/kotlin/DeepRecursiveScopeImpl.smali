@@ -109,7 +109,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function3;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -153,6 +153,7 @@
     iput-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
     .line 143
+    # getter for: Lkotlin/DeepRecursiveKt;->UNDEFINED_RESULT:Ljava/lang/Object;
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
     move-result-object v0
@@ -164,7 +165,7 @@
 .end method
 
 .method public static final synthetic access$setCont$p(Lkotlin/DeepRecursiveScopeImpl;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
     .param p1, "<set-?>"    # Lkotlin/coroutines/Continuation;
 
@@ -175,7 +176,7 @@
 .end method
 
 .method public static final synthetic access$setFunction$p(Lkotlin/DeepRecursiveScopeImpl;Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function3;
 
@@ -186,7 +187,7 @@
 .end method
 
 .method public static final synthetic access$setResult$p(Lkotlin/DeepRecursiveScopeImpl;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
     .param p1, "<set-?>"    # Ljava/lang/Object;
 
@@ -197,7 +198,7 @@
 .end method
 
 .method private final crossFunctionCompletion(Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .param p1, "currentFunction"    # Lkotlin/jvm/functions/Function3;
     .param p2, "cont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -241,7 +242,7 @@
 
 # virtual methods
 .method public callRecursive(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -282,17 +283,17 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 158
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 .method public callRecursive(Lkotlin/DeepRecursiveFunction;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 11
     .param p1, "$this$callRecursive"    # Lkotlin/DeepRecursiveFunction;
     .param p2, "value"    # Ljava/lang/Object;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -344,7 +345,7 @@
     .local v5, "currentFunction":Lkotlin/jvm/functions/Function3;
     const-string v6, "null cannot be cast to non-null type kotlin.coroutines.Continuation<kotlin.Any?>"
 
-    if-eq v2, v5, :cond_0
+    if-eq v2, v5, :cond_21
 
     .line 167
     iput-object v2, v3, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
@@ -358,16 +359,16 @@
 
     iput-object v6, v3, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    goto :goto_0
+    goto :goto_26
 
     .line 171
-    :cond_0
+    :cond_21
     invoke-static {v0, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object v0, v3, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
     .line 173
-    :goto_0
+    :goto_26
     iput-object p2, v3, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
 
     .line 174
@@ -392,17 +393,17 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_37
 
     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 176
-    :cond_1
+    :cond_37
     return-object v0
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 146
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -413,7 +414,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 149
@@ -429,7 +430,7 @@
 .end method
 
 .method public final runCallLoop()Ljava/lang/Object;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -439,8 +440,8 @@
     .line 191
     nop
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     nop
 
     .line 193
@@ -450,7 +451,7 @@
     .local v0, "result":Ljava/lang/Object;
     iget-object v1, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_c
 
     .line 195
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
@@ -459,7 +460,8 @@
 
     .line 197
     .local v1, "cont":Lkotlin/coroutines/Continuation;
-    :cond_1
+    :cond_c
+    # getter for: Lkotlin/DeepRecursiveKt;->UNDEFINED_RESULT:Ljava/lang/Object;
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
     move-result-object v2
@@ -468,28 +470,28 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4f
 
     .line 199
     nop
 
     .line 201
-    :try_start_0
+    :try_start_17
     iget-object v2, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
 
     iget-object v3, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
 
     instance-of v4, v2, Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_24
 
     invoke-static {v2, p0, v3, v1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->wrapWithContinuationImpl(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_2
+    :cond_24
     const/4 v4, 0x3
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -501,11 +503,11 @@
     invoke-interface {v2, p0, v3, v1}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_17 .. :try_end_2f} :catchall_40
 
     .line 199
-    :goto_1
+    :goto_2f
     nop
 
     .line 207
@@ -514,7 +516,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_1
 
     .line 208
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -526,10 +528,10 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .end local v2    # "r":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1
 
     .line 202
-    :catchall_0
+    :catchall_40
     move-exception v2
 
     .line 203
@@ -547,11 +549,12 @@
     invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 204
-    goto :goto_0
+    goto :goto_1
 
     .line 211
     .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_3
+    :cond_4f
+    # getter for: Lkotlin/DeepRecursiveKt;->UNDEFINED_RESULT:Ljava/lang/Object;
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
     move-result-object v2
@@ -563,5 +566,5 @@
 
     .end local v0    # "result":Ljava/lang/Object;
     .end local v1    # "cont":Lkotlin/coroutines/Continuation;
-    goto :goto_0
+    goto :goto_1
 .end method

@@ -30,7 +30,7 @@
 .method constructor <init>(Landroid/content/Context;Landroid/widget/TextView;I)V
     .registers 10
 
-    .line 74
+    .line 89
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     iput p3, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->kind:I
@@ -81,7 +81,7 @@
 
     invoke-virtual {p0, v1, v2}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 75
+    .line 90
     new-instance v1, Landroid/widget/LinearLayout;
 
     invoke-direct {v1, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -110,7 +110,7 @@
 
     invoke-virtual {p0, v1, v0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 76
+    .line 91
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->primary:Landroid/widget/TextView;
 
     const v0, 0x800013
@@ -137,7 +137,7 @@
 
     invoke-virtual {v1, p2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 77
+    .line 92
     # invokes: Lio/nekohasekai/sagernet/ui/DrawerDesign;->subtitle(I)Ljava/lang/String;
     invoke-static {p3}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->access$000(I)Ljava/lang/String;
 
@@ -151,27 +151,33 @@
 
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->secondary:Landroid/widget/TextView;
 
-    new-instance p3, Landroid/widget/LinearLayout$LayoutParams;
+    const/16 p3, 0x8
 
-    invoke-direct {p3, v4, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const/high16 v0, 0x40800000    # 4.0f
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
+    invoke-direct {v0, v4, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    move-result v0
+    const/high16 v2, 0x40800000    # 4.0f
 
-    iput v0, p3, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+    invoke-static {p1, v2}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
 
-    invoke-virtual {v1, p2, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    move-result v2
+
+    iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+
+    invoke-virtual {v1, p2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     new-instance p2, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;
 
-    const/4 p3, 0x6
+    const/4 v0, 0x6
 
-    invoke-direct {p2, p1, p3}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p2, p1, v0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;-><init>(Landroid/content/Context;I)V
 
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->arrow:Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;
+
+    invoke-virtual {p2, p3}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Glyph;->setVisibility(I)V
 
     new-instance p3, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -207,7 +213,7 @@
 .method paint(Z)V
     .registers 6
 
-    .line 79
+    .line 94
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$Row;->getContext()Landroid/content/Context;
 
     move-result-object v0

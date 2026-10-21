@@ -105,7 +105,7 @@
 
 # direct methods
 .method public constructor <init>(JLkotlinx/coroutines/channels/ChannelSegment;Lkotlinx/coroutines/channels/BufferedChannel;I)V
-    .locals 2
+    .registers 8
     .param p1, "id"    # J
     .param p3, "prev"    # Lkotlinx/coroutines/channels/ChannelSegment;
     .param p4, "channel"    # Lkotlinx/coroutines/channels/BufferedChannel;
@@ -146,7 +146,7 @@
 .end method
 
 .method private final setElementLazy(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public final casState$kotlinx_coroutines_core(ILjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .param p1, "index"    # I
     .param p2, "from"    # Ljava/lang/Object;
     .param p3, "to"    # Ljava/lang/Object;
@@ -184,7 +184,7 @@
 .end method
 
 .method public final cleanElement$kotlinx_coroutines_core(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 2762
@@ -197,7 +197,7 @@
 .end method
 
 .method public final getAndSetState$kotlinx_coroutines_core(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "update"    # Ljava/lang/Object;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public final getChannel()Lkotlinx/coroutines/channels/BufferedChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,7 +234,7 @@
 .end method
 
 .method public final getElement$kotlinx_coroutines_core(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -255,7 +255,7 @@
 .end method
 
 .method public getNumberOfSlots()I
-    .locals 1
+    .registers 2
 
     .line 2746
     sget v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->SEGMENT_SIZE:I
@@ -264,7 +264,7 @@
 .end method
 
 .method public final getState$kotlinx_coroutines_core(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 2773
@@ -282,7 +282,7 @@
 .end method
 
 .method public onCancellation(ILjava/lang/Throwable;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 8
+    .registers 12
     .param p1, "index"    # I
     .param p2, "cause"    # Ljava/lang/Throwable;
     .param p3, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -294,40 +294,40 @@
 
     const/4 v2, 0x0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 2793
     .local v0, "isSender":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_10
 
     sget v3, Lkotlinx/coroutines/channels/BufferedChannelKt;->SEGMENT_SIZE:I
 
     sub-int v3, p1, v3
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     move v3, p1
 
     .line 2795
     .local v3, "index":I
-    :goto_1
+    :goto_11
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/channels/ChannelSegment;->getElement$kotlinx_coroutines_core(I)Ljava/lang/Object;
 
     move-result-object v4
 
     .line 2797
     .local v4, "element":Ljava/lang/Object;
-    :cond_2
-    :goto_2
+    :cond_15
+    :goto_15
     nop
 
     .line 2800
@@ -342,71 +342,76 @@
     .line 2803
     instance-of v6, v5, Lkotlinx/coroutines/Waiter;
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_7f
 
     instance-of v6, v5, Lkotlinx/coroutines/channels/WaiterEB;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_24
 
-    goto :goto_5
+    goto :goto_7f
 
     .line 2824
-    :cond_3
+    :cond_24
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_SEND:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getINTERRUPTED_SEND$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
-    if-eq v5, v6, :cond_9
+    if-eq v5, v6, :cond_6e
 
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_RCV:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getINTERRUPTED_RCV$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_31
 
-    goto :goto_4
+    goto :goto_6e
 
     .line 2840
-    :cond_4
+    :cond_31
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->RESUMING_BY_EB:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getRESUMING_BY_EB$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_15
 
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->RESUMING_BY_RCV:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getRESUMING_BY_RCV$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
-    if-ne v5, v6, :cond_5
+    if-ne v5, v6, :cond_3e
 
-    goto :goto_2
+    goto :goto_15
 
     .line 2843
-    :cond_5
+    :cond_3e
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->DONE_RCV:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getDONE_RCV$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v1
 
-    if-eq v5, v1, :cond_8
+    if-eq v5, v1, :cond_6d
 
     sget-object v1, Lkotlinx/coroutines/channels/BufferedChannelKt;->BUFFERED:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v5, v1, :cond_6
+    if-ne v5, v1, :cond_49
 
-    goto :goto_3
+    goto :goto_6d
 
     .line 2846
-    :cond_6
+    :cond_49
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->getCHANNEL_CLOSED()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v1
 
-    if-ne v5, v1, :cond_7
+    if-ne v5, v1, :cond_50
 
     return-void
 
-    :cond_7
+    :cond_50
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 2847
@@ -437,17 +442,17 @@
     throw v1
 
     .line 2843
-    :cond_8
-    :goto_3
+    :cond_6d
+    :goto_6d
     return-void
 
     .line 2827
-    :cond_9
-    :goto_4
+    :cond_6e
+    :goto_6e
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/channels/ChannelSegment;->cleanElement$kotlinx_coroutines_core(I)V
 
     .line 2829
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_7e
 
     .line 2830
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ChannelSegment;->getChannel()Lkotlinx/coroutines/channels/BufferedChannel;
@@ -456,55 +461,57 @@
 
     iget-object v1, v1, Lkotlinx/coroutines/channels/BufferedChannel;->onUndeliveredElement:Lkotlin/jvm/functions/Function1;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_7e
 
     invoke-static {v1, v4, p3}, Lkotlinx/coroutines/internal/OnUndeliveredElementKt;->callUndeliveredElement(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlin/coroutines/CoroutineContext;)V
 
     .line 2832
-    :cond_a
+    :cond_7e
     return-void
 
     .line 2806
-    :cond_b
-    :goto_5
-    if-eqz v0, :cond_c
+    :cond_7f
+    :goto_7f
+    if-eqz v0, :cond_86
 
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_SEND:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getINTERRUPTED_SEND$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
-    goto :goto_6
+    goto :goto_8a
 
-    :cond_c
+    :cond_86
+    # getter for: Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_RCV:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/channels/BufferedChannelKt;->access$getINTERRUPTED_RCV$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
 
     .line 2807
     .local v6, "update":Lkotlinx/coroutines/internal/Symbol;
-    :goto_6
+    :goto_8a
     invoke-virtual {p0, v3, v5, v6}, Lkotlinx/coroutines/channels/ChannelSegment;->casState$kotlinx_coroutines_core(ILjava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_15
 
     .line 2814
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/channels/ChannelSegment;->cleanElement$kotlinx_coroutines_core(I)V
 
     .line 2815
-    if-nez v0, :cond_d
+    if-nez v0, :cond_96
 
-    goto :goto_7
+    goto :goto_97
 
-    :cond_d
+    :cond_96
     const/4 v1, 0x0
 
-    :goto_7
+    :goto_97
     invoke-virtual {p0, v3, v1}, Lkotlinx/coroutines/channels/ChannelSegment;->onCancelledRequest(IZ)V
 
     .line 2817
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_a7
 
     .line 2818
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ChannelSegment;->getChannel()Lkotlinx/coroutines/channels/BufferedChannel;
@@ -513,22 +520,22 @@
 
     iget-object v1, v1, Lkotlinx/coroutines/channels/BufferedChannel;->onUndeliveredElement:Lkotlin/jvm/functions/Function1;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_a7
 
     invoke-static {v1, v4, p3}, Lkotlinx/coroutines/internal/OnUndeliveredElementKt;->callUndeliveredElement(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlin/coroutines/CoroutineContext;)V
 
     .line 2820
-    :cond_e
+    :cond_a7
     return-void
 .end method
 
 .method public final onCancelledRequest(IZ)V
-    .locals 5
+    .registers 8
     .param p1, "index"    # I
     .param p2, "receiver"    # Z
 
     .line 2857
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_12
 
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ChannelSegment;->getChannel()Lkotlinx/coroutines/channels/BufferedChannel;
 
@@ -549,7 +556,7 @@
     invoke-virtual {v0, v1, v2}, Lkotlinx/coroutines/channels/BufferedChannel;->waitExpandBufferCompletion$kotlinx_coroutines_core(J)V
 
     .line 2858
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/ChannelSegment;->onSlotCleaned()V
 
     .line 2859
@@ -557,7 +564,7 @@
 .end method
 
 .method public final retrieveElement$kotlinx_coroutines_core(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -586,7 +593,7 @@
 .end method
 
 .method public final setState$kotlinx_coroutines_core(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -604,7 +611,7 @@
 .end method
 
 .method public final storeElement$kotlinx_coroutines_core(ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

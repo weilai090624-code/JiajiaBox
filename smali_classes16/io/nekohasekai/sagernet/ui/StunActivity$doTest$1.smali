@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/StunActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -171,7 +171,7 @@
     .line 35
     iget v1, p0, Lio/nekohasekai/sagernet/ui/StunActivity$doTest$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_86
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -182,18 +182,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_5f
 
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_83
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 36
@@ -203,14 +203,15 @@
     .line 37
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_1e
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/StunActivity$doTest$1;->this$0:Lio/nekohasekai/sagernet/ui/StunActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/StunActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/StunActivity;->access$getBinding$p(Lio/nekohasekai/sagernet/ui/StunActivity;)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2c
 
     const-string v2, "binding"
 
@@ -218,7 +219,7 @@
 
     move-object v2, v1
 
-    :cond_0
+    :cond_2c
     iget-object v2, v2, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->natStunServer:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -241,14 +242,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_62
 
     .line 39
     invoke-virtual {v2}, Llibcore/StunResult;->getText()Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_47
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_47} :catch_6c
 
     .line 41
     .end local v2    # "_result":Llibcore/StunResult;
@@ -280,22 +281,22 @@
     move-result-object v1
 
     .end local v2    # "result":Ljava/lang/String;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_5f
 
     .line 35
     return-object v0
 
     .line 62
-    :cond_1
-    :goto_0
+    :cond_5f
+    :goto_5f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 41
     .local v2, "_result":Llibcore/StunResult;
-    :cond_2
-    :try_start_1
+    :cond_62
+    :try_start_62
     new-instance v3, Ljava/lang/Exception;
 
     invoke-virtual {v2}, Llibcore/StunResult;->getText()Ljava/lang/String;
@@ -306,13 +307,13 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     throw v3
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_6c
+    .catch Ljava/lang/Exception; {:try_start_62 .. :try_end_6c} :catch_6c
 
     .line 43
     .end local v2    # "_result":Llibcore/StunResult;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_0
+    :catch_6c
     move-exception v2
 
     .line 44
@@ -338,22 +339,22 @@
     move-result-object v1
 
     .end local v2    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_83
 
     .line 35
     return-object v0
 
     .line 56
-    :cond_3
-    :goto_1
+    :cond_83
+    :goto_83
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_86
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

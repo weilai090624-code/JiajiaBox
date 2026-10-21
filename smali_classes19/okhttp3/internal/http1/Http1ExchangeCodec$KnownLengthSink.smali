@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,6 +85,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v1
@@ -104,17 +105,17 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 282
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 283
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->closed:Z
@@ -124,6 +125,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->timeout:Lokio/ForwardingTimeout;
 
+    # invokes: Lokhttp3/internal/http1/Http1ExchangeCodec;->detachTimeout(Lokio/ForwardingTimeout;)V
     invoke-static {v0, v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$detachTimeout(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokio/ForwardingTimeout;)V
 
     .line 285
@@ -138,19 +140,20 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
 
     .line 277
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 278
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -162,7 +165,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 268
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->timeout:Lokio/ForwardingTimeout;
@@ -173,7 +176,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 7
+    .registers 11
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -184,7 +187,7 @@
     .line 271
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 272
     invoke-virtual {p1}, Lokio/Buffer;->size()J
@@ -200,6 +203,7 @@
     .line 273
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$KnownLengthSink;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
 
     move-result-object v0
@@ -210,7 +214,7 @@
     return-void
 
     .line 500
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
     .line 271

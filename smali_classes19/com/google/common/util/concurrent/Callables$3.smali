@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Supplier;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
 
     .line 84
     iput-object p1, p0, Lcom/google/common/util/concurrent/Callables$3;->val$nameSupplier:Lcom/google/common/base/Supplier;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -85,41 +85,44 @@
 
     check-cast v2, Ljava/lang/String;
 
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v2, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     move-result v2
 
     .line 92
     .local v2, "restoreName":Z
-    :try_start_0
+    :try_start_14
     iget-object v3, p0, Lcom/google/common/util/concurrent/Callables$3;->val$callable:Ljava/util/concurrent/Callable;
 
     invoke-interface {v3}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_14 .. :try_end_1a} :catchall_20
 
     .line 94
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 95
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     .line 92
-    :cond_0
+    :cond_1f
     return-object v3
 
     .line 94
-    :catchall_0
+    :catchall_20
     move-exception v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 95
+    # invokes: Lcom/google/common/util/concurrent/Callables;->trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/Callables;->access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
 
     .line 97
-    :cond_1
+    :cond_26
     throw v3
 .end method

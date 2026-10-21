@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 495
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/http2/Http2Reader$Companion;-><init>()V
 
@@ -63,9 +63,10 @@
 
 # virtual methods
 .method public final getLogger()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 2
 
     .line 496
+    # getter for: Lokhttp3/internal/http2/Http2Reader;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lokhttp3/internal/http2/Http2Reader;->access$getLogger$cp()Ljava/util/logging/Logger;
 
     move-result-object v0
@@ -74,7 +75,7 @@
 .end method
 
 .method public final lengthWithoutPadding(III)I
-    .locals 4
+    .registers 8
     .param p1, "length"    # I
     .param p2, "flags"    # I
     .param p3, "padding"    # I
@@ -91,13 +92,13 @@
     .local v0, "result":I
     and-int/lit8 v1, p2, 0x8
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_7
 
     add-int/lit8 v0, v0, -0x1
 
     .line 502
-    :cond_0
-    if-gt p3, v0, :cond_1
+    :cond_7
+    if-gt p3, v0, :cond_b
 
     .line 505
     sub-int/2addr v0, p3
@@ -106,7 +107,7 @@
     return v0
 
     .line 503
-    :cond_1
+    :cond_b
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;

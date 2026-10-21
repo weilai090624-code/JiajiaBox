@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/AbstractMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/util/Map$Entry;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,6 +102,7 @@
     .line 106
     iget-object v0, p0, Lkotlin/collections/AbstractMap$toString$1;->this$0:Lkotlin/collections/AbstractMap;
 
+    # invokes: Lkotlin/collections/AbstractMap;->toString(Ljava/util/Map$Entry;)Ljava/lang/String;
     invoke-static {v0, p1}, Lkotlin/collections/AbstractMap;->access$toString(Lkotlin/collections/AbstractMap;Ljava/util/Map$Entry;)Ljava/lang/String;
 
     move-result-object v0
@@ -112,7 +113,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 106

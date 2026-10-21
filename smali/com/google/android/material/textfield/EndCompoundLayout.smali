@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 5
+    .registers 8
     .param p1, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
     .param p2, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/textfield/EndCompoundLayout;)Landroid/widget/EditText;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 84
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/textfield/EndCompoundLayout;Landroid/widget/EditText;)Landroid/widget/EditText;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
     .param p1, "x1"    # Landroid/widget/EditText;
 
@@ -290,7 +290,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/textfield/EndCompoundLayout;)Landroid/text/TextWatcher;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 84
@@ -300,7 +300,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/textfield/EndCompoundLayout;Lcom/google/android/material/textfield/EndIconDelegate;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
     .param p1, "x1"    # Lcom/google/android/material/textfield/EndIconDelegate;
 
@@ -311,7 +311,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 84
@@ -321,7 +321,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 84
@@ -331,23 +331,23 @@
 .end method
 
 .method private addTouchExplorationStateChangeListenerIfNeeded()V
-    .locals 2
+    .registers 3
 
     .line 426
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->touchExplorationStateChangeListener:Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 428
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 429
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
@@ -357,12 +357,12 @@
     invoke-static {v0, v1}, Landroidx/core/view/accessibility/AccessibilityManagerCompat;->addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager;Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;)Z
 
     .line 432
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method private createIconView(Landroid/view/ViewGroup;Landroid/view/LayoutInflater;I)Lcom/google/android/material/internal/CheckableImageButton;
-    .locals 3
+    .registers 7
     .param p1, "root"    # Landroid/view/ViewGroup;
     .param p2, "inflater"    # Landroid/view/LayoutInflater;
     .param p3, "id"    # I
@@ -395,7 +395,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 211
     nop
@@ -413,12 +413,12 @@
 
     .line 215
     .end local v2    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_0
+    :cond_23
     return-object v0
 .end method
 
 .method private dispatchOnEndIconChanged(I)V
-    .locals 3
+    .registers 5
     .param p1, "previousIcon"    # I
 
     .line 780
@@ -428,12 +428,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,43 +449,44 @@
 
     .line 782
     .end local v1    # "listener":Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 783
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private getIconResId(Lcom/google/android/material/textfield/EndIconDelegate;)I
-    .locals 2
+    .registers 4
     .param p1, "delegate"    # Lcom/google/android/material/textfield/EndIconDelegate;
 
     .line 442
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconDelegates:Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;
 
+    # getter for: Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->customEndIconDrawableId:I
     invoke-static {v0}, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->access$500(Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;)I
 
     move-result v0
 
     .line 443
     .local v0, "customIconResId":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-virtual {p1}, Lcom/google/android/material/textfield/EndIconDelegate;->getIconDrawableResId()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v1, v0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method private initEndIconView(Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 5
+    .registers 7
     .param p1, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 243
@@ -499,7 +500,7 @@
 
     const/4 v2, -0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_33
 
     .line 245
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconTint:I
@@ -508,7 +509,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 246
     nop
@@ -528,14 +529,14 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintList:Landroid/content/res/ColorStateList;
 
     .line 251
-    :cond_0
+    :cond_1f
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconTintMode:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 252
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconTintMode:I
@@ -553,7 +554,7 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 257
-    :cond_1
+    :cond_33
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconMode:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
@@ -562,7 +563,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_61
 
     .line 259
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconMode:I
@@ -580,7 +581,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_56
 
     .line 261
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconContentDescription:I
@@ -594,7 +595,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconContentDescription(Ljava/lang/CharSequence;)V
 
     .line 264
-    :cond_2
+    :cond_56
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconCheckable:I
 
     const/4 v1, 0x1
@@ -605,17 +606,17 @@
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconCheckable(Z)V
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 265
-    :cond_3
+    :cond_61
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_passwordToggleEnabled:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a4
 
     .line 267
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_passwordToggleTint:I
@@ -624,7 +625,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7e
 
     .line 268
     nop
@@ -644,14 +645,14 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintList:Landroid/content/res/ColorStateList;
 
     .line 272
-    :cond_4
+    :cond_7e
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_passwordToggleTintMode:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_92
 
     .line 273
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_passwordToggleTintMode:I
@@ -669,7 +670,7 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 277
-    :cond_5
+    :cond_92
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_passwordToggleEnabled:I
 
     .line 278
@@ -694,8 +695,8 @@
 
     .line 283
     .end local v0    # "passwordToggleEnabled":Z
-    :cond_6
-    :goto_0
+    :cond_a4
+    :goto_a4
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconMinSize:I
 
     .line 286
@@ -724,7 +725,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_cc
 
     .line 288
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_endIconScaleType:I
@@ -742,12 +743,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 291
-    :cond_7
+    :cond_cc
     return-void
 .end method
 
 .method private initErrorIconView(Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 3
+    .registers 5
     .param p1, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 219
@@ -757,7 +758,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 220
     nop
@@ -777,14 +778,14 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintList:Landroid/content/res/ColorStateList;
 
     .line 224
-    :cond_0
+    :cond_15
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_errorIconTintMode:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 225
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_errorIconTintMode:I
@@ -806,14 +807,14 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 229
-    :cond_1
+    :cond_2b
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_errorIconDrawable:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3c
 
     .line 230
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_errorIconDrawable:I
@@ -825,7 +826,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setErrorIconDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 232
-    :cond_2
+    :cond_3c
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
     .line 233
@@ -871,7 +872,7 @@
 .end method
 
 .method private initSuffixTextView(Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 4
+    .registers 6
     .param p1, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 295
@@ -928,7 +929,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3c
 
     .line 308
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_suffixTextColor:I
@@ -940,7 +941,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setSuffixTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 310
-    :cond_0
+    :cond_3c
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_suffixText:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -954,16 +955,16 @@
 .end method
 
 .method private removeTouchExplorationStateChangeListenerIfNeeded()V
-    .locals 2
+    .registers 3
 
     .line 435
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->touchExplorationStateChangeListener:Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 436
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
@@ -973,29 +974,29 @@
     invoke-static {v0, v1}, Landroidx/core/view/accessibility/AccessibilityManagerCompat;->removeTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager;Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;)Z
 
     .line 439
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private setOnFocusChangeListenersIfNeeded(Lcom/google/android/material/textfield/EndIconDelegate;)V
-    .locals 2
+    .registers 4
     .param p1, "delegate"    # Lcom/google/android/material/textfield/EndIconDelegate;
 
     .line 463
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->editText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 464
     return-void
 
     .line 466
-    :cond_0
+    :cond_5
     invoke-virtual {p1}, Lcom/google/android/material/textfield/EndIconDelegate;->getOnEditTextFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 467
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->editText:Landroid/widget/EditText;
@@ -1007,12 +1008,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 469
-    :cond_1
+    :cond_14
     invoke-virtual {p1}, Lcom/google/android/material/textfield/EndIconDelegate;->getOnIconViewFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 470
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1024,12 +1025,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/CheckableImageButton;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 472
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method private setUpDelegate(Lcom/google/android/material/textfield/EndIconDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lcom/google/android/material/textfield/EndIconDelegate;
 
     .line 413
@@ -1050,7 +1051,7 @@
 .end method
 
 .method private tearDownDelegate(Lcom/google/android/material/textfield/EndIconDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lcom/google/android/material/textfield/EndIconDelegate;
 
     .line 420
@@ -1069,17 +1070,17 @@
 .end method
 
 .method private tintEndIconOnError(Z)V
-    .locals 4
+    .registers 6
     .param p1, "tintEndIconOnError"    # Z
 
     .line 786
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getEndIconDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 789
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getEndIconDrawable()Landroid/graphics/drawable/Drawable;
@@ -1113,10 +1114,10 @@
 
     .line 793
     .end local v0    # "endIconDrawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_0
+    goto :goto_2e
 
     .line 794
-    :cond_0
+    :cond_23
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1128,12 +1129,12 @@
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 796
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method private updateEndLayoutVisibility()V
-    .locals 4
+    .registers 5
 
     .line 770
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconFrame:Landroid/widget/FrameLayout;
@@ -1149,44 +1150,44 @@
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isErrorIconVisible()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/16 v1, 0x8
 
     .line 770
-    :goto_0
+    :goto_17
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     .line 773
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixText:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     iget-boolean v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->hintExpanded:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_24
     const/16 v0, 0x8
 
     .line 774
     .local v0, "suffixTextVisibility":I
-    :goto_1
+    :goto_26
     nop
 
     .line 775
@@ -1194,35 +1195,35 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_38
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isErrorIconVisible()Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_38
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_36
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_2
+    :cond_36
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_39
 
-    :cond_3
-    :goto_2
+    :cond_38
+    :goto_38
     const/4 v1, 0x1
 
     .line 776
     .local v1, "shouldBeVisible":Z
-    :goto_3
-    if-eqz v1, :cond_4
+    :goto_39
+    if-eqz v1, :cond_3c
 
     const/4 v2, 0x0
 
-    :cond_4
+    :cond_3c
     invoke-virtual {p0, v2}, Lcom/google/android/material/textfield/EndCompoundLayout;->setVisibility(I)V
 
     .line 777
@@ -1230,7 +1231,7 @@
 .end method
 
 .method private updateErrorIconVisibility()V
-    .locals 3
+    .registers 4
 
     .line 756
     nop
@@ -1242,7 +1243,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
@@ -1251,7 +1252,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
@@ -1260,28 +1261,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     .line 760
     .local v0, "visible":Z
-    :goto_0
+    :goto_1b
     iget-object v2, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_20
     const/16 v1, 0x8
 
-    :goto_1
+    :goto_22
     invoke-virtual {v2, v1}, Lcom/google/android/material/internal/CheckableImageButton;->setVisibility(I)V
 
     .line 761
@@ -1295,7 +1296,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_36
 
     .line 764
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -1303,12 +1304,12 @@
     invoke-virtual {v1}, Lcom/google/android/material/textfield/TextInputLayout;->updateDummyDrawables()Z
 
     .line 766
-    :cond_2
+    :cond_36
     return-void
 .end method
 
 .method private updateSuffixTextVisibility()V
-    .locals 4
+    .registers 5
 
     .line 711
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixTextView:Landroid/widget/TextView;
@@ -1323,38 +1324,38 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     iget-boolean v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->hintExpanded:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/16 v1, 0x8
 
     .line 713
     .local v1, "newVisibility":I
-    :goto_0
-    if-eq v0, v1, :cond_2
+    :goto_13
+    if-eq v0, v1, :cond_1f
 
     .line 714
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getEndIconDelegate()Lcom/google/android/material/textfield/EndIconDelegate;
 
     move-result-object v3
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_1c
     invoke-virtual {v3, v2}, Lcom/google/android/material/textfield/EndIconDelegate;->onSuffixVisibilityChanged(Z)V
 
     .line 716
-    :cond_2
+    :cond_1f
     invoke-direct {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->updateEndLayoutVisibility()V
 
     .line 719
@@ -1374,7 +1375,7 @@
 
 # virtual methods
 .method addOnEndIconChangedListener(Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;
 
     .line 589
@@ -1387,7 +1388,7 @@
 .end method
 
 .method checkEndIcon()V
-    .locals 1
+    .registers 2
 
     .line 512
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1404,7 +1405,7 @@
 .end method
 
 .method clearOnEndIconChangedListeners()V
-    .locals 1
+    .registers 2
 
     .line 597
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconChangedListeners:Ljava/util/LinkedHashSet;
@@ -1416,14 +1417,14 @@
 .end method
 
 .method getCurrentEndIconView()Lcom/google/android/material/internal/CheckableImageButton;
-    .locals 1
+    .registers 2
 
     .line 742
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isErrorIconVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 743
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1431,18 +1432,18 @@
     return-object v0
 
     .line 744
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->hasEndIcon()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isEndIconVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 745
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1450,14 +1451,14 @@
     return-object v0
 
     .line 747
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method getEndIconContentDescription()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 546
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1470,7 +1471,7 @@
 .end method
 
 .method getEndIconDelegate()Lcom/google/android/material/textfield/EndIconDelegate;
-    .locals 2
+    .registers 3
 
     .line 351
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconDelegates:Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;
@@ -1485,7 +1486,7 @@
 .end method
 
 .method getEndIconDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 531
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1498,7 +1499,7 @@
 .end method
 
 .method getEndIconMinSize()I
-    .locals 1
+    .registers 2
 
     .line 575
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMinSize:I
@@ -1507,7 +1508,7 @@
 .end method
 
 .method getEndIconMode()I
-    .locals 1
+    .registers 2
 
     .line 356
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMode:I
@@ -1516,7 +1517,7 @@
 .end method
 
 .method getEndIconScaleType()Landroid/widget/ImageView$ScaleType;
-    .locals 1
+    .registers 2
 
     .line 585
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconScaleType:Landroid/widget/ImageView$ScaleType;
@@ -1525,7 +1526,7 @@
 .end method
 
 .method getEndIconView()Lcom/google/android/material/internal/CheckableImageButton;
-    .locals 1
+    .registers 2
 
     .line 347
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1534,7 +1535,7 @@
 .end method
 
 .method getErrorIconDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 325
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1547,7 +1548,7 @@
 .end method
 
 .method getPasswordVisibilityToggleContentDescription()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 657
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1560,7 +1561,7 @@
 .end method
 
 .method getPasswordVisibilityToggleDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 652
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1573,7 +1574,7 @@
 .end method
 
 .method getSuffixText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 616
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixText:Ljava/lang/CharSequence;
@@ -1582,7 +1583,7 @@
 .end method
 
 .method getSuffixTextColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 629
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixTextView:Landroid/widget/TextView;
@@ -1595,7 +1596,7 @@
 .end method
 
 .method getSuffixTextView()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 605
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixTextView:Landroid/widget/TextView;
@@ -1604,26 +1605,26 @@
 .end method
 
 .method hasEndIcon()Z
-    .locals 1
+    .registers 2
 
     .line 601
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMode:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method isEndIconCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 504
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1636,14 +1637,14 @@
 .end method
 
 .method isEndIconChecked()Z
-    .locals 1
+    .registers 2
 
     .line 508
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->hasEndIcon()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
@@ -1651,21 +1652,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method isEndIconVisible()Z
-    .locals 1
+    .registers 2
 
     .line 488
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconFrame:Landroid/widget/FrameLayout;
@@ -1674,7 +1675,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
@@ -1682,21 +1683,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method isErrorIconVisible()Z
-    .locals 1
+    .registers 2
 
     .line 752
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1705,40 +1706,40 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method isPasswordVisibilityToggleEnabled()Z
-    .locals 2
+    .registers 3
 
     .line 661
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMode:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method onHintStateChanged(Z)V
-    .locals 0
+    .registers 2
     .param p1, "hintExpanded"    # Z
 
     .line 694
@@ -1752,7 +1753,7 @@
 .end method
 
 .method onTextInputBoxStateUpdated()V
-    .locals 1
+    .registers 2
 
     .line 699
     invoke-direct {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->updateErrorIconVisibility()V
@@ -1772,7 +1773,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 706
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -1784,12 +1785,12 @@
     invoke-direct {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->tintEndIconOnError(Z)V
 
     .line 708
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method refreshEndIconDrawableState()V
-    .locals 3
+    .registers 4
 
     .line 496
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -1805,7 +1806,7 @@
 .end method
 
 .method refreshErrorIconDrawableState()V
-    .locals 3
+    .registers 4
 
     .line 475
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -1821,7 +1822,7 @@
 .end method
 
 .method refreshIconState(Z)V
-    .locals 5
+    .registers 7
     .param p1, "force"    # Z
 
     .line 391
@@ -1839,7 +1840,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 394
     iget-object v2, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1854,7 +1855,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_1f
 
     .line 396
     iget-object v3, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1868,12 +1869,12 @@
 
     .line 400
     .end local v2    # "wasChecked":Z
-    :cond_0
+    :cond_1f
     invoke-virtual {v1}, Lcom/google/android/material/textfield/EndIconDelegate;->isIconActivable()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     .line 401
     iget-object v2, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1888,7 +1889,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_37
 
     .line 403
     xor-int/lit8 v3, v2, 0x1
@@ -1900,22 +1901,22 @@
 
     .line 407
     .end local v2    # "wasActivated":Z
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_37
+    if-nez p1, :cond_3b
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3e
 
     .line 408
-    :cond_2
+    :cond_3b
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->refreshEndIconDrawableState()V
 
     .line 410
-    :cond_3
+    :cond_3e
     return-void
 .end method
 
 .method removeOnEndIconChangedListener(Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;
 
     .line 593
@@ -1928,7 +1929,7 @@
 .end method
 
 .method setEndIconActivated(Z)V
-    .locals 1
+    .registers 3
     .param p1, "endIconActivated"    # Z
 
     .line 492
@@ -1941,7 +1942,7 @@
 .end method
 
 .method setEndIconCheckable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "endIconCheckable"    # Z
 
     .line 500
@@ -1954,11 +1955,11 @@
 .end method
 
 .method setEndIconContentDescription(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 535
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getResources()Landroid/content/res/Resources;
 
@@ -1968,12 +1969,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconContentDescription(Ljava/lang/CharSequence;)V
 
     .line 536
@@ -1981,7 +1982,7 @@
 .end method
 
 .method setEndIconContentDescription(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "endIconContentDescription"    # Ljava/lang/CharSequence;
 
     .line 539
@@ -1989,7 +1990,7 @@
 
     move-result-object v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 540
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -1997,16 +1998,16 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/CheckableImageButton;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 542
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method setEndIconDrawable(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 518
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getContext()Landroid/content/Context;
 
@@ -2016,12 +2017,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 519
@@ -2029,7 +2030,7 @@
 .end method
 
 .method setEndIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .registers 6
     .param p1, "endIconDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 522
@@ -2038,7 +2039,7 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/CheckableImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 523
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 524
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -2055,21 +2056,21 @@
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->refreshEndIconDrawableState()V
 
     .line 527
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method setEndIconMinSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "iconSize"    # I
 
     .line 564
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_13
 
     .line 567
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMinSize:I
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_12
 
     .line 568
     iput p1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMinSize:I
@@ -2085,11 +2086,11 @@
     invoke-static {v0, p1}, Lcom/google/android/material/textfield/IconHelper;->setIconMinSize(Lcom/google/android/material/internal/CheckableImageButton;I)V
 
     .line 572
-    :cond_0
+    :cond_12
     return-void
 
     .line 565
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "endIconSize cannot be less than 0"
@@ -2100,19 +2101,19 @@
 .end method
 
 .method setEndIconMode(I)V
-    .locals 7
+    .registers 9
     .param p1, "endIconMode"    # I
 
     .line 360
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMode:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 361
     return-void
 
     .line 363
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getEndIconDelegate()Lcom/google/android/material/textfield/EndIconDelegate;
 
     move-result-object v0
@@ -2132,16 +2133,16 @@
     .line 367
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_19
     invoke-virtual {p0, v2}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconVisible(Z)V
 
     .line 368
@@ -2182,7 +2183,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_66
 
     .line 373
     invoke-direct {p0, v2}, Lcom/google/android/material/textfield/EndCompoundLayout;->setUpDelegate(Lcom/google/android/material/textfield/EndIconDelegate;)V
@@ -2197,7 +2198,7 @@
     .line 382
     iget-object v3, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->editText:Landroid/widget/EditText;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_57
 
     .line 383
     iget-object v3, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->editText:Landroid/widget/EditText;
@@ -2208,7 +2209,7 @@
     invoke-direct {p0, v2}, Lcom/google/android/material/textfield/EndCompoundLayout;->setOnFocusChangeListenersIfNeeded(Lcom/google/android/material/textfield/EndIconDelegate;)V
 
     .line 386
-    :cond_2
+    :cond_57
     iget-object v3, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
     iget-object v4, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -2226,7 +2227,7 @@
     return-void
 
     .line 375
-    :cond_3
+    :cond_66
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2270,7 +2271,7 @@
 .end method
 
 .method setEndIconOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 2
+    .registers 4
     .param p1, "endIconOnClickListener"    # Landroid/view/View$OnClickListener;
 
     .line 447
@@ -2285,7 +2286,7 @@
 .end method
 
 .method setEndIconOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "endIconOnLongClickListener"    # Landroid/view/View$OnLongClickListener;
 
     .line 452
@@ -2301,7 +2302,7 @@
 .end method
 
 .method setEndIconScaleType(Landroid/widget/ImageView$ScaleType;)V
-    .locals 1
+    .registers 3
     .param p1, "endIconScaleType"    # Landroid/widget/ImageView$ScaleType;
 
     .line 579
@@ -2322,13 +2323,13 @@
 .end method
 
 .method setEndIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 4
+    .registers 6
     .param p1, "endIconTintList"    # Landroid/content/res/ColorStateList;
 
     .line 550
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_11
 
     .line 551
     iput-object p1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintList:Landroid/content/res/ColorStateList;
@@ -2345,18 +2346,18 @@
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 554
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method setEndIconTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 4
+    .registers 6
     .param p1, "endIconTintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 557
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_11
 
     .line 558
     iput-object p1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -2373,12 +2374,12 @@
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 561
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method setEndIconVisible(Z)V
-    .locals 2
+    .registers 4
     .param p1, "visible"    # Z
 
     .line 479
@@ -2386,21 +2387,21 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_1c
 
     .line 480
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_e
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/CheckableImageButton;->setVisibility(I)V
 
     .line 481
@@ -2415,16 +2416,16 @@
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->updateDummyDrawables()Z
 
     .line 485
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method setErrorIconDrawable(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 314
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getContext()Landroid/content/Context;
 
@@ -2434,12 +2435,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setErrorIconDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 315
@@ -2450,7 +2451,7 @@
 .end method
 
 .method setErrorIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .registers 6
     .param p1, "errorIconDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 319
@@ -2477,7 +2478,7 @@
 .end method
 
 .method setErrorIconOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 2
+    .registers 4
     .param p1, "errorIconOnClickListener"    # Landroid/view/View$OnClickListener;
 
     .line 343
@@ -2492,7 +2493,7 @@
 .end method
 
 .method setErrorIconOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "errorIconOnLongClickListener"    # Landroid/view/View$OnLongClickListener;
 
     .line 458
@@ -2508,13 +2509,13 @@
 .end method
 
 .method setErrorIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 3
+    .registers 5
     .param p1, "errorIconTintList"    # Landroid/content/res/ColorStateList;
 
     .line 329
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_f
 
     .line 330
     iput-object p1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintList:Landroid/content/res/ColorStateList;
@@ -2529,18 +2530,18 @@
     invoke-static {v0, v1, p1, v2}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 333
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method setErrorIconTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 4
+    .registers 6
     .param p1, "errorIconTintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 336
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_11
 
     .line 337
     iput-object p1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->errorIconTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -2557,19 +2558,19 @@
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 340
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method setPasswordVisibilityToggleContentDescription(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 642
     nop
 
     .line 643
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getResources()Landroid/content/res/Resources;
 
@@ -2579,13 +2580,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 642
-    :goto_0
+    :goto_d
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setPasswordVisibilityToggleContentDescription(Ljava/lang/CharSequence;)V
 
     .line 644
@@ -2593,7 +2594,7 @@
 .end method
 
 .method setPasswordVisibilityToggleContentDescription(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "description"    # Ljava/lang/CharSequence;
 
     .line 647
@@ -2606,14 +2607,14 @@
 .end method
 
 .method setPasswordVisibilityToggleDrawable(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 633
     nop
 
     .line 634
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->getContext()Landroid/content/Context;
 
@@ -2623,13 +2624,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 633
-    :goto_0
+    :goto_d
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setPasswordVisibilityToggleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 635
@@ -2637,7 +2638,7 @@
 .end method
 
 .method setPasswordVisibilityToggleDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 638
@@ -2650,26 +2651,26 @@
 .end method
 
 .method setPasswordVisibilityToggleEnabled(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 665
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     iget v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconMode:I
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     .line 667
     invoke-virtual {p0, v1}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconMode(I)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 668
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_b
+    if-nez p1, :cond_11
 
     .line 670
     const/4 v0, 0x0
@@ -2677,13 +2678,13 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->setEndIconMode(I)V
 
     .line 672
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method setPasswordVisibilityToggleTintList(Landroid/content/res/ColorStateList;)V
-    .locals 4
+    .registers 6
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 675
@@ -2705,7 +2706,7 @@
 .end method
 
 .method setPasswordVisibilityToggleTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 4
+    .registers 6
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 680
@@ -2727,7 +2728,7 @@
 .end method
 
 .method setSuffixText(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "suffixText"    # Ljava/lang/CharSequence;
 
     .line 609
@@ -2735,16 +2736,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p1
 
-    :goto_0
+    :goto_9
     iput-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixText:Ljava/lang/CharSequence;
 
     .line 610
@@ -2760,7 +2761,7 @@
 .end method
 
 .method setSuffixTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1, "suffixTextAppearance"    # I
 
     .line 620
@@ -2773,7 +2774,7 @@
 .end method
 
 .method setSuffixTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "suffixTextColor"    # Landroid/content/res/ColorStateList;
 
     .line 624
@@ -2786,7 +2787,7 @@
 .end method
 
 .method togglePasswordVisibilityToggle(Z)V
-    .locals 2
+    .registers 4
     .param p1, "shouldSkipAnimations"    # Z
 
     .line 685
@@ -2794,7 +2795,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 686
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -2802,7 +2803,7 @@
     invoke-virtual {v0}, Lcom/google/android/material/internal/CheckableImageButton;->performClick()Z
 
     .line 687
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 688
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -2810,41 +2811,41 @@
     invoke-virtual {v0}, Lcom/google/android/material/internal/CheckableImageButton;->jumpDrawablesToCurrentState()V
 
     .line 691
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method updateSuffixTextViewPadding()V
-    .locals 5
+    .registers 6
 
     .line 724
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
     iget-object v0, v0, Lcom/google/android/material/textfield/TextInputLayout;->editText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 725
     return-void
 
     .line 728
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isEndIconVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
     invoke-virtual {p0}, Lcom/google/android/material/textfield/EndCompoundLayout;->isErrorIconVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 729
-    :cond_1
+    :cond_14
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
     iget-object v0, v0, Lcom/google/android/material/textfield/TextInputLayout;->editText:Landroid/widget/EditText;
@@ -2853,15 +2854,15 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v0, 0x0
 
     .line 730
     .local v0, "endPadding":I
-    :goto_1
+    :goto_1e
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout;->suffixTextView:Landroid/widget/TextView;
 
     .line 732

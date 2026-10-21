@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
-    .locals 0
+    .registers 2
 
     .line 285
     iput-object p1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentEnd;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/parser/ParserImpl$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public produce()Lorg/yaml/snakeyaml/events/Event;
-    .locals 9
+    .registers 10
 
     .line 288
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentEnd;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -92,7 +92,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2d
 
     .line 293
     iget-object v4, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentEnd;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -112,7 +112,7 @@
     const/4 v3, 0x1
 
     .line 297
-    :cond_0
+    :cond_2d
     new-instance v4, Lorg/yaml/snakeyaml/events/DocumentEndEvent;
 
     invoke-direct {v4, v1, v2, v3}, Lorg/yaml/snakeyaml/events/DocumentEndEvent;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Z)V
@@ -129,6 +129,7 @@
 
     invoke-direct {v6, v7, v8}, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseDocumentStart;-><init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
 
+    # setter for: Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
     invoke-static {v5, v6}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
 
     .line 300

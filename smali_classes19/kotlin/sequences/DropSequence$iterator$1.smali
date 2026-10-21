@@ -75,7 +75,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/DropSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/DropSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,6 +89,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 508
+    # getter for: Lkotlin/sequences/DropSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/DropSequence;->access$getSequence$p(Lkotlin/sequences/DropSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -100,6 +101,7 @@
     iput-object v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     .line 509
+    # getter for: Lkotlin/sequences/DropSequence;->count:I
     invoke-static {p1}, Lkotlin/sequences/DropSequence;->access$getCount$p(Lkotlin/sequences/DropSequence;)I
 
     move-result v0
@@ -111,15 +113,15 @@
 .end method
 
 .method private final drop()V
-    .locals 1
+    .registers 2
 
     .line 513
     nop
 
-    :goto_0
+    :goto_1
     iget v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->left:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_19
 
     iget-object v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
@@ -127,7 +129,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 514
     iget-object v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -141,17 +143,17 @@
 
     iput v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->left:I
 
-    goto :goto_0
+    goto :goto_1
 
     .line 517
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,7 +169,7 @@
 .end method
 
 .method public final getLeft()I
-    .locals 1
+    .registers 2
 
     .line 509
     iget v0, p0, Lkotlin/sequences/DropSequence$iterator$1;->left:I
@@ -176,7 +178,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 525
     invoke-direct {p0}, Lkotlin/sequences/DropSequence$iterator$1;->drop()V
@@ -192,7 +194,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -213,7 +215,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -225,7 +227,7 @@
 .end method
 
 .method public final setLeft(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 509

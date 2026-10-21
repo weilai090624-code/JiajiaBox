@@ -55,7 +55,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/AsyncTimeout$Companion;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final synthetic access$cancelScheduledTimeout(Lokio/AsyncTimeout$Companion;Lokio/AsyncTimeout;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lokio/AsyncTimeout$Companion;
     .param p1, "node"    # Lokio/AsyncTimeout;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public static final synthetic access$scheduleTimeout(Lokio/AsyncTimeout$Companion;Lokio/AsyncTimeout;JZ)V
-    .locals 0
+    .registers 5
     .param p0, "$this"    # Lokio/AsyncTimeout$Companion;
     .param p1, "node"    # Lokio/AsyncTimeout;
     .param p2, "timeoutNanos"    # J
@@ -98,7 +98,7 @@
 .end method
 
 .method private final cancelScheduledTimeout(Lokio/AsyncTimeout;)Z
-    .locals 6
+    .registers 8
     .param p1, "node"    # Lokio/AsyncTimeout;
 
     const-class v0, Lokio/AsyncTimeout;
@@ -117,16 +117,17 @@
 
     .line 268
     .local v2, "$i$a$-synchronized-AsyncTimeout$Companion$cancelScheduledTimeout$1":I
-    :try_start_0
+    :try_start_6
+    # getter for: Lokio/AsyncTimeout;->inQueue:Z
     invoke-static {p1}, Lokio/AsyncTimeout;->access$getInQueue$p(Lokio/AsyncTimeout;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_36
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_f
 
     .end local v0    # "lock$iv":Ljava/lang/Object;
     .end local v1    # "$i$f$synchronized":I
@@ -139,28 +140,31 @@
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$a$-synchronized-AsyncTimeout$Companion$cancelScheduledTimeout$1":I
-    :cond_0
-    :try_start_1
+    :cond_f
+    :try_start_f
     invoke-static {p1, v4}, Lokio/AsyncTimeout;->access$setInQueue$p(Lokio/AsyncTimeout;Z)V
 
     .line 272
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v3
 
     .line 273
     .local v3, "prev":Lokio/AsyncTimeout;
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_16
+    if-eqz v3, :cond_32
 
     .line 274
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v3}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v5
 
-    if-ne v5, p1, :cond_1
+    if-ne v5, p1, :cond_2c
 
     .line 275
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {p1}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v5
@@ -171,8 +175,8 @@
     const/4 v5, 0x0
 
     invoke-static {p1, v5}, Lokio/AsyncTimeout;->access$setNext$p(Lokio/AsyncTimeout;Lokio/AsyncTimeout;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_f .. :try_end_29} :catchall_36
 
     .line 277
     nop
@@ -190,20 +194,21 @@
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$a$-synchronized-AsyncTimeout$Companion$cancelScheduledTimeout$1":I
     .restart local v3    # "prev":Lokio/AsyncTimeout;
-    :cond_1
-    :try_start_2
+    :cond_2c
+    :try_start_2c
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v3}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_30
+    .catchall {:try_start_2c .. :try_end_30} :catchall_36
 
     move-object v3, v5
 
-    goto :goto_0
+    goto :goto_16
 
     .line 283
-    :cond_2
+    :cond_32
     nop
 
     .end local v0    # "lock$iv":Ljava/lang/Object;
@@ -218,7 +223,7 @@
 
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v1    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_36
     move-exception v2
 
     monitor-exit v0
@@ -227,7 +232,7 @@
 .end method
 
 .method private final scheduleTimeout(Lokio/AsyncTimeout;JZ)V
-    .locals 11
+    .registers 16
     .param p1, "node"    # Lokio/AsyncTimeout;
     .param p2, "timeoutNanos"    # J
     .param p4, "hasDeadline"    # Z
@@ -248,12 +253,13 @@
 
     .line 225
     .local v2, "$i$a$-synchronized-AsyncTimeout$Companion$scheduleTimeout$1":I
-    :try_start_0
+    :try_start_6
+    # getter for: Lokio/AsyncTimeout;->inQueue:Z
     invoke-static {p1}, Lokio/AsyncTimeout;->access$getInQueue$p(Lokio/AsyncTimeout;)Z
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_a4
 
     .line 226
     const/4 v3, 0x1
@@ -261,11 +267,12 @@
     invoke-static {p1, v3}, Lokio/AsyncTimeout;->access$setInQueue$p(Lokio/AsyncTimeout;Z)V
 
     .line 229
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_28
 
     .line 230
     sget-object v3, Lokio/AsyncTimeout;->Companion:Lokio/AsyncTimeout$Companion;
@@ -284,7 +291,7 @@
     invoke-virtual {v3}, Lokio/AsyncTimeout$Watchdog;->start()V
 
     .line 234
-    :cond_0
+    :cond_28
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v3
@@ -295,9 +302,9 @@
 
     cmp-long v7, p2, v5
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_42
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_42
 
     .line 238
     invoke-virtual {p1}, Lokio/AsyncTimeout;->deadlineNanoTime()J
@@ -314,24 +321,24 @@
 
     invoke-static {p1, v5, v6}, Lokio/AsyncTimeout;->access$setTimeoutAt$p(Lokio/AsyncTimeout;J)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 239
-    :cond_1
+    :cond_42
     cmp-long v7, p2, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4c
 
     .line 240
     add-long v5, v3, p2
 
     invoke-static {p1, v5, v6}, Lokio/AsyncTimeout;->access$setTimeoutAt$p(Lokio/AsyncTimeout;J)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 241
-    :cond_2
-    if-eqz p4, :cond_6
+    :cond_4c
+    if-eqz p4, :cond_9e
 
     .line 242
     invoke-virtual {p1}, Lokio/AsyncTimeout;->deadlineNanoTime()J
@@ -341,13 +348,15 @@
     invoke-static {p1, v5, v6}, Lokio/AsyncTimeout;->access$setTimeoutAt$p(Lokio/AsyncTimeout;J)V
 
     .line 248
-    :goto_0
+    :goto_55
+    # invokes: Lokio/AsyncTimeout;->remainingNanos(J)J
     invoke-static {p1, v3, v4}, Lokio/AsyncTimeout;->access$remainingNanos(Lokio/AsyncTimeout;J)J
 
     move-result-wide v5
 
     .line 249
     .local v5, "remainingNanos":J
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v7
@@ -356,34 +365,38 @@
 
     .line 250
     .local v7, "prev":Lokio/AsyncTimeout;
-    :goto_1
+    :goto_60
     nop
 
     .line 251
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v7}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_80
 
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v7}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v8
 
     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    # invokes: Lokio/AsyncTimeout;->remainingNanos(J)J
     invoke-static {v8, v3, v4}, Lokio/AsyncTimeout;->access$remainingNanos(Lokio/AsyncTimeout;J)J
 
     move-result-wide v8
 
     cmp-long v10, v5, v8
 
-    if-gez v10, :cond_3
+    if-gez v10, :cond_77
 
-    goto :goto_2
+    goto :goto_80
 
     .line 260
-    :cond_3
+    :cond_77
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v7}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v8
@@ -392,11 +405,12 @@
 
     move-object v7, v8
 
-    goto :goto_1
+    goto :goto_60
 
     .line 252
-    :cond_4
-    :goto_2
+    :cond_80
+    :goto_80
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v7}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v8
@@ -407,11 +421,12 @@
     invoke-static {v7, p1}, Lokio/AsyncTimeout;->access$setNext$p(Lokio/AsyncTimeout;Lokio/AsyncTimeout;)V
 
     .line 254
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v8
 
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_97
 
     const-class v8, Lokio/AsyncTimeout;
 
@@ -421,7 +436,7 @@
     invoke-virtual {v8}, Ljava/lang/Object;->notify()V
 
     .line 258
-    :cond_5
+    :cond_97
     nop
 
     .line 262
@@ -432,8 +447,8 @@
     .end local v5    # "remainingNanos":J
     .end local v7    # "prev":Lokio/AsyncTimeout;
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9b
+    .catchall {:try_start_6 .. :try_end_9b} :catchall_b3
 
     monitor-exit v0
 
@@ -450,8 +465,8 @@
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$a$-synchronized-AsyncTimeout$Companion$scheduleTimeout$1":I
     .restart local v3    # "now":J
-    :cond_6
-    :try_start_1
+    :cond_9e
+    :try_start_9e
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5}, Ljava/lang/AssertionError;-><init>()V
@@ -470,7 +485,7 @@
     .restart local p1    # "node":Lokio/AsyncTimeout;
     .restart local p2    # "timeoutNanos":J
     .restart local p4    # "hasDeadline":Z
-    :cond_7
+    :cond_a4
     const/4 v3, 0x0
 
     .line 225
@@ -494,8 +509,8 @@
     .end local p2    # "timeoutNanos":J
     .end local p4    # "hasDeadline":Z
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b3
+    .catchall {:try_start_9e .. :try_end_b3} :catchall_b3
 
     .line 262
     .end local v2    # "$i$a$-synchronized-AsyncTimeout$Companion$scheduleTimeout$1":I
@@ -504,7 +519,7 @@
     .restart local p1    # "node":Lokio/AsyncTimeout;
     .restart local p2    # "timeoutNanos":J
     .restart local p4    # "hasDeadline":Z
-    :catchall_0
+    :catchall_b3
     move-exception v2
 
     monitor-exit v0
@@ -515,7 +530,7 @@
 
 # virtual methods
 .method public final awaitTimeout$okio()Lokio/AsyncTimeout;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -523,12 +538,14 @@
     .end annotation
 
     .line 297
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v0
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v0}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v0
@@ -537,7 +554,7 @@
     .local v0, "node":Lokio/AsyncTimeout;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     .line 301
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -550,6 +567,7 @@
     check-cast v4, Ljava/lang/Object;
 
     .line 302
+    # getter for: Lokio/AsyncTimeout;->IDLE_TIMEOUT_MILLIS:J
     invoke-static {}, Lokio/AsyncTimeout;->access$getIDLE_TIMEOUT_MILLIS$cp()J
 
     move-result-wide v5
@@ -557,17 +575,19 @@
     invoke-virtual {v4, v5, v6}, Ljava/lang/Object;->wait(J)V
 
     .line 303
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v4
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v4}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_3c
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
@@ -575,38 +595,41 @@
 
     sub-long/2addr v4, v2
 
+    # getter for: Lokio/AsyncTimeout;->IDLE_TIMEOUT_NANOS:J
     invoke-static {}, Lokio/AsyncTimeout;->access$getIDLE_TIMEOUT_NANOS$cp()J
 
     move-result-wide v6
 
     cmp-long v8, v4, v6
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_3c
 
     .line 304
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 306
-    :cond_0
+    :cond_3c
     move-object v4, v1
 
     check-cast v4, Lokio/AsyncTimeout;
 
     .line 303
-    :goto_0
+    :goto_3f
     return-object v1
 
     .line 310
     .end local v2    # "startNanos":J
-    :cond_1
+    :cond_40
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v2
 
+    # invokes: Lokio/AsyncTimeout;->remainingNanos(J)J
     invoke-static {v0, v2, v3}, Lokio/AsyncTimeout;->access$remainingNanos(Lokio/AsyncTimeout;J)J
 
     move-result-wide v2
@@ -617,7 +640,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_5f
 
     .line 316
     const-wide/32 v4, 0xf4240
@@ -644,13 +667,15 @@
 
     .line 323
     .end local v6    # "waitMillis":J
-    :cond_2
+    :cond_5f
+    # getter for: Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
     invoke-static {}, Lokio/AsyncTimeout;->access$getHead$cp()Lokio/AsyncTimeout;
 
     move-result-object v4
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    # getter for: Lokio/AsyncTimeout;->next:Lokio/AsyncTimeout;
     invoke-static {v0}, Lokio/AsyncTimeout;->access$getNext$p(Lokio/AsyncTimeout;)Lokio/AsyncTimeout;
 
     move-result-object v5

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1448
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractFuture$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture$1;
 
     .line 1448
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method casListeners(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Listener;Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Listener;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -61,14 +61,16 @@
     monitor-enter p1
 
     .line 1474
-    :try_start_0
+    :try_start_1
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->listeners:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractFuture;->access$900(Lcom/google/common/util/concurrent/AbstractFuture;)Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     move-result-object v0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     .line 1475
+    # setter for: Lcom/google/common/util/concurrent/AbstractFuture;->listeners:Lcom/google/common/util/concurrent/AbstractFuture$Listener;
     invoke-static {p1, p3}, Lcom/google/common/util/concurrent/AbstractFuture;->access$902(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     .line 1476
@@ -79,7 +81,7 @@
     return v0
 
     .line 1478
-    :cond_0
+    :cond_d
     monitor-exit p1
 
     const/4 v0, 0x0
@@ -87,18 +89,18 @@
     return v0
 
     .line 1479
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_1 .. :try_end_12} :catchall_10
 
     throw v0
 .end method
 
 .method casValue(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -120,14 +122,16 @@
     monitor-enter p1
 
     .line 1485
-    :try_start_0
+    :try_start_1
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractFuture;->access$400(Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     .line 1486
+    # setter for: Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
     invoke-static {p1, p3}, Lcom/google/common/util/concurrent/AbstractFuture;->access$402(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1487
@@ -138,7 +142,7 @@
     return v0
 
     .line 1489
-    :cond_0
+    :cond_d
     monitor-exit p1
 
     const/4 v0, 0x0
@@ -146,18 +150,18 @@
     return v0
 
     .line 1490
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_1 .. :try_end_12} :catchall_10
 
     throw v0
 .end method
 
 .method casWaiters(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -182,14 +186,16 @@
     monitor-enter p1
 
     .line 1463
-    :try_start_0
+    :try_start_1
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractFuture;->access$800(Lcom/google/common/util/concurrent/AbstractFuture;)Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     move-result-object v0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     .line 1464
+    # setter for: Lcom/google/common/util/concurrent/AbstractFuture;->waiters:Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     invoke-static {p1, p3}, Lcom/google/common/util/concurrent/AbstractFuture;->access$802(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
 
     .line 1465
@@ -200,7 +206,7 @@
     return v0
 
     .line 1467
-    :cond_0
+    :cond_d
     monitor-exit p1
 
     const/4 v0, 0x0
@@ -208,18 +214,18 @@
     return v0
 
     .line 1468
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_1 .. :try_end_12} :catchall_10
 
     throw v0
 .end method
 
 .method putNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
-    .locals 0
+    .registers 3
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -234,7 +240,7 @@
 .end method
 
 .method putThread(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Ljava/lang/Thread;)V
-    .locals 0
+    .registers 3
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Ljava/lang/Thread;
 

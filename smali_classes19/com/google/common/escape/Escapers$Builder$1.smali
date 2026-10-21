@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/escape/Escapers$Builder;Ljava/util/Map;CC)V
-    .locals 1
+    .registers 6
     .param p1, "this$0"    # Lcom/google/common/escape/Escapers$Builder;
     .param p3, "safeMin"    # C
     .param p4, "safeMax"    # C
@@ -42,14 +42,16 @@
     .line 159
     iget-object v0, p0, Lcom/google/common/escape/Escapers$Builder$1;->this$0:Lcom/google/common/escape/Escapers$Builder;
 
+    # getter for: Lcom/google/common/escape/Escapers$Builder;->unsafeReplacement:Ljava/lang/String;
     invoke-static {v0}, Lcom/google/common/escape/Escapers$Builder;->access$100(Lcom/google/common/escape/Escapers$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lcom/google/common/escape/Escapers$Builder$1;->this$0:Lcom/google/common/escape/Escapers$Builder;
 
+    # getter for: Lcom/google/common/escape/Escapers$Builder;->unsafeReplacement:Ljava/lang/String;
     invoke-static {v0}, Lcom/google/common/escape/Escapers$Builder;->access$100(Lcom/google/common/escape/Escapers$Builder;)Ljava/lang/String;
 
     move-result-object v0
@@ -58,12 +60,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     iput-object v0, p0, Lcom/google/common/escape/Escapers$Builder$1;->replacementChars:[C
 
     .line 157
@@ -73,7 +75,7 @@
 
 # virtual methods
 .method protected escapeUnsafe(C)[C
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation

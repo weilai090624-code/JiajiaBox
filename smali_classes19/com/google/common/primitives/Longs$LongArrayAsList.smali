@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>([J)V
-    .locals 2
+    .registers 4
     .param p1, "array"    # [J
 
     .line 667
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>([JII)V
-    .locals 0
+    .registers 4
     .param p1, "array"    # [J
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -90,7 +90,7 @@
     .line 695
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
 
@@ -106,27 +106,28 @@
 
     iget v4, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Longs;->indexOf([JJII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Longs;->access$000([JJII)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 10
+    .registers 12
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -135,16 +136,16 @@
     .line 743
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 744
     return v0
 
     .line 746
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/primitives/Longs$LongArrayAsList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_31
 
     .line 747
     move-object v1, p1
@@ -165,18 +166,18 @@
 
     const/4 v4, 0x0
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_17
 
     .line 750
     return v4
 
     .line 752
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_18
+    if-ge v3, v2, :cond_30
 
     .line 753
     iget-object v5, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
@@ -197,26 +198,26 @@
 
     cmp-long v5, v6, v8
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2d
 
     .line 754
     return v4
 
     .line 752
-    :cond_2
+    :cond_2d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 757
     .end local v3    # "i":I
-    :cond_3
+    :cond_30
     return v0
 
     .line 759
     .end local v1    # "that":Lcom/google/common/primitives/Longs$LongArrayAsList;
     .end local v2    # "size":I
-    :cond_4
+    :cond_31
     invoke-super {p0, p1}, Ljava/util/AbstractList;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -225,7 +226,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Long;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 688
@@ -252,7 +253,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 659
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Longs$LongArrayAsList;->get(I)Ljava/lang/Long;
@@ -263,7 +264,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 764
     const/4 v0, 0x1
@@ -273,10 +274,10 @@
     iget v1, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->start:I
 
     .local v1, "i":I
-    :goto_0
+    :goto_3
     iget v2, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 766
     mul-int/lit8 v2, v0, 0x1f
@@ -294,16 +295,16 @@
     .line 765
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 768
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -312,7 +313,7 @@
     .line 701
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 702
     iget-object v0, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
@@ -329,13 +330,14 @@
 
     iget v4, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Longs;->indexOf([JJII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Longs;->access$000([JJII)I
 
     move-result v0
 
     .line 703
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 704
     iget v1, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->start:I
@@ -346,14 +348,14 @@
 
     .line 707
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 683
     const/4 v0, 0x0
@@ -362,7 +364,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -371,7 +373,7 @@
     .line 713
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 714
     iget-object v0, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
@@ -388,13 +390,14 @@
 
     iget v4, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Longs;->lastIndexOf([JJII)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/google/common/primitives/Longs;->access$100([JJII)I
 
     move-result v0
 
     .line 715
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 716
     iget v1, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->start:I
@@ -405,14 +408,14 @@
 
     .line 719
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public set(ILjava/lang/Long;)Ljava/lang/Long;
-    .locals 6
+    .registers 9
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Long;
 
@@ -461,7 +464,7 @@
 .end method
 
 .method public bridge synthetic set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 659
     check-cast p2, Ljava/lang/Long;
@@ -474,7 +477,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 678
     iget v0, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
@@ -487,7 +490,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 5
+    .registers 8
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -509,7 +512,7 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 735
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_e
 
     .line 736
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -519,7 +522,7 @@
     return-object v1
 
     .line 738
-    :cond_0
+    :cond_e
     new-instance v1, Lcom/google/common/primitives/Longs$LongArrayAsList;
 
     iget-object v2, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
@@ -538,7 +541,7 @@
 .end method
 
 .method toLongArray()[J
-    .locals 3
+    .registers 4
 
     .line 782
     iget-object v0, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->array:[J
@@ -555,7 +558,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 773
     new-instance v0, Ljava/lang/StringBuilder;
@@ -590,10 +593,10 @@
     add-int/lit8 v1, v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_1e
     iget v2, p0, Lcom/google/common/primitives/Longs$LongArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_32
 
     .line 776
     const-string v2, ", "
@@ -611,11 +614,11 @@
     .line 775
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 778
     .end local v1    # "i":I
-    :cond_0
+    :cond_32
     const/16 v1, 0x5d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

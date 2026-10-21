@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p2, "$receiver"    # Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected performFiltering(Ljava/lang/CharSequence;)Landroid/widget/Filter$FilterResults;
-    .locals 18
+    .registers 20
     .param p1, "constraint"    # Ljava/lang/CharSequence;
 
     move-object/from16 v0, p1
@@ -99,27 +99,29 @@
 
     const/4 v8, 0x1
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1b
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v6, 0x0
 
-    :goto_0
-    if-eqz v6, :cond_1
+    :goto_1c
+    if-eqz v6, :cond_25
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->apps:Ljava/util/List;
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
 
     move-result-object v6
 
     move/from16 v17, v5
 
-    goto :goto_4
+    goto :goto_8c
 
-    :cond_1
+    :cond_25
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->apps:Ljava/util/List;
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
 
     move-result-object v6
@@ -149,12 +151,12 @@
 
     move-result-object v13
 
-    :goto_1
+    :goto_39
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_86
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -178,7 +180,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_77
 
     invoke-virtual {v15}, Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;->getPackageName()Ljava/lang/String;
 
@@ -194,7 +196,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_77
 
     .line 132
     invoke-virtual {v15}, Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;->getUid()I
@@ -221,19 +223,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_75
 
-    goto :goto_2
+    goto :goto_7a
 
-    :cond_2
+    :cond_75
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_7b
 
     .line 130
     .end local v17    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
     .restart local v5    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
-    :cond_3
+    :cond_77
     move/from16 v17, v5
 
     const/4 v5, 0x0
@@ -241,31 +243,31 @@
     .line 132
     .end local v5    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
     .restart local v17    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
-    :goto_2
+    :goto_7a
     const/4 v2, 0x1
 
     .line 324
     .end local v15    # "it":Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
     .end local v16    # "$i$a$-filter-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1$filteredApps$1":I
-    :goto_3
-    if-eqz v2, :cond_4
+    :goto_7b
+    if-eqz v2, :cond_80
 
     invoke-interface {v10, v14}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_4
+    :cond_80
     const/4 v8, 0x1
 
     move-object/from16 v2, p0
 
     move/from16 v5, v17
 
-    goto :goto_1
+    goto :goto_39
 
     .line 325
     .end local v14    # "element$iv$iv":Ljava/lang/Object;
     .end local v17    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
     .restart local v5    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
-    :cond_5
+    :cond_86
     move/from16 v17, v5
 
     .end local v5    # "$i$a$-apply-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1":I
@@ -283,16 +285,17 @@
     .line 129
     .end local v6    # "$this$filter$iv":Ljava/lang/Iterable;
     .end local v9    # "$i$f$filter":I
-    :goto_4
+    :goto_8c
     move-object v2, v6
 
     .line 134
     .local v2, "filteredApps":Ljava/util/List;
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->sysApps:Z
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getSysApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Z
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_c1
 
     move-object v3, v2
 
@@ -321,13 +324,13 @@
 
     move-result-object v9
 
-    :cond_6
-    :goto_5
+    :cond_a4
+    :goto_a4
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_bc
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -350,15 +353,15 @@
     .line 327
     .end local v11    # "it":Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
     .end local v12    # "$i$a$-filter-AppListActivity$AppsAdapter$filterImpl$1$performFiltering$1$1":I
-    if-nez v13, :cond_6
+    if-nez v13, :cond_a4
 
     invoke-interface {v6, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5
+    goto :goto_a4
 
     .line 328
     .end local v10    # "element$iv$iv":Ljava/lang/Object;
-    :cond_7
+    :cond_bc
     nop
 
     .end local v6    # "destination$iv$iv":Ljava/util/Collection;
@@ -375,7 +378,7 @@
     move-object v2, v6
 
     .line 135
-    :cond_8
+    :cond_c1
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
@@ -399,7 +402,7 @@
 .end method
 
 .method protected publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
-    .locals 3
+    .registers 6
     .param p1, "constraint"    # Ljava/lang/CharSequence;
     .param p2, "results"    # Landroid/widget/Filter$FilterResults;
 

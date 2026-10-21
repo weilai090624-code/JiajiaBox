@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 154
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,15 +67,16 @@
 
 # virtual methods
 .method declared-synchronized dec(I)V
-    .locals 3
+    .registers 5
 
     monitor-enter p0
 
     .line 213
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_1f
 
     .line 216
-    :try_start_0
+    :try_start_3
+    # getter for: Lgo/Seq;->log:Ljava/util/logging/Logger;
     invoke-static {}, Lgo/Seq;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v0
@@ -99,8 +100,8 @@
     move-result-object p1
 
     invoke-virtual {v0, p1}, Ljava/util/logging/Logger;->severe(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_5f
 
     .line 217
     monitor-exit p0
@@ -108,15 +109,15 @@
     return-void
 
     .line 219
-    :cond_0
-    :try_start_1
+    :cond_1f
+    :try_start_1f
     sget-object v0, Lgo/Seq;->nullRef:Lgo/Seq$Ref;
 
     iget v0, v0, Lgo/Seq$Ref;->refnum:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_1f .. :try_end_23} :catchall_5f
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_27
 
     .line 220
     monitor-exit p0
@@ -124,8 +125,8 @@
     return-void
 
     .line 223
-    :cond_1
-    :try_start_2
+    :cond_27
+    :try_start_27
     iget-object v0, p0, Lgo/Seq$RefTracker;->javaObjs:Lgo/Seq$RefMap;
 
     invoke-virtual {v0, p1}, Lgo/Seq$RefMap;->get(I)Lgo/Seq$Ref;
@@ -133,17 +134,19 @@
     move-result-object v0
 
     .line 224
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_46
 
     .line 227
+    # operator-- for: Lgo/Seq$Ref;->refcnt:I
     invoke-static {v0}, Lgo/Seq$Ref;->access$110(Lgo/Seq$Ref;)I
 
     .line 228
+    # getter for: Lgo/Seq$Ref;->refcnt:I
     invoke-static {v0}, Lgo/Seq$Ref;->access$100(Lgo/Seq$Ref;)I
 
     move-result v1
 
-    if-gtz v1, :cond_2
+    if-gtz v1, :cond_44
 
     .line 229
     iget-object v1, p0, Lgo/Seq$RefTracker;->javaObjs:Lgo/Seq$RefMap;
@@ -156,18 +159,18 @@
     iget-object v0, v0, Lgo/Seq$Ref;->obj:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Ljava/util/IdentityHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_44
+    .catchall {:try_start_27 .. :try_end_44} :catchall_5f
 
     .line 232
-    :cond_2
+    :cond_44
     monitor-exit p0
 
     return-void
 
     .line 225
-    :cond_3
-    :try_start_3
+    :cond_46
+    :try_start_46
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -193,52 +196,52 @@
     throw v0
 
     .line 212
-    :catchall_0
+    :catchall_5f
     move-exception p1
 
     monitor-exit p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_61
+    .catchall {:try_start_46 .. :try_end_61} :catchall_5f
 
     throw p1
 .end method
 
 .method declared-synchronized get(I)Lgo/Seq$Ref;
-    .locals 3
+    .registers 5
 
     monitor-enter p0
 
     .line 236
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_2e
 
     .line 239
     const/16 v0, 0x29
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
     .line 240
-    :try_start_0
+    :try_start_7
     sget-object p1, Lgo/Seq;->nullRef:Lgo/Seq$Ref;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_7 .. :try_end_9} :catchall_47
 
     monitor-exit p0
 
     return-object p1
 
     .line 242
-    :cond_0
-    :try_start_1
+    :cond_b
+    :try_start_b
     iget-object v0, p0, Lgo/Seq$RefTracker;->javaObjs:Lgo/Seq$RefMap;
 
     invoke-virtual {v0, p1}, Lgo/Seq$RefMap;->get(I)Lgo/Seq$Ref;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_11
+    .catchall {:try_start_b .. :try_end_11} :catchall_47
 
     .line 243
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 246
     monitor-exit p0
@@ -246,8 +249,8 @@
     return-object v0
 
     .line 244
-    :cond_1
-    :try_start_2
+    :cond_15
+    :try_start_15
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -273,7 +276,7 @@
     throw v0
 
     .line 237
-    :cond_2
+    :cond_2e
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -299,23 +302,23 @@
     throw v0
 
     .line 235
-    :catchall_0
+    :catchall_47
     move-exception p1
 
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_49
+    .catchall {:try_start_15 .. :try_end_49} :catchall_47
 
     throw p1
 .end method
 
 .method declared-synchronized inc(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
 
     monitor-enter p0
 
     .line 176
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 177
     monitor-exit p0
@@ -325,11 +328,11 @@
     return p1
 
     .line 179
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     instance-of v0, p1, Lgo/Seq$Proxy;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 180
     check-cast p1, Lgo/Seq$Proxy;
@@ -337,16 +340,16 @@
     invoke-interface {p1}, Lgo/Seq$Proxy;->incRefnum()I
 
     move-result p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_7 .. :try_end_11} :catchall_68
 
     monitor-exit p0
 
     return p1
 
     .line 182
-    :cond_1
-    :try_start_1
+    :cond_13
+    :try_start_13
     iget-object v0, p0, Lgo/Seq$RefTracker;->javaRefs:Ljava/util/IdentityHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/IdentityHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -356,14 +359,14 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 183
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4d
 
     .line 184
     iget v0, p0, Lgo/Seq$RefTracker;->next:I
 
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_34
 
     .line 187
     iget v0, p0, Lgo/Seq$RefTracker;->next:I
@@ -381,10 +384,10 @@
 
     invoke-virtual {v1, p1, v0}, Ljava/util/IdentityHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 185
-    :cond_2
+    :cond_34
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -410,8 +413,8 @@
     throw v0
 
     .line 190
-    :cond_3
-    :goto_0
+    :cond_4d
+    :goto_4d
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -424,7 +427,7 @@
     move-result-object v1
 
     .line 192
-    if-nez v1, :cond_4
+    if-nez v1, :cond_63
 
     .line 193
     new-instance v1, Lgo/Seq$Ref;
@@ -437,10 +440,10 @@
     invoke-virtual {p1, v0, v1}, Lgo/Seq$RefMap;->put(ILgo/Seq$Ref;)V
 
     .line 196
-    :cond_4
+    :cond_63
     invoke-virtual {v1}, Lgo/Seq$Ref;->inc()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_66
+    .catchall {:try_start_13 .. :try_end_66} :catchall_68
 
     .line 197
     monitor-exit p0
@@ -448,24 +451,24 @@
     return v0
 
     .line 175
-    :catchall_0
+    :catchall_68
     move-exception p1
 
-    :try_start_2
+    :try_start_69
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_6a
+    .catchall {:try_start_69 .. :try_end_6a} :catchall_68
 
     throw p1
 .end method
 
 .method declared-synchronized incRefnum(I)V
-    .locals 3
+    .registers 5
 
     monitor-enter p0
 
     .line 201
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lgo/Seq$RefTracker;->javaObjs:Lgo/Seq$RefMap;
 
     invoke-virtual {v0, p1}, Lgo/Seq$RefMap;->get(I)Lgo/Seq$Ref;
@@ -473,12 +476,12 @@
     move-result-object v0
 
     .line 202
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 205
     invoke-virtual {v0}, Lgo/Seq$Ref;->inc()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_27
 
     .line 206
     monitor-exit p0
@@ -486,8 +489,8 @@
     return-void
 
     .line 203
-    :cond_0
-    :try_start_1
+    :cond_e
+    :try_start_e
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -513,12 +516,12 @@
     throw v0
 
     .line 200
-    :catchall_0
+    :catchall_27
     move-exception p1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_e .. :try_end_29} :catchall_27
 
     throw p1
 .end method

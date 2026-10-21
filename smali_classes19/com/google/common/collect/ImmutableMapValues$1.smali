@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMapValues;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMapValues;
 
     .line 47
@@ -49,6 +49,7 @@
     .line 48
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$1;->this$0:Lcom/google/common/collect/ImmutableMapValues;
 
+    # getter for: Lcom/google/common/collect/ImmutableMapValues;->map:Lcom/google/common/collect/ImmutableMap;
     invoke-static {v0}, Lcom/google/common/collect/ImmutableMapValues;->access$000(Lcom/google/common/collect/ImmutableMapValues;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -69,7 +70,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 52
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$1;, "Lcom/google/common/collect/ImmutableMapValues$1;"
@@ -83,7 +84,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

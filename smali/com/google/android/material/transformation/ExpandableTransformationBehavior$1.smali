@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transformation/ExpandableTransformationBehavior;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/transformation/ExpandableTransformationBehavior;
 
     .line 83
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 86
@@ -42,6 +42,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->currentAnimation:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;->access$002(Lcom/google/android/material/transformation/ExpandableTransformationBehavior;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     .line 87

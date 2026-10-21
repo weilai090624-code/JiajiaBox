@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardRowSortedTable;)V
-    .locals 0
+    .registers 2
 
     .line 95
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardRowSortedTable;Lcom/google/common/collect/StandardRowSortedTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardRowSortedTable;
     .param p2, "x1"    # Lcom/google/common/collect/StandardRowSortedTable$1;
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -76,6 +76,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
     iget-object v0, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v0}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v0
@@ -88,7 +89,7 @@
 .end method
 
 .method bridge synthetic createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 94
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
@@ -100,7 +101,7 @@
 .end method
 
 .method createKeySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -119,7 +120,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -130,6 +131,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
     iget-object v0, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v0}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v0
@@ -142,7 +144,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)",
@@ -163,6 +165,7 @@
 
     iget-object v1, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v1}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v1
@@ -187,7 +190,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 94
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
@@ -199,7 +202,7 @@
 .end method
 
 .method public keySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -220,7 +223,7 @@
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -231,6 +234,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>.RowSortedMap;"
     iget-object v0, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v0}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v0
@@ -243,7 +247,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TR;)",
@@ -268,6 +272,7 @@
 
     iget-object v1, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v1}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v1
@@ -292,7 +297,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)",
@@ -313,6 +318,7 @@
 
     iget-object v1, p0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;->this$0:Lcom/google/common/collect/StandardRowSortedTable;
 
+    # invokes: Lcom/google/common/collect/StandardRowSortedTable;->sortedBackingMap()Ljava/util/SortedMap;
     invoke-static {v1}, Lcom/google/common/collect/StandardRowSortedTable;->access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
 
     move-result-object v1

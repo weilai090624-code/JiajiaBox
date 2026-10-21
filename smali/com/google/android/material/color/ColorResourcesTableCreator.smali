@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 56
     new-instance v0, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$1200(C)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # C
 
     .line 40
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$1300()B
-    .locals 1
+    .registers 1
 
     .line 40
     sget-byte v0, Lcom/google/android/material/color/ColorResourcesTableCreator;->typeIdColor:B
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic access$400()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lcom/google/android/material/color/ColorResourcesTableCreator;->COLOR_RESOURCE_COMPARATOR:Ljava/util/Comparator;
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$500(I)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 40
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$600(S)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # S
 
     .line 40
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$800(Ljava/lang/String;)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/String;
 
     .line 40
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$900(Ljava/lang/String;)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/String;
 
     .line 40
@@ -165,7 +165,7 @@
 .end method
 
 .method private static charToByteArray(C)[B
-    .locals 4
+    .registers 5
     .param p0, "value"    # C
 
     .line 582
@@ -195,7 +195,7 @@
 .end method
 
 .method static create(Landroid/content/Context;Ljava/util/Map;)[B
-    .locals 10
+    .registers 12
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -224,7 +224,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_111
 
     .line 71
     new-instance v0, Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
@@ -258,12 +258,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_23
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_ed
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -350,43 +350,45 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_bc
 
     .line 93
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->packageId:B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$300(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
 
     move-result v6
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_80
 
     .line 94
     sget-object v6, Lcom/google/android/material/color/ColorResourcesTableCreator;->ANDROID_PACKAGE_INFO:Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
 
     .local v6, "packageInfo":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
-    goto :goto_1
+    goto :goto_87
 
     .line 95
     .end local v6    # "packageInfo":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
-    :cond_0
+    :cond_80
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->packageId:B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$300(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
 
     move-result v6
 
-    if-ne v6, v2, :cond_2
+    if-ne v6, v2, :cond_9f
 
     .line 96
     move-object v6, v0
 
     .line 101
     .restart local v6    # "packageInfo":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
-    :goto_1
+    :goto_87
     invoke-interface {v1, v6}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_95
 
     .line 102
     new-instance v7, Ljava/util/ArrayList;
@@ -396,7 +398,7 @@
     invoke-interface {v1, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 104
-    :cond_1
+    :cond_95
     invoke-interface {v1, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
@@ -408,11 +410,11 @@
     .line 105
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .end local v6    # "packageInfo":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
-    goto :goto_0
+    goto :goto_23
 
     .line 98
     .restart local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :cond_2
+    :cond_9f
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -426,6 +428,7 @@
     move-result-object v4
 
     .line 99
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->packageId:B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$300(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
 
     move-result v6
@@ -443,7 +446,7 @@
     throw v2
 
     .line 86
-    :cond_3
+    :cond_bc
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -457,6 +460,7 @@
     move-result-object v4
 
     .line 88
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->name:Ljava/lang/String;
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$100(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)Ljava/lang/String;
 
     move-result-object v6
@@ -472,6 +476,7 @@
     move-result-object v4
 
     .line 90
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->typeId:B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$200(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
 
     move-result v6
@@ -496,7 +501,8 @@
 
     .line 109
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :cond_4
+    :cond_ed
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->typeId:B
     invoke-static {v3}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$200(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)B
 
     move-result v2
@@ -506,7 +512,7 @@
     .line 110
     sget-byte v2, Lcom/google/android/material/color/ColorResourcesTableCreator;->typeIdColor:B
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_109
 
     .line 113
     new-instance v2, Ljava/io/ByteArrayOutputStream;
@@ -530,7 +536,7 @@
 
     .line 111
     .end local v2    # "outputStream":Ljava/io/ByteArrayOutputStream;
-    :cond_5
+    :cond_109
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "No color resources found for harmonization."
@@ -543,7 +549,7 @@
     .end local v0    # "applicationPackageInfo":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;
     .end local v1    # "colorResourceMap":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;Ljava/util/List<Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;>;>;"
     .end local v3    # "colorResource":Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
-    :cond_6
+    :cond_111
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "No color resources provided for harmonization."
@@ -554,7 +560,7 @@
 .end method
 
 .method private static intToByteArray(I)[B
-    .locals 6
+    .registers 7
     .param p0, "value"    # I
 
     .line 588
@@ -604,7 +610,7 @@
 .end method
 
 .method private static shortToByteArray(S)[B
-    .locals 4
+    .registers 5
     .param p0, "value"    # S
 
     .line 576
@@ -634,7 +640,7 @@
 .end method
 
 .method private static stringToByteArray(Ljava/lang/String;)[B
-    .locals 9
+    .registers 10
     .param p0, "value"    # Ljava/lang/String;
 
     .line 597
@@ -681,10 +687,10 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_1c
     array-length v6, v0
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_38
 
     .line 603
     aget-char v6, v0, v5
@@ -716,11 +722,11 @@
     .end local v6    # "charBytes":[B
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 607
     .end local v5    # "i":I
-    :cond_0
+    :cond_38
     array-length v5, v1
 
     add-int/lit8 v5, v5, -0x2
@@ -739,7 +745,7 @@
 .end method
 
 .method private static stringToByteArrayUtf8(Ljava/lang/String;)[B
-    .locals 6
+    .registers 7
     .param p0, "value"    # Ljava/lang/String;
 
     .line 613

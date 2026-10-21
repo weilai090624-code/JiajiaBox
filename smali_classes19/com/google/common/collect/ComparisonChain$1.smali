@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 70
     const/4 v0, 0x0
@@ -29,38 +29,41 @@
 
 # virtual methods
 .method classify(I)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 3
     .param p1, "result"    # I
 
     .line 114
-    if-gez p1, :cond_0
+    if-gez p1, :cond_7
 
+    # getter for: Lcom/google/common/collect/ComparisonChain;->LESS:Lcom/google/common/collect/ComparisonChain;
     invoke-static {}, Lcom/google/common/collect/ComparisonChain;->access$100()Lcom/google/common/collect/ComparisonChain;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
-    if-lez p1, :cond_1
+    :cond_7
+    if-lez p1, :cond_e
 
+    # getter for: Lcom/google/common/collect/ComparisonChain;->GREATER:Lcom/google/common/collect/ComparisonChain;
     invoke-static {}, Lcom/google/common/collect/ComparisonChain;->access$200()Lcom/google/common/collect/ComparisonChain;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_e
+    # getter for: Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
     invoke-static {}, Lcom/google/common/collect/ComparisonChain;->access$300()Lcom/google/common/collect/ComparisonChain;
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public compare(DD)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 6
     .param p1, "left"    # D
     .param p3, "right"    # D
 
@@ -77,7 +80,7 @@
 .end method
 
 .method public compare(FF)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 4
     .param p1, "left"    # F
     .param p2, "right"    # F
 
@@ -94,7 +97,7 @@
 .end method
 
 .method public compare(II)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 4
     .param p1, "left"    # I
     .param p2, "right"    # I
 
@@ -111,7 +114,7 @@
 .end method
 
 .method public compare(JJ)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 6
     .param p1, "left"    # J
     .param p3, "right"    # J
 
@@ -128,7 +131,7 @@
 .end method
 
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +158,7 @@
 .end method
 
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -191,7 +194,7 @@
 .end method
 
 .method public compareFalseFirst(ZZ)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 4
     .param p1, "left"    # Z
     .param p2, "right"    # Z
 
@@ -208,7 +211,7 @@
 .end method
 
 .method public compareTrueFirst(ZZ)Lcom/google/common/collect/ComparisonChain;
-    .locals 1
+    .registers 4
     .param p1, "left"    # Z
     .param p2, "right"    # Z
 
@@ -225,7 +228,7 @@
 .end method
 
 .method public result()I
-    .locals 1
+    .registers 2
 
     .line 119
     const/4 v0, 0x0

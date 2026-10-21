@@ -26,10 +26,10 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 3
 
-    .line 140
+    .line 160
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 139
+    .line 159
     new-instance p1, Landroid/graphics/Paint;
 
     const/4 v0, 0x1
@@ -48,7 +48,7 @@
 
     move-object/from16 v0, p0
 
-    .line 141
+    .line 161
     invoke-super/range {p0 .. p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;->paint:Landroid/graphics/Paint;

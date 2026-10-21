@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getBasicMap()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -56,6 +56,7 @@
     .end annotation
 
     .line 60
+    # getter for: Lmoe/matsuri/nb4a/SingBoxOptions;->gsonSingbox:Lcom/google/gson/Gson;
     invoke-static {}, Lmoe/matsuri/nb4a/SingBoxOptions;->access$000()Lcom/google/gson/Gson;
 
     move-result-object v0
@@ -72,7 +73,7 @@
 
     .line 61
     .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 62
     new-instance v1, Ljava/util/HashMap;
@@ -82,6 +83,6 @@
     move-object v0, v1
 
     .line 64
-    :cond_0
+    :cond_16
     return-object v0
 .end method

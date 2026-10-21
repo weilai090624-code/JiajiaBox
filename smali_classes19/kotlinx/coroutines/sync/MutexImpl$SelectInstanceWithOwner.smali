@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/sync/MutexImpl;Lkotlinx/coroutines/selects/SelectInstanceInternal;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lkotlinx/coroutines/sync/MutexImpl;
     .param p2, "select"    # Lkotlinx/coroutines/selects/SelectInstanceInternal;
     .param p3, "owner"    # Ljava/lang/Object;
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public disposeOnCompletion(Lkotlinx/coroutines/DisposableHandle;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/sync/MutexImpl$SelectInstanceWithOwner;->select:Lkotlinx/coroutines/selects/SelectInstanceInternal;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/sync/MutexImpl$SelectInstanceWithOwner;->select:Lkotlinx/coroutines/selects/SelectInstanceInternal;
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public invokeOnCancellation(Lkotlinx/coroutines/internal/Segment;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 .end method
 
 .method public selectInRegistrationPhase(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "internalResult"    # Ljava/lang/Object;
 
     .line 291
@@ -172,12 +172,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 311
     const/4 v1, 0x0
 
     .local v1, "$i$a$-assert-MutexImpl$SelectInstanceWithOwner$selectInRegistrationPhase$1":I
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v2
@@ -187,34 +188,36 @@
 
     move-result-object v0
 
+    # getter for: Lkotlinx/coroutines/sync/MutexKt;->NO_OWNER:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexKt;->access$getNO_OWNER$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .end local v1    # "$i$a$-assert-MutexImpl$SelectInstanceWithOwner$selectInRegistrationPhase$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1a
+    if-eqz v0, :cond_1d
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    :cond_2
-    :goto_1
+    :cond_23
+    :goto_23
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v0
@@ -236,7 +239,7 @@
 .end method
 
 .method public trySelect(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 6
+    .registers 9
     .param p1, "clauseObject"    # Ljava/lang/Object;
     .param p2, "result"    # Ljava/lang/Object;
 
@@ -247,12 +250,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 311
     const/4 v1, 0x0
 
     .local v1, "$i$a$-assert-MutexImpl$SelectInstanceWithOwner$trySelect$1":I
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v2
@@ -262,26 +266,27 @@
 
     move-result-object v0
 
+    # getter for: Lkotlinx/coroutines/sync/MutexKt;->NO_OWNER:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexKt;->access$getNO_OWNER$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .end local v1    # "$i$a$-assert-MutexImpl$SelectInstanceWithOwner$trySelect$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1a
+    if-eqz v0, :cond_1d
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -289,8 +294,8 @@
     throw v0
 
     .line 285
-    :cond_2
-    :goto_1
+    :cond_23
+    :goto_23
     iget-object v0, p0, Lkotlinx/coroutines/sync/MutexImpl$SelectInstanceWithOwner;->select:Lkotlinx/coroutines/selects/SelectInstanceInternal;
 
     invoke-interface {v0, p1, p2}, Lkotlinx/coroutines/selects/SelectInstanceInternal;->trySelect(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -306,8 +311,9 @@
 
     .line 286
     .local v3, "$i$a$-also-MutexImpl$SelectInstanceWithOwner$trySelect$2":I
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_38
 
+    # getter for: Lkotlinx/coroutines/sync/MutexImpl;->owner$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/sync/MutexImpl;->access$getOwner$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v4
@@ -317,7 +323,7 @@
     invoke-virtual {v4, v1, v5}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 287
-    :cond_3
+    :cond_38
     nop
 
     .line 285

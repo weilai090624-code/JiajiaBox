@@ -6,14 +6,6 @@
 .implements Ljava/lang/reflect/InvocationHandler;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/ConnectionInspector;"
-    method = "lambda$install$1"
-    proto = "(Landroid/content/Context;Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Landroid/content/Context;
 

@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 34
+    .line 48
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .method public run()V
     .registers 4
 
-    .line 36
+    .line 50
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     const/4 v1, 0x0
@@ -54,7 +54,7 @@
     # setter for: Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshScheduled:Z
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->access$002(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;Z)Z
 
-    .line 37
+    .line 51
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     # getter for: Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->homeMode:Z
@@ -90,14 +90,14 @@
 
     goto :goto_3d
 
-    .line 38
+    .line 52
     :cond_27
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     # invokes: Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->render()V
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->access$200(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;)V
 
-    .line 39
+    .line 53
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     const/4 v1, 0x1
@@ -105,7 +105,7 @@
     # setter for: Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshScheduled:Z
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->access$002(Lio/nekohasekai/sagernet/ui/TrafficDashboardView;Z)Z
 
-    .line 40
+    .line 54
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$1;->this$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     # getter for: Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->handler:Landroid/os/Handler;

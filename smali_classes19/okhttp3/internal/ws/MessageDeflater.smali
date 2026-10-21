@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 3
+    .registers 5
     .param p1, "noContextTakeover"    # Z
 
     .line 29
@@ -99,7 +99,7 @@
 .end method
 
 .method private final endsWith(Lokio/Buffer;Lokio/ByteString;)Z
-    .locals 4
+    .registers 7
     .param p1, "$this$endsWith"    # Lokio/Buffer;
     .param p2, "suffix"    # Lokio/ByteString;
 
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -142,7 +142,7 @@
 .end method
 
 .method public final deflate(Lokio/Buffer;)V
-    .locals 7
+    .registers 9
     .param p1, "buffer"    # Lokio/Buffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -169,22 +169,22 @@
 
     cmp-long v6, v0, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_16
+    if-eqz v0, :cond_73
 
     .line 41
     iget-boolean v0, p0, Lokhttp3/internal/ws/MessageDeflater;->noContextTakeover:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 42
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflater:Ljava/util/zip/Deflater;
@@ -192,7 +192,7 @@
     invoke-virtual {v0}, Ljava/util/zip/Deflater;->reset()V
 
     .line 45
-    :cond_1
+    :cond_21
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflaterSink:Lokio/DeflaterSink;
 
     invoke-virtual {p1}, Lokio/Buffer;->size()J
@@ -209,6 +209,7 @@
     .line 48
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflatedBytes:Lokio/Buffer;
 
+    # getter for: Lokhttp3/internal/ws/MessageDeflaterKt;->EMPTY_DEFLATE_BLOCK:Lokio/ByteString;
     invoke-static {}, Lokhttp3/internal/ws/MessageDeflaterKt;->access$getEMPTY_DEFLATE_BLOCK$p()Lokio/ByteString;
 
     move-result-object v1
@@ -217,7 +218,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_62
 
     .line 49
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflatedBytes:Lokio/Buffer;
@@ -248,7 +249,7 @@
 
     check-cast v4, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_50
     move-object v4, v2
 
     check-cast v4, Lokio/Buffer$UnsafeCursor;
@@ -259,29 +260,29 @@
     .line 51
     .local v5, "$i$a$-use-MessageDeflater$deflate$1":I
     invoke-virtual {v4, v0, v1}, Lokio/Buffer$UnsafeCursor;->resizeBuffer(J)J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_57
+    .catchall {:try_start_50 .. :try_end_57} :catchall_5b
 
     .line 50
     .end local v4    # "cursor":Lokio/Buffer$UnsafeCursor;
     .end local v5    # "$i$a$-use-MessageDeflater$deflate$1":I
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_67
 
-    :catchall_0
+    :catchall_5b
     move-exception v3
 
     .end local v0    # "newSize":J
     .end local p1    # "buffer":Lokio/Buffer;
-    :try_start_1
+    :try_start_5c
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5d
+    .catchall {:try_start_5c .. :try_end_5d} :catchall_5d
 
     .restart local v0    # "newSize":J
     .restart local p1    # "buffer":Lokio/Buffer;
-    :catchall_1
+    :catchall_5d
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -290,13 +291,13 @@
 
     .line 55
     .end local v0    # "newSize":J
-    :cond_2
+    :cond_62
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflatedBytes:Lokio/Buffer;
 
     invoke-virtual {v0, v5}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 58
-    :goto_1
+    :goto_67
     iget-object v0, p0, Lokhttp3/internal/ws/MessageDeflater;->deflatedBytes:Lokio/Buffer;
 
     iget-object v1, p0, Lokhttp3/internal/ws/MessageDeflater;->deflatedBytes:Lokio/Buffer;
@@ -311,7 +312,7 @@
     return-void
 
     .line 39
-    :cond_3
+    :cond_73
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."

@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/NavController$popBackStackInternal$7;->this$0:Landroidx/navigation/NavController;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/navigation/NavDestination;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
 
     const-string v0, "destination"
@@ -78,6 +78,7 @@
     .line 599
     iget-object v0, p0, Landroidx/navigation/NavController$popBackStackInternal$7;->this$0:Landroidx/navigation/NavController;
 
+    # getter for: Landroidx/navigation/NavController;->backStackMap:Ljava/util/Map;
     invoke-static {v0}, Landroidx/navigation/NavController;->access$getBackStackMap$p(Landroidx/navigation/NavController;)Ljava/util/Map;
 
     move-result-object v0
@@ -104,7 +105,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 597

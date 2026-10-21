@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/Lazy;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,11 +87,12 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/viewmodel/CreationExtras;
-    .locals 3
+    .registers 4
 
     .line 70
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$3;->$owner$delegate:Lkotlin/Lazy;
 
+    # invokes: Landroidx/fragment/app/FragmentViewModelLazyKt;->viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
     invoke-static {v0}, Landroidx/fragment/app/FragmentViewModelLazyKt;->access$viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
 
     move-result-object v0
@@ -100,24 +101,24 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     check-cast v0, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move-object v0, v2
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_15
 
     invoke-interface {v0}, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;->getDefaultViewModelCreationExtras()Landroidx/lifecycle/viewmodel/CreationExtras;
 
     move-result-object v2
 
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_15
+    if-nez v2, :cond_1c
 
     .line 71
     sget-object v0, Landroidx/lifecycle/viewmodel/CreationExtras$Empty;->INSTANCE:Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
@@ -127,12 +128,12 @@
     check-cast v2, Landroidx/lifecycle/viewmodel/CreationExtras;
 
     .line 70
-    :cond_2
+    :cond_1c
     return-object v2
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$3;->invoke()Landroidx/lifecycle/viewmodel/CreationExtras;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialDatePicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     .line 480
@@ -38,19 +38,21 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 484
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialDatePicker$6;, "Lcom/google/android/material/datepicker/MaterialDatePicker$6;"
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$6;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->confirmButton:Landroid/widget/Button;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$300(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$6;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # invokes: Lcom/google/android/material/datepicker/MaterialDatePicker;->getDateSelector()Lcom/google/android/material/datepicker/DateSelector;
     invoke-static {v1}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$100(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/datepicker/DateSelector;
 
     move-result-object v1
@@ -64,6 +66,7 @@
     .line 486
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$6;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->headerToggleButton:Lcom/google/android/material/internal/CheckableImageButton;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$400(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/internal/CheckableImageButton;
 
     move-result-object v0
@@ -75,15 +78,18 @@
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$6;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialDatePicker;->headerToggleButton:Lcom/google/android/material/internal/CheckableImageButton;
     invoke-static {v1}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$400(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/internal/CheckableImageButton;
 
     move-result-object v1
 
+    # invokes: Lcom/google/android/material/datepicker/MaterialDatePicker;->updateToggleContentDescription(Lcom/google/android/material/internal/CheckableImageButton;)V
     invoke-static {v0, v1}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$500(Lcom/google/android/material/datepicker/MaterialDatePicker;Lcom/google/android/material/internal/CheckableImageButton;)V
 
     .line 488
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$6;->this$0:Lcom/google/android/material/datepicker/MaterialDatePicker;
 
+    # invokes: Lcom/google/android/material/datepicker/MaterialDatePicker;->startPickerFragment()V
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialDatePicker;->access$600(Lcom/google/android/material/datepicker/MaterialDatePicker;)V
 
     .line 489

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;)V
-    .locals 0
+    .registers 2
 
     .line 108
     iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;
     .param p2, "x1"    # Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$1;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "slideOffset"    # F
 
@@ -53,21 +53,22 @@
 .end method
 
 .method public onStateChanged(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "newState"    # I
 
     .line 112
     const/4 v0, 0x5
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_8
 
     .line 113
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;
 
+    # invokes: Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->dismissAfterAnimation()V
     invoke-static {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->access$100(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;)V
 
     .line 115
-    :cond_0
+    :cond_8
     return-void
 .end method

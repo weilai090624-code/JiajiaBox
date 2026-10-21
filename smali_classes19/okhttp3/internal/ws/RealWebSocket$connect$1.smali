@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/ws/RealWebSocket;Lokhttp3/Request;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Lokhttp3/internal/ws/RealWebSocket;
     .param p2, "$request"    # Lokhttp3/Request;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 3
+    .registers 6
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "e"    # Ljava/io/IOException;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 8
+    .registers 11
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
 
@@ -122,7 +122,7 @@
     nop
 
     .line 170
-    :try_start_0
+    :try_start_10
     iget-object v2, p0, Lokhttp3/internal/ws/RealWebSocket$connect$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
     invoke-virtual {v2, p2, v0}, Lokhttp3/internal/ws/RealWebSocket;->checkUpgradeSuccess$okhttp(Lokhttp3/Response;Lokhttp3/internal/connection/Exchange;)V
@@ -133,8 +133,8 @@
     invoke-virtual {v0}, Lokhttp3/internal/connection/Exchange;->newWebSocketStreams()Lokhttp3/internal/ws/RealWebSocket$Streams;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1c
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_1c} :catch_91
 
     move-object v1, v2
 
@@ -158,11 +158,12 @@
     .line 183
     iget-object v3, p0, Lokhttp3/internal/ws/RealWebSocket$connect$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
+    # invokes: Lokhttp3/internal/ws/RealWebSocket;->isValid(Lokhttp3/internal/ws/WebSocketExtensions;)Z
     invoke-static {v3, v2}, Lokhttp3/internal/ws/RealWebSocket;->access$isValid(Lokhttp3/internal/ws/RealWebSocket;Lokhttp3/internal/ws/WebSocketExtensions;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_4d
 
     .line 184
     iget-object v3, p0, Lokhttp3/internal/ws/RealWebSocket$connect$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
@@ -175,7 +176,8 @@
 
     .line 185
     .local v5, "$i$a$-synchronized-RealWebSocket$connect$1$onResponse$1":I
-    :try_start_1
+    :try_start_3a
+    # getter for: Lokhttp3/internal/ws/RealWebSocket;->messageAndCloseQueue:Ljava/util/ArrayDeque;
     invoke-static {v4}, Lokhttp3/internal/ws/RealWebSocket;->access$getMessageAndCloseQueue$p(Lokhttp3/internal/ws/RealWebSocket;)Ljava/util/ArrayDeque;
 
     move-result-object v6
@@ -188,16 +190,16 @@
     const/16 v7, 0x3f2
 
     invoke-virtual {v4, v7, v6}, Lokhttp3/internal/ws/RealWebSocket;->close(ILjava/lang/String;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_48
+    .catchall {:try_start_3a .. :try_end_48} :catchall_4a
 
     .line 184
     .end local v5    # "$i$a$-synchronized-RealWebSocket$connect$1$onResponse$1":I
     monitor-exit v3
 
-    goto :goto_0
+    goto :goto_4d
 
-    :catchall_0
+    :catchall_4a
     move-exception v4
 
     monitor-exit v3
@@ -205,12 +207,12 @@
     throw v4
 
     .line 191
-    :cond_0
-    :goto_0
+    :cond_4d
+    :goto_4d
     nop
 
     .line 192
-    :try_start_2
+    :try_start_4e
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -268,14 +270,14 @@
     iget-object v4, p0, Lokhttp3/internal/ws/RealWebSocket$connect$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
     invoke-virtual {v4}, Lokhttp3/internal/ws/RealWebSocket;->loopReader()V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_88
+    .catch Ljava/lang/Exception; {:try_start_4e .. :try_end_88} :catch_89
 
     .end local v3    # "name":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_90
 
     .line 196
-    :catch_0
+    :catch_89
     move-exception v3
 
     .line 197
@@ -288,25 +290,25 @@
 
     .line 199
     .end local v3    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_90
     return-void
 
     .line 172
     .end local v2    # "extensions":Lokhttp3/internal/ws/WebSocketExtensions;
-    :catch_1
+    :catch_91
     move-exception v2
 
     .line 173
     .local v2, "e":Ljava/io/IOException;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_95
 
-    goto :goto_2
+    goto :goto_98
 
-    :cond_1
+    :cond_95
     invoke-virtual {v0}, Lokhttp3/internal/connection/Exchange;->webSocketUpgradeFailed()V
 
     .line 174
-    :goto_2
+    :goto_98
     iget-object v3, p0, Lokhttp3/internal/ws/RealWebSocket$connect$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
     move-object v4, v2

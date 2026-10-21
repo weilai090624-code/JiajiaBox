@@ -74,7 +74,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/TransformingSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/TransformingSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,6 +90,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 208
+    # getter for: Lkotlin/sequences/TransformingSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/TransformingSequence;->access$getSequence$p(Lkotlin/sequences/TransformingSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -107,7 +108,7 @@
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +124,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 214
     iget-object v0, p0, Lkotlin/sequences/TransformingSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -136,7 +137,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -146,6 +147,7 @@
     .line 210
     iget-object v0, p0, Lkotlin/sequences/TransformingSequence$iterator$1;->this$0:Lkotlin/sequences/TransformingSequence;
 
+    # getter for: Lkotlin/sequences/TransformingSequence;->transformer:Lkotlin/jvm/functions/Function1;
     invoke-static {v0}, Lkotlin/sequences/TransformingSequence;->access$getTransformer$p(Lkotlin/sequences/TransformingSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v0
@@ -164,7 +166,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/TimePickerClockPresenter;Landroid/content/Context;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/TimePickerClockPresenter;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "resId"    # I
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 5
+    .registers 8
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -56,6 +56,7 @@
     iget-object v2, p0, Lcom/google/android/material/timepicker/TimePickerClockPresenter$2;->this$0:Lcom/google/android/material/timepicker/TimePickerClockPresenter;
 
     .line 197
+    # getter for: Lcom/google/android/material/timepicker/TimePickerClockPresenter;->time:Lcom/google/android/material/timepicker/TimeModel;
     invoke-static {v2}, Lcom/google/android/material/timepicker/TimePickerClockPresenter;->access$000(Lcom/google/android/material/timepicker/TimePickerClockPresenter;)Lcom/google/android/material/timepicker/TimeModel;
 
     move-result-object v2

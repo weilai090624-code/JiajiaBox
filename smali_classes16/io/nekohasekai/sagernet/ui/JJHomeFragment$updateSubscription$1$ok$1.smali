@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -135,7 +135,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -178,7 +178,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -189,7 +189,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_76
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -200,25 +200,25 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
-    :try_start_0
+    :pswitch_12
+    :try_start_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_15} :catch_17
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 730
-    :catch_0
+    :catch_17
     move-exception v0
 
-    goto :goto_1
+    goto :goto_67
 
     .line 718
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 719
@@ -226,16 +226,17 @@
     nop
 
     .line 720
-    :try_start_1
+    :try_start_1d
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1$ok$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->resolveGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$resolveGroup(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     move-result-object v1
 
     .line 721
     .local v1, "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_35
 
     .line 722
     .end local v1    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -258,12 +259,12 @@
 
     .line 725
     .restart local v1    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :cond_0
+    :cond_35
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getSubscription()Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_4b
 
     .line 726
     .end local v1    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -286,7 +287,7 @@
 
     .line 729
     .restart local v1    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :cond_1
+    :cond_4b
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1$ok$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     move-object v4, p0
@@ -297,40 +298,41 @@
 
     iput v5, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$updateSubscription$1$ok$1;->label:I
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updateGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     invoke-static {v3, v1, v4}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$updateGroup(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_57
+    .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_57} :catch_17
 
     .end local v1    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-ne v3, v0, :cond_2
+    if-ne v3, v0, :cond_5a
 
     .line 718
     return-object v0
 
     .line 729
-    :cond_2
+    :cond_5a
     move-object v0, p1
 
     move-object p1, v3
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_5c
+    :try_start_5c
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_62
+    .catch Ljava/lang/Exception; {:try_start_5c .. :try_end_62} :catch_63
 
-    goto :goto_2
+    goto :goto_70
 
     .line 730
-    :catch_1
+    :catch_63
     move-exception p1
 
     move-object v6, v0
@@ -342,7 +344,7 @@
     .line 731
     .local v0, "e":Ljava/lang/Exception;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_1
+    :goto_67
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, v0
@@ -356,7 +358,7 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_70
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -366,9 +368,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_12
     .end packed-switch
 .end method

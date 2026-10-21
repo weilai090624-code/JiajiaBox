@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 551
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/TimeModel;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -106,7 +106,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -146,7 +146,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
 
     .line 551
@@ -158,9 +158,10 @@
 
 # virtual methods
 .method public build()Lcom/google/android/material/timepicker/MaterialTimePicker;
-    .locals 1
+    .registers 2
 
     .line 672
+    # invokes: Lcom/google/android/material/timepicker/MaterialTimePicker;->newInstance(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/MaterialTimePicker;
     invoke-static {p0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->access$1400(Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;)Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     move-result-object v0
@@ -169,7 +170,7 @@
 .end method
 
 .method public setHour(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "hour"    # I
 
     .line 584
@@ -182,7 +183,7 @@
 .end method
 
 .method public setInputMode(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "inputMode"    # I
 
     .line 571
@@ -197,7 +198,7 @@
 .end method
 
 .method public setMinute(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 1
+    .registers 3
     .param p1, "minute"    # I
 
     .line 592
@@ -210,7 +211,7 @@
 .end method
 
 .method public setNegativeButtonText(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "negativeButtonTextResId"    # I
 
     .line 649
@@ -221,7 +222,7 @@
 .end method
 
 .method public setNegativeButtonText(Ljava/lang/CharSequence;)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "negativeButtonText"    # Ljava/lang/CharSequence;
 
     .line 657
@@ -232,7 +233,7 @@
 .end method
 
 .method public setPositiveButtonText(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "positiveButtonTextResId"    # I
 
     .line 633
@@ -243,7 +244,7 @@
 .end method
 
 .method public setPositiveButtonText(Ljava/lang/CharSequence;)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "positiveButtonText"    # Ljava/lang/CharSequence;
 
     .line 641
@@ -254,7 +255,7 @@
 .end method
 
 .method public setTheme(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "themeResId"    # I
 
     .line 665
@@ -265,7 +266,7 @@
 .end method
 
 .method public setTimeFormat(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 3
+    .registers 5
     .param p1, "format"    # I
 
     .line 605
@@ -302,7 +303,7 @@
 .end method
 
 .method public setTitleText(I)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "titleTextResId"    # I
 
     .line 617
@@ -313,7 +314,7 @@
 .end method
 
 .method public setTitleText(Ljava/lang/CharSequence;)Lcom/google/android/material/timepicker/MaterialTimePicker$Builder;
-    .locals 0
+    .registers 2
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
     .line 625

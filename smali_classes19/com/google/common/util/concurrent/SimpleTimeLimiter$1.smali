@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/SimpleTimeLimiter;Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;Ljava/util/Set;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/SimpleTimeLimiter;
 
     .line 89
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p1, "obj"    # Ljava/lang/Object;
     .param p2, "method"    # Ljava/lang/reflect/Method;
     .param p3, "args"    # [Ljava/lang/Object;
@@ -90,6 +90,7 @@
     move-result v5
 
     .line 107
+    # invokes: Lcom/google/common/util/concurrent/SimpleTimeLimiter;->callWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;Z)Ljava/lang/Object;
     invoke-static/range {v0 .. v5}, Lcom/google/common/util/concurrent/SimpleTimeLimiter;->access$100(Lcom/google/common/util/concurrent/SimpleTimeLimiter;Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;Z)Ljava/lang/Object;
 
     move-result-object v0

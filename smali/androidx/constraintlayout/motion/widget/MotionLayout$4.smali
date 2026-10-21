@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,11 +45,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 4171
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$4;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
+    # getter for: Landroidx/constraintlayout/motion/widget/MotionLayout;->mStateCache:Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;
     invoke-static {v0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->access$000(Landroidx/constraintlayout/motion/widget/MotionLayout;)Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;
 
     move-result-object v0

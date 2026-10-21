@@ -75,7 +75,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;Landroid/app/Activity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -172,7 +172,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -181,7 +181,7 @@
     .line 70
     iget v1, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_58
 
     .line 77
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -193,7 +193,7 @@
     throw p1
 
     .line 70
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1;
@@ -203,12 +203,12 @@
     .local v1, "$i$f$collect":I
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .end local v0    # "this":Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1;
     .end local v1    # "$i$f$collect":I
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -218,6 +218,7 @@
     .restart local p1    # "$result":Ljava/lang/Object;
     iget-object v2, v1, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1;->this$0:Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
+    # getter for: Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->windowInfoTracker:Landroidx/window/layout/WindowInfoTracker;
     invoke-static {v2}, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->access$getWindowInfoTracker$p(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)Landroidx/window/layout/WindowInfoTracker;
 
     move-result-object v2
@@ -296,13 +297,13 @@
     move-result-object v2
 
     .end local v2    # "$this$collect$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_51
 
     .line 70
     return-object v0
 
     .line 97
-    :cond_0
+    :cond_51
     move-object v0, v1
 
     move v1, v4
@@ -311,7 +312,7 @@
     .end local v4    # "$i$f$collect":I
     .restart local v0    # "this":Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1;
     .local v1, "$i$f$collect":I
-    :goto_0
+    :goto_53
     nop
 
     .line 77
@@ -322,9 +323,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_17
+        :pswitch_11
     .end packed-switch
 .end method

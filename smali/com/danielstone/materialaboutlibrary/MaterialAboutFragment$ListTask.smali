@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;)V
-    .locals 1
+    .registers 3
     .param p1, "materialAboutFragment"    # Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;
 
     .line 107
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 2
+    .registers 4
     .param p1, "params"    # [Ljava/lang/String;
 
     .line 113
@@ -76,13 +76,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v1
@@ -91,18 +91,18 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1b
     return-object v1
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 103
     check-cast p1, [Ljava/lang/String;
@@ -115,7 +115,7 @@
 .end method
 
 .method protected onPostExecute(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;)V
-    .locals 2
+    .registers 4
     .param p1, "materialAboutList"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
 
     .line 119
@@ -129,16 +129,17 @@
 
     .line 120
     .local v0, "fragment":Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 121
     invoke-virtual {v0, p1}, Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;->setMaterialAboutList(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;)V
 
     .line 122
+    # invokes: Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;->displayList()V
     invoke-static {v0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;->access$000(Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment;)V
 
     .line 124
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutFragment$ListTask;->fragmentContextReference:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->clear()V
@@ -148,7 +149,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 103
     check-cast p1, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;

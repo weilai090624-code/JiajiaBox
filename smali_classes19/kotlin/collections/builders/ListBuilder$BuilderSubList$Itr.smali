@@ -94,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/builders/ListBuilder$BuilderSubList;I)V
-    .locals 1
+    .registers 4
     .param p1, "list"    # Lkotlin/collections/builders/ListBuilder$BuilderSubList;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -126,6 +126,7 @@
     .line 563
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getModCount$p$s1462993667(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v0
@@ -137,28 +138,30 @@
 .end method
 
 .method private final checkForComodification()V
-    .locals 2
+    .registers 3
 
     .line 608
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->root:Lkotlin/collections/builders/ListBuilder;
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getRoot$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)Lkotlin/collections/builders/ListBuilder;
 
     move-result-object v0
 
+    # getter for: Lkotlin/collections/builders/ListBuilder;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder;->access$getModCount$p$s-2084097795(Lkotlin/collections/builders/ListBuilder;)I
 
     move-result v0
 
     iget v1, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 610
     return-void
 
     .line 609
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -169,7 +172,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,6 +202,7 @@
     .line 595
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getModCount$p$s1462993667(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v0
@@ -210,51 +214,52 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 566
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
 
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getLength$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 565
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -269,11 +274,12 @@
 
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getLength$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_27
 
     .line 581
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
@@ -287,12 +293,14 @@
     .line 582
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->backing:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getBacking$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)[Ljava/lang/Object;
 
     move-result-object v0
 
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->offset:I
     invoke-static {v1}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getOffset$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v1
@@ -306,7 +314,7 @@
     return-object v0
 
     .line 580
-    :cond_0
+    :cond_27
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -315,7 +323,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 569
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
@@ -324,7 +332,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -337,7 +345,7 @@
     .line 573
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_23
 
     .line 574
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
@@ -353,12 +361,14 @@
     .line 575
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->backing:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getBacking$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)[Ljava/lang/Object;
 
     move-result-object v0
 
     iget-object v1, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->offset:I
     invoke-static {v1}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getOffset$p(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v1
@@ -372,7 +382,7 @@
     return-object v0
 
     .line 573
-    :cond_0
+    :cond_23
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -381,7 +391,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 568
     iget v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->index:I
@@ -392,7 +402,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 599
     invoke-direct {p0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->checkForComodification()V
@@ -402,17 +412,17 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_23
 
     .line 601
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
@@ -432,6 +442,7 @@
     .line 604
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
 
+    # getter for: Lkotlin/collections/builders/ListBuilder$BuilderSubList;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/ListBuilder$BuilderSubList;->access$getModCount$p$s1462993667(Lkotlin/collections/builders/ListBuilder$BuilderSubList;)I
 
     move-result v0
@@ -442,7 +453,7 @@
     return-void
 
     .line 719
-    :cond_1
+    :cond_23
     const/4 v0, 0x0
 
     .line 600
@@ -464,7 +475,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -480,17 +491,17 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_15
 
     .line 588
     iget-object v0, p0, Lkotlin/collections/builders/ListBuilder$BuilderSubList$Itr;->list:Lkotlin/collections/builders/ListBuilder$BuilderSubList;
@@ -503,7 +514,7 @@
     return-void
 
     .line 719
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     .line 587

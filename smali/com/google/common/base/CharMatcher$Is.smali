@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(C)V
-    .locals 0
+    .registers 2
     .param p1, "match"    # C
 
     .line 1610
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public and(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1626
@@ -46,43 +46,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-static {}, Lcom/google/common/base/CharMatcher$Is;->none()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1616
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$Is;->match:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public negate()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 1636
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$Is;->match:C
@@ -95,7 +95,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1631
@@ -105,23 +105,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-super {p0, p1}, Lcom/google/common/base/CharMatcher$FastMatcher;->or(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public replaceFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -140,7 +140,7 @@
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 1
+    .registers 3
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 1642
@@ -153,11 +153,12 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1647
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$Is;->match:C
 
+    # invokes: Lcom/google/common/base/CharMatcher;->showCharacter(C)Ljava/lang/String;
     invoke-static {v0}, Lcom/google/common/base/CharMatcher;->access$100(C)Ljava/lang/String;
 
     move-result-object v0

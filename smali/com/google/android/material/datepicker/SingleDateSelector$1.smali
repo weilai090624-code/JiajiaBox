@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;Lcom/google/android/material/textfield/TextInputLayout;)V
-    .locals 0
+    .registers 8
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/SingleDateSelector;
     .param p2, "formatHint"    # Ljava/lang/String;
     .param p3, "dateFormat"    # Ljava/text/DateFormat;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method onInvalidDate()V
-    .locals 2
+    .registers 3
 
     .line 148
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector$1;->this$0:Lcom/google/android/material/datepicker/SingleDateSelector;
@@ -57,6 +57,7 @@
 
     move-result-object v1
 
+    # setter for: Lcom/google/android/material/datepicker/SingleDateSelector;->error:Ljava/lang/CharSequence;
     invoke-static {v0, v1}, Lcom/google/android/material/datepicker/SingleDateSelector;->access$102(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     .line 149
@@ -69,21 +70,22 @@
 .end method
 
 .method onValidDate(Ljava/lang/Long;)V
-    .locals 3
+    .registers 5
     .param p1, "day"    # Ljava/lang/Long;
 
     .line 137
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 138
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector$1;->this$0:Lcom/google/android/material/datepicker/SingleDateSelector;
 
+    # invokes: Lcom/google/android/material/datepicker/SingleDateSelector;->clearSelection()V
     invoke-static {v0}, Lcom/google/android/material/datepicker/SingleDateSelector;->access$000(Lcom/google/android/material/datepicker/SingleDateSelector;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 140
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector$1;->this$0:Lcom/google/android/material/datepicker/SingleDateSelector;
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -93,11 +95,12 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/android/material/datepicker/SingleDateSelector;->select(J)V
 
     .line 142
-    :goto_0
+    :goto_11
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector$1;->this$0:Lcom/google/android/material/datepicker/SingleDateSelector;
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/datepicker/SingleDateSelector;->error:Ljava/lang/CharSequence;
     invoke-static {v0, v1}, Lcom/google/android/material/datepicker/SingleDateSelector;->access$102(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     .line 143

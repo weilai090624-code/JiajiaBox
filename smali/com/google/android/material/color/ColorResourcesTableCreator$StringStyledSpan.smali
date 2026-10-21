@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 305
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/color/ColorResourcesTableCreator$StringStyledSpan;)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/ColorResourcesTableCreator$StringStyledSpan;
 
     .line 305
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -58,6 +58,7 @@
     .line 313
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$StringStyledSpan;->nameReference:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -67,6 +68,7 @@
     .line 314
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$StringStyledSpan;->firstCharacterIndex:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -76,6 +78,7 @@
     .line 315
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$StringStyledSpan;->lastCharacterIndex:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0

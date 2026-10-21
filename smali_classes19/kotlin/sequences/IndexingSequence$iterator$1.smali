@@ -74,7 +74,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/IndexingSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/IndexingSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,6 +88,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 250
+    # getter for: Lkotlin/sequences/IndexingSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/IndexingSequence;->access$getSequence$p(Lkotlin/sequences/IndexingSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -105,7 +106,7 @@
 
 # virtual methods
 .method public final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 251
     iget v0, p0, Lkotlin/sequences/IndexingSequence$iterator$1;->index:I
@@ -114,7 +115,7 @@
 .end method
 
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -130,7 +131,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 257
     iget-object v0, p0, Lkotlin/sequences/IndexingSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -143,7 +144,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 249
     invoke-virtual {p0}, Lkotlin/sequences/IndexingSequence$iterator$1;->next()Lkotlin/collections/IndexedValue;
@@ -154,7 +155,7 @@
 .end method
 
 .method public next()Lkotlin/collections/IndexedValue;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -172,11 +173,11 @@
 
     iput v2, p0, Lkotlin/sequences/IndexingSequence$iterator$1;->index:I
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_d
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_d
     iget-object v2, p0, Lkotlin/sequences/IndexingSequence$iterator$1;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -189,7 +190,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -201,7 +202,7 @@
 .end method
 
 .method public final setIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 251

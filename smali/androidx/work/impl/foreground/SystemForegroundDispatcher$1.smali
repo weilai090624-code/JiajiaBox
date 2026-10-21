@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/foreground/SystemForegroundDispatcher;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/foreground/SystemForegroundDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,11 +57,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 244
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
 
+    # getter for: Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
     invoke-static {v0}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->access$000(Landroidx/work/impl/foreground/SystemForegroundDispatcher;)Landroidx/work/impl/WorkManagerImpl;
 
     move-result-object v0
@@ -78,13 +79,13 @@
 
     .line 247
     .local v0, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3f
 
     invoke-virtual {v0}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3f
 
     .line 248
     iget-object v1, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
@@ -94,7 +95,7 @@
     monitor-enter v1
 
     .line 249
-    :try_start_0
+    :try_start_1d
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
 
     iget-object v2, v2, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mWorkSpecById:Ljava/util/Map;
@@ -126,19 +127,19 @@
     .line 252
     monitor-exit v1
 
-    goto :goto_0
+    goto :goto_3f
 
-    :catchall_0
+    :catchall_3c
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_1d .. :try_end_3e} :catchall_3c
 
     throw v2
 
     .line 254
-    :cond_0
-    :goto_0
+    :cond_3f
+    :goto_3f
     return-void
 .end method

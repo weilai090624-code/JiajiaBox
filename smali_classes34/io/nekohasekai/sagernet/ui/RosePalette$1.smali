@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 47
+    .line 60
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/RosePalette$1;->val$root:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .method public onPreDraw()Z
     .registers 4
 
-    .line 47
+    .line 60
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RosePalette$1;->val$root:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;

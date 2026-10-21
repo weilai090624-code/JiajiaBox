@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/reflect/TypeToken;)V
-    .locals 0
+    .registers 2
 
     .line 772
     .local p0, "this":Lcom/google/common/reflect/TypeToken$ClassSet;, "Lcom/google/common/reflect/TypeToken<TT;>.ClassSet;"
@@ -56,7 +56,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/reflect/TypeToken$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/reflect/TypeToken;
     .param p2, "x1"    # Lcom/google/common/reflect/TypeToken$1;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 813
     .local p0, "this":Lcom/google/common/reflect/TypeToken$ClassSet;, "Lcom/google/common/reflect/TypeToken<TT;>.ClassSet;"
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public classes()Lcom/google/common/reflect/TypeToken$TypeSet;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -103,7 +103,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 772
     .local p0, "this":Lcom/google/common/reflect/TypeToken$ClassSet;, "Lcom/google/common/reflect/TypeToken<TT;>.ClassSet;"
@@ -115,7 +115,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 772
     .local p0, "this":Lcom/google/common/reflect/TypeToken$ClassSet;, "Lcom/google/common/reflect/TypeToken<TT;>.ClassSet;"
@@ -127,7 +127,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -143,7 +143,7 @@
 
     .line 779
     .local v0, "result":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<Lcom/google/common/reflect/TypeToken<-TT;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 781
     sget-object v1, Lcom/google/common/reflect/TypeToken$TypeCollector;->FOR_GENERIC_TYPE:Lcom/google/common/reflect/TypeToken$TypeCollector;
@@ -187,12 +187,12 @@
 
     .line 789
     .end local v1    # "collectedTypes":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<Lcom/google/common/reflect/TypeToken<-TT;>;>;"
-    :cond_0
+    :cond_22
     return-object v0
 .end method
 
 .method public interfaces()Lcom/google/common/reflect/TypeToken$TypeSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method public rawTypes()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,6 +234,7 @@
 
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken$ClassSet;->this$0:Lcom/google/common/reflect/TypeToken;
 
+    # invokes: Lcom/google/common/reflect/TypeToken;->getRawTypes()Lcom/google/common/collect/ImmutableSet;
     invoke-static {v1}, Lcom/google/common/reflect/TypeToken;->access$300(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v1

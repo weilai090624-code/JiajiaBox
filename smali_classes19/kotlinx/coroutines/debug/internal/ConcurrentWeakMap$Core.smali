@@ -102,7 +102,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;I)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;
     .param p2, "allocated"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -179,7 +179,7 @@
 .end method
 
 .method public static final synthetic access$getAllocated$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
     .line 84
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final synthetic access$getKeys$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)Ljava/util/concurrent/atomic/AtomicReferenceArray;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
     .line 84
@@ -199,7 +199,7 @@
 .end method
 
 .method public static final synthetic access$getValues$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)Ljava/util/concurrent/atomic/AtomicReferenceArray;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
     .line 84
@@ -209,7 +209,7 @@
 .end method
 
 .method private final index(I)I
-    .locals 2
+    .registers 4
     .param p1, "hash"    # I
 
     .line 92
@@ -225,16 +225,16 @@
 .end method
 
 .method public static synthetic putImpl$default(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;Ljava/lang/Object;Ljava/lang/Object;Lkotlinx/coroutines/debug/internal/HashedWeakRef;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 6
 
     .line 122
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p3, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->putImpl(Ljava/lang/Object;Ljava/lang/Object;Lkotlinx/coroutines/debug/internal/HashedWeakRef;)Ljava/lang/Object;
 
     move-result-object p0
@@ -243,13 +243,13 @@
 .end method
 
 .method private final removeCleanedAt(I)V
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 111
     nop
 
-    :cond_0
+    :cond_1
     nop
 
     .line 112
@@ -259,21 +259,21 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     return-void
 
     .line 113
     .local v0, "oldValue":Ljava/lang/Object;
-    :cond_1
+    :cond_b
     instance-of v1, v0, Lkotlinx/coroutines/debug/internal/Marked;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_10
 
     return-void
 
     .line 114
-    :cond_2
+    :cond_10
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->values:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     const/4 v2, 0x0
@@ -282,11 +282,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 115
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;
 
+    # invokes: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;->decrementSize()V
     invoke-static {v1}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;->access$decrementSize(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;)V
 
     .line 116
@@ -294,7 +295,7 @@
 .end method
 
 .method private final update$atomicfu(Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -311,7 +312,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v1
@@ -334,7 +335,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 .end method
@@ -342,7 +343,7 @@
 
 # virtual methods
 .method public final cleanWeakRef(Lkotlinx/coroutines/debug/internal/HashedWeakRef;)V
-    .locals 2
+    .registers 4
     .param p1, "weakRef"    # Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -361,7 +362,7 @@
 
     .line 196
     .local v0, "index":I
-    :goto_0
+    :goto_6
     nop
 
     .line 197
@@ -373,14 +374,14 @@
 
     check-cast v1, Lkotlinx/coroutines/debug/internal/HashedWeakRef;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     return-void
 
     .line 198
     .local v1, "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    :cond_0
-    if-ne v1, p1, :cond_1
+    :cond_12
+    if-ne v1, p1, :cond_18
 
     .line 199
     invoke-direct {p0, v0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->removeCleanedAt(I)V
@@ -389,23 +390,23 @@
     return-void
 
     .line 202
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_18
+    if-nez v0, :cond_1c
 
     iget v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
 
     .line 203
-    :cond_2
+    :cond_1c
     nop
 
     .end local v1    # "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 .end method
 
 .method public final getImpl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -424,7 +425,7 @@
 
     .line 97
     .local v0, "index":I
-    :goto_0
+    :goto_8
     nop
 
     .line 98
@@ -436,7 +437,7 @@
 
     check-cast v1, Lkotlinx/coroutines/debug/internal/HashedWeakRef;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x0
 
@@ -444,7 +445,7 @@
 
     .line 99
     .local v1, "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    :cond_0
+    :cond_15
     invoke-virtual {v1}, Lkotlinx/coroutines/debug/internal/HashedWeakRef;->get()Ljava/lang/Object;
 
     move-result-object v2
@@ -455,7 +456,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_31
 
     .line 101
     iget-object v3, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->values:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -468,7 +469,7 @@
     .local v3, "value":Ljava/lang/Object;
     instance-of v4, v3, Lkotlinx/coroutines/debug/internal/Marked;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     move-object v4, v3
 
@@ -476,40 +477,40 @@
 
     iget-object v4, v4, Lkotlinx/coroutines/debug/internal/Marked;->ref:Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     move-object v4, v3
 
-    :goto_1
+    :goto_30
     return-object v4
 
     .line 104
     .end local v3    # "value":Ljava/lang/Object;
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_31
+    if-nez v2, :cond_36
 
     invoke-direct {p0, v0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->removeCleanedAt(I)V
 
     .line 105
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_36
+    if-nez v0, :cond_3a
 
     iget v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
 
     .line 106
-    :cond_4
+    :cond_3a
     nop
 
     .end local v1    # "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     .end local v2    # "k":Ljava/lang/Object;
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 .end method
 
 .method public final keyValueIterator(Lkotlin/jvm/functions/Function2;)Ljava/util/Iterator;
-    .locals 1
+    .registers 3
     .param p1, "factory"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -534,7 +535,7 @@
 .end method
 
 .method public final putImpl(Ljava/lang/Object;Ljava/lang/Object;Lkotlinx/coroutines/debug/internal/HashedWeakRef;)Ljava/lang/Object;
-    .locals 12
+    .registers 16
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .param p3, "weakKey0"    # Lkotlinx/coroutines/debug/internal/HashedWeakRef;
@@ -566,7 +567,7 @@
 
     .line 126
     .local v2, "weakKey":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    :goto_0
+    :goto_a
     nop
 
     .line 127
@@ -580,18 +581,18 @@
 
     .line 128
     .local v3, "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    if-nez v3, :cond_6
+    if-nez v3, :cond_51
 
     .line 129
     const/4 v4, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_19
 
     return-object v4
 
     .line 130
-    :cond_0
-    if-nez v1, :cond_3
+    :cond_19
+    if-nez v1, :cond_37
 
     sget-object v5, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->load$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -602,7 +603,7 @@
     const/4 v7, 0x0
 
     .local v7, "$i$f$update$atomicfu":I
-    :cond_1
+    :cond_1f
     invoke-virtual {v5, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v8
@@ -616,8 +617,9 @@
     .local v10, "$i$a$-update$atomicfu-ConcurrentWeakMap$Core$putImpl$1":I
     iget v11, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->threshold:I
 
-    if-lt v9, v11, :cond_2
+    if-lt v9, v11, :cond_2e
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->REHASH:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->access$getREHASH$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v4
@@ -625,7 +627,7 @@
     return-object v4
 
     .line 134
-    :cond_2
+    :cond_2e
     add-int/lit8 v9, v9, 0x1
 
     .end local v9    # "n":I
@@ -634,7 +636,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_1f
 
     .line 136
     .end local v5    # "atomicfu$handler$iv":Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -643,13 +645,14 @@
     const/4 v1, 0x1
 
     .line 138
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_37
+    if-nez v2, :cond_45
 
     new-instance v5, Lkotlinx/coroutines/debug/internal/HashedWeakRef;
 
     iget-object v6, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;->weakRefQueue:Ljava/lang/ref/ReferenceQueue;
     invoke-static {v6}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;->access$getWeakRefQueue$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap;)Ljava/lang/ref/ReferenceQueue;
 
     move-result-object v6
@@ -659,28 +662,28 @@
     move-object v2, v5
 
     .line 139
-    :cond_4
+    :cond_45
     iget-object v5, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->keys:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     invoke-static {v5, v0, v4, v2}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceArray;ILjava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_4e
 
     .line 140
-    goto :goto_0
+    goto :goto_a
 
     .line 139
-    :cond_5
+    :cond_4e
     move v5, v1
 
     move-object v6, v2
 
-    goto :goto_1
+    goto :goto_64
 
     .line 142
-    :cond_6
+    :cond_51
     invoke-virtual {v3}, Lkotlinx/coroutines/debug/internal/HashedWeakRef;->get()Ljava/lang/Object;
 
     move-result-object v4
@@ -691,17 +694,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_7e
 
     .line 144
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_62
 
     sget-object v5, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->load$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     invoke-virtual {v5, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->decrementAndGet(Ljava/lang/Object;)I
 
     .line 145
-    :cond_7
+    :cond_62
     move v5, v1
 
     move-object v6, v2
@@ -713,12 +716,12 @@
     .end local v4    # "k":Ljava/lang/Object;
     .local v5, "loadIncremented":Z
     .local v6, "weakKey":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    :goto_1
+    :goto_64
     const/4 v1, 0x0
 
     .line 153
     .local v1, "oldValue":Ljava/lang/Object;
-    :cond_8
+    :cond_65
     nop
 
     .line 154
@@ -731,8 +734,9 @@
     .line 155
     instance-of v2, v1, Lkotlinx/coroutines/debug/internal/Marked;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_75
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->REHASH:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->access$getREHASH$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
@@ -740,14 +744,14 @@
     return-object v2
 
     .line 156
-    :cond_9
+    :cond_75
     iget-object v2, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->values:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     invoke-static {v2, v0, v1, p2}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceArray;ILjava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_65
 
     .line 158
     return-object v1
@@ -759,30 +763,30 @@
     .restart local v2    # "weakKey":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     .restart local v3    # "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     .restart local v4    # "k":Ljava/lang/Object;
-    :cond_a
-    if-nez v4, :cond_b
+    :cond_7e
+    if-nez v4, :cond_83
 
     invoke-direct {p0, v0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->removeCleanedAt(I)V
 
     .line 148
-    :cond_b
-    if-nez v0, :cond_c
+    :cond_83
+    if-nez v0, :cond_87
 
     iget v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
 
     .line 149
-    :cond_c
+    :cond_87
     nop
 
     .end local v3    # "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
     .end local v4    # "k":Ljava/lang/Object;
     add-int/lit8 v0, v0, -0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_a
 .end method
 
 .method public final rehash()Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -794,7 +798,7 @@
     .line 165
     nop
 
-    :cond_0
+    :cond_1
     nop
 
     .line 166
@@ -831,8 +835,8 @@
     .local v2, "index":I
     iget v3, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
 
-    :goto_0
-    if-ge v2, v3, :cond_8
+    :goto_1d
+    if-ge v2, v3, :cond_75
 
     .line 170
     iget-object v4, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->keys:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -845,32 +849,32 @@
 
     .line 171
     .local v4, "w":Lkotlinx/coroutines/debug/internal/HashedWeakRef;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
     invoke-virtual {v4}, Lkotlinx/coroutines/debug/internal/HashedWeakRef;->get()Ljava/lang/Object;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_1
+    :cond_2e
     const/4 v5, 0x0
 
     .line 172
     .local v5, "k":Ljava/lang/Object;
-    :goto_1
-    if-eqz v4, :cond_2
+    :goto_2f
+    if-eqz v4, :cond_36
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_36
 
     invoke-direct {p0, v2}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->removeCleanedAt(I)V
 
-    :cond_2
+    :cond_36
     const/4 v6, 0x0
 
     .line 175
     .local v6, "value":Ljava/lang/Object;
-    :cond_3
+    :cond_37
     nop
 
     .line 176
@@ -883,7 +887,7 @@
     .line 177
     instance-of v7, v6, Lkotlinx/coroutines/debug/internal/Marked;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_48
 
     .line 178
     move-object v7, v6
@@ -893,12 +897,13 @@
     iget-object v6, v7, Lkotlinx/coroutines/debug/internal/Marked;->ref:Ljava/lang/Object;
 
     .line 179
-    goto :goto_2
+    goto :goto_54
 
     .line 182
-    :cond_4
+    :cond_48
     iget-object v7, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->values:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
+    # invokes: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->mark(Ljava/lang/Object;)Lkotlinx/coroutines/debug/internal/Marked;
     invoke-static {v6}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->access$mark(Ljava/lang/Object;)Lkotlinx/coroutines/debug/internal/Marked;
 
     move-result-object v8
@@ -907,13 +912,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_37
 
     .line 184
-    :goto_2
-    if-eqz v5, :cond_7
+    :goto_54
+    if-eqz v5, :cond_72
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_72
 
     .line 185
     invoke-virtual {v1, v5, v6, v4}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->putImpl(Ljava/lang/Object;Ljava/lang/Object;Lkotlinx/coroutines/debug/internal/HashedWeakRef;)Ljava/lang/Object;
@@ -922,28 +927,29 @@
 
     .line 186
     .local v7, "oldValue":Ljava/lang/Object;
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->REHASH:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->access$getREHASH$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v8
 
-    if-eq v7, v8, :cond_0
+    if-eq v7, v8, :cond_1
 
     .line 187
-    if-nez v7, :cond_5
+    if-nez v7, :cond_66
 
     const/4 v8, 0x1
 
-    goto :goto_3
+    goto :goto_67
 
-    :cond_5
+    :cond_66
     const/4 v8, 0x0
 
-    :goto_3
-    if-eqz v8, :cond_6
+    :goto_67
+    if-eqz v8, :cond_6a
 
-    goto :goto_4
+    goto :goto_72
 
-    :cond_6
+    :cond_6a
     new-instance v3, Ljava/lang/AssertionError;
 
     const-string v8, "Assertion failed"
@@ -957,14 +963,14 @@
     .end local v5    # "k":Ljava/lang/Object;
     .end local v6    # "value":Ljava/lang/Object;
     .end local v7    # "oldValue":Ljava/lang/Object;
-    :cond_7
-    :goto_4
+    :cond_72
+    :goto_72
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 190
     .end local v2    # "index":I
-    :cond_8
+    :cond_75
     return-object v1
 .end method

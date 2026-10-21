@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 246
     invoke-direct {p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;-><init>()V
@@ -92,7 +92,7 @@
 .end method
 
 .method public static final synthetic access$get_state$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
-    .locals 1
+    .registers 1
 
     .line 246
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
@@ -101,7 +101,7 @@
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,20 +117,20 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public bridge synthetic allocateLocked(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "flow"    # Ljava/lang/Object;
 
     .line 246
@@ -146,7 +146,7 @@
 .end method
 
 .method public allocateLocked(Lkotlinx/coroutines/flow/StateFlowImpl;)Z
-    .locals 2
+    .registers 4
     .param p1, "flow"    # Lkotlinx/coroutines/flow/StateFlowImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,16 +163,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_a
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 263
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v1
@@ -186,7 +187,7 @@
 .end method
 
 .method public final awaitPending(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -239,12 +240,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2e
 
     .line 429
     const/4 v7, 0x0
 
     .local v7, "$i$a$-assert-StateFlowSlot$awaitPending$2$1":I
+    # getter for: Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowSlot;->access$get_state$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v8
@@ -257,11 +259,11 @@
     instance-of v8, v8, Lkotlinx/coroutines/CancellableContinuationImpl;
 
     .end local v7    # "$i$a$-assert-StateFlowSlot$awaitPending$2$1":I
-    if-nez v8, :cond_0
+    if-nez v8, :cond_28
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_28
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5}, Ljava/lang/AssertionError;-><init>()V
@@ -269,12 +271,14 @@
     throw v5
 
     .line 300
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
+    # getter for: Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowSlot;->access$get_state$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v7
 
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v8
@@ -283,19 +287,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_6b
 
     .line 302
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5c
 
     .line 429
     const/4 v7, 0x0
 
     .local v7, "$i$a$-assert-StateFlowSlot$awaitPending$2$2":I
+    # getter for: Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowSlot;->access$get_state$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v8
@@ -305,24 +310,25 @@
 
     move-result-object v8
 
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->PENDING:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getPENDING$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v9
 
-    if-ne v8, v9, :cond_2
+    if-ne v8, v9, :cond_52
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_2
+    :cond_52
     const/4 v5, 0x0
 
     .end local v7    # "$i$a$-assert-StateFlowSlot$awaitPending$2$2":I
-    :goto_1
-    if-eqz v5, :cond_3
+    :goto_53
+    if-eqz v5, :cond_56
 
-    goto :goto_2
+    goto :goto_5c
 
-    :cond_3
+    :cond_56
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5}, Ljava/lang/AssertionError;-><init>()V
@@ -330,8 +336,8 @@
     throw v5
 
     .line 303
-    :cond_4
-    :goto_2
+    :cond_5c
+    :goto_5c
     move-object v5, v4
 
     check-cast v5, Lkotlin/coroutines/Continuation;
@@ -352,7 +358,7 @@
     .line 438
     .end local v4    # "cont":Lkotlinx/coroutines/CancellableContinuation;
     .end local v6    # "$i$a$-suspendCancellableCoroutine-StateFlowSlot$awaitPending$2":I
-    :cond_5
+    :cond_6b
     nop
 
     .line 439
@@ -368,21 +374,21 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_79
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_6
+    :cond_79
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_80
 
     return-object v1
 
     .line 440
-    :cond_7
+    :cond_80
     nop
 
     .end local v0    # "$i$f$suspendCancellableCoroutine":I
@@ -393,7 +399,7 @@
 .end method
 
 .method public bridge synthetic freeLocked(Ljava/lang/Object;)[Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 3
     .param p1, "flow"    # Ljava/lang/Object;
 
     .line 246
@@ -409,7 +415,7 @@
 .end method
 
 .method public freeLocked(Lkotlinx/coroutines/flow/StateFlowImpl;)[Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 4
     .param p1, "flow"    # Lkotlinx/coroutines/flow/StateFlowImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -436,7 +442,7 @@
 .end method
 
 .method public final makePending()V
-    .locals 7
+    .registers 8
 
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -447,7 +453,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -460,31 +466,34 @@
     nop
 
     .line 276
-    if-nez v3, :cond_0
+    if-nez v3, :cond_d
 
     return-void
 
     .line 277
-    :cond_0
+    :cond_d
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->PENDING:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getPENDING$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v5
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_14
 
     return-void
 
     .line 278
-    :cond_1
+    :cond_14
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v5
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_27
 
     .line 279
     sget-object v5, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->PENDING:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getPENDING$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
@@ -493,14 +502,15 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_44
 
     return-void
 
     .line 283
-    :cond_2
+    :cond_27
     sget-object v5, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v6
@@ -509,7 +519,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_44
 
     .line 284
     move-object v5, v3
@@ -532,20 +542,21 @@
     return-void
 
     .line 289
-    :cond_3
+    :cond_44
     nop
 
     .end local v3    # "state":Ljava/lang/Object;
     .end local v4    # "$i$a$-loop$atomicfu-StateFlowSlot$makePending$1":I
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method public final takePending()Z
-    .locals 4
+    .registers 5
 
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowSlot;->_state$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 292
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v1
@@ -565,7 +576,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 429
     const/4 v2, 0x0
@@ -575,11 +586,11 @@
     instance-of v3, v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
     .end local v2    # "$i$a$-assert-StateFlowSlot$takePending$1$1":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1a
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -587,21 +598,22 @@
     throw v2
 
     .line 294
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
+    # getter for: Lkotlinx/coroutines/flow/StateFlowKt;->PENDING:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/flow/StateFlowKt;->access$getPENDING$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_28
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_2
+    :cond_28
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_29
     return v2
 .end method

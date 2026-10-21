@@ -85,14 +85,14 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 13
+    .line 27
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->backdrops:Ljava/util/WeakHashMap;
 
-    .line 14
+    .line 28
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -105,14 +105,14 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->brandModes:Ljava/util/WeakHashMap;
 
-    .line 15
+    .line 29
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->states:Ljava/util/WeakHashMap;
 
-    .line 16
+    .line 30
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -125,7 +125,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .line 106
+    .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -134,7 +134,7 @@
 .method public static accent(Landroid/content/Context;)I
     .registers 1
 
-    .line 18
+    .line 32
     invoke-static {p0}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -154,7 +154,7 @@
 .method static synthetic access$000(Landroid/view/View;ZZ)V
     .registers 3
 
-    .line 11
+    .line 25
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RosePalette;->walk(Landroid/view/View;ZZ)V
 
     return-void
@@ -167,7 +167,7 @@
 
     goto :goto_27
 
-    .line 80
+    .line 93
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -177,7 +177,7 @@
 
     move-result v0
 
-    .line 81
+    .line 94
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -212,7 +212,7 @@
     :cond_28
     if-eqz v0, :cond_33
 
-    .line 82
+    .line 95
     new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
     const v3, -0xd6d4d1
@@ -236,7 +236,7 @@
 
     invoke-direct {v1, v3, v4}, Landroid/graphics/drawable/GradientDrawable;-><init>(Landroid/graphics/drawable/GradientDrawable$Orientation;[I)V
 
-    .line 83
+    .line 96
     :goto_41
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
@@ -258,7 +258,7 @@
 .method private static brand(Landroid/view/View;Z)V
     .registers 8
 
-    .line 86
+    .line 99
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -277,7 +277,7 @@
 
     goto :goto_7a
 
-    .line 88
+    .line 101
     :cond_11
     :try_start_11
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -304,7 +304,7 @@
 
     if-eqz v0, :cond_7a
 
-    .line 89
+    .line 102
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -331,7 +331,7 @@
 
     goto :goto_7a
 
-    .line 90
+    .line 103
     :cond_40
     instance-of v0, v0, Landroid/text/Spanned;
 
@@ -355,7 +355,7 @@
 
     goto :goto_7a
 
-    .line 91
+    .line 104
     :cond_55
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -404,14 +404,14 @@
 .method public static brandTitle(Z)Ljava/lang/CharSequence;
     .registers 6
 
-    .line 95
+    .line 108
     new-instance v0, Landroid/text/SpannableString;
 
     const-string v1, "JiajiaBox."
 
     invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 96
+    .line 109
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     if-eqz p0, :cond_f
@@ -434,7 +434,7 @@
 
     invoke-virtual {v0, v1, p0, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 97
+    .line 110
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     const v4, -0x289570
@@ -445,7 +445,7 @@
 
     invoke-virtual {v0, v1, v2, v4, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 98
+    .line 111
     new-instance v1, Landroid/text/style/StyleSpan;
 
     const/4 v2, 0x1
@@ -460,7 +460,7 @@
 .method public static capsuleSurface(Landroid/content/Context;)I
     .registers 1
 
-    .line 19
+    .line 33
     invoke-static {p0}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -480,7 +480,7 @@
 .method private static controls(Z)Landroid/content/res/ColorStateList;
     .registers 6
 
-    .line 22
+    .line 36
     new-instance v0, Landroid/content/res/ColorStateList;
 
     const/4 v1, 0x0
@@ -559,7 +559,7 @@
 .method public static install(Landroid/app/Activity;)V
     .registers 3
 
-    .line 24
+    .line 38
     sget-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->activities:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -579,7 +579,7 @@
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 25
+    .line 39
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object p0
@@ -608,28 +608,21 @@
 .method public static nodeBorder(ZZ)I
     .registers 2
 
-    if-eqz p0, :cond_a
+    if-eqz p1, :cond_c
 
-    if-eqz p1, :cond_8
+    if-eqz p0, :cond_8
 
     const p0, -0x93b2a3
 
     return p0
 
     :cond_8
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_a
-    if-eqz p1, :cond_10
-
     const p0, -0x173d2e
 
     return p0
 
-    :cond_10
-    const p0, -0x131613
+    :cond_c
+    const/4 p0, 0x0
 
     return p0
 .end method
@@ -641,12 +634,12 @@
 
     if-eqz p1, :cond_8
 
-    const p0, -0xc6cfc7
+    const p0, -0xc4cfc7
 
     return p0
 
     :cond_8
-    const p0, -0xd6d5d0
+    const p0, -0xcfcec9
 
     return p0
 
@@ -658,7 +651,7 @@
     return p0
 
     :cond_12
-    const/4 p0, -0x1
+    const p0, -0x70807
 
     return p0
 .end method
@@ -670,7 +663,7 @@
 
     return-void
 
-    .line 50
+    .line 63
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -698,7 +691,7 @@
 
     if-nez p2, :cond_16
 
-    .line 51
+    .line 64
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -802,7 +795,7 @@
 
     goto :goto_f
 
-    .line 46
+    .line 59
     :cond_3
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RosePalette;->prepare(Landroid/view/View;)V
 
@@ -817,13 +810,13 @@
     :goto_f
     return-void
 
-    .line 47
+    .line 60
     :cond_10
     new-instance v1, Lio/nekohasekai/sagernet/ui/RosePalette$1;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/RosePalette$1;-><init>(Landroid/view/View;)V
 
-    .line 48
+    .line 61
     invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -841,7 +834,7 @@
     :goto_0
     if-eqz p0, :cond_21
 
-    .line 103
+    .line 116
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -895,7 +888,7 @@
 
     if-nez p2, :cond_16
 
-    .line 53
+    .line 66
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -922,7 +915,7 @@
     :goto_17
     if-eqz v2, :cond_1c
 
-    .line 54
+    .line 67
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->brand(Landroid/view/View;Z)V
 
     :cond_1c
@@ -930,10 +923,10 @@
 
     if-nez p2, :cond_23
 
-    .line 55
+    .line 68
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->widget(Landroid/view/View;Z)V
 
-    .line 56
+    .line 69
     :cond_23
     instance-of v3, p0, Landroid/view/ViewGroup;
 
@@ -983,7 +976,7 @@
 .method public static widget(Landroid/view/View;)V
     .registers 4
 
-    .line 59
+    .line 72
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1026,7 +1019,7 @@
 .method private static widget(Landroid/view/View;Z)V
     .registers 9
 
-    .line 62
+    .line 75
     sget-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->states:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1035,7 +1028,7 @@
 
     check-cast v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;
 
-    .line 63
+    .line 76
     const-string v2, "Switch"
 
     const/4 v3, 0x0
@@ -1055,7 +1048,7 @@
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
+    .line 77
     instance-of v0, p0, Landroid/widget/CompoundButton;
 
     if-eqz v0, :cond_27
@@ -1070,7 +1063,7 @@
 
     iput-object v5, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->button:Landroid/content/res/ColorStateList;
 
-    .line 65
+    .line 78
     :cond_27
     instance-of v5, p0, Landroid/widget/TextView;
 
@@ -1104,7 +1097,7 @@
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
 
-    .line 66
+    .line 79
     :cond_46
     instance-of v0, p0, Landroid/widget/ImageButton;
 
@@ -1120,7 +1113,7 @@
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->image:Landroid/content/res/ColorStateList;
 
-    .line 67
+    .line 80
     :cond_53
     instance-of v0, p0, Landroid/widget/ProgressBar;
 
@@ -1142,7 +1135,7 @@
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->indeterminate:Landroid/content/res/ColorStateList;
 
-    .line 68
+    .line 81
     :cond_66
     instance-of v0, p0, Landroid/widget/SeekBar;
 
@@ -1158,7 +1151,7 @@
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
 
-    .line 69
+    .line 82
     :cond_73
     :try_start_73
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1224,7 +1217,7 @@
 
     goto :goto_b2
 
-    .line 70
+    .line 83
     :cond_ac
     iget-boolean v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
 
@@ -1232,12 +1225,12 @@
 
     goto/16 :goto_1a3
 
-    .line 71
+    .line 84
     :cond_b2
     :goto_b2
     iput-boolean p1, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
 
-    .line 72
+    .line 85
     instance-of v0, p0, Landroid/widget/CompoundButton;
 
     const/4 v4, -0x1
@@ -1275,7 +1268,7 @@
     :goto_d0
     invoke-virtual {v0, v5}, Landroid/widget/CompoundButton;->setButtonTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 73
+    .line 86
     :cond_d3
     instance-of v0, p0, Landroid/widget/TextView;
 
@@ -1344,7 +1337,7 @@
     :goto_10c
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 74
+    .line 87
     :cond_10f
     instance-of v0, p0, Landroid/widget/ImageButton;
 
@@ -1368,7 +1361,7 @@
     :goto_11f
     invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 75
+    .line 88
     :cond_122
     instance-of v0, p0, Landroid/widget/ProgressBar;
 
@@ -1406,7 +1399,7 @@
     :goto_13e
     invoke-virtual {v0, v4}, Landroid/widget/ProgressBar;->setIndeterminateTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 76
+    .line 89
     :cond_141
     instance-of v0, p0, Landroid/widget/SeekBar;
 
@@ -1430,7 +1423,7 @@
     :goto_151
     invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 77
+    .line 90
     :cond_154
     :try_start_154
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;

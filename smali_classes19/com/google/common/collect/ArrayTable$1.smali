@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ArrayTable;
     .param p2, "size"    # I
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected get(I)Lcom/google/common/collect/Table$Cell;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,6 +58,7 @@
     .local p0, "this":Lcom/google/common/collect/ArrayTable$1;, "Lcom/google/common/collect/ArrayTable$1;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$1;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # invokes: Lcom/google/common/collect/ArrayTable;->getCell(I)Lcom/google/common/collect/Table$Cell;
     invoke-static {v0, p1}, Lcom/google/common/collect/ArrayTable;->access$000(Lcom/google/common/collect/ArrayTable;I)Lcom/google/common/collect/Table$Cell;
 
     move-result-object v0
@@ -66,7 +67,7 @@
 .end method
 
 .method protected bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 556
     .local p0, "this":Lcom/google/common/collect/ArrayTable$1;, "Lcom/google/common/collect/ArrayTable$1;"

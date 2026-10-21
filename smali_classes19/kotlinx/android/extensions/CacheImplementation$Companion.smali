@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlinx/android/extensions/CacheImplementation$Companion;-><init>()V
 
@@ -59,9 +59,10 @@
 
 # virtual methods
 .method public final getDEFAULT()Lkotlinx/android/extensions/CacheImplementation;
-    .locals 1
+    .registers 2
 
     .line 33
+    # getter for: Lkotlinx/android/extensions/CacheImplementation;->DEFAULT:Lkotlinx/android/extensions/CacheImplementation;
     invoke-static {}, Lkotlinx/android/extensions/CacheImplementation;->access$getDEFAULT$cp()Lkotlinx/android/extensions/CacheImplementation;
 
     move-result-object v0

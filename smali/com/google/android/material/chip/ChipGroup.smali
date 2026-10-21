@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 113
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_ChipGroup:I
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 128
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -231,7 +231,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/chip/ChipGroup$OnCheckedStateChangeListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/chip/ChipGroup;
 
     .line 60
@@ -241,7 +241,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/internal/CheckableGroup;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/chip/ChipGroup;
 
     .line 60
@@ -251,7 +251,7 @@
 .end method
 
 .method private getVisibleChipCount()I
-    .locals 3
+    .registers 4
 
     .line 358
     const/4 v0, 0x0
@@ -261,12 +261,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Lcom/google/android/material/chip/ChipGroup;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1b
 
     .line 360
     invoke-virtual {p0, v1}, Lcom/google/android/material/chip/ChipGroup;->getChildAt(I)Landroid/view/View;
@@ -275,31 +275,31 @@
 
     instance-of v2, v2, Lcom/google/android/material/chip/Chip;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     invoke-direct {p0, v1}, Lcom/google/android/material/chip/ChipGroup;->isChildVisible(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 361
     add-int/lit8 v0, v0, 0x1
 
     .line 359
-    :cond_0
+    :cond_18
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 364
     .end local v1    # "i":I
-    :cond_1
+    :cond_1b
     return v0
 .end method
 
 .method private isChildVisible(I)Z
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 391
@@ -311,23 +311,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 
 # virtual methods
 .method public check(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 275
@@ -340,7 +340,7 @@
 .end method
 
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .locals 1
+    .registers 3
     .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 208
@@ -348,25 +348,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     instance-of v0, p1, Lcom/google/android/material/chip/ChipGroup$LayoutParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public clearCheck()V
-    .locals 1
+    .registers 2
 
     .line 318
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
@@ -378,7 +378,7 @@
 .end method
 
 .method protected generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .locals 2
+    .registers 3
 
     .line 203
     new-instance v0, Lcom/google/android/material/chip/ChipGroup$LayoutParams;
@@ -391,7 +391,7 @@
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 2
+    .registers 4
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 191
@@ -407,7 +407,7 @@
 .end method
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 1
+    .registers 3
     .param p1, "lp"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 197
@@ -419,7 +419,7 @@
 .end method
 
 .method public getCheckedChipId()I
-    .locals 1
+    .registers 2
 
     .line 290
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
@@ -432,7 +432,7 @@
 .end method
 
 .method public getCheckedChipIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -453,7 +453,7 @@
 .end method
 
 .method public getChipSpacingHorizontal()I
-    .locals 1
+    .registers 2
 
     .line 408
     iget v0, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingHorizontal:I
@@ -462,7 +462,7 @@
 .end method
 
 .method public getChipSpacingVertical()I
-    .locals 1
+    .registers 2
 
     .line 428
     iget v0, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingVertical:I
@@ -471,7 +471,7 @@
 .end method
 
 .method getIndexOfChip(Landroid/view/View;)I
-    .locals 5
+    .registers 7
     .param p1, "child"    # Landroid/view/View;
 
     .line 373
@@ -479,13 +479,13 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 374
     return v1
 
     .line 376
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 377
@@ -493,12 +493,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_8
     invoke-virtual {p0}, Lcom/google/android/material/chip/ChipGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_27
 
     .line 378
     invoke-virtual {p0, v2}, Lcom/google/android/material/chip/ChipGroup;->getChildAt(I)Landroid/view/View;
@@ -509,13 +509,13 @@
     .local v3, "current":Landroid/view/View;
     instance-of v4, v3, Lcom/google/android/material/chip/Chip;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_24
 
     invoke-direct {p0, v2}, Lcom/google/android/material/chip/ChipGroup;->isChildVisible(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_24
 
     .line 380
     move-object v4, v3
@@ -524,31 +524,31 @@
 
     .line 381
     .local v4, "chip":Lcom/google/android/material/chip/Chip;
-    if-ne v4, p1, :cond_1
+    if-ne v4, p1, :cond_22
 
     .line 382
     return v0
 
     .line 384
-    :cond_1
+    :cond_22
     add-int/lit8 v0, v0, 0x1
 
     .line 377
     .end local v3    # "current":Landroid/view/View;
     .end local v4    # "chip":Lcom/google/android/material/chip/Chip;
-    :cond_2
+    :cond_24
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 387
     .end local v2    # "i":I
-    :cond_3
+    :cond_27
     return v1
 .end method
 
 .method public isSelectionRequired()Z
-    .locals 1
+    .registers 2
 
     .line 505
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
@@ -561,7 +561,7 @@
 .end method
 
 .method public isSingleLine()Z
-    .locals 1
+    .registers 2
 
     .line 449
     invoke-super {p0}, Lcom/google/android/material/internal/FlowLayout;->isSingleLine()Z
@@ -572,7 +572,7 @@
 .end method
 
 .method public isSingleSelection()Z
-    .locals 1
+    .registers 2
 
     .line 466
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
@@ -585,7 +585,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 219
     invoke-super {p0}, Lcom/google/android/material/internal/FlowLayout;->onFinishInflate()V
@@ -595,7 +595,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_f
 
     .line 223
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->checkableGroup:Lcom/google/android/material/internal/CheckableGroup;
@@ -605,12 +605,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/CheckableGroup;->check(I)V
 
     .line 225
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 5
+    .registers 7
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 174
@@ -627,20 +627,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     invoke-direct {p0}, Lcom/google/android/material/chip/ChipGroup;->getVisibleChipCount()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, -0x1
 
     .line 178
     .local v1, "columnCount":I
-    :goto_0
+    :goto_13
     nop
 
     .line 180
@@ -653,19 +653,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
     .line 184
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 185
-    :cond_1
+    :cond_20
     const/4 v3, 0x2
 
     .line 179
-    :goto_1
+    :goto_21
     const/4 v4, 0x0
 
     invoke-static {v2, v1, v4, v3}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;->obtain(IIZI)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
@@ -680,7 +680,7 @@
 .end method
 
 .method public setChipSpacing(I)V
-    .locals 0
+    .registers 2
     .param p1, "chipSpacing"    # I
 
     .line 396
@@ -694,13 +694,13 @@
 .end method
 
 .method public setChipSpacingHorizontal(I)V
-    .locals 1
+    .registers 3
     .param p1, "chipSpacingHorizontal"    # I
 
     .line 413
     iget v0, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingHorizontal:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_c
 
     .line 414
     iput p1, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingHorizontal:I
@@ -712,12 +712,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/chip/ChipGroup;->requestLayout()V
 
     .line 418
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setChipSpacingHorizontalResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 422
@@ -736,7 +736,7 @@
 .end method
 
 .method public setChipSpacingResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 402
@@ -755,13 +755,13 @@
 .end method
 
 .method public setChipSpacingVertical(I)V
-    .locals 1
+    .registers 3
     .param p1, "chipSpacingVertical"    # I
 
     .line 433
     iget v0, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingVertical:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_c
 
     .line 434
     iput p1, p0, Lcom/google/android/material/chip/ChipGroup;->chipSpacingVertical:I
@@ -773,12 +773,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/chip/ChipGroup;->requestLayout()V
 
     .line 438
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setChipSpacingVerticalResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 442
@@ -797,7 +797,7 @@
 .end method
 
 .method public setDividerDrawableHorizontal(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "divider"    # Landroid/graphics/drawable/Drawable;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -813,7 +813,7 @@
 .end method
 
 .method public setDividerDrawableVertical(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "divider"    # Landroid/graphics/drawable/Drawable;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -829,7 +829,7 @@
 .end method
 
 .method public setFlexWrap(I)V
-    .locals 2
+    .registers 4
     .param p1, "flexWrap"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -845,13 +845,13 @@
 .end method
 
 .method public setOnCheckedChangeListener(Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 330
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 331
     const/4 v0, 0x0
@@ -862,7 +862,7 @@
     return-void
 
     .line 334
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/android/material/chip/ChipGroup$2;
 
     invoke-direct {v0, p0, p1}, Lcom/google/android/material/chip/ChipGroup$2;-><init>(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;)V
@@ -874,7 +874,7 @@
 .end method
 
 .method public setOnCheckedStateChangeListener(Lcom/google/android/material/chip/ChipGroup$OnCheckedStateChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/chip/ChipGroup$OnCheckedStateChangeListener;
 
     .line 354
@@ -885,12 +885,13 @@
 .end method
 
 .method public setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .line 214
     iget-object v0, p0, Lcom/google/android/material/chip/ChipGroup;->passThroughListener:Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;
 
+    # setter for: Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->onHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
     invoke-static {v0, p1}, Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;->access$302(Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .line 215
@@ -898,7 +899,7 @@
 .end method
 
 .method public setSelectionRequired(Z)V
-    .locals 1
+    .registers 3
     .param p1, "selectionRequired"    # Z
 
     .line 494
@@ -911,7 +912,7 @@
 .end method
 
 .method public setShowDividerHorizontal(I)V
-    .locals 2
+    .registers 4
     .param p1, "dividerMode"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -927,7 +928,7 @@
 .end method
 
 .method public setShowDividerVertical(I)V
-    .locals 2
+    .registers 4
     .param p1, "dividerMode"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -943,7 +944,7 @@
 .end method
 
 .method public setSingleLine(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 461
@@ -962,7 +963,7 @@
 .end method
 
 .method public setSingleLine(Z)V
-    .locals 0
+    .registers 2
     .param p1, "singleLine"    # Z
 
     .line 456
@@ -973,7 +974,7 @@
 .end method
 
 .method public setSingleSelection(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 484
@@ -992,7 +993,7 @@
 .end method
 
 .method public setSingleSelection(Z)V
-    .locals 1
+    .registers 3
     .param p1, "singleSelection"    # Z
 
     .line 475

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
 
     .line 417
     iput-object p1, p0, Lcom/google/common/base/Throwables$1;->val$t:Ljava/lang/Throwable;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 417
     invoke-virtual {p0, p1}, Lcom/google/common/base/Throwables$1;->get(I)Ljava/lang/StackTraceElement;
@@ -52,10 +52,11 @@
 .end method
 
 .method public get(I)Ljava/lang/StackTraceElement;
-    .locals 6
+    .registers 8
     .param p1, "n"    # I
 
     .line 426
+    # getter for: Lcom/google/common/base/Throwables;->getStackTraceElementMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$000()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -66,6 +67,7 @@
 
     check-cast v0, Ljava/lang/reflect/Method;
 
+    # getter for: Lcom/google/common/base/Throwables;->jla:Ljava/lang/Object;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$100()Ljava/lang/Object;
 
     move-result-object v1
@@ -93,6 +95,7 @@
     aput-object v3, v4, v2
 
     .line 425
+    # invokes: Lcom/google/common/base/Throwables;->invokeAccessibleNonThrowingMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, v1, v4}, Lcom/google/common/base/Throwables;->access$200(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -104,9 +107,10 @@
 .end method
 
 .method public size()I
-    .locals 5
+    .registers 6
 
     .line 433
+    # getter for: Lcom/google/common/base/Throwables;->getStackTraceDepthMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$300()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -117,6 +121,7 @@
 
     check-cast v0, Ljava/lang/reflect/Method;
 
+    # getter for: Lcom/google/common/base/Throwables;->jla:Ljava/lang/Object;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$100()Ljava/lang/Object;
 
     move-result-object v1
@@ -136,6 +141,7 @@
     aput-object v2, v3, v4
 
     .line 432
+    # invokes: Lcom/google/common/base/Throwables;->invokeAccessibleNonThrowingMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, v1, v3}, Lcom/google/common/base/Throwables;->access$200(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

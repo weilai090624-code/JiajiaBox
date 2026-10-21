@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/reflect/KTypeParameter;)V
-    .locals 1
+    .registers 3
     .param p1, "typeParameter"    # Lkotlin/reflect/KTypeParameter;
 
     const-string v0, "typeParameter"
@@ -95,13 +95,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 121
     instance-of v0, p1, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     invoke-virtual {p0}, Lkotlin/reflect/TypeVariableImpl;->getName()Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     invoke-virtual {p0}, Lkotlin/reflect/TypeVariableImpl;->getGenericDeclaration()Ljava/lang/reflect/GenericDeclaration;
 
@@ -137,21 +137,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_29
     return v0
 .end method
 
 .method public final getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .param p1, "annotationClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -174,7 +174,7 @@
 .end method
 
 .method public final getAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 134
     const/4 v0, 0x0
@@ -185,7 +185,7 @@
 .end method
 
 .method public getBounds()[Ljava/lang/reflect/Type;
-    .locals 10
+    .registers 11
 
     .line 116
     iget-object v0, p0, Lkotlin/reflect/TypeVariableImpl;->typeParameter:Lkotlin/reflect/KTypeParameter;
@@ -225,12 +225,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_33
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -249,6 +249,7 @@
     .local v8, "$i$a$-map-TypeVariableImpl$getBounds$1":I
     const/4 v9, 0x1
 
+    # invokes: Lkotlin/reflect/TypesJVMKt;->computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
     invoke-static {v7, v9}, Lkotlin/reflect/TypesJVMKt;->access$computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
 
     move-result-object v7
@@ -258,11 +259,11 @@
     .end local v8    # "$i$a$-map-TypeVariableImpl$getBounds$1":I
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 234
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_33
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -307,7 +308,7 @@
 .end method
 
 .method public final getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 137
     const/4 v0, 0x0
@@ -318,7 +319,7 @@
 .end method
 
 .method public getGenericDeclaration()Ljava/lang/reflect/GenericDeclaration;
-    .locals 4
+    .registers 5
 
     .line 114
     new-instance v0, Ljava/lang/StringBuilder;
@@ -367,7 +368,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lkotlin/reflect/TypeVariableImpl;->typeParameter:Lkotlin/reflect/KTypeParameter;
@@ -380,7 +381,7 @@
 .end method
 
 .method public getTypeName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 118
     invoke-virtual {p0}, Lkotlin/reflect/TypeVariableImpl;->getName()Ljava/lang/String;
@@ -391,7 +392,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 124
     invoke-virtual {p0}, Lkotlin/reflect/TypeVariableImpl;->getName()Ljava/lang/String;
@@ -416,7 +417,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 126
     invoke-virtual {p0}, Lkotlin/reflect/TypeVariableImpl;->getTypeName()Ljava/lang/String;

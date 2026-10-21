@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ActorScope;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ActorScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
 
     move-object/from16 v0, p0
 
@@ -196,7 +196,7 @@
     .line 34
     iget v2, v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$networkActor$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_1e6
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$networkActor$1;
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -208,7 +208,7 @@
     throw v1
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$networkActor$1;
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v2, p1
 
     .local v2, "$result":Ljava/lang/Object;
@@ -245,13 +245,13 @@
 
     move-object v3, v2
 
-    goto :goto_1
+    goto :goto_77
 
     .end local v2    # "$result":Ljava/lang/Object;
     .end local v4    # "pendingRequests":Ljava/util/ArrayList;
     .end local v5    # "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v6    # "listeners":Ljava/util/Map;
-    :pswitch_1
+    :pswitch_2f
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -306,7 +306,7 @@
     .local v4, "pendingRequests":Ljava/util/ArrayList;
     .local v6, "listeners":Ljava/util/Map;
     .local v7, "this":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$networkActor$1;
-    :goto_0
+    :goto_58
     move-object v8, v7
 
     check-cast v8, Lkotlin/coroutines/Continuation;
@@ -327,13 +327,13 @@
 
     move-result-object v8
 
-    if-ne v8, v1, :cond_0
+    if-ne v8, v1, :cond_6d
 
     .line 34
     return-object v1
 
     .line 38
-    :cond_0
+    :cond_6d
     move-object/from16 v16, v3
 
     move-object v3, v2
@@ -357,14 +357,14 @@
     .local v6, "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v7, "listeners":Ljava/util/Map;
     .local v8, "this":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$networkActor$1;
-    :goto_1
+    :goto_77
     check-cast v2, Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_1e3
 
     invoke-interface {v4}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -376,21 +376,22 @@
     .local v2, "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Start;
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_b7
 
     .line 40
     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_94
 
     sget-object v9, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->INSTANCE:Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;
 
+    # invokes: Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->register()V
     invoke-static {v9}, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->access$register(Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;)V
 
     .line 41
-    :cond_1
+    :cond_94
     move-object v9, v2
 
     check-cast v9, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Start;
@@ -412,7 +413,7 @@
     .line 42
     iget-object v9, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1d5
 
     move-object v9, v2
 
@@ -426,25 +427,25 @@
 
     invoke-interface {v9, v10}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_6
+    goto/16 :goto_1d5
 
     .line 44
-    :cond_2
+    :cond_b7
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_ed
 
     .line 45
     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_df
 
     .line 46
     iget-object v9, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_cd
 
     move-object v9, v5
 
@@ -452,9 +453,9 @@
 
     invoke-interface {v9, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_6
+    goto/16 :goto_1d5
 
-    :cond_3
+    :cond_cd
     move-object v9, v2
 
     check-cast v9, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
@@ -474,13 +475,13 @@
 
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
-    goto/16 :goto_6
+    goto/16 :goto_1d5
 
     .line 156
     .end local v5    # "pendingRequests":Ljava/util/ArrayList;
     .end local v6    # "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v7    # "listeners":Ljava/util/Map;
-    :cond_4
+    :cond_df
     const/4 v1, 0x0
 
     .line 45
@@ -505,18 +506,18 @@
     .restart local v5    # "pendingRequests":Ljava/util/ArrayList;
     .restart local v6    # "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v7    # "listeners":Ljava/util/Map;
-    :cond_5
+    :cond_ed
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Stop;
 
     const/4 v10, 0x0
 
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_114
 
     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
 
     move-result v9
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_1d5
 
     .line 51
     move-object v9, v2
@@ -531,13 +532,13 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1d5
 
     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
 
     move-result v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1d5
 
     .line 53
     .end local v2    # "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
@@ -546,16 +547,17 @@
     .line 54
     sget-object v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->INSTANCE:Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;
 
+    # invokes: Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->unregister()V
     invoke-static {v2}, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->access$unregister(Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;)V
 
-    goto/16 :goto_6
+    goto/16 :goto_1d5
 
     .line 57
     .restart local v2    # "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
-    :cond_6
+    :cond_114
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Put;
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_16b
 
     .line 58
     move-object v9, v2
@@ -583,12 +585,12 @@
     move-result-object v11
 
     .end local v9    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :goto_2
+    :goto_129
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_146
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -622,11 +624,11 @@
     .end local v9    # "element$iv":Ljava/lang/Object;
     .end local v12    # "it":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
     .end local v13    # "$i$a$-forEach-DefaultNetworkListener$networkActor$1$2":I
-    goto :goto_2
+    goto :goto_129
 
     .line 158
     .end local v2    # "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
-    :cond_7
+    :cond_146
     nop
 
     .line 60
@@ -650,12 +652,12 @@
     move-result-object v10
 
     .end local v2    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :goto_3
+    :goto_155
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_169
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -679,21 +681,21 @@
     .end local v2    # "element$iv":Ljava/lang/Object;
     .end local v11    # "it":Lkotlin/jvm/functions/Function1;
     .end local v12    # "$i$a$-forEach-DefaultNetworkListener$networkActor$1$3":I
-    goto :goto_3
+    goto :goto_155
 
     .line 160
-    :cond_8
+    :cond_169
     nop
 
     .end local v9    # "$i$f$forEach":I
-    goto :goto_6
+    goto :goto_1d5
 
     .line 63
     .local v2, "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
-    :cond_9
+    :cond_16b
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Update;
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_1a2
 
     iget-object v9, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
@@ -709,7 +711,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1d5
 
     invoke-interface {v7}, Ljava/util/Map;->values()Ljava/util/Collection;
 
@@ -729,12 +731,12 @@
     move-result-object v10
 
     .end local v2    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :goto_4
+    :goto_18a
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_1a0
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -765,21 +767,21 @@
     .end local v2    # "element$iv":Ljava/lang/Object;
     .end local v11    # "it":Lkotlin/jvm/functions/Function1;
     .end local v12    # "$i$a$-forEach-DefaultNetworkListener$networkActor$1$4":I
-    goto :goto_4
+    goto :goto_18a
 
     .line 162
-    :cond_a
+    :cond_1a0
     nop
 
     .end local v9    # "$i$f$forEach":I
-    goto :goto_6
+    goto :goto_1d5
 
     .line 68
     .local v2, "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
-    :cond_b
+    :cond_1a2
     instance-of v9, v2, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Lost;
 
-    if-eqz v9, :cond_e
+    if-eqz v9, :cond_1dd
 
     iget-object v9, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
@@ -795,7 +797,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1d5
 
     .line 69
     .end local v2    # "message":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage;
@@ -818,12 +820,12 @@
     move-result-object v11
 
     .end local v2    # "$this$forEach$iv":Ljava/lang/Iterable;
-    :goto_5
+    :goto_1c2
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_1d4
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -845,16 +847,16 @@
     .end local v2    # "element$iv":Ljava/lang/Object;
     .end local v12    # "it":Lkotlin/jvm/functions/Function1;
     .end local v13    # "$i$a$-forEach-DefaultNetworkListener$networkActor$1$5":I
-    goto :goto_5
+    goto :goto_1c2
 
     .line 164
-    :cond_c
+    :cond_1d4
     nop
 
     .line 38
     .end local v9    # "$i$f$forEach":I
-    :cond_d
-    :goto_6
+    :cond_1d5
+    :goto_1d5
     move-object v2, v3
 
     move-object v3, v4
@@ -867,12 +869,12 @@
 
     move-object v7, v8
 
-    goto/16 :goto_0
+    goto/16 :goto_58
 
     .end local v5    # "pendingRequests":Ljava/util/ArrayList;
     .end local v6    # "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v7    # "listeners":Ljava/util/Map;
-    :cond_e
+    :cond_1dd
     new-instance v1, Lkotlin/NoWhenBranchMatchedException;
 
     invoke-direct {v1}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
@@ -883,14 +885,14 @@
     .restart local v5    # "pendingRequests":Ljava/util/ArrayList;
     .restart local v6    # "network":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v7    # "listeners":Ljava/util/Map;
-    :cond_f
+    :cond_1e3
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_1e6
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_13
     .end packed-switch
 .end method

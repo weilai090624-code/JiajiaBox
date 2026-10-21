@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;Z)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;
 
     .line 83
@@ -38,20 +38,21 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 86
     iget-boolean v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog$1;->val$isEnterAnimation:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 87
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog$1;->this$0:Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;
 
+    # invokes: Landroid/app/Dialog;->dismiss()V
     invoke-static {v0}, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;->access$001(Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;)V
 
     .line 89
-    :cond_0
+    :cond_9
     return-void
 .end method

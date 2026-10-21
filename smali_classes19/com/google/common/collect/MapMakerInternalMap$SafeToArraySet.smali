@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2812
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/MapMakerInternalMap$1;
 
     .line 2812
@@ -49,10 +49,11 @@
 
 # virtual methods
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2818
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
+    # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$900(Ljava/util/Collection;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -65,7 +66,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -77,6 +78,7 @@
     .line 2823
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
     .local p1, "a":[Ljava/lang/Object;, "[TT;"
+    # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$900(Ljava/util/Collection;)Ljava/util/ArrayList;
 
     move-result-object v0

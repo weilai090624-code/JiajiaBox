@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedMultiNetworkConnections;Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/common/graph/DirectedMultiNetworkConnections;
     .param p3, "targetNode"    # Ljava/lang/Object;
 
@@ -48,12 +48,13 @@
 
 # virtual methods
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 100
     .local p0, "this":Lcom/google/common/graph/DirectedMultiNetworkConnections$1;, "Lcom/google/common/graph/DirectedMultiNetworkConnections$1;"
     iget-object v0, p0, Lcom/google/common/graph/DirectedMultiNetworkConnections$1;->this$0:Lcom/google/common/graph/DirectedMultiNetworkConnections;
 
+    # invokes: Lcom/google/common/graph/DirectedMultiNetworkConnections;->successorsMultiset()Lcom/google/common/collect/Multiset;
     invoke-static {v0}, Lcom/google/common/graph/DirectedMultiNetworkConnections;->access$000(Lcom/google/common/graph/DirectedMultiNetworkConnections;)Lcom/google/common/collect/Multiset;
 
     move-result-object v0

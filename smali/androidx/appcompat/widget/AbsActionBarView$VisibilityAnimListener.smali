@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroidx/appcompat/widget/AbsActionBarView;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/widget/AbsActionBarView;
 
     .line 275
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 302
@@ -59,18 +59,18 @@
 .end method
 
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 294
     iget-boolean v0, p0, Landroidx/appcompat/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 296
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/appcompat/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroidx/appcompat/widget/AbsActionBarView;
 
     const/4 v1, 0x0
@@ -82,6 +82,7 @@
 
     iget v1, p0, Landroidx/appcompat/widget/AbsActionBarView$VisibilityAnimListener;->mFinalVisibility:I
 
+    # invokes: Landroid/view/ViewGroup;->setVisibility(I)V
     invoke-static {v0, v1}, Landroidx/appcompat/widget/AbsActionBarView;->access$101(Landroidx/appcompat/widget/AbsActionBarView;I)V
 
     .line 298
@@ -89,7 +90,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 288
@@ -97,6 +98,7 @@
 
     const/4 v1, 0x0
 
+    # invokes: Landroid/view/ViewGroup;->setVisibility(I)V
     invoke-static {v0, v1}, Landroidx/appcompat/widget/AbsActionBarView;->access$001(Landroidx/appcompat/widget/AbsActionBarView;I)V
 
     .line 289
@@ -107,7 +109,7 @@
 .end method
 
 .method public withFinalVisibility(Landroidx/core/view/ViewPropertyAnimatorCompat;I)Landroidx/appcompat/widget/AbsActionBarView$VisibilityAnimListener;
-    .locals 1
+    .registers 4
     .param p1, "animation"    # Landroidx/core/view/ViewPropertyAnimatorCompat;
     .param p2, "visibility"    # I
 

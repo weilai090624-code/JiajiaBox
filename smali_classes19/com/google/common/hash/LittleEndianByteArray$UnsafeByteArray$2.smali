@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 140
     const/4 v0, 0x0
@@ -29,17 +29,19 @@
 
 # virtual methods
 .method public getLongLittleEndian([BI)J
-    .locals 5
+    .registers 8
     .param p1, "array"    # [B
     .param p2, "offset"    # I
 
     .line 143
+    # getter for: Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->theUnsafe:Lsun/misc/Unsafe;
     invoke-static {}, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->access$200()Lsun/misc/Unsafe;
 
     move-result-object v0
 
     int-to-long v1, p2
 
+    # getter for: Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->BYTE_ARRAY_BASE_OFFSET:I
     invoke-static {}, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->access$100()I
 
     move-result v3
@@ -62,7 +64,7 @@
 .end method
 
 .method public putLongLittleEndian([BIJ)V
-    .locals 8
+    .registers 13
     .param p1, "array"    # [B
     .param p2, "offset"    # I
     .param p3, "value"    # J
@@ -74,12 +76,14 @@
 
     .line 152
     .local v6, "littleEndianValue":J
+    # getter for: Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->theUnsafe:Lsun/misc/Unsafe;
     invoke-static {}, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->access$200()Lsun/misc/Unsafe;
 
     move-result-object v0
 
     int-to-long v1, p2
 
+    # getter for: Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->BYTE_ARRAY_BASE_OFFSET:I
     invoke-static {}, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->access$100()I
 
     move-result v3

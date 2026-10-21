@@ -33,3 +33,7 @@ local.properties
 verify-apk/
 unsigned.apk
 aligned.apk
+
+# Python release tooling bytecode
+__pycache__/
+*.pyc

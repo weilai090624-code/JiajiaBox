@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Lkotlin/Lazy;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,37 +92,38 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 2
+    .registers 3
 
     .line 121
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$8;->$owner$delegate:Lkotlin/Lazy;
 
+    # invokes: Landroidx/fragment/app/FragmentViewModelLazyKt;->viewModels$lambda-1(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
     invoke-static {v0}, Landroidx/fragment/app/FragmentViewModelLazyKt;->access$viewModels$lambda-1(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
 
     move-result-object v0
 
     instance-of v1, v0, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     check-cast v0, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_16
 
     invoke-interface {v0}, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;->getDefaultViewModelProviderFactory()Landroidx/lifecycle/ViewModelProvider$Factory;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1c
 
     .line 122
-    :cond_1
+    :cond_16
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$8;->$this_viewModels:Landroidx/fragment/app/Fragment;
 
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getDefaultViewModelProviderFactory()Landroidx/lifecycle/ViewModelProvider$Factory;
@@ -130,7 +131,7 @@
     move-result-object v0
 
     .line 121
-    :cond_2
+    :cond_1c
     const-string v1, "(owner as? HasDefaultVie\u2026tViewModelProviderFactory"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -139,7 +140,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 112
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$8;->invoke()Landroidx/lifecycle/ViewModelProvider$Factory;

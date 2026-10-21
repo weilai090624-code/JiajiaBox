@@ -15,7 +15,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 7
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,7 +24,7 @@
 .method public static accent(Landroid/content/Context;)I
     .registers 1
 
-    .line 15
+    .line 29
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -44,7 +44,7 @@
 .method public static border(Landroid/content/Context;)I
     .registers 1
 
-    .line 12
+    .line 26
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -64,14 +64,14 @@
 .method public static control(Landroid/content/Context;)I
     .registers 1
 
-    .line 11
+    .line 25
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
 
     if-eqz p0, :cond_a
 
-    const p0, -0xd6d5d0
+    const p0, -0xcfcec9
 
     return p0
 
@@ -84,7 +84,7 @@
 .method public static dark(Landroid/content/Context;)Z
     .registers 2
 
-    .line 8
+    .line 22
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJGlassToolbar;->matteTextColor(Landroid/content/Context;)I
 
     move-result p0
@@ -106,7 +106,7 @@
 .method public static inset(Landroid/content/Context;)I
     .registers 1
 
-    .line 18
+    .line 32
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -126,7 +126,7 @@
 .method public static ripple(Landroid/content/Context;)I
     .registers 1
 
-    .line 14
+    .line 28
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -146,19 +146,19 @@
 .method public static secondary(Landroid/content/Context;)I
     .registers 1
 
-    .line 13
+    .line 27
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
 
     if-eqz p0, :cond_a
 
-    const p0, -0x555950
+    const p0, -0x4f534b
 
     return p0
 
     :cond_a
-    const p0, -0x7e837b
+    const p0, -0x878c83
 
     return p0
 .end method
@@ -166,7 +166,7 @@
 .method public static selected(Landroid/content/Context;)I
     .registers 1
 
-    .line 16
+    .line 30
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -186,7 +186,7 @@
 .method public static selectedBorder(Landroid/content/Context;)I
     .registers 1
 
-    .line 17
+    .line 31
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->dark(Landroid/content/Context;)Z
 
     move-result p0
@@ -206,7 +206,7 @@
 .method public static surface(Landroid/content/Context;)I
     .registers 1
 
-    .line 10
+    .line 24
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJGlassToolbar;->matteColor(Landroid/content/Context;)I
 
     move-result p0
@@ -217,7 +217,7 @@
 .method public static text(Landroid/content/Context;)I
     .registers 1
 
-    .line 9
+    .line 23
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJGlassToolbar;->matteTextColor(Landroid/content/Context;)I
 
     move-result p0
@@ -228,12 +228,12 @@
 .method public static textStates(Landroid/content/Context;)Landroid/content/res/ColorStateList;
     .registers 6
 
-    .line 21
+    .line 35
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ThemePalette;->text(Landroid/content/Context;)I
 
     move-result p0
 
-    .line 22
+    .line 36
     new-instance v0, Landroid/content/res/ColorStateList;
 
     const/4 v1, 0x0

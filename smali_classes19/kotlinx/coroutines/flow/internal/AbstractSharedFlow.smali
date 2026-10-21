@@ -88,7 +88,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,7 +97,7 @@
 .end method
 
 .method public static final synthetic access$getNCollectors(Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;
 
     .line 21
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final synthetic access$getSlots(Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;)[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;
 
     .line 21
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method protected final allocateSlot()Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"
@@ -148,14 +148,14 @@
 
     .line 46
     .local v3, "$i$a$-synchronized-AbstractSharedFlow$allocateSlot$slot$1":I
-    :try_start_0
+    :try_start_6
     iget-object v4, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->slots:[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
 
     .line 47
     .local v4, "curSlots":[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
     const/4 v5, 0x2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_15
 
     invoke-virtual {p0, v5}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->createSlotArray(I)[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
 
@@ -175,15 +175,15 @@
 
     .end local v6    # "it":[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
     .end local v7    # "$i$a$-also-AbstractSharedFlow$allocateSlot$slot$1$slots$1":I
-    goto :goto_0
+    goto :goto_31
 
     .line 48
-    :cond_0
+    :cond_15
     iget v6, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nCollectors:I
 
     array-length v7, v4
 
-    if-lt v6, v7, :cond_1
+    if-lt v6, v7, :cond_30
 
     .line 49
     array-length v6, v4
@@ -216,15 +216,15 @@
 
     move-object v4, v5
 
-    goto :goto_0
+    goto :goto_31
 
     .line 51
-    :cond_1
+    :cond_30
     nop
 
     .line 46
     .end local v4    # "curSlots":[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    :goto_0
+    :goto_31
     nop
 
     .line 54
@@ -240,13 +240,13 @@
 
     .line 56
     .local v6, "slot":Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    :cond_2
+    :cond_37
     nop
 
     .line 57
     aget-object v7, v4, v5
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_44
 
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->createSlot()Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
 
@@ -264,7 +264,7 @@
 
     .end local v8    # "it":Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
     .end local v9    # "$i$a$-also-AbstractSharedFlow$allocateSlot$slot$1$1":I
-    :cond_3
+    :cond_44
     move-object v6, v7
 
     .line 58
@@ -273,12 +273,12 @@
     .line 59
     array-length v7, v4
 
-    if-lt v5, v7, :cond_4
+    if-lt v5, v7, :cond_4b
 
     const/4 v5, 0x0
 
     .line 60
-    :cond_4
+    :cond_4b
     const-string v7, "null cannot be cast to non-null type kotlinx.coroutines.flow.internal.AbstractSharedFlowSlot<kotlin.Any>"
 
     invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -287,7 +287,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_37
 
     .line 62
     iput v5, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nextIndex:I
@@ -303,8 +303,8 @@
 
     .line 64
     iget-object v7, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->_subscriptionCount:Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_60
+    .catchall {:try_start_6 .. :try_end_60} :catchall_6b
 
     move-object v0, v7
 
@@ -328,18 +328,18 @@
 
     .line 68
     .local v1, "slot":Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6a
 
     invoke-virtual {v0, v8}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->increment(I)Z
 
     .line 69
-    :cond_5
+    :cond_6a
     return-object v1
 
     .line 142
     .local v1, "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_6b
     move-exception v3
 
     monitor-exit p0
@@ -364,7 +364,7 @@
 .end method
 
 .method protected final forEachSlotLocked(Lkotlin/jvm/functions/Function1;)V
-    .locals 8
+    .registers 10
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -380,21 +380,23 @@
 
     .line 94
     .local v0, "$i$f$forEachSlotLocked":I
+    # getter for: Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nCollectors:I
     invoke-static {p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->access$getNCollectors(Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;)I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
     return-void
 
     .line 95
-    :cond_0
+    :cond_8
+    # getter for: Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->slots:[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
     invoke-static {p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->access$getSlots(Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;)[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_22
 
     .local v1, "$this$forEach$iv":[Ljava/lang/Object;
     const/4 v2, 0x0
@@ -405,8 +407,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_2
+    :goto_11
+    if-ge v4, v3, :cond_21
 
     aget-object v5, v1, v4
 
@@ -418,12 +420,12 @@
 
     .line 96
     .local v7, "$i$a$-forEach-AbstractSharedFlow$forEachSlotLocked$1":I
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_1c
 
     invoke-interface {p1, v6}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 97
-    :cond_1
+    :cond_1c
     nop
 
     .line 149
@@ -434,21 +436,21 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 150
-    :cond_2
+    :cond_21
     nop
 
     .line 98
     .end local v1    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v2    # "$i$f$forEach":I
-    :cond_3
+    :cond_22
     return-void
 .end method
 
 .method protected final freeSlot(Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;)V
-    .locals 7
+    .registers 9
     .param p1, "slot"    # Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -478,7 +480,7 @@
 
     .line 77
     .local v3, "$i$a$-synchronized-AbstractSharedFlow$freeSlot$resumes$1":I
-    :try_start_0
+    :try_start_6
     iget v4, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nCollectors:I
 
     const/4 v5, -0x1
@@ -497,12 +499,12 @@
 
     const/4 v6, 0x0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_16
 
     iput v6, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nextIndex:I
 
     .line 81
-    :cond_0
+    :cond_16
     const-string v4, "null cannot be cast to non-null type kotlinx.coroutines.flow.internal.AbstractSharedFlowSlot<kotlin.Any>"
 
     invoke-static {p1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -510,8 +512,8 @@
     invoke-virtual {p1, p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;->freeLocked(Ljava/lang/Object;)[Lkotlin/coroutines/Continuation;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_6 .. :try_end_1f} :catchall_3d
 
     .line 148
     .end local v3    # "$i$a$-synchronized-AbstractSharedFlow$freeSlot$resumes$1":I
@@ -529,13 +531,13 @@
     .local v1, "resumes":[Lkotlin/coroutines/Continuation;
     array-length v2, v1
 
-    :goto_0
-    if-ge v6, v2, :cond_2
+    :goto_23
+    if-ge v6, v2, :cond_37
 
     aget-object v3, v1, v6
 
     .local v3, "cont":Lkotlin/coroutines/Continuation;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_34
 
     sget-object v4, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
@@ -548,25 +550,25 @@
     invoke-interface {v3, v4}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .end local v3    # "cont":Lkotlin/coroutines/Continuation;
-    :cond_1
+    :cond_34
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 90
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_37
+    if-eqz v0, :cond_3c
 
     invoke-virtual {v0, v5}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->increment(I)Z
 
     .line 91
-    :cond_3
+    :cond_3c
     return-void
 
     .line 148
     .local v1, "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_3d
     move-exception v3
 
     monitor-exit p0
@@ -575,7 +577,7 @@
 .end method
 
 .method protected final getNCollectors()I
-    .locals 1
+    .registers 2
 
     .line 24
     iget v0, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->nCollectors:I
@@ -584,7 +586,7 @@
 .end method
 
 .method protected final getSlots()[Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[TS;"
@@ -598,7 +600,7 @@
 .end method
 
 .method public final getSubscriptionCount()Lkotlinx/coroutines/flow/StateFlow;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -626,10 +628,10 @@
 
     .line 32
     .local v2, "$i$a$-synchronized-AbstractSharedFlow$subscriptionCount$1":I
-    :try_start_0
+    :try_start_5
     iget-object v3, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->_subscriptionCount:Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     new-instance v3, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;
 
@@ -645,8 +647,8 @@
     .line 33
     .local v5, "$i$a$-also-AbstractSharedFlow$subscriptionCount$1$1":I
     iput-object v4, p0, Lkotlinx/coroutines/flow/internal/AbstractSharedFlow;->_subscriptionCount:Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_5 .. :try_end_14} :catchall_1b
 
     .line 34
     nop
@@ -654,7 +656,7 @@
     .line 32
     .end local v4    # "it":Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;
     .end local v5    # "$i$a$-also-AbstractSharedFlow$subscriptionCount$1$1":I
-    :cond_0
+    :cond_15
     nop
 
     .line 137
@@ -674,7 +676,7 @@
     .line 137
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_1b
     move-exception v2
 
     monitor-exit p0

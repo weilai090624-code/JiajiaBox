@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Lcom/google/common/util/concurrent/Futures$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/Futures$1;
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method protected afterDone()V
-    .locals 1
+    .registers 2
 
     .line 947
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$InCompletionOrderFuture;, "Lcom/google/common/util/concurrent/Futures$InCompletionOrderFuture<TT;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 2
+    .registers 4
     .param p1, "interruptIfRunning"    # Z
 
     .line 929
@@ -102,7 +102,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 939
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -111,6 +111,7 @@
 
     check-cast v1, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
 
+    # invokes: Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->recordOutputCancellation(Z)V
     invoke-static {v1, p1}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->access$400(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Z)V
 
     .line 940
@@ -119,14 +120,14 @@
     return v1
 
     .line 942
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -136,12 +137,13 @@
 
     .line 954
     .local v0, "localState":Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;, "Lcom/google/common/util/concurrent/Futures$InCompletionOrderState<TT;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 957
     nop
 
     .line 958
+    # getter for: Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->inputFutures:[Lcom/google/common/util/concurrent/ListenableFuture;
     invoke-static {v0}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->access$500(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;)[Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v1
@@ -149,6 +151,7 @@
     array-length v1, v1
 
     .line 960
+    # getter for: Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->incompleteOutputCount:Ljava/util/concurrent/atomic/AtomicInteger;
     invoke-static {v0}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->access$600(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;)Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-result-object v2
@@ -197,7 +200,7 @@
     return-object v1
 
     .line 963
-    :cond_0
+    :cond_38
     const/4 v1, 0x0
 
     return-object v1

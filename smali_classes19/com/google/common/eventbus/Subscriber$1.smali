@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/eventbus/Subscriber;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/eventbus/Subscriber;
 
     .line 69
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 73
     :try_start_0
@@ -50,20 +50,21 @@
     iget-object v1, p0, Lcom/google/common/eventbus/Subscriber$1;->val$event:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Lcom/google/common/eventbus/Subscriber;->invokeSubscriberMethod(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 76
-    goto :goto_0
+    goto :goto_1e
 
     .line 74
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 75
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     iget-object v1, p0, Lcom/google/common/eventbus/Subscriber$1;->this$0:Lcom/google/common/eventbus/Subscriber;
 
+    # getter for: Lcom/google/common/eventbus/Subscriber;->bus:Lcom/google/common/eventbus/EventBus;
     invoke-static {v1}, Lcom/google/common/eventbus/Subscriber;->access$200(Lcom/google/common/eventbus/Subscriber;)Lcom/google/common/eventbus/EventBus;
 
     move-result-object v1
@@ -76,6 +77,7 @@
 
     iget-object v4, p0, Lcom/google/common/eventbus/Subscriber$1;->val$event:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/eventbus/Subscriber;->context(Ljava/lang/Object;)Lcom/google/common/eventbus/SubscriberExceptionContext;
     invoke-static {v3, v4}, Lcom/google/common/eventbus/Subscriber;->access$100(Lcom/google/common/eventbus/Subscriber;Ljava/lang/Object;)Lcom/google/common/eventbus/SubscriberExceptionContext;
 
     move-result-object v3
@@ -84,6 +86,6 @@
 
     .line 77
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :goto_0
+    :goto_1e
     return-void
 .end method

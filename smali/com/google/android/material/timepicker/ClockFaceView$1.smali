@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/ClockFaceView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 139
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 3
+    .registers 4
 
     .line 142
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView$1;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
@@ -48,13 +48,13 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 143
     return v1
 
     .line 145
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView$1;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
     invoke-virtual {v0}, Lcom/google/android/material/timepicker/ClockFaceView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -75,6 +75,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/timepicker/ClockFaceView$1;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
     invoke-static {v2}, Lcom/google/android/material/timepicker/ClockFaceView;->access$000(Lcom/google/android/material/timepicker/ClockFaceView;)Lcom/google/android/material/timepicker/ClockHandView;
 
     move-result-object v2
@@ -87,6 +88,7 @@
 
     iget-object v2, p0, Lcom/google/android/material/timepicker/ClockFaceView$1;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->clockHandPadding:I
     invoke-static {v2}, Lcom/google/android/material/timepicker/ClockFaceView;->access$100(Lcom/google/android/material/timepicker/ClockFaceView;)I
 
     move-result v2

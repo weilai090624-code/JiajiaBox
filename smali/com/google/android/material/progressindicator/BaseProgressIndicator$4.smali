@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
     .line 824
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 827
@@ -45,17 +45,19 @@
     .line 828
     iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator$4;->this$0:Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
+    # getter for: Lcom/google/android/material/progressindicator/BaseProgressIndicator;->isIndeterminateModeChangeRequested:Z
     invoke-static {v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->access$500(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 831
     iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator$4;->this$0:Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator$4;->this$0:Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
+    # getter for: Lcom/google/android/material/progressindicator/BaseProgressIndicator;->visibilityAfterHide:I
     invoke-static {v1}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->access$600(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)I
 
     move-result v1
@@ -63,6 +65,6 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setVisibility(I)V
 
     .line 833
-    :cond_0
+    :cond_16
     return-void
 .end method

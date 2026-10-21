@@ -95,12 +95,14 @@ func (c connectionObject) MarshalJSON() ([]byte, error) {
 			"dnsMode":         "normal",
 			"processPath":     processPath,
 		},
-		"upload":      c.Upload.Load(),
-		"download":    c.Download.Load(),
-		"start":       c.CreatedAt,
-		"chains":      c.Chain,
-		"rule":        rule,
-		"rulePayload": "",
+		"outbound":     c.Outbound,
+		"outboundType": c.OutboundType,
+		"upload":       c.Upload.Load(),
+		"download":     c.Download.Load(),
+		"start":        c.CreatedAt,
+		"chains":       c.Chain,
+		"rule":         rule,
+		"rulePayload":  "",
 	})
 }
 

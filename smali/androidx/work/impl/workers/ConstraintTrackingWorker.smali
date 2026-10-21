@@ -80,7 +80,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$cQluYHv1TgTYRrAPe2WobJRHReE(Landroidx/work/impl/workers/ConstraintTrackingWorker;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->startWork$lambda$0(Landroidx/work/impl/workers/ConstraintTrackingWorker;)V
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$cyhcYp1op_zqRfF74fmJMmu51Mk(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setupAndRunConstraintTrackingWork$lambda$2(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 1
+    .registers 4
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerParameters"    # Landroidx/work/WorkerParameters;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method private final setupAndRunConstraintTrackingWork()V
-    .locals 10
+    .registers 11
 
     .line 66
     iget-object v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -142,12 +142,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-void
 
     .line 68
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getInputData()Landroidx/work/Data;
 
     move-result-object v0
@@ -174,29 +174,30 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2a
 
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_28
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_28
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     const/4 v2, 0x1
 
-    :goto_1
-    if-eqz v2, :cond_3
+    :goto_2b
+    if-eqz v2, :cond_41
 
     .line 71
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -212,13 +213,14 @@
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v2}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
     .line 73
     return-void
 
     .line 75
-    :cond_3
+    :cond_41
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getWorkerFactory()Landroidx/work/WorkerFactory;
 
     move-result-object v2
@@ -240,9 +242,10 @@
     .line 78
     iget-object v2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->delegate:Landroidx/work/ListenableWorker;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_69
 
     .line 79
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -258,13 +261,14 @@
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v2}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
     .line 81
     return-void
 
     .line 84
-    :cond_4
+    :cond_69
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
@@ -305,7 +309,7 @@
 
     .line 87
     .local v3, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-nez v3, :cond_5
+    if-nez v3, :cond_9c
 
     .line 88
     iget-object v4, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -314,13 +318,14 @@
 
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v4}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
     .line 89
     return-void
 
     .line 91
-    :cond_5
+    :cond_9c
     new-instance v4, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;
 
     invoke-virtual {v2}, Landroidx/work/impl/WorkManagerImpl;->getTrackers()Landroidx/work/impl/constraints/trackers/Trackers;
@@ -364,9 +369,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_14f
 
     .line 96
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v5
@@ -395,7 +401,7 @@
     nop
 
     .line 102
-    :try_start_0
+    :try_start_e5
     iget-object v5, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->delegate:Landroidx/work/ListenableWorker;
 
     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -421,14 +427,14 @@
 
     .line 103
     invoke-interface {v5, v6, v7}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_ff
+    .catchall {:try_start_e5 .. :try_end_ff} :catchall_101
 
     .end local v5    # "innerFuture":Lcom/google/common/util/concurrent/ListenableFuture;
-    goto/16 :goto_3
+    goto/16 :goto_17a
 
     .line 112
-    :catchall_0
+    :catchall_101
     move-exception v5
 
     .line 113
@@ -436,6 +442,7 @@
     nop
 
     .line 114
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v6
@@ -476,12 +483,13 @@
 
     .line 117
     .local v7, "$i$a$-synchronized-ConstraintTrackingWorker$setupAndRunConstraintTrackingWork$2":I
-    :try_start_1
+    :try_start_127
     iget-boolean v8, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->areConstraintsUnmet:Z
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_13f
 
     .line 118
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v8
@@ -497,33 +505,35 @@
 
     invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v8}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
-    goto :goto_2
+    goto :goto_149
 
     .line 121
-    :cond_6
+    :cond_13f
     iget-object v8, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     const-string v9, "future"
 
     invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v8}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setFailed(Landroidx/work/impl/utils/futures/SettableFuture;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_149
+    .catchall {:try_start_127 .. :try_end_149} :catchall_14c
 
     .line 117
-    :goto_2
+    :goto_149
     nop
 
     .line 116
     .end local v7    # "$i$a$-synchronized-ConstraintTrackingWorker$setupAndRunConstraintTrackingWork$2":I
     monitor-exit v6
 
-    goto :goto_3
+    goto :goto_17a
 
-    :catchall_1
+    :catchall_14c
     move-exception v7
 
     monitor-exit v6
@@ -532,10 +542,11 @@
 
     .line 126
     .end local v5    # "exception":Ljava/lang/Throwable;
-    :cond_7
+    :cond_14f
     nop
 
     .line 127
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v5
@@ -574,15 +585,16 @@
 
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v5}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
     .line 131
-    :goto_3
+    :goto_17a
     return-void
 .end method
 
 .method private static final setupAndRunConstraintTrackingWork$lambda$2(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 4
+    .registers 6
     .param p0, "this$0"    # Landroidx/work/impl/workers/ConstraintTrackingWorker;
     .param p1, "$innerFuture"    # Lcom/google/common/util/concurrent/ListenableFuture;
 
@@ -603,10 +615,10 @@
 
     .line 105
     .local v1, "$i$a$-synchronized-ConstraintTrackingWorker$setupAndRunConstraintTrackingWork$1$1":I
-    :try_start_0
+    :try_start_f
     iget-boolean v2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->areConstraintsUnmet:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 106
     iget-object v2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -615,24 +627,25 @@
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
     invoke-static {v2}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$setRetry(Landroidx/work/impl/utils/futures/SettableFuture;)Z
 
-    goto :goto_0
+    goto :goto_23
 
     .line 108
-    :cond_0
+    :cond_1e
     iget-object v2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v2, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
     .line 110
-    :goto_0
+    :goto_23
     nop
 
     .end local v1    # "$i$a$-synchronized-ConstraintTrackingWorker$setupAndRunConstraintTrackingWork$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_f .. :try_end_26} :catchall_28
 
     .line 104
     monitor-exit v0
@@ -641,7 +654,7 @@
     return-void
 
     .line 104
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit v0
@@ -650,7 +663,7 @@
 .end method
 
 .method private static final startWork$lambda$0(Landroidx/work/impl/workers/ConstraintTrackingWorker;)V
-    .locals 1
+    .registers 2
     .param p0, "this$0"    # Landroidx/work/impl/workers/ConstraintTrackingWorker;
 
     const-string/jumbo v0, "this$0"
@@ -666,7 +679,7 @@
 
 # virtual methods
 .method public final getDelegate()Landroidx/work/ListenableWorker;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->delegate:Landroidx/work/ListenableWorker;
@@ -675,7 +688,7 @@
 .end method
 
 .method public onAllConstraintsMet(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "workSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -695,7 +708,7 @@
 .end method
 
 .method public onAllConstraintsNotMet(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -715,6 +728,7 @@
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/workers/ConstraintTrackingWorkerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1
@@ -751,13 +765,13 @@
     .local v1, "$i$a$-synchronized-ConstraintTrackingWorker$onAllConstraintsNotMet$1":I
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_29
     iput-boolean v2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->areConstraintsUnmet:Z
 
     .end local v1    # "$i$a$-synchronized-ConstraintTrackingWorker$onAllConstraintsNotMet$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_29 .. :try_end_2d} :catchall_2f
 
     monitor-exit v0
 
@@ -765,7 +779,7 @@
     return-void
 
     .line 150
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
@@ -774,7 +788,7 @@
 .end method
 
 .method public onStopped()V
-    .locals 2
+    .registers 3
 
     .line 134
     invoke-super {p0}, Landroidx/work/ListenableWorker;->onStopped()V
@@ -784,24 +798,24 @@
 
     .line 136
     .local v0, "delegateInner":Landroidx/work/ListenableWorker;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->isStopped()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 138
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->stop()V
 
     .line 140
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public startWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

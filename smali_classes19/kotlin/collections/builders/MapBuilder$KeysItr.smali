@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/builders/MapBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "map"    # Lkotlin/collections/builders/MapBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -103,11 +103,12 @@
 
     move-result-object v1
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2f
 
     .line 538
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$KeysItr;->getIndex$kotlin_stdlib()I
@@ -125,6 +126,7 @@
 
     move-result-object v0
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->keysArray:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getKeysArray$p(Lkotlin/collections/builders/MapBuilder;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -144,7 +146,7 @@
 
     .line 537
     .end local v0    # "result":Ljava/lang/Object;
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

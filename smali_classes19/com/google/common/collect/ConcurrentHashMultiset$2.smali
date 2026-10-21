@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ConcurrentHashMultiset;
 
     .line 508
@@ -53,6 +53,7 @@
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$2;->this$0:Lcom/google/common/collect/ConcurrentHashMultiset;
 
     .line 510
+    # getter for: Lcom/google/common/collect/ConcurrentHashMultiset;->countMap:Ljava/util/concurrent/ConcurrentMap;
     invoke-static {v0}, Lcom/google/common/collect/ConcurrentHashMultiset;->access$100(Lcom/google/common/collect/ConcurrentHashMultiset;)Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -74,7 +75,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/collect/Multiset$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,14 +91,14 @@
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$2;, "Lcom/google/common/collect/ConcurrentHashMultiset$2;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$2;->mapEntries:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 517
     invoke-virtual {p0}, Lcom/google/common/collect/ConcurrentHashMultiset$2;->endOfData()Ljava/lang/Object;
@@ -109,7 +110,7 @@
     return-object v0
 
     .line 519
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$2;->mapEntries:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -132,7 +133,7 @@
 
     .line 521
     .local v1, "count":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
     .line 522
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -148,12 +149,12 @@
     .line 524
     .end local v0    # "mapEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;Ljava/util/concurrent/atomic/AtomicInteger;>;"
     .end local v1    # "count":I
-    :cond_1
-    goto :goto_0
+    :cond_2d
+    goto :goto_1
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

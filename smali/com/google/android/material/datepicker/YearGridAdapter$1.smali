@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/YearGridAdapter;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/YearGridAdapter;
 
     .line 80
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
 
     .line 83
@@ -49,6 +49,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/YearGridAdapter$1;->this$0:Lcom/google/android/material/datepicker/YearGridAdapter;
 
+    # getter for: Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
     invoke-static {v1}, Lcom/google/android/material/datepicker/YearGridAdapter;->access$000(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;
 
     move-result-object v1
@@ -67,6 +68,7 @@
     .local v0, "current":Lcom/google/android/material/datepicker/Month;
     iget-object v1, p0, Lcom/google/android/material/datepicker/YearGridAdapter$1;->this$0:Lcom/google/android/material/datepicker/YearGridAdapter;
 
+    # getter for: Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
     invoke-static {v1}, Lcom/google/android/material/datepicker/YearGridAdapter;->access$000(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;
 
     move-result-object v1
@@ -85,6 +87,7 @@
     .local v2, "moveTo":Lcom/google/android/material/datepicker/Month;
     iget-object v3, p0, Lcom/google/android/material/datepicker/YearGridAdapter$1;->this$0:Lcom/google/android/material/datepicker/YearGridAdapter;
 
+    # getter for: Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
     invoke-static {v3}, Lcom/google/android/material/datepicker/YearGridAdapter;->access$000(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;
 
     move-result-object v3
@@ -94,6 +97,7 @@
     .line 87
     iget-object v3, p0, Lcom/google/android/material/datepicker/YearGridAdapter$1;->this$0:Lcom/google/android/material/datepicker/YearGridAdapter;
 
+    # getter for: Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
     invoke-static {v3}, Lcom/google/android/material/datepicker/YearGridAdapter;->access$000(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;
 
     move-result-object v3

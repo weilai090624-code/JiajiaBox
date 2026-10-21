@@ -6,14 +6,6 @@
 .implements Ljava/util/concurrent/ThreadFactory;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/ConnectionInspector;"
-    method = "lambda$static$0"
-    proto = "(Ljava/lang/Runnable;)Ljava/lang/Thread;"
-.end annotation
-
-
 # direct methods
 .method public synthetic constructor <init>()V
     .registers 1

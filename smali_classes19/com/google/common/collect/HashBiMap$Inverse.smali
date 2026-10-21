@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -94,6 +94,7 @@
     .line 1034
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$Inverse;->forward:Lcom/google/common/collect/HashBiMap;
 
+    # setter for: Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/BiMap;
     invoke-static {v0, p0}, Lcom/google/common/collect/HashBiMap;->access$302(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/BiMap;)Lcom/google/common/collect/BiMap;
 
     .line 1035
@@ -103,7 +104,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1010
     .local p0, "this":Lcom/google/common/collect/HashBiMap$Inverse;, "Lcom/google/common/collect/HashBiMap$Inverse<TK;TV;>;"
@@ -116,7 +117,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -134,7 +135,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -152,7 +153,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -168,7 +169,7 @@
 
     .line 1028
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TV;TK;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     new-instance v1, Lcom/google/common/collect/HashBiMap$InverseEntrySet;
 
@@ -178,17 +179,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/HashBiMap$Inverse;->inverseEntrySet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move-object v1, v0
 
-    :goto_0
+    :goto_f
     return-object v1
 .end method
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -222,7 +223,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -250,7 +251,7 @@
 .end method
 
 .method public inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -267,7 +268,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -288,7 +289,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -322,7 +323,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -350,7 +351,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 963
     .local p0, "this":Lcom/google/common/collect/HashBiMap$Inverse;, "Lcom/google/common/collect/HashBiMap$Inverse<TK;TV;>;"
@@ -362,7 +363,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 953
     .local p0, "this":Lcom/google/common/collect/HashBiMap$Inverse;, "Lcom/google/common/collect/HashBiMap$Inverse<TK;TV;>;"
@@ -374,7 +375,7 @@
 .end method
 
 .method public values()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

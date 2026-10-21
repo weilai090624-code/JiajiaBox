@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/util/concurrent/ListenableFuture;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AggregateFuture;
 
     .line 141
@@ -46,24 +46,25 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 145
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture$1;, "Lcom/google/common/util/concurrent/AggregateFuture$1;"
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v1}, Lcom/google/common/util/concurrent/ListenableFuture;->isCancelled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 148
     iget-object v1, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->this$0:Lcom/google/common/util/concurrent/AggregateFuture;
 
+    # setter for: Lcom/google/common/util/concurrent/AggregateFuture;->futures:Lcom/google/common/collect/ImmutableCollection;
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->access$002(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)Lcom/google/common/collect/ImmutableCollection;
 
     .line 149
@@ -73,24 +74,26 @@
 
     invoke-virtual {v1, v2}, Lcom/google/common/util/concurrent/AggregateFuture;->cancel(Z)Z
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 151
-    :cond_0
+    :cond_15
     iget-object v1, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->this$0:Lcom/google/common/util/concurrent/AggregateFuture;
 
     iget v2, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->val$index:I
 
     iget-object v3, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/AggregateFuture;->collectValueFromNonCancelledFuture(ILjava/util/concurrent/Future;)V
     invoke-static {v1, v2, v3}, Lcom/google/common/util/concurrent/AggregateFuture;->access$100(Lcom/google/common/util/concurrent/AggregateFuture;ILjava/util/concurrent/Future;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_25
 
     .line 159
-    :goto_0
+    :goto_1e
     iget-object v1, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->this$0:Lcom/google/common/util/concurrent/AggregateFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/AggregateFuture;->decrementCountAndMaybeComplete(Lcom/google/common/collect/ImmutableCollection;)V
     invoke-static {v1, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->access$200(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
 
     .line 160
@@ -100,11 +103,12 @@
     return-void
 
     .line 159
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     iget-object v2, p0, Lcom/google/common/util/concurrent/AggregateFuture$1;->this$0:Lcom/google/common/util/concurrent/AggregateFuture;
 
+    # invokes: Lcom/google/common/util/concurrent/AggregateFuture;->decrementCountAndMaybeComplete(Lcom/google/common/collect/ImmutableCollection;)V
     invoke-static {v2, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->access$200(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
 
     .line 160

@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 244
     .local p0, "this":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "supportsFastOffset"    # Z
 
     .line 248
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(ZLcom/google/common/collect/DiscreteDomain$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Z
     .param p2, "x1"    # Lcom/google/common/collect/DiscreteDomain$1;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static bigIntegers()Lcom/google/common/collect/DiscreteDomain;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -82,6 +82,7 @@
     .end annotation
 
     .line 193
+    # getter for: Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->access$300()Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
     move-result-object v0
@@ -90,7 +91,7 @@
 .end method
 
 .method public static integers()Lcom/google/common/collect/DiscreteDomain;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -101,6 +102,7 @@
     .end annotation
 
     .line 56
+    # getter for: Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->access$000()Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
     move-result-object v0
@@ -109,7 +111,7 @@
 .end method
 
 .method public static longs()Lcom/google/common/collect/DiscreteDomain;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -120,6 +122,7 @@
     .end annotation
 
     .line 119
+    # getter for: Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->access$200()Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     move-result-object v0
@@ -138,7 +141,7 @@
 .end method
 
 .method public maxValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -155,7 +158,7 @@
 .end method
 
 .method public minValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -183,7 +186,7 @@
 .end method
 
 .method offset(Ljava/lang/Comparable;J)Ljava/lang/Comparable;
-    .locals 7
+    .registers 11
     .param p2, "distance"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -206,10 +209,10 @@
     const-wide/16 v1, 0x0
 
     .local v1, "i":J
-    :goto_0
+    :goto_8
     cmp-long v3, v1, p2
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_4d
 
     .line 260
     invoke-virtual {p0, v0}, Lcom/google/common/collect/DiscreteDomain;->next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -217,17 +220,17 @@
     move-result-object v0
 
     .line 261
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 259
     const-wide/16 v3, 0x1
 
     add-long/2addr v1, v3
 
-    goto :goto_0
+    goto :goto_8
 
     .line 262
-    :cond_0
+    :cond_16
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -284,7 +287,7 @@
 
     .line 266
     .end local v1    # "i":J
-    :cond_1
+    :cond_4d
     return-object v0
 .end method
 

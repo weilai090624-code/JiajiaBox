@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialCalendar;
 
     .line 409
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "accessibilityNodeInfoCompat"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -49,6 +49,7 @@
     .line 416
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$6;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialCalendar;->dayFrame:Landroid/view/View;
     invoke-static {v0}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$500(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroid/view/View;
 
     move-result-object v0
@@ -57,7 +58,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 417
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$6;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
@@ -68,10 +69,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_21
 
     .line 418
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialCalendar$6;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
     sget v1, Lcom/google/android/material/R$string;->mtrl_picker_toggle_to_day_selection:I
@@ -81,7 +82,7 @@
     move-result-object v0
 
     .line 415
-    :goto_0
+    :goto_21
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setHintText(Ljava/lang/CharSequence;)V
 
     .line 419

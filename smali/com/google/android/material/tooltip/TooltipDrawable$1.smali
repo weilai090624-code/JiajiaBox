@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/tooltip/TooltipDrawable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/tooltip/TooltipDrawable;
 
     .line 82
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 1
+    .registers 11
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -51,6 +51,7 @@
     .line 94
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable$1;->this$0:Lcom/google/android/material/tooltip/TooltipDrawable;
 
+    # invokes: Lcom/google/android/material/tooltip/TooltipDrawable;->updateLocationOnScreen(Landroid/view/View;)V
     invoke-static {v0, p1}, Lcom/google/android/material/tooltip/TooltipDrawable;->access$000(Lcom/google/android/material/tooltip/TooltipDrawable;Landroid/view/View;)V
 
     .line 95

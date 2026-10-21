@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkSpecDao_Impl;Landroidx/room/RoomSQLiteQuery;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/WorkSpecDao_Impl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Long;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -76,6 +76,7 @@
     .line 1692
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$18;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
+    # getter for: Landroidx/work/impl/model/WorkSpecDao_Impl;->__db:Landroidx/room/RoomDatabase;
     invoke-static {v0}, Landroidx/work/impl/model/WorkSpecDao_Impl;->access$000(Landroidx/work/impl/model/WorkSpecDao_Impl;)Landroidx/room/RoomDatabase;
 
     move-result-object v0
@@ -92,12 +93,12 @@
 
     .line 1695
     .local v0, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_e
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 1696
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getLong(I)J
@@ -105,21 +106,21 @@
     move-result-wide v1
 
     .local v1, "_result":J
-    goto :goto_0
+    goto :goto_1b
 
     .line 1698
     .end local v1    # "_result":J
-    :cond_0
+    :cond_19
     const-wide/16 v1, 0x0
 
     .line 1700
     .restart local v1    # "_result":J
-    :goto_0
+    :goto_1b
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_e .. :try_end_1f} :catchall_23
 
     .line 1702
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
@@ -129,7 +130,7 @@
 
     .line 1702
     .end local v1    # "_result":J
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
@@ -139,7 +140,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -155,7 +156,7 @@
 .end method
 
 .method protected finalize()V
-    .locals 1
+    .registers 2
 
     .line 1708
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$18;->val$_statement:Landroidx/room/RoomSQLiteQuery;

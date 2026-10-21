@@ -53,6 +53,9 @@ public final class AboutLegal {
   link(a,thanks,"SagerNet","Android 客户端与核心桥接的上游基础","https://github.com/SagerNet/SagerNet");
   link(a,thanks,"shadowsocks-android","Android GUI 上游贡献","https://github.com/shadowsocks/shadowsocks-android");
   link(a,thanks,"Yacd-meta","内置 Web Dashboard 上游","https://github.com/MetaCubeX/Yacd-meta");
+  link(a,thanks,"Solar System Scope","地球昼夜及云层贴图 · INOVE · CC BY 4.0（已转换格式与缩小云图）","https://www.solarsystemscope.com/textures/");
+  button(a,thanks,"CC BY 4.0 · 地球贴图完整许可",()->document(a,"Creative Commons Attribution 4.0","CC-BY-4.0.txt"));
+  button(a,thanks,"全球连接地球 · 实现与数据说明",()->document(a,"全球连接地球","Global-Globe-NOTICE.txt"));
   LinearLayout legal=card(a,parent,"许可证与版权");
   paragraph(a,legal,"JiajiaBox 基于 NekoBox for Android / SagerNet 修改，并使用 sing-box、libcore 与 libneko 等上游组件。JiajiaBox 原创代码适用 MIT License；sing-box 与 libcore 的相关部分适用 GPL-3.0-or-later，libneko 的具体条件以其上游发布为准。");
   paragraph(a,legal,"Copyright © 2026 weilai090624-code（JiajiaBox 原创代码与修改）\nCopyright © 2023–2024 MatsuriDayo & NekoBox Authors\nCopyright © 2021 nekohasekai（SagerNet / libcore）\nCopyright © 2022 nekohasekai（sing-box）\n原始声明和完整条款可在下方离线阅读。");

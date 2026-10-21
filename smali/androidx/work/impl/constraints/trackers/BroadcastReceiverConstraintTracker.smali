@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
@@ -94,13 +94,14 @@
 .end method
 
 .method public startTracking()V
-    .locals 4
+    .registers 5
 
     .line 57
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1
@@ -151,13 +152,14 @@
 .end method
 
 .method public stopTracking()V
-    .locals 4
+    .registers 5
 
     .line 62
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1

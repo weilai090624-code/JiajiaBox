@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;
 
     .line 589
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 589
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public apply(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,6 +71,7 @@
     .line 592
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
+    # invokes: Lcom/google/common/collect/Multimaps;->unmodifiableValueCollection(Ljava/util/Collection;)Ljava/util/Collection;
     invoke-static {p1}, Lcom/google/common/collect/Multimaps;->access$000(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v0

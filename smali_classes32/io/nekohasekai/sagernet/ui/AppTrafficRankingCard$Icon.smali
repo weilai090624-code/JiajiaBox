@@ -36,12 +36,12 @@
         }
     .end annotation
 
-    .line 135
+    .line 155
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Icon;->this$0:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
     invoke-direct {p0, p2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 134
+    .line 154
     new-instance p1, Landroid/graphics/Paint;
 
     const/4 p2, 0x1
@@ -58,7 +58,7 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .registers 6
 
-    .line 136
+    .line 156
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Icon;->drawable:Landroid/graphics/drawable/Drawable;
@@ -138,7 +138,7 @@
 .method setIcon(Landroid/graphics/drawable/Drawable;)V
     .registers 3
 
-    .line 135
+    .line 155
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Icon;->drawable:Landroid/graphics/drawable/Drawable;
 
     if-eq v0, p1, :cond_9

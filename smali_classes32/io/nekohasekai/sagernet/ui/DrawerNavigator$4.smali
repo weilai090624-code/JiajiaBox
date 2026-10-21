@@ -3,48 +3,36 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/DrawerNavigator;"
-    method = "lambda$transition$3"
-    proto = "(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V"
-.end annotation
+.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # instance fields
-.field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
-
-.field public final synthetic f$1:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
+.field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
-    .registers 3
+.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
-
-    iput-object p2, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$1:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 3
+.method public final onPreDraw()Z
+    .registers 2
 
     .line 0
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$0:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
 
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$4;->f$1:Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->lambda$startAfterLayout$3(Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)Z
 
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/DrawerNavigator;->lambda$transition$3(Lio/nekohasekai/sagernet/ui/DrawerNavigator$State;Lio/nekohasekai/sagernet/ui/DrawerNavigator$Page;)V
+    move-result v0
 
-    return-void
+    return v0
 .end method

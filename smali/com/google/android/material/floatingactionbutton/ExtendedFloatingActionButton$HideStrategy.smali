@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/AnimatorTracker;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
     .param p2, "animatorTracker"    # Lcom/google/android/material/floatingactionbutton/AnimatorTracker;
 
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getDefaultMotionSpecResource()I
-    .locals 1
+    .registers 2
 
     .line 1498
     sget v0, Lcom/google/android/material/R$animator;->mtrl_extended_fab_hide_motion_spec:I
@@ -48,7 +48,7 @@
 .end method
 
 .method public onAnimationCancel()V
-    .locals 1
+    .registers 2
 
     .line 1511
     invoke-super {p0}, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->onAnimationCancel()V
@@ -63,7 +63,7 @@
 .end method
 
 .method public onAnimationEnd()V
-    .locals 2
+    .registers 3
 
     .line 1517
     invoke-super {p0}, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->onAnimationEnd()V
@@ -73,12 +73,13 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->animState:I
     invoke-static {v0, v1}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->access$702(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;I)I
 
     .line 1519
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$HideStrategy;->isCancelled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 1520
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$HideStrategy;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -88,12 +89,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->setVisibility(I)V
 
     .line 1522
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 1503
@@ -114,6 +115,7 @@
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->animState:I
     invoke-static {v0, v1}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->access$702(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;I)I
 
     .line 1507
@@ -121,11 +123,11 @@
 .end method
 
 .method public onChange(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;
 
     .line 1486
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 1487
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$HideStrategy;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -133,12 +135,12 @@
     invoke-virtual {p1, v0}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;->onHidden(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
 
     .line 1489
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public performNow()V
-    .locals 2
+    .registers 3
 
     .line 1481
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$HideStrategy;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -152,11 +154,12 @@
 .end method
 
 .method public shouldCancel()Z
-    .locals 1
+    .registers 2
 
     .line 1493
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$HideStrategy;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
+    # invokes: Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->isOrWillBeHidden()Z
     invoke-static {v0}, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;->access$900(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z
 
     move-result v0

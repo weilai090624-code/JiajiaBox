@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$ColumnMap;)V
-    .locals 2
+    .registers 4
     .param p1, "this$1"    # Lcom/google/common/collect/StandardTable$ColumnMap;
 
     .line 912
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -60,7 +60,7 @@
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnMap.ColumnMapEntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 933
     move-object v0, p1
@@ -81,7 +81,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 936
     iget-object v1, p0, Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;->this$1:Lcom/google/common/collect/StandardTable$ColumnMap;
@@ -112,14 +112,14 @@
 
     .line 939
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_2e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -155,7 +155,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -167,11 +167,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 949
     move-object v0, p1
@@ -188,6 +188,7 @@
 
     move-result-object v2
 
+    # invokes: Lcom/google/common/collect/StandardTable;->removeColumn(Ljava/lang/Object;)Ljava/util/Map;
     invoke-static {v1, v2}, Lcom/google/common/collect/StandardTable;->access$900(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)Ljava/util/Map;
 
     .line 951
@@ -197,14 +198,14 @@
 
     .line 953
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -231,7 +232,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -270,12 +271,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_18
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -299,13 +300,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_3c
 
     .line 974
     iget-object v3, p0, Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;->this$1:Lcom/google/common/collect/StandardTable$ColumnMap;
 
     iget-object v3, v3, Lcom/google/common/collect/StandardTable$ColumnMap;->this$0:Lcom/google/common/collect/StandardTable;
 
+    # invokes: Lcom/google/common/collect/StandardTable;->removeColumn(Ljava/lang/Object;)Ljava/util/Map;
     invoke-static {v3, v2}, Lcom/google/common/collect/StandardTable;->access$900(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)Ljava/util/Map;
 
     .line 975
@@ -313,16 +315,16 @@
 
     .line 977
     .end local v2    # "columnKey":Ljava/lang/Object;, "TC;"
-    :cond_0
-    goto :goto_0
+    :cond_3c
+    goto :goto_18
 
     .line 978
-    :cond_1
+    :cond_3d
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 927
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnMap.ColumnMapEntrySet;"

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialCalendar;
 
     .line 267
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 29
+    .registers 33
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p3, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
@@ -68,7 +68,7 @@
 
     instance-of v1, v1, Lcom/google/android/material/datepicker/YearGridAdapter;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_138
 
     .line 276
     invoke-virtual/range {p2 .. p2}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -77,12 +77,12 @@
 
     instance-of v1, v1, Landroidx/recyclerview/widget/GridLayoutManager;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
-    goto/16 :goto_5
+    goto/16 :goto_138
 
     .line 279
-    :cond_0
+    :cond_14
     invoke-virtual/range {p2 .. p2}, Landroidx/recyclerview/widget/RecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v1
@@ -101,6 +101,7 @@
     .local v2, "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
     iget-object v3, v0, Lcom/google/android/material/datepicker/MaterialCalendar$5;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialCalendar;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
     invoke-static {v3}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$200(Lcom/google/android/material/datepicker/MaterialCalendar;)Lcom/google/android/material/datepicker/DateSelector;
 
     move-result-object v3
@@ -113,12 +114,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_2e
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_137
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -130,17 +131,17 @@
     .local v4, "range":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Ljava/lang/Long;Ljava/lang/Long;>;"
     iget-object v5, v4, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_12d
 
     iget-object v5, v4, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_43
 
     .line 284
-    goto :goto_0
+    goto :goto_2e
 
     .line 286
-    :cond_1
+    :cond_43
     iget-object v5, v0, Lcom/google/android/material/datepicker/MaterialCalendar$5;->startItem:Ljava/util/Calendar;
 
     iget-object v6, v4, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
@@ -224,8 +225,8 @@
     move v11, v9
 
     .local v11, "row":I
-    :goto_1
-    if-gt v11, v10, :cond_5
+    :goto_87
+    if-gt v11, v10, :cond_121
 
     .line 298
     invoke-virtual {v2}, Landroidx/recyclerview/widget/GridLayoutManager;->getSpanCount()I
@@ -242,7 +243,7 @@
 
     .line 300
     .local v13, "viewInRow":Landroid/view/View;
-    if-nez v13, :cond_2
+    if-nez v13, :cond_a1
 
     .line 301
     move-object/from16 v16, v1
@@ -255,16 +256,17 @@
 
     move/from16 v28, v5
 
-    goto/16 :goto_4
+    goto/16 :goto_113
 
     .line 303
-    :cond_2
+    :cond_a1
     invoke-virtual {v13}, Landroid/view/View;->getTop()I
 
     move-result v14
 
     iget-object v15, v0, Lcom/google/android/material/datepicker/MaterialCalendar$5;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialCalendar;->calendarStyle:Lcom/google/android/material/datepicker/CalendarStyle;
     invoke-static {v15}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$400(Lcom/google/android/material/datepicker/MaterialCalendar;)Lcom/google/android/material/datepicker/CalendarStyle;
 
     move-result-object v15
@@ -289,6 +291,7 @@
     .local v16, "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     iget-object v1, v0, Lcom/google/android/material/datepicker/MaterialCalendar$5;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialCalendar;->calendarStyle:Lcom/google/android/material/datepicker/CalendarStyle;
     invoke-static {v1}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$400(Lcom/google/android/material/datepicker/MaterialCalendar;)Lcom/google/android/material/datepicker/CalendarStyle;
 
     move-result-object v1
@@ -303,7 +306,7 @@
 
     .line 305
     .local v15, "bottom":I
-    if-ne v11, v9, :cond_3
+    if-ne v11, v9, :cond_d4
 
     invoke-virtual {v7}, Landroid/view/View;->getLeft()I
 
@@ -317,15 +320,15 @@
 
     add-int v1, v1, v17
 
-    goto :goto_2
+    goto :goto_d5
 
-    :cond_3
+    :cond_d4
     const/4 v1, 0x0
 
     .line 307
     .local v1, "left":I
-    :goto_2
-    if-ne v11, v10, :cond_4
+    :goto_d5
+    if-ne v11, v10, :cond_e4
 
     .line 308
     invoke-virtual {v8}, Landroid/view/View;->getLeft()I
@@ -340,15 +343,15 @@
 
     add-int v17, v17, v18
 
-    goto :goto_3
+    goto :goto_e8
 
     .line 309
-    :cond_4
+    :cond_e4
     invoke-virtual/range {p2 .. p2}, Landroidx/recyclerview/widget/RecyclerView;->getWidth()I
 
     move-result v17
 
-    :goto_3
+    :goto_e8
     move/from16 v18, v17
 
     .line 310
@@ -388,6 +391,7 @@
     .local v28, "firstHighlightPosition":I
     iget-object v5, v0, Lcom/google/android/material/datepicker/MaterialCalendar$5;->this$0:Lcom/google/android/material/datepicker/MaterialCalendar;
 
+    # getter for: Lcom/google/android/material/datepicker/MaterialCalendar;->calendarStyle:Lcom/google/android/material/datepicker/CalendarStyle;
     invoke-static {v5}, Lcom/google/android/material/datepicker/MaterialCalendar;->access$400(Lcom/google/android/material/datepicker/MaterialCalendar;)Lcom/google/android/material/datepicker/CalendarStyle;
 
     move-result-object v5
@@ -415,7 +419,7 @@
     .end local v15    # "bottom":I
     .end local v25    # "left":I
     .end local v27    # "right":I
-    :goto_4
+    :goto_113
     add-int/lit8 v11, v11, 0x1
 
     move-object/from16 v1, v16
@@ -428,7 +432,7 @@
 
     move/from16 v5, v28
 
-    goto/16 :goto_1
+    goto/16 :goto_87
 
     .end local v16    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .end local v17    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
@@ -438,7 +442,7 @@
     .restart local v2    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
     .restart local v4    # "range":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Ljava/lang/Long;Ljava/lang/Long;>;"
     .restart local v5    # "firstHighlightPosition":I
-    :cond_5
+    :cond_121
     move-object/from16 v16, v1
 
     move-object/from16 v17, v2
@@ -462,7 +466,7 @@
     .end local v11    # "row":I
     .restart local v16    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .restart local v17    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
     .line 283
     .end local v16    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
@@ -470,7 +474,7 @@
     .restart local v1    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .restart local v2    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
     .restart local v4    # "range":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Ljava/lang/Long;Ljava/lang/Long;>;"
-    :cond_6
+    :cond_12d
     move-object/from16 v16, v1
 
     move-object/from16 v17, v2
@@ -485,7 +489,7 @@
     .restart local v16    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .restart local v17    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
     .restart local v18    # "range":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Ljava/lang/Long;Ljava/lang/Long;>;"
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
     .line 313
     .end local v16    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
@@ -493,13 +497,13 @@
     .end local v18    # "range":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Ljava/lang/Long;Ljava/lang/Long;>;"
     .restart local v1    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .restart local v2    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
-    :cond_7
+    :cond_137
     return-void
 
     .line 277
     .end local v1    # "adapter":Lcom/google/android/material/datepicker/YearGridAdapter;
     .end local v2    # "layoutManager":Landroidx/recyclerview/widget/GridLayoutManager;
-    :cond_8
-    :goto_5
+    :cond_138
+    :goto_138
     return-void
 .end method

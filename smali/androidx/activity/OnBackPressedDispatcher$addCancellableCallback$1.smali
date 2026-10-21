@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
 
     const-class v3, Landroidx/activity/OnBackPressedDispatcher;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 167
     invoke-virtual {p0}, Landroidx/activity/OnBackPressedDispatcher$addCancellableCallback$1;->invoke()V
@@ -73,13 +73,14 @@
 .end method
 
 .method public final invoke()V
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$addCancellableCallback$1;->receiver:Ljava/lang/Object;
 
     check-cast v0, Landroidx/activity/OnBackPressedDispatcher;
 
+    # invokes: Landroidx/activity/OnBackPressedDispatcher;->updateEnabledCallbacks()V
     invoke-static {v0}, Landroidx/activity/OnBackPressedDispatcher;->access$updateEnabledCallbacks(Landroidx/activity/OnBackPressedDispatcher;)V
 
     return-void

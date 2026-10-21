@@ -63,7 +63,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/database/ProxyEntity$Companion;-><init>()V
 
@@ -82,9 +82,10 @@
 
 # virtual methods
 .method public final getChainName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 99
+    # getter for: Lio/nekohasekai/sagernet/database/ProxyEntity;->chainName$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/database/ProxyEntity;->access$getChainName$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0

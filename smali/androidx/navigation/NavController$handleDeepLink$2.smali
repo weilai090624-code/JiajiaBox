@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavDestination;Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Landroidx/navigation/NavController$handleDeepLink$2;->$node:Landroidx/navigation/NavDestination;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1281
@@ -90,7 +90,7 @@
 .end method
 
 .method public final invoke(Landroidx/navigation/NavOptionsBuilder;)V
-    .locals 10
+    .registers 12
     .param p1, "$this$navOptions"    # Landroidx/navigation/NavOptionsBuilder;
 
     const-string v0, "$this$navOptions"
@@ -111,7 +111,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4a
 
     .line 1287
     sget-object v0, Landroidx/navigation/NavDestination;->Companion:Landroidx/navigation/NavDestination$Companion;
@@ -133,14 +133,14 @@
 
     move-result-object v4
 
-    :cond_0
+    :cond_22
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
     const/4 v6, 0x1
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_45
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -160,60 +160,61 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_3c
 
     invoke-virtual {v9}, Landroidx/navigation/NavDestination;->getParent()Landroidx/navigation/NavGraph;
 
     move-result-object v9
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_1
+    :cond_3c
     const/4 v9, 0x0
 
-    :goto_0
+    :goto_3d
     invoke-static {v7, v9}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
     .end local v7    # "it":Landroidx/navigation/NavDestination;
     .end local v8    # "$i$a$-none-NavController$handleDeepLink$2$changingGraphs$1":I
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_22
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_46
 
     .line 2364
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_45
     const/4 v0, 0x1
 
     .end local v0    # "$this$none$iv":Lkotlin/sequences/Sequence;
     .end local v3    # "$i$f$none":I
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_46
+    if-eqz v0, :cond_4a
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_4b
 
-    :cond_3
+    :cond_4a
     nop
 
     .line 1286
-    :goto_2
+    :goto_4b
     move v0, v1
 
     .line 1288
     .local v0, "changingGraphs":Z
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6b
 
+    # getter for: Landroidx/navigation/NavController;->deepLinkSaveState:Z
     invoke-static {}, Landroidx/navigation/NavController;->access$getDeepLinkSaveState$cp()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6b
 
     .line 1293
     sget-object v1, Landroidx/navigation/NavGraph;->Companion:Landroidx/navigation/NavGraph$Companion;
@@ -239,6 +240,6 @@
     invoke-virtual {p1, v1, v2}, Landroidx/navigation/NavOptionsBuilder;->popUpTo(ILkotlin/jvm/functions/Function1;)V
 
     .line 1300
-    :cond_4
+    :cond_6b
     return-void
 .end method

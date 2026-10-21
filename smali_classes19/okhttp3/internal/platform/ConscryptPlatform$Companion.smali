@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/ConscryptPlatform$Companion;-><init>()V
 
@@ -62,25 +62,25 @@
 .end method
 
 .method public static synthetic atLeastVersion$default(Lokhttp3/internal/platform/ConscryptPlatform$Companion;IIIILjava/lang/Object;)Z
-    .locals 1
+    .registers 7
 
     .line 126
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-virtual {p0, p1, p2, p3}, Lokhttp3/internal/platform/ConscryptPlatform$Companion;->atLeastVersion(III)Z
 
     move-result p0
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public final atLeastVersion(III)Z
-    .locals 4
+    .registers 8
     .param p1, "major"    # I
     .param p2, "minor"    # I
     .param p3, "patch"    # I
@@ -103,69 +103,69 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return v1
 
     .line 129
     .local v0, "conscryptVersion":Lorg/conscrypt/Conscrypt$Version;
-    :cond_0
+    :cond_8
     invoke-virtual {v0}, Lorg/conscrypt/Conscrypt$Version;->major()I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-eq v2, p1, :cond_2
+    if-eq v2, p1, :cond_17
 
     .line 130
     invoke-virtual {v0}, Lorg/conscrypt/Conscrypt$Version;->major()I
 
     move-result v2
 
-    if-le v2, p1, :cond_1
+    if-le v2, p1, :cond_16
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_16
     return v1
 
     .line 133
-    :cond_2
+    :cond_17
     invoke-virtual {v0}, Lorg/conscrypt/Conscrypt$Version;->minor()I
 
     move-result v2
 
-    if-eq v2, p2, :cond_4
+    if-eq v2, p2, :cond_25
 
     .line 134
     invoke-virtual {v0}, Lorg/conscrypt/Conscrypt$Version;->minor()I
 
     move-result v2
 
-    if-le v2, p2, :cond_3
+    if-le v2, p2, :cond_24
 
     const/4 v1, 0x1
 
-    :cond_3
+    :cond_24
     return v1
 
     .line 137
-    :cond_4
+    :cond_25
     invoke-virtual {v0}, Lorg/conscrypt/Conscrypt$Version;->patch()I
 
     move-result v2
 
-    if-lt v2, p3, :cond_5
+    if-lt v2, p3, :cond_2c
 
     const/4 v1, 0x1
 
-    :cond_5
+    :cond_2c
     return v1
 .end method
 
 .method public final buildIfSupported()Lokhttp3/internal/platform/ConscryptPlatform;
-    .locals 2
+    .registers 3
 
     .line 124
     invoke-virtual {p0}, Lokhttp3/internal/platform/ConscryptPlatform$Companion;->isSupported()Z
@@ -174,7 +174,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     new-instance v0, Lokhttp3/internal/platform/ConscryptPlatform;
 
@@ -182,14 +182,15 @@
 
     move-object v1, v0
 
-    :cond_0
+    :cond_d
     return-object v1
 .end method
 
 .method public final isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 109
+    # getter for: Lokhttp3/internal/platform/ConscryptPlatform;->isSupported:Z
     invoke-static {}, Lokhttp3/internal/platform/ConscryptPlatform;->access$isSupported$cp()Z
 
     move-result v0

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
-    .locals 0
+    .registers 2
     .param p1, "newNode"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     .line 58
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic complete(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "affected"    # Ljava/lang/Object;
     .param p2, "failure"    # Ljava/lang/Object;
 
@@ -89,37 +89,38 @@
 .end method
 
 .method public complete(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "affected"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
     .param p2, "failure"    # Ljava/lang/Object;
 
     .line 62
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 63
     .local v0, "success":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_a
 
     iget-object v1, p0, Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;->newNode:Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
+    :cond_a
     iget-object v1, p0, Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;->oldNext:Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     .line 64
     .local v1, "update":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_c
+    if-eqz v1, :cond_24
 
+    # getter for: Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->_next$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->access$get_next$FU$p()Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     move-result-object v2
@@ -128,10 +129,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_24
 
     .line 66
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     iget-object v2, p0, Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;->newNode:Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
@@ -139,9 +140,10 @@
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    # invokes: Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->finishAdd(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
     invoke-static {v2, v3}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->access$finishAdd(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
 
     .line 68
-    :cond_2
+    :cond_24
     return-void
 .end method

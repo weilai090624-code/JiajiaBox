@@ -110,7 +110,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/BroadcastChannel;Z)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "_channel"    # Lkotlinx/coroutines/channels/BroadcastChannel;
     .param p3, "active"    # Z
@@ -157,11 +157,11 @@
 
 # virtual methods
 .method public final cancel(Ljava/util/concurrent/CancellationException;)V
-    .locals 6
+    .registers 8
     .param p1, "cause"    # Ljava/util/concurrent/CancellationException;
 
     .line 157
-    if-nez p1, :cond_0
+    if-nez p1, :cond_19
 
     .line 205
     const/4 v0, 0x0
@@ -180,6 +180,7 @@
 
     check-cast v4, Lkotlinx/coroutines/JobSupport;
 
+    # invokes: Lkotlinx/coroutines/JobSupport;->cancellationExceptionMessage()Ljava/lang/String;
     invoke-static {v4}, Lkotlinx/coroutines/JobSupport;->access$cancellationExceptionMessage(Lkotlinx/coroutines/JobSupport;)Ljava/lang/String;
 
     move-result-object v4
@@ -197,14 +198,14 @@
     .end local v2    # "$i$f$defaultCancellationException$kotlinx_coroutines_core":I
     check-cast v3, Ljava/util/concurrent/CancellationException;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 157
-    :cond_0
+    :cond_19
     move-object v3, p1
 
     .line 206
-    :goto_0
+    :goto_1a
     check-cast v3, Ljava/lang/Throwable;
 
     .line 157
@@ -215,7 +216,7 @@
 .end method
 
 .method public final synthetic cancel(Ljava/lang/Throwable;)Z
-    .locals 6
+    .registers 8
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -223,7 +224,7 @@
     .end annotation
 
     .line 152
-    if-nez p1, :cond_0
+    if-nez p1, :cond_19
 
     .line 203
     const/4 v0, 0x0
@@ -242,6 +243,7 @@
 
     check-cast v4, Lkotlinx/coroutines/JobSupport;
 
+    # invokes: Lkotlinx/coroutines/JobSupport;->cancellationExceptionMessage()Ljava/lang/String;
     invoke-static {v4}, Lkotlinx/coroutines/JobSupport;->access$cancellationExceptionMessage(Lkotlinx/coroutines/JobSupport;)Ljava/lang/String;
 
     move-result-object v4
@@ -259,13 +261,13 @@
     .end local v2    # "$i$f$defaultCancellationException$kotlinx_coroutines_core":I
     check-cast v3, Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 152
-    :cond_0
+    :cond_19
     move-object v3, p1
 
-    :goto_0
+    :goto_1a
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/channels/BroadcastCoroutine;->cancelInternal(Ljava/lang/Throwable;)V
 
     .line 153
@@ -275,7 +277,7 @@
 .end method
 
 .method public cancelInternal(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 161
@@ -309,7 +311,7 @@
 .end method
 
 .method public close(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 177
@@ -328,7 +330,7 @@
 .end method
 
 .method public getChannel()Lkotlinx/coroutines/channels/SendChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -346,7 +348,7 @@
 .end method
 
 .method public getOnSend()Lkotlinx/coroutines/selects/SelectClause2;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -367,7 +369,7 @@
 .end method
 
 .method protected final get_channel()Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -383,7 +385,7 @@
 .end method
 
 .method public invokeOnClose(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -403,7 +405,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 145
     invoke-super {p0}, Lkotlinx/coroutines/AbstractCoroutine;->isActive()Z
@@ -414,7 +416,7 @@
 .end method
 
 .method public isClosedForSend()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/BroadcastCoroutine;->_channel:Lkotlinx/coroutines/channels/BroadcastChannel;
 
@@ -426,7 +428,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -452,7 +454,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Throwable;Z)V
-    .locals 2
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "handled"    # Z
 
@@ -465,9 +467,9 @@
 
     .line 172
     .local v0, "processed":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     invoke-virtual {p0}, Lkotlinx/coroutines/channels/BroadcastCoroutine;->getContext()Lkotlin/coroutines/CoroutineContext;
 
@@ -476,12 +478,12 @@
     invoke-static {v1, p1}, Lkotlinx/coroutines/CoroutineExceptionHandlerKt;->handleCoroutineException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
 
     .line 173
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public bridge synthetic onCompleted(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 134
@@ -495,7 +497,7 @@
 .end method
 
 .method protected onCompleted(Lkotlin/Unit;)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # Lkotlin/Unit;
 
     .line 167
@@ -514,7 +516,7 @@
 .end method
 
 .method public openSubscription()Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -533,7 +535,7 @@
 .end method
 
 .method public send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -555,7 +557,7 @@
 .end method
 
 .method public trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",

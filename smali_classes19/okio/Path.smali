@@ -102,7 +102,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokio/Path$Companion;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public constructor <init>(Lokio/ByteString;)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # Lokio/ByteString;
 
     const-string v0, "bytes"
@@ -143,7 +143,7 @@
 .end method
 
 .method public static final get(Ljava/io/File;)Lokio/Path;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public static final get(Ljava/io/File;Z)Lokio/Path;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public static final get(Ljava/lang/String;)Lokio/Path;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public static final get(Ljava/lang/String;Z)Lokio/Path;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -199,7 +199,7 @@
 .end method
 
 .method public static final get(Ljava/nio/file/Path;)Lokio/Path;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -213,7 +213,7 @@
 .end method
 
 .method public static final get(Ljava/nio/file/Path;Z)Lokio/Path;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -227,18 +227,18 @@
 .end method
 
 .method public static synthetic resolve$default(Lokio/Path;Ljava/lang/String;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 87
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 128
     const/4 p2, 0x0
 
     .line 87
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path;->resolve(Ljava/lang/String;Z)Lokio/Path;
 
     move-result-object p0
@@ -247,18 +247,18 @@
 .end method
 
 .method public static synthetic resolve$default(Lokio/Path;Lokio/ByteString;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 90
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 128
     const/4 p2, 0x0
 
     .line 90
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path;->resolve(Lokio/ByteString;Z)Lokio/Path;
 
     move-result-object p0
@@ -267,18 +267,18 @@
 .end method
 
 .method public static synthetic resolve$default(Lokio/Path;Lokio/Path;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 93
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 128
     const/4 p2, 0x0
 
     .line 93
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path;->resolve(Lokio/Path;Z)Lokio/Path;
 
     move-result-object p0
@@ -289,7 +289,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 41
@@ -305,7 +305,7 @@
 .end method
 
 .method public compareTo(Lokio/Path;)I
-    .locals 4
+    .registers 6
     .param p1, "other"    # Lokio/Path;
 
     const-string v0, "other"
@@ -339,7 +339,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 107
@@ -352,7 +352,7 @@
     .local v1, "$i$f$commonEquals":I
     instance-of v2, p1, Lokio/Path;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     move-object v2, p1
 
@@ -370,24 +370,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     .line 107
     .end local v0    # "$this$commonEquals$iv":Lokio/Path;
     .end local v1    # "$i$f$commonEquals":I
-    :goto_0
+    :goto_1a
     return v2
 .end method
 
 .method public final getBytes$okio()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lokio/Path;->bytes:Lokio/ByteString;
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getRoot()Lokio/Path;
-    .locals 6
+    .registers 7
 
     .line 45
     move-object v0, p0
@@ -406,6 +406,7 @@
 
     .line 129
     .local v1, "$i$f$commonRoot":I
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v2
@@ -414,14 +415,14 @@
     .local v2, "rootLength$iv":I
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_b
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_19
 
     .line 131
-    :cond_0
+    :cond_b
     new-instance v3, Lokio/Path;
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -438,7 +439,7 @@
 
     .line 129
     .end local v2    # "rootLength$iv":I
-    :goto_0
+    :goto_19
     nop
 
     .line 45
@@ -448,7 +449,7 @@
 .end method
 
 .method public final getSegments()Ljava/util/List;
-    .locals 12
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -481,6 +482,7 @@
 
     .line 139
     .local v4, "result$iv$iv":Ljava/util/List;
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v2}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v5
@@ -491,15 +493,15 @@
 
     const/16 v7, 0x5c
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_16
 
     .line 143
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 144
-    :cond_0
+    :cond_16
     invoke-virtual {v2}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v6
@@ -508,7 +510,7 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_2d
 
     invoke-virtual {v2}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -520,14 +522,14 @@
 
     int-to-byte v8, v7
 
-    if-ne v6, v8, :cond_1
+    if-ne v6, v8, :cond_2d
 
     .line 145
     add-int/lit8 v5, v5, 0x1
 
     .line 148
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     invoke-virtual {v2}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v6
@@ -536,13 +538,13 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_5
+    if-ge v5, v6, :cond_66
 
     move v8, v5
 
     .end local v5    # "segmentStart$iv$iv":I
     .local v8, "segmentStart$iv$iv":I
-    :cond_2
+    :cond_38
     move v9, v5
 
     .local v9, "i$iv$iv":I
@@ -561,7 +563,7 @@
 
     int-to-byte v11, v11
 
-    if-eq v10, v11, :cond_3
+    if-eq v10, v11, :cond_53
 
     invoke-virtual {v2}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -573,10 +575,10 @@
 
     int-to-byte v11, v7
 
-    if-ne v10, v11, :cond_4
+    if-ne v10, v11, :cond_63
 
     .line 150
-    :cond_3
+    :cond_53
     move-object v10, v4
 
     check-cast v10, Ljava/util/Collection;
@@ -595,8 +597,8 @@
     add-int/lit8 v8, v9, 0x1
 
     .line 148
-    :cond_4
-    if-lt v5, v6, :cond_2
+    :cond_63
+    if-lt v5, v6, :cond_38
 
     move v5, v8
 
@@ -604,7 +606,7 @@
     .end local v8    # "segmentStart$iv$iv":I
     .end local v9    # "i$iv$iv":I
     .restart local v5    # "segmentStart$iv$iv":I
-    :cond_5
+    :cond_66
     invoke-virtual {v2}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v6
@@ -613,7 +615,7 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_6
+    if-ge v5, v6, :cond_86
 
     .line 156
     move-object v6, v4
@@ -639,7 +641,7 @@
     invoke-interface {v6, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 159
-    :cond_6
+    :cond_86
     nop
 
     .end local v2    # "$this$commonSegmentsBytes$iv$iv":Lokio/Path;
@@ -682,12 +684,12 @@
 
     move-result-object v7
 
-    :goto_1
+    :goto_9f
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_b5
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -714,10 +716,10 @@
 
     .line 161
     .end local v8    # "item$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_9f
 
     .line 163
-    :cond_7
+    :cond_b5
     nop
 
     .end local v4    # "destination$iv$iv$iv":Ljava/util/Collection;
@@ -740,7 +742,7 @@
 .end method
 
 .method public final getSegmentsBytes()Ljava/util/List;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -766,6 +768,7 @@
 
     .line 165
     .local v2, "result$iv":Ljava/util/List;
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v3
@@ -776,15 +779,15 @@
 
     const/16 v5, 0x5c
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_14
 
     .line 169
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 170
-    :cond_0
+    :cond_14
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v4
@@ -793,7 +796,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_2b
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -805,14 +808,14 @@
 
     int-to-byte v6, v5
 
-    if-ne v4, v6, :cond_1
+    if-ne v4, v6, :cond_2b
 
     .line 171
     add-int/lit8 v3, v3, 0x1
 
     .line 174
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v4
@@ -821,13 +824,13 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_5
+    if-ge v3, v4, :cond_64
 
     move v6, v3
 
     .end local v3    # "segmentStart$iv":I
     .local v6, "segmentStart$iv":I
-    :cond_2
+    :cond_36
     move v7, v3
 
     .local v7, "i$iv":I
@@ -846,7 +849,7 @@
 
     int-to-byte v9, v9
 
-    if-eq v8, v9, :cond_3
+    if-eq v8, v9, :cond_51
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -858,10 +861,10 @@
 
     int-to-byte v9, v5
 
-    if-ne v8, v9, :cond_4
+    if-ne v8, v9, :cond_61
 
     .line 176
-    :cond_3
+    :cond_51
     move-object v8, v2
 
     check-cast v8, Ljava/util/Collection;
@@ -880,8 +883,8 @@
     add-int/lit8 v6, v7, 0x1
 
     .line 174
-    :cond_4
-    if-lt v3, v4, :cond_2
+    :cond_61
+    if-lt v3, v4, :cond_36
 
     move v3, v6
 
@@ -889,7 +892,7 @@
     .end local v6    # "segmentStart$iv":I
     .end local v7    # "i$iv":I
     .restart local v3    # "segmentStart$iv":I
-    :cond_5
+    :cond_64
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v4
@@ -898,7 +901,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_6
+    if-ge v3, v4, :cond_84
 
     .line 182
     move-object v4, v2
@@ -924,7 +927,7 @@
     invoke-interface {v4, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 185
-    :cond_6
+    :cond_84
     nop
 
     .line 51
@@ -936,7 +939,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 109
     move-object v0, p0
@@ -961,7 +964,7 @@
 .end method
 
 .method public final isAbsolute()Z
-    .locals 4
+    .registers 5
 
     .line 54
     move-object v0, p0
@@ -971,30 +974,31 @@
 
     .line 186
     .local v1, "$i$f$commonIsAbsolute":I
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
     .line 54
     .end local v0    # "$this$commonIsAbsolute$iv":Lokio/Path;
     .end local v1    # "$i$f$commonIsAbsolute":I
-    :goto_0
+    :goto_c
     return v2
 .end method
 
 .method public final isRelative()Z
-    .locals 4
+    .registers 5
 
     .line 57
     move-object v0, p0
@@ -1004,30 +1008,31 @@
 
     .line 187
     .local v1, "$i$f$commonIsRelative":I
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
     .line 57
     .end local v0    # "$this$commonIsRelative$iv":Lokio/Path;
     .end local v1    # "$i$f$commonIsRelative":I
-    :goto_0
+    :goto_c
     return v2
 .end method
 
 .method public final isRoot()Z
-    .locals 4
+    .registers 5
 
     .line 76
     move-object v0, p0
@@ -1037,6 +1042,7 @@
 
     .line 225
     .local v1, "$i$f$commonIsRoot":I
+    # invokes: Lokio/internal/_PathKt;->rootLength(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$rootLength(Lokio/Path;)I
 
     move-result v2
@@ -1049,24 +1055,24 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
     .line 76
     .end local v0    # "$this$commonIsRoot$iv":Lokio/Path;
     .end local v1    # "$i$f$commonIsRoot":I
-    :goto_0
+    :goto_13
     return v2
 .end method
 
 .method public final name()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 69
     move-object v0, p0
@@ -1091,7 +1097,7 @@
 .end method
 
 .method public final nameBytes()Lokio/ByteString;
-    .locals 8
+    .registers 9
 
     .line 65
     move-object v0, p0
@@ -1101,6 +1107,7 @@
 
     .line 194
     .local v1, "$i$f$commonNameBytes":I
+    # invokes: Lokio/internal/_PathKt;->getIndexOfLastSlash(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$getIndexOfLastSlash(Lokio/Path;)I
 
     move-result v2
@@ -1114,7 +1121,7 @@
 
     const/4 v4, 0x2
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_18
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -1130,15 +1137,15 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 197
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Lokio/Path;->volumeLetter()Ljava/lang/Character;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -1148,20 +1155,20 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2b
 
     sget-object v3, Lokio/ByteString;->EMPTY:Lokio/ByteString;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 198
-    :cond_1
+    :cond_2b
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v3
 
     .line 195
-    :goto_0
+    :goto_2f
     nop
 
     .line 65
@@ -1172,7 +1179,7 @@
 .end method
 
 .method public final normalized()Lokio/Path;
-    .locals 5
+    .registers 6
 
     .line 98
     move-object v0, p0
@@ -1201,7 +1208,7 @@
 .end method
 
 .method public final parent()Lokio/Path;
-    .locals 9
+    .registers 10
 
     .line 73
     move-object v0, p0
@@ -1215,6 +1222,7 @@
 
     move-result-object v2
 
+    # getter for: Lokio/internal/_PathKt;->DOT:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getDOT$p()Lokio/ByteString;
 
     move-result-object v3
@@ -1225,12 +1233,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_c1
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v2
 
+    # getter for: Lokio/internal/_PathKt;->SLASH:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getSLASH$p()Lokio/ByteString;
 
     move-result-object v4
@@ -1239,12 +1248,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_c1
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v2
 
+    # getter for: Lokio/internal/_PathKt;->BACKSLASH:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getBACKSLASH$p()Lokio/ByteString;
 
     move-result-object v4
@@ -1253,18 +1263,20 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_c1
 
+    # invokes: Lokio/internal/_PathKt;->lastSegmentIsDotDot(Lokio/Path;)Z
     invoke-static {v0}, Lokio/internal/_PathKt;->access$lastSegmentIsDotDot(Lokio/Path;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_35
 
-    goto/16 :goto_0
+    goto/16 :goto_c1
 
     .line 204
-    :cond_0
+    :cond_35
+    # invokes: Lokio/internal/_PathKt;->getIndexOfLastSlash(Lokio/Path;)I
     invoke-static {v0}, Lokio/internal/_PathKt;->access$getIndexOfLastSlash(Lokio/Path;)I
 
     move-result v2
@@ -1280,13 +1292,13 @@
 
     const/4 v6, 0x1
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_61
 
     invoke-virtual {v0}, Lokio/Path;->volumeLetter()Ljava/lang/Character;
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_61
 
     .line 207
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -1299,12 +1311,12 @@
 
     const/4 v7, 0x3
 
-    if-ne v4, v7, :cond_1
+    if-ne v4, v7, :cond_52
 
-    goto/16 :goto_1
+    goto/16 :goto_c2
 
     .line 208
-    :cond_1
+    :cond_52
     new-instance v4, Lokio/Path;
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -1319,16 +1331,17 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 210
-    :cond_2
-    if-ne v2, v6, :cond_3
+    :cond_61
+    if-ne v2, v6, :cond_72
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v7
 
+    # getter for: Lokio/internal/_PathKt;->BACKSLASH:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getBACKSLASH$p()Lokio/ByteString;
 
     move-result-object v8
@@ -1337,22 +1350,22 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_72
 
     .line 211
-    goto :goto_1
+    goto :goto_c2
 
     .line 213
-    :cond_3
+    :cond_72
     const/4 v7, -0x1
 
-    if-ne v2, v7, :cond_5
+    if-ne v2, v7, :cond_95
 
     invoke-virtual {v0}, Lokio/Path;->volumeLetter()Ljava/lang/Character;
 
     move-result-object v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_95
 
     .line 214
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -1363,12 +1376,12 @@
 
     move-result v7
 
-    if-ne v7, v4, :cond_4
+    if-ne v7, v4, :cond_86
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 215
-    :cond_4
+    :cond_86
     new-instance v7, Lokio/Path;
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -1383,26 +1396,27 @@
 
     move-object v3, v7
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 217
-    :cond_5
-    if-ne v2, v7, :cond_6
+    :cond_95
+    if-ne v2, v7, :cond_a1
 
     .line 218
     new-instance v3, Lokio/Path;
 
+    # getter for: Lokio/internal/_PathKt;->DOT:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getDOT$p()Lokio/ByteString;
 
     move-result-object v4
 
     invoke-direct {v3, v4}, Lokio/Path;-><init>(Lokio/ByteString;)V
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 220
-    :cond_6
-    if-nez v2, :cond_7
+    :cond_a1
+    if-nez v2, :cond_b2
 
     .line 221
     new-instance v4, Lokio/Path;
@@ -1419,10 +1433,10 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 224
-    :cond_7
+    :cond_b2
     new-instance v4, Lokio/Path;
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
@@ -1437,23 +1451,23 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 201
     .end local v2    # "lastSlash$iv":I
-    :cond_8
-    :goto_0
+    :cond_c1
+    :goto_c1
     nop
 
     .line 73
     .end local v0    # "$this$commonParent$iv":Lokio/Path;
     .end local v1    # "$i$f$commonParent":I
-    :goto_1
+    :goto_c2
     return-object v3
 .end method
 
 .method public final relativeTo(Lokio/Path;)Lokio/Path;
-    .locals 14
+    .registers 16
     .param p1, "other"    # Lokio/Path;
 
     const-string v0, "other"
@@ -1482,7 +1496,7 @@
 
     const-string v3, " and "
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_e8
 
     .line 264
     invoke-virtual {v0}, Lokio/Path;->getSegmentsBytes()Ljava/util/List;
@@ -1515,8 +1529,8 @@
 
     .line 270
     .local v6, "minSegmentsSize$iv":I
-    :goto_0
-    if-ge v5, v6, :cond_0
+    :goto_2c
+    if-ge v5, v6, :cond_3f
 
     .line 271
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1531,20 +1545,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_3f
 
     .line 273
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 276
-    :cond_0
+    :cond_3f
     const/4 v7, 0x0
 
     const/4 v8, 0x1
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_5f
 
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
@@ -1562,7 +1576,7 @@
 
     move-result v10
 
-    if-ne v9, v10, :cond_1
+    if-ne v9, v10, :cond_5f
 
     .line 278
     sget-object v3, Lokio/Path;->Companion:Lokio/Path$Companion;
@@ -1575,10 +1589,10 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_bf
 
     .line 281
-    :cond_1
+    :cond_5f
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v9
@@ -1587,6 +1601,7 @@
 
     move-result-object v9
 
+    # getter for: Lokio/internal/_PathKt;->DOT_DOT:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getDOT_DOT$p()Lokio/ByteString;
 
     move-result-object v10
@@ -1597,17 +1612,17 @@
 
     const/4 v10, -0x1
 
-    if-ne v9, v10, :cond_2
+    if-ne v9, v10, :cond_74
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_75
 
-    :cond_2
+    :cond_74
     const/4 v9, 0x0
 
-    :goto_1
-    if-eqz v9, :cond_8
+    :goto_75
+    if-eqz v9, :cond_c0
 
     .line 285
     new-instance v3, Lokio/Buffer;
@@ -1616,42 +1631,46 @@
 
     .line 286
     .local v3, "buffer$iv":Lokio/Buffer;
+    # invokes: Lokio/internal/_PathKt;->getSlash(Lokio/Path;)Lokio/ByteString;
     invoke-static {p1}, Lokio/internal/_PathKt;->access$getSlash(Lokio/Path;)Lokio/ByteString;
 
     move-result-object v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_8e
 
+    # invokes: Lokio/internal/_PathKt;->getSlash(Lokio/Path;)Lokio/ByteString;
     invoke-static {v0}, Lokio/internal/_PathKt;->access$getSlash(Lokio/Path;)Lokio/ByteString;
 
     move-result-object v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_8e
 
     sget-object v9, Lokio/Path;->DIRECTORY_SEPARATOR:Ljava/lang/String;
 
+    # invokes: Lokio/internal/_PathKt;->toSlash(Ljava/lang/String;)Lokio/ByteString;
     invoke-static {v9}, Lokio/internal/_PathKt;->access$toSlash(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v9
 
     .line 287
     .local v9, "slash$iv":Lokio/ByteString;
-    :cond_3
+    :cond_8e
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v10
 
-    if-ge v5, v10, :cond_5
+    if-ge v5, v10, :cond_a3
 
     move v11, v5
 
-    :cond_4
+    :cond_95
     move v12, v11
 
     .local v12, "i$iv":I
     add-int/2addr v11, v8
 
     .line 288
+    # getter for: Lokio/internal/_PathKt;->DOT_DOT:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getDOT_DOT$p()Lokio/ByteString;
 
     move-result-object v13
@@ -1662,20 +1681,20 @@
     invoke-virtual {v3, v9}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 287
-    if-lt v11, v10, :cond_4
+    if-lt v11, v10, :cond_95
 
     .line 291
     .end local v12    # "i$iv":I
-    :cond_5
+    :cond_a3
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v10
 
-    if-ge v5, v10, :cond_7
+    if-ge v5, v10, :cond_ba
 
     move v11, v5
 
-    :cond_6
+    :cond_aa
     move v12, v11
 
     .restart local v12    # "i$iv":I
@@ -1694,11 +1713,11 @@
     invoke-virtual {v3, v9}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 291
-    if-lt v11, v10, :cond_6
+    if-lt v11, v10, :cond_aa
 
     .line 295
     .end local v12    # "i$iv":I
-    :cond_7
+    :cond_ba
     invoke-static {v3, v7}, Lokio/internal/_PathKt;->toPath(Lokio/Buffer;Z)Lokio/Path;
 
     move-result-object v7
@@ -1714,7 +1733,7 @@
     .end local v5    # "firstNewSegmentIndex$iv":I
     .end local v6    # "minSegmentsSize$iv":I
     .end local v9    # "slash$iv":Lokio/ByteString;
-    :goto_2
+    :goto_bf
     return-object v3
 
     .line 281
@@ -1724,7 +1743,7 @@
     .restart local v4    # "otherSegments$iv":Ljava/util/List;
     .restart local v5    # "firstNewSegmentIndex$iv":I
     .restart local v6    # "minSegmentsSize$iv":I
-    :cond_8
+    :cond_c0
     const/4 v7, 0x0
 
     .line 282
@@ -1774,7 +1793,7 @@
     .end local v4    # "otherSegments$iv":Ljava/util/List;
     .end local v5    # "firstNewSegmentIndex$iv":I
     .end local v6    # "minSegmentsSize$iv":I
-    :cond_9
+    :cond_e8
     const/4 v2, 0x0
 
     .line 261
@@ -1821,7 +1840,7 @@
 .end method
 
 .method public final resolve(Ljava/lang/String;)Lokio/Path;
-    .locals 7
+    .registers 9
     .param p1, "child"    # Ljava/lang/String;
 
     const-string v0, "child"
@@ -1879,7 +1898,7 @@
 .end method
 
 .method public final resolve(Ljava/lang/String;Z)Lokio/Path;
-    .locals 6
+    .registers 9
     .param p1, "child"    # Ljava/lang/String;
     .param p2, "normalize"    # Z
 
@@ -1934,7 +1953,7 @@
 .end method
 
 .method public final resolve(Lokio/ByteString;)Lokio/Path;
-    .locals 7
+    .registers 9
     .param p1, "child"    # Lokio/ByteString;
 
     const-string v0, "child"
@@ -1992,7 +2011,7 @@
 .end method
 
 .method public final resolve(Lokio/ByteString;Z)Lokio/Path;
-    .locals 6
+    .registers 9
     .param p1, "child"    # Lokio/ByteString;
     .param p2, "normalize"    # Z
 
@@ -2047,7 +2066,7 @@
 .end method
 
 .method public final resolve(Lokio/Path;)Lokio/Path;
-    .locals 1
+    .registers 3
     .param p1, "child"    # Lokio/Path;
 
     const-string v0, "child"
@@ -2065,7 +2084,7 @@
 .end method
 
 .method public final resolve(Lokio/Path;Z)Lokio/Path;
-    .locals 1
+    .registers 4
     .param p1, "child"    # Lokio/Path;
     .param p2, "normalize"    # Z
 
@@ -2082,7 +2101,7 @@
 .end method
 
 .method public final toFile()Ljava/io/File;
-    .locals 2
+    .registers 3
 
     .line 100
     new-instance v0, Ljava/io/File;
@@ -2097,7 +2116,7 @@
 .end method
 
 .method public final toNioPath()Ljava/nio/file/Path;
-    .locals 2
+    .registers 3
 
     .line 103
     invoke-virtual {p0}, Lokio/Path;->toString()Ljava/lang/String;
@@ -2120,7 +2139,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 111
     move-object v0, p0
@@ -2145,7 +2164,7 @@
 .end method
 
 .method public final volumeLetter()Ljava/lang/Character;
-    .locals 7
+    .registers 8
 
     .line 61
     move-object v0, p0
@@ -2159,6 +2178,7 @@
 
     move-result-object v2
 
+    # getter for: Lokio/internal/_PathKt;->SLASH:Lokio/ByteString;
     invoke-static {}, Lokio/internal/_PathKt;->access$getSLASH$p()Lokio/ByteString;
 
     move-result-object v3
@@ -2175,12 +2195,12 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_15
 
-    goto :goto_1
+    goto :goto_55
 
     .line 189
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v2
@@ -2189,12 +2209,12 @@
 
     move-result v2
 
-    if-ge v2, v5, :cond_1
+    if-ge v2, v5, :cond_20
 
-    goto :goto_1
+    goto :goto_55
 
     .line 190
-    :cond_1
+    :cond_20
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v2
@@ -2209,12 +2229,12 @@
 
     int-to-byte v5, v5
 
-    if-eq v2, v5, :cond_2
+    if-eq v2, v5, :cond_2f
 
-    goto :goto_1
+    goto :goto_55
 
     .line 191
-    :cond_2
+    :cond_2f
     invoke-virtual {v0}, Lokio/Path;->getBytes$okio()Lokio/ByteString;
 
     move-result-object v2
@@ -2229,39 +2249,39 @@
     .local v2, "c$iv":C
     const/16 v5, 0x61
 
-    if-gt v5, v2, :cond_3
+    if-gt v5, v2, :cond_42
 
     const/16 v5, 0x7a
 
-    if-gt v2, v5, :cond_3
+    if-gt v2, v5, :cond_42
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_3
+    :cond_42
     const/4 v5, 0x0
 
-    :goto_0
-    if-nez v5, :cond_5
+    :goto_43
+    if-nez v5, :cond_51
 
     const/16 v5, 0x41
 
-    if-gt v5, v2, :cond_4
+    if-gt v5, v2, :cond_4e
 
     const/16 v5, 0x5a
 
-    if-gt v2, v5, :cond_4
+    if-gt v2, v5, :cond_4e
 
     const/4 v4, 0x1
 
-    :cond_4
-    if-nez v4, :cond_5
+    :cond_4e
+    if-nez v4, :cond_51
 
-    goto :goto_1
+    goto :goto_55
 
     .line 193
-    :cond_5
+    :cond_51
     invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v6
@@ -2270,6 +2290,6 @@
     .end local v0    # "$this$commonVolumeLetter$iv":Lokio/Path;
     .end local v1    # "$i$f$commonVolumeLetter":I
     .end local v2    # "c$iv":C
-    :goto_1
+    :goto_55
     return-object v6
 .end method

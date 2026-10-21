@@ -135,7 +135,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/selects/SelectImplementation;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)V
-    .locals 1
+    .registers 9
     .param p1, "this$0"    # Lkotlinx/coroutines/selects/SelectImplementation;
     .param p2, "clauseObject"    # Ljava/lang/Object;
     .param p3, "regFunc"    # Lkotlin/jvm/functions/Function3;
@@ -214,7 +214,7 @@
 
 # virtual methods
 .method public final createOnCancellationAction(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)Lkotlin/jvm/functions/Function1;
-    .locals 2
+    .registers 5
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "internalResult"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -234,7 +234,7 @@
     .line 836
     iget-object v0, p0, Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;->onCancellationConstructor:Lkotlin/jvm/functions/Function3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v1, p0, Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;->param:Ljava/lang/Object;
 
@@ -244,17 +244,17 @@
 
     check-cast v0, Lkotlin/jvm/functions/Function1;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public final dispose()V
-    .locals 6
+    .registers 7
 
     .line 826
     iget-object v0, p0, Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;->disposableHandleOrSegment:Ljava/lang/Object;
@@ -270,7 +270,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_17
 
     .line 828
     move-object v3, v0
@@ -285,26 +285,26 @@
 
     invoke-virtual {v3, v5, v4, v1}, Lkotlinx/coroutines/internal/Segment;->onCancellation(ILjava/lang/Throwable;Lkotlin/coroutines/CoroutineContext;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 830
-    :cond_0
+    :cond_17
     instance-of v1, v0, Lkotlinx/coroutines/DisposableHandle;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     move-object v4, v0
 
     check-cast v4, Lkotlinx/coroutines/DisposableHandle;
 
-    :cond_1
-    if-eqz v4, :cond_2
+    :cond_1e
+    if-eqz v4, :cond_23
 
     invoke-interface {v4}, Lkotlinx/coroutines/DisposableHandle;->dispose()V
 
     .line 827
-    :cond_2
-    :goto_0
+    :cond_23
+    :goto_23
     nop
 
     .line 826
@@ -317,7 +317,7 @@
 .end method
 
 .method public final invokeBlock(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "argument"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -341,7 +341,7 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1a
 
     .line 817
     const-string v1, "null cannot be cast to non-null type kotlin.coroutines.SuspendFunction0<R of kotlinx.coroutines.selects.SelectImplementation>"
@@ -362,11 +362,11 @@
     move-result-object v1
 
     .line 823
-    :goto_0
+    :goto_19
     return-object v1
 
     .line 820
-    :cond_0
+    :cond_1a
     const-string v1, "null cannot be cast to non-null type kotlin.coroutines.SuspendFunction1<kotlin.Any?, R of kotlinx.coroutines.selects.SelectImplementation>"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -384,11 +384,11 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_19
 .end method
 
 .method public final processResult(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 799
@@ -406,7 +406,7 @@
 .end method
 
 .method public final tryRegisterAsWaiter(Lkotlinx/coroutines/selects/SelectImplementation;)Z
-    .locals 5
+    .registers 7
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectImplementation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -425,43 +425,45 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_22
 
     .line 874
     const/4 v0, 0x0
 
     .line 783
     .local v0, "$i$a$-assert-SelectImplementation$ClauseData$tryRegisterAsWaiter$1":I
+    # invokes: Lkotlinx/coroutines/selects/SelectImplementation;->getInRegistrationPhase()Z
     invoke-static {p1}, Lkotlinx/coroutines/selects/SelectImplementation;->access$getInRegistrationPhase(Lkotlinx/coroutines/selects/SelectImplementation;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_18
 
+    # invokes: Lkotlinx/coroutines/selects/SelectImplementation;->isCancelled()Z
     invoke-static {p1}, Lkotlinx/coroutines/selects/SelectImplementation;->access$isCancelled(Lkotlinx/coroutines/selects/SelectImplementation;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x1
 
     .end local v0    # "$i$a$-assert-SelectImplementation$ClauseData$tryRegisterAsWaiter$1":I
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_19
+    if-eqz v0, :cond_1c
 
-    goto :goto_2
+    goto :goto_22
 
-    :cond_2
+    :cond_1c
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -469,43 +471,45 @@
     throw v0
 
     .line 784
-    :cond_3
-    :goto_2
+    :cond_22
+    :goto_22
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_3f
 
     .line 874
     const/4 v0, 0x0
 
     .line 784
     .local v0, "$i$a$-assert-SelectImplementation$ClauseData$tryRegisterAsWaiter$2":I
+    # getter for: Lkotlinx/coroutines/selects/SelectImplementation;->internalResult:Ljava/lang/Object;
     invoke-static {p1}, Lkotlinx/coroutines/selects/SelectImplementation;->access$getInternalResult$p(Lkotlinx/coroutines/selects/SelectImplementation;)Ljava/lang/Object;
 
     move-result-object v3
 
+    # getter for: Lkotlinx/coroutines/selects/SelectKt;->NO_RESULT:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/selects/SelectKt;->access$getNO_RESULT$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_35
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_36
 
-    :cond_4
+    :cond_35
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-SelectImplementation$ClauseData$tryRegisterAsWaiter$2":I
-    :goto_3
-    if-eqz v0, :cond_5
+    :goto_36
+    if-eqz v0, :cond_39
 
-    goto :goto_4
+    goto :goto_3f
 
-    :cond_5
+    :cond_39
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -513,8 +517,8 @@
     throw v0
 
     .line 785
-    :cond_6
-    :goto_4
+    :cond_3f
+    :goto_3f
     iget-object v0, p0, Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;->regFunc:Lkotlin/jvm/functions/Function3;
 
     iget-object v3, p0, Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;->clauseObject:Ljava/lang/Object;
@@ -524,18 +528,20 @@
     invoke-interface {v0, v3, p1, v4}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 786
+    # getter for: Lkotlinx/coroutines/selects/SelectImplementation;->internalResult:Ljava/lang/Object;
     invoke-static {p1}, Lkotlinx/coroutines/selects/SelectImplementation;->access$getInternalResult$p(Lkotlinx/coroutines/selects/SelectImplementation;)Ljava/lang/Object;
 
     move-result-object v0
 
+    # getter for: Lkotlinx/coroutines/selects/SelectKt;->NO_RESULT:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/selects/SelectKt;->access$getNO_RESULT$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v3
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_53
 
     const/4 v1, 0x1
 
-    :cond_7
+    :cond_53
     return v1
 .end method

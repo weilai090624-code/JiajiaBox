@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     .line 602
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .locals 1
+    .registers 5
     .param p1, "fraction"    # F
     .param p2, "startValue"    # Landroid/graphics/Matrix;
     .param p3, "endValue"    # Landroid/graphics/Matrix;
@@ -42,6 +42,7 @@
     .line 608
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$3;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
+    # setter for: Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->imageMatrixScale:F
     invoke-static {v0, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->access$202(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;F)F
 
     .line 609
@@ -53,7 +54,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 602
     check-cast p2, Landroid/graphics/Matrix;

@@ -39,7 +39,7 @@
 
 # direct methods
 .method public varargs constructor <init>(I[Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)V
-    .locals 2
+    .registers 5
     .param p1, "titleRes"    # I
     .param p2, "materialAboutItems"    # [Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)V
-    .locals 2
+    .registers 4
     .param p1, "builder"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 30
@@ -149,6 +149,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->id:Ljava/lang/String;
 
     .line 32
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->title:Ljava/lang/CharSequence;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$000(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -156,6 +157,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->title:Ljava/lang/CharSequence;
 
     .line 33
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->titleRes:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$100(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
 
     move-result v0
@@ -163,6 +165,7 @@
     iput v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->titleRes:I
 
     .line 34
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->titleColor:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$200(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
 
     move-result v0
@@ -170,6 +173,7 @@
     iput v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->titleColor:I
 
     .line 35
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->cardColor:I
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$300(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
 
     move-result v0
@@ -177,6 +181,7 @@
     iput v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->cardColor:I
 
     .line 36
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->items:Ljava/util/ArrayList;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$400(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -184,6 +189,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->items:Ljava/util/ArrayList;
 
     .line 37
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->customAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$500(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v0
@@ -191,6 +197,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->customAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 38
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->outline:Z
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;->access$600(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Z
 
     move-result v0
@@ -202,7 +209,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
     .param p2, "x1"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$1;
 
@@ -213,7 +220,7 @@
 .end method
 
 .method public constructor <init>(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)V
-    .locals 4
+    .registers 6
     .param p1, "card"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
     .line 159
@@ -318,12 +325,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_54
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -343,15 +350,15 @@
 
     .line 170
     .end local v1    # "item":Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
-    goto :goto_0
+    goto :goto_54
 
     .line 171
-    :cond_0
+    :cond_6a
     return-void
 .end method
 
 .method public varargs constructor <init>(Ljava/lang/CharSequence;[Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)V
-    .locals 2
+    .registers 5
     .param p1, "title"    # Ljava/lang/CharSequence;
     .param p2, "materialAboutItems"    # [Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
 
@@ -409,7 +416,7 @@
 
 # virtual methods
 .method public clone()Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
-    .locals 1
+    .registers 2
 
     .line 174
     new-instance v0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
@@ -420,7 +427,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -436,7 +443,7 @@
 .end method
 
 .method public getCardColor()I
-    .locals 1
+    .registers 2
 
     .line 64
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->cardColor:I
@@ -445,7 +452,7 @@
 .end method
 
 .method public getCustomAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
-    .locals 1
+    .registers 2
 
     .line 143
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->customAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -454,7 +461,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->id:Ljava/lang/String;
@@ -463,7 +470,7 @@
 .end method
 
 .method public getItems()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -480,7 +487,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->title:Ljava/lang/CharSequence;
@@ -489,7 +496,7 @@
 .end method
 
 .method public getTitleColor()I
-    .locals 1
+    .registers 2
 
     .line 60
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->titleColor:I
@@ -498,7 +505,7 @@
 .end method
 
 .method public getTitleRes()I
-    .locals 1
+    .registers 2
 
     .line 56
     iget v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->titleRes:I
@@ -507,7 +514,7 @@
 .end method
 
 .method public isOutline()Z
-    .locals 1
+    .registers 2
 
     .line 68
     iget-boolean v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->outline:Z
@@ -516,7 +523,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 148
     new-instance v0, Ljava/lang/StringBuilder;

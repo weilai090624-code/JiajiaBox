@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/FileBackedOutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/io/FileBackedOutputStream;
 
     .line 140
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,6 +44,7 @@
     .line 143
     iget-object v0, p0, Lcom/google/common/io/FileBackedOutputStream$2;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
+    # invokes: Lcom/google/common/io/FileBackedOutputStream;->openInputStream()Ljava/io/InputStream;
     invoke-static {v0}, Lcom/google/common/io/FileBackedOutputStream;->access$100(Lcom/google/common/io/FileBackedOutputStream;)Ljava/io/InputStream;
 
     move-result-object v0

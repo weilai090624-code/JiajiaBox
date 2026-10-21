@@ -20,12 +20,13 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractService;)V
-    .locals 0
+    .registers 2
 
     .line 168
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractService$IsStoppedGuard;->this$0:Lcom/google/common/util/concurrent/AbstractService;
 
     .line 169
+    # getter for: Lcom/google/common/util/concurrent/AbstractService;->monitor:Lcom/google/common/util/concurrent/Monitor;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractService;->access$000(Lcom/google/common/util/concurrent/AbstractService;)Lcom/google/common/util/concurrent/Monitor;
 
     move-result-object p1
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public isSatisfied()Z
-    .locals 2
+    .registers 3
 
     .line 174
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$IsStoppedGuard;->this$0:Lcom/google/common/util/concurrent/AbstractService;
@@ -54,15 +55,15 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method

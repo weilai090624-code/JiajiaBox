@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 276
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method getBaseUrl()Ljava/net/URL;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -78,7 +78,7 @@
 
     .line 309
     .local v1, "finalizerUrl":Ljava/net/URL;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5c
 
     .line 314
     invoke-virtual {v1}, Ljava/net/URL;->toString()Ljava/lang/String;
@@ -91,7 +91,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_48
 
     .line 316
     new-instance v3, Ljava/io/IOException;
@@ -106,26 +106,26 @@
 
     const-string v6, "Unsupported path style: "
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3f
 
     invoke-virtual {v6, v4}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_0
+    :cond_3f
     new-instance v4, Ljava/lang/String;
 
     invoke-direct {v4, v6}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_44
     invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v3
 
     .line 318
-    :cond_1
+    :cond_48
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -151,7 +151,7 @@
 
     .line 310
     .end local v2    # "urlString":Ljava/lang/String;
-    :cond_2
+    :cond_5c
     new-instance v2, Ljava/io/FileNotFoundException;
 
     invoke-direct {v2, v0}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
@@ -160,7 +160,7 @@
 .end method
 
 .method public loadFinalizer()Ljava/lang/Class;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -189,18 +189,19 @@
     invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_f
 
     return-object v1
 
     .line 298
     .end local v0    # "finalizerLoader":Ljava/lang/ClassLoader;
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 299
     .local v0, "e":Ljava/lang/Exception;
+    # getter for: Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/base/FinalizableReferenceQueue;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v1
@@ -218,7 +219,7 @@
 .end method
 
 .method newLoader(Ljava/net/URL;)Ljava/net/URLClassLoader;
-    .locals 3
+    .registers 5
     .param p1, "base"    # Ljava/net/URL;
 
     .line 327

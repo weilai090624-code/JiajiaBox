@@ -73,7 +73,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$IeZjz11CunREDKD5magpiUhIz7I(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$1(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/CharSequence;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$M0GYImkHNFiIwQjtGkOX4Afoc4k(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$2(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$nMcyMfbQivNdYz2LYav14hY6Rfg(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->invokeSuspend$lambda$3(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/AppListActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$1(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
 
     .line 251
@@ -139,11 +139,12 @@
 .end method
 
 .method private static final invokeSuspend$lambda$2(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p1, "it"    # Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
 
     .line 252
+    # invokes: Lio/nekohasekai/sagernet/ui/AppListActivity;->isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
 
     move-result v0
@@ -160,7 +161,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$3(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
 
     .line 252
@@ -180,7 +181,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,7 +206,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -219,7 +220,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,7 +249,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 18
+    .registers 20
 
     move-object/from16 v0, p0
 
@@ -259,7 +260,7 @@
     .line 242
     iget v2, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_100
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -269,16 +270,16 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v1, p1
 
     .local v1, "$result":Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_fc
 
     .end local v1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -287,6 +288,7 @@
     .local v2, "$result":Ljava/lang/Object;
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->apps:Ljava/util/List;
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
 
     move-result-object v3
@@ -295,7 +297,7 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_29
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -304,7 +306,7 @@
 
     const/4 v6, 0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -316,6 +318,7 @@
     .local v4, "app":Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
     iget-object v7, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v7}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v7
@@ -334,7 +337,7 @@
 
     move-result v10
 
-    if-ltz v10, :cond_0
+    if-ltz v10, :cond_4a
 
     const/4 v5, 0x1
 
@@ -344,12 +347,13 @@
     .end local v7    # "$this$contains$iv":Landroid/util/SparseBooleanArray;
     .end local v8    # "key$iv":I
     .end local v9    # "$i$f$contains":I
-    :cond_0
-    if-eqz v5, :cond_1
+    :cond_4a
+    if-eqz v5, :cond_5a
 
     .line 245
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v5}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v5
@@ -360,12 +364,13 @@
 
     invoke-virtual {v5, v6}, Landroid/util/SparseBooleanArray;->delete(I)V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 247
-    :cond_1
+    :cond_5a
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->proxiedUids:Landroid/util/SparseBooleanArray;
     invoke-static {v5}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/util/SparseBooleanArray;
 
     move-result-object v5
@@ -391,14 +396,15 @@
     invoke-virtual {v5, v7, v6}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     .end local v8    # "$i$f$set":I
-    goto :goto_0
+    goto :goto_29
 
     .line 250
-    :cond_2
+    :cond_6b
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->apps:Ljava/util/List;
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
 
     move-result-object v4
@@ -429,13 +435,13 @@
     move-result-object v11
 
     .end local v4    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_3
-    :goto_1
+    :cond_84
+    :goto_84
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_9c
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -451,6 +457,7 @@
 
     .line 250
     .local v13, "$i$a$-filter-AppListActivity$onOptionsItemSelected$1$1":I
+    # invokes: Lio/nekohasekai/sagernet/ui/AppListActivity;->isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
     invoke-static {v7, v12}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
 
     move-result v12
@@ -458,15 +465,15 @@
     .line 326
     .end local v12    # "it":Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
     .end local v13    # "$i$a$-filter-AppListActivity$onOptionsItemSelected$1$1":I
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_84
 
     invoke-interface {v9, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_84
 
     .line 327
     .end local v4    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_9c
     nop
 
     .end local v9    # "destination$iv$iv":Ljava/util/Collection;
@@ -518,6 +525,7 @@
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->apps:Ljava/util/List;
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
 
     move-result-object v4
@@ -573,28 +581,28 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_5
+    if-ne v3, v1, :cond_fb
 
     .line 242
     return-object v1
 
     .line 253
-    :cond_5
+    :cond_fb
     move-object v1, v2
 
     .line 256
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_fc
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_100
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 .end method

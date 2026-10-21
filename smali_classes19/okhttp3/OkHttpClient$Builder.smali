@@ -358,7 +358,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 479
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -497,7 +497,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/OkHttpClient;)V
-    .locals 2
+    .registers 4
     .param p1, "okHttpClient"    # Lokhttp3/OkHttpClient;
 
     const-string v0, "okHttpClient"
@@ -632,6 +632,7 @@
     iput-object v0, p0, Lokhttp3/OkHttpClient$Builder;->socketFactory:Ljavax/net/SocketFactory;
 
     .line 528
+    # getter for: Lokhttp3/OkHttpClient;->sslSocketFactoryOrNull:Ljavax/net/ssl/SSLSocketFactory;
     invoke-static {p1}, Lokhttp3/OkHttpClient;->access$getSslSocketFactoryOrNull$p(Lokhttp3/OkHttpClient;)Ljavax/net/ssl/SSLSocketFactory;
 
     move-result-object v0
@@ -736,7 +737,7 @@
 
 # virtual methods
 .method public final -addInterceptor(Lkotlin/jvm/functions/Function1;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -772,7 +773,7 @@
 .end method
 
 .method public final -addNetworkInterceptor(Lkotlin/jvm/functions/Function1;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -808,7 +809,7 @@
 .end method
 
 .method public final addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "interceptor"    # Lokhttp3/Interceptor;
 
     const-string v0, "interceptor"
@@ -848,7 +849,7 @@
 .end method
 
 .method public final addNetworkInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "interceptor"    # Lokhttp3/Interceptor;
 
     const-string v0, "interceptor"
@@ -888,7 +889,7 @@
 .end method
 
 .method public final authenticator(Lokhttp3/Authenticator;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "authenticator"    # Lokhttp3/Authenticator;
 
     const-string v0, "authenticator"
@@ -922,7 +923,7 @@
 .end method
 
 .method public final build()Lokhttp3/OkHttpClient;
-    .locals 1
+    .registers 2
 
     .line 1079
     new-instance v0, Lokhttp3/OkHttpClient;
@@ -933,7 +934,7 @@
 .end method
 
 .method public final cache(Lokhttp3/Cache;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "cache"    # Lokhttp3/Cache;
 
     .line 668
@@ -963,7 +964,7 @@
 .end method
 
 .method public final callTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -1004,7 +1005,7 @@
 .end method
 
 .method public final callTimeout(Lj$/time/Duration;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"
@@ -1044,7 +1045,7 @@
 .end method
 
 .method public final certificatePinner(Lokhttp3/CertificatePinner;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "certificatePinner"    # Lokhttp3/CertificatePinner;
 
     const-string v0, "certificatePinner"
@@ -1069,7 +1070,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 915
     const/4 v2, 0x0
@@ -1077,7 +1078,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 918
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setCertificatePinner$okhttp(Lokhttp3/CertificatePinner;)V
 
     .line 919
@@ -1095,7 +1096,7 @@
 .end method
 
 .method public final connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -1136,7 +1137,7 @@
 .end method
 
 .method public final connectTimeout(Lj$/time/Duration;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"
@@ -1176,7 +1177,7 @@
 .end method
 
 .method public final connectionPool(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "connectionPool"    # Lokhttp3/ConnectionPool;
 
     const-string v0, "connectionPool"
@@ -1210,7 +1211,7 @@
 .end method
 
 .method public final connectionSpecs(Ljava/util/List;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "connectionSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1244,7 +1245,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 827
     const/4 v2, 0x0
@@ -1252,7 +1253,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 830
-    :cond_0
+    :cond_17
     invoke-static {p1}, Lokhttp3/internal/Util;->toImmutableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v2
@@ -1274,7 +1275,7 @@
 .end method
 
 .method public final cookieJar(Lokhttp3/CookieJar;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "cookieJar"    # Lokhttp3/CookieJar;
 
     const-string v0, "cookieJar"
@@ -1308,7 +1309,7 @@
 .end method
 
 .method public final dispatcher(Lokhttp3/Dispatcher;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "dispatcher"    # Lokhttp3/Dispatcher;
 
     const-string v0, "dispatcher"
@@ -1342,7 +1343,7 @@
 .end method
 
 .method public final dns(Lokhttp3/Dns;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "dns"    # Lokhttp3/Dns;
 
     const-string v0, "dns"
@@ -1367,7 +1368,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 679
     const/4 v2, 0x0
@@ -1375,7 +1376,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 681
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setDns$okhttp(Lokhttp3/Dns;)V
 
     .line 682
@@ -1393,7 +1394,7 @@
 .end method
 
 .method public final eventListener(Lokhttp3/EventListener;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "eventListener"    # Lokhttp3/EventListener;
 
     const-string v0, "eventListener"
@@ -1431,7 +1432,7 @@
 .end method
 
 .method public final eventListenerFactory(Lokhttp3/EventListener$Factory;)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "eventListenerFactory"    # Lokhttp3/EventListener$Factory;
 
     const-string v0, "eventListenerFactory"
@@ -1465,7 +1466,7 @@
 .end method
 
 .method public final followRedirects(Z)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "followRedirects"    # Z
 
     .line 643
@@ -1495,7 +1496,7 @@
 .end method
 
 .method public final followSslRedirects(Z)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "followProtocolRedirects"    # Z
 
     .line 653
@@ -1525,7 +1526,7 @@
 .end method
 
 .method public final getAuthenticator$okhttp()Lokhttp3/Authenticator;
-    .locals 1
+    .registers 2
 
     .line 486
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->authenticator:Lokhttp3/Authenticator;
@@ -1534,7 +1535,7 @@
 .end method
 
 .method public final getCache$okhttp()Lokhttp3/Cache;
-    .locals 1
+    .registers 2
 
     .line 490
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->cache:Lokhttp3/Cache;
@@ -1543,7 +1544,7 @@
 .end method
 
 .method public final getCallTimeout$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 503
     iget v0, p0, Lokhttp3/OkHttpClient$Builder;->callTimeout:I
@@ -1552,7 +1553,7 @@
 .end method
 
 .method public final getCertificateChainCleaner$okhttp()Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 1
+    .registers 2
 
     .line 502
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->certificateChainCleaner:Lokhttp3/internal/tls/CertificateChainCleaner;
@@ -1561,7 +1562,7 @@
 .end method
 
 .method public final getCertificatePinner$okhttp()Lokhttp3/CertificatePinner;
-    .locals 1
+    .registers 2
 
     .line 501
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->certificatePinner:Lokhttp3/CertificatePinner;
@@ -1570,7 +1571,7 @@
 .end method
 
 .method public final getConnectTimeout$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 504
     iget v0, p0, Lokhttp3/OkHttpClient$Builder;->connectTimeout:I
@@ -1579,7 +1580,7 @@
 .end method
 
 .method public final getConnectionPool$okhttp()Lokhttp3/ConnectionPool;
-    .locals 1
+    .registers 2
 
     .line 481
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->connectionPool:Lokhttp3/ConnectionPool;
@@ -1588,7 +1589,7 @@
 .end method
 
 .method public final getConnectionSpecs$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1605,7 +1606,7 @@
 .end method
 
 .method public final getCookieJar$okhttp()Lokhttp3/CookieJar;
-    .locals 1
+    .registers 2
 
     .line 489
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->cookieJar:Lokhttp3/CookieJar;
@@ -1614,7 +1615,7 @@
 .end method
 
 .method public final getDispatcher$okhttp()Lokhttp3/Dispatcher;
-    .locals 1
+    .registers 2
 
     .line 480
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->dispatcher:Lokhttp3/Dispatcher;
@@ -1623,7 +1624,7 @@
 .end method
 
 .method public final getDns$okhttp()Lokhttp3/Dns;
-    .locals 1
+    .registers 2
 
     .line 491
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->dns:Lokhttp3/Dns;
@@ -1632,7 +1633,7 @@
 .end method
 
 .method public final getEventListenerFactory$okhttp()Lokhttp3/EventListener$Factory;
-    .locals 1
+    .registers 2
 
     .line 484
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->eventListenerFactory:Lokhttp3/EventListener$Factory;
@@ -1641,7 +1642,7 @@
 .end method
 
 .method public final getFollowRedirects$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 487
     iget-boolean v0, p0, Lokhttp3/OkHttpClient$Builder;->followRedirects:Z
@@ -1650,7 +1651,7 @@
 .end method
 
 .method public final getFollowSslRedirects$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 488
     iget-boolean v0, p0, Lokhttp3/OkHttpClient$Builder;->followSslRedirects:Z
@@ -1659,7 +1660,7 @@
 .end method
 
 .method public final getHostnameVerifier$okhttp()Ljavax/net/ssl/HostnameVerifier;
-    .locals 1
+    .registers 2
 
     .line 500
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
@@ -1668,7 +1669,7 @@
 .end method
 
 .method public final getInterceptors$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1685,7 +1686,7 @@
 .end method
 
 .method public final getMinWebSocketMessageToCompress$okhttp()J
-    .locals 2
+    .registers 3
 
     .line 508
     iget-wide v0, p0, Lokhttp3/OkHttpClient$Builder;->minWebSocketMessageToCompress:J
@@ -1694,7 +1695,7 @@
 .end method
 
 .method public final getNetworkInterceptors$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1711,7 +1712,7 @@
 .end method
 
 .method public final getPingInterval$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 507
     iget v0, p0, Lokhttp3/OkHttpClient$Builder;->pingInterval:I
@@ -1720,7 +1721,7 @@
 .end method
 
 .method public final getProtocols$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1737,7 +1738,7 @@
 .end method
 
 .method public final getProxy$okhttp()Ljava/net/Proxy;
-    .locals 1
+    .registers 2
 
     .line 492
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->proxy:Ljava/net/Proxy;
@@ -1746,7 +1747,7 @@
 .end method
 
 .method public final getProxyAuthenticator$okhttp()Lokhttp3/Authenticator;
-    .locals 1
+    .registers 2
 
     .line 494
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->proxyAuthenticator:Lokhttp3/Authenticator;
@@ -1755,7 +1756,7 @@
 .end method
 
 .method public final getProxySelector$okhttp()Ljava/net/ProxySelector;
-    .locals 1
+    .registers 2
 
     .line 493
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->proxySelector:Ljava/net/ProxySelector;
@@ -1764,7 +1765,7 @@
 .end method
 
 .method public final getReadTimeout$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 505
     iget v0, p0, Lokhttp3/OkHttpClient$Builder;->readTimeout:I
@@ -1773,7 +1774,7 @@
 .end method
 
 .method public final getRetryOnConnectionFailure$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 485
     iget-boolean v0, p0, Lokhttp3/OkHttpClient$Builder;->retryOnConnectionFailure:Z
@@ -1782,7 +1783,7 @@
 .end method
 
 .method public final getRouteDatabase$okhttp()Lokhttp3/internal/connection/RouteDatabase;
-    .locals 1
+    .registers 2
 
     .line 509
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->routeDatabase:Lokhttp3/internal/connection/RouteDatabase;
@@ -1791,7 +1792,7 @@
 .end method
 
 .method public final getSocketFactory$okhttp()Ljavax/net/SocketFactory;
-    .locals 1
+    .registers 2
 
     .line 495
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->socketFactory:Ljavax/net/SocketFactory;
@@ -1800,7 +1801,7 @@
 .end method
 
 .method public final getSslSocketFactoryOrNull$okhttp()Ljavax/net/ssl/SSLSocketFactory;
-    .locals 1
+    .registers 2
 
     .line 496
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->sslSocketFactoryOrNull:Ljavax/net/ssl/SSLSocketFactory;
@@ -1809,7 +1810,7 @@
 .end method
 
 .method public final getWriteTimeout$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 506
     iget v0, p0, Lokhttp3/OkHttpClient$Builder;->writeTimeout:I
@@ -1818,7 +1819,7 @@
 .end method
 
 .method public final getX509TrustManagerOrNull$okhttp()Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 2
 
     .line 497
     iget-object v0, p0, Lokhttp3/OkHttpClient$Builder;->x509TrustManagerOrNull:Ljavax/net/ssl/X509TrustManager;
@@ -1827,7 +1828,7 @@
 .end method
 
 .method public final hostnameVerifier(Ljavax/net/ssl/HostnameVerifier;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "hostnameVerifier"    # Ljavax/net/ssl/HostnameVerifier;
 
     const-string v0, "hostnameVerifier"
@@ -1852,7 +1853,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 902
     const/4 v2, 0x0
@@ -1860,7 +1861,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 905
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setHostnameVerifier$okhttp(Ljavax/net/ssl/HostnameVerifier;)V
 
     .line 906
@@ -1878,7 +1879,7 @@
 .end method
 
 .method public final interceptors()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1895,7 +1896,7 @@
 .end method
 
 .method public final minWebSocketMessageToCompress(J)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 8
     .param p1, "bytes"    # J
 
     .line 1071
@@ -1912,17 +1913,17 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_d
+    if-eqz v2, :cond_17
 
     .line 1076
     invoke-virtual {v0, p1, p2}, Lokhttp3/OkHttpClient$Builder;->setMinWebSocketMessageToCompress$okhttp(J)V
@@ -1943,7 +1944,7 @@
     .line 1072
     .restart local v0    # "$this$minWebSocketMessageToCompress_u24lambda_u2d39":Lokhttp3/OkHttpClient$Builder;
     .restart local v1    # "$i$a$-apply-OkHttpClient$Builder$minWebSocketMessageToCompress$1":I
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
     .line 1073
@@ -1974,7 +1975,7 @@
 .end method
 
 .method public final networkInterceptors()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1991,7 +1992,7 @@
 .end method
 
 .method public final pingInterval(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 7
     .param p1, "interval"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -2032,7 +2033,7 @@
 .end method
 
 .method public final pingInterval(Lj$/time/Duration;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"
@@ -2072,7 +2073,7 @@
 .end method
 
 .method public final protocols(Ljava/util/List;)Lokhttp3/OkHttpClient$Builder;
-    .locals 6
+    .registers 8
     .param p1, "protocols"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2119,7 +2120,7 @@
 
     const/4 v5, 0x1
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_25
 
     sget-object v3, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
@@ -2127,21 +2128,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     const/4 v3, 0x1
 
-    :goto_1
-    if-eqz v3, :cond_8
+    :goto_26
+    if-eqz v3, :cond_a1
 
     .line 872
     sget-object v3, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
@@ -2150,19 +2151,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-gt v3, v5, :cond_3
+    if-gt v3, v5, :cond_37
 
-    :cond_2
+    :cond_36
     const/4 v4, 0x1
 
-    :cond_3
-    if-eqz v4, :cond_7
+    :cond_37
+    if-eqz v4, :cond_8e
 
     .line 875
     sget-object v3, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
@@ -2171,7 +2172,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_7b
 
     .line 878
     const/4 v3, 0x0
@@ -2180,7 +2181,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6b
 
     .line 884
     sget-object v4, Lokhttp3/Protocol;->SPDY_3:Lokhttp3/Protocol;
@@ -2196,13 +2197,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5a
 
     .line 887
     invoke-virtual {v0, v3}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 891
-    :cond_4
+    :cond_5a
     invoke-static {v2}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v3
@@ -2231,7 +2232,7 @@
     .restart local v0    # "$this$protocols_u24lambda_u2d25":Lokhttp3/OkHttpClient$Builder;
     .restart local v1    # "$i$a$-apply-OkHttpClient$Builder$protocols$1":I
     .restart local v2    # "protocolsCopy":Ljava/util/List;
-    :cond_5
+    :cond_6b
     const/4 v3, 0x0
 
     .line 879
@@ -2255,7 +2256,7 @@
     throw v3
 
     .line 875
-    :cond_6
+    :cond_7b
     const/4 v3, 0x0
 
     .line 876
@@ -2281,7 +2282,7 @@
     throw v4
 
     .line 872
-    :cond_7
+    :cond_8e
     const/4 v3, 0x0
 
     .line 873
@@ -2307,7 +2308,7 @@
     throw v4
 
     .line 869
-    :cond_8
+    :cond_a1
     const/4 v3, 0x0
 
     .line 870
@@ -2334,7 +2335,7 @@
 .end method
 
 .method public final proxy(Ljava/net/Proxy;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "proxy"    # Ljava/net/Proxy;
 
     .line 689
@@ -2355,7 +2356,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 691
     const/4 v2, 0x0
@@ -2363,7 +2364,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 693
-    :cond_0
+    :cond_12
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setProxy$okhttp(Ljava/net/Proxy;)V
 
     .line 694
@@ -2381,7 +2382,7 @@
 .end method
 
 .method public final proxyAuthenticator(Lokhttp3/Authenticator;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "proxyAuthenticator"    # Lokhttp3/Authenticator;
 
     const-string v0, "proxyAuthenticator"
@@ -2406,7 +2407,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 719
     const/4 v2, 0x0
@@ -2414,7 +2415,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 722
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setProxyAuthenticator$okhttp(Lokhttp3/Authenticator;)V
 
     .line 723
@@ -2432,7 +2433,7 @@
 .end method
 
 .method public final proxySelector(Ljava/net/ProxySelector;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 5
     .param p1, "proxySelector"    # Ljava/net/ProxySelector;
 
     const-string v0, "proxySelector"
@@ -2457,7 +2458,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 705
     const/4 v2, 0x0
@@ -2465,7 +2466,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 708
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setProxySelector$okhttp(Ljava/net/ProxySelector;)V
 
     .line 709
@@ -2483,7 +2484,7 @@
 .end method
 
 .method public final readTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -2524,7 +2525,7 @@
 .end method
 
 .method public final readTimeout(Lj$/time/Duration;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"
@@ -2564,7 +2565,7 @@
 .end method
 
 .method public final retryOnConnectionFailure(Z)Lokhttp3/OkHttpClient$Builder;
-    .locals 2
+    .registers 4
     .param p1, "retryOnConnectionFailure"    # Z
 
     .line 628
@@ -2594,7 +2595,7 @@
 .end method
 
 .method public final setAuthenticator$okhttp(Lokhttp3/Authenticator;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Authenticator;
 
     const-string v0, "<set-?>"
@@ -2608,7 +2609,7 @@
 .end method
 
 .method public final setCache$okhttp(Lokhttp3/Cache;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Cache;
 
     .line 490
@@ -2618,7 +2619,7 @@
 .end method
 
 .method public final setCallTimeout$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 503
@@ -2628,7 +2629,7 @@
 .end method
 
 .method public final setCertificateChainCleaner$okhttp(Lokhttp3/internal/tls/CertificateChainCleaner;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/tls/CertificateChainCleaner;
 
     .line 502
@@ -2638,7 +2639,7 @@
 .end method
 
 .method public final setCertificatePinner$okhttp(Lokhttp3/CertificatePinner;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/CertificatePinner;
 
     const-string v0, "<set-?>"
@@ -2652,7 +2653,7 @@
 .end method
 
 .method public final setConnectTimeout$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 504
@@ -2662,7 +2663,7 @@
 .end method
 
 .method public final setConnectionPool$okhttp(Lokhttp3/ConnectionPool;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/ConnectionPool;
 
     const-string v0, "<set-?>"
@@ -2676,7 +2677,7 @@
 .end method
 
 .method public final setConnectionSpecs$okhttp(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2698,7 +2699,7 @@
 .end method
 
 .method public final setCookieJar$okhttp(Lokhttp3/CookieJar;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/CookieJar;
 
     const-string v0, "<set-?>"
@@ -2712,7 +2713,7 @@
 .end method
 
 .method public final setDispatcher$okhttp(Lokhttp3/Dispatcher;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Dispatcher;
 
     const-string v0, "<set-?>"
@@ -2726,7 +2727,7 @@
 .end method
 
 .method public final setDns$okhttp(Lokhttp3/Dns;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Dns;
 
     const-string v0, "<set-?>"
@@ -2740,7 +2741,7 @@
 .end method
 
 .method public final setEventListenerFactory$okhttp(Lokhttp3/EventListener$Factory;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/EventListener$Factory;
 
     const-string v0, "<set-?>"
@@ -2754,7 +2755,7 @@
 .end method
 
 .method public final setFollowRedirects$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 487
@@ -2764,7 +2765,7 @@
 .end method
 
 .method public final setFollowSslRedirects$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 488
@@ -2774,7 +2775,7 @@
 .end method
 
 .method public final setHostnameVerifier$okhttp(Ljavax/net/ssl/HostnameVerifier;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljavax/net/ssl/HostnameVerifier;
 
     const-string v0, "<set-?>"
@@ -2788,7 +2789,7 @@
 .end method
 
 .method public final setMinWebSocketMessageToCompress$okhttp(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 508
@@ -2798,7 +2799,7 @@
 .end method
 
 .method public final setPingInterval$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 507
@@ -2808,7 +2809,7 @@
 .end method
 
 .method public final setProtocols$okhttp(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2831,7 +2832,7 @@
 .end method
 
 .method public final setProxy$okhttp(Ljava/net/Proxy;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/net/Proxy;
 
     .line 492
@@ -2841,7 +2842,7 @@
 .end method
 
 .method public final setProxyAuthenticator$okhttp(Lokhttp3/Authenticator;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Authenticator;
 
     const-string v0, "<set-?>"
@@ -2855,7 +2856,7 @@
 .end method
 
 .method public final setProxySelector$okhttp(Ljava/net/ProxySelector;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/net/ProxySelector;
 
     .line 493
@@ -2865,7 +2866,7 @@
 .end method
 
 .method public final setReadTimeout$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 505
@@ -2875,7 +2876,7 @@
 .end method
 
 .method public final setRetryOnConnectionFailure$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 485
@@ -2885,7 +2886,7 @@
 .end method
 
 .method public final setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/connection/RouteDatabase;
 
     .line 509
@@ -2895,7 +2896,7 @@
 .end method
 
 .method public final setSocketFactory$okhttp(Ljavax/net/SocketFactory;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljavax/net/SocketFactory;
 
     const-string v0, "<set-?>"
@@ -2909,7 +2910,7 @@
 .end method
 
 .method public final setSslSocketFactoryOrNull$okhttp(Ljavax/net/ssl/SSLSocketFactory;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 496
@@ -2919,7 +2920,7 @@
 .end method
 
 .method public final setWriteTimeout$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 506
@@ -2929,7 +2930,7 @@
 .end method
 
 .method public final setX509TrustManagerOrNull$okhttp(Ljavax/net/ssl/X509TrustManager;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 497
@@ -2939,7 +2940,7 @@
 .end method
 
 .method public final socketFactory(Ljavax/net/SocketFactory;)Lokhttp3/OkHttpClient$Builder;
-    .locals 4
+    .registers 6
     .param p1, "socketFactory"    # Ljavax/net/SocketFactory;
 
     const-string v0, "socketFactory"
@@ -2958,7 +2959,7 @@
     .local v1, "$i$a$-apply-OkHttpClient$Builder$socketFactory$1":I
     instance-of v2, p1, Ljavax/net/ssl/SSLSocketFactory;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_23
 
     .line 735
     invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->getSocketFactory$okhttp()Ljavax/net/SocketFactory;
@@ -2969,7 +2970,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 736
     const/4 v2, 0x0
@@ -2977,7 +2978,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 739
-    :cond_0
+    :cond_1b
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setSocketFactory$okhttp(Ljavax/net/SocketFactory;)V
 
     .line 740
@@ -2996,7 +2997,7 @@
     .line 1090
     .restart local v0    # "$this$socketFactory_u24lambda_u2d17":Lokhttp3/OkHttpClient$Builder;
     .restart local v1    # "$i$a$-apply-OkHttpClient$Builder$socketFactory$1":I
-    :cond_1
+    :cond_23
     const/4 v2, 0x0
 
     .line 733
@@ -3020,7 +3021,7 @@
 .end method
 
 .method public final sslSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -3049,7 +3050,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 757
     const/4 v2, 0x0
@@ -3057,7 +3058,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 760
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setSslSocketFactoryOrNull$okhttp(Ljavax/net/ssl/SSLSocketFactory;)V
 
     .line 761
@@ -3071,7 +3072,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_42
 
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setX509TrustManagerOrNull$okhttp(Ljavax/net/ssl/X509TrustManager;)V
 
@@ -3110,7 +3111,7 @@
     .line 761
     .restart local v0    # "$this$sslSocketFactory_u24lambda_u2d18":Lokhttp3/OkHttpClient$Builder;
     .restart local v1    # "$i$a$-apply-OkHttpClient$Builder$sslSocketFactory$1":I
-    :cond_1
+    :cond_42
     new-instance v2, Ljava/lang/IllegalStateException;
 
     .line 762
@@ -3161,7 +3162,7 @@
 .end method
 
 .method public final sslSocketFactory(Ljavax/net/ssl/SSLSocketFactory;Ljavax/net/ssl/X509TrustManager;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 6
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
     .param p2, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
@@ -3191,7 +3192,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->getX509TrustManagerOrNull$okhttp()Ljavax/net/ssl/X509TrustManager;
 
@@ -3201,16 +3202,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_26
 
     .line 817
-    :cond_0
+    :cond_22
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient$Builder;->setRouteDatabase$okhttp(Lokhttp3/internal/connection/RouteDatabase;)V
 
     .line 820
-    :cond_1
+    :cond_26
     invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->setSslSocketFactoryOrNull$okhttp(Ljavax/net/ssl/SSLSocketFactory;)V
 
     .line 821
@@ -3240,7 +3241,7 @@
 .end method
 
 .method public final writeTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -3281,7 +3282,7 @@
 .end method
 
 .method public final writeTimeout(Lj$/time/Duration;)Lokhttp3/OkHttpClient$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"

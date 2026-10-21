@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .locals 2
+    .registers 4
     .param p1, "array"    # [B
 
     .line 248
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>([BII)V
-    .locals 0
+    .registers 4
     .param p1, "array"    # [B
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -90,7 +90,7 @@
     .line 276
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
 
@@ -106,27 +106,28 @@
 
     iget v3, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Bytes;->indexOf([BBII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Bytes;->access$000([BBII)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -135,16 +136,16 @@
     .line 324
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 325
     return v0
 
     .line 327
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/primitives/Bytes$ByteArrayAsList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2f
 
     .line 328
     move-object v1, p1
@@ -165,18 +166,18 @@
 
     const/4 v4, 0x0
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_17
 
     .line 331
     return v4
 
     .line 333
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_18
+    if-ge v3, v2, :cond_2e
 
     .line 334
     iget-object v5, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
@@ -195,26 +196,26 @@
 
     aget-byte v6, v6, v7
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_2b
 
     .line 335
     return v4
 
     .line 333
-    :cond_2
+    :cond_2b
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 338
     .end local v3    # "i":I
-    :cond_3
+    :cond_2e
     return v0
 
     .line 340
     .end local v1    # "that":Lcom/google/common/primitives/Bytes$ByteArrayAsList;
     .end local v2    # "size":I
-    :cond_4
+    :cond_2f
     invoke-super {p0, p1}, Ljava/util/AbstractList;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -223,7 +224,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Byte;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 269
@@ -250,7 +251,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 240
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->get(I)Ljava/lang/Byte;
@@ -261,7 +262,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 345
     const/4 v0, 0x1
@@ -271,10 +272,10 @@
     iget v1, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->start:I
 
     .local v1, "i":I
-    :goto_0
+    :goto_3
     iget v2, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 347
     mul-int/lit8 v2, v0, 0x1f
@@ -292,16 +293,16 @@
     .line 346
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 349
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -310,7 +311,7 @@
     .line 282
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 283
     iget-object v0, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
@@ -327,13 +328,14 @@
 
     iget v3, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Bytes;->indexOf([BBII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Bytes;->access$000([BBII)I
 
     move-result v0
 
     .line 284
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 285
     iget v1, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->start:I
@@ -344,14 +346,14 @@
 
     .line 288
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 264
     const/4 v0, 0x0
@@ -360,7 +362,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -369,7 +371,7 @@
     .line 294
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 295
     iget-object v0, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
@@ -386,13 +388,14 @@
 
     iget v3, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
 
+    # invokes: Lcom/google/common/primitives/Bytes;->lastIndexOf([BBII)I
     invoke-static {v0, v1, v2, v3}, Lcom/google/common/primitives/Bytes;->access$100([BBII)I
 
     move-result v0
 
     .line 296
     .local v0, "i":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1c
 
     .line 297
     iget v1, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->start:I
@@ -403,14 +406,14 @@
 
     .line 300
     .end local v0    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public set(ILjava/lang/Byte;)Ljava/lang/Byte;
-    .locals 4
+    .registers 7
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Byte;
 
@@ -459,7 +462,7 @@
 .end method
 
 .method public bridge synthetic set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 240
     check-cast p2, Ljava/lang/Byte;
@@ -472,7 +475,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 259
     iget v0, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
@@ -485,7 +488,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 5
+    .registers 8
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -507,7 +510,7 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 316
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_e
 
     .line 317
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -517,7 +520,7 @@
     return-object v1
 
     .line 319
-    :cond_0
+    :cond_e
     new-instance v1, Lcom/google/common/primitives/Bytes$ByteArrayAsList;
 
     iget-object v2, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
@@ -536,7 +539,7 @@
 .end method
 
 .method toByteArray()[B
-    .locals 3
+    .registers 4
 
     .line 363
     iget-object v0, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->array:[B
@@ -553,7 +556,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 354
     new-instance v0, Ljava/lang/StringBuilder;
@@ -588,10 +591,10 @@
     add-int/lit8 v1, v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_1e
     iget v2, p0, Lcom/google/common/primitives/Bytes$ByteArrayAsList;->end:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_32
 
     .line 357
     const-string v2, ", "
@@ -609,11 +612,11 @@
     .line 356
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 359
     .end local v1    # "i":I
-    :cond_0
+    :cond_32
     const/16 v1, 0x5d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

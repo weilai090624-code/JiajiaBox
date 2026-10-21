@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchBarAnimationHelper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
 
     .line 81
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 84
@@ -44,6 +44,7 @@
 
     invoke-direct {v1}, Lcom/google/android/material/search/SearchBarAnimationHelper$1$$ExternalSyntheticLambda0;-><init>()V
 
+    # invokes: Lcom/google/android/material/search/SearchBarAnimationHelper;->dispatchOnLoadAnimation(Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;)V
     invoke-static {v0, v1}, Lcom/google/android/material/search/SearchBarAnimationHelper;->access$000(Lcom/google/android/material/search/SearchBarAnimationHelper;Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;)V
 
     .line 85

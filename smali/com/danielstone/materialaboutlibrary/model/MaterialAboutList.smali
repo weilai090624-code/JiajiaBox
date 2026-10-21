@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;
 
     .line 11
@@ -39,6 +39,7 @@
     iput-object v0, p0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;->cards:Ljava/util/ArrayList;
 
     .line 12
+    # getter for: Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;->cards:Ljava/util/ArrayList;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;->access$000(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -50,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;
     .param p2, "x1"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$1;
 
@@ -61,7 +62,7 @@
 .end method
 
 .method public varargs constructor <init>([Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)V
-    .locals 1
+    .registers 3
     .param p1, "materialAboutCards"    # [Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
     .line 15
@@ -86,7 +87,7 @@
 
 # virtual methods
 .method public addCard(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 1
+    .registers 3
     .param p1, "card"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
     .line 20
@@ -99,7 +100,7 @@
 .end method
 
 .method public clearCards(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 1
+    .registers 3
     .param p1, "card"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
     .line 25
@@ -112,7 +113,7 @@
 .end method
 
 .method public getCards()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

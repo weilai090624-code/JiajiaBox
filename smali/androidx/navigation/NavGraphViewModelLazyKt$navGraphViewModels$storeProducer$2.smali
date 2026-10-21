@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/Lazy;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,11 +86,12 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModelStore;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$storeProducer$2;->$backStackEntry$delegate:Lkotlin/Lazy;
 
+    # invokes: Landroidx/navigation/NavGraphViewModelLazyKt;->navGraphViewModels$lambda-1(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
     invoke-static {v0}, Landroidx/navigation/NavGraphViewModelLazyKt;->access$navGraphViewModels$lambda-1(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
 
     move-result-object v0
@@ -103,7 +104,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 113
     invoke-virtual {p0}, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$storeProducer$2;->invoke()Landroidx/lifecycle/ViewModelStore;

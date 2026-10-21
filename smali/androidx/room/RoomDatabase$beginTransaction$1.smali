@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/room/RoomDatabase$beginTransaction$1;->this$0:Landroidx/room/RoomDatabase;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "it"
@@ -77,6 +77,7 @@
     .line 514
     iget-object v0, p0, Landroidx/room/RoomDatabase$beginTransaction$1;->this$0:Landroidx/room/RoomDatabase;
 
+    # invokes: Landroidx/room/RoomDatabase;->internalBeginTransaction()V
     invoke-static {v0}, Landroidx/room/RoomDatabase;->access$internalBeginTransaction(Landroidx/room/RoomDatabase;)V
 
     .line 515
@@ -86,7 +87,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 513

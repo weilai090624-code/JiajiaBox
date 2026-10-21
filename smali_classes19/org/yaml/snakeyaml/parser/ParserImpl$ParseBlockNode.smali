@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;)V
-    .locals 0
+    .registers 2
 
     .line 393
     iput-object p1, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseBlockNode;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/ParserImpl$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/parser/ParserImpl$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public produce()Lorg/yaml/snakeyaml/events/Event;
-    .locals 3
+    .registers 4
 
     .line 395
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl$ParseBlockNode;->this$0:Lorg/yaml/snakeyaml/parser/ParserImpl;
@@ -56,6 +56,7 @@
 
     const/4 v2, 0x0
 
+    # invokes: Lorg/yaml/snakeyaml/parser/ParserImpl;->parseNode(ZZ)Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0, v1, v2}, Lorg/yaml/snakeyaml/parser/ParserImpl;->access$1400(Lorg/yaml/snakeyaml/parser/ParserImpl;ZZ)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0

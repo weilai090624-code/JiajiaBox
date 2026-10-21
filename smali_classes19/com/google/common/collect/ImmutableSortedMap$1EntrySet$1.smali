@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;
 
     .line 797
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 797
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public get(I)Ljava/util/Map$Entry;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,6 +74,7 @@
     iget-object v1, v1, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;->this$0:Lcom/google/common/collect/ImmutableSortedMap;
 
     .line 801
+    # getter for: Lcom/google/common/collect/ImmutableSortedMap;->keySet:Lcom/google/common/collect/RegularImmutableSortedSet;
     invoke-static {v1}, Lcom/google/common/collect/ImmutableSortedMap;->access$100(Lcom/google/common/collect/ImmutableSortedMap;)Lcom/google/common/collect/RegularImmutableSortedSet;
 
     move-result-object v1
@@ -90,6 +91,7 @@
 
     iget-object v2, v2, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;->this$0:Lcom/google/common/collect/ImmutableSortedMap;
 
+    # getter for: Lcom/google/common/collect/ImmutableSortedMap;->valueList:Lcom/google/common/collect/ImmutableList;
     invoke-static {v2}, Lcom/google/common/collect/ImmutableSortedMap;->access$200(Lcom/google/common/collect/ImmutableSortedMap;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v2
@@ -105,7 +107,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 806
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;"
@@ -115,7 +117,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 811
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;"

@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 621
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -115,7 +115,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -135,16 +135,16 @@
     .line 610
     const/4 v0, 0x1
 
-    if-lez p2, :cond_0
+    if-lez p2, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 611
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/common/collect/TreeMultiset$AvlNode;Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Ljava/util/Comparator;
     .param p2, "x2"    # Ljava/lang/Object;
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/common/collect/TreeMultiset$AvlNode;Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Ljava/util/Comparator;
     .param p2, "x2"    # Ljava/lang/Object;
@@ -205,7 +205,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/common/collect/TreeMultiset$AvlNode;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # I
 
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/TreeMultiset$AvlNode;)J
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -248,7 +248,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -258,7 +258,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -268,7 +268,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -289,7 +289,7 @@
 .end method
 
 .method static synthetic access$602(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
@@ -300,7 +300,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 574
@@ -312,7 +312,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
@@ -323,7 +323,7 @@
 .end method
 
 .method static synthetic access$902(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
     .param p1, "x1"    # Lcom/google/common/collect/TreeMultiset$AvlNode;
 
@@ -334,7 +334,7 @@
 .end method
 
 .method private addLeftChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 4
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -364,6 +364,7 @@
 
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
+    # invokes: Lcom/google/common/collect/TreeMultiset;->successor(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
     invoke-static {v0, v1, p0}, Lcom/google/common/collect/TreeMultiset;->access$1800(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
 
     .line 659
@@ -398,7 +399,7 @@
 .end method
 
 .method private addRightChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 4
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -428,6 +429,7 @@
 
     move-result-object v1
 
+    # invokes: Lcom/google/common/collect/TreeMultiset;->successor(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
     invoke-static {p0, v0, v1}, Lcom/google/common/collect/TreeMultiset;->access$1800(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
 
     .line 650
@@ -462,7 +464,7 @@
 .end method
 
 .method private balanceFactor()I
-    .locals 2
+    .registers 3
 
     .line 969
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -484,7 +486,7 @@
 .end method
 
 .method private ceiling(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 2
+    .registers 5
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -516,18 +518,18 @@
 
     .line 1007
     .local v0, "cmp":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_1d
 
     .line 1008
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->ceiling(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -540,39 +542,39 @@
 
     check-cast v1, Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    :goto_0
+    :goto_1c
     return-object v1
 
     .line 1009
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_1d
+    if-nez v0, :cond_20
 
     .line 1010
     return-object p0
 
     .line 1012
-    :cond_2
+    :cond_20
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_3
+    :cond_26
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->ceiling(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    :goto_1
+    :goto_2c
     return-object v1
 .end method
 
 .method private deleteMe()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -603,12 +605,13 @@
 
     move-result-object v2
 
+    # invokes: Lcom/google/common/collect/TreeMultiset;->successor(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
     invoke-static {v1, v2}, Lcom/google/common/collect/TreeMultiset;->access$1900(Lcom/google/common/collect/TreeMultiset$AvlNode;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
 
     .line 883
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 884
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -616,10 +619,10 @@
     return-object v1
 
     .line 885
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 886
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -627,7 +630,7 @@
     return-object v1
 
     .line 887
-    :cond_1
+    :cond_1e
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     iget v1, v1, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
@@ -636,7 +639,7 @@
 
     iget v2, v2, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_49
 
     .line 888
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->pred()Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -683,7 +686,7 @@
 
     .line 896
     .end local v1    # "newTop":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_2
+    :cond_49
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->succ()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
@@ -728,7 +731,7 @@
 .end method
 
 .method private floor(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 2
+    .registers 5
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -760,18 +763,18 @@
 
     .line 1019
     .local v0, "cmp":I
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1d
 
     .line 1020
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->floor(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -784,39 +787,39 @@
 
     check-cast v1, Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    :goto_0
+    :goto_1c
     return-object v1
 
     .line 1021
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_1d
+    if-nez v0, :cond_20
 
     .line 1022
     return-object p0
 
     .line 1024
-    :cond_2
+    :cond_20
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_3
+    :cond_26
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->floor(Ljava/util/Comparator;Ljava/lang/Object;)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    :goto_1
+    :goto_2c
     return-object v1
 .end method
 
 .method private static height(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
-    .locals 1
+    .registers 2
     .param p0    # Lcom/google/common/collect/TreeMultiset$AvlNode;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -831,21 +834,21 @@
 
     .line 1001
     .local p0, "node":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<*>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     iget v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
-    :goto_0
+    :goto_6
     return v0
 .end method
 
 .method private pred()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -868,7 +871,7 @@
 .end method
 
 .method private rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -883,7 +886,7 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_40
 
     .line 963
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->recomputeHeight()V
@@ -892,7 +895,7 @@
     return-object p0
 
     .line 957
-    :sswitch_0
+    :sswitch_b
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -904,7 +907,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_20
 
     .line 959
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -916,7 +919,7 @@
     iput-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 961
-    :cond_0
+    :cond_20
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rotateRight()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v0
@@ -924,7 +927,7 @@
     return-object v0
 
     .line 950
-    :sswitch_1
+    :sswitch_25
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -936,7 +939,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_3a
 
     .line 952
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -948,7 +951,7 @@
     iput-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 954
-    :cond_1
+    :cond_3a
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rotateLeft()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v0
@@ -957,15 +960,15 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_40
     .sparse-switch
-        -0x2 -> :sswitch_1
-        0x2 -> :sswitch_0
+        -0x2 -> :sswitch_25
+        0x2 -> :sswitch_b
     .end sparse-switch
 .end method
 
 .method private recompute()V
-    .locals 0
+    .registers 1
 
     .line 942
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -979,7 +982,7 @@
 .end method
 
 .method private recomputeHeight()V
-    .locals 2
+    .registers 3
 
     .line 938
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -1008,7 +1011,7 @@
 .end method
 
 .method private recomputeMultiset()V
-    .locals 4
+    .registers 5
 
     .line 932
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -1059,7 +1062,7 @@
 .end method
 
 .method private removeMax(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1078,7 +1081,7 @@
     .local p1, "node":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 922
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1086,7 +1089,7 @@
     return-object v0
 
     .line 924
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v0, p1}, Lcom/google/common/collect/TreeMultiset$AvlNode;->removeMax(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1122,7 +1125,7 @@
 .end method
 
 .method private removeMin(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1141,7 +1144,7 @@
     .local p1, "node":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 909
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1149,7 +1152,7 @@
     return-object v0
 
     .line 911
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-direct {v0, p1}, Lcom/google/common/collect/TreeMultiset$AvlNode;->removeMin(Lcom/google/common/collect/TreeMultiset$AvlNode;)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1185,7 +1188,7 @@
 .end method
 
 .method private rotateLeft()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1198,16 +1201,16 @@
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 974
@@ -1243,7 +1246,7 @@
 .end method
 
 .method private rotateRight()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1256,16 +1259,16 @@
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 986
@@ -1301,7 +1304,7 @@
 .end method
 
 .method private succ()Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1324,7 +1327,7 @@
 .end method
 
 .method private static totalCount(Lcom/google/common/collect/TreeMultiset$AvlNode;)J
-    .locals 2
+    .registers 3
     .param p0    # Lcom/google/common/collect/TreeMultiset$AvlNode;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1339,23 +1342,23 @@
 
     .line 997
     .local p0, "node":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<*>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     iget-wide v0, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
-    :goto_0
+    :goto_7
     return-wide v0
 .end method
 
 
 # virtual methods
 .method add(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 8
+    .registers 13
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1390,14 +1393,14 @@
 
     const/4 v2, 0x0
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_3b
 
     .line 673
     iget-object v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 674
     .local v3, "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
     .line 675
     aput v2, p4, v2
@@ -1410,7 +1413,7 @@
     return-object v1
 
     .line 678
-    :cond_0
+    :cond_17
     iget v4, v3, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
     .line 680
@@ -1424,7 +1427,7 @@
     .line 681
     aget v2, p4, v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_28
 
     .line 682
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -1434,7 +1437,7 @@
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 684
-    :cond_1
+    :cond_28
     iget-wide v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     int-to-long v5, p3
@@ -1448,32 +1451,32 @@
 
     iget v1, v1, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
-    if-ne v1, v4, :cond_2
+    if-ne v1, v4, :cond_36
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_2
+    :cond_36
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    :goto_0
+    :goto_3a
     return-object v1
 
     .line 686
     .end local v3    # "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     .end local v4    # "initHeight":I
-    :cond_3
-    if-lez v0, :cond_7
+    :cond_3b
+    if-lez v0, :cond_6c
 
     .line 687
     iget-object v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 688
     .local v3, "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v3, :cond_4
+    if-nez v3, :cond_48
 
     .line 689
     aput v2, p4, v2
@@ -1486,7 +1489,7 @@
     return-object v1
 
     .line 692
-    :cond_4
+    :cond_48
     iget v4, v3, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
     .line 694
@@ -1500,7 +1503,7 @@
     .line 695
     aget v2, p4, v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_59
 
     .line 696
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -1510,7 +1513,7 @@
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 698
-    :cond_5
+    :cond_59
     iget-wide v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     int-to-long v5, p3
@@ -1524,24 +1527,24 @@
 
     iget v1, v1, Lcom/google/common/collect/TreeMultiset$AvlNode;->height:I
 
-    if-ne v1, v4, :cond_6
+    if-ne v1, v4, :cond_67
 
     move-object v1, p0
 
-    goto :goto_1
+    goto :goto_6b
 
-    :cond_6
+    :cond_67
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    :goto_1
+    :goto_6b
     return-object v1
 
     .line 703
     .end local v3    # "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
     .end local v4    # "initHeight":I
-    :cond_7
+    :cond_6c
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     aput v3, p4, v2
@@ -1561,14 +1564,14 @@
 
     cmp-long v7, v3, v5
 
-    if-gtz v7, :cond_8
+    if-gtz v7, :cond_7d
 
-    goto :goto_2
+    goto :goto_7e
 
-    :cond_8
+    :cond_7d
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_7e
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 706
@@ -1592,7 +1595,7 @@
 .end method
 
 .method count(Ljava/util/Comparator;Ljava/lang/Object;)I
-    .locals 3
+    .registers 6
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1621,55 +1624,55 @@
     .local v0, "cmp":I
     const/4 v1, 0x0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_17
 
     .line 639
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-virtual {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->count(Ljava/util/Comparator;Ljava/lang/Object;)I
 
     move-result v1
 
-    :goto_0
+    :goto_16
     return v1
 
     .line 640
-    :cond_1
-    if-lez v0, :cond_3
+    :cond_17
+    if-lez v0, :cond_25
 
     .line 641
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1e
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_2
+    :cond_1e
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     invoke-virtual {v1, p1, p2}, Lcom/google/common/collect/TreeMultiset$AvlNode;->count(Ljava/util/Comparator;Ljava/lang/Object;)I
 
     move-result v1
 
-    :goto_1
+    :goto_24
     return v1
 
     .line 643
-    :cond_3
+    :cond_25
     iget v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     return v1
 .end method
 
 .method getCount()I
-    .locals 1
+    .registers 2
 
     .line 1035
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
@@ -1679,7 +1682,7 @@
 .end method
 
 .method getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -1701,7 +1704,7 @@
 .end method
 
 .method remove(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 7
+    .registers 12
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1737,14 +1740,14 @@
     .local v0, "cmp":I
     const/4 v1, 0x0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_40
 
     .line 716
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 717
     .local v2, "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 718
     aput v1, p4, v1
@@ -1753,7 +1756,7 @@
     return-object p0
 
     .line 722
-    :cond_0
+    :cond_12
     invoke-virtual {v2, p1, p2, p3, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->remove(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v3
@@ -1763,12 +1766,12 @@
     .line 724
     aget v3, p4, v1
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_35
 
     .line 725
     aget v3, p4, v1
 
-    if-lt p3, v3, :cond_1
+    if-lt p3, v3, :cond_2f
 
     .line 726
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -1788,10 +1791,10 @@
 
     iput-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
-    goto :goto_0
+    goto :goto_35
 
     .line 729
-    :cond_1
+    :cond_2f
     iget-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     int-to-long v5, p3
@@ -1801,35 +1804,35 @@
     iput-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     .line 732
-    :cond_2
-    :goto_0
+    :cond_35
+    :goto_35
     aget v1, p4, v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_3b
 
     move-object v1, p0
 
-    goto :goto_1
+    goto :goto_3f
 
-    :cond_3
+    :cond_3b
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    :goto_1
+    :goto_3f
     return-object v1
 
     .line 733
     .end local v2    # "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_4
-    if-lez v0, :cond_8
+    :cond_40
+    if-lez v0, :cond_71
 
     .line 734
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 735
     .local v2, "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v2, :cond_5
+    if-nez v2, :cond_49
 
     .line 736
     aput v1, p4, v1
@@ -1838,7 +1841,7 @@
     return-object p0
 
     .line 740
-    :cond_5
+    :cond_49
     invoke-virtual {v2, p1, p2, p3, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->remove(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v3
@@ -1848,12 +1851,12 @@
     .line 742
     aget v3, p4, v1
 
-    if-lez v3, :cond_7
+    if-lez v3, :cond_6c
 
     .line 743
     aget v3, p4, v1
 
-    if-lt p3, v3, :cond_6
+    if-lt p3, v3, :cond_66
 
     .line 744
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -1873,10 +1876,10 @@
 
     iput-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 747
-    :cond_6
+    :cond_66
     iget-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     int-to-long v5, p3
@@ -1886,8 +1889,8 @@
     iput-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     .line 750
-    :cond_7
-    :goto_2
+    :cond_6c
+    :goto_6c
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
@@ -1896,7 +1899,7 @@
 
     .line 754
     .end local v2    # "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_8
+    :cond_71
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     aput v2, p4, v1
@@ -1904,7 +1907,7 @@
     .line 755
     iget v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
-    if-lt p3, v1, :cond_9
+    if-lt p3, v1, :cond_7e
 
     .line 756
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->deleteMe()Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1914,7 +1917,7 @@
     return-object v1
 
     .line 758
-    :cond_9
+    :cond_7e
     iget v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     sub-int/2addr v1, p3
@@ -1935,7 +1938,7 @@
 .end method
 
 .method setCount(Ljava/util/Comparator;Ljava/lang/Object;II[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 9
+    .registers 15
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1972,22 +1975,22 @@
     .local v0, "cmp":I
     const/4 v1, 0x0
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_53
 
     .line 823
     iget-object v8, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 824
     .local v8, "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v8, :cond_1
+    if-nez v8, :cond_1b
 
     .line 825
     aput v1, p5, v1
 
     .line 826
-    if-nez p3, :cond_0
+    if-nez p3, :cond_1a
 
-    if-lez p4, :cond_0
+    if-lez p4, :cond_1a
 
     .line 827
     invoke-direct {p0, p2, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->addLeftChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -1997,11 +2000,11 @@
     return-object v1
 
     .line 829
-    :cond_0
+    :cond_1a
     return-object p0
 
     .line 832
-    :cond_1
+    :cond_1b
     move-object v2, v8
 
     move-object v3, p1
@@ -2023,14 +2026,14 @@
     .line 834
     aget v2, p5, v1
 
-    if-ne v2, p3, :cond_4
+    if-ne v2, p3, :cond_4e
 
     .line 835
-    if-nez p4, :cond_2
+    if-nez p4, :cond_38
 
     aget v2, p5, v1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     .line 836
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2039,15 +2042,15 @@
 
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
-    goto :goto_0
+    goto :goto_44
 
     .line 837
-    :cond_2
-    if-lez p4, :cond_3
+    :cond_38
+    if-lez p4, :cond_44
 
     aget v2, p5, v1
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_44
 
     .line 838
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2057,8 +2060,8 @@
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 840
-    :cond_3
-    :goto_0
+    :cond_44
+    :goto_44
     iget-wide v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     aget v1, p5, v1
@@ -2072,7 +2075,7 @@
     iput-wide v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     .line 842
-    :cond_4
+    :cond_4e
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
@@ -2081,23 +2084,23 @@
 
     .line 843
     .end local v8    # "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_5
-    if-lez v0, :cond_b
+    :cond_53
+    if-lez v0, :cond_9d
 
     .line 844
     iget-object v8, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 845
     .local v8, "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v8, :cond_7
+    if-nez v8, :cond_65
 
     .line 846
     aput v1, p5, v1
 
     .line 847
-    if-nez p3, :cond_6
+    if-nez p3, :cond_64
 
-    if-lez p4, :cond_6
+    if-lez p4, :cond_64
 
     .line 848
     invoke-direct {p0, p2, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->addRightChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -2107,11 +2110,11 @@
     return-object v1
 
     .line 850
-    :cond_6
+    :cond_64
     return-object p0
 
     .line 853
-    :cond_7
+    :cond_65
     move-object v2, v8
 
     move-object v3, p1
@@ -2133,14 +2136,14 @@
     .line 855
     aget v2, p5, v1
 
-    if-ne v2, p3, :cond_a
+    if-ne v2, p3, :cond_98
 
     .line 856
-    if-nez p4, :cond_8
+    if-nez p4, :cond_82
 
     aget v2, p5, v1
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_82
 
     .line 857
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2149,15 +2152,15 @@
 
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 858
-    :cond_8
-    if-lez p4, :cond_9
+    :cond_82
+    if-lez p4, :cond_8e
 
     aget v2, p5, v1
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_8e
 
     .line 859
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2167,8 +2170,8 @@
     iput v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 861
-    :cond_9
-    :goto_1
+    :cond_8e
+    :goto_8e
     iget-wide v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     aget v1, p5, v1
@@ -2182,7 +2185,7 @@
     iput-wide v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     .line 863
-    :cond_a
+    :cond_98
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->rebalance()Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
@@ -2191,7 +2194,7 @@
 
     .line 867
     .end local v8    # "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_b
+    :cond_9d
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     aput v2, p5, v1
@@ -2199,10 +2202,10 @@
     .line 868
     iget v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
-    if-ne p3, v1, :cond_d
+    if-ne p3, v1, :cond_b8
 
     .line 869
-    if-nez p4, :cond_c
+    if-nez p4, :cond_ac
 
     .line 870
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->deleteMe()Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -2212,7 +2215,7 @@
     return-object v1
 
     .line 872
-    :cond_c
+    :cond_ac
     iget-wide v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
@@ -2229,12 +2232,12 @@
     iput p4, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     .line 875
-    :cond_d
+    :cond_b8
     return-object p0
 .end method
 
 .method setCount(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
-    .locals 7
+    .registers 12
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -2270,35 +2273,35 @@
     .local v0, "cmp":I
     const/4 v1, 0x0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_48
 
     .line 769
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 770
     .local v2, "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     .line 771
     aput v1, p4, v1
 
     .line 772
-    if-lez p3, :cond_0
+    if-lez p3, :cond_18
 
     invoke-direct {p0, p2, p3}, Lcom/google/common/collect/TreeMultiset$AvlNode;->addLeftChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     move-object v1, p0
 
-    :goto_0
+    :goto_19
     return-object v1
 
     .line 775
-    :cond_1
+    :cond_1a
     invoke-virtual {v2, p1, p2, p3, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->setCount(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v3
@@ -2306,11 +2309,11 @@
     iput-object v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->left:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 777
-    if-nez p3, :cond_2
+    if-nez p3, :cond_2d
 
     aget v3, p4, v1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2d
 
     .line 778
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2319,15 +2322,15 @@
 
     iput v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
-    goto :goto_1
+    goto :goto_39
 
     .line 779
-    :cond_2
-    if-lez p3, :cond_3
+    :cond_2d
+    if-lez p3, :cond_39
 
     aget v3, p4, v1
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_39
 
     .line 780
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2337,8 +2340,8 @@
     iput v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 783
-    :cond_3
-    :goto_1
+    :cond_39
+    :goto_39
     iget-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     aget v1, p4, v1
@@ -2360,36 +2363,36 @@
 
     .line 785
     .end local v2    # "initLeft":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_4
-    if-lez v0, :cond_9
+    :cond_48
+    if-lez v0, :cond_87
 
     .line 786
     iget-object v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 787
     .local v2, "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    if-nez v2, :cond_6
+    if-nez v2, :cond_59
 
     .line 788
     aput v1, p4, v1
 
     .line 789
-    if-lez p3, :cond_5
+    if-lez p3, :cond_57
 
     invoke-direct {p0, p2, p3}, Lcom/google/common/collect/TreeMultiset$AvlNode;->addRightChild(Ljava/lang/Object;I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_58
 
-    :cond_5
+    :cond_57
     move-object v1, p0
 
-    :goto_2
+    :goto_58
     return-object v1
 
     .line 792
-    :cond_6
+    :cond_59
     invoke-virtual {v2, p1, p2, p3, p4}, Lcom/google/common/collect/TreeMultiset$AvlNode;->setCount(Ljava/util/Comparator;Ljava/lang/Object;I[I)Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     move-result-object v3
@@ -2397,11 +2400,11 @@
     iput-object v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->right:Lcom/google/common/collect/TreeMultiset$AvlNode;
 
     .line 794
-    if-nez p3, :cond_7
+    if-nez p3, :cond_6c
 
     aget v3, p4, v1
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6c
 
     .line 795
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2410,15 +2413,15 @@
 
     iput v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
-    goto :goto_3
+    goto :goto_78
 
     .line 796
-    :cond_7
-    if-lez p3, :cond_8
+    :cond_6c
+    if-lez p3, :cond_78
 
     aget v3, p4, v1
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_78
 
     .line 797
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
@@ -2428,8 +2431,8 @@
     iput v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->distinctElements:I
 
     .line 800
-    :cond_8
-    :goto_3
+    :cond_78
+    :goto_78
     iget-wide v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     aget v1, p4, v1
@@ -2451,13 +2454,13 @@
 
     .line 805
     .end local v2    # "initRight":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"
-    :cond_9
+    :cond_87
     iget v2, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
 
     aput v2, p4, v1
 
     .line 806
-    if-nez p3, :cond_a
+    if-nez p3, :cond_92
 
     .line 807
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$AvlNode;->deleteMe()Lcom/google/common/collect/TreeMultiset$AvlNode;
@@ -2467,7 +2470,7 @@
     return-object v1
 
     .line 809
-    :cond_a
+    :cond_92
     iget-wide v1, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->totalCount:J
 
     iget v3, p0, Lcom/google/common/collect/TreeMultiset$AvlNode;->elemCount:I
@@ -2488,7 +2491,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1040
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$AvlNode;, "Lcom/google/common/collect/TreeMultiset$AvlNode<TE;>;"

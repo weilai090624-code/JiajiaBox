@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;Lcom/google/common/collect/PeekingIterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;
 
     .line 423
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -64,7 +64,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -87,7 +87,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 428
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->endOfData()Ljava/lang/Object;
@@ -99,7 +99,7 @@
     return-object v0
 
     .line 430
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->val$backingItr:Lcom/google/common/collect/PeekingIterator;
 
     invoke-interface {v0}, Lcom/google/common/collect/PeekingIterator;->next()Ljava/lang/Object;
@@ -112,6 +112,7 @@
     .local v0, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;
 
+    # getter for: Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;->upperBoundWindow:Lcom/google/common/collect/Range;
     invoke-static {v1}, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;->access$000(Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;)Lcom/google/common/collect/Range;
 
     move-result-object v1
@@ -124,7 +125,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 432
     iget-object v1, v0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
@@ -133,10 +134,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 433
-    :cond_1
+    :cond_2e
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->endOfData()Ljava/lang/Object;
 
     move-result-object v1
@@ -144,6 +145,6 @@
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 431
-    :goto_0
+    :goto_34
     return-object v1
 .end method

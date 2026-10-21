@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$SubSet;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Sets$SubSet;
 
     .line 1472
@@ -50,6 +50,7 @@
     .line 1473
     iget-object v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->this$0:Lcom/google/common/collect/Sets$SubSet;
 
+    # getter for: Lcom/google/common/collect/Sets$SubSet;->inputSet:Lcom/google/common/collect/ImmutableMap;
     invoke-static {v0}, Lcom/google/common/collect/Sets$SubSet;->access$100(Lcom/google/common/collect/Sets$SubSet;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -67,6 +68,7 @@
     .line 1474
     iget-object v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->this$0:Lcom/google/common/collect/Sets$SubSet;
 
+    # getter for: Lcom/google/common/collect/Sets$SubSet;->mask:I
     invoke-static {v0}, Lcom/google/common/collect/Sets$SubSet;->access$200(Lcom/google/common/collect/Sets$SubSet;)I
 
     move-result v0
@@ -79,27 +81,27 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1478
     .local p0, "this":Lcom/google/common/collect/Sets$SubSet$1;, "Lcom/google/common/collect/Sets$SubSet$1;"
     iget v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -118,7 +120,7 @@
     .local v0, "index":I
     const/16 v1, 0x20
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_19
 
     .line 1487
     iget v1, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
@@ -143,7 +145,7 @@
     return-object v1
 
     .line 1485
-    :cond_0
+    :cond_19
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V

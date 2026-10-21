@@ -124,7 +124,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlin/io/encoding/Base64$Default;
 
@@ -139,7 +139,7 @@
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_26
 
     sput-object v0, Lkotlin/io/encoding/Base64;->mimeLineSeparatorSymbols:[B
 
@@ -169,7 +169,7 @@
 
     nop
 
-    :array_0
+    :array_26
     .array-data 1
         0xdt
         0xat
@@ -177,7 +177,7 @@
 .end method
 
 .method private constructor <init>(ZZLkotlin/io/encoding/Base64$PaddingOption;)V
-    .locals 2
+    .registers 6
     .param p1, "isUrlSafe"    # Z
     .param p2, "isMimeScheme"    # Z
     .param p3, "paddingOption"    # Lkotlin/io/encoding/Base64$PaddingOption;
@@ -200,25 +200,25 @@
     .line 63
     iget-boolean v0, p0, Lkotlin/io/encoding/Base64;->isUrlSafe:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     iget-boolean v0, p0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_16
+    if-eqz v0, :cond_1a
 
     .line 64
     nop
@@ -227,7 +227,7 @@
     return-void
 
     .line 63
-    :cond_2
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -242,7 +242,7 @@
 .end method
 
 .method public synthetic constructor <init>(ZZLkotlin/io/encoding/Base64$PaddingOption;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;-><init>(ZZLkotlin/io/encoding/Base64$PaddingOption;)V
 
@@ -250,7 +250,7 @@
 .end method
 
 .method public static final synthetic access$getMime$cp()Lkotlin/io/encoding/Base64;
-    .locals 1
+    .registers 1
 
     .line 55
     sget-object v0, Lkotlin/io/encoding/Base64;->Mime:Lkotlin/io/encoding/Base64;
@@ -259,7 +259,7 @@
 .end method
 
 .method public static final synthetic access$getMimeLineSeparatorSymbols$cp()[B
-    .locals 1
+    .registers 1
 
     .line 55
     sget-object v0, Lkotlin/io/encoding/Base64;->mimeLineSeparatorSymbols:[B
@@ -268,7 +268,7 @@
 .end method
 
 .method public static final synthetic access$getUrlSafe$cp()Lkotlin/io/encoding/Base64;
-    .locals 1
+    .registers 1
 
     .line 55
     sget-object v0, Lkotlin/io/encoding/Base64;->UrlSafe:Lkotlin/io/encoding/Base64;
@@ -277,7 +277,7 @@
 .end method
 
 .method private final checkDestinationBounds(III)V
-    .locals 5
+    .registers 9
     .param p1, "destinationSize"    # I
     .param p2, "destinationOffset"    # I
     .param p3, "capacityNeeded"    # I
@@ -285,24 +285,24 @@
     .line 669
     const-string v0, ", destination size: "
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_3d
 
-    if-gt p2, p1, :cond_1
+    if-gt p2, p1, :cond_3d
 
     .line 673
     add-int v1, p2, p3
 
     .line 674
     .local v1, "destinationEndIndex":I
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_d
 
-    if-gt v1, p1, :cond_0
+    if-gt v1, p1, :cond_d
 
     .line 680
     return-void
 
     .line 675
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/IndexOutOfBoundsException;
 
     .line 676
@@ -369,7 +369,7 @@
 
     .line 670
     .end local v1    # "destinationEndIndex":I
-    :cond_1
+    :cond_3d
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -404,7 +404,7 @@
 .end method
 
 .method private final checkPaddingIsAllowed(I)V
-    .locals 3
+    .registers 5
     .param p1, "padIndex"    # I
 
     .line 642
@@ -412,13 +412,13 @@
 
     sget-object v1, Lkotlin/io/encoding/Base64$PaddingOption;->ABSENT:Lkotlin/io/encoding/Base64$PaddingOption;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     .line 647
     return-void
 
     .line 643
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 644
@@ -447,34 +447,34 @@
 .end method
 
 .method public static synthetic decode$default(Lkotlin/io/encoding/Base64;Ljava/lang/CharSequence;IIILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 349
-    if-nez p5, :cond_2
+    if-nez p5, :cond_14
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_f
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result p3
 
-    :cond_1
+    :cond_f
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->decode(Ljava/lang/CharSequence;II)[B
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_14
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: decode"
@@ -485,32 +485,32 @@
 .end method
 
 .method public static synthetic decode$default(Lkotlin/io/encoding/Base64;[BIIILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 279
-    if-nez p5, :cond_2
+    if-nez p5, :cond_11
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     array-length p3, p1
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->decode([BII)[B
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: decode"
@@ -521,7 +521,7 @@
 .end method
 
 .method private final decodeImpl([B[BIII)I
-    .locals 19
+    .registers 25
     .param p1, "source"    # [B
     .param p2, "destination"    # [B
     .param p3, "destinationOffset"    # I
@@ -537,22 +537,24 @@
 
     iget-boolean v3, v0, Lkotlin/io/encoding/Base64;->isUrlSafe:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64UrlDecodeMap:[I
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64UrlDecodeMap$p()[I
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64DecodeMap$p()[I
 
     move-result-object v3
 
     .line 491
     .local v3, "decodeMap":[I
-    :goto_0
+    :goto_13
     const/4 v4, 0x0
 
     .line 492
@@ -573,7 +575,7 @@
 
     .line 497
     .local v8, "hasPadding":Z
-    :goto_1
+    :goto_1a
     const-string v9, ") at index "
 
     const-string v10, "toString(...)"
@@ -582,14 +584,14 @@
 
     const/4 v14, -0x8
 
-    if-ge v6, v2, :cond_7
+    if-ge v6, v2, :cond_e9
 
     .line 498
-    if-ne v5, v14, :cond_2
+    if-ne v5, v14, :cond_72
 
     add-int/lit8 v15, v6, 0x3
 
-    if-ge v15, v2, :cond_2
+    if-ge v15, v2, :cond_72
 
     .line 499
     add-int/lit8 v15, v6, 0x1
@@ -654,7 +656,7 @@
 
     .line 504
     .local v12, "bits":I
-    if-ltz v12, :cond_1
+    if-ltz v12, :cond_6e
 
     .line 505
     add-int/lit8 v9, v7, 0x1
@@ -692,12 +694,12 @@
 
     move/from16 v6, v16
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 510
     .end local v9    # "destinationIndex":I
     .restart local v7    # "destinationIndex":I
-    :cond_1
+    :cond_6e
     add-int/lit8 v16, v16, -0x4
 
     move/from16 v6, v16
@@ -709,7 +711,7 @@
     .end local v15    # "symbol2":I
     .end local v16    # "sourceIndex":I
     .local v6, "sourceIndex":I
-    :cond_2
+    :cond_72
     aget-byte v12, v1, v6
 
     and-int/lit16 v12, v12, 0xff
@@ -720,12 +722,12 @@
 
     .line 515
     .local v13, "symbolBits":I
-    if-gez v13, :cond_5
+    if-gez v13, :cond_c5
 
     .line 516
     const/4 v14, -0x2
 
-    if-ne v13, v14, :cond_3
+    if-ne v13, v14, :cond_85
 
     .line 517
     const/4 v8, 0x1
@@ -738,22 +740,22 @@
     .line 519
     move-object/from16 v16, v3
 
-    goto :goto_2
+    goto :goto_eb
 
     .line 520
-    :cond_3
+    :cond_85
     iget-boolean v14, v0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_8c
 
     .line 521
     add-int/lit8 v6, v6, 0x1
 
     .line 522
-    goto :goto_1
+    goto :goto_1a
 
     .line 524
-    :cond_4
+    :cond_8c
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -815,7 +817,7 @@
     .line 527
     .end local v16    # "decodeMap":[I
     .restart local v3    # "decodeMap":[I
-    :cond_5
+    :cond_c5
     move-object/from16 v16, v3
 
     .end local v3    # "decodeMap":[I
@@ -831,7 +833,7 @@
     add-int/lit8 v5, v5, 0x6
 
     .line 533
-    if-ltz v5, :cond_6
+    if-ltz v5, :cond_e5
 
     .line 534
     add-int/lit8 v3, v7, 0x1
@@ -864,51 +866,51 @@
 
     move-object/from16 v3, v16
 
-    goto/16 :goto_1
+    goto/16 :goto_1a
 
     .line 533
     .end local v3    # "destinationIndex":I
     .restart local v7    # "destinationIndex":I
     .restart local v12    # "symbol":I
     .restart local v13    # "symbolBits":I
-    :cond_6
+    :cond_e5
     move-object/from16 v3, v16
 
-    goto/16 :goto_1
+    goto/16 :goto_1a
 
     .line 497
     .end local v12    # "symbol":I
     .end local v13    # "symbolBits":I
     .end local v16    # "decodeMap":[I
     .local v3, "decodeMap":[I
-    :cond_7
+    :cond_e9
     move-object/from16 v16, v3
 
     .line 543
     .end local v3    # "decodeMap":[I
     .restart local v16    # "decodeMap":[I
-    :goto_2
+    :goto_eb
     const/4 v3, -0x2
 
-    if-eq v5, v3, :cond_c
+    if-eq v5, v3, :cond_158
 
     .line 546
     const/4 v3, -0x8
 
-    if-eq v5, v3, :cond_9
+    if-eq v5, v3, :cond_102
 
-    if-nez v8, :cond_9
+    if-nez v8, :cond_102
 
     iget-object v3, v0, Lkotlin/io/encoding/Base64;->paddingOption:Lkotlin/io/encoding/Base64$PaddingOption;
 
     sget-object v12, Lkotlin/io/encoding/Base64$PaddingOption;->PRESENT:Lkotlin/io/encoding/Base64$PaddingOption;
 
-    if-eq v3, v12, :cond_8
+    if-eq v3, v12, :cond_fa
 
-    goto :goto_3
+    goto :goto_102
 
     .line 547
-    :cond_8
+    :cond_fa
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v9, "The padding option is set to PRESENT, but the input is not properly padded"
@@ -918,9 +920,9 @@
     throw v3
 
     .line 549
-    :cond_9
-    :goto_3
-    if-nez v4, :cond_b
+    :cond_102
+    :goto_102
+    if-nez v4, :cond_150
 
     .line 553
     invoke-direct {v0, v1, v6, v2}, Lkotlin/io/encoding/Base64;->skipIllegalSymbolsIfMime([BII)I
@@ -930,7 +932,7 @@
     .line 554
     .end local v6    # "sourceIndex":I
     .local v3, "sourceIndex":I
-    if-lt v3, v2, :cond_a
+    if-lt v3, v2, :cond_10d
 
     .line 559
     sub-int v6, v7, p3
@@ -938,7 +940,7 @@
     return v6
 
     .line 555
-    :cond_a
+    :cond_10d
     aget-byte v6, v1, v3
 
     and-int/lit16 v6, v6, 0xff
@@ -1010,7 +1012,7 @@
     .line 550
     .end local v3    # "sourceIndex":I
     .local v6, "sourceIndex":I
-    :cond_b
+    :cond_150
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v9, "The pad bits must be zeros"
@@ -1020,7 +1022,7 @@
     throw v3
 
     .line 544
-    :cond_c
+    :cond_158
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v9, "The last unit of input does not have enough bits"
@@ -1031,44 +1033,44 @@
 .end method
 
 .method public static synthetic decodeIntoByteArray$default(Lkotlin/io/encoding/Base64;Ljava/lang/CharSequence;[BIIIILjava/lang/Object;)I
-    .locals 7
+    .registers 15
 
     .line 378
-    if-nez p7, :cond_3
+    if-nez p7, :cond_24
 
     and-int/lit8 p7, p6, 0x4
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_9
 
     .line 381
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 378
-    :cond_0
+    :cond_9
     move v4, p3
 
-    :goto_0
+    :goto_a
     and-int/lit8 p3, p6, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_10
 
     .line 382
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
     .line 378
-    :cond_1
+    :cond_10
     move v5, p4
 
-    :goto_1
+    :goto_11
     and-int/lit8 p3, p6, 0x10
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1b
 
     .line 383
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -1077,13 +1079,13 @@
 
     move v6, p5
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 378
-    :cond_2
+    :cond_1b
     move v6, p5
 
-    :goto_2
+    :goto_1c
     move-object v1, p0
 
     move-object v2, p1
@@ -1096,7 +1098,7 @@
 
     return p0
 
-    :cond_3
+    :cond_24
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: decodeIntoByteArray"
@@ -1107,57 +1109,57 @@
 .end method
 
 .method public static synthetic decodeIntoByteArray$default(Lkotlin/io/encoding/Base64;[B[BIIIILjava/lang/Object;)I
-    .locals 7
+    .registers 15
 
     .line 316
-    if-nez p7, :cond_3
+    if-nez p7, :cond_21
 
     and-int/lit8 p7, p6, 0x4
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_9
 
     .line 319
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 316
-    :cond_0
+    :cond_9
     move v4, p3
 
-    :goto_0
+    :goto_a
     and-int/lit8 p3, p6, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_10
 
     .line 320
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
     .line 316
-    :cond_1
+    :cond_10
     move v5, p4
 
-    :goto_1
+    :goto_11
     and-int/lit8 p3, p6, 0x10
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_18
 
     .line 321
     array-length p5, p1
 
     move v6, p5
 
-    goto :goto_2
+    goto :goto_19
 
     .line 316
-    :cond_2
+    :cond_18
     move v6, p5
 
-    :goto_2
+    :goto_19
     move-object v1, p0
 
     move-object v2, p1
@@ -1170,7 +1172,7 @@
 
     return p0
 
-    :cond_3
+    :cond_21
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: decodeIntoByteArray"
@@ -1181,32 +1183,32 @@
 .end method
 
 .method public static synthetic encode$default(Lkotlin/io/encoding/Base64;[BIIILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 226
-    if-nez p5, :cond_2
+    if-nez p5, :cond_11
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     array-length p3, p1
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->encode([BII)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: encode"
@@ -1217,57 +1219,57 @@
 .end method
 
 .method public static synthetic encodeIntoByteArray$default(Lkotlin/io/encoding/Base64;[B[BIIIILjava/lang/Object;)I
-    .locals 7
+    .registers 15
 
     .line 197
-    if-nez p7, :cond_3
+    if-nez p7, :cond_21
 
     and-int/lit8 p7, p6, 0x4
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_9
 
     .line 200
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 197
-    :cond_0
+    :cond_9
     move v4, p3
 
-    :goto_0
+    :goto_a
     and-int/lit8 p3, p6, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_10
 
     .line 201
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
     .line 197
-    :cond_1
+    :cond_10
     move v5, p4
 
-    :goto_1
+    :goto_11
     and-int/lit8 p3, p6, 0x10
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_18
 
     .line 202
     array-length p5, p1
 
     move v6, p5
 
-    goto :goto_2
+    goto :goto_19
 
     .line 197
-    :cond_2
+    :cond_18
     move v6, p5
 
-    :goto_2
+    :goto_19
     move-object v1, p0
 
     move-object v2, p1
@@ -1280,7 +1282,7 @@
 
     return p0
 
-    :cond_3
+    :cond_21
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: encodeIntoByteArray"
@@ -1291,36 +1293,36 @@
 .end method
 
 .method public static synthetic encodeToAppendable$default(Lkotlin/io/encoding/Base64;[BLjava/lang/Appendable;IIILjava/lang/Object;)Ljava/lang/Appendable;
-    .locals 0
+    .registers 7
 
     .line 248
-    if-nez p6, :cond_2
+    if-nez p6, :cond_11
 
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_7
 
     .line 251
     const/4 p3, 0x0
 
     .line 248
-    :cond_0
+    :cond_7
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     .line 252
     array-length p4, p1
 
     .line 248
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3, p4}, Lkotlin/io/encoding/Base64;->encodeToAppendable([BLjava/lang/Appendable;II)Ljava/lang/Appendable;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: encodeToAppendable"
@@ -1331,32 +1333,32 @@
 .end method
 
 .method public static synthetic encodeToByteArray$default(Lkotlin/io/encoding/Base64;[BIIILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 172
-    if-nez p5, :cond_2
+    if-nez p5, :cond_11
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     array-length p3, p1
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->encodeToByteArray([BII)[B
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: encodeToByteArray"
@@ -1367,17 +1369,17 @@
 .end method
 
 .method private final handlePaddingSymbol([BIII)I
-    .locals 4
+    .registers 9
     .param p1, "source"    # [B
     .param p2, "padIndex"    # I
     .param p3, "endIndex"    # I
     .param p4, "byteStart"    # I
 
     .line 619
-    packed-switch p4, :pswitch_data_0
+    packed-switch p4, :pswitch_data_5e
 
     .line 634
-    :pswitch_0
+    :pswitch_3
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 637
@@ -1392,13 +1394,13 @@
     throw v0
 
     .line 623
-    :pswitch_1
+    :pswitch_f
     add-int/lit8 v0, p2, 0x1
 
-    goto :goto_0
+    goto :goto_44
 
     .line 625
-    :pswitch_2
+    :pswitch_12
     invoke-direct {p0, p2}, Lkotlin/io/encoding/Base64;->checkPaddingIsAllowed(I)V
 
     .line 626
@@ -1410,23 +1412,23 @@
 
     .line 627
     .local v0, "secondPadIndex":I
-    if-eq v0, p3, :cond_0
+    if-eq v0, p3, :cond_26
 
     aget-byte v1, p1, v0
 
     const/16 v2, 0x3d
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_26
 
     .line 630
     add-int/lit8 v0, v0, 0x1
 
     .end local v0    # "secondPadIndex":I
-    goto :goto_0
+    goto :goto_44
 
     .line 628
     .restart local v0    # "secondPadIndex":I
-    :cond_0
+    :cond_26
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1453,18 +1455,18 @@
 
     .line 633
     .end local v0    # "secondPadIndex":I
-    :pswitch_3
+    :pswitch_3f
     invoke-direct {p0, p2}, Lkotlin/io/encoding/Base64;->checkPaddingIsAllowed(I)V
 
     .line 634
     add-int/lit8 v0, p2, 0x1
 
     .line 619
-    :goto_0
+    :goto_44
     return v0
 
     .line 621
-    :pswitch_4
+    :pswitch_45
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1489,51 +1491,51 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch -0x8
-        :pswitch_4
-        :pswitch_0
+        :pswitch_45
         :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_3f
+        :pswitch_3
+        :pswitch_12
+        :pswitch_3
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method private final shouldPadOnEncode()Z
-    .locals 2
+    .registers 3
 
     .line 481
     iget-object v0, p0, Lkotlin/io/encoding/Base64;->paddingOption:Lkotlin/io/encoding/Base64$PaddingOption;
 
     sget-object v1, Lkotlin/io/encoding/Base64$PaddingOption;->PRESENT:Lkotlin/io/encoding/Base64$PaddingOption;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_f
 
     iget-object v0, p0, Lkotlin/io/encoding/Base64;->paddingOption:Lkotlin/io/encoding/Base64$PaddingOption;
 
     sget-object v1, Lkotlin/io/encoding/Base64$PaddingOption;->PRESENT_OPTIONAL:Lkotlin/io/encoding/Base64$PaddingOption;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method private final skipIllegalSymbolsIfMime([BII)I
-    .locals 4
+    .registers 8
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -1541,19 +1543,19 @@
     .line 650
     iget-boolean v0, p0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 651
     return p2
 
     .line 653
-    :cond_0
+    :cond_5
     move v0, p2
 
     .line 654
     .local v0, "sourceIndex":I
-    :goto_0
-    if-ge v0, p3, :cond_2
+    :goto_6
+    if-ge v0, p3, :cond_1a
 
     .line 655
     aget-byte v1, p1, v0
@@ -1562,6 +1564,7 @@
 
     .line 656
     .local v1, "symbol":I
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64DecodeMap$p()[I
 
     move-result-object v2
@@ -1570,29 +1573,29 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
     .line 657
     return v0
 
     .line 659
-    :cond_1
+    :cond_16
     nop
 
     .end local v1    # "symbol":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 661
-    :cond_2
+    :cond_1a
     return v0
 .end method
 
 
 # virtual methods
 .method public final bytesToStringImpl$kotlin_stdlib([B)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "source"    # [B
 
     const-string v0, "source"
@@ -1612,8 +1615,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_18
 
     aget-byte v3, p1, v2
 
@@ -1627,10 +1630,10 @@
     .end local v3    # "byte":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 615
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1643,7 +1646,7 @@
 .end method
 
 .method public final charsToBytesImpl$kotlin_stdlib(Ljava/lang/CharSequence;II)[B
-    .locals 6
+    .registers 10
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -1673,8 +1676,8 @@
     move v2, p2
 
     .local v2, "index":I
-    :goto_0
-    if-ge v2, p3, :cond_1
+    :goto_12
+    if-ge v2, p3, :cond_2d
 
     .line 598
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1685,7 +1688,7 @@
     .local v3, "symbol":I
     const/16 v4, 0xff
 
-    if-gt v3, v4, :cond_0
+    if-gt v3, v4, :cond_23
 
     .line 600
     add-int/lit8 v4, v1, 0x1
@@ -1698,12 +1701,12 @@
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 604
     .end local v4    # "length":I
     .restart local v1    # "length":I
-    :cond_0
+    :cond_23
     add-int/lit8 v4, v1, 0x1
 
     .end local v1    # "length":I
@@ -1718,19 +1721,19 @@
     .end local v3    # "symbol":I
     .end local v4    # "length":I
     .restart local v1    # "length":I
-    :goto_1
+    :goto_2a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 607
     .end local v2    # "index":I
-    :cond_1
+    :cond_2d
     return-object v0
 .end method
 
 .method public final checkSourceBounds$kotlin_stdlib(III)V
-    .locals 1
+    .registers 5
     .param p1, "sourceSize"    # I
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -1745,7 +1748,7 @@
 .end method
 
 .method public final decode(Ljava/lang/CharSequence;II)[B
-    .locals 7
+    .registers 11
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -1757,7 +1760,7 @@
     .line 350
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
@@ -1791,14 +1794,14 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_2d
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->charsToBytesImpl$kotlin_stdlib(Ljava/lang/CharSequence;II)[B
 
     move-result-object v0
 
-    :goto_0
+    :goto_31
     move-object v2, v0
 
     .line 351
@@ -1821,7 +1824,7 @@
 .end method
 
 .method public final decode([BII)[B
-    .locals 8
+    .registers 12
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -1866,23 +1869,23 @@
     .local v1, "bytesWritten":I
     array-length v2, v7
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_1f
+    if-eqz v2, :cond_22
 
     .line 289
     return-object v7
 
     .line 287
-    :cond_1
+    :cond_22
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Check failed."
@@ -1897,7 +1900,7 @@
 .end method
 
 .method public final decodeIntoByteArray(Ljava/lang/CharSequence;[BIII)I
-    .locals 9
+    .registers 15
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "destination"    # [B
     .param p3, "destinationOffset"    # I
@@ -1915,7 +1918,7 @@
     .line 385
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
@@ -1949,14 +1952,14 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_32
     invoke-virtual {p0, p1, p4, p5}, Lkotlin/io/encoding/Base64;->charsToBytesImpl$kotlin_stdlib(Ljava/lang/CharSequence;II)[B
 
     move-result-object v0
 
-    :goto_0
+    :goto_36
     move-object v2, v0
 
     .line 386
@@ -1983,7 +1986,7 @@
 .end method
 
 .method public final decodeIntoByteArray([B[BIII)I
-    .locals 2
+    .registers 8
     .param p1, "source"    # [B
     .param p2, "destination"    # [B
     .param p3, "destinationOffset"    # I
@@ -2021,7 +2024,7 @@
 .end method
 
 .method public final decodeSize$kotlin_stdlib([BII)I
-    .locals 5
+    .registers 9
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -2035,7 +2038,7 @@
 
     .line 565
     .local v0, "symbols":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 566
     const/4 v1, 0x0
@@ -2043,22 +2046,22 @@
     return v1
 
     .line 568
-    :cond_0
+    :cond_b
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_4a
 
     .line 571
     iget-boolean v1, p0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2d
 
     .line 572
     move v1, p2
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, p3, :cond_4
+    :goto_13
+    if-ge v1, p3, :cond_3f
 
     .line 573
     aget-byte v2, p1, v1
@@ -2067,6 +2070,7 @@
 
     .line 574
     .local v2, "symbol":I
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64DecodeMap:[I
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64DecodeMap$p()[I
 
     move-result-object v3
@@ -2075,12 +2079,12 @@
 
     .line 575
     .local v3, "symbolBits":I
-    if-gez v3, :cond_2
+    if-gez v3, :cond_2a
 
     .line 576
     const/4 v4, -0x2
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_28
 
     .line 577
     sub-int v4, p3, v1
@@ -2088,30 +2092,30 @@
     sub-int/2addr v0, v4
 
     .line 578
-    goto :goto_1
+    goto :goto_3f
 
     .line 580
-    :cond_1
+    :cond_28
     add-int/lit8 v0, v0, -0x1
 
     .line 572
     .end local v2    # "symbol":I
     .end local v3    # "symbolBits":I
-    :cond_2
+    :cond_2a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 583
     .end local v1    # "index":I
-    :cond_3
+    :cond_2d
     add-int/lit8 v1, p3, -0x1
 
     aget-byte v1, p1, v1
 
     const/16 v2, 0x3d
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_3f
 
     .line 584
     add-int/lit8 v0, v0, -0x1
@@ -2121,14 +2125,14 @@
 
     aget-byte v1, p1, v1
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_3f
 
     .line 586
     add-int/lit8 v0, v0, -0x1
 
     .line 589
-    :cond_4
-    :goto_1
+    :cond_3f
+    :goto_3f
     int-to-long v1, v0
 
     const/4 v3, 0x6
@@ -2148,7 +2152,7 @@
     return v2
 
     .line 569
-    :cond_5
+    :cond_4a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2185,7 +2189,7 @@
 .end method
 
 .method public final encode([BII)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -2209,7 +2213,7 @@
 .end method
 
 .method public final encodeIntoByteArray([B[BIII)I
-    .locals 1
+    .registers 7
     .param p1, "source"    # [B
     .param p2, "destination"    # [B
     .param p3, "destinationOffset"    # I
@@ -2233,7 +2237,7 @@
 .end method
 
 .method public final encodeIntoByteArrayImpl$kotlin_stdlib([B[BIII)I
-    .locals 20
+    .registers 26
     .param p1, "source"    # [B
     .param p2, "destination"    # [B
     .param p3, "destinationOffset"    # I
@@ -2279,22 +2283,24 @@
     .line 410
     iget-boolean v6, v0, Lkotlin/io/encoding/Base64;->isUrlSafe:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2d
 
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64UrlEncodeMap:[B
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64UrlEncodeMap$p()[B
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_2d
+    # getter for: Lkotlin/io/encoding/Base64Kt;->base64EncodeMap:[B
     invoke-static {}, Lkotlin/io/encoding/Base64Kt;->access$getBase64EncodeMap$p()[B
 
     move-result-object v6
 
     .line 411
     .local v6, "encodeMap":[B
-    :goto_0
+    :goto_31
     move/from16 v7, p4
 
     .line 412
@@ -2305,26 +2311,26 @@
     .local v8, "destinationIndex":I
     iget-boolean v9, v0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_3c
 
     const/16 v9, 0x13
 
-    goto :goto_1
+    goto :goto_3f
 
-    :cond_1
+    :cond_3c
     const v9, 0x7fffffff
 
     .line 415
     .local v9, "groupsPerLine":I
-    :cond_2
-    :goto_1
+    :cond_3f
+    :goto_3f
     add-int/lit8 v10, v7, 0x2
 
     const/4 v11, 0x0
 
     const/4 v12, 0x1
 
-    if-ge v10, v5, :cond_4
+    if-ge v10, v5, :cond_a8
 
     .line 416
     sub-int v10, v5, v7
@@ -2340,8 +2346,8 @@
     const/4 v13, 0x0
 
     .local v13, "i":I
-    :goto_2
-    if-ge v13, v10, :cond_3
+    :goto_4e
+    if-ge v13, v10, :cond_93
 
     .line 418
     add-int/lit8 v14, v7, 0x1
@@ -2440,16 +2446,16 @@
 
     move/from16 v7, v16
 
-    goto :goto_2
+    goto :goto_4e
 
     .line 427
     .end local v13    # "i":I
     .end local v16    # "sourceIndex":I
     .local v7, "sourceIndex":I
-    :cond_3
-    if-ne v10, v9, :cond_2
+    :cond_93
+    if-ne v10, v9, :cond_3f
 
-    if-eq v7, v5, :cond_2
+    if-eq v7, v5, :cond_3f
 
     .line 428
     add-int/lit8 v13, v8, 0x1
@@ -2474,20 +2480,20 @@
     aput-byte v11, v2, v13
 
     .end local v10    # "groups":I
-    goto :goto_1
+    goto :goto_3f
 
     .line 433
-    :cond_4
+    :cond_a8
     sub-int v10, v5, v7
 
     const/16 v13, 0x3d
 
-    packed-switch v10, :pswitch_data_0
+    packed-switch v10, :pswitch_data_12a
 
-    goto :goto_3
+    goto :goto_115
 
     .line 445
-    :pswitch_0
+    :pswitch_b0
     add-int/lit8 v10, v7, 0x1
 
     .end local v7    # "sourceIndex":I
@@ -2555,7 +2561,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_e8
 
     .line 452
     add-int/lit8 v8, v16, 0x1
@@ -2566,17 +2572,17 @@
 
     move v7, v14
 
-    goto :goto_3
+    goto :goto_115
 
     .line 451
     .end local v8    # "destinationIndex":I
     .restart local v16    # "destinationIndex":I
-    :cond_5
+    :cond_e8
     move v7, v14
 
     move/from16 v8, v16
 
-    goto :goto_3
+    goto :goto_115
 
     .line 435
     .end local v10    # "byte2":I
@@ -2585,7 +2591,7 @@
     .end local v16    # "destinationIndex":I
     .local v7, "sourceIndex":I
     .restart local v8    # "destinationIndex":I
-    :pswitch_1
+    :pswitch_ec
     add-int/lit8 v10, v7, 0x1
 
     .end local v7    # "sourceIndex":I
@@ -2626,7 +2632,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_114
 
     .line 440
     add-int/lit8 v15, v8, 0x1
@@ -2646,25 +2652,25 @@
 
     .end local v7    # "byte1":I
     .end local v14    # "bits":I
-    goto :goto_3
+    goto :goto_115
 
     .line 439
     .restart local v7    # "byte1":I
     .restart local v14    # "bits":I
-    :cond_6
+    :cond_114
     move v7, v10
 
     .line 457
     .end local v10    # "sourceIndex":I
     .end local v14    # "bits":I
     .local v7, "sourceIndex":I
-    :goto_3
-    if-ne v7, v5, :cond_7
+    :goto_115
+    if-ne v7, v5, :cond_118
 
     const/4 v11, 0x1
 
-    :cond_7
-    if-eqz v11, :cond_8
+    :cond_118
+    if-eqz v11, :cond_11d
 
     .line 459
     sub-int v10, v8, v3
@@ -2672,7 +2678,7 @@
     return v10
 
     .line 457
-    :cond_8
+    :cond_11d
     new-instance v10, Ljava/lang/IllegalStateException;
 
     const-string v11, "Check failed."
@@ -2687,15 +2693,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_12a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_ec
+        :pswitch_b0
     .end packed-switch
 .end method
 
 .method public final encodeSize$kotlin_stdlib(I)I
-    .locals 5
+    .registers 7
     .param p1, "sourceSize"    # I
 
     .line 465
@@ -2711,30 +2717,30 @@
 
     .line 468
     .local v2, "size":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 469
     invoke-direct {p0}, Lkotlin/io/encoding/Base64;->shouldPadOnEncode()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
     const/4 v3, 0x4
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     add-int/lit8 v3, v1, 0x1
 
-    :goto_0
+    :goto_12
     add-int/2addr v2, v3
 
     .line 471
-    :cond_1
+    :cond_13
     iget-boolean v3, p0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1e
 
     .line 472
     add-int/lit8 v3, v2, -0x1
@@ -2746,14 +2752,14 @@
     add-int/2addr v2, v3
 
     .line 474
-    :cond_2
-    if-ltz v2, :cond_3
+    :cond_1e
+    if-ltz v2, :cond_21
 
     .line 477
     return v2
 
     .line 475
-    :cond_3
+    :cond_21
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "Input is too big"
@@ -2764,7 +2770,7 @@
 .end method
 
 .method public final encodeToAppendable([BLjava/lang/Appendable;II)Ljava/lang/Appendable;
-    .locals 3
+    .registers 8
     .param p1, "source"    # [B
     .param p2, "destination"    # Ljava/lang/Appendable;
     .param p3, "startIndex"    # I
@@ -2811,7 +2817,7 @@
 .end method
 
 .method public final encodeToByteArray([BII)[B
-    .locals 1
+    .registers 5
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -2829,7 +2835,7 @@
 .end method
 
 .method public final encodeToByteArrayImpl$kotlin_stdlib([BII)[B
-    .locals 8
+    .registers 12
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -2875,7 +2881,7 @@
 .end method
 
 .method public final getPaddingOption$kotlin_stdlib()Lkotlin/io/encoding/Base64$PaddingOption;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lkotlin/io/encoding/Base64;->paddingOption:Lkotlin/io/encoding/Base64$PaddingOption;
@@ -2884,7 +2890,7 @@
 .end method
 
 .method public final isMimeScheme$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 59
     iget-boolean v0, p0, Lkotlin/io/encoding/Base64;->isMimeScheme:Z
@@ -2893,7 +2899,7 @@
 .end method
 
 .method public final isUrlSafe$kotlin_stdlib()Z
-    .locals 1
+    .registers 2
 
     .line 58
     iget-boolean v0, p0, Lkotlin/io/encoding/Base64;->isUrlSafe:Z
@@ -2902,7 +2908,7 @@
 .end method
 
 .method public final withPadding(Lkotlin/io/encoding/Base64$PaddingOption;)Lkotlin/io/encoding/Base64;
-    .locals 3
+    .registers 5
     .param p1, "option"    # Lkotlin/io/encoding/Base64$PaddingOption;
 
     const-string v0, "option"
@@ -2912,14 +2918,14 @@
     .line 147
     iget-object v0, p0, Lkotlin/io/encoding/Base64;->paddingOption:Lkotlin/io/encoding/Base64$PaddingOption;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_b
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 148
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/io/encoding/Base64;
 
     iget-boolean v1, p0, Lkotlin/io/encoding/Base64;->isUrlSafe:Z
@@ -2929,6 +2935,6 @@
     invoke-direct {v0, v1, v2, p1}, Lkotlin/io/encoding/Base64;-><init>(ZZLkotlin/io/encoding/Base64$PaddingOption;)V
 
     .line 147
-    :goto_0
+    :goto_14
     return-object v0
 .end method

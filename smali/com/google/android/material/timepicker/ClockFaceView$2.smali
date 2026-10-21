@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/ClockFaceView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 156
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 7
+    .registers 10
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -56,11 +56,12 @@
 
     .line 162
     .local v0, "index":I
-    if-lez v0, :cond_0
+    if-lez v0, :cond_22
 
     .line 163
     iget-object v1, p0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
     invoke-static {v1}, Lcom/google/android/material/timepicker/ClockFaceView;->access$200(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -76,7 +77,7 @@
     invoke-virtual {p2, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setTraversalAfter(Landroid/view/View;)V
 
     .line 166
-    :cond_0
+    :cond_22
     nop
 
     .line 173
@@ -117,7 +118,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 16
+    .registers 20
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;
@@ -129,7 +130,7 @@
 
     move/from16 v2, p2
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_51
 
     .line 182
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -140,6 +141,7 @@
     .local v11, "time":J
     iget-object v1, v0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/google/android/material/timepicker/ClockFaceView;->access$300(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -151,6 +153,7 @@
     .line 184
     iget-object v1, v0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/google/android/material/timepicker/ClockFaceView;->access$300(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -165,6 +168,7 @@
     .local v1, "x":F
     iget-object v3, v0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/google/android/material/timepicker/ClockFaceView;->access$300(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -179,6 +183,7 @@
     .local v14, "y":F
     iget-object v3, v0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
     invoke-static {v3}, Lcom/google/android/material/timepicker/ClockFaceView;->access$000(Lcom/google/android/material/timepicker/ClockFaceView;)Lcom/google/android/material/timepicker/ClockHandView;
 
     move-result-object v15
@@ -204,6 +209,7 @@
     .line 187
     iget-object v3, v0, Lcom/google/android/material/timepicker/ClockFaceView$2;->this$0:Lcom/google/android/material/timepicker/ClockFaceView;
 
+    # getter for: Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
     invoke-static {v3}, Lcom/google/android/material/timepicker/ClockFaceView;->access$000(Lcom/google/android/material/timepicker/ClockFaceView;)Lcom/google/android/material/timepicker/ClockHandView;
 
     move-result-object v15
@@ -227,7 +233,7 @@
     .end local v1    # "x":F
     .end local v11    # "time":J
     .end local v14    # "y":F
-    :cond_0
+    :cond_51
     move-object/from16 v13, p1
 
     invoke-super/range {p0 .. p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z

@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Companion;-><init>()V
 
@@ -71,9 +71,10 @@
 
 # virtual methods
 .method public final getRestartingApp()Z
-    .locals 1
+    .registers 2
 
     .line 37
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->restartingApp:Z
     invoke-static {}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getRestartingApp$cp()Z
 
     move-result v0
@@ -82,7 +83,7 @@
 .end method
 
 .method public final getServiceClass()Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -110,30 +111,30 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const-class v0, Lio/nekohasekai/sagernet/bg/ProxyService;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 27
-    :cond_0
+    :cond_12
     const-string v1, "vpn"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     const-class v0, Lio/nekohasekai/sagernet/bg/VpnService;
 
     .line 29
-    :goto_0
+    :goto_1c
     return-object v0
 
     .line 28
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/UnknownError;
 
     invoke-direct {v0}, Ljava/lang/UnknownError;-><init>()V
@@ -142,7 +143,7 @@
 .end method
 
 .method public final setRestartingApp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 37

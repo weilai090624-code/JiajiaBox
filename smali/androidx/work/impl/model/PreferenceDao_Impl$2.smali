@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/PreferenceDao_Impl;Landroidx/room/RoomSQLiteQuery;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/PreferenceDao_Impl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Long;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -76,6 +76,7 @@
     .line 105
     iget-object v0, p0, Landroidx/work/impl/model/PreferenceDao_Impl$2;->this$0:Landroidx/work/impl/model/PreferenceDao_Impl;
 
+    # getter for: Landroidx/work/impl/model/PreferenceDao_Impl;->__db:Landroidx/room/RoomDatabase;
     invoke-static {v0}, Landroidx/work/impl/model/PreferenceDao_Impl;->access$000(Landroidx/work/impl/model/PreferenceDao_Impl;)Landroidx/room/RoomDatabase;
 
     move-result-object v0
@@ -92,29 +93,29 @@
 
     .line 108
     .local v0, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_e
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 109
     invoke-interface {v0, v3}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 110
     const/4 v1, 0x0
 
     .local v1, "_result":Ljava/lang/Long;
-    goto :goto_0
+    goto :goto_26
 
     .line 112
     .end local v1    # "_result":Ljava/lang/Long;
-    :cond_0
+    :cond_1c
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v1
@@ -122,20 +123,20 @@
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_e .. :try_end_24} :catchall_2b
 
     .restart local v1    # "_result":Ljava/lang/Long;
-    goto :goto_0
+    goto :goto_26
 
     .line 115
     .end local v1    # "_result":Ljava/lang/Long;
-    :cond_1
+    :cond_25
     const/4 v1, 0x0
 
     .line 117
     .restart local v1    # "_result":Ljava/lang/Long;
-    :goto_0
+    :goto_26
     nop
 
     .line 119
@@ -146,7 +147,7 @@
 
     .line 119
     .end local v1    # "_result":Ljava/lang/Long;
-    :catchall_0
+    :catchall_2b
     move-exception v1
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
@@ -156,7 +157,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -172,7 +173,7 @@
 .end method
 
 .method protected finalize()V
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/work/impl/model/PreferenceDao_Impl$2;->val$_statement:Landroidx/room/RoomSQLiteQuery;

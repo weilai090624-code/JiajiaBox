@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlinx/coroutines/android/HandlerDispatcherKt$awaitFrameSlowPath$lambda$3$$inlined$Runnable$1;->$cont$inlined:Lkotlinx/coroutines/CancellableContinuation;
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     .line 17
     const/4 v0, 0x0
@@ -67,6 +67,7 @@
     .local v0, "$i$a$-Runnable-HandlerDispatcherKt$awaitFrameSlowPath$2$1":I
     iget-object v1, p0, Lkotlinx/coroutines/android/HandlerDispatcherKt$awaitFrameSlowPath$lambda$3$$inlined$Runnable$1;->$cont$inlined:Lkotlinx/coroutines/CancellableContinuation;
 
+    # invokes: Lkotlinx/coroutines/android/HandlerDispatcherKt;->updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
     invoke-static {v1}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->access$updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
 
     .line 20

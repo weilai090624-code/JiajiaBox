@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
-    .locals 1
+    .registers 4
     .param p2, "columnIndex"    # I
 
     .line 619
@@ -37,6 +37,7 @@
     iput-object p1, p0, Lcom/google/common/collect/ArrayTable$Column;->this$0:Lcom/google/common/collect/ArrayTable;
 
     .line 620
+    # getter for: Lcom/google/common/collect/ArrayTable;->rowKeyToIndex:Lcom/google/common/collect/ImmutableMap;
     invoke-static {p1}, Lcom/google/common/collect/ArrayTable;->access$300(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
@@ -55,7 +56,7 @@
 
 # virtual methods
 .method getKeyRole()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 626
     .local p0, "this":Lcom/google/common/collect/ArrayTable$Column;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.Column;"
@@ -65,7 +66,7 @@
 .end method
 
 .method getValue(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +91,7 @@
 .end method
 
 .method setValue(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;

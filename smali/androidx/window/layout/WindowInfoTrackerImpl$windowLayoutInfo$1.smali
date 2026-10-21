@@ -97,7 +97,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$hE-bCPgu4I5_fFHbNPK3KEKXF90(Lkotlinx/coroutines/channels/Channel;Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;->invokeSuspend$lambda-0(Lkotlinx/coroutines/channels/Channel;Landroidx/window/layout/WindowLayoutInfo;)V
 
@@ -105,7 +105,7 @@
 .end method
 
 .method constructor <init>(Landroidx/window/layout/WindowInfoTrackerImpl;Landroid/app/Activity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,7 +130,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda-0(Lkotlinx/coroutines/channels/Channel;Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 1
+    .registers 3
     .param p0, "$channel"    # Lkotlinx/coroutines/channels/Channel;
     .param p1, "info"    # Landroidx/window/layout/WindowLayoutInfo;
 
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/flow/FlowCollector;
 
@@ -190,7 +190,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -222,7 +222,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -231,7 +231,7 @@
     .line 46
     iget v1, p0, Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_c2
 
     .line 60
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -243,7 +243,7 @@
     throw p1
 
     .line 46
-    :pswitch_0
+    :pswitch_11
     move-object v1, p0
 
     .local v1, "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
@@ -262,20 +262,20 @@
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
 
     .local v4, "$this$flow":Lkotlinx/coroutines/flow/FlowCollector;
-    :try_start_0
+    :try_start_1e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_21
+    .catchall {:try_start_1e .. :try_end_21} :catchall_b7
 
     move-object v5, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_a3
 
     .end local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .end local v3    # "listener":Landroidx/core/util/Consumer;
     .end local v4    # "$this$flow":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_24
     move-object v1, p0
 
     .restart local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
@@ -294,10 +294,10 @@
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
 
     .restart local v4    # "$this$flow":Lkotlinx/coroutines/flow/FlowCollector;
-    :try_start_1
+    :try_start_31
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_34
+    .catchall {:try_start_31 .. :try_end_34} :catchall_b7
 
     move-object v5, v2
 
@@ -307,13 +307,13 @@
 
     move-object v0, p1
 
-    goto :goto_1
+    goto :goto_7f
 
     .end local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .end local v3    # "listener":Landroidx/core/util/Consumer;
     .end local v4    # "$this$flow":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_39
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -354,6 +354,7 @@
     .restart local v3    # "listener":Landroidx/core/util/Consumer;
     iget-object v5, v1, Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;->this$0:Landroidx/window/layout/WindowInfoTrackerImpl;
 
+    # getter for: Landroidx/window/layout/WindowInfoTrackerImpl;->windowBackend:Landroidx/window/layout/WindowBackend;
     invoke-static {v5}, Landroidx/window/layout/WindowInfoTrackerImpl;->access$getWindowBackend$p(Landroidx/window/layout/WindowInfoTrackerImpl;)Landroidx/window/layout/WindowBackend;
 
     move-result-object v5
@@ -370,13 +371,13 @@
     nop
 
     .line 54
-    :try_start_2
+    :try_start_63
     invoke-interface {v2}, Lkotlinx/coroutines/channels/Channel;->iterator()Lkotlinx/coroutines/channels/ChannelIterator;
 
     move-result-object v5
 
     .end local v2    # "channel":Lkotlinx/coroutines/channels/Channel;
-    :goto_0
+    :goto_67
     move-object v2, v1
 
     check-cast v2, Lkotlin/coroutines/Continuation;
@@ -394,16 +395,16 @@
     invoke-interface {v5, v2}, Lkotlinx/coroutines/channels/ChannelIterator;->hasNext(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_77
+    .catchall {:try_start_63 .. :try_end_77} :catchall_b7
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_7a
 
     .line 46
     return-object v0
 
     .line 54
-    :cond_0
+    :cond_7a
     move-object v8, v0
 
     move-object v0, p1
@@ -418,15 +419,15 @@
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
     .local v2, "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
-    :goto_1
-    :try_start_3
+    :goto_7f
+    :try_start_7f
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_a4
 
     invoke-interface {v5}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -453,17 +454,17 @@
     invoke-interface {v4, p1, v6}, Lkotlinx/coroutines/flow/FlowCollector;->emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_9d
+    .catchall {:try_start_7f .. :try_end_9d} :catchall_b1
 
     .end local p1    # "item":Landroidx/window/layout/WindowLayoutInfo;
-    if-ne v6, v1, :cond_1
+    if-ne v6, v1, :cond_a0
 
     .line 46
     return-object v1
 
     .line 55
-    :cond_1
+    :cond_a0
     move-object p1, v0
 
     move-object v0, v1
@@ -474,17 +475,18 @@
     .end local v2    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .restart local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_2
-    goto :goto_0
+    :goto_a3
+    goto :goto_67
 
     .line 58
     .end local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local v2    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
-    :cond_2
+    :cond_a4
     iget-object p1, v2, Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;->this$0:Landroidx/window/layout/WindowInfoTrackerImpl;
 
+    # getter for: Landroidx/window/layout/WindowInfoTrackerImpl;->windowBackend:Landroidx/window/layout/WindowBackend;
     invoke-static {p1}, Landroidx/window/layout/WindowInfoTrackerImpl;->access$getWindowBackend$p(Landroidx/window/layout/WindowInfoTrackerImpl;)Landroidx/window/layout/WindowBackend;
 
     move-result-object p1
@@ -500,7 +502,7 @@
     return-object p1
 
     .line 57
-    :catchall_0
+    :catchall_b1
     move-exception p1
 
     move-object v1, v2
@@ -511,19 +513,20 @@
 
     move-object p1, v8
 
-    goto :goto_3
+    goto :goto_b8
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local v2    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .restart local v1    # "this":Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_b7
     move-exception v0
 
     .line 58
-    :goto_3
+    :goto_b8
     iget-object v2, v1, Landroidx/window/layout/WindowInfoTrackerImpl$windowLayoutInfo$1;->this$0:Landroidx/window/layout/WindowInfoTrackerImpl;
 
+    # getter for: Landroidx/window/layout/WindowInfoTrackerImpl;->windowBackend:Landroidx/window/layout/WindowBackend;
     invoke-static {v2}, Landroidx/window/layout/WindowInfoTrackerImpl;->access$getWindowBackend$p(Landroidx/window/layout/WindowInfoTrackerImpl;)Landroidx/window/layout/WindowBackend;
 
     move-result-object v2
@@ -532,10 +535,10 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_c2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_39
+        :pswitch_24
+        :pswitch_11
     .end packed-switch
 .end method

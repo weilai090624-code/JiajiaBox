@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
 
     iput-object p1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24$networkCallback$1;->this$0:Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 4
+    .registers 7
     .param p1, "network"    # Landroid/net/Network;
     .param p2, "capabilities"    # Landroid/net/NetworkCapabilities;
 
@@ -76,6 +76,7 @@
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1
@@ -105,6 +106,7 @@
 
     iget-object v1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24$networkCallback$1;->this$0:Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->connectivityManager:Landroid/net/ConnectivityManager;
     invoke-static {v1}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->access$getConnectivityManager$p(Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;)Landroid/net/ConnectivityManager;
 
     move-result-object v1
@@ -120,7 +122,7 @@
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 3
+    .registers 5
     .param p1, "network"    # Landroid/net/Network;
 
     const-string v0, "network"
@@ -132,6 +134,7 @@
 
     move-result-object v0
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v1
@@ -145,6 +148,7 @@
 
     iget-object v1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24$networkCallback$1;->this$0:Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->connectivityManager:Landroid/net/ConnectivityManager;
     invoke-static {v1}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->access$getConnectivityManager$p(Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;)Landroid/net/ConnectivityManager;
 
     move-result-object v1

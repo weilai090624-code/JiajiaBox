@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/NavController$navInflater$2;->this$0:Landroidx/navigation/NavController;
 
@@ -64,16 +64,17 @@
 
 # virtual methods
 .method public final invoke()Landroidx/navigation/NavInflater;
-    .locals 3
+    .registers 4
 
     .line 1021
     iget-object v0, p0, Landroidx/navigation/NavController$navInflater$2;->this$0:Landroidx/navigation/NavController;
 
+    # getter for: Landroidx/navigation/NavController;->inflater:Landroidx/navigation/NavInflater;
     invoke-static {v0}, Landroidx/navigation/NavController;->access$getInflater$p(Landroidx/navigation/NavController;)Landroidx/navigation/NavInflater;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     new-instance v0, Landroidx/navigation/NavInflater;
 
@@ -85,18 +86,19 @@
 
     iget-object v2, p0, Landroidx/navigation/NavController$navInflater$2;->this$0:Landroidx/navigation/NavController;
 
+    # getter for: Landroidx/navigation/NavController;->_navigatorProvider:Landroidx/navigation/NavigatorProvider;
     invoke-static {v2}, Landroidx/navigation/NavController;->access$get_navigatorProvider$p(Landroidx/navigation/NavController;)Landroidx/navigation/NavigatorProvider;
 
     move-result-object v2
 
     invoke-direct {v0, v1, v2}, Landroidx/navigation/NavInflater;-><init>(Landroid/content/Context;Landroidx/navigation/NavigatorProvider;)V
 
-    :cond_0
+    :cond_19
     return-object v0
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1020
     invoke-virtual {p0}, Landroidx/navigation/NavController$navInflater$2;->invoke()Landroidx/navigation/NavInflater;

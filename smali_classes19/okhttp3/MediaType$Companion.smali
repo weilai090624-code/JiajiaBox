@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/MediaType$Companion;-><init>()V
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final -deprecated_get(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 1
+    .registers 3
     .param p1, "mediaType"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -99,7 +99,7 @@
 .end method
 
 .method public final -deprecated_parse(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 1
+    .registers 3
     .param p1, "mediaType"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -125,7 +125,7 @@
 .end method
 
 .method public final get(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 16
+    .registers 18
     .param p1, "$this$toMediaType"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -137,6 +137,7 @@
     invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 110
+    # getter for: Lokhttp3/MediaType;->TYPE_SUBTYPE:Ljava/util/regex/Pattern;
     invoke-static {}, Lokhttp3/MediaType;->access$getTYPE_SUBTYPE$cp()Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -157,7 +158,7 @@
 
     const/16 v1, 0x22
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_120
 
     .line 112
     const/4 v0, 0x1
@@ -220,6 +221,7 @@
 
     .line 116
     .local v8, "parameterNamesAndValues":Ljava/util/List;
+    # getter for: Lokhttp3/MediaType;->PARAMETER:Ljava/util/regex/Pattern;
     invoke-static {}, Lokhttp3/MediaType;->access$getPARAMETER$cp()Ljava/util/regex/Pattern;
 
     move-result-object v4
@@ -246,14 +248,14 @@
     .line 118
     .end local v4    # "s":I
     .local v10, "s":I
-    :goto_0
+    :goto_64
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
     const/4 v11, 0x0
 
-    if-ge v10, v4, :cond_4
+    if-ge v10, v4, :cond_fe
 
     .line 119
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
@@ -267,7 +269,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_c7
 
     .line 124
     invoke-virtual {v9, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -276,7 +278,7 @@
 
     .line 125
     .local v4, "name":Ljava/lang/String;
-    if-nez v4, :cond_0
+    if-nez v4, :cond_83
 
     .line 126
     invoke-virtual {v9}, Ljava/util/regex/Matcher;->end()I
@@ -284,10 +286,10 @@
     move-result v10
 
     .line 127
-    goto :goto_0
+    goto :goto_64
 
     .line 130
-    :cond_0
+    :cond_83
     invoke-virtual {v9, v5}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v12
@@ -297,7 +299,7 @@
     nop
 
     .line 132
-    if-nez v12, :cond_1
+    if-nez v12, :cond_90
 
     .line 134
     const/4 v11, 0x3
@@ -306,10 +308,10 @@
 
     move-result-object v11
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 136
-    :cond_1
+    :cond_90
     const-string v13, "\'"
 
     const/4 v14, 0x0
@@ -318,19 +320,19 @@
 
     move-result v15
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_b4
 
     invoke-static {v12, v13, v11, v5, v14}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_b4
 
     invoke-virtual {v12}, Ljava/lang/String;->length()I
 
     move-result v11
 
-    if-le v11, v5, :cond_2
+    if-le v11, v5, :cond_b4
 
     .line 138
     invoke-virtual {v12}, Ljava/lang/String;->length()I
@@ -347,14 +349,14 @@
 
     invoke-static {v11, v13}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 140
-    :cond_2
+    :cond_b4
     move-object v11, v12
 
     .line 131
-    :goto_1
+    :goto_b5
     nop
 
     .line 143
@@ -380,10 +382,10 @@
     .end local v4    # "name":Ljava/lang/String;
     .end local v11    # "value":Ljava/lang/String;
     .end local v12    # "token":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_64
 
     .line 120
-    :cond_3
+    :cond_c7
     const/4 v0, 0x0
 
     .line 121
@@ -443,7 +445,7 @@
     throw v1
 
     .line 148
-    :cond_4
+    :cond_fe
     new-instance v12, Lokhttp3/MediaType;
 
     move-object v0, v8
@@ -465,7 +467,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_118
 
     .end local v0    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v1    # "$i$f$toTypedArray":I
@@ -489,7 +491,7 @@
     .restart local v0    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v1    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_5
+    :cond_118
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v11, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -507,7 +509,7 @@
     .end local v8    # "parameterNamesAndValues":Ljava/util/List;
     .end local v9    # "parameter":Ljava/util/regex/Matcher;
     .end local v10    # "s":I
-    :cond_6
+    :cond_120
     const/4 v0, 0x0
 
     .line 111
@@ -549,7 +551,7 @@
 .end method
 
 .method public final parse(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 3
+    .registers 5
     .param p1, "$this$toMediaTypeOrNull"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -562,17 +564,17 @@
     nop
 
     .line 156
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0, p1}, Lokhttp3/MediaType$Companion;->get(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 157
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 158
@@ -587,6 +589,6 @@
 
     .line 155
     .end local v0    # "_":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_11
     return-object v0
 .end method

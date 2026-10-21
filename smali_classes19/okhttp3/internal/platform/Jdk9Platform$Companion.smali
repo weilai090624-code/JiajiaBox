@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/Jdk9Platform$Companion;-><init>()V
 
@@ -64,32 +64,33 @@
 
 # virtual methods
 .method public final buildIfSupported()Lokhttp3/internal/platform/Jdk9Platform;
-    .locals 1
+    .registers 2
 
     .line 102
     invoke-virtual {p0}, Lokhttp3/internal/platform/Jdk9Platform$Companion;->isAvailable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     new-instance v0, Lokhttp3/internal/platform/Jdk9Platform;
 
     invoke-direct {v0}, Lokhttp3/internal/platform/Jdk9Platform;-><init>()V
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public final getMajorVersion()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 86
+    # getter for: Lokhttp3/internal/platform/Jdk9Platform;->majorVersion:Ljava/lang/Integer;
     invoke-static {}, Lokhttp3/internal/platform/Jdk9Platform;->access$getMajorVersion$cp()Ljava/lang/Integer;
 
     move-result-object v0
@@ -98,9 +99,10 @@
 .end method
 
 .method public final isAvailable()Z
-    .locals 1
+    .registers 2
 
     .line 84
+    # getter for: Lokhttp3/internal/platform/Jdk9Platform;->isAvailable:Z
     invoke-static {}, Lokhttp3/internal/platform/Jdk9Platform;->access$isAvailable$cp()Z
 
     move-result v0

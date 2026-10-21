@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;)V
-    .locals 0
+    .registers 2
 
     .line 343
     iput-object p1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectNothing;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/emitter/Emitter$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public expect()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,6 +69,7 @@
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectNothing;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v2

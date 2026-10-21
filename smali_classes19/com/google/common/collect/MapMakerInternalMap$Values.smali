@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/MapMakerInternalMap;
 
     .line 2722
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 2746
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$Values;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.Values;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 2741
@@ -70,7 +70,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 2736
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$Values;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.Values;"
@@ -84,7 +84,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 2731
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$Values;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.Values;"
@@ -119,10 +119,11 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2754
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$Values;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.Values;"
+    # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$900(Ljava/util/Collection;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -135,7 +136,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -147,6 +148,7 @@
     .line 2759
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$Values;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.Values;"
     .local p1, "a":[Ljava/lang/Object;, "[TT;"
+    # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$900(Ljava/util/Collection;)Ljava/util/ArrayList;
 
     move-result-object v0

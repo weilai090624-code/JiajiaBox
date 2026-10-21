@@ -120,7 +120,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$bdTJUtPRh0w6a4zdnlotwwxEfdQ(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/widget/CompoundButton;Z)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/AppListActivity;->onCreate$lambda$5(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/widget/CompoundButton;Z)V
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$e2Y8RdrQUIgfPIFPF0hnBOxnFgM(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/view/View;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppListActivity;->loading_delegate$lambda$0(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/view/View;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$rPqwJ3GSPwqswtJ0V-yz_oIRBsc(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AppListActivity;->onCreate$lambda$2(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/view/View;)V
 
@@ -146,7 +146,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;-><init>()V
@@ -202,7 +202,7 @@
 .end method
 
 .method public static final synthetic access$getApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -212,7 +212,7 @@
 .end method
 
 .method public static final synthetic access$getAppsAdapter$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -222,7 +222,7 @@
 .end method
 
 .method public static final synthetic access$getBinding$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -232,7 +232,7 @@
 .end method
 
 .method public static final synthetic access$getLoading(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -244,7 +244,7 @@
 .end method
 
 .method public static final synthetic access$getProxiedUids$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/util/SparseBooleanArray;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -254,7 +254,7 @@
 .end method
 
 .method public static final synthetic access$getSysApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 44
@@ -264,7 +264,7 @@
 .end method
 
 .method public static final synthetic access$isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity;Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p1, "app"    # Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
 
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final synthetic access$setApps$p(Lio/nekohasekai/sagernet/ui/AppListActivity;Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p1, "<set-?>"    # Ljava/util/List;
 
@@ -288,7 +288,7 @@
 .end method
 
 .method private final getLoading()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 154
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->loading$delegate:Lkotlin/Lazy;
@@ -303,7 +303,7 @@
 .end method
 
 .method private final initProxiedUids(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "str"    # Ljava/lang/String;
 
     .line 163
@@ -314,6 +314,7 @@
     .line 164
     sget-object v0, Lio/nekohasekai/sagernet/ui/AppListActivity;->Companion:Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;->getCachedApps()Ljava/util/Map;
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;->access$getCachedApps(Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;)Ljava/util/Map;
 
     move-result-object v0
@@ -332,13 +333,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -354,16 +355,16 @@
 
     check-cast v3, Landroid/content/pm/PackageInfo;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2b
 
-    goto :goto_0
+    goto :goto_16
 
     .line 167
     .local v3, "app":Landroid/content/pm/PackageInfo;
-    :cond_1
+    :cond_2b
     iget-object v4, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
     iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
 
@@ -387,20 +388,20 @@
     .end local v5    # "$this$set$iv":Landroid/util/SparseBooleanArray;
     .end local v6    # "value$iv":Z
     .end local v7    # "$i$f$set":I
-    goto :goto_0
+    goto :goto_16
 
     .line 170
-    :cond_2
+    :cond_39
     return-void
 .end method
 
 .method static synthetic initProxiedUids$default(Lio/nekohasekai/sagernet/ui/AppListActivity;Ljava/lang/String;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 162
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -408,14 +409,14 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/AppListActivity;->initProxiedUids(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private final isProxiedApp(Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;)Z
-    .locals 2
+    .registers 4
     .param p1, "app"    # Lio/nekohasekai/sagernet/ui/AppListActivity$ProxiedApp;
 
     .line 172
@@ -433,21 +434,21 @@
 .end method
 
 .method private final loadApps()V
-    .locals 3
+    .registers 4
 
     .line 176
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->loader:Lkotlinx/coroutines/Job;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v2, 0x1
 
     invoke-static {v0, v1, v2, v1}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 177
-    :cond_0
+    :cond_9
     move-object v0, p0
 
     check-cast v0, Landroidx/lifecycle/LifecycleOwner;
@@ -473,7 +474,7 @@
 .end method
 
 .method private static final loading_delegate$lambda$0(Lio/nekohasekai/sagernet/ui/AppListActivity;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
 
     .line 154
@@ -487,7 +488,7 @@
 .end method
 
 .method private static final onCreate$lambda$2(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/view/View;)V
-    .locals 6
+    .registers 8
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -539,7 +540,7 @@
 .end method
 
 .method private static final onCreate$lambda$5(Lio/nekohasekai/sagernet/ui/AppListActivity;Landroid/widget/CompoundButton;Z)V
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AppListActivity;
     .param p2, "isChecked"    # Z
 
@@ -555,7 +556,7 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const-string v0, "binding"
 
@@ -563,25 +564,25 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_12
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->search:Lcom/google/android/material/textfield/TextInputEditText;
 
     invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputEditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
-    :cond_1
+    :cond_20
     const-string v0, ""
 
-    :cond_2
+    :cond_22
     check-cast v0, Ljava/lang/CharSequence;
 
     invoke-virtual {p1, v0}, Landroid/widget/Filter;->filter(Ljava/lang/CharSequence;)V
@@ -593,7 +594,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .registers 9
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 192
@@ -617,13 +618,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     move-result-object v0
@@ -635,13 +636,13 @@
     .line 197
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_1
+    :cond_29
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->appPlaceholder:Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
 
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;->openSettings:Lcom/google/android/material/button/MaterialButton;
@@ -655,13 +656,13 @@
     .line 205
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3d
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_2
+    :cond_3d
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->toolbar:Lcom/google/android/material/appbar/MaterialToolbar;
 
     check-cast v0, Landroidx/appcompat/widget/Toolbar;
@@ -675,7 +676,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     .local v0, "$this$onCreate_u24lambda_u243":Landroidx/appcompat/app/ActionBar;
     const/4 v4, 0x0
@@ -703,19 +704,19 @@
     nop
 
     .line 212
-    :cond_3
+    :cond_5d
     invoke-static {p0, v2, v3, v2}, Lio/nekohasekai/sagernet/ui/AppListActivity;->initProxiedUids$default(Lio/nekohasekai/sagernet/ui/AppListActivity;Ljava/lang/String;ILjava/lang/Object;)V
 
     .line 213
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_68
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_4
+    :cond_68
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     new-instance v4, Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -735,13 +736,13 @@
     .line 214
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_80
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_5
+    :cond_80
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     new-instance v3, Landroidx/recyclerview/widget/DefaultItemAnimator;
@@ -755,13 +756,13 @@
     .line 215
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_94
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_6
+    :cond_94
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->appsAdapter:Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;
@@ -773,13 +774,13 @@
     .line 217
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_a5
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_7
+    :cond_a5
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     move-result-object v0
@@ -795,13 +796,13 @@
     .line 219
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_ba
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_8
+    :cond_ba
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->search:Lcom/google/android/material/textfield/TextInputEditText;
 
     const-string v3, "search"
@@ -851,13 +852,13 @@
     .end local v4    # "textWatcher$iv":Lio/nekohasekai/sagernet/ui/AppListActivity$onCreate$$inlined$addTextChangedListener$default$1;
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_de
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_9
+    :cond_de
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->showSystemApps:Lcom/google/android/material/chip/Chip;
 
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->sysApps:Z
@@ -867,16 +868,16 @@
     .line 224
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_ed
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_ee
 
-    :cond_a
+    :cond_ed
     move-object v2, v0
 
-    :goto_0
+    :goto_ee
     iget-object v0, v2, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->showSystemApps:Lcom/google/android/material/chip/Chip;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/AppListActivity$$ExternalSyntheticLambda2;
@@ -893,7 +894,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -916,12 +917,12 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 3
+    .registers 4
 
     .line 318
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->loader:Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v1, 0x1
 
@@ -930,7 +931,7 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 319
-    :cond_0
+    :cond_9
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onDestroy()V
 
     .line 320
@@ -938,14 +939,14 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .line 313
     const/16 v0, 0x52
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_37
 
     .line 314
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
@@ -954,74 +955,74 @@
 
     const-string v2, "binding"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v1
 
-    :cond_0
+    :cond_f
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->toolbar:Lcom/google/android/material/appbar/MaterialToolbar;
 
     invoke-virtual {v0}, Lcom/google/android/material/appbar/MaterialToolbar;->isOverflowMenuShowing()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     move-object v1, v0
 
-    :goto_0
+    :goto_20
     iget-object v0, v1, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->toolbar:Lcom/google/android/material/appbar/MaterialToolbar;
 
     invoke-virtual {v0}, Lcom/google/android/material/appbar/MaterialToolbar;->hideOverflowMenu()Z
 
     move-result v0
 
-    goto :goto_2
+    goto :goto_3b
 
-    :cond_2
+    :cond_27
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2f
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_3
+    :cond_2f
     move-object v1, v0
 
-    :goto_1
+    :goto_30
     iget-object v0, v1, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->toolbar:Lcom/google/android/material/appbar/MaterialToolbar;
 
     invoke-virtual {v0}, Lcom/google/android/material/appbar/MaterialToolbar;->showOverflowMenu()Z
 
     move-result v0
 
-    goto :goto_2
+    goto :goto_3b
 
     .line 315
-    :cond_4
+    :cond_37
     invoke-super {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    :goto_2
+    :goto_3b
     return v0
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 12
+    .registers 14
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1041,12 +1042,12 @@
 
     const/4 v4, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_fe
 
-    goto/16 :goto_7
+    goto/16 :goto_f9
 
     .line 242
-    :sswitch_0
+    :sswitch_13
     new-instance v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;
 
     invoke-direct {v0, p0, v4}, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$1;-><init>(Lio/nekohasekai/sagernet/ui/AppListActivity;Lkotlin/coroutines/Continuation;)V
@@ -1059,7 +1060,7 @@
     return v2
 
     .line 284
-    :sswitch_1
+    :sswitch_1e
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getClipboard()Landroid/content/ClipboardManager;
@@ -1070,31 +1071,31 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0, v3}, Landroid/content/ClipData;->getItemAt(I)Landroid/content/ClipData$Item;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0}, Landroid/content/ClipData$Item;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_3b
     move-object v0, v4
 
     .line 283
-    :goto_0
+    :goto_3c
     nop
 
     .line 285
@@ -1103,27 +1104,27 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4b
 
     invoke-interface {v5}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_49
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_1
+    :cond_49
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_4c
 
-    :cond_2
-    :goto_1
+    :cond_4b
+    :goto_4b
     const/4 v5, 0x1
 
-    :goto_2
-    if-nez v5, :cond_5
+    :goto_4c
+    if-nez v5, :cond_99
 
     .line 286
     move-object v6, v0
@@ -1149,14 +1150,14 @@
     nop
 
     .line 288
-    if-gez v5, :cond_3
+    if-gez v5, :cond_61
 
-    :try_start_0
+    :try_start_5e
     const-string v6, ""
 
-    goto :goto_3
+    goto :goto_6c
 
-    :cond_3
+    :cond_61
     add-int/lit8 v6, v5, 0x1
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -1169,7 +1170,7 @@
 
     .line 289
     .local v6, "apps":Ljava/lang/String;
-    :goto_3
+    :goto_6c
     sget-object v7, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v7, v6}, Lio/nekohasekai/sagernet/database/DataStore;->setRoutePackages(Ljava/lang/String;)V
@@ -1177,13 +1178,13 @@
     .line 291
     iget-object v7, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_79
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v7, v4
 
-    :cond_4
+    :cond_79
     iget-object v7, v7, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     check-cast v7, Landroid/view/View;
@@ -1213,32 +1214,32 @@
     const-string v9, "switch"
 
     invoke-virtual {v7, v3, v8, v9}, Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;->notifyItemRangeChanged(IILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_97
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_5e .. :try_end_97} :catch_98
 
     .line 295
     return v2
 
     .line 296
     .end local v6    # "apps":Ljava/lang/String;
-    :catch_0
+    :catch_98
     move-exception v2
 
     .line 299
     .end local v5    # "i":I
-    :cond_5
+    :cond_99
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_a1
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_4
+    goto :goto_a2
 
-    :cond_6
+    :cond_a1
     move-object v4, v2
 
-    :goto_4
+    :goto_a2
     iget-object v1, v4, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     check-cast v1, Landroid/view/View;
@@ -1251,11 +1252,11 @@
 
     invoke-virtual {v1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_7
+    goto :goto_f9
 
     .line 273
     .end local v0    # "proxiedAppString":Ljava/lang/String;
-    :sswitch_2
+    :sswitch_b1
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1290,32 +1291,32 @@
     .local v0, "success":Z
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/AppListActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_d8
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_d9
 
-    :cond_7
+    :cond_d8
     move-object v4, v5
 
-    :goto_5
+    :goto_d9
     iget-object v1, v4, Lio/nekohasekai/sagernet/databinding/LayoutAppListBinding;->list:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     check-cast v1, Landroid/view/View;
 
     .line 276
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_e3
 
     const v4, 0x7f130029
 
-    goto :goto_6
+    goto :goto_e6
 
-    :cond_8
+    :cond_e3
     const v4, 0x7f130027
 
     .line 277
-    :goto_6
+    :goto_e6
     nop
 
     .line 274
@@ -1331,7 +1332,7 @@
 
     .line 262
     .end local v0    # "success":Z
-    :sswitch_3
+    :sswitch_ef
     new-instance v0, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$2;
 
     invoke-direct {v0, p0, v4}, Lio/nekohasekai/sagernet/ui/AppListActivity$onOptionsItemSelected$2;-><init>(Lio/nekohasekai/sagernet/ui/AppListActivity;Lkotlin/coroutines/Continuation;)V
@@ -1341,43 +1342,43 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 302
-    :goto_7
+    :goto_f9
     invoke-super {p0, p1}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_fe
     .sparse-switch
-        0x7f0a0040 -> :sswitch_3
-        0x7f0a0050 -> :sswitch_2
-        0x7f0a0057 -> :sswitch_1
-        0x7f0a0059 -> :sswitch_0
+        0x7f0a0040 -> :sswitch_ef
+        0x7f0a0050 -> :sswitch_b1
+        0x7f0a0057 -> :sswitch_1e
+        0x7f0a0059 -> :sswitch_13
     .end sparse-switch
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 1
+    .registers 2
 
     .line 306
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onSupportNavigateUp()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AppListActivity;->finish()V
 
     .line 307
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public supportNavigateUpTo(Landroid/content/Intent;)V
-    .locals 1
+    .registers 3
     .param p1, "upIntent"    # Landroid/content/Intent;
 
     const-string v0, "upIntent"

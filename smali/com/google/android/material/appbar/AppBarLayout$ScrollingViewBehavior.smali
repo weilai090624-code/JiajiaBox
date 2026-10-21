@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2378
     invoke-direct {p0}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private static getAppBarLayoutOffset(Lcom/google/android/material/appbar/AppBarLayout;)I
-    .locals 2
+    .registers 3
     .param p0, "abl"    # Lcom/google/android/material/appbar/AppBarLayout;
 
     .line 2477
@@ -83,7 +83,7 @@
     .local v0, "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
     instance-of v1, v0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 2480
     move-object v1, v0
@@ -97,14 +97,14 @@
     return v1
 
     .line 2482
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private offsetChildAsNeeded(Landroid/view/View;Landroid/view/View;)V
-    .locals 4
+    .registers 7
     .param p1, "child"    # Landroid/view/View;
     .param p2, "dependency"    # Landroid/view/View;
 
@@ -126,7 +126,7 @@
     .local v0, "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
     instance-of v1, v0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 2444
     move-object v1, v0
@@ -149,6 +149,7 @@
     sub-int/2addr v2, v3
 
     .line 2448
+    # getter for: Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;->offsetDelta:I
     invoke-static {v1}, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;->access$100(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;)I
 
     move-result v3
@@ -174,19 +175,19 @@
 
     .line 2452
     .end local v1    # "ablBehavior":Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;
-    :cond_0
+    :cond_2e
     return-void
 .end method
 
 .method private updateLiftedStateIfNeeded(Landroid/view/View;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "dependency"    # Landroid/view/View;
 
     .line 2507
     instance-of v0, p2, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 2508
     move-object v0, p2
@@ -199,7 +200,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 2510
     invoke-virtual {v0, p1}, Lcom/google/android/material/appbar/AppBarLayout;->shouldLift(Landroid/view/View;)Z
@@ -210,14 +211,14 @@
 
     .line 2513
     .end local v0    # "appBarLayout":Lcom/google/android/material/appbar/AppBarLayout;
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 
 # virtual methods
 .method bridge synthetic findFirstDependency(Ljava/util/List;)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 2376
     invoke-virtual {p0, p1}, Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;->findFirstDependency(Ljava/util/List;)Lcom/google/android/material/appbar/AppBarLayout;
@@ -228,7 +229,7 @@
 .end method
 
 .method findFirstDependency(Ljava/util/List;)Lcom/google/android/material/appbar/AppBarLayout;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,8 +250,8 @@
     move-result v1
 
     .local v1, "z":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_5
+    if-ge v0, v1, :cond_18
 
     .line 2489
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -263,7 +264,7 @@
     .local v2, "view":Landroid/view/View;
     instance-of v3, v2, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_15
 
     .line 2491
     move-object v3, v2
@@ -274,22 +275,22 @@
 
     .line 2488
     .end local v2    # "view":Landroid/view/View;
-    :cond_0
+    :cond_15
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 2494
     .end local v0    # "i":I
     .end local v1    # "z":I
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public bridge synthetic getLeftAndRightOffset()I
-    .locals 1
+    .registers 2
 
     .line 2376
     invoke-super {p0}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->getLeftAndRightOffset()I
@@ -300,7 +301,7 @@
 .end method
 
 .method getOverlapRatioForOffset(Landroid/view/View;)F
-    .locals 7
+    .registers 9
     .param p1, "header"    # Landroid/view/View;
 
     .line 2456
@@ -308,7 +309,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 2457
     move-object v0, p1
@@ -335,22 +336,22 @@
 
     .line 2462
     .local v4, "offset":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     add-int v5, v2, v4
 
-    if-gt v5, v3, :cond_0
+    if-gt v5, v3, :cond_1b
 
     .line 2464
     return v1
 
     .line 2466
-    :cond_0
+    :cond_1b
     sub-int v5, v2, v3
 
     .line 2467
     .local v5, "availScrollRange":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_26
 
     .line 2469
     int-to-float v1, v4
@@ -371,18 +372,18 @@
     .end local v3    # "preScrollDown":I
     .end local v4    # "offset":I
     .end local v5    # "availScrollRange":I
-    :cond_1
+    :cond_26
     return v1
 .end method
 
 .method getScrollRange(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 2499
     instance-of v0, p1, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 2500
     move-object v0, p1
@@ -396,7 +397,7 @@
     return v0
 
     .line 2502
-    :cond_0
+    :cond_c
     invoke-super {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->getScrollRange(Landroid/view/View;)I
 
     move-result v0
@@ -405,7 +406,7 @@
 .end method
 
 .method public bridge synthetic getTopAndBottomOffset()I
-    .locals 1
+    .registers 2
 
     .line 2376
     invoke-super {p0}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->getTopAndBottomOffset()I
@@ -416,7 +417,7 @@
 .end method
 
 .method public bridge synthetic isHorizontalOffsetEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 2376
     invoke-super {p0}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->isHorizontalOffsetEnabled()Z
@@ -427,7 +428,7 @@
 .end method
 
 .method public bridge synthetic isVerticalOffsetEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 2376
     invoke-super {p0}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->isVerticalOffsetEnabled()Z
@@ -438,7 +439,7 @@
 .end method
 
 .method public layoutDependsOn(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -450,7 +451,7 @@
 .end method
 
 .method public onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -468,7 +469,7 @@
 .end method
 
 .method public onDependentViewRemoved(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)V
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -476,7 +477,7 @@
     .line 2407
     instance-of v0, p3, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 2408
     sget-object v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_SCROLL_FORWARD:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -502,12 +503,12 @@
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     .line 2412
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public bridge synthetic onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 0
+    .registers 4
 
     .line 2376
     invoke-super {p0, p1, p2, p3}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
@@ -518,7 +519,7 @@
 .end method
 
 .method public bridge synthetic onMeasureChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
-    .locals 0
+    .registers 7
 
     .line 2376
     invoke-super/range {p0 .. p6}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->onMeasureChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
@@ -529,7 +530,7 @@
 .end method
 
 .method public onRequestChildRectangleOnScreen(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;Z)Z
-    .locals 5
+    .registers 10
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "rectangle"    # Landroid/graphics/Rect;
@@ -548,7 +549,7 @@
     .local v0, "header":Lcom/google/android/material/appbar/AppBarLayout;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     .line 2423
     invoke-virtual {p2}, Landroid/view/View;->getLeft()I
@@ -581,7 +582,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_30
 
     .line 2431
     xor-int/lit8 v3, p4, 0x1
@@ -595,12 +596,12 @@
 
     .line 2435
     .end local v2    # "parentRect":Landroid/graphics/Rect;
-    :cond_0
+    :cond_30
     return v1
 .end method
 
 .method public bridge synthetic setHorizontalOffsetEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 2376
     invoke-super {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->setHorizontalOffsetEnabled(Z)V
@@ -609,7 +610,7 @@
 .end method
 
 .method public bridge synthetic setLeftAndRightOffset(I)Z
-    .locals 0
+    .registers 2
 
     .line 2376
     invoke-super {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->setLeftAndRightOffset(I)Z
@@ -620,7 +621,7 @@
 .end method
 
 .method public bridge synthetic setTopAndBottomOffset(I)Z
-    .locals 0
+    .registers 2
 
     .line 2376
     invoke-super {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->setTopAndBottomOffset(I)Z
@@ -631,7 +632,7 @@
 .end method
 
 .method public bridge synthetic setVerticalOffsetEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 2376
     invoke-super {p0, p1}, Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;->setVerticalOffsetEnabled(Z)V

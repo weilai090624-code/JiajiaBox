@@ -81,7 +81,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 224
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 8
+    .registers 10
     .param p1, "line"    # Ljava/lang/String;
 
     const-string v0, "line"
@@ -143,17 +143,17 @@
     .local v2, "index":I
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_1b
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_1c
+    if-eqz v3, :cond_4e
 
     .line 253
     invoke-virtual {p1, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -164,7 +164,7 @@
 
     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_46
 
     check-cast v3, Ljava/lang/CharSequence;
 
@@ -206,7 +206,7 @@
     .restart local v0    # "$this$add_u24lambda_u2d2":Lokhttp3/Headers$Builder;
     .restart local v1    # "$i$a$-apply-Headers$Builder$add$1":I
     .restart local v2    # "index":I
-    :cond_1
+    :cond_46
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type kotlin.CharSequence"
@@ -216,7 +216,7 @@
     throw v3
 
     .line 459
-    :cond_2
+    :cond_4e
     const/4 v3, 0x0
 
     .line 252
@@ -242,7 +242,7 @@
 .end method
 
 .method public final add(Ljava/lang/String;Lj$/time/Instant;)Lokhttp3/Headers$Builder;
-    .locals 5
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Lj$/time/Instant;
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public final add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -313,11 +313,13 @@
     .local v1, "$i$a$-apply-Headers$Builder$add$2":I
     sget-object v2, Lokhttp3/Headers;->Companion:Lokhttp3/Headers$Companion;
 
+    # invokes: Lokhttp3/Headers$Companion;->checkName(Ljava/lang/String;)V
     invoke-static {v2, p1}, Lokhttp3/Headers$Companion;->access$checkName(Lokhttp3/Headers$Companion;Ljava/lang/String;)V
 
     .line 261
     sget-object v2, Lokhttp3/Headers;->Companion:Lokhttp3/Headers$Companion;
 
+    # invokes: Lokhttp3/Headers$Companion;->checkValue(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, p2, p1}, Lokhttp3/Headers$Companion;->access$checkValue(Lokhttp3/Headers$Companion;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 262
@@ -338,7 +340,7 @@
 .end method
 
 .method public final add(Ljava/lang/String;Ljava/util/Date;)Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/util/Date;
 
@@ -381,7 +383,7 @@
 .end method
 
 .method public final addAll(Lokhttp3/Headers;)Lokhttp3/Headers$Builder;
-    .locals 7
+    .registers 9
     .param p1, "headers"    # Lokhttp3/Headers;
 
     const-string v0, "headers"
@@ -402,11 +404,11 @@
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_20
 
     const/4 v3, 0x0
 
-    :cond_0
+    :cond_10
     move v4, v3
 
     .local v4, "i":I
@@ -424,11 +426,11 @@
     invoke-virtual {v0, v5, v6}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     .line 278
-    if-lt v3, v2, :cond_0
+    if-lt v3, v2, :cond_10
 
     .line 281
     .end local v4    # "i":I
-    :cond_1
+    :cond_20
     nop
 
     .line 277
@@ -443,7 +445,7 @@
 .end method
 
 .method public final addLenient$okhttp(Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 8
+    .registers 10
     .param p1, "line"    # Ljava/lang/String;
 
     const-string v0, "line"
@@ -487,7 +489,7 @@
 
     const-string v4, "(this as java.lang.String).substring(startIndex)"
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_32
 
     .line 235
     invoke-virtual {p1, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -508,10 +510,10 @@
 
     invoke-virtual {v0, v3, v5}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 237
-    :cond_0
+    :cond_32
     invoke-virtual {p1, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
@@ -520,7 +522,7 @@
 
     const-string v6, ""
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_48
 
     .line 240
     const/4 v3, 0x1
@@ -533,14 +535,14 @@
 
     invoke-virtual {v0, v6, v3}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 244
-    :cond_1
+    :cond_48
     invoke-virtual {v0, v6, p1}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     .line 247
-    :goto_0
+    :goto_4b
     nop
 
     .line 231
@@ -556,7 +558,7 @@
 .end method
 
 .method public final addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 4
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -618,7 +620,7 @@
 .end method
 
 .method public final addUnsafeNonAscii(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -642,6 +644,7 @@
     .local v1, "$i$a$-apply-Headers$Builder$addUnsafeNonAscii$1":I
     sget-object v2, Lokhttp3/Headers;->Companion:Lokhttp3/Headers$Companion;
 
+    # invokes: Lokhttp3/Headers$Companion;->checkName(Ljava/lang/String;)V
     invoke-static {v2, p1}, Lokhttp3/Headers$Companion;->access$checkName(Lokhttp3/Headers$Companion;Ljava/lang/String;)V
 
     .line 271
@@ -662,7 +665,7 @@
 .end method
 
 .method public final build()Lokhttp3/Headers;
-    .locals 5
+    .registers 6
 
     .line 359
     new-instance v0, Lokhttp3/Headers;
@@ -688,7 +691,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
@@ -706,7 +709,7 @@
     .restart local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v2    # "$i$f$toTypedArray":I
     .restart local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -717,7 +720,7 @@
 .end method
 
 .method public final get(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -741,9 +744,9 @@
 
     move-result v1
 
-    if-gt v1, v0, :cond_2
+    if-gt v1, v0, :cond_33
 
-    :cond_0
+    :cond_15
     move v3, v0
 
     .local v3, "i":I
@@ -764,7 +767,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
     .line 353
     iget-object v0, p0, Lokhttp3/Headers$Builder;->namesAndValues:Ljava/util/List;
@@ -780,19 +783,19 @@
     return-object v0
 
     .line 351
-    :cond_1
-    if-ne v3, v1, :cond_0
+    :cond_31
+    if-ne v3, v1, :cond_15
 
     .line 356
     .end local v3    # "i":I
-    :cond_2
+    :cond_33
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public final getNamesAndValues$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -809,7 +812,7 @@
 .end method
 
 .method public final removeAll(Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 5
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -830,7 +833,7 @@
 
     .line 328
     .local v2, "i":I
-    :goto_0
+    :goto_a
     invoke-virtual {v0}, Lokhttp3/Headers$Builder;->getNamesAndValues$okhttp()Ljava/util/List;
 
     move-result-object v3
@@ -839,7 +842,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_38
 
     .line 329
     invoke-virtual {v0}, Lokhttp3/Headers$Builder;->getNamesAndValues$okhttp()Ljava/util/List;
@@ -858,7 +861,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_35
 
     .line 330
     invoke-virtual {v0}, Lokhttp3/Headers$Builder;->getNamesAndValues$okhttp()Ljava/util/List;
@@ -878,13 +881,13 @@
     add-int/lit8 v2, v2, -0x2
 
     .line 334
-    :cond_0
+    :cond_35
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_a
 
     .line 336
-    :cond_1
+    :cond_38
     nop
 
     .line 326
@@ -900,7 +903,7 @@
 .end method
 
 .method public final set(Ljava/lang/String;Lj$/time/Instant;)Lokhttp3/Headers$Builder;
-    .locals 5
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Lj$/time/Instant;
 
@@ -938,7 +941,7 @@
 .end method
 
 .method public final set(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -962,11 +965,13 @@
     .local v1, "$i$a$-apply-Headers$Builder$set$3":I
     sget-object v2, Lokhttp3/Headers;->Companion:Lokhttp3/Headers$Companion;
 
+    # invokes: Lokhttp3/Headers$Companion;->checkName(Ljava/lang/String;)V
     invoke-static {v2, p1}, Lokhttp3/Headers$Companion;->access$checkName(Lokhttp3/Headers$Companion;Ljava/lang/String;)V
 
     .line 344
     sget-object v2, Lokhttp3/Headers;->Companion:Lokhttp3/Headers$Companion;
 
+    # invokes: Lokhttp3/Headers$Companion;->checkValue(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, p2, p1}, Lokhttp3/Headers$Companion;->access$checkValue(Lokhttp3/Headers$Companion;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 345
@@ -990,7 +995,7 @@
 .end method
 
 .method public final set(Ljava/lang/String;Ljava/util/Date;)Lokhttp3/Headers$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/util/Date;
 

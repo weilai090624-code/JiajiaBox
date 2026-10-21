@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/sqlite/util/ProcessLock$Companion;-><init>()V
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final synthetic access$getThreadLock(Landroidx/sqlite/util/ProcessLock$Companion;Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/sqlite/util/ProcessLock$Companion;
     .param p1, "key"    # Ljava/lang/String;
 
@@ -76,10 +76,11 @@
 .end method
 
 .method private final getThreadLock(Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
-    .locals 7
+    .registers 9
     .param p1, "key"    # Ljava/lang/String;
 
     .line 98
+    # getter for: Landroidx/sqlite/util/ProcessLock;->threadLocksMap:Ljava/util/Map;
     invoke-static {}, Landroidx/sqlite/util/ProcessLock;->access$getThreadLocksMap$cp()Ljava/util/Map;
 
     move-result-object v0
@@ -90,7 +91,8 @@
 
     .line 99
     .local v1, "$i$a$-synchronized-ProcessLock$Companion$getThreadLock$1":I
-    :try_start_0
+    :try_start_6
+    # getter for: Landroidx/sqlite/util/ProcessLock;->threadLocksMap:Ljava/util/Map;
     invoke-static {}, Landroidx/sqlite/util/ProcessLock;->access$getThreadLocksMap$cp()Ljava/util/Map;
 
     move-result-object v2
@@ -106,7 +108,7 @@
 
     .line 105
     .local v4, "value$iv":Ljava/lang/Object;
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1f
 
     .line 106
     const/4 v5, 0x0
@@ -131,22 +133,22 @@
     nop
 
     .end local v5    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_20
 
     .line 110
-    :cond_0
+    :cond_1f
     move-object v5, v4
 
     .line 105
-    :goto_0
+    :goto_20
     nop
 
     .end local v2    # "$this$getOrPut$iv":Ljava/util/Map;
     .end local v3    # "$i$f$getOrPut":I
     .end local v4    # "value$iv":Ljava/lang/Object;
     check-cast v5, Ljava/util/concurrent/locks/Lock;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_6 .. :try_end_23} :catchall_25
 
     .line 99
     .end local v1    # "$i$a$-synchronized-ProcessLock$Companion$getThreadLock$1":I
@@ -154,7 +156,7 @@
 
     return-object v5
 
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0

@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 1571
     new-instance v0, Landroid/util/SparseIntArray;
@@ -196,7 +196,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 1538
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -259,7 +259,7 @@
 
 # virtual methods
 .method public copyFrom(Landroidx/constraintlayout/widget/ConstraintSet$Transform;)V
-    .locals 1
+    .registers 3
     .param p1, "src"    # Landroidx/constraintlayout/widget/ConstraintSet$Transform;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -345,7 +345,7 @@
 .end method
 
 .method fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -382,8 +382,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_93
 
     .line 1607
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -398,14 +398,15 @@
 
     move-result v5
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_98
 
-    goto/16 :goto_1
+    goto/16 :goto_8f
 
     .line 1632
-    :pswitch_0
+    :pswitch_1f
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotTarget:I
 
+    # invokes: Landroidx/constraintlayout/widget/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
     invoke-static {v0, v4, v5}, Landroidx/constraintlayout/widget/ConstraintSet;->access$100(Landroid/content/res/TypedArray;II)I
 
     move-result v5
@@ -413,10 +414,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotTarget:I
 
     .line 1633
-    goto :goto_1
+    goto :goto_8f
 
     .line 1646
-    :pswitch_1
+    :pswitch_28
     nop
 
     .line 1647
@@ -431,10 +432,10 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->elevation:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 1641
-    :pswitch_2
+    :pswitch_34
     nop
 
     .line 1642
@@ -446,10 +447,10 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationZ:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 1638
-    :pswitch_3
+    :pswitch_3e
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -459,10 +460,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
 
     .line 1639
-    goto :goto_1
+    goto :goto_8f
 
     .line 1635
-    :pswitch_4
+    :pswitch_47
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -472,10 +473,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
 
     .line 1636
-    goto :goto_1
+    goto :goto_8f
 
     .line 1629
-    :pswitch_5
+    :pswitch_50
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -485,10 +486,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
     .line 1630
-    goto :goto_1
+    goto :goto_8f
 
     .line 1626
-    :pswitch_6
+    :pswitch_59
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -498,10 +499,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
     .line 1627
-    goto :goto_1
+    goto :goto_8f
 
     .line 1623
-    :pswitch_7
+    :pswitch_62
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -511,10 +512,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
 
     .line 1624
-    goto :goto_1
+    goto :goto_8f
 
     .line 1620
-    :pswitch_8
+    :pswitch_6b
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -524,10 +525,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
 
     .line 1621
-    goto :goto_1
+    goto :goto_8f
 
     .line 1617
-    :pswitch_9
+    :pswitch_74
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -537,10 +538,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
 
     .line 1618
-    goto :goto_1
+    goto :goto_8f
 
     .line 1614
-    :pswitch_a
+    :pswitch_7d
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -550,10 +551,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
 
     .line 1615
-    goto :goto_1
+    goto :goto_8f
 
     .line 1611
-    :pswitch_b
+    :pswitch_86
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
 
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -567,14 +568,14 @@
 
     .line 1606
     .end local v4    # "attr":I
-    :goto_1
+    :goto_8f
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_e
 
     .line 1653
     .end local v3    # "i":I
-    :cond_0
+    :cond_93
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 1654
@@ -582,19 +583,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_98
     .packed-switch 0x1
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_86
+        :pswitch_7d
+        :pswitch_74
+        :pswitch_6b
+        :pswitch_62
+        :pswitch_59
+        :pswitch_50
+        :pswitch_47
+        :pswitch_3e
+        :pswitch_34
+        :pswitch_28
+        :pswitch_1f
     .end packed-switch
 .end method

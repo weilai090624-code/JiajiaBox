@@ -57,7 +57,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference$Companion;-><init>()V
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final getClassQualifiedName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "jClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,27 +101,27 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_1
+    goto :goto_66
 
     .line 185
-    :cond_0
+    :cond_e
     invoke-virtual {p1}, Ljava/lang/Class;->isLocalClass()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
-    goto :goto_1
+    goto :goto_66
 
     .line 186
-    :cond_1
+    :cond_15
     invoke-virtual {p1}, Ljava/lang/Class;->isArray()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_51
 
     .line 187
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -137,8 +137,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
+    # getter for: Lkotlin/jvm/internal/ClassReference;->classFqNames:Ljava/util/HashMap;
     invoke-static {}, Lkotlin/jvm/internal/ClassReference;->access$getClassFqNames$cp()Ljava/util/HashMap;
 
     move-result-object v2
@@ -153,7 +154,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4b
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -173,16 +174,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 190
-    :cond_2
+    :cond_4a
     nop
 
     .line 188
-    :cond_3
-    :goto_0
-    if-nez v1, :cond_5
+    :cond_4b
+    :goto_4b
+    if-nez v1, :cond_66
 
     .line 191
     nop
@@ -190,10 +191,11 @@
     .end local v0    # "componentType":Ljava/lang/Class;
     const-string v1, "kotlin.Array"
 
-    goto :goto_1
+    goto :goto_66
 
     .line 193
-    :cond_4
+    :cond_51
+    # getter for: Lkotlin/jvm/internal/ClassReference;->classFqNames:Ljava/util/HashMap;
     invoke-static {}, Lkotlin/jvm/internal/ClassReference;->access$getClassFqNames$cp()Ljava/util/HashMap;
 
     move-result-object v0
@@ -210,20 +212,20 @@
 
     check-cast v1, Ljava/lang/String;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_66
 
     invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 194
-    :cond_5
-    :goto_1
+    :cond_66
+    :goto_66
     return-object v1
 .end method
 
 .method public final getClassSimpleName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p1, "jClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -248,17 +250,17 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto/16 :goto_2
+    goto/16 :goto_c1
 
     .line 167
-    :cond_0
+    :cond_f
     invoke-virtual {p1}, Ljava/lang/Class;->isLocalClass()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_72
 
     .line 168
     invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -275,7 +277,7 @@
 
     const/16 v4, 0x24
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_45
 
     .line 206
     .local v2, "method":Ljava/lang/reflect/Method;
@@ -311,23 +313,23 @@
 
     .end local v2    # "method":Ljava/lang/reflect/Method;
     .end local v5    # "$i$a$-let-ClassReference$Companion$getClassSimpleName$1":I
-    if-nez v2, :cond_1
+    if-nez v2, :cond_42
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_1
+    :cond_42
     move-object v1, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_c1
 
     .line 170
-    :cond_2
-    :goto_0
+    :cond_45
+    :goto_45
     invoke-virtual {p1}, Ljava/lang/Class;->getEnclosingConstructor()Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_69
 
     .line 206
     .local v2, "constructor":Ljava/lang/reflect/Constructor;
@@ -363,10 +365,10 @@
 
     .end local v2    # "constructor":Ljava/lang/reflect/Constructor;
     .end local v5    # "$i$a$-let-ClassReference$Companion$getClassSimpleName$2":I
-    goto :goto_2
+    goto :goto_c1
 
     .line 169
-    :cond_3
+    :cond_69
     nop
 
     .line 171
@@ -377,15 +379,15 @@
     move-result-object v1
 
     .end local v0    # "name":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_c1
 
     .line 173
-    :cond_4
+    :cond_72
     invoke-virtual {p1}, Ljava/lang/Class;->isArray()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_ac
 
     .line 174
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -403,8 +405,9 @@
 
     const-string v3, "Array"
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_a7
 
+    # getter for: Lkotlin/jvm/internal/ClassReference;->simpleNames:Ljava/util/Map;
     invoke-static {}, Lkotlin/jvm/internal/ClassReference;->access$getSimpleNames$cp()Ljava/util/Map;
 
     move-result-object v2
@@ -419,7 +422,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_a8
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -437,25 +440,26 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_a8
 
     .line 177
-    :cond_5
+    :cond_a7
     nop
 
     .line 175
-    :cond_6
-    :goto_1
-    if-nez v1, :cond_8
+    :cond_a8
+    :goto_a8
+    if-nez v1, :cond_c1
 
     .line 178
     move-object v1, v3
 
     .end local v0    # "componentType":Ljava/lang/Class;
-    goto :goto_2
+    goto :goto_c1
 
     .line 180
-    :cond_7
+    :cond_ac
+    # getter for: Lkotlin/jvm/internal/ClassReference;->simpleNames:Ljava/util/Map;
     invoke-static {}, Lkotlin/jvm/internal/ClassReference;->access$getSimpleNames$cp()Ljava/util/Map;
 
     move-result-object v0
@@ -472,20 +476,20 @@
 
     check-cast v1, Ljava/lang/String;
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_c1
 
     invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 181
-    :cond_8
-    :goto_2
+    :cond_c1
+    :goto_c1
     return-object v1
 .end method
 
 .method public final isInstance(Ljava/lang/Object;Ljava/lang/Class;)Z
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "jClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -502,6 +506,7 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 197
+    # getter for: Lkotlin/jvm/internal/ClassReference;->FUNCTION_CLASSES:Ljava/util/Map;
     invoke-static {}, Lkotlin/jvm/internal/ClassReference;->access$getFUNCTION_CLASSES$cp()Ljava/util/Map;
 
     move-result-object v0
@@ -516,7 +521,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     check-cast v0, Ljava/lang/Number;
 
@@ -538,12 +543,12 @@
     .line 200
     .end local v0    # "arity":I
     .end local v1    # "$i$a$-let-ClassReference$Companion$isInstance$1":I
-    :cond_0
+    :cond_22
     invoke-virtual {p2}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     invoke-static {p2}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
@@ -553,14 +558,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     move-object v0, p2
 
     .line 201
     .local v0, "objectType":Ljava/lang/Class;
-    :goto_0
+    :goto_32
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v1

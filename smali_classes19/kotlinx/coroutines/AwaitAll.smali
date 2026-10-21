@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/AwaitAll;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>([Lkotlinx/coroutines/Deferred;)V
-    .locals 1
+    .registers 3
     .param p1, "deferreds"    # [Lkotlinx/coroutines/Deferred;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final synthetic access$getDeferreds$p(Lkotlinx/coroutines/AwaitAll;)[Lkotlinx/coroutines/Deferred;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/AwaitAll;
 
     .line 68
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final synthetic access$getNotCompletedCount$FU$p()Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
-    .locals 1
+    .registers 1
 
     .line 68
     sget-object v0, Lkotlinx/coroutines/AwaitAll;->notCompletedCount$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public final await(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,6 +194,7 @@
 
     .line 74
     .local v6, "$i$a$-suspendCancellableCoroutine-AwaitAll$await$2":I
+    # getter for: Lkotlinx/coroutines/AwaitAll;->deferreds:[Lkotlinx/coroutines/Deferred;
     invoke-static/range {p0 .. p0}, Lkotlinx/coroutines/AwaitAll;->access$getDeferreds$p(Lkotlinx/coroutines/AwaitAll;)[Lkotlinx/coroutines/Deferred;
 
     move-result-object v7
@@ -206,10 +207,11 @@
 
     const/4 v10, 0x0
 
-    :goto_0
-    if-ge v10, v7, :cond_0
+    :goto_20
+    if-ge v10, v7, :cond_49
 
     .line 75
+    # getter for: Lkotlinx/coroutines/AwaitAll;->deferreds:[Lkotlinx/coroutines/Deferred;
     invoke-static/range {p0 .. p0}, Lkotlinx/coroutines/AwaitAll;->access$getDeferreds$p(Lkotlinx/coroutines/AwaitAll;)[Lkotlinx/coroutines/Deferred;
 
     move-result-object v11
@@ -268,9 +270,9 @@
     add-int/lit8 v10, v10, 0x1
 
     .line 74
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_49
     move-object v7, v8
 
     .line 81
@@ -290,8 +292,8 @@
     .local v11, "$i$f$forEach":I
     array-length v12, v10
 
-    :goto_1
-    if-ge v9, v12, :cond_1
+    :goto_52
+    if-ge v9, v12, :cond_5f
 
     aget-object v13, v10, v9
 
@@ -313,10 +315,10 @@
     .end local v13    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 139
-    :cond_1
+    :cond_5f
     nop
 
     .line 86
@@ -326,15 +328,15 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_6a
 
     .line 88
     invoke-virtual {v8}, Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;->disposeAll()V
 
-    goto :goto_2
+    goto :goto_73
 
     .line 90
-    :cond_2
+    :cond_6a
     move-object v9, v8
 
     check-cast v9, Lkotlinx/coroutines/CancelHandlerBase;
@@ -352,7 +354,7 @@
     invoke-interface {v5, v9}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
 
     .line 92
-    :goto_2
+    :goto_73
     nop
 
     .line 136
@@ -375,12 +377,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_82
 
     invoke-static/range {p1 .. p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 142
-    :cond_3
+    :cond_82
     nop
 
     .line 92

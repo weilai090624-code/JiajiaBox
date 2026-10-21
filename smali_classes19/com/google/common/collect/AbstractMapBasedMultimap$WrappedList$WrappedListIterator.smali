@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;)V
-    .locals 0
+    .registers 2
 
     .line 862
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList$WrappedListIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedList.WrappedListIterator;"
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;I)V
-    .locals 1
+    .registers 4
     .param p2, "index"    # I
 
     .line 864
@@ -67,7 +67,7 @@
 .end method
 
 .method private getDelegateListIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -123,10 +123,11 @@
 
     iget-object v1, v1, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    # operator++ for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$208(Lcom/google/common/collect/AbstractMapBasedMultimap;)I
 
     .line 903
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 904
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList$WrappedListIterator;->this$1:Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;
@@ -134,12 +135,12 @@
     invoke-virtual {v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;->addToMap()V
 
     .line 906
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 874
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList$WrappedListIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedList.WrappedListIterator;"
@@ -155,7 +156,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 885
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList$WrappedListIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedList.WrappedListIterator;"
@@ -171,7 +172,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -195,7 +196,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 890
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList$WrappedListIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedList.WrappedListIterator;"
@@ -211,7 +212,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

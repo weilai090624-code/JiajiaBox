@@ -29,13 +29,14 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/DenseImmutableTable;)V
-    .locals 0
+    .registers 2
 
     .line 201
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$RowMap;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>.RowMap;"
     iput-object p1, p0, Lcom/google/common/collect/DenseImmutableTable$RowMap;->this$0:Lcom/google/common/collect/DenseImmutableTable;
 
     .line 202
+    # getter for: Lcom/google/common/collect/DenseImmutableTable;->rowCounts:[I
     invoke-static {p1}, Lcom/google/common/collect/DenseImmutableTable;->access$200(Lcom/google/common/collect/DenseImmutableTable;)[I
 
     move-result-object p1
@@ -49,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/DenseImmutableTable;Lcom/google/common/collect/DenseImmutableTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/DenseImmutableTable;
     .param p2, "x1"    # Lcom/google/common/collect/DenseImmutableTable$1;
 
@@ -63,7 +64,7 @@
 
 # virtual methods
 .method getValue(I)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 4
     .param p1, "keyIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +86,7 @@
 .end method
 
 .method bridge synthetic getValue(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 199
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$RowMap;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>.RowMap;"
@@ -97,7 +98,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 217
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$RowMap;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>.RowMap;"
@@ -107,7 +108,7 @@
 .end method
 
 .method keyToIndex()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -122,6 +123,7 @@
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$RowMap;, "Lcom/google/common/collect/DenseImmutableTable<TR;TC;TV;>.RowMap;"
     iget-object v0, p0, Lcom/google/common/collect/DenseImmutableTable$RowMap;->this$0:Lcom/google/common/collect/DenseImmutableTable;
 
+    # getter for: Lcom/google/common/collect/DenseImmutableTable;->rowKeyToIndex:Lcom/google/common/collect/ImmutableMap;
     invoke-static {v0}, Lcom/google/common/collect/DenseImmutableTable;->access$600(Lcom/google/common/collect/DenseImmutableTable;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0

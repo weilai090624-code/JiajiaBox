@@ -67,7 +67,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/result/ActivityResultRegistry;Ljava/lang/String;Landroidx/activity/result/contract/ActivityResultContract;)V
-    .locals 0
+    .registers 4
     .param p1, "$receiver"    # Landroidx/activity/result/ActivityResultRegistry;
     .param p2, "$key"    # Ljava/lang/String;
     .param p3, "$contract"    # Landroidx/activity/result/contract/ActivityResultContract;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public getContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -112,7 +112,7 @@
 .end method
 
 .method public launch(Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 4
+    .registers 7
     .param p1, "input"    # Ljava/lang/Object;
     .param p2, "options"    # Landroidx/core/app/ActivityOptionsCompat;
     .annotation system Ldalvik/annotation/Signature;
@@ -126,6 +126,7 @@
     .line 184
     iget-object v0, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->this$0:Landroidx/activity/result/ActivityResultRegistry;
 
+    # getter for: Landroidx/activity/result/ActivityResultRegistry;->keyToRc:Ljava/util/Map;
     invoke-static {v0}, Landroidx/activity/result/ActivityResultRegistry;->access$getKeyToRc$p(Landroidx/activity/result/ActivityResultRegistry;)Ljava/util/Map;
 
     move-result-object v0
@@ -138,7 +139,7 @@
 
     iget-object v1, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->$contract:Landroidx/activity/result/contract/ActivityResultContract;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     check-cast v0, Ljava/lang/Number;
 
@@ -153,6 +154,7 @@
     .local v0, "innerCode":I
     iget-object v1, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->this$0:Landroidx/activity/result/ActivityResultRegistry;
 
+    # getter for: Landroidx/activity/result/ActivityResultRegistry;->launchedKeys:Ljava/util/List;
     invoke-static {v1}, Landroidx/activity/result/ActivityResultRegistry;->access$getLaunchedKeys$p(Landroidx/activity/result/ActivityResultRegistry;)Ljava/util/List;
 
     move-result-object v1
@@ -165,26 +167,27 @@
     nop
 
     .line 191
-    :try_start_0
+    :try_start_23
     iget-object v1, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->this$0:Landroidx/activity/result/ActivityResultRegistry;
 
     iget-object v2, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->$contract:Landroidx/activity/result/contract/ActivityResultContract;
 
     invoke-virtual {v1, v0, v2, p1, p2}, Landroidx/activity/result/ActivityResultRegistry;->onLaunch(ILandroidx/activity/result/contract/ActivityResultContract;Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/Exception; {:try_start_23 .. :try_end_2a} :catch_2b
 
     .line 196
     return-void
 
     .line 192
-    :catch_0
+    :catch_2b
     move-exception v1
 
     .line 193
     .local v1, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->this$0:Landroidx/activity/result/ActivityResultRegistry;
 
+    # getter for: Landroidx/activity/result/ActivityResultRegistry;->launchedKeys:Ljava/util/List;
     invoke-static {v2}, Landroidx/activity/result/ActivityResultRegistry;->access$getLaunchedKeys$p(Landroidx/activity/result/ActivityResultRegistry;)Ljava/util/List;
 
     move-result-object v2
@@ -199,7 +202,7 @@
     .line 184
     .end local v0    # "innerCode":I
     .end local v1    # "e":Ljava/lang/Exception;
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     .line 185
@@ -271,7 +274,7 @@
 .end method
 
 .method public unregister()V
-    .locals 2
+    .registers 3
 
     .line 199
     iget-object v0, p0, Landroidx/activity/result/ActivityResultRegistry$register$3;->this$0:Landroidx/activity/result/ActivityResultRegistry;

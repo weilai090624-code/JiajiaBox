@@ -6,14 +6,6 @@
 .implements Landroid/content/DialogInterface$OnDismissListener;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;"
-    method = "lambda$new$2"
-    proto = "(Landroid/content/DialogInterface;)V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;
 

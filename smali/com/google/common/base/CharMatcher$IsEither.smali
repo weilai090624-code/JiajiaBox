@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(CC)V
-    .locals 0
+    .registers 3
     .param p1, "match1"    # C
     .param p2, "match2"    # C
 
@@ -42,35 +42,35 @@
 
 # virtual methods
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1710
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match1:C
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_b
 
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match2:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 1
+    .registers 3
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 1716
@@ -88,17 +88,19 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 1722
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match1:C
 
+    # invokes: Lcom/google/common/base/CharMatcher;->showCharacter(C)Ljava/lang/String;
     invoke-static {v0}, Lcom/google/common/base/CharMatcher;->access$100(C)Ljava/lang/String;
 
     move-result-object v0
 
     iget-char v1, p0, Lcom/google/common/base/CharMatcher$IsEither;->match2:C
 
+    # invokes: Lcom/google/common/base/CharMatcher;->showCharacter(C)Ljava/lang/String;
     invoke-static {v1}, Lcom/google/common/base/CharMatcher;->access$100(C)Ljava/lang/String;
 
     move-result-object v1

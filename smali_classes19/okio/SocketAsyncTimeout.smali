@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/net/Socket;)V
-    .locals 1
+    .registers 3
     .param p1, "socket"    # Ljava/net/Socket;
 
     const-string v0, "socket"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/io/IOException;
 
     .line 147
@@ -67,7 +67,7 @@
 
     .line 148
     .local v0, "ioe":Ljava/net/SocketTimeoutException;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 149
     move-object v1, p1
@@ -77,7 +77,7 @@
     invoke-virtual {v0, v1}, Ljava/net/SocketTimeoutException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 151
-    :cond_0
+    :cond_f
     move-object v1, v0
 
     check-cast v1, Ljava/io/IOException;
@@ -86,24 +86,24 @@
 .end method
 
 .method protected timedOut()V
-    .locals 5
+    .registers 6
 
     .line 155
     const-string v0, "Failed to close timed out socket "
 
     .line 156
-    :try_start_0
+    :try_start_2
     iget-object v1, p0, Lokio/SocketAsyncTimeout;->socket:Ljava/net/Socket;
 
     invoke-virtual {v1}, Ljava/net/Socket;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_7} :catch_23
+    .catch Ljava/lang/AssertionError; {:try_start_2 .. :try_end_7} :catch_8
 
-    goto :goto_0
+    goto :goto_36
 
     .line 159
-    :catch_0
+    :catch_8
     move-exception v1
 
     .line 160
@@ -112,9 +112,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 163
+    # getter for: Lokio/Okio__JvmOkioKt;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lokio/Okio__JvmOkioKt;->access$getLogger$p()Ljava/util/logging/Logger;
 
     move-result-object v2
@@ -133,19 +134,20 @@
 
     invoke-virtual {v2, v3, v0, v4}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 165
-    :cond_0
+    :cond_22
     throw v1
 
     .line 157
     .end local v1    # "e":Ljava/lang/AssertionError;
-    :catch_1
+    :catch_23
     move-exception v1
 
     .line 158
     .local v1, "e":Ljava/lang/Exception;
+    # getter for: Lokio/Okio__JvmOkioKt;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lokio/Okio__JvmOkioKt;->access$getLogger$p()Ljava/util/logging/Logger;
 
     move-result-object v2
@@ -166,6 +168,6 @@
 
     .line 168
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_36
     return-void
 .end method

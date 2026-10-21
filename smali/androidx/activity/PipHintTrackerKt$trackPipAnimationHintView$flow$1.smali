@@ -75,7 +75,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$EzNCIbjtfjz3Ar8jZpBbve6Davg(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;IIIIIIII)V
-    .locals 0
+    .registers 10
 
     invoke-static/range {p0 .. p9}, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1;->invokeSuspend$lambda$0(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;IIIIIIII)V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$noXGr5XZ6ZQiw0NE_bFNhh3sxIQ(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1;->invokeSuspend$lambda$1(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method constructor <init>(Landroid/view/View;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;IIIIIIII)V
-    .locals 1
+    .registers 11
     .param p0, "$$this$callbackFlow"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p1, "v"    # Landroid/view/View;
     .param p2, "l"    # I
@@ -126,20 +126,21 @@
     .param p9, "oldBottom"    # I
 
     .line 56
-    if-ne p2, p6, :cond_0
+    if-ne p2, p6, :cond_8
 
-    if-ne p4, p8, :cond_0
+    if-ne p4, p8, :cond_8
 
-    if-ne p3, p7, :cond_0
+    if-ne p3, p7, :cond_8
 
-    if-eq p5, p9, :cond_1
+    if-eq p5, p9, :cond_15
 
     .line 57
-    :cond_0
+    :cond_8
     const-string/jumbo v0, "v"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Landroidx/activity/PipHintTrackerKt;->trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {p1}, Landroidx/activity/PipHintTrackerKt;->access$trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v0
@@ -147,16 +148,17 @@
     invoke-interface {p0, v0}, Lkotlinx/coroutines/channels/ProducerScope;->trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 59
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method private static final invokeSuspend$lambda$1(Lkotlinx/coroutines/channels/ProducerScope;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "$$this$callbackFlow"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p1, "$view"    # Landroid/view/View;
 
     .line 61
+    # invokes: Landroidx/activity/PipHintTrackerKt;->trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {p1}, Landroidx/activity/PipHintTrackerKt;->access$trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v0
@@ -169,7 +171,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -196,7 +198,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -210,7 +212,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -242,7 +244,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -251,7 +253,7 @@
     .line 52
     iget v1, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_74
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -262,13 +264,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_70
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -317,11 +319,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_52
 
     .line 80
     iget-object v5, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1;->$view:Landroid/view/View;
 
+    # invokes: Landroidx/activity/PipHintTrackerKt;->trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {v5}, Landroidx/activity/PipHintTrackerKt;->access$trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v5
@@ -343,7 +346,7 @@
     invoke-virtual {v5, v2}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
     .line 84
-    :cond_0
+    :cond_52
     iget-object v5, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1;->$view:Landroid/view/View;
 
     move-object v6, v4
@@ -377,23 +380,23 @@
     .end local v2    # "layoutChangeListener":Landroid/view/View$OnLayoutChangeListener;
     .end local v3    # "scrollChangeListener":Landroid/view/ViewTreeObserver$OnScrollChangedListener;
     .end local v4    # "attachStateChangeListener":Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$attachStateChangeListener$1;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_70
 
     .line 52
     return-object v0
 
     .line 91
-    :cond_1
-    :goto_0
+    :cond_70
+    :goto_70
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

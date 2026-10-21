@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedGraphConnections;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 325
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -52,6 +52,7 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$3;, "Lcom/google/common/graph/DirectedGraphConnections$3;"
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$3;->this$0:Lcom/google/common/graph/DirectedGraphConnections;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$100(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/Map;
 
     move-result-object v0
@@ -60,6 +61,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/graph/DirectedGraphConnections;->isSuccessor(Ljava/lang/Object;)Z
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$400(Ljava/lang/Object;)Z
 
     move-result v0
@@ -68,7 +70,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,15 +83,17 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$3;, "Lcom/google/common/graph/DirectedGraphConnections$3;"
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$3;->this$0:Lcom/google/common/graph/DirectedGraphConnections;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$000(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/List;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 329
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$3;->this$0:Lcom/google/common/graph/DirectedGraphConnections;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$100(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/Map;
 
     move-result-object v0
@@ -112,9 +116,10 @@
 
     .line 344
     .end local v0    # "entries":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TN;Ljava/lang/Object;>;>;"
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$3;->this$0:Lcom/google/common/graph/DirectedGraphConnections;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$000(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/List;
 
     move-result-object v0
@@ -133,7 +138,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 325
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$3;, "Lcom/google/common/graph/DirectedGraphConnections$3;"
@@ -145,12 +150,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 363
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$3;, "Lcom/google/common/graph/DirectedGraphConnections$3;"
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$3;->this$0:Lcom/google/common/graph/DirectedGraphConnections;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections;->successorCount:I
     invoke-static {v0}, Lcom/google/common/graph/DirectedGraphConnections;->access$500(Lcom/google/common/graph/DirectedGraphConnections;)I
 
     move-result v0

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/CombinedFuture;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p2, "listenerExecutor"    # Ljava/util/concurrent/Executor;
 
     .line 97
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method final afterRanInterruptiblyFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "error"    # Ljava/lang/Throwable;
 
     .line 135
@@ -66,12 +66,13 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/common/util/concurrent/CombinedFuture;->task:Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
     invoke-static {v0, v1}, Lcom/google/common/util/concurrent/CombinedFuture;->access$002(Lcom/google/common/util/concurrent/CombinedFuture;Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;)Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
 
     .line 137
     instance-of v0, p1, Ljava/util/concurrent/ExecutionException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 142
     iget-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/CombinedFuture;
@@ -86,13 +87,13 @@
 
     invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/CombinedFuture;->setException(Ljava/lang/Throwable;)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 143
-    :cond_0
+    :cond_17
     instance-of v0, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 144
     iget-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/CombinedFuture;
@@ -101,21 +102,21 @@
 
     invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/CombinedFuture;->cancel(Z)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 146
-    :cond_1
+    :cond_22
     iget-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/CombinedFuture;
 
     invoke-virtual {v0, p1}, Lcom/google/common/util/concurrent/CombinedFuture;->setException(Ljava/lang/Throwable;)Z
 
     .line 148
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method final afterRanInterruptiblySuccess(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -133,6 +134,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/common/util/concurrent/CombinedFuture;->task:Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
     invoke-static {v0, v1}, Lcom/google/common/util/concurrent/CombinedFuture;->access$002(Lcom/google/common/util/concurrent/CombinedFuture;Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;)Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
 
     .line 129
@@ -143,7 +145,7 @@
 .end method
 
 .method final execute()V
-    .locals 2
+    .registers 3
 
     .line 108
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.CombinedFutureInterruptibleTask<TT;>;"
@@ -151,14 +153,14 @@
     iget-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->listenerExecutor:Ljava/util/concurrent/Executor;
 
     invoke-interface {v0, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 111
-    goto :goto_0
+    goto :goto_c
 
     .line 109
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 110
@@ -169,12 +171,12 @@
 
     .line 112
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 .method final isDone()Z
-    .locals 1
+    .registers 2
 
     .line 103
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.CombinedFutureInterruptibleTask<TT;>;"

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 200
@@ -43,7 +43,7 @@
 .end method
 
 .method private ensureRoomFor(I)V
-    .locals 3
+    .registers 5
     .param p1, "numberToAdd"    # I
 
     .line 264
@@ -57,7 +57,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_17
 
     .line 266
     iget-object v1, p0, Lcom/google/common/primitives/ImmutableIntArray$Builder;->array:[I
@@ -77,17 +77,17 @@
     iput-object v1, p0, Lcom/google/common/primitives/ImmutableIntArray$Builder;->array:[I
 
     .line 268
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private static expandedCapacity(II)I
-    .locals 2
+    .registers 4
     .param p0, "oldCapacity"    # I
     .param p1, "minCapacity"    # I
 
     .line 272
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_17
 
     .line 276
     shr-int/lit8 v0, p0, 0x1
@@ -98,7 +98,7 @@
 
     .line 277
     .local v0, "newCapacity":I
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_11
 
     .line 278
     add-int/lit8 v1, p1, -0x1
@@ -110,19 +110,19 @@
     shl-int/lit8 v0, v1, 0x1
 
     .line 280
-    :cond_0
-    if-gez v0, :cond_1
+    :cond_11
+    if-gez v0, :cond_16
 
     .line 281
     const v0, 0x7fffffff
 
     .line 283
-    :cond_1
+    :cond_16
     return v0
 
     .line 273
     .end local v0    # "newCapacity":I
-    :cond_2
+    :cond_17
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "cannot store more than MAX_VALUE elements"
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public add(I)Lcom/google/common/primitives/ImmutableIntArray$Builder;
-    .locals 3
+    .registers 5
     .param p1, "value"    # I
 
     .line 209
@@ -162,7 +162,7 @@
 .end method
 
 .method public addAll(Lcom/google/common/primitives/ImmutableIntArray;)Lcom/google/common/primitives/ImmutableIntArray$Builder;
-    .locals 5
+    .registers 7
     .param p1, "values"    # Lcom/google/common/primitives/ImmutableIntArray;
 
     .line 257
@@ -173,10 +173,12 @@
     invoke-direct {p0, v0}, Lcom/google/common/primitives/ImmutableIntArray$Builder;->ensureRoomFor(I)V
 
     .line 258
+    # getter for: Lcom/google/common/primitives/ImmutableIntArray;->array:[I
     invoke-static {p1}, Lcom/google/common/primitives/ImmutableIntArray;->access$000(Lcom/google/common/primitives/ImmutableIntArray;)[I
 
     move-result-object v0
 
+    # getter for: Lcom/google/common/primitives/ImmutableIntArray;->start:I
     invoke-static {p1}, Lcom/google/common/primitives/ImmutableIntArray;->access$100(Lcom/google/common/primitives/ImmutableIntArray;)I
 
     move-result v1
@@ -207,7 +209,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)Lcom/google/common/primitives/ImmutableIntArray$Builder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -222,7 +224,7 @@
     .local p1, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 232
     move-object v0, p1
@@ -236,17 +238,17 @@
     return-object v0
 
     .line 234
-    :cond_0
+    :cond_c
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -264,15 +266,15 @@
 
     .line 236
     .end local v1    # "value":Ljava/lang/Integer;
-    goto :goto_0
+    goto :goto_10
 
     .line 237
-    :cond_1
+    :cond_24
     return-object p0
 .end method
 
 .method public addAll(Ljava/util/Collection;)Lcom/google/common/primitives/ImmutableIntArray$Builder;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -296,12 +298,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -327,15 +329,15 @@
 
     .line 248
     .end local v1    # "value":Ljava/lang/Integer;
-    goto :goto_0
+    goto :goto_b
 
     .line 249
-    :cond_0
+    :cond_26
     return-object p0
 .end method
 
 .method public addAll([I)Lcom/google/common/primitives/ImmutableIntArray$Builder;
-    .locals 4
+    .registers 6
     .param p1, "values"    # [I
 
     .line 220
@@ -368,22 +370,23 @@
 .end method
 
 .method public build()Lcom/google/common/primitives/ImmutableIntArray;
-    .locals 5
+    .registers 6
     .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
     .end annotation
 
     .line 296
     iget v0, p0, Lcom/google/common/primitives/ImmutableIntArray$Builder;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
+    # getter for: Lcom/google/common/primitives/ImmutableIntArray;->EMPTY:Lcom/google/common/primitives/ImmutableIntArray;
     invoke-static {}, Lcom/google/common/primitives/ImmutableIntArray;->access$200()Lcom/google/common/primitives/ImmutableIntArray;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/primitives/ImmutableIntArray;
 
     iget-object v1, p0, Lcom/google/common/primitives/ImmutableIntArray$Builder;->array:[I
@@ -396,6 +399,6 @@
 
     invoke-direct {v0, v1, v4, v2, v3}, Lcom/google/common/primitives/ImmutableIntArray;-><init>([IIILcom/google/common/primitives/ImmutableIntArray$1;)V
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method

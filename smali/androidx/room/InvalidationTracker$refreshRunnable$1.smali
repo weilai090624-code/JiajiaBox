@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/InvalidationTracker;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/room/InvalidationTracker;
 
     iput-object p1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
@@ -62,7 +62,7 @@
 .end method
 
 .method private final checkUpdatedTable()Ljava/util/Set;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -118,7 +118,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_20
     move-object v7, v5
 
     check-cast v7, Landroid/database/Cursor;
@@ -128,12 +128,12 @@
 
     .line 409
     .local v8, "$i$a$-useCursor-InvalidationTracker$refreshRunnable$1$checkUpdatedTable$invalidatedTableIds$1$1":I
-    :goto_0
+    :goto_24
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_37
 
     .line 410
     const/4 v9, 0x0
@@ -148,17 +148,17 @@
 
     invoke-interface {v2, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_24
 
     .line 412
-    :cond_0
+    :cond_37
     nop
 
     .end local v7    # "cursor":Landroid/database/Cursor;
     .end local v8    # "$i$a$-useCursor-InvalidationTracker$refreshRunnable$1$checkUpdatedTable$invalidatedTableIds$1$1":I
     sget-object v7, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_20 .. :try_end_3a} :catchall_76
 
     .line 844
     invoke-static {v5, v6}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -185,7 +185,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_75
 
     .line 415
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
@@ -196,7 +196,7 @@
 
     const-string v2, "Required value was null."
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6b
 
     .line 416
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
@@ -207,15 +207,15 @@
 
     .line 417
     .local v1, "statement":Landroidx/sqlite/db/SupportSQLiteStatement;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_61
 
     .line 418
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
-    goto :goto_1
+    goto :goto_75
 
     .line 417
-    :cond_1
+    :cond_61
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -228,7 +228,7 @@
 
     .line 415
     .end local v1    # "statement":Landroidx/sqlite/db/SupportSQLiteStatement;
-    :cond_2
+    :cond_6b
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -240,8 +240,8 @@
     throw v1
 
     .line 420
-    :cond_3
-    :goto_1
+    :cond_75
+    :goto_75
     return-object v0
 
     .line 844
@@ -249,23 +249,23 @@
     .restart local v2    # "$this$checkUpdatedTable_u24lambda_u243":Ljava/util/Set;
     .restart local v3    # "$i$a$-buildSet-InvalidationTracker$refreshRunnable$1$checkUpdatedTable$invalidatedTableIds$1":I
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_76
     move-exception v1
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v2    # "$this$checkUpdatedTable_u24lambda_u243":Ljava/util/Set;
     .end local v3    # "$i$a$-buildSet-InvalidationTracker$refreshRunnable$1$checkUpdatedTable$invalidatedTableIds$1":I
     .end local v4    # "$i$f$useCursor":I
-    :try_start_1
+    :try_start_77
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_78
+    .catchall {:try_start_77 .. :try_end_78} :catchall_78
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v2    # "$this$checkUpdatedTable_u24lambda_u243":Ljava/util/Set;
     .restart local v3    # "$i$a$-buildSet-InvalidationTracker$refreshRunnable$1$checkUpdatedTable$invalidatedTableIds$1":I
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_1
+    :catchall_78
     move-exception v6
 
     invoke-static {v5, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -276,7 +276,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .registers 12
 
     .line 349
     iget-object v0, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
@@ -297,18 +297,18 @@
     nop
 
     .line 353
-    :try_start_0
+    :try_start_e
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
     invoke-virtual {v1}, Landroidx/room/InvalidationTracker;->ensureInitialization$room_runtime_release()Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catch Ljava/lang/IllegalStateException; {:try_start_e .. :try_end_14} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_e .. :try_end_14} :catch_94
+    .catchall {:try_start_e .. :try_end_14} :catchall_91
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_26
 
     .line 354
     nop
@@ -319,21 +319,22 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-virtual {v1}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
     .line 354
-    :cond_0
+    :cond_25
     return-void
 
     .line 356
-    :cond_1
-    :try_start_1
+    :cond_26
+    :try_start_26
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
     invoke-virtual {v1}, Landroidx/room/InvalidationTracker;->getPendingRefresh()Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -347,12 +348,12 @@
     invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v1
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_32
+    .catch Ljava/lang/IllegalStateException; {:try_start_26 .. :try_end_32} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_26 .. :try_end_32} :catch_94
+    .catchall {:try_start_26 .. :try_end_32} :catchall_91
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_44
 
     .line 358
     nop
@@ -363,21 +364,22 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     invoke-virtual {v1}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
     .line 358
-    :cond_2
+    :cond_43
     return-void
 
     .line 360
-    :cond_3
-    :try_start_2
+    :cond_44
+    :try_start_44
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
     invoke-virtual {v1}, Landroidx/room/InvalidationTracker;->getDatabase$room_runtime_release()Landroidx/room/RoomDatabase;
@@ -387,12 +389,12 @@
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->inTransaction()Z
 
     move-result v1
-    :try_end_2
-    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4e
+    .catch Ljava/lang/IllegalStateException; {:try_start_44 .. :try_end_4e} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_44 .. :try_end_4e} :catch_94
+    .catchall {:try_start_44 .. :try_end_4e} :catchall_91
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_60
 
     .line 364
     nop
@@ -403,21 +405,22 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5f
 
     invoke-virtual {v1}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
     .line 364
-    :cond_4
+    :cond_5f
     return-void
 
     .line 369
-    :cond_5
-    :try_start_3
+    :cond_60
+    :try_start_60
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
     invoke-virtual {v1}, Landroidx/room/InvalidationTracker;->getDatabase$room_runtime_release()Landroidx/room/RoomDatabase;
@@ -435,10 +438,10 @@
     .line 370
     .local v1, "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionNonExclusive()V
-    :try_end_3
-    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_71
+    .catch Ljava/lang/IllegalStateException; {:try_start_60 .. :try_end_71} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_60 .. :try_end_71} :catch_94
+    .catchall {:try_start_60 .. :try_end_71} :catchall_91
 
     const/4 v2, 0x0
 
@@ -447,7 +450,7 @@
     nop
 
     .line 373
-    :try_start_4
+    :try_start_73
     invoke-direct {p0}, Landroidx/room/InvalidationTracker$refreshRunnable$1;->checkUpdatedTable()Ljava/util/Set;
 
     move-result-object v3
@@ -456,16 +459,16 @@
 
     .line 374
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_7b
+    .catchall {:try_start_73 .. :try_end_7b} :catchall_8c
 
     .line 376
-    :try_start_5
+    :try_start_7b
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
-    :try_end_5
-    .catch Ljava/lang/IllegalStateException; {:try_start_5 .. :try_end_5} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_7e
+    .catch Ljava/lang/IllegalStateException; {:try_start_7b .. :try_end_7e} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_7b .. :try_end_7e} :catch_94
+    .catchall {:try_start_7b .. :try_end_7e} :catchall_91
 
     .line 377
     nop
@@ -481,46 +484,47 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_cc
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 376
     .restart local v1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local v2    # "invalidatedTableIds":Ljava/util/Set;
-    :catchall_0
+    :catchall_8c
     move-exception v3
 
-    :try_start_6
+    :try_start_8d
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
 
     .end local v0    # "closeLock":Ljava/util/concurrent/locks/Lock;
     throw v3
-    :try_end_6
-    .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_6} :catch_1
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_91
+    .catch Ljava/lang/IllegalStateException; {:try_start_8d .. :try_end_91} :catch_af
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_8d .. :try_end_91} :catch_94
+    .catchall {:try_start_8d .. :try_end_91} :catchall_91
 
     .line 393
     .end local v1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local v2    # "invalidatedTableIds":Ljava/util/Set;
     .restart local v0    # "closeLock":Ljava/util/concurrent/locks/Lock;
-    :catchall_1
+    :catchall_91
     move-exception v1
 
-    goto/16 :goto_3
+    goto/16 :goto_111
 
     .line 386
-    :catch_0
+    :catch_94
     move-exception v1
 
     .line 388
     .local v1, "ex":Landroid/database/sqlite/SQLiteException;
-    :try_start_7
+    :try_start_95
     const-string v2, "ROOM"
 
     const-string v3, "Cannot run invalidation tracker. Is the db closed?"
@@ -537,8 +541,8 @@
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v2
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_a3
+    .catchall {:try_start_95 .. :try_end_a3} :catchall_91
 
     .line 393
     .end local v1    # "ex":Landroid/database/sqlite/SQLiteException;
@@ -547,21 +551,22 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_cc
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 379
-    :catch_1
+    :catch_af
     move-exception v1
 
     .line 382
     .local v1, "ex":Ljava/lang/IllegalStateException;
-    :try_start_8
+    :try_start_b0
     const-string v2, "ROOM"
 
     const-string v3, "Cannot run invalidation tracker. Is the db closed?"
@@ -578,8 +583,8 @@
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v2
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_be
+    .catchall {:try_start_b0 .. :try_end_be} :catchall_91
 
     .line 393
     .end local v1    # "ex":Ljava/lang/IllegalStateException;
@@ -588,17 +593,18 @@
     .line 394
     iget-object v1, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v1}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_cc
 
-    :goto_0
+    :goto_c9
     invoke-virtual {v1}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
     .line 395
-    :cond_6
+    :cond_cc
     nop
 
     .line 352
@@ -617,7 +623,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_110
 
     .line 398
     iget-object v2, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
@@ -634,7 +640,7 @@
 
     .line 399
     .local v4, "$i$a$-synchronized-InvalidationTracker$refreshRunnable$1$run$1":I
-    :try_start_9
+    :try_start_e2
     invoke-virtual {v3}, Landroidx/room/InvalidationTracker;->getObserverMap$room_runtime_release()Landroidx/arch/core/internal/SafeIterableMap;
 
     move-result-object v3
@@ -650,12 +656,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_ed
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_107
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -688,10 +694,10 @@
     nop
 
     .end local v7    # "element$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_ed
 
     .line 842
-    :cond_7
+    :cond_107
     nop
 
     .line 402
@@ -701,15 +707,15 @@
 
     .end local v4    # "$i$a$-synchronized-InvalidationTracker$refreshRunnable$1$run$1":I
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_2
+    :try_end_10b
+    .catchall {:try_start_e2 .. :try_end_10b} :catchall_10d
 
     .line 398
     monitor-exit v2
 
-    goto :goto_2
+    goto :goto_110
 
-    :catchall_2
+    :catchall_10d
     move-exception v3
 
     monitor-exit v2
@@ -717,26 +723,27 @@
     throw v3
 
     .line 404
-    :cond_8
-    :goto_2
+    :cond_110
+    :goto_110
     return-void
 
     .line 393
     .end local v1    # "invalidatedTableIds":Ljava/util/Set;
-    :goto_3
+    :goto_111
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     .line 394
     iget-object v2, p0, Landroidx/room/InvalidationTracker$refreshRunnable$1;->this$0:Landroidx/room/InvalidationTracker;
 
+    # getter for: Landroidx/room/InvalidationTracker;->autoCloser:Landroidx/room/AutoCloser;
     invoke-static {v2}, Landroidx/room/InvalidationTracker;->access$getAutoCloser$p(Landroidx/room/InvalidationTracker;)Landroidx/room/AutoCloser;
 
     move-result-object v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_11f
 
     invoke-virtual {v2}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
-    :cond_9
+    :cond_11f
     throw v1
 .end method

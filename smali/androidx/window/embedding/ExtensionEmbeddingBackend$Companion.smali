@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/embedding/ExtensionEmbeddingBackend$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private final initAndVerifyEmbeddingExtension()Landroidx/window/embedding/EmbeddingInterfaceCompat;
-    .locals 4
+    .registers 5
 
     .line 72
     const-string v0, "EmbeddingBackend"
@@ -78,7 +78,7 @@
     nop
 
     .line 74
-    :try_start_0
+    :try_start_4
     sget-object v2, Landroidx/window/embedding/EmbeddingCompat;->Companion:Landroidx/window/embedding/EmbeddingCompat$Companion;
 
     invoke-virtual {v2}, Landroidx/window/embedding/EmbeddingCompat$Companion;->getExtensionApiLevel()Ljava/lang/Integer;
@@ -89,7 +89,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 75
     sget-object v2, Landroidx/window/embedding/EmbeddingCompat;->Companion:Landroidx/window/embedding/EmbeddingCompat$Companion;
@@ -98,7 +98,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 77
     new-instance v2, Landroidx/window/embedding/EmbeddingCompat;
@@ -106,15 +106,15 @@
     invoke-direct {v2}, Landroidx/window/embedding/EmbeddingCompat;-><init>()V
 
     check-cast v2, Landroidx/window/embedding/EmbeddingInterfaceCompat;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_4 .. :try_end_1f} :catchall_21
 
     move-object v1, v2
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 80
-    :catchall_0
+    :catchall_21
     move-exception v2
 
     .line 81
@@ -135,9 +135,9 @@
 
     .line 86
     .end local v2    # "t":Ljava/lang/Throwable;
-    :cond_0
-    :goto_0
-    if-nez v1, :cond_1
+    :cond_2d
+    :goto_2d
+    if-nez v1, :cond_35
 
     .line 87
     nop
@@ -148,23 +148,25 @@
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 91
-    :cond_1
+    :cond_35
     return-object v1
 .end method
 
 
 # virtual methods
 .method public final getInstance()Landroidx/window/embedding/ExtensionEmbeddingBackend;
-    .locals 4
+    .registers 5
 
     .line 55
+    # getter for: Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalInstance:Landroidx/window/embedding/ExtensionEmbeddingBackend;
     invoke-static {}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->access$getGlobalInstance$cp()Landroidx/window/embedding/ExtensionEmbeddingBackend;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 56
+    # getter for: Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
     invoke-static {}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
 
     move-result-object v0
@@ -177,12 +179,13 @@
 
     .line 57
     .local v1, "$i$a$-withLock-ExtensionEmbeddingBackend$Companion$getInstance$1":I
-    :try_start_0
+    :try_start_10
+    # getter for: Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalInstance:Landroidx/window/embedding/ExtensionEmbeddingBackend;
     invoke-static {}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->access$getGlobalInstance$cp()Landroidx/window/embedding/ExtensionEmbeddingBackend;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_26
 
     .line 58
     sget-object v2, Landroidx/window/embedding/ExtensionEmbeddingBackend;->Companion:Landroidx/window/embedding/ExtensionEmbeddingBackend$Companion;
@@ -203,20 +206,20 @@
 
     .line 61
     .end local v2    # "embeddingExtension":Landroidx/window/embedding/EmbeddingInterfaceCompat;
-    :cond_0
+    :cond_26
     nop
 
     .end local v1    # "$i$a$-withLock-ExtensionEmbeddingBackend$Companion$getInstance$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_10 .. :try_end_29} :catchall_2d
 
     .line 56
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    goto :goto_0
+    goto :goto_32
 
-    :catchall_0
+    :catchall_2d
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -224,8 +227,9 @@
     throw v1
 
     .line 63
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
+    # getter for: Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalInstance:Landroidx/window/embedding/ExtensionEmbeddingBackend;
     invoke-static {}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->access$getGlobalInstance$cp()Landroidx/window/embedding/ExtensionEmbeddingBackend;
 
     move-result-object v0
@@ -236,29 +240,29 @@
 .end method
 
 .method public final isExtensionVersionSupported(Ljava/lang/Integer;)Z
-    .locals 3
+    .registers 5
     .param p1, "extensionVersion"    # Ljava/lang/Integer;
 
     .line 100
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 101
     return v0
 
     .line 104
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     const/4 v2, 0x1
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_c
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_c
     return v0
 .end method

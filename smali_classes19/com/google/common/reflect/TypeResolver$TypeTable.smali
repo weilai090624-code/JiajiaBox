@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method final resolve(Ljava/lang/reflect/TypeVariable;)Ljava/lang/reflect/Type;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,7 +101,7 @@
 .end method
 
 .method resolveInternal(Ljava/lang/reflect/TypeVariable;Lcom/google/common/reflect/TypeResolver$TypeTable;)Ljava/lang/reflect/Type;
-    .locals 5
+    .registers 8
     .param p2, "forDependants"    # Lcom/google/common/reflect/TypeResolver$TypeTable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -132,7 +132,7 @@
     .local v0, "type":Ljava/lang/reflect/Type;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3a
 
     .line 328
     invoke-interface {p1}, Ljava/lang/reflect/TypeVariable;->getBounds()[Ljava/lang/reflect/Type;
@@ -143,17 +143,18 @@
     .local v2, "bounds":[Ljava/lang/reflect/Type;
     array-length v3, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_18
 
     .line 330
     return-object p1
 
     .line 332
-    :cond_0
+    :cond_18
     new-instance v3, Lcom/google/common/reflect/TypeResolver;
 
     invoke-direct {v3, p2, v1}, Lcom/google/common/reflect/TypeResolver;-><init>(Lcom/google/common/reflect/TypeResolver$TypeTable;Lcom/google/common/reflect/TypeResolver$1;)V
 
+    # invokes: Lcom/google/common/reflect/TypeResolver;->resolveTypes([Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;
     invoke-static {v3, v2}, Lcom/google/common/reflect/TypeResolver;->access$300(Lcom/google/common/reflect/TypeResolver;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;
 
     move-result-object v1
@@ -162,20 +163,20 @@
     .local v1, "resolvedBounds":[Ljava/lang/reflect/Type;
     sget-boolean v3, Lcom/google/common/reflect/Types$NativeTypeVariableEquals;->NATIVE_TYPE_VARIABLE_ONLY:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2c
 
     .line 362
     invoke-static {v2, v1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2c
 
     .line 363
     return-object p1
 
     .line 365
-    :cond_1
+    :cond_2c
     nop
 
     .line 366
@@ -197,7 +198,7 @@
     .line 369
     .end local v1    # "resolvedBounds":[Ljava/lang/reflect/Type;
     .end local v2    # "bounds":[Ljava/lang/reflect/Type;
-    :cond_2
+    :cond_3a
     new-instance v2, Lcom/google/common/reflect/TypeResolver;
 
     invoke-direct {v2, p2, v1}, Lcom/google/common/reflect/TypeResolver;-><init>(Lcom/google/common/reflect/TypeResolver$TypeTable;Lcom/google/common/reflect/TypeResolver$1;)V
@@ -210,7 +211,7 @@
 .end method
 
 .method final where(Ljava/util/Map;)Lcom/google/common/reflect/TypeResolver$TypeTable;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -244,12 +245,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -292,10 +293,10 @@
     .end local v2    # "mapping":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/common/reflect/TypeResolver$TypeVariableKey;+Ljava/lang/reflect/Type;>;"
     .end local v3    # "variable":Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
     .end local v4    # "type":Ljava/lang/reflect/Type;
-    goto :goto_0
+    goto :goto_11
 
     .line 299
-    :cond_0
+    :cond_38
     new-instance v1, Lcom/google/common/reflect/TypeResolver$TypeTable;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;

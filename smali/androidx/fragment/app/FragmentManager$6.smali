@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;Landroidx/fragment/app/FragmentResultListener;Landroidx/lifecycle/Lifecycle;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 954
@@ -49,18 +49,19 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 958
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_22
 
     .line 960
     iget-object v0, p0, Landroidx/fragment/app/FragmentManager$6;->this$0:Landroidx/fragment/app/FragmentManager;
 
+    # getter for: Landroidx/fragment/app/FragmentManager;->mResults:Ljava/util/Map;
     invoke-static {v0}, Landroidx/fragment/app/FragmentManager;->access$000(Landroidx/fragment/app/FragmentManager;)Ljava/util/Map;
 
     move-result-object v0
@@ -75,7 +76,7 @@
 
     .line 961
     .local v0, "storedResult":Landroid/os/Bundle;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 963
     iget-object v1, p0, Landroidx/fragment/app/FragmentManager$6;->val$listener:Landroidx/fragment/app/FragmentResultListener;
@@ -93,10 +94,10 @@
 
     .line 969
     .end local v0    # "storedResult":Landroid/os/Bundle;
-    :cond_0
+    :cond_22
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_36
 
     .line 970
     iget-object v0, p0, Landroidx/fragment/app/FragmentManager$6;->val$lifecycle:Landroidx/lifecycle/Lifecycle;
@@ -106,6 +107,7 @@
     .line 971
     iget-object v0, p0, Landroidx/fragment/app/FragmentManager$6;->this$0:Landroidx/fragment/app/FragmentManager;
 
+    # getter for: Landroidx/fragment/app/FragmentManager;->mResultListeners:Ljava/util/Map;
     invoke-static {v0}, Landroidx/fragment/app/FragmentManager;->access$100(Landroidx/fragment/app/FragmentManager;)Ljava/util/Map;
 
     move-result-object v0
@@ -115,6 +117,6 @@
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 973
-    :cond_1
+    :cond_36
     return-void
 .end method

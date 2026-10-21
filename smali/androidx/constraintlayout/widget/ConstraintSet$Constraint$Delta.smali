@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 1837
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method add(IF)V
-    .locals 3
+    .registers 6
     .param p1, "type"    # I
     .param p2, "value"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -144,7 +144,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_21
 
     .line 1861
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeFloat:[I
@@ -177,7 +177,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mValueFloat:[F
 
     .line 1864
-    :cond_0
+    :cond_21
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeFloat:[I
 
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountFloat:I
@@ -200,7 +200,7 @@
 .end method
 
 .method add(II)V
-    .locals 3
+    .registers 6
     .param p1, "type"    # I
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -221,7 +221,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_21
 
     .line 1848
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeInt:[I
@@ -254,7 +254,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mValueInt:[I
 
     .line 1851
-    :cond_0
+    :cond_21
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeInt:[I
 
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountInt:I
@@ -277,7 +277,7 @@
 .end method
 
 .method add(ILjava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "type"    # I
     .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -298,7 +298,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_23
 
     .line 1874
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeString:[I
@@ -333,7 +333,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mValueString:[Ljava/lang/String;
 
     .line 1877
-    :cond_0
+    :cond_23
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeString:[I
 
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountString:I
@@ -356,7 +356,7 @@
 .end method
 
 .method add(IZ)V
-    .locals 3
+    .registers 6
     .param p1, "type"    # I
     .param p2, "value"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -377,7 +377,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_21
 
     .line 1887
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeBoolean:[I
@@ -410,7 +410,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mValueBoolean:[Z
 
     .line 1890
-    :cond_0
+    :cond_21
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeBoolean:[I
 
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountBoolean:I
@@ -433,7 +433,7 @@
 .end method
 
 .method applyDelta(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;)V
-    .locals 3
+    .registers 5
     .param p1, "c"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -448,10 +448,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountInt:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_13
 
     .line 1896
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeInt:[I
@@ -462,23 +462,24 @@
 
     aget v2, v2, v0
 
+    # invokes: Landroidx/constraintlayout/widget/ConstraintSet;->setDeltaValue(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;II)V
     invoke-static {p1, v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->access$300(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;II)V
 
     .line 1895
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1898
     .end local v0    # "i":I
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_14
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountFloat:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_26
 
     .line 1899
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeFloat:[I
@@ -489,23 +490,24 @@
 
     aget v2, v2, v0
 
+    # invokes: Landroidx/constraintlayout/widget/ConstraintSet;->setDeltaValue(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;IF)V
     invoke-static {p1, v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->access$400(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;IF)V
 
     .line 1898
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_14
 
     .line 1901
     .end local v0    # "i":I
-    :cond_1
+    :cond_26
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_2
+    :goto_27
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountString:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_39
 
     .line 1902
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeString:[I
@@ -516,23 +518,24 @@
 
     aget-object v2, v2, v0
 
+    # invokes: Landroidx/constraintlayout/widget/ConstraintSet;->setDeltaValue(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;ILjava/lang/String;)V
     invoke-static {p1, v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->access$500(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;ILjava/lang/String;)V
 
     .line 1901
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_27
 
     .line 1904
     .end local v0    # "i":I
-    :cond_2
+    :cond_39
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_3
+    :goto_3a
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountBoolean:I
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_4c
 
     .line 1905
     iget-object v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mTypeBoolean:[I
@@ -543,21 +546,22 @@
 
     aget-boolean v2, v2, v0
 
+    # invokes: Landroidx/constraintlayout/widget/ConstraintSet;->setDeltaValue(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;IZ)V
     invoke-static {p1, v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->access$600(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;IZ)V
 
     .line 1904
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 1907
     .end local v0    # "i":I
-    :cond_3
+    :cond_4c
     return-void
 .end method
 
 .method printDelta(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -577,12 +581,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_6
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountInt:I
 
     const-string v2, " = "
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2f
 
     .line 1914
     new-instance v1, Ljava/lang/StringBuilder;
@@ -618,11 +622,11 @@
     .line 1913
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 1916
     .end local v0    # "i":I
-    :cond_0
+    :cond_2f
     const-string v0, "float"
 
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
@@ -631,10 +635,10 @@
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_35
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountFloat:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_5c
 
     .line 1919
     new-instance v1, Ljava/lang/StringBuilder;
@@ -670,11 +674,11 @@
     .line 1918
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 1921
     .end local v0    # "i":I
-    :cond_1
+    :cond_5c
     const-string/jumbo v0, "strings"
 
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
@@ -683,10 +687,10 @@
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_2
+    :goto_63
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountString:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_8a
 
     .line 1924
     new-instance v1, Ljava/lang/StringBuilder;
@@ -722,11 +726,11 @@
     .line 1923
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_63
 
     .line 1926
     .end local v0    # "i":I
-    :cond_2
+    :cond_8a
     const-string v0, "boolean"
 
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
@@ -735,10 +739,10 @@
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_3
+    :goto_90
     iget v1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->mCountBoolean:I
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_b7
 
     .line 1928
     new-instance v1, Ljava/lang/StringBuilder;
@@ -774,10 +778,10 @@
     .line 1927
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_90
 
     .line 1930
     .end local v0    # "i":I
-    :cond_3
+    :cond_b7
     return-void
 .end method

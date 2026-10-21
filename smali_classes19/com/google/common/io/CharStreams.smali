@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,13 +29,13 @@
 .end method
 
 .method public static asWriter(Ljava/lang/Appendable;)Ljava/io/Writer;
-    .locals 1
+    .registers 2
     .param p0, "target"    # Ljava/lang/Appendable;
 
     .line 351
     instance-of v0, p0, Ljava/io/Writer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 352
     move-object v0, p0
@@ -45,7 +45,7 @@
     return-object v0
 
     .line 354
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/io/AppendableWriter;
 
     invoke-direct {v0, p0}, Lcom/google/common/io/AppendableWriter;-><init>(Ljava/lang/Appendable;)V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static copy(Ljava/lang/Readable;Ljava/lang/Appendable;)J
-    .locals 5
+    .registers 7
     .param p0, "from"    # Ljava/lang/Readable;
     .param p1, "to"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
@@ -66,12 +66,12 @@
     .line 75
     instance-of v0, p0, Ljava/io/Reader;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 77
     instance-of v0, p1, Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 78
     move-object v0, p0
@@ -89,7 +89,7 @@
     return-wide v0
 
     .line 80
-    :cond_0
+    :cond_13
     move-object v0, p0
 
     check-cast v0, Ljava/io/Reader;
@@ -105,7 +105,7 @@
     return-wide v0
 
     .line 84
-    :cond_1
+    :cond_1f
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 85
@@ -122,14 +122,14 @@
 
     .line 88
     .local v2, "buf":Ljava/nio/CharBuffer;
-    :goto_0
+    :goto_2b
     invoke-interface {p0, v2}, Ljava/lang/Readable;->read(Ljava/nio/CharBuffer;)I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_42
 
     .line 89
     invoke-static {v2}, Lcom/google/common/io/Java8Compatibility;->flip(Ljava/nio/Buffer;)V
@@ -149,15 +149,15 @@
     .line 92
     invoke-static {v2}, Lcom/google/common/io/Java8Compatibility;->clear(Ljava/nio/Buffer;)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 94
-    :cond_2
+    :cond_42
     return-wide v0
 .end method
 
 .method static copyReaderToBuilder(Ljava/io/Reader;Ljava/lang/StringBuilder;)J
-    .locals 7
+    .registers 9
     .param p0, "from"    # Ljava/io/Reader;
     .param p1, "to"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Throws;
@@ -183,7 +183,7 @@
 
     .line 122
     .local v1, "total":J
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Ljava/io/Reader;->read([C)I
 
     move-result v3
@@ -193,7 +193,7 @@
     .local v4, "nRead":I
     const/4 v5, -0x1
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_1b
 
     .line 123
     const/4 v3, 0x0
@@ -205,15 +205,15 @@
 
     add-long/2addr v1, v5
 
-    goto :goto_0
+    goto :goto_c
 
     .line 126
-    :cond_0
+    :cond_1b
     return-wide v1
 .end method
 
 .method static copyReaderToWriter(Ljava/io/Reader;Ljava/io/Writer;)J
-    .locals 7
+    .registers 9
     .param p0, "from"    # Ljava/io/Reader;
     .param p1, "to"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
@@ -239,7 +239,7 @@
 
     .line 150
     .local v1, "total":J
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Ljava/io/Reader;->read([C)I
 
     move-result v3
@@ -249,7 +249,7 @@
     .local v4, "nRead":I
     const/4 v5, -0x1
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_1b
 
     .line 151
     const/4 v3, 0x0
@@ -261,15 +261,15 @@
 
     add-long/2addr v1, v5
 
-    goto :goto_0
+    goto :goto_c
 
     .line 154
-    :cond_0
+    :cond_1b
     return-wide v1
 .end method
 
 .method static createBuffer()Ljava/nio/CharBuffer;
-    .locals 1
+    .registers 1
 
     .line 57
     const/16 v0, 0x800
@@ -282,7 +282,7 @@
 .end method
 
 .method public static exhaust(Ljava/lang/Readable;)J
-    .locals 10
+    .registers 11
     .param p0, "readable"    # Ljava/lang/Readable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -301,7 +301,7 @@
 
     .line 248
     .local v2, "buf":Ljava/nio/CharBuffer;
-    :goto_0
+    :goto_6
     invoke-interface {p0, v2}, Ljava/lang/Readable;->read(Ljava/nio/CharBuffer;)I
 
     move-result v3
@@ -315,7 +315,7 @@
 
     cmp-long v9, v3, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_17
 
     .line 249
     add-long/2addr v0, v5
@@ -323,17 +323,18 @@
     .line 250
     invoke-static {v2}, Lcom/google/common/io/Java8Compatibility;->clear(Ljava/nio/Buffer;)V
 
-    goto :goto_0
+    goto :goto_6
 
     .line 252
-    :cond_0
+    :cond_17
     return-wide v0
 .end method
 
 .method public static nullWriter()Ljava/io/Writer;
-    .locals 1
+    .registers 1
 
     .line 283
+    # getter for: Lcom/google/common/io/CharStreams$NullWriter;->INSTANCE:Lcom/google/common/io/CharStreams$NullWriter;
     invoke-static {}, Lcom/google/common/io/CharStreams$NullWriter;->access$000()Lcom/google/common/io/CharStreams$NullWriter;
 
     move-result-object v0
@@ -342,7 +343,7 @@
 .end method
 
 .method public static readLines(Ljava/lang/Readable;Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "readable"    # Ljava/lang/Readable;
     .annotation runtime Lcom/google/common/io/ParametricNullness;
     .end annotation
@@ -378,7 +379,7 @@
 
     .line 228
     .local v0, "lineReader":Lcom/google/common/io/LineReader;
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Lcom/google/common/io/LineReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
@@ -386,20 +387,20 @@
     move-object v2, v1
 
     .local v2, "line":Ljava/lang/String;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 229
     invoke-interface {p1, v2}, Lcom/google/common/io/LineProcessor;->processLine(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 230
     nop
 
     .line 233
-    :cond_1
+    :cond_19
     invoke-interface {p1}, Lcom/google/common/io/LineProcessor;->getResult()Ljava/lang/Object;
 
     move-result-object v1
@@ -408,7 +409,7 @@
 .end method
 
 .method public static readLines(Ljava/lang/Readable;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "r"    # Ljava/lang/Readable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -440,7 +441,7 @@
 
     .line 203
     .local v1, "lineReader":Lcom/google/common/io/LineReader;
-    :goto_0
+    :goto_a
     invoke-virtual {v1}, Lcom/google/common/io/LineReader;->readLine()Ljava/lang/String;
 
     move-result-object v2
@@ -448,20 +449,20 @@
     move-object v3, v2
 
     .local v3, "line":Ljava/lang/String;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 204
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_a
 
     .line 206
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public static skipFully(Ljava/io/Reader;J)V
-    .locals 5
+    .registers 8
     .param p0, "reader"    # Ljava/io/Reader;
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -474,12 +475,12 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 267
-    :goto_0
+    :goto_3
     const-wide/16 v0, 0x0
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_19
 
     .line 268
     invoke-virtual {p0, p1, p2}, Ljava/io/Reader;->skip(J)J
@@ -490,18 +491,18 @@
     .local v2, "amt":J
     cmp-long v4, v2, v0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     .line 272
     sub-long/2addr p1, v2
 
     .line 273
     .end local v2    # "amt":J
-    goto :goto_0
+    goto :goto_3
 
     .line 270
     .restart local v2    # "amt":J
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -510,12 +511,12 @@
 
     .line 274
     .end local v2    # "amt":J
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public static toString(Ljava/lang/Readable;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "r"    # Ljava/lang/Readable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -536,7 +537,7 @@
 .end method
 
 .method private static toStringBuilder(Ljava/lang/Readable;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 3
     .param p0, "r"    # Ljava/lang/Readable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -553,7 +554,7 @@
     .local v0, "sb":Ljava/lang/StringBuilder;
     instance-of v1, p0, Ljava/io/Reader;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 180
     move-object v1, p0
@@ -562,13 +563,13 @@
 
     invoke-static {v1, v0}, Lcom/google/common/io/CharStreams;->copyReaderToBuilder(Ljava/io/Reader;Ljava/lang/StringBuilder;)J
 
-    goto :goto_0
+    goto :goto_13
 
     .line 182
-    :cond_0
+    :cond_10
     invoke-static {p0, v0}, Lcom/google/common/io/CharStreams;->copy(Ljava/lang/Readable;Ljava/lang/Appendable;)J
 
     .line 184
-    :goto_0
+    :goto_13
     return-object v0
 .end method

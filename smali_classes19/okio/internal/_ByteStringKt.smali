@@ -93,20 +93,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 58
     const/16 v0, 0x10
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lokio/internal/_ByteStringKt;->HEX_DIGIT_CHARS:[C
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 2
         0x30s
         0x31s
@@ -128,7 +128,7 @@
 .end method
 
 .method public static final synthetic access$codePointIndexToCharIndex([BI)I
-    .locals 1
+    .registers 3
     .param p0, "s"    # [B
     .param p1, "codePointCount"    # I
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public static final synthetic access$decodeHexDigit(C)I
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 1
@@ -153,7 +153,7 @@
 .end method
 
 .method private static final codePointIndexToCharIndex([BI)I
-    .locals 30
+    .registers 32
     .param p0, "s"    # [B
     .param p1, "codePointCount"    # I
 
@@ -187,9 +187,9 @@
 
     .line 379
     .local v8, "index$iv":I
-    :cond_0
-    :goto_0
-    if-ge v8, v5, :cond_ee
+    :cond_c
+    :goto_c
+    if-ge v8, v5, :cond_797
 
     .line 380
     aget-byte v9, v6, v8
@@ -217,7 +217,7 @@
 
     const/16 v18, 0x1
 
-    if-ltz v9, :cond_13
+    if-ltz v9, :cond_ab
 
     .line 384
     move/from16 v19, v9
@@ -231,93 +231,93 @@
 
     .end local v2    # "j":I
     .local v21, "j":I
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_2e
 
     .line 347
     return v1
 
     .line 350
-    :cond_1
+    :cond_2e
     move/from16 v2, v19
 
     .end local v19    # "c":I
     .local v2, "c":I
-    if-eq v2, v13, :cond_6
+    if-eq v2, v13, :cond_54
 
-    if-eq v2, v14, :cond_6
+    if-eq v2, v14, :cond_54
 
     const/16 v19, 0x0
 
     .line 385
     .local v19, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_3d
 
-    if-gt v2, v12, :cond_2
-
-    const/16 v22, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    const/16 v22, 0x0
-
-    :goto_1
-    if-nez v22, :cond_5
-
-    if-gt v11, v2, :cond_3
-
-    if-gt v2, v10, :cond_3
+    if-gt v2, v12, :cond_3d
 
     const/16 v22, 0x1
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_3
+    :cond_3d
     const/16 v22, 0x0
 
-    :goto_2
-    if-eqz v22, :cond_4
+    :goto_3f
+    if-nez v22, :cond_50
 
-    goto :goto_3
+    if-gt v11, v2, :cond_48
 
-    :cond_4
+    if-gt v2, v10, :cond_48
+
+    const/16 v22, 0x1
+
+    goto :goto_4a
+
+    :cond_48
+    const/16 v22, 0x0
+
+    :goto_4a
+    if-eqz v22, :cond_4d
+
+    goto :goto_50
+
+    :cond_4d
     const/16 v19, 0x0
 
-    goto :goto_4
+    goto :goto_52
 
-    :cond_5
-    :goto_3
+    :cond_50
+    :goto_50
     const/16 v19, 0x1
 
     .line 350
     .end local v19    # "$i$f$isIsoControl":I
-    :goto_4
-    if-nez v19, :cond_7
+    :goto_52
+    if-nez v19, :cond_59
 
     .line 351
-    :cond_6
+    :cond_54
     const v10, 0xfffd
 
-    if-ne v2, v10, :cond_8
+    if-ne v2, v10, :cond_5b
 
     .line 353
-    :cond_7
+    :cond_59
     const/4 v10, -0x1
 
     return v10
 
     .line 356
-    :cond_8
-    if-ge v2, v15, :cond_9
+    :cond_5b
+    if-ge v2, v15, :cond_5f
 
     const/4 v10, 0x1
 
-    goto :goto_5
+    goto :goto_60
 
-    :cond_9
+    :cond_5f
     const/4 v10, 0x2
 
-    :goto_5
+    :goto_60
     add-int/2addr v1, v10
 
     .line 357
@@ -333,12 +333,12 @@
     .line 389
     .end local v21    # "j":I
     .local v2, "j":I
-    :goto_6
-    if-ge v8, v5, :cond_0
+    :goto_66
+    if-ge v8, v5, :cond_c
 
     aget-byte v10, v6, v8
 
-    if-ltz v10, :cond_0
+    if-ltz v10, :cond_c
 
     .line 390
     add-int/lit8 v10, v8, 0x1
@@ -356,91 +356,91 @@
 
     .end local v2    # "j":I
     .restart local v21    # "j":I
-    if-ne v2, v0, :cond_a
+    if-ne v2, v0, :cond_77
 
     .line 347
     return v1
 
     .line 350
-    :cond_a
-    if-eq v8, v13, :cond_f
+    :cond_77
+    if-eq v8, v13, :cond_98
 
-    if-eq v8, v14, :cond_f
+    if-eq v8, v14, :cond_98
 
     const/4 v2, 0x0
 
     .line 391
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v8, :cond_b
+    if-ltz v8, :cond_83
 
-    if-gt v8, v12, :cond_b
+    if-gt v8, v12, :cond_83
 
     const/16 v22, 0x1
 
-    goto :goto_7
+    goto :goto_85
 
-    :cond_b
+    :cond_83
     const/16 v22, 0x0
 
-    :goto_7
-    if-nez v22, :cond_e
+    :goto_85
+    if-nez v22, :cond_95
 
-    if-gt v11, v8, :cond_c
+    if-gt v11, v8, :cond_8f
 
     const/16 v11, 0x9f
 
-    if-gt v8, v11, :cond_c
+    if-gt v8, v11, :cond_8f
 
     const/4 v11, 0x1
 
-    goto :goto_8
+    goto :goto_90
 
-    :cond_c
+    :cond_8f
     const/4 v11, 0x0
 
-    :goto_8
-    if-eqz v11, :cond_d
+    :goto_90
+    if-eqz v11, :cond_93
 
-    goto :goto_9
+    goto :goto_95
 
-    :cond_d
+    :cond_93
     const/4 v2, 0x0
 
-    goto :goto_a
+    goto :goto_96
 
-    :cond_e
-    :goto_9
+    :cond_95
+    :goto_95
     const/4 v2, 0x1
 
     .line 350
     .end local v2    # "$i$f$isIsoControl":I
-    :goto_a
-    if-nez v2, :cond_10
+    :goto_96
+    if-nez v2, :cond_9d
 
     .line 351
-    :cond_f
+    :cond_98
     const v2, 0xfffd
 
-    if-ne v8, v2, :cond_11
+    if-ne v8, v2, :cond_9f
 
     .line 353
-    :cond_10
+    :cond_9d
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_11
-    if-ge v8, v15, :cond_12
+    :cond_9f
+    if-ge v8, v15, :cond_a3
 
     const/4 v2, 0x1
 
-    goto :goto_b
+    goto :goto_a4
 
-    :cond_12
+    :cond_a3
     const/4 v2, 0x2
 
-    :goto_b
+    :goto_a4
     add-int/2addr v1, v2
 
     .line 357
@@ -452,14 +452,14 @@
 
     .end local v8    # "c":I
     .end local v20    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    goto :goto_6
+    goto :goto_66
 
     .line 392
     .end local v10    # "index$iv":I
     .end local v21    # "j":I
     .local v2, "j":I
     .local v8, "index$iv":I
-    :cond_13
+    :cond_ab
     const/4 v10, 0x5
 
     .local v10, "other$iv$iv":I
@@ -478,7 +478,7 @@
     .end local v20    # "$i$f$shr":I
     const/4 v11, -0x2
 
-    if-ne v10, v11, :cond_3f
+    if-ne v10, v11, :cond_216
 
     .line 394
     move-object v10, v6
@@ -490,7 +490,7 @@
     .local v11, "$i$f$process2Utf8Bytes":I
     add-int/lit8 v15, v8, 0x1
 
-    if-gt v5, v15, :cond_1d
+    if-gt v5, v15, :cond_103
 
     .line 396
     const v15, 0xfffd
@@ -511,86 +511,86 @@
 
     .end local v2    # "j":I
     .local v25, "j":I
-    if-ne v2, v0, :cond_14
+    if-ne v2, v0, :cond_c8
 
     .line 347
     return v1
 
     .line 350
-    :cond_14
+    :cond_c8
     move/from16 v2, v23
 
     .end local v23    # "c":I
     .local v2, "c":I
-    if-eq v2, v13, :cond_19
+    if-eq v2, v13, :cond_e9
 
-    if-eq v2, v14, :cond_19
+    if-eq v2, v14, :cond_e9
 
     const/4 v13, 0x0
 
     .line 397
     .local v13, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_15
+    if-ltz v2, :cond_d5
 
-    if-gt v2, v12, :cond_15
+    if-gt v2, v12, :cond_d5
 
     const/4 v12, 0x1
 
-    goto :goto_c
+    goto :goto_d6
 
-    :cond_15
+    :cond_d5
     const/4 v12, 0x0
 
-    :goto_c
-    if-nez v12, :cond_17
+    :goto_d6
+    if-nez v12, :cond_e5
 
     const/16 v12, 0x7f
 
-    if-gt v12, v2, :cond_16
+    if-gt v12, v2, :cond_e2
 
     const/16 v12, 0x9f
 
-    if-gt v2, v12, :cond_16
+    if-gt v2, v12, :cond_e2
 
     const/4 v12, 0x1
 
-    goto :goto_d
+    goto :goto_e3
 
-    :cond_16
+    :cond_e2
     const/4 v12, 0x0
 
-    :goto_d
-    if-eqz v12, :cond_18
+    :goto_e3
+    if-eqz v12, :cond_e7
 
-    :cond_17
+    :cond_e5
     const/16 v17, 0x1
 
     .line 350
     .end local v13    # "$i$f$isIsoControl":I
-    :cond_18
-    if-nez v17, :cond_1a
+    :cond_e7
+    if-nez v17, :cond_ee
 
     .line 351
-    :cond_19
+    :cond_e9
     const v12, 0xfffd
 
-    if-ne v2, v12, :cond_1b
+    if-ne v2, v12, :cond_f0
 
     .line 353
-    :cond_1a
+    :cond_ee
     const/4 v12, -0x1
 
     return v12
 
     .line 356
-    :cond_1b
+    :cond_f0
     const/high16 v12, 0x10000
 
-    if-ge v2, v12, :cond_1c
+    if-ge v2, v12, :cond_f6
 
     const/16 v16, 0x1
 
-    :cond_1c
+    :cond_f6
     add-int v1, v1, v16
 
     .line 357
@@ -609,12 +609,12 @@
 
     const/16 v16, 0x1
 
-    goto/16 :goto_18
+    goto/16 :goto_20e
 
     .line 401
     .end local v25    # "j":I
     .local v2, "j":I
-    :cond_1d
+    :cond_103
     aget-byte v15, v10, v8
 
     .line 402
@@ -647,19 +647,19 @@
     .end local v27    # "$i$f$and":I
     const/16 v13, 0x80
 
-    if-ne v14, v13, :cond_1e
+    if-ne v14, v13, :cond_119
 
     const/4 v13, 0x1
 
-    goto :goto_e
+    goto :goto_11a
 
-    :cond_1e
+    :cond_119
     const/4 v13, 0x0
 
     .line 403
     .end local v23    # "$i$f$isUtf8Continuation":I
-    :goto_e
-    if-nez v13, :cond_29
+    :goto_11a
+    if-nez v13, :cond_16e
 
     .line 406
     const v13, 0xfffd
@@ -680,13 +680,13 @@
 
     .end local v2    # "j":I
     .local v26, "j":I
-    if-ne v2, v0, :cond_1f
+    if-ne v2, v0, :cond_129
 
     .line 347
     return v1
 
     .line 350
-    :cond_1f
+    :cond_129
     move/from16 v27, v3
 
     move/from16 v2, v21
@@ -697,17 +697,17 @@
     .end local v21    # "c":I
     .local v2, "c":I
     .local v27, "beginIndex$iv":I
-    if-eq v2, v3, :cond_25
+    if-eq v2, v3, :cond_156
 
     const/16 v3, 0xd
 
-    if-eq v2, v3, :cond_25
+    if-eq v2, v3, :cond_156
 
     const/4 v3, 0x0
 
     .line 407
     .local v3, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_20
+    if-ltz v2, :cond_140
 
     move/from16 v21, v3
 
@@ -715,72 +715,72 @@
 
     .end local v3    # "$i$f$isIsoControl":I
     .local v21, "$i$f$isIsoControl":I
-    if-gt v2, v3, :cond_21
+    if-gt v2, v3, :cond_142
 
     const/4 v3, 0x1
 
-    goto :goto_f
+    goto :goto_143
 
     .end local v21    # "$i$f$isIsoControl":I
     .restart local v3    # "$i$f$isIsoControl":I
-    :cond_20
+    :cond_140
     move/from16 v21, v3
 
     .end local v3    # "$i$f$isIsoControl":I
     .restart local v21    # "$i$f$isIsoControl":I
-    :cond_21
+    :cond_142
     const/4 v3, 0x0
 
-    :goto_f
-    if-nez v3, :cond_23
+    :goto_143
+    if-nez v3, :cond_152
 
     const/16 v3, 0x7f
 
-    if-gt v3, v2, :cond_22
+    if-gt v3, v2, :cond_14f
 
     const/16 v3, 0x9f
 
-    if-gt v2, v3, :cond_22
+    if-gt v2, v3, :cond_14f
 
     const/4 v3, 0x1
 
-    goto :goto_10
+    goto :goto_150
 
-    :cond_22
+    :cond_14f
     const/4 v3, 0x0
 
-    :goto_10
-    if-eqz v3, :cond_24
+    :goto_150
+    if-eqz v3, :cond_154
 
-    :cond_23
+    :cond_152
     const/16 v17, 0x1
 
     .line 350
     .end local v21    # "$i$f$isIsoControl":I
-    :cond_24
-    if-nez v17, :cond_26
+    :cond_154
+    if-nez v17, :cond_15b
 
     .line 351
-    :cond_25
+    :cond_156
     const v3, 0xfffd
 
-    if-ne v2, v3, :cond_27
+    if-ne v2, v3, :cond_15d
 
     .line 353
-    :cond_26
+    :cond_15b
     const/4 v3, -0x1
 
     return v3
 
     .line 356
-    :cond_27
+    :cond_15d
     const/high16 v3, 0x10000
 
-    if-ge v2, v3, :cond_28
+    if-ge v2, v3, :cond_163
 
     const/16 v16, 0x1
 
-    :cond_28
+    :cond_163
     add-int v1, v1, v16
 
     .line 357
@@ -797,14 +797,14 @@
 
     const/16 v16, 0x1
 
-    goto/16 :goto_18
+    goto/16 :goto_20e
 
     .line 413
     .end local v26    # "j":I
     .end local v27    # "beginIndex$iv":I
     .local v2, "j":I
     .local v3, "beginIndex$iv":I
-    :cond_29
+    :cond_16e
     move/from16 v27, v3
 
     .line 414
@@ -831,7 +831,7 @@
     .line 419
     const/16 v13, 0x80
 
-    if-ge v3, v13, :cond_34
+    if-ge v3, v13, :cond_1c6
 
     .line 420
     const v13, 0xfffd
@@ -852,30 +852,30 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_2a
+    if-ne v2, v0, :cond_189
 
     .line 347
     return v1
 
     .line 350
-    :cond_2a
+    :cond_189
     move/from16 v2, v21
 
     const/16 v4, 0xa
 
     .end local v21    # "c":I
     .local v2, "c":I
-    if-eq v2, v4, :cond_30
+    if-eq v2, v4, :cond_1b4
 
     const/16 v4, 0xd
 
-    if-eq v2, v4, :cond_30
+    if-eq v2, v4, :cond_1b4
 
     const/4 v4, 0x0
 
     .line 421
     .local v4, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_2b
+    if-ltz v2, :cond_19e
 
     move/from16 v21, v4
 
@@ -883,75 +883,75 @@
 
     .end local v4    # "$i$f$isIsoControl":I
     .local v21, "$i$f$isIsoControl":I
-    if-gt v2, v4, :cond_2c
+    if-gt v2, v4, :cond_1a0
 
     const/4 v4, 0x1
 
-    goto :goto_11
+    goto :goto_1a1
 
     .end local v21    # "$i$f$isIsoControl":I
     .restart local v4    # "$i$f$isIsoControl":I
-    :cond_2b
+    :cond_19e
     move/from16 v21, v4
 
     .end local v4    # "$i$f$isIsoControl":I
     .restart local v21    # "$i$f$isIsoControl":I
-    :cond_2c
+    :cond_1a0
     const/4 v4, 0x0
 
-    :goto_11
-    if-nez v4, :cond_2e
+    :goto_1a1
+    if-nez v4, :cond_1b0
 
     const/16 v4, 0x7f
 
-    if-gt v4, v2, :cond_2d
+    if-gt v4, v2, :cond_1ad
 
     const/16 v4, 0x9f
 
-    if-gt v2, v4, :cond_2d
+    if-gt v2, v4, :cond_1ad
 
     const/4 v4, 0x1
 
-    goto :goto_12
+    goto :goto_1ae
 
-    :cond_2d
+    :cond_1ad
     const/4 v4, 0x0
 
-    :goto_12
-    if-eqz v4, :cond_2f
+    :goto_1ae
+    if-eqz v4, :cond_1b2
 
-    :cond_2e
+    :cond_1b0
     const/16 v17, 0x1
 
     .line 350
     .end local v21    # "$i$f$isIsoControl":I
-    :cond_2f
-    if-nez v17, :cond_31
+    :cond_1b2
+    if-nez v17, :cond_1b9
 
     .line 351
-    :cond_30
+    :cond_1b4
     const v4, 0xfffd
 
-    if-ne v2, v4, :cond_32
+    if-ne v2, v4, :cond_1bb
 
     .line 353
-    :cond_31
+    :cond_1b9
     const/4 v4, -0x1
 
     return v4
 
     .line 356
-    :cond_32
+    :cond_1bb
     const/high16 v4, 0x10000
 
-    if-ge v2, v4, :cond_33
+    if-ge v2, v4, :cond_1c0
 
-    goto :goto_13
+    goto :goto_1c2
 
-    :cond_33
+    :cond_1c0
     const/16 v18, 0x2
 
-    :goto_13
+    :goto_1c2
     add-int v1, v1, v18
 
     .line 357
@@ -961,12 +961,12 @@
     .end local v13    # "it$iv":I
     .end local v14    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1$iv":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    goto :goto_17
+    goto :goto_20a
 
     .line 422
     .end local v26    # "j":I
     .local v2, "j":I
-    :cond_34
+    :cond_1c6
     move v4, v3
 
     .local v4, "it$iv":I
@@ -985,26 +985,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_35
+    if-ne v2, v0, :cond_1d0
 
     .line 347
     return v1
 
     .line 350
-    :cond_35
+    :cond_1d0
     const/16 v2, 0xa
 
-    if-eq v14, v2, :cond_3b
+    if-eq v14, v2, :cond_1f9
 
     const/16 v2, 0xd
 
-    if-eq v14, v2, :cond_3b
+    if-eq v14, v2, :cond_1f9
 
     const/4 v2, 0x0
 
     .line 423
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v14, :cond_36
+    if-ltz v14, :cond_1e3
 
     move/from16 v23, v2
 
@@ -1012,75 +1012,75 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .local v23, "$i$f$isIsoControl":I
-    if-gt v14, v2, :cond_37
+    if-gt v14, v2, :cond_1e5
 
     const/4 v2, 0x1
 
-    goto :goto_14
+    goto :goto_1e6
 
     .end local v23    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_36
+    :cond_1e3
     move/from16 v23, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v23    # "$i$f$isIsoControl":I
-    :cond_37
+    :cond_1e5
     const/4 v2, 0x0
 
-    :goto_14
-    if-nez v2, :cond_39
+    :goto_1e6
+    if-nez v2, :cond_1f5
 
     const/16 v2, 0x7f
 
-    if-gt v2, v14, :cond_38
+    if-gt v2, v14, :cond_1f2
 
     const/16 v2, 0x9f
 
-    if-gt v14, v2, :cond_38
+    if-gt v14, v2, :cond_1f2
 
     const/4 v2, 0x1
 
-    goto :goto_15
+    goto :goto_1f3
 
-    :cond_38
+    :cond_1f2
     const/4 v2, 0x0
 
-    :goto_15
-    if-eqz v2, :cond_3a
+    :goto_1f3
+    if-eqz v2, :cond_1f7
 
-    :cond_39
+    :cond_1f5
     const/16 v17, 0x1
 
     .line 350
     .end local v23    # "$i$f$isIsoControl":I
-    :cond_3a
-    if-nez v17, :cond_3c
+    :cond_1f7
+    if-nez v17, :cond_1fe
 
     .line 351
-    :cond_3b
+    :cond_1f9
     const v2, 0xfffd
 
-    if-ne v14, v2, :cond_3d
+    if-ne v14, v2, :cond_200
 
     .line 353
-    :cond_3c
+    :cond_1fe
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_3d
+    :cond_200
     const/high16 v2, 0x10000
 
-    if-ge v14, v2, :cond_3e
+    if-ge v14, v2, :cond_205
 
-    goto :goto_16
+    goto :goto_207
 
-    :cond_3e
+    :cond_205
     const/16 v18, 0x2
 
-    :goto_16
+    :goto_207
     add-int v1, v1, v18
 
     .line 357
@@ -1090,7 +1090,7 @@
     .end local v13    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1$iv":I
     .end local v14    # "c":I
     .end local v21    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    :goto_17
+    :goto_20a
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 424
@@ -1104,19 +1104,19 @@
     .end local v15    # "b0$iv$iv":B
     .end local v26    # "j":I
     .local v2, "j":I
-    :goto_18
+    :goto_20e
     add-int v8, v8, v16
 
     move-object/from16 v4, p0
 
     move/from16 v3, v27
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 425
     .end local v27    # "beginIndex$iv":I
     .local v3, "beginIndex$iv":I
-    :cond_3f
+    :cond_216
     move/from16 v27, v3
 
     .end local v3    # "beginIndex$iv":I
@@ -1137,7 +1137,7 @@
     .end local v3    # "other$iv$iv":I
     .end local v4    # "$this$shr$iv$iv":B
     .end local v10    # "$i$f$shr":I
-    if-ne v3, v11, :cond_85
+    if-ne v3, v11, :cond_451
 
     .line 427
     move-object v3, v6
@@ -1149,7 +1149,7 @@
     .local v11, "$i$f$process3Utf8Bytes":I
     add-int/lit8 v13, v8, 0x2
 
-    if-gt v5, v13, :cond_4c
+    if-gt v5, v13, :cond_288
 
     .line 430
     const v4, 0xfffd
@@ -1170,101 +1170,101 @@
 
     .end local v2    # "j":I
     .local v14, "j":I
-    if-ne v2, v0, :cond_40
+    if-ne v2, v0, :cond_230
 
     .line 347
     return v1
 
     .line 350
-    :cond_40
+    :cond_230
     const/16 v2, 0xa
 
-    if-eq v12, v2, :cond_45
+    if-eq v12, v2, :cond_257
 
     const/16 v2, 0xd
 
-    if-eq v12, v2, :cond_45
+    if-eq v12, v2, :cond_257
 
     const/4 v2, 0x0
 
     .line 431
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v12, :cond_41
+    if-ltz v12, :cond_241
 
     const/16 v15, 0x1f
 
-    if-gt v12, v15, :cond_41
+    if-gt v12, v15, :cond_241
 
     const/4 v15, 0x1
 
-    goto :goto_19
+    goto :goto_242
 
-    :cond_41
+    :cond_241
     const/4 v15, 0x0
 
-    :goto_19
-    if-nez v15, :cond_44
+    :goto_242
+    if-nez v15, :cond_254
 
     const/16 v15, 0x7f
 
-    if-gt v15, v12, :cond_42
+    if-gt v15, v12, :cond_24e
 
     const/16 v15, 0x9f
 
-    if-gt v12, v15, :cond_42
+    if-gt v12, v15, :cond_24e
 
     const/4 v15, 0x1
 
-    goto :goto_1a
+    goto :goto_24f
 
-    :cond_42
+    :cond_24e
     const/4 v15, 0x0
 
-    :goto_1a
-    if-eqz v15, :cond_43
+    :goto_24f
+    if-eqz v15, :cond_252
 
-    goto :goto_1b
+    goto :goto_254
 
-    :cond_43
+    :cond_252
     const/4 v2, 0x0
 
-    goto :goto_1c
+    goto :goto_255
 
-    :cond_44
-    :goto_1b
+    :cond_254
+    :goto_254
     const/4 v2, 0x1
 
     .line 350
     .end local v2    # "$i$f$isIsoControl":I
-    :goto_1c
-    if-nez v2, :cond_46
+    :goto_255
+    if-nez v2, :cond_25c
 
     .line 351
-    :cond_45
+    :cond_257
     const v2, 0xfffd
 
-    if-ne v12, v2, :cond_47
+    if-ne v12, v2, :cond_25e
 
     .line 353
-    :cond_46
+    :cond_25c
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_47
+    :cond_25e
     const/high16 v2, 0x10000
 
-    if-ge v12, v2, :cond_48
+    if-ge v12, v2, :cond_264
 
     const/4 v2, 0x1
 
-    goto :goto_1d
+    goto :goto_265
 
-    :cond_48
+    :cond_264
     const/4 v2, 0x2
 
-    :goto_1d
+    :goto_265
     add-int/2addr v1, v2
 
     .line 357
@@ -1279,7 +1279,7 @@
     .line 432
     add-int/lit8 v2, v8, 0x1
 
-    if-le v5, v2, :cond_4b
+    if-le v5, v2, :cond_283
 
     add-int/lit8 v2, v8, 0x1
 
@@ -1308,37 +1308,37 @@
     .end local v13    # "$i$f$and":I
     const/16 v12, 0x80
 
-    if-ne v10, v12, :cond_49
+    if-ne v10, v12, :cond_27d
 
     const/16 v17, 0x1
 
     .line 432
     .end local v2    # "byte$iv$iv$iv":B
     .end local v4    # "$i$f$isUtf8Continuation":I
-    :cond_49
-    if-nez v17, :cond_4a
+    :cond_27d
+    if-nez v17, :cond_280
 
-    goto :goto_1e
+    goto :goto_283
 
     .line 437
-    :cond_4a
+    :cond_280
     move v2, v14
 
-    goto/16 :goto_30
+    goto/16 :goto_449
 
     .line 434
-    :cond_4b
-    :goto_1e
+    :cond_283
+    :goto_283
     move v2, v14
 
     const/16 v16, 0x1
 
-    goto/16 :goto_30
+    goto/16 :goto_449
 
     .line 441
     .end local v14    # "j":I
     .local v2, "j":I
-    :cond_4c
+    :cond_288
     aget-byte v13, v3, v8
 
     .line 442
@@ -1371,19 +1371,19 @@
     .end local v28    # "$i$f$and":I
     const/16 v4, 0x80
 
-    if-ne v12, v4, :cond_4d
+    if-ne v12, v4, :cond_29d
 
     const/4 v4, 0x1
 
-    goto :goto_1f
+    goto :goto_29e
 
-    :cond_4d
+    :cond_29d
     const/4 v4, 0x0
 
     .line 443
     .end local v15    # "$i$f$isUtf8Continuation":I
-    :goto_1f
-    if-nez v4, :cond_58
+    :goto_29e
+    if-nez v4, :cond_2ec
 
     .line 445
     const v4, 0xfffd
@@ -1404,26 +1404,26 @@
 
     .end local v2    # "j":I
     .local v21, "j":I
-    if-ne v2, v0, :cond_4e
+    if-ne v2, v0, :cond_2ab
 
     .line 347
     return v1
 
     .line 350
-    :cond_4e
+    :cond_2ab
     const/16 v2, 0xa
 
-    if-eq v12, v2, :cond_54
+    if-eq v12, v2, :cond_2d4
 
     const/16 v2, 0xd
 
-    if-eq v12, v2, :cond_54
+    if-eq v12, v2, :cond_2d4
 
     const/4 v2, 0x0
 
     .line 446
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v12, :cond_4f
+    if-ltz v12, :cond_2be
 
     move/from16 v23, v2
 
@@ -1431,72 +1431,72 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .local v23, "$i$f$isIsoControl":I
-    if-gt v12, v2, :cond_50
+    if-gt v12, v2, :cond_2c0
 
     const/4 v2, 0x1
 
-    goto :goto_20
+    goto :goto_2c1
 
     .end local v23    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_4f
+    :cond_2be
     move/from16 v23, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v23    # "$i$f$isIsoControl":I
-    :cond_50
+    :cond_2c0
     const/4 v2, 0x0
 
-    :goto_20
-    if-nez v2, :cond_52
+    :goto_2c1
+    if-nez v2, :cond_2d0
 
     const/16 v2, 0x7f
 
-    if-gt v2, v12, :cond_51
+    if-gt v2, v12, :cond_2cd
 
     const/16 v2, 0x9f
 
-    if-gt v12, v2, :cond_51
+    if-gt v12, v2, :cond_2cd
 
     const/4 v2, 0x1
 
-    goto :goto_21
+    goto :goto_2ce
 
-    :cond_51
+    :cond_2cd
     const/4 v2, 0x0
 
-    :goto_21
-    if-eqz v2, :cond_53
+    :goto_2ce
+    if-eqz v2, :cond_2d2
 
-    :cond_52
+    :cond_2d0
     const/16 v17, 0x1
 
     .line 350
     .end local v23    # "$i$f$isIsoControl":I
-    :cond_53
-    if-nez v17, :cond_55
+    :cond_2d2
+    if-nez v17, :cond_2d9
 
     .line 351
-    :cond_54
+    :cond_2d4
     const v2, 0xfffd
 
-    if-ne v12, v2, :cond_56
+    if-ne v12, v2, :cond_2db
 
     .line 353
-    :cond_55
+    :cond_2d9
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_56
+    :cond_2db
     const/high16 v2, 0x10000
 
-    if-ge v12, v2, :cond_57
+    if-ge v12, v2, :cond_2e1
 
     const/16 v16, 0x1
 
-    :cond_57
+    :cond_2e1
     add-int v1, v1, v16
 
     .line 357
@@ -1513,12 +1513,12 @@
 
     const/16 v16, 0x1
 
-    goto/16 :goto_30
+    goto/16 :goto_449
 
     .line 449
     .end local v21    # "j":I
     .local v2, "j":I
-    :cond_58
+    :cond_2ec
     add-int/lit8 v4, v8, 0x2
 
     aget-byte v4, v3, v4
@@ -1547,19 +1547,19 @@
     .end local v28    # "$i$f$and":I
     const/16 v10, 0x80
 
-    if-ne v15, v10, :cond_59
+    if-ne v15, v10, :cond_2ff
 
     const/4 v10, 0x1
 
-    goto :goto_22
+    goto :goto_300
 
-    :cond_59
+    :cond_2ff
     const/4 v10, 0x0
 
     .line 450
     .end local v12    # "$i$f$isUtf8Continuation":I
-    :goto_22
-    if-nez v10, :cond_64
+    :goto_300
+    if-nez v10, :cond_34e
 
     .line 452
     const v10, 0xfffd
@@ -1580,26 +1580,26 @@
 
     .end local v2    # "j":I
     .local v23, "j":I
-    if-ne v2, v0, :cond_5a
+    if-ne v2, v0, :cond_30e
 
     .line 347
     return v1
 
     .line 350
-    :cond_5a
+    :cond_30e
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_60
+    if-eq v15, v2, :cond_337
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_60
+    if-eq v15, v2, :cond_337
 
     const/4 v2, 0x0
 
     .line 453
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_5b
+    if-ltz v15, :cond_321
 
     move/from16 v25, v2
 
@@ -1607,75 +1607,75 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .local v25, "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_5c
+    if-gt v15, v2, :cond_323
 
     const/4 v2, 0x1
 
-    goto :goto_23
+    goto :goto_324
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_5b
+    :cond_321
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_5c
+    :cond_323
     const/4 v2, 0x0
 
-    :goto_23
-    if-nez v2, :cond_5e
+    :goto_324
+    if-nez v2, :cond_333
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_5d
+    if-gt v2, v15, :cond_330
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_5d
+    if-gt v15, v2, :cond_330
 
     const/4 v2, 0x1
 
-    goto :goto_24
+    goto :goto_331
 
-    :cond_5d
+    :cond_330
     const/4 v2, 0x0
 
-    :goto_24
-    if-eqz v2, :cond_5f
+    :goto_331
+    if-eqz v2, :cond_335
 
-    :cond_5e
+    :cond_333
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_5f
-    if-nez v17, :cond_61
+    :cond_335
+    if-nez v17, :cond_33c
 
     .line 351
-    :cond_60
+    :cond_337
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_62
+    if-ne v15, v2, :cond_33e
 
     .line 353
-    :cond_61
+    :cond_33c
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_62
+    :cond_33e
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_63
+    if-ge v15, v2, :cond_343
 
-    goto :goto_25
+    goto :goto_345
 
-    :cond_63
+    :cond_343
     const/16 v18, 0x2
 
-    :goto_25
+    :goto_345
     add-int v1, v1, v18
 
     .line 357
@@ -1690,12 +1690,12 @@
     .line 454
     move/from16 v2, v23
 
-    goto/16 :goto_30
+    goto/16 :goto_449
 
     .line 459
     .end local v23    # "j":I
     .local v2, "j":I
-    :cond_64
+    :cond_34e
     nop
 
     .line 460
@@ -1728,7 +1728,7 @@
     .line 466
     const/16 v12, 0x800
 
-    if-ge v10, v12, :cond_6f
+    if-ge v10, v12, :cond_3ae
 
     .line 467
     const v12, 0xfffd
@@ -1749,13 +1749,13 @@
 
     .end local v2    # "j":I
     .local v26, "j":I
-    if-ne v2, v0, :cond_65
+    if-ne v2, v0, :cond_36d
 
     .line 347
     return v1
 
     .line 350
-    :cond_65
+    :cond_36d
     move/from16 v2, v21
 
     move-object/from16 v21, v3
@@ -1765,17 +1765,17 @@
     .end local v3    # "$this$process3Utf8Bytes$iv$iv":[B
     .local v2, "c":I
     .local v21, "$this$process3Utf8Bytes$iv$iv":[B
-    if-eq v2, v3, :cond_6b
+    if-eq v2, v3, :cond_39a
 
     const/16 v3, 0xd
 
-    if-eq v2, v3, :cond_6b
+    if-eq v2, v3, :cond_39a
 
     const/4 v3, 0x0
 
     .line 468
     .local v3, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_66
+    if-ltz v2, :cond_384
 
     move/from16 v25, v3
 
@@ -1783,72 +1783,72 @@
 
     .end local v3    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v2, v3, :cond_67
+    if-gt v2, v3, :cond_386
 
     const/4 v3, 0x1
 
-    goto :goto_26
+    goto :goto_387
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v3    # "$i$f$isIsoControl":I
-    :cond_66
+    :cond_384
     move/from16 v25, v3
 
     .end local v3    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_67
+    :cond_386
     const/4 v3, 0x0
 
-    :goto_26
-    if-nez v3, :cond_69
+    :goto_387
+    if-nez v3, :cond_396
 
     const/16 v3, 0x7f
 
-    if-gt v3, v2, :cond_68
+    if-gt v3, v2, :cond_393
 
     const/16 v3, 0x9f
 
-    if-gt v2, v3, :cond_68
+    if-gt v2, v3, :cond_393
 
     const/4 v3, 0x1
 
-    goto :goto_27
+    goto :goto_394
 
-    :cond_68
+    :cond_393
     const/4 v3, 0x0
 
-    :goto_27
-    if-eqz v3, :cond_6a
+    :goto_394
+    if-eqz v3, :cond_398
 
-    :cond_69
+    :cond_396
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_6a
-    if-nez v17, :cond_6c
+    :cond_398
+    if-nez v17, :cond_39f
 
     .line 351
-    :cond_6b
+    :cond_39a
     const v3, 0xfffd
 
-    if-ne v2, v3, :cond_6d
+    if-ne v2, v3, :cond_3a1
 
     .line 353
-    :cond_6c
+    :cond_39f
     const/4 v3, -0x1
 
     return v3
 
     .line 356
-    :cond_6d
+    :cond_3a1
     const/high16 v3, 0x10000
 
-    if-ge v2, v3, :cond_6e
+    if-ge v2, v3, :cond_3a7
 
     const/16 v16, 0x1
 
-    :cond_6e
+    :cond_3a7
     add-int v1, v1, v16
 
     .line 357
@@ -1858,38 +1858,38 @@
     .end local v12    # "it$iv":I
     .end local v15    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2$iv":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    :goto_28
+    :goto_3aa
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto/16 :goto_2f
+    goto/16 :goto_445
 
     .line 469
     .end local v21    # "$this$process3Utf8Bytes$iv$iv":[B
     .end local v26    # "j":I
     .local v2, "j":I
     .local v3, "$this$process3Utf8Bytes$iv$iv":[B
-    :cond_6f
+    :cond_3ae
     move-object/from16 v21, v3
 
     .end local v3    # "$this$process3Utf8Bytes$iv$iv":[B
     .restart local v21    # "$this$process3Utf8Bytes$iv$iv":[B
     const v3, 0xd800
 
-    if-gt v3, v10, :cond_70
+    if-gt v3, v10, :cond_3bc
 
     const v3, 0xdfff
 
-    if-gt v10, v3, :cond_70
+    if-gt v10, v3, :cond_3bc
 
     const/4 v3, 0x1
 
-    goto :goto_29
+    goto :goto_3bd
 
-    :cond_70
+    :cond_3bc
     const/4 v3, 0x0
 
-    :goto_29
-    if-eqz v3, :cond_7a
+    :goto_3bd
+    if-eqz v3, :cond_400
 
     .line 470
     const v3, 0xfffd
@@ -1910,26 +1910,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_71
+    if-ne v2, v0, :cond_3cb
 
     .line 347
     return v1
 
     .line 350
-    :cond_71
+    :cond_3cb
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_77
+    if-eq v15, v2, :cond_3f4
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_77
+    if-eq v15, v2, :cond_3f4
 
     const/4 v2, 0x0
 
     .line 471
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_72
+    if-ltz v15, :cond_3de
 
     move/from16 v25, v2
 
@@ -1937,70 +1937,70 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_73
+    if-gt v15, v2, :cond_3e0
 
     const/4 v2, 0x1
 
-    goto :goto_2a
+    goto :goto_3e1
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_72
+    :cond_3de
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_73
+    :cond_3e0
     const/4 v2, 0x0
 
-    :goto_2a
-    if-nez v2, :cond_75
+    :goto_3e1
+    if-nez v2, :cond_3f0
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_74
+    if-gt v2, v15, :cond_3ed
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_74
+    if-gt v15, v2, :cond_3ed
 
     const/4 v2, 0x1
 
-    goto :goto_2b
+    goto :goto_3ee
 
-    :cond_74
+    :cond_3ed
     const/4 v2, 0x0
 
-    :goto_2b
-    if-eqz v2, :cond_76
+    :goto_3ee
+    if-eqz v2, :cond_3f2
 
-    :cond_75
+    :cond_3f0
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_76
-    if-nez v17, :cond_78
+    :cond_3f2
+    if-nez v17, :cond_3f9
 
     .line 351
-    :cond_77
+    :cond_3f4
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_79
+    if-ne v15, v2, :cond_3fb
 
     .line 353
-    :cond_78
+    :cond_3f9
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_79
+    :cond_3fb
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_84
+    if-ge v15, v2, :cond_440
 
-    goto :goto_2e
+    goto :goto_43e
 
     .line 472
     .end local v3    # "it$iv":I
@@ -2009,7 +2009,7 @@
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
     .end local v26    # "j":I
     .local v2, "j":I
-    :cond_7a
+    :cond_400
     move v3, v10
 
     .restart local v3    # "it$iv":I
@@ -2028,26 +2028,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_7b
+    if-ne v2, v0, :cond_40a
 
     .line 347
     return v1
 
     .line 350
-    :cond_7b
+    :cond_40a
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_81
+    if-eq v15, v2, :cond_433
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_81
+    if-eq v15, v2, :cond_433
 
     const/4 v2, 0x0
 
     .line 473
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_7c
+    if-ltz v15, :cond_41d
 
     move/from16 v25, v2
 
@@ -2055,73 +2055,73 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_7d
+    if-gt v15, v2, :cond_41f
 
     const/4 v2, 0x1
 
-    goto :goto_2c
+    goto :goto_420
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_7c
+    :cond_41d
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_7d
+    :cond_41f
     const/4 v2, 0x0
 
-    :goto_2c
-    if-nez v2, :cond_7f
+    :goto_420
+    if-nez v2, :cond_42f
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_7e
+    if-gt v2, v15, :cond_42c
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_7e
+    if-gt v15, v2, :cond_42c
 
     const/4 v2, 0x1
 
-    goto :goto_2d
+    goto :goto_42d
 
-    :cond_7e
+    :cond_42c
     const/4 v2, 0x0
 
-    :goto_2d
-    if-eqz v2, :cond_80
+    :goto_42d
+    if-eqz v2, :cond_431
 
-    :cond_7f
+    :cond_42f
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_80
-    if-nez v17, :cond_82
+    :cond_431
+    if-nez v17, :cond_438
 
     .line 351
-    :cond_81
+    :cond_433
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_83
+    if-ne v15, v2, :cond_43a
 
     .line 353
-    :cond_82
+    :cond_438
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_83
+    :cond_43a
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_84
+    if-ge v15, v2, :cond_440
 
-    :goto_2e
+    :goto_43e
     const/16 v16, 0x1
 
-    :cond_84
+    :cond_440
     add-int v1, v1, v16
 
     .line 357
@@ -2131,10 +2131,10 @@
     .end local v12    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2$iv":I
     .end local v15    # "c":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    goto/16 :goto_28
+    goto/16 :goto_3aa
 
     .line 474
-    :goto_2f
+    :goto_445
     move/from16 v2, v26
 
     const/16 v16, 0x3
@@ -2148,17 +2148,17 @@
     .end local v21    # "$this$process3Utf8Bytes$iv$iv":[B
     .end local v26    # "j":I
     .local v2, "j":I
-    :goto_30
+    :goto_449
     add-int v8, v8, v16
 
     move-object/from16 v4, p0
 
     move/from16 v3, v27
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 475
-    :cond_85
+    :cond_451
     const/4 v3, 0x3
 
     .local v3, "other$iv$iv":I
@@ -2175,7 +2175,7 @@
     .end local v3    # "other$iv$iv":I
     .end local v4    # "$this$shr$iv$iv":B
     .end local v10    # "$i$f$shr":I
-    if-ne v3, v11, :cond_e4
+    if-ne v3, v11, :cond_750
 
     .line 477
     move-object v3, v6
@@ -2187,7 +2187,7 @@
     .local v4, "$i$f$process4Utf8Bytes":I
     add-int/lit8 v10, v8, 0x3
 
-    if-gt v5, v10, :cond_95
+    if-gt v5, v10, :cond_4de
 
     .line 480
     const v10, 0xfffd
@@ -2208,101 +2208,101 @@
 
     .end local v2    # "j":I
     .local v14, "j":I
-    if-ne v2, v0, :cond_86
+    if-ne v2, v0, :cond_469
 
     .line 347
     return v1
 
     .line 350
-    :cond_86
+    :cond_469
     const/16 v2, 0xa
 
-    if-eq v12, v2, :cond_8b
+    if-eq v12, v2, :cond_490
 
     const/16 v2, 0xd
 
-    if-eq v12, v2, :cond_8b
+    if-eq v12, v2, :cond_490
 
     const/4 v2, 0x0
 
     .line 481
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v12, :cond_87
+    if-ltz v12, :cond_47a
 
     const/16 v15, 0x1f
 
-    if-gt v12, v15, :cond_87
+    if-gt v12, v15, :cond_47a
 
     const/4 v15, 0x1
 
-    goto :goto_31
+    goto :goto_47b
 
-    :cond_87
+    :cond_47a
     const/4 v15, 0x0
 
-    :goto_31
-    if-nez v15, :cond_8a
+    :goto_47b
+    if-nez v15, :cond_48d
 
     const/16 v15, 0x7f
 
-    if-gt v15, v12, :cond_88
+    if-gt v15, v12, :cond_487
 
     const/16 v15, 0x9f
 
-    if-gt v12, v15, :cond_88
+    if-gt v12, v15, :cond_487
 
     const/4 v15, 0x1
 
-    goto :goto_32
+    goto :goto_488
 
-    :cond_88
+    :cond_487
     const/4 v15, 0x0
 
-    :goto_32
-    if-eqz v15, :cond_89
+    :goto_488
+    if-eqz v15, :cond_48b
 
-    goto :goto_33
+    goto :goto_48d
 
-    :cond_89
+    :cond_48b
     const/4 v2, 0x0
 
-    goto :goto_34
+    goto :goto_48e
 
-    :cond_8a
-    :goto_33
+    :cond_48d
+    :goto_48d
     const/4 v2, 0x1
 
     .line 350
     .end local v2    # "$i$f$isIsoControl":I
-    :goto_34
-    if-nez v2, :cond_8c
+    :goto_48e
+    if-nez v2, :cond_495
 
     .line 351
-    :cond_8b
+    :cond_490
     const v2, 0xfffd
 
-    if-ne v12, v2, :cond_8d
+    if-ne v12, v2, :cond_497
 
     .line 353
-    :cond_8c
+    :cond_495
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_8d
+    :cond_497
     const/high16 v2, 0x10000
 
-    if-ge v12, v2, :cond_8e
+    if-ge v12, v2, :cond_49d
 
     const/4 v2, 0x1
 
-    goto :goto_35
+    goto :goto_49e
 
-    :cond_8e
+    :cond_49d
     const/4 v2, 0x2
 
-    :goto_35
+    :goto_49e
     add-int/2addr v1, v2
 
     .line 357
@@ -2317,7 +2317,7 @@
     .line 482
     add-int/lit8 v2, v8, 0x1
 
-    if-le v5, v2, :cond_94
+    if-le v5, v2, :cond_4d9
 
     add-int/lit8 v2, v8, 0x1
 
@@ -2346,28 +2346,28 @@
     .end local v13    # "$i$f$and":I
     const/16 v12, 0x80
 
-    if-ne v11, v12, :cond_8f
+    if-ne v11, v12, :cond_4b6
 
     const/4 v2, 0x1
 
-    goto :goto_36
+    goto :goto_4b7
 
-    :cond_8f
+    :cond_4b6
     const/4 v2, 0x0
 
     .line 482
     .end local v2    # "byte$iv$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_36
-    if-nez v2, :cond_90
+    :goto_4b7
+    if-nez v2, :cond_4ba
 
-    goto :goto_38
+    goto :goto_4d9
 
     .line 485
-    :cond_90
+    :cond_4ba
     add-int/lit8 v2, v8, 0x2
 
-    if-le v5, v2, :cond_93
+    if-le v5, v2, :cond_4d6
 
     add-int/lit8 v2, v8, 0x2
 
@@ -2396,46 +2396,46 @@
     .end local v13    # "$i$f$and":I
     const/16 v12, 0x80
 
-    if-ne v11, v12, :cond_91
+    if-ne v11, v12, :cond_4ce
 
     const/16 v17, 0x1
 
     .line 485
     .end local v2    # "byte$iv$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :cond_91
-    if-nez v17, :cond_92
+    :cond_4ce
+    if-nez v17, :cond_4d1
 
-    goto :goto_37
+    goto :goto_4d6
 
     .line 490
-    :cond_92
+    :cond_4d1
     move v2, v14
 
     const/16 v16, 0x3
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 487
-    :cond_93
-    :goto_37
+    :cond_4d6
+    :goto_4d6
     move v2, v14
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 484
-    :cond_94
-    :goto_38
+    :cond_4d9
+    :goto_4d9
     move v2, v14
 
     const/16 v16, 0x1
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 494
     .end local v14    # "j":I
     .local v2, "j":I
-    :cond_95
+    :cond_4de
     aget-byte v10, v3, v8
 
     .line 495
@@ -2468,19 +2468,19 @@
     .end local v15    # "$i$f$and":I
     const/16 v14, 0x80
 
-    if-ne v13, v14, :cond_96
+    if-ne v13, v14, :cond_4f0
 
     const/4 v12, 0x1
 
-    goto :goto_39
+    goto :goto_4f1
 
-    :cond_96
+    :cond_4f0
     const/4 v12, 0x0
 
     .line 496
     .end local v12    # "$i$f$isUtf8Continuation":I
-    :goto_39
-    if-nez v12, :cond_a1
+    :goto_4f1
+    if-nez v12, :cond_53f
 
     .line 498
     const v12, 0xfffd
@@ -2501,26 +2501,26 @@
 
     .end local v2    # "j":I
     .local v21, "j":I
-    if-ne v2, v0, :cond_97
+    if-ne v2, v0, :cond_4fe
 
     .line 347
     return v1
 
     .line 350
-    :cond_97
+    :cond_4fe
     const/16 v2, 0xa
 
-    if-eq v14, v2, :cond_9d
+    if-eq v14, v2, :cond_527
 
     const/16 v2, 0xd
 
-    if-eq v14, v2, :cond_9d
+    if-eq v14, v2, :cond_527
 
     const/4 v2, 0x0
 
     .line 499
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v14, :cond_98
+    if-ltz v14, :cond_511
 
     move/from16 v23, v2
 
@@ -2528,72 +2528,72 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .local v23, "$i$f$isIsoControl":I
-    if-gt v14, v2, :cond_99
+    if-gt v14, v2, :cond_513
 
     const/4 v2, 0x1
 
-    goto :goto_3a
+    goto :goto_514
 
     .end local v23    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_98
+    :cond_511
     move/from16 v23, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v23    # "$i$f$isIsoControl":I
-    :cond_99
+    :cond_513
     const/4 v2, 0x0
 
-    :goto_3a
-    if-nez v2, :cond_9b
+    :goto_514
+    if-nez v2, :cond_523
 
     const/16 v2, 0x7f
 
-    if-gt v2, v14, :cond_9a
+    if-gt v2, v14, :cond_520
 
     const/16 v2, 0x9f
 
-    if-gt v14, v2, :cond_9a
+    if-gt v14, v2, :cond_520
 
     const/4 v2, 0x1
 
-    goto :goto_3b
+    goto :goto_521
 
-    :cond_9a
+    :cond_520
     const/4 v2, 0x0
 
-    :goto_3b
-    if-eqz v2, :cond_9c
+    :goto_521
+    if-eqz v2, :cond_525
 
-    :cond_9b
+    :cond_523
     const/16 v17, 0x1
 
     .line 350
     .end local v23    # "$i$f$isIsoControl":I
-    :cond_9c
-    if-nez v17, :cond_9e
+    :cond_525
+    if-nez v17, :cond_52c
 
     .line 351
-    :cond_9d
+    :cond_527
     const v2, 0xfffd
 
-    if-ne v14, v2, :cond_9f
+    if-ne v14, v2, :cond_52e
 
     .line 353
-    :cond_9e
+    :cond_52c
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_9f
+    :cond_52e
     const/high16 v2, 0x10000
 
-    if-ge v14, v2, :cond_a0
+    if-ge v14, v2, :cond_534
 
     const/16 v16, 0x1
 
-    :cond_a0
+    :cond_534
     add-int v1, v1, v16
 
     .line 357
@@ -2610,12 +2610,12 @@
 
     const/16 v16, 0x1
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 502
     .end local v21    # "j":I
     .local v2, "j":I
-    :cond_a1
+    :cond_53f
     add-int/lit8 v12, v8, 0x2
 
     aget-byte v12, v3, v12
@@ -2644,19 +2644,19 @@
     .end local v28    # "$i$f$and":I
     const/16 v15, 0x80
 
-    if-ne v14, v15, :cond_a2
+    if-ne v14, v15, :cond_550
 
     const/4 v13, 0x1
 
-    goto :goto_3c
+    goto :goto_551
 
-    :cond_a2
+    :cond_550
     const/4 v13, 0x0
 
     .line 503
     .end local v13    # "$i$f$isUtf8Continuation":I
-    :goto_3c
-    if-nez v13, :cond_ad
+    :goto_551
+    if-nez v13, :cond_59f
 
     .line 505
     const v13, 0xfffd
@@ -2677,26 +2677,26 @@
 
     .end local v2    # "j":I
     .local v23, "j":I
-    if-ne v2, v0, :cond_a3
+    if-ne v2, v0, :cond_55f
 
     .line 347
     return v1
 
     .line 350
-    :cond_a3
+    :cond_55f
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_a9
+    if-eq v15, v2, :cond_588
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_a9
+    if-eq v15, v2, :cond_588
 
     const/4 v2, 0x0
 
     .line 506
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_a4
+    if-ltz v15, :cond_572
 
     move/from16 v25, v2
 
@@ -2704,75 +2704,75 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_a5
+    if-gt v15, v2, :cond_574
 
     const/4 v2, 0x1
 
-    goto :goto_3d
+    goto :goto_575
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_a4
+    :cond_572
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_a5
+    :cond_574
     const/4 v2, 0x0
 
-    :goto_3d
-    if-nez v2, :cond_a7
+    :goto_575
+    if-nez v2, :cond_584
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_a6
+    if-gt v2, v15, :cond_581
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_a6
+    if-gt v15, v2, :cond_581
 
     const/4 v2, 0x1
 
-    goto :goto_3e
+    goto :goto_582
 
-    :cond_a6
+    :cond_581
     const/4 v2, 0x0
 
-    :goto_3e
-    if-eqz v2, :cond_a8
+    :goto_582
+    if-eqz v2, :cond_586
 
-    :cond_a7
+    :cond_584
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_a8
-    if-nez v17, :cond_aa
+    :cond_586
+    if-nez v17, :cond_58d
 
     .line 351
-    :cond_a9
+    :cond_588
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_ab
+    if-ne v15, v2, :cond_58f
 
     .line 353
-    :cond_aa
+    :cond_58d
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_ab
+    :cond_58f
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_ac
+    if-ge v15, v2, :cond_594
 
-    goto :goto_3f
+    goto :goto_596
 
-    :cond_ac
+    :cond_594
     const/16 v18, 0x2
 
-    :goto_3f
+    :goto_596
     add-int v1, v1, v18
 
     .line 357
@@ -2787,12 +2787,12 @@
     .line 507
     move/from16 v2, v23
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 509
     .end local v23    # "j":I
     .local v2, "j":I
-    :cond_ad
+    :cond_59f
     add-int/lit8 v13, v8, 0x3
 
     aget-byte v13, v3, v13
@@ -2825,19 +2825,19 @@
 
     .end local v3    # "$this$process4Utf8Bytes$iv$iv":[B
     .local v28, "$this$process4Utf8Bytes$iv$iv":[B
-    if-ne v15, v3, :cond_ae
+    if-ne v15, v3, :cond_5b4
 
     const/4 v3, 0x1
 
-    goto :goto_40
+    goto :goto_5b5
 
-    :cond_ae
+    :cond_5b4
     const/4 v3, 0x0
 
     .line 510
     .end local v14    # "$i$f$isUtf8Continuation":I
-    :goto_40
-    if-nez v3, :cond_b9
+    :goto_5b5
+    if-nez v3, :cond_604
 
     .line 512
     const v3, 0xfffd
@@ -2858,26 +2858,26 @@
 
     .end local v2    # "j":I
     .restart local v23    # "j":I
-    if-ne v2, v0, :cond_af
+    if-ne v2, v0, :cond_5c3
 
     .line 347
     return v1
 
     .line 350
-    :cond_af
+    :cond_5c3
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_b5
+    if-eq v15, v2, :cond_5ec
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_b5
+    if-eq v15, v2, :cond_5ec
 
     const/4 v2, 0x0
 
     .line 513
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_b0
+    if-ltz v15, :cond_5d6
 
     move/from16 v25, v2
 
@@ -2885,72 +2885,72 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_b1
+    if-gt v15, v2, :cond_5d8
 
     const/4 v2, 0x1
 
-    goto :goto_41
+    goto :goto_5d9
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_b0
+    :cond_5d6
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_b1
+    :cond_5d8
     const/4 v2, 0x0
 
-    :goto_41
-    if-nez v2, :cond_b3
+    :goto_5d9
+    if-nez v2, :cond_5e8
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_b2
+    if-gt v2, v15, :cond_5e5
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_b2
+    if-gt v15, v2, :cond_5e5
 
     const/4 v2, 0x1
 
-    goto :goto_42
+    goto :goto_5e6
 
-    :cond_b2
+    :cond_5e5
     const/4 v2, 0x0
 
-    :goto_42
-    if-eqz v2, :cond_b4
+    :goto_5e6
+    if-eqz v2, :cond_5ea
 
-    :cond_b3
+    :cond_5e8
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_b4
-    if-nez v17, :cond_b6
+    :cond_5ea
+    if-nez v17, :cond_5f1
 
     .line 351
-    :cond_b5
+    :cond_5ec
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_b7
+    if-ne v15, v2, :cond_5f3
 
     .line 353
-    :cond_b6
+    :cond_5f1
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_b7
+    :cond_5f3
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_b8
+    if-ge v15, v2, :cond_5f9
 
     const/16 v16, 0x1
 
-    :cond_b8
+    :cond_5f9
     add-int v1, v1, v16
 
     .line 357
@@ -2967,12 +2967,12 @@
 
     const/16 v16, 0x3
 
-    goto/16 :goto_4f
+    goto/16 :goto_748
 
     .line 519
     .end local v23    # "j":I
     .local v2, "j":I
-    :cond_b9
+    :cond_604
     nop
 
     .line 520
@@ -3011,7 +3011,7 @@
     .line 527
     const v14, 0x10ffff
 
-    if-le v3, v14, :cond_c4
+    if-le v3, v14, :cond_668
 
     .line 528
     const v14, 0xfffd
@@ -3032,13 +3032,13 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_ba
+    if-ne v2, v0, :cond_627
 
     .line 347
     return v1
 
     .line 350
-    :cond_ba
+    :cond_627
     move/from16 v2, v21
 
     move/from16 v21, v4
@@ -3048,17 +3048,17 @@
     .end local v4    # "$i$f$process4Utf8Bytes":I
     .local v2, "c":I
     .local v21, "$i$f$process4Utf8Bytes":I
-    if-eq v2, v4, :cond_c0
+    if-eq v2, v4, :cond_654
 
     const/16 v4, 0xd
 
-    if-eq v2, v4, :cond_c0
+    if-eq v2, v4, :cond_654
 
     const/4 v4, 0x0
 
     .line 529
     .local v4, "$i$f$isIsoControl":I
-    if-ltz v2, :cond_bb
+    if-ltz v2, :cond_63e
 
     move/from16 v25, v4
 
@@ -3066,72 +3066,72 @@
 
     .end local v4    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v2, v4, :cond_bc
+    if-gt v2, v4, :cond_640
 
     const/4 v4, 0x1
 
-    goto :goto_43
+    goto :goto_641
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v4    # "$i$f$isIsoControl":I
-    :cond_bb
+    :cond_63e
     move/from16 v25, v4
 
     .end local v4    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_bc
+    :cond_640
     const/4 v4, 0x0
 
-    :goto_43
-    if-nez v4, :cond_be
+    :goto_641
+    if-nez v4, :cond_650
 
     const/16 v4, 0x7f
 
-    if-gt v4, v2, :cond_bd
+    if-gt v4, v2, :cond_64d
 
     const/16 v4, 0x9f
 
-    if-gt v2, v4, :cond_bd
+    if-gt v2, v4, :cond_64d
 
     const/4 v4, 0x1
 
-    goto :goto_44
+    goto :goto_64e
 
-    :cond_bd
+    :cond_64d
     const/4 v4, 0x0
 
-    :goto_44
-    if-eqz v4, :cond_bf
+    :goto_64e
+    if-eqz v4, :cond_652
 
-    :cond_be
+    :cond_650
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_bf
-    if-nez v17, :cond_c1
+    :cond_652
+    if-nez v17, :cond_659
 
     .line 351
-    :cond_c0
+    :cond_654
     const v4, 0xfffd
 
-    if-ne v2, v4, :cond_c2
+    if-ne v2, v4, :cond_65b
 
     .line 353
-    :cond_c1
+    :cond_659
     const/4 v4, -0x1
 
     return v4
 
     .line 356
-    :cond_c2
+    :cond_65b
     const/high16 v4, 0x10000
 
-    if-ge v2, v4, :cond_c3
+    if-ge v2, v4, :cond_661
 
     const/16 v16, 0x1
 
-    :cond_c3
+    :cond_661
     add-int v1, v1, v16
 
     .line 357
@@ -3141,38 +3141,38 @@
     .end local v14    # "it$iv":I
     .end local v15    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3$iv":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    :goto_45
+    :goto_664
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto/16 :goto_4e
+    goto/16 :goto_744
 
     .line 530
     .end local v21    # "$i$f$process4Utf8Bytes":I
     .end local v26    # "j":I
     .local v2, "j":I
     .local v4, "$i$f$process4Utf8Bytes":I
-    :cond_c4
+    :cond_668
     move/from16 v21, v4
 
     .end local v4    # "$i$f$process4Utf8Bytes":I
     .restart local v21    # "$i$f$process4Utf8Bytes":I
     const v4, 0xd800
 
-    if-gt v4, v3, :cond_c5
+    if-gt v4, v3, :cond_676
 
     const v4, 0xdfff
 
-    if-gt v3, v4, :cond_c5
+    if-gt v3, v4, :cond_676
 
     const/4 v4, 0x1
 
-    goto :goto_46
+    goto :goto_677
 
-    :cond_c5
+    :cond_676
     const/4 v4, 0x0
 
-    :goto_46
-    if-eqz v4, :cond_d0
+    :goto_677
+    if-eqz v4, :cond_6bf
 
     .line 531
     const v4, 0xfffd
@@ -3193,26 +3193,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_c6
+    if-ne v2, v0, :cond_685
 
     .line 347
     return v1
 
     .line 350
-    :cond_c6
+    :cond_685
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_cc
+    if-eq v15, v2, :cond_6ae
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_cc
+    if-eq v15, v2, :cond_6ae
 
     const/4 v2, 0x0
 
     .line 532
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_c7
+    if-ltz v15, :cond_698
 
     move/from16 v25, v2
 
@@ -3220,73 +3220,73 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_c8
+    if-gt v15, v2, :cond_69a
 
     const/4 v2, 0x1
 
-    goto :goto_47
+    goto :goto_69b
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_c7
+    :cond_698
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_c8
+    :cond_69a
     const/4 v2, 0x0
 
-    :goto_47
-    if-nez v2, :cond_ca
+    :goto_69b
+    if-nez v2, :cond_6aa
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_c9
+    if-gt v2, v15, :cond_6a7
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_c9
+    if-gt v15, v2, :cond_6a7
 
     const/4 v2, 0x1
 
-    goto :goto_48
+    goto :goto_6a8
 
-    :cond_c9
+    :cond_6a7
     const/4 v2, 0x0
 
-    :goto_48
-    if-eqz v2, :cond_cb
+    :goto_6a8
+    if-eqz v2, :cond_6ac
 
-    :cond_ca
+    :cond_6aa
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_cb
-    if-nez v17, :cond_cd
+    :cond_6ac
+    if-nez v17, :cond_6b3
 
     .line 351
-    :cond_cc
+    :cond_6ae
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_ce
+    if-ne v15, v2, :cond_6b5
 
     .line 353
-    :cond_cd
+    :cond_6b3
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_ce
+    :cond_6b5
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_cf
+    if-ge v15, v2, :cond_6bb
 
-    :goto_49
+    :goto_6b9
     const/16 v16, 0x1
 
-    :cond_cf
+    :cond_6bb
     add-int v1, v1, v16
 
     .line 357
@@ -3296,15 +3296,15 @@
     .end local v14    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3$iv":I
     .end local v15    # "c":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    goto :goto_45
+    goto :goto_664
 
     .line 533
     .end local v26    # "j":I
     .local v2, "j":I
-    :cond_d0
+    :cond_6bf
     const/high16 v4, 0x10000
 
-    if-ge v3, v4, :cond_da
+    if-ge v3, v4, :cond_704
 
     .line 534
     const v4, 0xfffd
@@ -3325,26 +3325,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_d1
+    if-ne v2, v0, :cond_6cf
 
     .line 347
     return v1
 
     .line 350
-    :cond_d1
+    :cond_6cf
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_d7
+    if-eq v15, v2, :cond_6f8
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_d7
+    if-eq v15, v2, :cond_6f8
 
     const/4 v2, 0x0
 
     .line 535
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_d2
+    if-ltz v15, :cond_6e2
 
     move/from16 v25, v2
 
@@ -3352,70 +3352,70 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_d3
+    if-gt v15, v2, :cond_6e4
 
     const/4 v2, 0x1
 
-    goto :goto_4a
+    goto :goto_6e5
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_d2
+    :cond_6e2
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_d3
+    :cond_6e4
     const/4 v2, 0x0
 
-    :goto_4a
-    if-nez v2, :cond_d5
+    :goto_6e5
+    if-nez v2, :cond_6f4
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_d4
+    if-gt v2, v15, :cond_6f1
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_d4
+    if-gt v15, v2, :cond_6f1
 
     const/4 v2, 0x1
 
-    goto :goto_4b
+    goto :goto_6f2
 
-    :cond_d4
+    :cond_6f1
     const/4 v2, 0x0
 
-    :goto_4b
-    if-eqz v2, :cond_d6
+    :goto_6f2
+    if-eqz v2, :cond_6f6
 
-    :cond_d5
+    :cond_6f4
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_d6
-    if-nez v17, :cond_d8
+    :cond_6f6
+    if-nez v17, :cond_6fd
 
     .line 351
-    :cond_d7
+    :cond_6f8
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_d9
+    if-ne v15, v2, :cond_6ff
 
     .line 353
-    :cond_d8
+    :cond_6fd
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_d9
+    :cond_6ff
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_cf
+    if-ge v15, v2, :cond_6bb
 
-    goto :goto_49
+    goto :goto_6b9
 
     .line 536
     .end local v4    # "it$iv":I
@@ -3424,7 +3424,7 @@
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
     .end local v26    # "j":I
     .local v2, "j":I
-    :cond_da
+    :cond_704
     move v4, v3
 
     .restart local v4    # "it$iv":I
@@ -3443,26 +3443,26 @@
 
     .end local v2    # "j":I
     .restart local v26    # "j":I
-    if-ne v2, v0, :cond_db
+    if-ne v2, v0, :cond_70e
 
     .line 347
     return v1
 
     .line 350
-    :cond_db
+    :cond_70e
     const/16 v2, 0xa
 
-    if-eq v15, v2, :cond_e1
+    if-eq v15, v2, :cond_737
 
     const/16 v2, 0xd
 
-    if-eq v15, v2, :cond_e1
+    if-eq v15, v2, :cond_737
 
     const/4 v2, 0x0
 
     .line 537
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v15, :cond_dc
+    if-ltz v15, :cond_721
 
     move/from16 v25, v2
 
@@ -3470,77 +3470,77 @@
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    if-gt v15, v2, :cond_dd
+    if-gt v15, v2, :cond_723
 
     const/4 v2, 0x1
 
-    goto :goto_4c
+    goto :goto_724
 
     .end local v25    # "$i$f$isIsoControl":I
     .restart local v2    # "$i$f$isIsoControl":I
-    :cond_dc
+    :cond_721
     move/from16 v25, v2
 
     .end local v2    # "$i$f$isIsoControl":I
     .restart local v25    # "$i$f$isIsoControl":I
-    :cond_dd
+    :cond_723
     const/4 v2, 0x0
 
-    :goto_4c
-    if-nez v2, :cond_df
+    :goto_724
+    if-nez v2, :cond_733
 
     const/16 v2, 0x7f
 
-    if-gt v2, v15, :cond_de
+    if-gt v2, v15, :cond_730
 
     const/16 v2, 0x9f
 
-    if-gt v15, v2, :cond_de
+    if-gt v15, v2, :cond_730
 
     const/4 v2, 0x1
 
-    goto :goto_4d
+    goto :goto_731
 
-    :cond_de
+    :cond_730
     const/4 v2, 0x0
 
-    :goto_4d
-    if-eqz v2, :cond_e0
+    :goto_731
+    if-eqz v2, :cond_735
 
-    :cond_df
+    :cond_733
     const/16 v17, 0x1
 
     .line 350
     .end local v25    # "$i$f$isIsoControl":I
-    :cond_e0
-    if-nez v17, :cond_e2
+    :cond_735
+    if-nez v17, :cond_73c
 
     .line 351
-    :cond_e1
+    :cond_737
     const v2, 0xfffd
 
-    if-ne v15, v2, :cond_e3
+    if-ne v15, v2, :cond_73e
 
     .line 353
-    :cond_e2
+    :cond_73c
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_e3
+    :cond_73e
     const/high16 v2, 0x10000
 
-    if-ge v15, v2, :cond_cf
+    if-ge v15, v2, :cond_6bb
 
-    goto/16 :goto_49
+    goto/16 :goto_6b9
 
     .line 538
     .end local v4    # "it$iv":I
     .end local v14    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3$iv":I
     .end local v15    # "c":I
     .end local v23    # "$i$a$-processUtf8CodePoints-_ByteStringKt$codePointIndexToCharIndex$1":I
-    :goto_4e
+    :goto_744
     const/16 v16, 0x4
 
     move/from16 v2, v26
@@ -3555,17 +3555,17 @@
     .end local v26    # "j":I
     .end local v28    # "$this$process4Utf8Bytes$iv$iv":[B
     .local v2, "j":I
-    :goto_4f
+    :goto_748
     add-int v8, v8, v16
 
     move-object/from16 v4, p0
 
     move/from16 v3, v27
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 539
-    :cond_e4
+    :cond_750
     const v3, 0xfffd
 
     .local v3, "c":I
@@ -3577,88 +3577,88 @@
 
     .end local v2    # "j":I
     .local v10, "j":I
-    if-ne v2, v0, :cond_e5
+    if-ne v2, v0, :cond_759
 
     .line 347
     return v1
 
     .line 350
-    :cond_e5
+    :cond_759
     const/16 v2, 0xa
 
-    if-eq v3, v2, :cond_ea
+    if-eq v3, v2, :cond_77e
 
     const/16 v2, 0xd
 
-    if-eq v3, v2, :cond_ea
+    if-eq v3, v2, :cond_77e
 
     const/4 v2, 0x0
 
     .line 540
     .local v2, "$i$f$isIsoControl":I
-    if-ltz v3, :cond_e6
+    if-ltz v3, :cond_76a
 
     const/16 v11, 0x1f
 
-    if-gt v3, v11, :cond_e6
+    if-gt v3, v11, :cond_76a
 
     const/4 v11, 0x1
 
-    goto :goto_50
+    goto :goto_76b
 
-    :cond_e6
+    :cond_76a
     const/4 v11, 0x0
 
-    :goto_50
-    if-nez v11, :cond_e8
+    :goto_76b
+    if-nez v11, :cond_77a
 
     const/16 v11, 0x7f
 
-    if-gt v11, v3, :cond_e7
+    if-gt v11, v3, :cond_777
 
     const/16 v11, 0x9f
 
-    if-gt v3, v11, :cond_e7
+    if-gt v3, v11, :cond_777
 
     const/4 v11, 0x1
 
-    goto :goto_51
+    goto :goto_778
 
-    :cond_e7
+    :cond_777
     const/4 v11, 0x0
 
-    :goto_51
-    if-eqz v11, :cond_e9
+    :goto_778
+    if-eqz v11, :cond_77c
 
-    :cond_e8
+    :cond_77a
     const/16 v17, 0x1
 
     .line 350
     .end local v2    # "$i$f$isIsoControl":I
-    :cond_e9
-    if-nez v17, :cond_eb
+    :cond_77c
+    if-nez v17, :cond_783
 
     .line 351
-    :cond_ea
+    :cond_77e
     const v2, 0xfffd
 
-    if-ne v3, v2, :cond_ec
+    if-ne v3, v2, :cond_785
 
     .line 353
-    :cond_eb
+    :cond_783
     const/4 v2, -0x1
 
     return v2
 
     .line 356
-    :cond_ec
+    :cond_785
     const/high16 v2, 0x10000
 
-    if-ge v3, v2, :cond_ed
+    if-ge v3, v2, :cond_78b
 
     const/16 v16, 0x1
 
-    :cond_ed
+    :cond_78b
     add-int v1, v1, v16
 
     .line 357
@@ -3675,7 +3675,7 @@
 
     move/from16 v3, v27
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 545
     .end local v9    # "b0$iv":B
@@ -3683,7 +3683,7 @@
     .end local v27    # "beginIndex$iv":I
     .local v2, "j":I
     .local v3, "beginIndex$iv":I
-    :cond_ee
+    :cond_797
     nop
 
     .line 358
@@ -3696,7 +3696,7 @@
 .end method
 
 .method public static final commonBase64(Lokio/ByteString;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$commonBase64"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -3723,7 +3723,7 @@
 .end method
 
 .method public static final commonBase64Url(Lokio/ByteString;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonBase64Url"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -3750,7 +3750,7 @@
 .end method
 
 .method public static final commonCompareTo(Lokio/ByteString;Lokio/ByteString;)I
-    .locals 11
+    .registers 13
     .param p0, "$this$commonCompareTo"    # Lokio/ByteString;
     .param p1, "other"    # Lokio/ByteString;
 
@@ -3788,12 +3788,12 @@
 
     .line 255
     .local v4, "size":I
-    :goto_0
+    :goto_18
     const/4 v5, -0x1
 
     const/4 v6, 0x1
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_38
 
     .line 256
     invoke-virtual {p0, v3}, Lokio/ByteString;->getByte(I)B
@@ -3840,51 +3840,51 @@
 
     .line 258
     .local v8, "byteB":I
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_33
 
     .line 259
     add-int/lit8 v3, v3, 0x1
 
     .line 260
-    goto :goto_0
+    goto :goto_18
 
     .line 262
-    :cond_0
-    if-ge v7, v8, :cond_1
+    :cond_33
+    if-ge v7, v8, :cond_36
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_1
+    :cond_36
     const/4 v5, 0x1
 
-    :goto_1
+    :goto_37
     return v5
 
     .line 264
     .end local v7    # "byteA":I
     .end local v8    # "byteB":I
-    :cond_2
-    if-ne v1, v2, :cond_3
+    :cond_38
+    if-ne v1, v2, :cond_3c
 
     const/4 v5, 0x0
 
     return v5
 
     .line 265
-    :cond_3
-    if-ge v1, v2, :cond_4
+    :cond_3c
+    if-ge v1, v2, :cond_3f
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_4
+    :cond_3f
     const/4 v5, 0x1
 
-    :goto_2
+    :goto_40
     return v5
 .end method
 
 .method public static final commonCopyInto(Lokio/ByteString;I[BII)V
-    .locals 3
+    .registers 8
     .param p0, "$this$commonCopyInto"    # Lokio/ByteString;
     .param p1, "offset"    # I
     .param p2, "target"    # [B
@@ -3916,7 +3916,7 @@
 .end method
 
 .method public static final commonDecodeBase64(Ljava/lang/String;)Lokio/ByteString;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonDecodeBase64"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -3933,23 +3933,23 @@
 
     .line 287
     .local v1, "decoded":[B
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     new-instance v2, Lokio/ByteString;
 
     invoke-direct {v2, v1}, Lokio/ByteString;-><init>([B)V
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_13
     return-object v2
 .end method
 
 .method public static final commonDecodeHex(Ljava/lang/String;)Lokio/ByteString;
-    .locals 9
+    .registers 10
     .param p0, "$this$commonDecodeHex"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -3970,17 +3970,17 @@
 
     const/4 v3, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_13
+    if-eqz v1, :cond_48
 
     .line 294
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -3997,9 +3997,9 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_42
 
-    :cond_1
+    :cond_22
     move v5, v2
 
     .local v5, "i":I
@@ -4012,6 +4012,7 @@
 
     move-result v6
 
+    # invokes: Lokio/internal/_ByteStringKt;->decodeHexDigit(C)I
     invoke-static {v6}, Lokio/internal/_ByteStringKt;->access$decodeHexDigit(C)I
 
     move-result v6
@@ -4028,6 +4029,7 @@
 
     move-result v7
 
+    # invokes: Lokio/internal/_ByteStringKt;->decodeHexDigit(C)I
     invoke-static {v7}, Lokio/internal/_ByteStringKt;->access$decodeHexDigit(C)I
 
     move-result v7
@@ -4043,11 +4045,11 @@
     .line 295
     .end local v6    # "d1":I
     .end local v7    # "d2":I
-    if-le v2, v4, :cond_1
+    if-le v2, v4, :cond_22
 
     .line 300
     .end local v5    # "i":I
-    :cond_2
+    :cond_42
     new-instance v2, Lokio/ByteString;
 
     invoke-direct {v2, v1}, Lokio/ByteString;-><init>([B)V
@@ -4056,7 +4058,7 @@
 
     .line 363
     .end local v1    # "result":[B
-    :cond_3
+    :cond_48
     const/4 v1, 0x0
 
     .line 292
@@ -4082,7 +4084,7 @@
 .end method
 
 .method public static final commonEncodeUtf8(Ljava/lang/String;)Lokio/ByteString;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonEncodeUtf8"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -4110,7 +4112,7 @@
 .end method
 
 .method public static final commonEndsWith(Lokio/ByteString;Lokio/ByteString;)Z
-    .locals 4
+    .registers 6
     .param p0, "$this$commonEndsWith"    # Lokio/ByteString;
     .param p1, "suffix"    # Lokio/ByteString;
 
@@ -4150,7 +4152,7 @@
 .end method
 
 .method public static final commonEndsWith(Lokio/ByteString;[B)Z
-    .locals 4
+    .registers 6
     .param p0, "$this$commonEndsWith"    # Lokio/ByteString;
     .param p1, "suffix"    # [B
 
@@ -4186,7 +4188,7 @@
 .end method
 
 .method public static final commonEquals(Lokio/ByteString;Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p0, "$this$commonEquals"    # Lokio/ByteString;
     .param p1, "other"    # Ljava/lang/Object;
 
@@ -4203,17 +4205,17 @@
     .line 234
     const/4 v1, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_b
 
-    goto :goto_0
+    goto :goto_34
 
     .line 235
-    :cond_0
+    :cond_b
     instance-of v2, p1, Lokio/ByteString;
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_33
 
     move-object v2, p1
 
@@ -4229,7 +4231,7 @@
 
     array-length v4, v4
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_31
 
     move-object v2, p1
 
@@ -4249,26 +4251,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_1
+    :cond_31
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_34
 
     .line 236
-    :cond_2
+    :cond_33
     const/4 v1, 0x0
 
     .line 233
-    :goto_0
+    :goto_34
     return v1
 .end method
 
 .method public static final commonGetByte(Lokio/ByteString;I)B
-    .locals 2
+    .registers 4
     .param p0, "$this$commonGetByte"    # Lokio/ByteString;
     .param p1, "pos"    # I
 
@@ -4290,7 +4292,7 @@
 .end method
 
 .method public static final commonGetSize(Lokio/ByteString;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$commonGetSize"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -4311,7 +4313,7 @@
 .end method
 
 .method public static final commonHashCode(Lokio/ByteString;)I
-    .locals 5
+    .registers 6
     .param p0, "$this$commonHashCode"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -4328,12 +4330,12 @@
 
     .line 243
     .local v1, "result":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     return v1
 
     .line 244
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v2
@@ -4361,7 +4363,7 @@
 .end method
 
 .method public static final commonHex(Lokio/ByteString;)Ljava/lang/String;
-    .locals 12
+    .registers 13
     .param p0, "$this$commonHex"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -4396,8 +4398,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_0
+    :goto_16
+    if-ge v5, v4, :cond_3c
 
     aget-byte v6, v3, v5
 
@@ -4461,11 +4463,11 @@
 
     aput-char v8, v1, v7
 
-    goto :goto_0
+    goto :goto_16
 
     .line 68
     .end local v6    # "b":B
-    :cond_0
+    :cond_3c
     invoke-static {v1}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v3
@@ -4474,7 +4476,7 @@
 .end method
 
 .method public static final commonIndexOf(Lokio/ByteString;[BI)I
-    .locals 7
+    .registers 10
     .param p0, "$this$commonIndexOf"    # Lokio/ByteString;
     .param p1, "other"    # [B
     .param p2, "fromIndex"    # I
@@ -4509,9 +4511,9 @@
 
     move-result v3
 
-    if-gt v3, v1, :cond_2
+    if-gt v3, v1, :cond_2a
 
-    :cond_0
+    :cond_19
     move v4, v3
 
     .local v4, "i":I
@@ -4528,25 +4530,25 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     .line 207
     return v4
 
     .line 205
-    :cond_1
-    if-ne v4, v1, :cond_0
+    :cond_28
+    if-ne v4, v1, :cond_19
 
     .line 210
     .end local v4    # "i":I
-    :cond_2
+    :cond_2a
     const/4 v2, -0x1
 
     return v2
 .end method
 
 .method public static final commonInternalArray(Lokio/ByteString;)[B
-    .locals 2
+    .registers 3
     .param p0, "$this$commonInternalArray"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -4565,7 +4567,7 @@
 .end method
 
 .method public static final commonLastIndexOf(Lokio/ByteString;Lokio/ByteString;I)I
-    .locals 2
+    .registers 5
     .param p0, "$this$commonLastIndexOf"    # Lokio/ByteString;
     .param p1, "other"    # Lokio/ByteString;
     .param p2, "fromIndex"    # I
@@ -4594,7 +4596,7 @@
 .end method
 
 .method public static final commonLastIndexOf(Lokio/ByteString;[BI)I
-    .locals 9
+    .registers 12
     .param p0, "$this$commonLastIndexOf"    # Lokio/ByteString;
     .param p1, "other"    # [B
     .param p2, "fromIndex"    # I
@@ -4635,9 +4637,9 @@
 
     const/4 v4, -0x1
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_2e
 
-    :cond_0
+    :cond_1d
     move v5, v3
 
     .local v5, "i":I
@@ -4656,23 +4658,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2c
 
     .line 225
     return v5
 
     .line 223
-    :cond_1
-    if-gez v3, :cond_0
+    :cond_2c
+    if-gez v3, :cond_1d
 
     .line 228
     .end local v5    # "i":I
-    :cond_2
+    :cond_2e
     return v4
 .end method
 
 .method public static final commonOf([B)Lokio/ByteString;
-    .locals 4
+    .registers 5
     .param p0, "data"    # [B
 
     const-string v0, "data"
@@ -4701,7 +4703,7 @@
 .end method
 
 .method public static final commonRangeEquals(Lokio/ByteString;ILokio/ByteString;II)Z
-    .locals 2
+    .registers 7
     .param p0, "$this$commonRangeEquals"    # Lokio/ByteString;
     .param p1, "offset"    # I
     .param p2, "other"    # Lokio/ByteString;
@@ -4732,7 +4734,7 @@
 .end method
 
 .method public static final commonRangeEquals(Lokio/ByteString;I[BII)Z
-    .locals 2
+    .registers 7
     .param p0, "$this$commonRangeEquals"    # Lokio/ByteString;
     .param p1, "offset"    # I
     .param p2, "other"    # [B
@@ -4751,7 +4753,7 @@
 
     .line 170
     .local v0, "$i$f$commonRangeEquals":I
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_27
 
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
@@ -4761,16 +4763,16 @@
 
     sub-int/2addr v1, p4
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v1, :cond_27
 
     .line 171
-    if-ltz p3, :cond_0
+    if-ltz p3, :cond_27
 
     array-length v1, p2
 
     sub-int/2addr v1, p4
 
-    if-gt p3, v1, :cond_0
+    if-gt p3, v1, :cond_27
 
     .line 172
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
@@ -4781,22 +4783,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v1, 0x0
 
     .line 169
-    :goto_0
+    :goto_28
     return v1
 .end method
 
 .method public static final commonStartsWith(Lokio/ByteString;Lokio/ByteString;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$commonStartsWith"    # Lokio/ByteString;
     .param p1, "prefix"    # Lokio/ByteString;
 
@@ -4826,7 +4828,7 @@
 .end method
 
 .method public static final commonStartsWith(Lokio/ByteString;[B)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$commonStartsWith"    # Lokio/ByteString;
     .param p1, "prefix"    # [B
 
@@ -4854,7 +4856,7 @@
 .end method
 
 .method public static final commonSubstring(Lokio/ByteString;II)Lokio/ByteString;
-    .locals 5
+    .registers 8
     .param p0, "$this$commonSubstring"    # Lokio/ByteString;
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -4877,17 +4879,17 @@
 
     const/4 v3, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_10
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_6
+    :goto_11
+    if-eqz v4, :cond_7a
 
     .line 131
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
@@ -4896,35 +4898,35 @@
 
     array-length v4, v4
 
-    if-gt v1, v4, :cond_1
+    if-gt v1, v4, :cond_1c
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v4, 0x0
 
-    :goto_1
-    if-eqz v4, :cond_5
+    :goto_1d
+    if-eqz v4, :cond_4f
 
     .line 133
     sub-int v4, v1, p1
 
     .line 134
     .local v4, "subLen":I
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_24
 
-    goto :goto_2
+    goto :goto_25
 
-    :cond_2
+    :cond_24
     const/4 v2, 0x0
 
-    :goto_2
-    if-eqz v2, :cond_4
+    :goto_25
+    if-eqz v2, :cond_3f
 
     .line 136
-    if-nez p1, :cond_3
+    if-nez p1, :cond_31
 
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
@@ -4932,13 +4934,13 @@
 
     array-length v2, v2
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_31
 
     .line 137
     return-object p0
 
     .line 139
-    :cond_3
+    :cond_31
     new-instance v2, Lokio/ByteString;
 
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
@@ -4954,7 +4956,7 @@
     return-object v2
 
     .line 363
-    :cond_4
+    :cond_3f
     const/4 v2, 0x0
 
     .line 134
@@ -4978,7 +4980,7 @@
 
     .line 363
     .end local v4    # "subLen":I
-    :cond_5
+    :cond_4f
     const/4 v2, 0x0
 
     .line 131
@@ -5027,7 +5029,7 @@
     throw v3
 
     .line 363
-    :cond_6
+    :cond_7a
     const/4 v2, 0x0
 
     .line 130
@@ -5051,7 +5053,7 @@
 .end method
 
 .method public static final commonToAsciiLowercase(Lokio/ByteString;)Lokio/ByteString;
-    .locals 8
+    .registers 9
     .param p0, "$this$commonToAsciiLowercase"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -5066,14 +5068,14 @@
 
     .line 75
     .local v1, "i":I
-    :goto_0
+    :goto_7
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v2
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_5
+    if-ge v1, v2, :cond_52
 
     .line 76
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
@@ -5088,18 +5090,18 @@
 
     int-to-byte v3, v3
 
-    if-lt v2, v3, :cond_4
+    if-lt v2, v3, :cond_4f
 
     const/16 v4, 0x5a
 
     int-to-byte v4, v4
 
-    if-le v2, v4, :cond_0
+    if-le v2, v4, :cond_1f
 
-    goto :goto_3
+    goto :goto_4f
 
     .line 83
-    :cond_0
+    :cond_1f
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v5
@@ -5127,23 +5129,23 @@
     aput-byte v7, v5, v1
 
     .line 85
-    :goto_1
+    :goto_34
     array-length v1, v5
 
-    if-ge v6, v1, :cond_3
+    if-ge v6, v1, :cond_49
 
     .line 86
     aget-byte v2, v5, v6
 
     .line 87
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_46
 
-    if-le v2, v4, :cond_1
+    if-le v2, v4, :cond_3e
 
-    goto :goto_2
+    goto :goto_46
 
     .line 91
-    :cond_1
+    :cond_3e
     add-int/lit8 v1, v2, 0x20
 
     int-to-byte v1, v1
@@ -5153,18 +5155,18 @@
     .line 92
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 88
-    :cond_2
-    :goto_2
+    :cond_46
+    :goto_46
     add-int/lit8 v6, v6, 0x1
 
     .line 89
-    goto :goto_1
+    goto :goto_34
 
     .line 94
-    :cond_3
+    :cond_49
     new-instance v1, Lokio/ByteString;
 
     invoke-direct {v1, v5}, Lokio/ByteString;-><init>([B)V
@@ -5175,21 +5177,21 @@
     .end local v5    # "lowercase":[B
     .end local v6    # "i":I
     .restart local v1    # "i":I
-    :cond_4
-    :goto_3
+    :cond_4f
+    :goto_4f
     add-int/lit8 v1, v1, 0x1
 
     .line 79
-    goto :goto_0
+    goto :goto_7
 
     .line 96
     .end local v2    # "c":B
-    :cond_5
+    :cond_52
     return-object p0
 .end method
 
 .method public static final commonToAsciiUppercase(Lokio/ByteString;)Lokio/ByteString;
-    .locals 8
+    .registers 9
     .param p0, "$this$commonToAsciiUppercase"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -5204,14 +5206,14 @@
 
     .line 103
     .local v1, "i":I
-    :goto_0
+    :goto_7
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v2
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_5
+    if-ge v1, v2, :cond_52
 
     .line 104
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
@@ -5226,18 +5228,18 @@
 
     int-to-byte v3, v3
 
-    if-lt v2, v3, :cond_4
+    if-lt v2, v3, :cond_4f
 
     const/16 v4, 0x7a
 
     int-to-byte v4, v4
 
-    if-le v2, v4, :cond_0
+    if-le v2, v4, :cond_1f
 
-    goto :goto_3
+    goto :goto_4f
 
     .line 111
-    :cond_0
+    :cond_1f
     invoke-virtual {p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v5
@@ -5265,23 +5267,23 @@
     aput-byte v7, v5, v1
 
     .line 113
-    :goto_1
+    :goto_34
     array-length v1, v5
 
-    if-ge v6, v1, :cond_3
+    if-ge v6, v1, :cond_49
 
     .line 114
     aget-byte v2, v5, v6
 
     .line 115
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_46
 
-    if-le v2, v4, :cond_1
+    if-le v2, v4, :cond_3e
 
-    goto :goto_2
+    goto :goto_46
 
     .line 119
-    :cond_1
+    :cond_3e
     add-int/lit8 v1, v2, -0x20
 
     int-to-byte v1, v1
@@ -5291,18 +5293,18 @@
     .line 120
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 116
-    :cond_2
-    :goto_2
+    :cond_46
+    :goto_46
     add-int/lit8 v6, v6, 0x1
 
     .line 117
-    goto :goto_1
+    goto :goto_34
 
     .line 122
-    :cond_3
+    :cond_49
     new-instance v1, Lokio/ByteString;
 
     invoke-direct {v1, v5}, Lokio/ByteString;-><init>([B)V
@@ -5313,21 +5315,21 @@
     .end local v5    # "lowercase":[B
     .end local v6    # "i":I
     .restart local v1    # "i":I
-    :cond_4
-    :goto_3
+    :cond_4f
+    :goto_4f
     add-int/lit8 v1, v1, 0x1
 
     .line 107
-    goto :goto_0
+    goto :goto_7
 
     .line 124
     .end local v2    # "c":B
-    :cond_5
+    :cond_52
     return-object p0
 .end method
 
 .method public static final commonToByteArray(Lokio/ByteString;)[B
-    .locals 3
+    .registers 4
     .param p0, "$this$commonToByteArray"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -5356,7 +5358,7 @@
 .end method
 
 .method public static final commonToByteString([BII)Lokio/ByteString;
-    .locals 8
+    .registers 11
     .param p0, "$this$commonToByteString"    # [B
     .param p1, "offset"    # I
     .param p2, "byteCount"    # I
@@ -5394,7 +5396,7 @@
 .end method
 
 .method public static final commonToString(Lokio/ByteString;)Ljava/lang/String;
-    .locals 22
+    .registers 23
     .param p0, "$this$commonToString"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -5417,30 +5419,31 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_14
+    if-eqz v2, :cond_19
 
     const-string v2, "[size=0]"
 
     return-object v2
 
     .line 321
-    :cond_1
+    :cond_19
     invoke-virtual/range {p0 .. p0}, Lokio/ByteString;->getData$okio()[B
 
     move-result-object v2
 
     const/16 v5, 0x40
 
+    # invokes: Lokio/internal/_ByteStringKt;->codePointIndexToCharIndex([BI)I
     invoke-static {v2, v5}, Lokio/internal/_ByteStringKt;->access$codePointIndexToCharIndex([BI)I
 
     move-result v2
@@ -5455,7 +5458,7 @@
 
     const-string v9, "[size="
 
-    if-ne v2, v6, :cond_8
+    if-ne v2, v6, :cond_e8
 
     .line 323
     invoke-virtual/range {p0 .. p0}, Lokio/ByteString;->getData$okio()[B
@@ -5464,7 +5467,7 @@
 
     array-length v6, v6
 
-    if-gt v6, v5, :cond_2
+    if-gt v6, v5, :cond_4f
 
     .line 324
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5493,10 +5496,10 @@
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_ac
 
     .line 326
-    :cond_2
+    :cond_4f
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -5549,32 +5552,32 @@
 
     array-length v12, v12
 
-    if-gt v11, v12, :cond_3
+    if-gt v11, v12, :cond_7b
 
     const/4 v12, 0x1
 
-    goto :goto_1
+    goto :goto_7c
 
-    :cond_3
+    :cond_7b
     const/4 v12, 0x0
 
-    :goto_1
-    if-eqz v12, :cond_7
+    :goto_7c
+    if-eqz v12, :cond_bd
 
     .line 371
     sub-int v12, v11, v6
 
     .line 372
     .local v12, "subLen$iv":I
-    if-ltz v12, :cond_4
+    if-ltz v12, :cond_83
 
-    goto :goto_2
+    goto :goto_84
 
-    :cond_4
+    :cond_83
     const/4 v3, 0x0
 
-    :goto_2
-    if-eqz v3, :cond_6
+    :goto_84
+    if-eqz v3, :cond_ad
 
     .line 374
     invoke-virtual {v9}, Lokio/ByteString;->getData$okio()[B
@@ -5583,13 +5586,13 @@
 
     array-length v3, v3
 
-    if-ne v11, v3, :cond_5
+    if-ne v11, v3, :cond_8e
 
     .line 375
-    goto :goto_3
+    goto :goto_9c
 
     .line 377
-    :cond_5
+    :cond_8e
     new-instance v3, Lokio/ByteString;
 
     invoke-virtual {v9}, Lokio/ByteString;->getData$okio()[B
@@ -5611,7 +5614,7 @@
     .end local v10    # "$i$f$commonSubstring":I
     .end local v11    # "endIndex$iv":I
     .end local v12    # "subLen$iv":I
-    :goto_3
+    :goto_9c
     invoke-virtual {v9}, Lokio/ByteString;->hex()Ljava/lang/String;
 
     move-result-object v3
@@ -5629,7 +5632,7 @@
     move-result-object v3
 
     .line 323
-    :goto_4
+    :goto_ac
     return-object v3
 
     .line 368
@@ -5639,7 +5642,7 @@
     .restart local v10    # "$i$f$commonSubstring":I
     .restart local v11    # "endIndex$iv":I
     .restart local v12    # "subLen$iv":I
-    :cond_6
+    :cond_ad
     const/4 v3, 0x0
 
     .line 372
@@ -5663,7 +5666,7 @@
 
     .line 368
     .end local v12    # "subLen$iv":I
-    :cond_7
+    :cond_bd
     const/4 v3, 0x0
 
     .line 369
@@ -5717,14 +5720,14 @@
     .end local v9    # "$this$commonSubstring$iv":Lokio/ByteString;
     .end local v10    # "$i$f$commonSubstring":I
     .end local v11    # "endIndex$iv":I
-    :cond_8
+    :cond_e8
     invoke-virtual/range {p0 .. p0}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v3
 
     .line 331
     .local v3, "text":Ljava/lang/String;
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_15c
 
     invoke-virtual {v3, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -5782,7 +5785,7 @@
 
     move-result v5
 
-    if-ge v2, v5, :cond_9
+    if-ge v2, v5, :cond_144
 
     .line 336
     new-instance v5, Ljava/lang/StringBuilder;
@@ -5821,10 +5824,10 @@
 
     move-result-object v5
 
-    goto :goto_5
+    goto :goto_15b
 
     .line 338
-    :cond_9
+    :cond_144
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -5848,12 +5851,12 @@
     move-result-object v5
 
     .line 335
-    :goto_5
+    :goto_15b
     return-object v5
 
     .line 331
     .end local v4    # "safeText":Ljava/lang/String;
-    :cond_a
+    :cond_15c
     new-instance v4, Ljava/lang/NullPointerException;
 
     const-string v5, "null cannot be cast to non-null type java.lang.String"
@@ -5864,7 +5867,7 @@
 .end method
 
 .method public static final commonUtf8(Lokio/ByteString;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonUtf8"    # Lokio/ByteString;
 
     const-string v0, "<this>"
@@ -5881,7 +5884,7 @@
 
     .line 42
     .local v1, "result":Ljava/lang/String;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 44
     invoke-virtual {p0}, Lokio/ByteString;->internalArray$okio()[B
@@ -5896,12 +5899,12 @@
     invoke-virtual {p0, v1}, Lokio/ByteString;->setUtf8$okio(Ljava/lang/String;)V
 
     .line 47
-    :cond_0
+    :cond_17
     return-object v1
 .end method
 
 .method public static final commonWrite(Lokio/ByteString;Lokio/Buffer;II)V
-    .locals 1
+    .registers 5
     .param p0, "$this$commonWrite"    # Lokio/ByteString;
     .param p1, "buffer"    # Lokio/Buffer;
     .param p2, "offset"    # I
@@ -5927,7 +5930,7 @@
 .end method
 
 .method private static final decodeHexDigit(C)I
-    .locals 3
+    .registers 4
     .param p0, "c"    # C
 
     .line 309
@@ -5940,80 +5943,80 @@
 
     const/4 v2, 0x0
 
-    if-gt v0, p0, :cond_0
+    if-gt v0, p0, :cond_d
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_13
 
     add-int/lit8 v0, p0, -0x30
 
-    goto :goto_3
+    goto :goto_35
 
     .line 311
-    :cond_1
+    :cond_13
     const/16 v0, 0x61
 
-    if-gt v0, p0, :cond_2
+    if-gt v0, p0, :cond_1d
 
     const/16 v0, 0x66
 
-    if-gt p0, v0, :cond_2
+    if-gt p0, v0, :cond_1d
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_1e
+    if-eqz v0, :cond_25
 
     add-int/lit8 v0, p0, -0x61
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_3
+    goto :goto_35
 
     .line 312
-    :cond_3
+    :cond_25
     const/16 v0, 0x41
 
-    if-gt v0, p0, :cond_4
+    if-gt v0, p0, :cond_2e
 
     const/16 v0, 0x46
 
-    if-gt p0, v0, :cond_4
+    if-gt p0, v0, :cond_2e
 
-    goto :goto_2
+    goto :goto_2f
 
-    :cond_4
+    :cond_2e
     const/4 v1, 0x0
 
-    :goto_2
-    if-eqz v1, :cond_5
+    :goto_2f
+    if-eqz v1, :cond_36
 
     add-int/lit8 v0, p0, -0x41
 
     add-int/lit8 v0, v0, 0xa
 
     .line 309
-    :goto_3
+    :goto_35
     return v0
 
     .line 313
-    :cond_5
+    :cond_36
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unexpected hex digit: "
@@ -6032,7 +6035,7 @@
 .end method
 
 .method public static final getHEX_DIGIT_CHARS()[C
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lokio/internal/_ByteStringKt;->HEX_DIGIT_CHARS:[C
@@ -6041,7 +6044,7 @@
 .end method
 
 .method public static synthetic getHEX_DIGIT_CHARS$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

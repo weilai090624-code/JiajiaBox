@@ -85,7 +85,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/ReversedList;I)V
-    .locals 2
+    .registers 5
     .param p1, "$receiver"    # Lkotlin/collections/ReversedList;
     .param p2, "$index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -102,6 +102,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
+    # getter for: Lkotlin/collections/ReversedList;->delegate:Ljava/util/List;
     invoke-static {p1}, Lkotlin/collections/ReversedList;->access$getDelegate$p(Lkotlin/collections/ReversedList;)Ljava/util/List;
 
     move-result-object v0
@@ -110,6 +111,7 @@
 
     check-cast v1, Ljava/util/List;
 
+    # invokes: Lkotlin/collections/CollectionsKt__ReversedViewsKt;->reversePositionIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
     invoke-static {v1, p2}, Lkotlin/collections/CollectionsKt__ReversedViewsKt;->access$reversePositionIndex(Ljava/util/List;I)I
 
     move-result v1
@@ -127,7 +129,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +152,7 @@
 .end method
 
 .method public final getDelegateIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -166,7 +168,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lkotlin/collections/ReversedList$listIterator$1;->delegateIterator:Ljava/util/ListIterator;
@@ -179,7 +181,7 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lkotlin/collections/ReversedList$listIterator$1;->delegateIterator:Ljava/util/ListIterator;
@@ -192,7 +194,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -210,7 +212,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 2
+    .registers 3
 
     .line 49
     iget-object v0, p0, Lkotlin/collections/ReversedList$listIterator$1;->this$0:Lkotlin/collections/ReversedList;
@@ -223,6 +225,7 @@
 
     move-result v1
 
+    # invokes: Lkotlin/collections/CollectionsKt__ReversedViewsKt;->reverseIteratorIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
     invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt__ReversedViewsKt;->access$reverseIteratorIndex(Ljava/util/List;I)I
 
     move-result v0
@@ -231,7 +234,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -249,7 +252,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 2
+    .registers 3
 
     .line 51
     iget-object v0, p0, Lkotlin/collections/ReversedList$listIterator$1;->this$0:Lkotlin/collections/ReversedList;
@@ -262,6 +265,7 @@
 
     move-result v1
 
+    # invokes: Lkotlin/collections/CollectionsKt__ReversedViewsKt;->reverseIteratorIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
     invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt__ReversedViewsKt;->access$reverseIteratorIndex(Ljava/util/List;I)I
 
     move-result v0
@@ -270,7 +274,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lkotlin/collections/ReversedList$listIterator$1;->delegateIterator:Ljava/util/ListIterator;
@@ -281,7 +285,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

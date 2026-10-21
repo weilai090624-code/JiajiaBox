@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/internal/LimitedDispatcher;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lkotlinx/coroutines/internal/LimitedDispatcher;
     .param p2, "currentTask"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,31 +72,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 112
     const/4 v0, 0x0
 
     .line 113
     .local v0, "fairnessCounter":I
-    :cond_0
+    :cond_1
     nop
 
     .line 114
     nop
 
     .line 115
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;->currentTask:Ljava/lang/Runnable;
 
     invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_3 .. :try_end_8} :catchall_9
 
-    goto :goto_0
+    goto :goto_11
 
     .line 116
-    :catchall_0
+    :catchall_9
     move-exception v1
 
     .line 117
@@ -109,18 +109,19 @@
 
     .line 119
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     iget-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;->this$0:Lkotlinx/coroutines/internal/LimitedDispatcher;
 
+    # invokes: Lkotlinx/coroutines/internal/LimitedDispatcher;->obtainTaskOrDeallocateWorker()Ljava/lang/Runnable;
     invoke-static {v1}, Lkotlinx/coroutines/internal/LimitedDispatcher;->access$obtainTaskOrDeallocateWorker(Lkotlinx/coroutines/internal/LimitedDispatcher;)Ljava/lang/Runnable;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
     return-void
 
-    :cond_1
+    :cond_1a
     iput-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;->currentTask:Ljava/lang/Runnable;
 
     .line 121
@@ -128,10 +129,11 @@
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1
 
     iget-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;->this$0:Lkotlinx/coroutines/internal/LimitedDispatcher;
 
+    # getter for: Lkotlinx/coroutines/internal/LimitedDispatcher;->dispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
     invoke-static {v1}, Lkotlinx/coroutines/internal/LimitedDispatcher;->access$getDispatcher$p(Lkotlinx/coroutines/internal/LimitedDispatcher;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v1
@@ -144,11 +146,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 124
     iget-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;->this$0:Lkotlinx/coroutines/internal/LimitedDispatcher;
 
+    # getter for: Lkotlinx/coroutines/internal/LimitedDispatcher;->dispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
     invoke-static {v1}, Lkotlinx/coroutines/internal/LimitedDispatcher;->access$getDispatcher$p(Lkotlinx/coroutines/internal/LimitedDispatcher;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v1

@@ -50,6 +50,7 @@ public final class AppTrafficRankingCard extends LinearLayout {
     private long lastModified=-1,lastLength=-1;
     private int epoch;
     private boolean hasData;
+    private Runnable publication;
     private final Runnable tick=()->{if(!active())return;request();main.postDelayed(this.tick,REFRESH_MS);};
 
     public AppTrafficRankingCard(Context context){
@@ -68,14 +69,16 @@ public final class AppTrafficRankingCard extends LinearLayout {
     private boolean active(){return isAttachedToWindow()&&isShown()&&getWindowVisibility()==VISIBLE;}
     private void reconcile(){
         if(main==null||tick==null)return;main.removeCallbacks(tick);
-        if(active()){applyTheme();request();main.postDelayed(tick,REFRESH_MS);}else epoch++;
+        if(active()){applyTheme();request();main.postDelayed(tick,REFRESH_MS);}else{epoch++;cancelPublication();}
     }
+    private void cancelPublication(){DrawerWorkGate.cancel(this);if(publication!=null){publication=null;loading.set(false);}}
     @Override protected void onAttachedToWindow(){super.onAttachedToWindow();reconcile();}
-    @Override protected void onDetachedFromWindow(){main.removeCallbacks(tick);epoch++;super.onDetachedFromWindow();}
+    @Override protected void onDetachedFromWindow(){main.removeCallbacks(tick);epoch++;cancelPublication();super.onDetachedFromWindow();}
     @Override protected void onVisibilityChanged(View view,int visibility){super.onVisibilityChanged(view,visibility);reconcile();}
     @Override protected void onWindowVisibilityChanged(int visibility){super.onWindowVisibilityChanged(visibility);reconcile();}
     private void request(){
-        if(!active()||HomeSwipeController.isMoving()||FullScreenBackdrop.isTransitioning(this)||!loading.compareAndSet(false,true))return;
+        if(!active()||loading.get())return;
+        if(DrawerWorkGate.defer(this,this::request)||!loading.compareAndSet(false,true))return;
         final int generation=epoch;final Context app=getContext().getApplicationContext();
         WORKER.execute(()->{
             List<AppTrafficRanking.Entry> data=cached;String failure=null;
@@ -103,11 +106,14 @@ public final class AppTrafficRankingCard extends LinearLayout {
             // Freeze the background cache for UI publication; the next refresh
             // can update its own map without racing the view's reads.
             final Map<String,Display> names=new HashMap<>(displays);
-            main.post(new Runnable(){public void run(){
+            main.post(()->{
                 if(generation!=epoch||!active()){loading.set(false);return;}
-                if(HomeSwipeController.isMoving()||FullScreenBackdrop.isTransitioning(AppTrafficRankingCard.this)){main.postDelayed(this,80);return;}
-                loading.set(false);render(result,names,error);
-            }});
+                publication=()->{
+                    if(generation!=epoch||!active()){publication=null;loading.set(false);return;}
+                    publication=null;loading.set(false);render(result,names,error);
+                };
+                DrawerWorkGate.publish(this,publication);
+            });
         });
     }
     private void render(List<AppTrafficRanking.Entry> entries,Map<String,Display> names,String error){

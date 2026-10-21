@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/TakeWhileSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/sequences/TakeWhileSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,6 +113,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 454
+    # getter for: Lkotlin/sequences/TakeWhileSequence;->sequence:Lkotlin/sequences/Sequence;
     invoke-static {p1}, Lkotlin/sequences/TakeWhileSequence;->access$getSequence$p(Lkotlin/sequences/TakeWhileSequence;)Lkotlin/sequences/Sequence;
 
     move-result-object v0
@@ -133,7 +134,7 @@
 .end method
 
 .method private final calcNext()V
-    .locals 2
+    .registers 3
 
     .line 459
     iget-object v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -142,7 +143,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 460
     iget-object v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->iterator:Ljava/util/Iterator;
@@ -155,6 +156,7 @@
     .local v0, "item":Ljava/lang/Object;
     iget-object v1, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->this$0:Lkotlin/sequences/TakeWhileSequence;
 
+    # getter for: Lkotlin/sequences/TakeWhileSequence;->predicate:Lkotlin/jvm/functions/Function1;
     invoke-static {v1}, Lkotlin/sequences/TakeWhileSequence;->access$getPredicate$p(Lkotlin/sequences/TakeWhileSequence;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v1
@@ -169,7 +171,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 462
     const/4 v1, 0x1
@@ -184,7 +186,7 @@
 
     .line 467
     .end local v0    # "item":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     const/4 v0, 0x0
 
     iput v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextState:I
@@ -196,7 +198,7 @@
 
 # virtual methods
 .method public final getIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -212,7 +214,7 @@
 .end method
 
 .method public final getNextItem()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -226,7 +228,7 @@
 .end method
 
 .method public final getNextState()I
-    .locals 1
+    .registers 2
 
     .line 455
     iget v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextState:I
@@ -235,37 +237,37 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 485
     iget v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 486
     invoke-direct {p0}, Lkotlin/sequences/TakeWhileSequence$iterator$1;->calcNext()V
 
     .line 487
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -277,16 +279,16 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 472
     invoke-direct {p0}, Lkotlin/sequences/TakeWhileSequence$iterator$1;->calcNext()V
 
     .line 473
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextState:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 476
     iget-object v0, p0, Lkotlin/sequences/TakeWhileSequence$iterator$1;->nextItem:Ljava/lang/Object;
@@ -305,7 +307,7 @@
 
     .line 474
     .end local v0    # "result":Ljava/lang/Object;
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -314,7 +316,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -326,7 +328,7 @@
 .end method
 
 .method public final setNextItem(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -341,7 +343,7 @@
 .end method
 
 .method public final setNextState(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 455

@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 123
     new-instance v0, Ljava/lang/Object;
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/Map;Ljava/util/List;II)V
-    .locals 1
+    .registers 6
     .param p2    # Ljava/util/List;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -140,24 +140,24 @@
 
     move-result v0
 
-    if-gt p3, v0, :cond_0
+    if-gt p3, v0, :cond_28
 
     .line 153
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
 
-    if-gt p4, v0, :cond_0
+    if-gt p4, v0, :cond_28
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
     .line 151
-    :goto_0
+    :goto_29
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 154
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 54
@@ -175,7 +175,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/graph/DirectedGraphConnections;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 54
@@ -185,7 +185,7 @@
 .end method
 
 .method static synthetic access$200(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/Object;
 
     .line 54
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/graph/DirectedGraphConnections;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 54
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic access$400(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/Object;
 
     .line 54
@@ -219,7 +219,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/graph/DirectedGraphConnections;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 54
@@ -229,7 +229,7 @@
 .end method
 
 .method private static isPredecessor(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -238,29 +238,29 @@
     .line 571
     sget-object v0, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_b
 
     instance-of v0, p0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method
 
 .method private static isSuccessor(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -269,23 +269,23 @@
     .line 575
     sget-object v0, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_8
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method static of(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/DirectedGraphConnections;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -318,7 +318,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_30
 
     .line 169
     new-instance v1, Ljava/lang/AssertionError;
@@ -332,18 +332,18 @@
     throw v1
 
     .line 166
-    :pswitch_0
+    :pswitch_1a
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 167
     .local v1, "orderedNodeConnections":Ljava/util/List;, "Ljava/util/List<Lcom/google/common/graph/DirectedGraphConnections$NodeConnection<TN;>;>;"
-    goto :goto_0
+    goto :goto_22
 
     .line 163
     .end local v1    # "orderedNodeConnections":Ljava/util/List;, "Ljava/util/List<Lcom/google/common/graph/DirectedGraphConnections$NodeConnection<TN;>;>;"
-    :pswitch_1
+    :pswitch_20
     const/4 v1, 0x0
 
     .line 164
@@ -351,7 +351,7 @@
     nop
 
     .line 172
-    :goto_0
+    :goto_22
     new-instance v2, Lcom/google/common/graph/DirectedGraphConnections;
 
     new-instance v3, Ljava/util/HashMap;
@@ -366,15 +366,15 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_1a
     .end packed-switch
 .end method
 
 .method static ofImmutable(Ljava/lang/Object;Ljava/lang/Iterable;Lcom/google/common/base/Function;)Lcom/google/common/graph/DirectedGraphConnections;
-    .locals 10
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -426,12 +426,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_15
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_b7
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,7 +449,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_56
 
     invoke-virtual {v5}, Lcom/google/common/graph/EndpointPair;->nodeV()Ljava/lang/Object;
 
@@ -459,7 +459,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_56
 
     .line 194
     new-instance v6, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
@@ -492,10 +492,10 @@
     .line 199
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_b5
 
     .line 200
-    :cond_0
+    :cond_56
     invoke-virtual {v5}, Lcom/google/common/graph/EndpointPair;->nodeV()Ljava/lang/Object;
 
     move-result-object v6
@@ -504,7 +504,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_80
 
     .line 201
     invoke-virtual {v5}, Lcom/google/common/graph/EndpointPair;->nodeU()Ljava/lang/Object;
@@ -521,7 +521,7 @@
 
     .line 204
     .local v7, "existingValue":Ljava/lang/Object;
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_74
 
     .line 205
     new-instance v8, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
@@ -531,7 +531,7 @@
     invoke-interface {v0, v6, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 208
-    :cond_1
+    :cond_74
     new-instance v8, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;
 
     invoke-direct {v8, v6}, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;-><init>(Ljava/lang/Object;)V
@@ -546,10 +546,10 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 210
-    goto :goto_2
+    goto :goto_b5
 
     .line 211
-    :cond_2
+    :cond_80
     invoke-virtual {v5}, Lcom/google/common/graph/EndpointPair;->nodeU()Ljava/lang/Object;
 
     move-result-object v6
@@ -579,21 +579,21 @@
 
     .line 217
     .local v8, "existingValue":Ljava/lang/Object;
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_ab
 
     .line 218
     sget-object v9, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-ne v8, v9, :cond_3
+    if-ne v8, v9, :cond_9f
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_a0
 
-    :cond_3
+    :cond_9f
     const/4 v9, 0x0
 
-    :goto_1
+    :goto_a0
     invoke-static {v9}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 219
@@ -604,7 +604,7 @@
     invoke-interface {v0, v6, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 222
-    :cond_4
+    :cond_ab
     new-instance v9, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Succ;
 
     invoke-direct {v9, v6}, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Succ;-><init>(Ljava/lang/Object;)V
@@ -619,11 +619,11 @@
     .end local v6    # "successor":Ljava/lang/Object;, "TN;"
     .end local v7    # "value":Ljava/lang/Object;, "TV;"
     .end local v8    # "existingValue":Ljava/lang/Object;
-    :goto_2
-    goto/16 :goto_0
+    :goto_b5
+    goto/16 :goto_15
 
     .line 227
-    :cond_5
+    :cond_b7
     new-instance v4, Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 229
@@ -640,7 +640,7 @@
 
 # virtual methods
 .method public addPredecessor(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TV;)V"
@@ -661,20 +661,20 @@
 
     .line 516
     .local v0, "previousValue":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 517
     const/4 v1, 0x1
 
     .local v1, "addedPredecessor":Z
-    goto :goto_0
+    goto :goto_28
 
     .line 518
     .end local v1    # "addedPredecessor":Z
-    :cond_0
+    :cond_c
     instance-of v1, v0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     .line 520
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -685,14 +685,14 @@
     const/4 v1, 0x0
 
     .restart local v1    # "addedPredecessor":Z
-    goto :goto_0
+    goto :goto_28
 
     .line 522
     .end local v1    # "addedPredecessor":Z
-    :cond_1
+    :cond_17
     sget-object v1, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_27
 
     .line 524
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -707,17 +707,17 @@
     const/4 v1, 0x1
 
     .restart local v1    # "addedPredecessor":Z
-    goto :goto_0
+    goto :goto_28
 
     .line 527
     .end local v1    # "addedPredecessor":Z
-    :cond_2
+    :cond_27
     const/4 v1, 0x0
 
     .line 530
     .restart local v1    # "addedPredecessor":Z
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_28
+    if-eqz v1, :cond_41
 
     .line 531
     iget v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->predecessorCount:I
@@ -731,7 +731,7 @@
     .line 533
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_41
 
     .line 534
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
@@ -743,12 +743,12 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 537
-    :cond_3
+    :cond_41
     return-void
 .end method
 
 .method public addSuccessor(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TV;)TV;"
@@ -770,20 +770,20 @@
 
     .line 546
     .local v0, "previousValue":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 547
     const/4 v1, 0x0
 
     .local v1, "previousSuccessor":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_31
 
     .line 548
     .end local v1    # "previousSuccessor":Ljava/lang/Object;
-    :cond_0
+    :cond_a
     instance-of v1, v0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 549
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -799,19 +799,20 @@
 
     check-cast v1, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
 
     move-result-object v1
 
     .restart local v1    # "previousSuccessor":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_31
 
     .line 551
     .end local v1    # "previousSuccessor":Ljava/lang/Object;
-    :cond_1
+    :cond_20
     sget-object v1, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_30
 
     .line 552
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -826,17 +827,17 @@
     const/4 v1, 0x0
 
     .restart local v1    # "previousSuccessor":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_31
 
     .line 555
     .end local v1    # "previousSuccessor":Ljava/lang/Object;
-    :cond_2
+    :cond_30
     move-object v1, v0
 
     .line 558
     .restart local v1    # "previousSuccessor":Ljava/lang/Object;
-    :goto_0
-    if-nez v1, :cond_3
+    :goto_31
+    if-nez v1, :cond_4a
 
     .line 559
     iget v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->successorCount:I
@@ -850,7 +851,7 @@
     .line 561
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4a
 
     .line 562
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
@@ -862,22 +863,22 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 567
-    :cond_3
-    if-nez v1, :cond_4
+    :cond_4a
+    if-nez v1, :cond_4e
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_4f
 
-    :cond_4
+    :cond_4e
     move-object v2, v1
 
-    :goto_1
+    :goto_4f
     return-object v2
 .end method
 
 .method public adjacentNodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -890,7 +891,7 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections;, "Lcom/google/common/graph/DirectedGraphConnections<TN;TV;>;"
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 237
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -906,7 +907,7 @@
     return-object v0
 
     .line 239
-    :cond_0
+    :cond_f
     new-instance v0, Lcom/google/common/graph/DirectedGraphConnections$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/graph/DirectedGraphConnections$1;-><init>(Lcom/google/common/graph/DirectedGraphConnections;)V
@@ -915,7 +916,7 @@
 .end method
 
 .method public incidentEdgeIterator(Ljava/lang/Object;)Ljava/util/Iterator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -933,7 +934,7 @@
     .line 378
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2f
 
     .line 379
     nop
@@ -980,11 +981,11 @@
     move-result-object v0
 
     .local v0, "resultWithDoubleSelfLoop":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/graph/EndpointPair<TN;>;>;"
-    goto :goto_0
+    goto :goto_3e
 
     .line 398
     .end local v0    # "resultWithDoubleSelfLoop":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/graph/EndpointPair<TN;>;>;"
-    :cond_0
+    :cond_2f
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
     .line 400
@@ -1003,7 +1004,7 @@
 
     .line 413
     .restart local v0    # "resultWithDoubleSelfLoop":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/graph/EndpointPair<TN;>;>;"
-    :goto_0
+    :goto_3e
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v2, 0x0
@@ -1020,7 +1021,7 @@
 .end method
 
 .method public predecessors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1039,7 +1040,7 @@
 .end method
 
 .method public removePredecessor(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)V"
@@ -1062,7 +1063,7 @@
     .local v0, "previousValue":Ljava/lang/Object;
     sget-object v1, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 457
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -1073,14 +1074,14 @@
     const/4 v1, 0x1
 
     .local v1, "removedPredecessor":Z
-    goto :goto_0
+    goto :goto_27
 
     .line 459
     .end local v1    # "removedPredecessor":Z
-    :cond_0
+    :cond_14
     instance-of v1, v0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 460
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -1089,6 +1090,7 @@
 
     check-cast v2, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
     invoke-static {v2}, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
 
     move-result-object v2
@@ -1099,17 +1101,17 @@
     const/4 v1, 0x1
 
     .restart local v1    # "removedPredecessor":Z
-    goto :goto_0
+    goto :goto_27
 
     .line 463
     .end local v1    # "removedPredecessor":Z
-    :cond_1
+    :cond_26
     const/4 v1, 0x0
 
     .line 466
     .restart local v1    # "removedPredecessor":Z
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_27
+    if-eqz v1, :cond_40
 
     .line 467
     iget v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->predecessorCount:I
@@ -1123,7 +1125,7 @@
     .line 469
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_40
 
     .line 470
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
@@ -1135,12 +1137,12 @@
     invoke-interface {v2, v3}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 473
-    :cond_2
+    :cond_40
     return-void
 .end method
 
 .method public removeSuccessor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "node"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1166,19 +1168,19 @@
 
     .line 483
     .local v0, "previousValue":Ljava/lang/Object;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     sget-object v1, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 485
-    :cond_0
+    :cond_10
     instance-of v1, v0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 486
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
@@ -1192,16 +1194,17 @@
 
     check-cast v1, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
 
     move-result-object v1
 
     .local v1, "removedValue":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_2b
 
     .line 489
     .end local v1    # "removedValue":Ljava/lang/Object;
-    :cond_1
+    :cond_23
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections;->adjacentNodeValues:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1210,18 +1213,18 @@
     move-object v1, v0
 
     .restart local v1    # "removedValue":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_2b
 
     .line 484
     .end local v1    # "removedValue":Ljava/lang/Object;
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     const/4 v1, 0x0
 
     .line 493
     .restart local v1    # "removedValue":Ljava/lang/Object;
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_2b
+    if-eqz v1, :cond_44
 
     .line 494
     iget v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->successorCount:I
@@ -1235,7 +1238,7 @@
     .line 496
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_44
 
     .line 497
     iget-object v2, p0, Lcom/google/common/graph/DirectedGraphConnections;->orderedNodeConnections:Ljava/util/List;
@@ -1247,22 +1250,22 @@
     invoke-interface {v2, v3}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 508
-    :cond_3
-    if-nez v1, :cond_4
+    :cond_44
+    if-nez v1, :cond_48
 
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_49
 
-    :cond_4
+    :cond_48
     move-object v2, v1
 
-    :goto_2
+    :goto_49
     return-object v2
 .end method
 
 .method public successors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1281,7 +1284,7 @@
 .end method
 
 .method public value(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)TV;"
@@ -1307,7 +1310,7 @@
     .local v0, "value":Ljava/lang/Object;
     sget-object v1, Lcom/google/common/graph/DirectedGraphConnections;->PRED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 440
     const/4 v1, 0x0
@@ -1315,16 +1318,17 @@
     return-object v1
 
     .line 442
-    :cond_0
+    :cond_f
     instance-of v1, v0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 443
     move-object v1, v0
 
     check-cast v1, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
+    # getter for: Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
 
     move-result-object v1
@@ -1332,6 +1336,6 @@
     return-object v1
 
     .line 445
-    :cond_1
+    :cond_1b
     return-object v0
 .end method

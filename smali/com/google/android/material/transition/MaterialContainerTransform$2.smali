@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transition/MaterialContainerTransform;Landroid/view/View;Lcom/google/android/material/transition/MaterialContainerTransform$TransitionDrawable;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/android/material/transition/MaterialContainerTransform;
 
     .line 976
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 989
@@ -61,17 +61,18 @@
     .line 990
     iget-object v0, p0, Lcom/google/android/material/transition/MaterialContainerTransform$2;->this$0:Lcom/google/android/material/transition/MaterialContainerTransform;
 
+    # getter for: Lcom/google/android/material/transition/MaterialContainerTransform;->holdAtEndEnabled:Z
     invoke-static {v0}, Lcom/google/android/material/transition/MaterialContainerTransform;->access$300(Lcom/google/android/material/transition/MaterialContainerTransform;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 992
     return-void
 
     .line 995
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/android/material/transition/MaterialContainerTransform$2;->val$startView:Landroid/view/View;
 
     const/high16 v1, 0x3f800000    # 1.0f
@@ -99,7 +100,7 @@
 .end method
 
 .method public onTransitionStart(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 980

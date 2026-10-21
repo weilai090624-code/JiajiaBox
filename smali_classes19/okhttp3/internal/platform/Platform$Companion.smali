@@ -66,7 +66,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;-><init>()V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final synthetic access$findPlatform(Lokhttp3/internal/platform/Platform$Companion;)Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/platform/Platform$Companion;
 
     .line 177
@@ -95,7 +95,7 @@
 .end method
 
 .method private final findAndroidPlatform()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
 
     .line 226
     sget-object v0, Lokhttp3/internal/platform/android/AndroidLog;->INSTANCE:Lokhttp3/internal/platform/android/AndroidLog;
@@ -109,7 +109,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     sget-object v0, Lokhttp3/internal/platform/AndroidPlatform;->Companion:Lokhttp3/internal/platform/AndroidPlatform$Companion;
 
@@ -119,19 +119,19 @@
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method private final findJvmPlatform()Lokhttp3/internal/platform/Platform;
-    .locals 3
+    .registers 4
 
     .line 231
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->isConscryptPreferred()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 232
     sget-object v0, Lokhttp3/internal/platform/ConscryptPlatform;->Companion:Lokhttp3/internal/platform/ConscryptPlatform$Companion;
@@ -142,7 +142,7 @@
 
     .line 234
     .local v0, "conscrypt":Lokhttp3/internal/platform/ConscryptPlatform;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 235
     move-object v1, v0
@@ -153,12 +153,12 @@
 
     .line 239
     .end local v0    # "conscrypt":Lokhttp3/internal/platform/ConscryptPlatform;
-    :cond_0
+    :cond_12
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->isBouncyCastlePreferred()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 240
     sget-object v0, Lokhttp3/internal/platform/BouncyCastlePlatform;->Companion:Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;
@@ -169,7 +169,7 @@
 
     .line 242
     .local v0, "bc":Lokhttp3/internal/platform/BouncyCastlePlatform;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 243
     move-object v1, v0
@@ -180,12 +180,12 @@
 
     .line 247
     .end local v0    # "bc":Lokhttp3/internal/platform/BouncyCastlePlatform;
-    :cond_1
+    :cond_24
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->isOpenJSSEPreferred()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_36
 
     .line 248
     sget-object v0, Lokhttp3/internal/platform/OpenJSSEPlatform;->Companion:Lokhttp3/internal/platform/OpenJSSEPlatform$Companion;
@@ -196,7 +196,7 @@
 
     .line 250
     .local v0, "openJSSE":Lokhttp3/internal/platform/OpenJSSEPlatform;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_36
 
     .line 251
     move-object v1, v0
@@ -207,7 +207,7 @@
 
     .line 256
     .end local v0    # "openJSSE":Lokhttp3/internal/platform/OpenJSSEPlatform;
-    :cond_2
+    :cond_36
     sget-object v0, Lokhttp3/internal/platform/Jdk9Platform;->Companion:Lokhttp3/internal/platform/Jdk9Platform$Companion;
 
     invoke-virtual {v0}, Lokhttp3/internal/platform/Jdk9Platform$Companion;->buildIfSupported()Lokhttp3/internal/platform/Jdk9Platform;
@@ -216,7 +216,7 @@
 
     .line 258
     .local v0, "jdk9":Lokhttp3/internal/platform/Jdk9Platform;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     .line 259
     move-object v1, v0
@@ -226,7 +226,7 @@
     return-object v1
 
     .line 263
-    :cond_3
+    :cond_42
     sget-object v1, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->Companion:Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$Companion;
 
     invoke-virtual {v1}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$Companion;->buildIfSupported()Lokhttp3/internal/platform/Platform;
@@ -235,13 +235,13 @@
 
     .line 265
     .local v1, "jdkWithJettyBoot":Lokhttp3/internal/platform/Platform;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4b
 
     .line 266
     return-object v1
 
     .line 269
-    :cond_4
+    :cond_4b
     new-instance v2, Lokhttp3/internal/platform/Platform;
 
     invoke-direct {v2}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -250,35 +250,35 @@
 .end method
 
 .method private final findPlatform()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
 
     .line 219
     invoke-virtual {p0}, Lokhttp3/internal/platform/Platform$Companion;->isAndroid()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 220
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->findAndroidPlatform()Lokhttp3/internal/platform/Platform;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 222
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->findJvmPlatform()Lokhttp3/internal/platform/Platform;
 
     move-result-object v0
 
     .line 223
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method private final isBouncyCastlePreferred()Z
-    .locals 2
+    .registers 3
 
     .line 214
     invoke-static {}, Ljava/security/Security;->getProviders()[Ljava/security/Provider;
@@ -305,7 +305,7 @@
 .end method
 
 .method private final isConscryptPreferred()Z
-    .locals 2
+    .registers 3
 
     .line 202
     invoke-static {}, Ljava/security/Security;->getProviders()[Ljava/security/Provider;
@@ -332,7 +332,7 @@
 .end method
 
 .method private final isOpenJSSEPreferred()Z
-    .locals 2
+    .registers 3
 
     .line 208
     invoke-static {}, Ljava/security/Security;->getProviders()[Ljava/security/Provider;
@@ -359,18 +359,18 @@
 .end method
 
 .method public static synthetic resetForTests$default(Lokhttp3/internal/platform/Platform$Companion;Lokhttp3/internal/platform/Platform;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 188
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform$Companion;->findPlatform()Lokhttp3/internal/platform/Platform;
 
     move-result-object p1
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lokhttp3/internal/platform/Platform$Companion;->resetForTests(Lokhttp3/internal/platform/Platform;)V
 
     return-void
@@ -379,7 +379,7 @@
 
 # virtual methods
 .method public final alpnProtocolNames(Ljava/util/List;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "protocols"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -426,13 +426,13 @@
 
     move-result-object v5
 
-    :cond_0
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_31
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -450,27 +450,27 @@
     .local v8, "$i$a$-filter-Platform$Companion$alpnProtocolNames$1":I
     sget-object v9, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
-    if-eq v7, v9, :cond_1
+    if-eq v7, v9, :cond_2a
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     const/4 v9, 0x0
 
     .end local v7    # "it":Lokhttp3/Protocol;
     .end local v8    # "$i$a$-filter-Platform$Companion$alpnProtocolNames$1":I
-    :goto_1
-    if-eqz v9, :cond_0
+    :goto_2b
+    if-eqz v9, :cond_16
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_16
 
     .line 289
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_31
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -517,12 +517,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_4c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_62
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -549,10 +549,10 @@
 
     .line 291
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_4c
 
     .line 293
-    :cond_3
+    :cond_62
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -570,7 +570,7 @@
 .end method
 
 .method public final concatLengthPrefixed(Ljava/util/List;)[B
-    .locals 4
+    .registers 6
     .param p1, "protocols"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -601,12 +601,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -625,11 +625,11 @@
     .line 280
     invoke-virtual {v0, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
-    goto :goto_0
+    goto :goto_12
 
     .line 282
     .end local v2    # "protocol":Ljava/lang/String;
-    :cond_0
+    :cond_29
     invoke-virtual {v0}, Lokio/Buffer;->readByteArray()[B
 
     move-result-object v1
@@ -638,11 +638,12 @@
 .end method
 
 .method public final get()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 186
+    # getter for: Lokhttp3/internal/platform/Platform;->platform:Lokhttp3/internal/platform/Platform;
     invoke-static {}, Lokhttp3/internal/platform/Platform;->access$getPlatform$cp()Lokhttp3/internal/platform/Platform;
 
     move-result-object v0
@@ -651,7 +652,7 @@
 .end method
 
 .method public final isAndroid()Z
-    .locals 2
+    .registers 3
 
     .line 198
     const-string v0, "java.vm.name"
@@ -670,7 +671,7 @@
 .end method
 
 .method public final resetForTests(Lokhttp3/internal/platform/Platform;)V
-    .locals 1
+    .registers 3
     .param p1, "platform"    # Lokhttp3/internal/platform/Platform;
 
     const-string v0, "platform"

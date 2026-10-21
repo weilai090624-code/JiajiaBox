@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lgo/Seq$GoRefQueue;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -44,13 +44,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 266
     nop
 
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     iget-object v0, p0, Lgo/Seq$GoRefQueue$1;->this$0:Lgo/Seq$GoRefQueue;
 
     invoke-virtual {v0}, Lgo/Seq$GoRefQueue;->remove()Ljava/lang/ref/Reference;
@@ -62,6 +62,7 @@
     .line 267
     iget-object v1, p0, Lgo/Seq$GoRefQueue$1;->this$0:Lgo/Seq$GoRefQueue;
 
+    # getter for: Lgo/Seq$GoRefQueue;->refs:Ljava/util/Collection;
     invoke-static {v1}, Lgo/Seq$GoRefQueue;->access$200(Lgo/Seq$GoRefQueue;)Ljava/util/Collection;
 
     move-result-object v1
@@ -75,16 +76,16 @@
 
     .line 269
     invoke-virtual {v0}, Lgo/Seq$GoRef;->clear()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1a} :catch_1b
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 270
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 272
-    :goto_1
-    goto :goto_0
+    :goto_1c
+    goto :goto_1
 .end method

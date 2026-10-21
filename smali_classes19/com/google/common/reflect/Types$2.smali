@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/atomic/AtomicReference;)V
-    .locals 0
+    .registers 2
 
     .line 184
     iput-object p1, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method visitClass(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/reflect/GenericArrayType;
 
     .line 197
@@ -74,7 +74,7 @@
 .end method
 
 .method visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,6 +91,7 @@
 
     move-result-object v1
 
+    # invokes: Lcom/google/common/reflect/Types;->subtypeOfComponentType([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
     invoke-static {v1}, Lcom/google/common/reflect/Types;->access$100([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v1
@@ -102,7 +103,7 @@
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
     .line 192
@@ -112,6 +113,7 @@
 
     move-result-object v1
 
+    # invokes: Lcom/google/common/reflect/Types;->subtypeOfComponentType([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
     invoke-static {v1}, Lcom/google/common/reflect/Types;->access$100([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v1

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     .line 1011
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 1016
@@ -61,37 +61,39 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 5
+    .registers 7
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 1021
     iget-boolean v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$7;->cancelled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 1022
     iget-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$7;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->pendingMenuResId:I
     invoke-static {v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2100(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 1023
     .local v0, "replaced":Z
-    :goto_0
+    :goto_f
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$7;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     iget-object v2, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$7;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->pendingMenuResId:I
     invoke-static {v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2100(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v2
@@ -107,10 +109,11 @@
 
     iget-boolean v4, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$7;->val$targetAttached:Z
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->translateActionMenuView(Landroidx/appcompat/widget/ActionMenuView;IZZ)V
     invoke-static {v1, v2, v3, v4, v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2200(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZZ)V
 
     .line 1026
     .end local v0    # "replaced":Z
-    :cond_1
+    :cond_25
     return-void
 .end method

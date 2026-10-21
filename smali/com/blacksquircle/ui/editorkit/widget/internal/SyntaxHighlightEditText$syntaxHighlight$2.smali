@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 408
@@ -87,7 +87,7 @@
 .end method
 
 .method public final invoke(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p1, "spans"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,6 +105,7 @@
     .line 411
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->syntaxHighlightResults:Ljava/util/List;
     invoke-static {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->access$getSyntaxHighlightResults$p(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)Ljava/util/List;
 
     move-result-object v0
@@ -114,6 +115,7 @@
     .line 412
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
+    # getter for: Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->syntaxHighlightResults:Ljava/util/List;
     invoke-static {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->access$getSyntaxHighlightResults$p(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)Ljava/util/List;
 
     move-result-object v0
@@ -127,6 +129,7 @@
     .line 413
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$2;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
+    # invokes: Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->updateSyntaxHighlighting()V
     invoke-static {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->access$updateSyntaxHighlighting(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)V
 
     .line 414

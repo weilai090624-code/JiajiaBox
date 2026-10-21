@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/EnumMultiset$2;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/EnumMultiset$2;
 
     .line 265
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 2
+    .registers 3
 
     .line 273
     .local p0, "this":Lcom/google/common/collect/EnumMultiset$2$1;, "Lcom/google/common/collect/EnumMultiset$2$1;"
@@ -54,6 +54,7 @@
 
     iget-object v0, v0, Lcom/google/common/collect/EnumMultiset$2;->this$0:Lcom/google/common/collect/EnumMultiset;
 
+    # getter for: Lcom/google/common/collect/EnumMultiset;->counts:[I
     invoke-static {v0}, Lcom/google/common/collect/EnumMultiset;->access$100(Lcom/google/common/collect/EnumMultiset;)[I
 
     move-result-object v0
@@ -66,7 +67,7 @@
 .end method
 
 .method public getElement()Ljava/lang/Enum;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -79,6 +80,7 @@
 
     iget-object v0, v0, Lcom/google/common/collect/EnumMultiset$2;->this$0:Lcom/google/common/collect/EnumMultiset;
 
+    # getter for: Lcom/google/common/collect/EnumMultiset;->enumConstants:[Ljava/lang/Enum;
     invoke-static {v0}, Lcom/google/common/collect/EnumMultiset;->access$000(Lcom/google/common/collect/EnumMultiset;)[Ljava/lang/Enum;
 
     move-result-object v0
@@ -91,7 +93,7 @@
 .end method
 
 .method public bridge synthetic getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 265
     .local p0, "this":Lcom/google/common/collect/EnumMultiset$2$1;, "Lcom/google/common/collect/EnumMultiset$2$1;"

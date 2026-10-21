@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 393
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -50,6 +50,7 @@
 
     move-result v1
 
+    # setter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraBottomMarginWindowInset:I
     invoke-static {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$602(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
 
     .line 400
@@ -59,6 +60,7 @@
 
     move-result v1
 
+    # setter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraLeftMarginWindowInset:I
     invoke-static {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$702(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
 
     .line 401
@@ -68,11 +70,13 @@
 
     move-result v1
 
+    # setter for: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->extraRightMarginWindowInset:I
     invoke-static {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$802(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)I
 
     .line 402
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$3;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
+    # invokes: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->updateMargins()V
     invoke-static {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$900(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
 
     .line 403

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ArrayTable;
     .param p2, "size"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,6 +58,7 @@
     .local p0, "this":Lcom/google/common/collect/ArrayTable$3;, "Lcom/google/common/collect/ArrayTable$3;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$3;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    # invokes: Lcom/google/common/collect/ArrayTable;->getValue(I)Ljava/lang/Object;
     invoke-static {v0, p1}, Lcom/google/common/collect/ArrayTable;->access$800(Lcom/google/common/collect/ArrayTable;I)Ljava/lang/Object;
 
     move-result-object v0

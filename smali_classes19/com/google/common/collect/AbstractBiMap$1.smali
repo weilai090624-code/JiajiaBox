@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractBiMap;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractBiMap;
 
     .line 331
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 336
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$1;, "Lcom/google/common/collect/AbstractBiMap$1;"
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$1;, "Lcom/google/common/collect/AbstractBiMap$1;"
@@ -89,7 +89,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,13 +123,13 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 347
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$1;, "Lcom/google/common/collect/AbstractBiMap$1;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractBiMap$1;->entry:Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 350
     iget-object v0, p0, Lcom/google/common/collect/AbstractBiMap$1;->entry:Ljava/util/Map$Entry;
@@ -147,6 +147,7 @@
     .line 352
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$1;->this$0:Lcom/google/common/collect/AbstractBiMap;
 
+    # invokes: Lcom/google/common/collect/AbstractBiMap;->removeFromInverseMap(Ljava/lang/Object;)V
     invoke-static {v1, v0}, Lcom/google/common/collect/AbstractBiMap;->access$600(Lcom/google/common/collect/AbstractBiMap;Ljava/lang/Object;)V
 
     .line 353
@@ -159,7 +160,7 @@
 
     .line 348
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "no calls to next() since the last call to remove()"

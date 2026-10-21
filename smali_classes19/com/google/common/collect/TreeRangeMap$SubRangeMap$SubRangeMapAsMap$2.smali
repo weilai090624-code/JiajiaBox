@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     .line 632
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 655
     .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;"
@@ -61,7 +61,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,7 +84,7 @@
 .end method
 
 .method map()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,6 +124,7 @@
 
     move-result-object v1
 
+    # invokes: Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;->removeEntryIf(Lcom/google/common/base/Predicate;)Z
     invoke-static {v0, v1}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;->access$400(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;Lcom/google/common/base/Predicate;)Z
 
     move-result v0
@@ -132,7 +133,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 650
     .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;"

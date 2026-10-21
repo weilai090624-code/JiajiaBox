@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/EmojiCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "emojiCompat"    # Landroidx/emoji2/text/EmojiCompat;
 
     .line 1621
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method getAssetSignature()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1694
     iget-object v0, p0, Landroidx/emoji2/text/EmojiCompat$CompatInternal19;->mMetadataRepo:Landroidx/emoji2/text/MetadataRepo;
@@ -50,21 +50,21 @@
 
     .line 1695
     .local v0, "sha":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-string v1, ""
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v1, v0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public getEmojiMatch(Ljava/lang/CharSequence;I)I
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "metadataVersion"    # I
 
@@ -79,7 +79,7 @@
 .end method
 
 .method hasEmojiGlyph(Ljava/lang/CharSequence;)Z
-    .locals 2
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1666
@@ -91,19 +91,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method hasEmojiGlyph(Ljava/lang/CharSequence;I)Z
-    .locals 2
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "metadataVersion"    # I
 
@@ -118,19 +118,19 @@
     .local v0, "emojiMatch":I
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method loadMetadata()V
-    .locals 2
+    .registers 3
 
     .line 1627
     :try_start_0
@@ -145,15 +145,15 @@
     iget-object v1, v1, Landroidx/emoji2/text/EmojiCompat;->mMetadataLoader:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoader;
 
     invoke-interface {v1, v0}, Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoader;->load(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_0 .. :try_end_c} :catchall_d
 
     .line 1641
     .end local v0    # "callback":Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
-    goto :goto_0
+    goto :goto_13
 
     .line 1639
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 1640
@@ -164,16 +164,16 @@
 
     .line 1642
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method onMetadataLoadSuccess(Landroidx/emoji2/text/MetadataRepo;)V
-    .locals 9
+    .registers 11
     .param p1, "metadataRepo"    # Landroidx/emoji2/text/MetadataRepo;
 
     .line 1647
-    if-nez p1, :cond_0
+    if-nez p1, :cond_f
 
     .line 1648
     iget-object v0, p0, Landroidx/emoji2/text/EmojiCompat$CompatInternal19;->mEmojiCompat:Landroidx/emoji2/text/EmojiCompat;
@@ -190,7 +190,7 @@
     return-void
 
     .line 1653
-    :cond_0
+    :cond_f
     iput-object p1, p0, Landroidx/emoji2/text/EmojiCompat$CompatInternal19;->mMetadataRepo:Landroidx/emoji2/text/MetadataRepo;
 
     .line 1654
@@ -205,6 +205,7 @@
     iget-object v1, p0, Landroidx/emoji2/text/EmojiCompat$CompatInternal19;->mEmojiCompat:Landroidx/emoji2/text/EmojiCompat;
 
     .line 1657
+    # getter for: Landroidx/emoji2/text/EmojiCompat;->mGlyphChecker:Landroidx/emoji2/text/EmojiCompat$GlyphChecker;
     invoke-static {v1}, Landroidx/emoji2/text/EmojiCompat;->access$000(Landroidx/emoji2/text/EmojiCompat;)Landroidx/emoji2/text/EmojiCompat$GlyphChecker;
 
     move-result-object v6
@@ -233,7 +234,7 @@
 .end method
 
 .method process(Ljava/lang/CharSequence;IIIZ)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 12
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -261,7 +262,7 @@
 .end method
 
 .method updateEditorInfoAttrs(Landroid/view/inputmethod/EditorInfo;)V
-    .locals 3
+    .registers 5
     .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
     .line 1688

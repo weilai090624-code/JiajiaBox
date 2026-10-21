@@ -109,7 +109,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
     .param p2, "factory"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -140,13 +140,13 @@
 .end method
 
 .method private final findNext()V
-    .locals 2
+    .registers 3
 
     .line 217
     nop
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     iget v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->index:I
 
     add-int/lit8 v0, v0, 0x1
@@ -157,15 +157,17 @@
 
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
     invoke-static {v1}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->access$getAllocated$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_44
 
     .line 218
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->keys:Ljava/util/concurrent/atomic/AtomicReferenceArray;
     invoke-static {v0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->access$getKeys$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     move-result-object v0
@@ -178,22 +180,23 @@
 
     check-cast v0, Lkotlinx/coroutines/debug/internal/HashedWeakRef;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lkotlinx/coroutines/debug/internal/HashedWeakRef;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_28
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->key:Ljava/lang/Object;
 
     .line 219
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->values:Ljava/util/concurrent/atomic/AtomicReferenceArray;
     invoke-static {v0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->access$getValues$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     move-result-object v0
@@ -208,7 +211,7 @@
     .local v0, "value":Ljava/lang/Object;
     instance-of v1, v0, Lkotlinx/coroutines/debug/internal/Marked;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3f
 
     move-object v1, v0
 
@@ -217,8 +220,8 @@
     iget-object v0, v1, Lkotlinx/coroutines/debug/internal/Marked;->ref:Ljava/lang/Object;
 
     .line 221
-    :cond_2
-    if-eqz v0, :cond_0
+    :cond_3f
+    if-eqz v0, :cond_1
 
     .line 222
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->value:Ljava/lang/Object;
@@ -228,39 +231,40 @@
 
     .line 226
     .end local v0    # "value":Ljava/lang/Object;
-    :cond_3
+    :cond_44
     return-void
 .end method
 
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 228
     iget v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->index:I
 
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
     invoke-static {v1}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->access$getAllocated$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -272,18 +276,19 @@
 
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->this$0:Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;
 
+    # getter for: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->allocated:I
     invoke-static {v1}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;->access$getAllocated$p(Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_2c
 
     .line 232
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->factory:Lkotlin/jvm/functions/Function2;
 
     iget-object v1, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->key:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     const-string v1, "key"
 
@@ -291,10 +296,10 @@
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :cond_0
+    :cond_17
     iget-object v2, p0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->value:Ljava/lang/Object;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     const-string v2, "value"
 
@@ -302,7 +307,7 @@
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :cond_1
+    :cond_22
     invoke-interface {v0, v1, v2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -322,7 +327,7 @@
     return-object v0
 
     .line 231
-    :cond_2
+    :cond_2c
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -331,9 +336,10 @@
 .end method
 
 .method public remove()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 235
+    # invokes: Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->noImpl()Ljava/lang/Void;
     invoke-static {}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->access$noImpl()Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -344,7 +350,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 209
     invoke-virtual {p0}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$Core$KeyValueIterator;->remove()Ljava/lang/Void;

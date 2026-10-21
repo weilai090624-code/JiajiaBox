@@ -55,6 +55,9 @@ public final class TrafficDashboardView extends FrameLayout {
         }
     };
     private boolean refreshScheduled;
+    private final Runnable settledRender=()->{
+        if(isAttachedToWindow()&&isShown()&&getWindowVisibility()==View.VISIBLE)render();
+    };
     private int headerColor;
     private int headerTextColor;
     private boolean headerThemeApplied;
@@ -63,6 +66,7 @@ public final class TrafficDashboardView extends FrameLayout {
     private int baseTopMargin;
     private final AppTrafficRankingCard rankingCard;
     private final ConnectionCard connectionCard;
+    private final GlobalGlobeCard globeCard;
     private final AiRoutingCard aiCard;
     private final AiRoutingCard telegramCard;
     private final LinearLayout uploadSection;
@@ -79,6 +83,7 @@ public final class TrafficDashboardView extends FrameLayout {
             UiComponents.refresh(this);
             styleRoutingCard(aiCard);
             styleRoutingCard(telegramCard);
+            if(globeCard!=null)globeCard.refreshAppearance();
         }
     }
 
@@ -194,7 +199,7 @@ public final class TrafficDashboardView extends FrameLayout {
         rateRow.addView(downloadSection, new LinearLayout.LayoutParams(0,
             ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
 
-        uploadValue.setTextSize(17);downloadValue.setTextSize(17);
+        uploadValue.setTextSize(18);downloadValue.setTextSize(18);
         rankingCard = homeMode ? null : new AppTrafficRankingCard(context);
         if (rankingCard != null) {
             FrameLayout.LayoutParams rankingParameters = new FrameLayout.LayoutParams(-1, rankingCard.preferredHeight(), Gravity.TOP);
@@ -206,6 +211,11 @@ public final class TrafficDashboardView extends FrameLayout {
             FrameLayout.LayoutParams connectionParameters = new FrameLayout.LayoutParams(-1, rankingCard.preferredHeight(), Gravity.TOP);
             connectionParameters.setMargins(dp(16), dp(6), dp(16), 0);
             addView(connectionCard, connectionParameters);
+        }
+        globeCard = homeMode ? null : new GlobalGlobeCard(context);
+        if(globeCard!=null){
+            FrameLayout.LayoutParams globeParameters=new FrameLayout.LayoutParams(-1,rankingCard.preferredHeight(),Gravity.TOP);
+            globeParameters.setMargins(dp(16),dp(6),dp(16),0);addView(globeCard,globeParameters);
         }
         aiCard = new AiRoutingCard(context);
         FrameLayout.LayoutParams aiParameters = new FrameLayout.LayoutParams(dp(140), dp(80), Gravity.TOP | Gravity.LEFT);
@@ -225,11 +235,11 @@ public final class TrafficDashboardView extends FrameLayout {
             card.setId(View.NO_ID);
             android.graphics.drawable.GradientDrawable background = new android.graphics.drawable.GradientDrawable();
             background.setColor(ThemePalette.control(context));
-            background.setStroke(dp(1),ThemePalette.border(context));
+            background.setStroke(0,ThemePalette.border(context));
             background.setCornerRadius(dp(ThemePalette.CARD_RADIUS));
             card.setBackground(background);
             card.setClipToOutline(true);
-            card.setElevation(dp(5));
+            card.setElevation(dp(2));
             FrameLayout.LayoutParams fixed = (FrameLayout.LayoutParams) card.getLayoutParams();
             fixed.setMargins(dp(16),dp(8),dp(16),dp(8));
             card.setLayoutParams(fixed);
@@ -259,6 +269,7 @@ public final class TrafficDashboardView extends FrameLayout {
     }
 
     @Override protected void onDetachedFromWindow() {
+        DrawerWorkGate.cancel(this);
         handler.removeCallbacks(refreshRunnable);
         refreshScheduled = false;
         super.onDetachedFromWindow();
@@ -317,7 +328,12 @@ public final class TrafficDashboardView extends FrameLayout {
     }
 
     private static void setValue(TextView view, String value) {
-        if (!value.contentEquals(view.getText())) view.setText(value);
+        if (value.contentEquals(view.getText()) && view.getText() instanceof android.text.Spanned) return;
+        android.text.SpannableString styled=new android.text.SpannableString(value);
+        int unit=-1;
+        for(int i=0;i<value.length();i++)if(Character.isLetter(value.charAt(i))){unit=i;break;}
+        if(unit>=0)styled.setSpan(new android.text.style.RelativeSizeSpan(.62f),unit,value.length(),android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        view.setText(styled);
     }
 
     private void applyHeaderTheme() {
@@ -328,14 +344,14 @@ public final class TrafficDashboardView extends FrameLayout {
             headerTextColor = textColor;
             headerThemeApplied = true;
             ((android.graphics.drawable.GradientDrawable) dashboardCard.getBackground()).setColor(color);
-            ((android.graphics.drawable.GradientDrawable) dashboardCard.getBackground()).setStroke(dp(1),ThemePalette.border(getContext()));
+            ((android.graphics.drawable.GradientDrawable) dashboardCard.getBackground()).setStroke(0,ThemePalette.border(getContext()));
         }
         // Global appearance restoration can overwrite child colors without changing the theme.
         tintHeader(dashboardCard);
     }
 
     private void render() {
-        if (!homeMode || FullScreenBackdrop.isTransitioning(this)) return;
+        if (!homeMode || DrawerWorkGate.defer(this,settledRender)) return;
         applyHeaderTheme();
         long total = LifetimeTraffic.cachedRead(getContext());
         setValue(totalValue, Formatter.formatFileSize(getContext(), total));
@@ -398,6 +414,12 @@ public final class TrafficDashboardView extends FrameLayout {
             }
             top += height + dp(12);
         }
+        if(globeCard!=null){
+            FrameLayout.LayoutParams globe=(FrameLayout.LayoutParams)globeCard.getLayoutParams();
+            int globeHeight=rankingCard.preferredHeight();
+            if(globe.topMargin!=top||globe.height!=globeHeight){globe.topMargin=top;globe.height=globeHeight;globeCard.setLayoutParams(globe);}
+            top+=globeHeight+dp(12);
+        }
         int gap=dp(12),available=getWidth()-dp(32);
         boolean stacked=available<dp(290*Math.max(1,getResources().getConfiguration().fontScale));
         int width=stacked?available:(available-gap)/2;
@@ -426,9 +448,10 @@ public final class TrafficDashboardView extends FrameLayout {
         LinearLayout section = new LinearLayout(context);
         section.setOrientation(LinearLayout.VERTICAL);
         section.setGravity(Gravity.CENTER);
-        TextView title = text(context, label, 11, false, NODE_SUBTITLE_ID);
+        TextView title = text(context, label, 12, false, NODE_SUBTITLE_ID);
         section.addView(title, wrapCentered());
-        TextView amount = text(context, value, 22, true, NODE_NAME_ID);
+        TextView amount = text(context, value, 24, true, NODE_NAME_ID);
+        setValue(amount,value);
         LinearLayout.LayoutParams amountParameters = wrapCentered();
         amountParameters.topMargin = dp(7);
         section.addView(amount, amountParameters);

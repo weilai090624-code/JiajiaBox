@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet;Lcom/google/common/collect/Range;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public add(Lcom/google/common/collect/Range;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 928
     .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
@@ -128,7 +128,7 @@
 .end method
 
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -144,7 +144,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
@@ -152,21 +152,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public encloses(Lcom/google/common/collect/Range;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -186,7 +186,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
@@ -194,18 +194,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 888
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
+    # invokes: Lcom/google/common/collect/TreeRangeSet;->rangeEnclosing(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
     invoke-static {v0, p1}, Lcom/google/common/collect/TreeRangeSet;->access$600(Lcom/google/common/collect/TreeRangeSet;Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
 
     move-result-object v0
 
     .line 889
     .local v0, "enclosing":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
@@ -217,21 +218,21 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_26
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_26
     return v1
 
     .line 891
     .end local v0    # "enclosing":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_1
+    :cond_27
     return v1
 .end method
 
 .method public rangeContaining(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -254,13 +255,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 898
     return-object v1
 
     .line 900
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/TreeRangeSet;->rangeContaining(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
@@ -269,23 +270,23 @@
 
     .line 901
     .local v0, "result":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_13
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/Range;->intersection(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     return-object v1
 .end method
 
 .method public remove(Lcom/google/common/collect/Range;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -303,7 +304,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 917
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
@@ -317,12 +318,12 @@
     invoke-virtual {v0, v1}, Lcom/google/common/collect/TreeRangeSet;->remove(Lcom/google/common/collect/Range;)V
 
     .line 919
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public subRangeSet(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -342,20 +343,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 934
     return-object p0
 
     .line 935
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {p1, v0}, Lcom/google/common/collect/Range;->isConnected(Lcom/google/common/collect/Range;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 936
     new-instance v0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;
@@ -371,7 +372,7 @@
     return-object v0
 
     .line 938
-    :cond_1
+    :cond_1d
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
 
     move-result-object v0

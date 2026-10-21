@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/window/layout/SidecarCompat;Landroid/app/Activity;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Landroidx/window/layout/SidecarCompat;
     .param p2, "$activity"    # Landroid/app/Activity;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 4
+    .registers 6
     .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     const-string v0, "newConfig"
@@ -75,16 +75,17 @@
     .line 123
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat$registerConfigurationChangeListener$configChangeObserver$1;->this$0:Landroidx/window/layout/SidecarCompat;
 
+    # getter for: Landroidx/window/layout/SidecarCompat;->extensionCallback:Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
     invoke-static {v0}, Landroidx/window/layout/SidecarCompat;->access$getExtensionCallback$p(Landroidx/window/layout/SidecarCompat;)Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 124
-    :cond_0
+    :cond_e
     iget-object v1, p0, Landroidx/window/layout/SidecarCompat$registerConfigurationChangeListener$configChangeObserver$1;->$activity:Landroid/app/Activity;
 
     .line 125
@@ -100,12 +101,12 @@
     invoke-interface {v0, v1, v2}, Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;->onWindowLayoutChanged(Landroid/app/Activity;Landroidx/window/layout/WindowLayoutInfo;)V
 
     .line 127
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method public onLowMemory()V
-    .locals 0
+    .registers 1
 
     .line 130
     return-void

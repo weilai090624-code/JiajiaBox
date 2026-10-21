@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -56,11 +56,11 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/ICustomTabsCallback;
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Landroid/os/IBinder;
 
     .line 57
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 58
     const/4 v0, 0x0
@@ -68,7 +68,7 @@
     return-object v0
 
     .line 60
-    :cond_0
+    :cond_4
     const-string v0, "android.support.customtabs.ICustomTabsCallback"
 
     invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -77,11 +77,11 @@
 
     .line 61
     .local v0, "iin":Landroid/os/IInterface;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     instance-of v1, v0, Landroid/support/customtabs/ICustomTabsCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 62
     move-object v1, v0
@@ -91,7 +91,7 @@
     return-object v1
 
     .line 64
-    :cond_1
+    :cond_14
     new-instance v1, Landroid/support/customtabs/ICustomTabsCallback$Stub$Proxy;
 
     invoke-direct {v1, p0}, Landroid/support/customtabs/ICustomTabsCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -102,14 +102,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 68
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 6
+    .registers 11
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -127,21 +127,21 @@
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v1, :cond_d
 
     const v2, 0xffffff
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v2, :cond_d
 
     .line 74
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 76
-    :cond_0
-    packed-switch p1, :pswitch_data_0
+    :cond_d
+    packed-switch p1, :pswitch_data_ac
 
     .line 84
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_b2
 
     .line 159
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -151,14 +151,14 @@
     return v1
 
     .line 80
-    :pswitch_0
+    :pswitch_18
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 81
     return v1
 
     .line 149
-    :pswitch_1
+    :pswitch_1c
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -173,6 +173,7 @@
     .local v3, "_arg1":I
     sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v4}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
@@ -184,13 +185,13 @@
     invoke-virtual {p0, v2, v3, v4}, Landroid/support/customtabs/ICustomTabsCallback$Stub;->onActivityResized(IILandroid/os/Bundle;)V
 
     .line 155
-    goto/16 :goto_1
+    goto/16 :goto_ab
 
     .line 138
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":I
     .end local v4    # "_arg2":Landroid/os/Bundle;
-    :pswitch_2
+    :pswitch_31
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -199,6 +200,7 @@
     .local v2, "_arg0":Ljava/lang/String;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -216,16 +218,17 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 143
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {p3, v4, v1}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 144
-    goto :goto_1
+    goto :goto_ab
 
     .line 125
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v3    # "_arg1":Landroid/os/Bundle;
     .end local v4    # "_result":Landroid/os/Bundle;
-    :pswitch_3
+    :pswitch_48
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -234,6 +237,7 @@
     .local v2, "_arg0":I
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -246,20 +250,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_5c
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_5d
 
-    :cond_1
+    :cond_5c
     const/4 v4, 0x0
 
     .line 131
     .local v4, "_arg2":Z
-    :goto_0
+    :goto_5d
     sget-object v5, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v5}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v5
@@ -271,14 +276,14 @@
     invoke-virtual {p0, v2, v3, v4, v5}, Landroid/support/customtabs/ICustomTabsCallback$Stub;->onRelationshipValidationResult(ILandroid/net/Uri;ZLandroid/os/Bundle;)V
 
     .line 133
-    goto :goto_1
+    goto :goto_ab
 
     .line 115
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":Landroid/net/Uri;
     .end local v4    # "_arg2":Z
     .end local v5    # "_arg3":Landroid/os/Bundle;
-    :pswitch_4
+    :pswitch_69
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -287,6 +292,7 @@
     .local v2, "_arg0":Ljava/lang/String;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -301,14 +307,15 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 120
-    goto :goto_1
+    goto :goto_ab
 
     .line 107
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v3    # "_arg1":Landroid/os/Bundle;
-    :pswitch_5
+    :pswitch_7c
     sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v2}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
@@ -323,11 +330,11 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 110
-    goto :goto_1
+    goto :goto_ab
 
     .line 98
     .end local v2    # "_arg0":Landroid/os/Bundle;
-    :pswitch_6
+    :pswitch_8b
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -336,6 +343,7 @@
     .local v2, "_arg0":Ljava/lang/String;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -347,12 +355,12 @@
     invoke-virtual {p0, v2, v3}, Landroid/support/customtabs/ICustomTabsCallback$Stub;->extraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 102
-    goto :goto_1
+    goto :goto_ab
 
     .line 89
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v3    # "_arg1":Landroid/os/Bundle;
-    :pswitch_7
+    :pswitch_9b
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -361,6 +369,7 @@
     .local v2, "_arg0":I
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsCallback$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -377,22 +386,22 @@
     .line 162
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":Landroid/os/Bundle;
-    :goto_1
+    :goto_ab
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_ac
     .packed-switch 0x5f4e5446
-        :pswitch_0
+        :pswitch_18
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_b2
     .packed-switch 0x2
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_9b
+        :pswitch_8b
+        :pswitch_7c
+        :pswitch_69
+        :pswitch_48
+        :pswitch_31
+        :pswitch_1c
     .end packed-switch
 .end method

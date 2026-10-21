@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/constraints/WorkConstraintsCallback;[Landroidx/work/impl/constraints/controllers/ConstraintController;)V
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroidx/work/impl/constraints/WorkConstraintsCallback;
     .param p2, "constraintControllers"    # [Landroidx/work/impl/constraints/controllers/ConstraintController;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/constraints/trackers/Trackers;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
-    .locals 3
+    .registers 6
     .param p1, "trackers"    # Landroidx/work/impl/constraints/trackers/Trackers;
     .param p2, "callback"    # Landroidx/work/impl/constraints/WorkConstraintsCallback;
 
@@ -264,7 +264,7 @@
 
 # virtual methods
 .method public final areAllConstraintsMet(Ljava/lang/String;)Z
-    .locals 11
+    .registers 13
     .param p1, "workSpecId"    # Ljava/lang/String;
 
     const-string/jumbo v0, "workSpecId"
@@ -280,7 +280,7 @@
 
     .line 120
     .local v1, "$i$a$-synchronized-WorkConstraintsTrackerImpl$areAllConstraintsMet$1":I
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->constraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     .local v2, "$this$firstOrNull$iv":[Ljava/lang/Object;
@@ -294,8 +294,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v4, :cond_1
+    :goto_10
+    if-ge v6, v4, :cond_20
 
     aget-object v7, v2, v6
 
@@ -314,29 +314,29 @@
     .line 149
     .end local v8    # "it":Landroidx/work/impl/constraints/controllers/ConstraintController;
     .end local v9    # "$i$a$-firstOrNull-WorkConstraintsTrackerImpl$areAllConstraintsMet$1$controller$1":I
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_1d
 
-    goto :goto_1
+    goto :goto_21
 
     .end local v7    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_1d
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 150
-    :cond_1
+    :cond_20
     const/4 v7, 0x0
 
     .line 120
     .end local v2    # "$this$firstOrNull$iv":[Ljava/lang/Object;
     .end local v3    # "$i$f$firstOrNull":I
-    :goto_1
+    :goto_21
     move-object v2, v7
 
     .line 123
     .local v2, "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_54
 
     .line 124
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -344,6 +344,7 @@
     move-result-object v3
 
     .line 125
+    # getter for: Landroidx/work/impl/constraints/WorkConstraintsTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/WorkConstraintsTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v4
@@ -386,23 +387,23 @@
 
     .line 124
     invoke-virtual {v3, v4, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_a .. :try_end_54} :catchall_59
 
     .line 128
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_54
+    if-nez v2, :cond_57
 
     const/4 v5, 0x1
 
     .end local v1    # "$i$a$-synchronized-WorkConstraintsTrackerImpl$areAllConstraintsMet$1":I
     .end local v2    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
-    :cond_3
+    :cond_57
     monitor-exit v0
 
     return v5
 
-    :catchall_0
+    :catchall_59
     move-exception v1
 
     monitor-exit v0
@@ -411,7 +412,7 @@
 .end method
 
 .method public onConstraintMet(Ljava/util/List;)V
-    .locals 13
+    .registers 15
     .param p1, "workSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -435,7 +436,7 @@
 
     .line 134
     .local v1, "$i$a$-synchronized-WorkConstraintsTrackerImpl$onConstraintMet$1":I
-    :try_start_0
+    :try_start_a
     move-object v2, p1
 
     check-cast v2, Ljava/lang/Iterable;
@@ -463,13 +464,13 @@
 
     move-result-object v7
 
-    :cond_0
-    :goto_0
+    :cond_1b
+    :goto_1b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_35
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -494,15 +495,15 @@
     .line 152
     .end local v9    # "it":Landroidx/work/impl/model/WorkSpec;
     .end local v10    # "$i$a$-filter-WorkConstraintsTrackerImpl$onConstraintMet$1$unconstrainedWorkSpecIds$1":I
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_1b
 
     invoke-interface {v4, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 153
     .end local v8    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_35
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -533,12 +534,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_42
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_71
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -558,6 +559,7 @@
 
     move-result-object v9
 
+    # getter for: Landroidx/work/impl/constraints/WorkConstraintsTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/WorkConstraintsTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v10
@@ -591,10 +593,10 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_42
 
     .line 155
-    :cond_2
+    :cond_71
     nop
 
     .line 138
@@ -602,25 +604,25 @@
     .end local v4    # "$i$f$forEach":I
     iget-object v3, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->callback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_7b
 
     invoke-interface {v3, v2}, Landroidx/work/impl/constraints/WorkConstraintsCallback;->onAllConstraintsMet(Ljava/util/List;)V
 
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7b
+    .catchall {:try_start_a .. :try_end_7b} :catchall_7d
 
     .line 133
     .end local v1    # "$i$a$-synchronized-WorkConstraintsTrackerImpl$onConstraintMet$1":I
     .end local v2    # "unconstrainedWorkSpecIds":Ljava/util/List;
-    :cond_3
+    :cond_7b
     monitor-exit v0
 
     .line 140
     return-void
 
     .line 133
-    :catchall_0
+    :catchall_7d
     move-exception v1
 
     monitor-exit v0
@@ -629,7 +631,7 @@
 .end method
 
 .method public onConstraintNotMet(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .param p1, "workSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -654,26 +656,26 @@
 
     .line 143
     .local v1, "$i$a$-synchronized-WorkConstraintsTrackerImpl$onConstraintNotMet$1":I
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->callback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     invoke-interface {v2, p1}, Landroidx/work/impl/constraints/WorkConstraintsCallback;->onAllConstraintsNotMet(Ljava/util/List;)V
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_a .. :try_end_13} :catchall_15
 
     .end local v1    # "$i$a$-synchronized-WorkConstraintsTrackerImpl$onConstraintNotMet$1":I
-    :cond_0
+    :cond_13
     monitor-exit v0
 
     .line 144
     return-void
 
     .line 143
-    :catchall_0
+    :catchall_15
     move-exception v1
 
     monitor-exit v0
@@ -682,7 +684,7 @@
 .end method
 
 .method public replace(Ljava/lang/Iterable;)V
-    .locals 8
+    .registers 10
     .param p1, "workSpecs"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -706,7 +708,7 @@
 
     .line 88
     .local v1, "$i$a$-synchronized-WorkConstraintsTrackerImpl$replace$1":I
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->constraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     array-length v3, v2
@@ -715,8 +717,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v3, :cond_0
+    :goto_f
+    if-ge v5, v3, :cond_1a
 
     aget-object v6, v2, v5
 
@@ -730,18 +732,18 @@
     .end local v6    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 91
-    :cond_0
+    :cond_1a
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->constraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     array-length v3, v2
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v5, v3, :cond_1
+    :goto_1e
+    if-ge v5, v3, :cond_28
 
     aget-object v6, v2, v5
 
@@ -753,16 +755,16 @@
     .end local v6    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 94
-    :cond_1
+    :cond_28
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->constraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     array-length v3, v2
 
-    :goto_2
-    if-ge v4, v3, :cond_2
+    :goto_2b
+    if-ge v4, v3, :cond_38
 
     aget-object v5, v2, v4
 
@@ -778,16 +780,16 @@
     .end local v5    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_2b
 
     .line 97
-    :cond_2
+    :cond_38
     nop
 
     .end local v1    # "$i$a$-synchronized-WorkConstraintsTrackerImpl$replace$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_a .. :try_end_3b} :catchall_3d
 
     .line 87
     monitor-exit v0
@@ -796,7 +798,7 @@
     return-void
 
     .line 87
-    :catchall_0
+    :catchall_3d
     move-exception v1
 
     monitor-exit v0
@@ -805,7 +807,7 @@
 .end method
 
 .method public reset()V
-    .locals 6
+    .registers 7
 
     .line 104
     iget-object v0, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->lock:Ljava/lang/Object;
@@ -816,15 +818,15 @@
 
     .line 105
     .local v1, "$i$a$-synchronized-WorkConstraintsTrackerImpl$reset$1":I
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTrackerImpl;->constraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     array-length v3, v2
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_8
+    if-ge v4, v3, :cond_12
 
     aget-object v5, v2, v4
 
@@ -836,16 +838,16 @@
     .end local v5    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 108
-    :cond_0
+    :cond_12
     nop
 
     .end local v1    # "$i$a$-synchronized-WorkConstraintsTrackerImpl$reset$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_4 .. :try_end_15} :catchall_17
 
     .line 104
     monitor-exit v0
@@ -854,7 +856,7 @@
     return-void
 
     .line 104
-    :catchall_0
+    :catchall_17
     move-exception v1
 
     monitor-exit v0

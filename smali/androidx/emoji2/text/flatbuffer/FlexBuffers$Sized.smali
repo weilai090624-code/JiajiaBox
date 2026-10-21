@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)V
-    .locals 2
+    .registers 6
     .param p1, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -33,6 +33,7 @@
 
     sub-int v1, p2, p3
 
+    # invokes: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->readInt(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
     invoke-static {v0, v1, p3}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$100(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
 
     move-result v0
@@ -46,7 +47,7 @@
 
 # virtual methods
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 662
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Sized;->size:I

@@ -57,13 +57,14 @@ public final class ConnectionCard extends LinearLayout {
   if(!active()){epoch++;cancelPublication();return;}
   UiComponents.refresh(this);request();main.postDelayed(tick,2000);
  }
- private void cancelPublication(){if(publication!=null){main.removeCallbacks(publication);publication=null;loading.set(false);}}
+ private void cancelPublication(){DrawerWorkGate.cancel(this);if(publication!=null){main.removeCallbacks(publication);publication=null;loading.set(false);}}
  protected void onAttachedToWindow(){super.onAttachedToWindow();reconcile();}
  protected void onDetachedFromWindow(){main.removeCallbacks(tick);epoch++;cancelPublication();super.onDetachedFromWindow();}
  protected void onVisibilityChanged(View v,int value){super.onVisibilityChanged(v,value);reconcile();}
  protected void onWindowVisibilityChanged(int value){super.onWindowVisibilityChanged(value);reconcile();}
  private void request(){
-  if(!active()||HomeSwipeController.isMoving()||FullScreenBackdrop.isTransitioning(this)||!loading.compareAndSet(false,true))return;
+  if(!active()||loading.get())return;
+  if(DrawerWorkGate.defer(this,this::request)||!loading.compareAndSet(false,true))return;
   final int generation=epoch;final Context c=getContext().getApplicationContext();final Map<String,String> resolved=new HashMap<>(labels);
   ConnectionInspector.WORKER.execute(()->{
    ConnectionRows result=null;JSONObject map=null;String failure=null;
@@ -81,9 +82,8 @@ public final class ConnectionCard extends LinearLayout {
     if(generation!=epoch||!active()){loading.set(false);return;}
     publication=new Runnable(){public void run(){
      if(generation!=epoch||!active()){publication=null;loading.set(false);return;}
-     if(HomeSwipeController.isMoving()||FullScreenBackdrop.isTransitioning(ConnectionCard.this)){main.postDelayed(this,80);return;}
      publication=null;loading.set(false);data=resultRows;types=resultTypes==null?new JSONObject():resultTypes;labels=resolved;error=problem;render();
-    }};publication.run();
+    }};DrawerWorkGate.publish(this,publication);
    });
   });
  }

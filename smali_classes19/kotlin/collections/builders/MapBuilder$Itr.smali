@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/builders/MapBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "map"    # Lkotlin/collections/builders/MapBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,6 +119,7 @@
     .line 506
     iget-object v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getModCount$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v0
@@ -141,24 +142,25 @@
 
 # virtual methods
 .method public final checkForComodification$kotlin_stdlib()V
-    .locals 2
+    .registers 3
 
     .line 529
     iget-object v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getModCount$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v0
 
     iget v1, p0, Lkotlin/collections/builders/MapBuilder$Itr;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 531
     return-void
 
     .line 530
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -167,7 +169,7 @@
 .end method
 
 .method public final getIndex$kotlin_stdlib()I
-    .locals 1
+    .registers 2
 
     .line 504
     iget v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->index:I
@@ -176,7 +178,7 @@
 .end method
 
 .method public final getLastIndex$kotlin_stdlib()I
-    .locals 1
+    .registers 2
 
     .line 505
     iget v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->lastIndex:I
@@ -185,7 +187,7 @@
 .end method
 
 .method public final getMap$kotlin_stdlib()Lkotlin/collections/builders/MapBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -201,49 +203,52 @@
 .end method
 
 .method public final hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 517
     iget v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->index:I
 
     iget-object v1, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public final initNext$kotlin_stdlib()V
-    .locals 2
+    .registers 3
 
     .line 513
     nop
 
-    :goto_0
+    :goto_1
     iget v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->index:I
 
     iget-object v1, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->length:I
     invoke-static {v1}, Lkotlin/collections/builders/MapBuilder;->access$getLength$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1e
 
     iget-object v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->presenceArray:[I
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getPresenceArray$p(Lkotlin/collections/builders/MapBuilder;)[I
 
     move-result-object v0
@@ -252,7 +257,7 @@
 
     aget v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1e
 
     .line 514
     iget v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->index:I
@@ -261,15 +266,15 @@
 
     iput v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->index:I
 
-    goto :goto_0
+    goto :goto_1
 
     .line 515
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public final remove()V
-    .locals 3
+    .registers 4
 
     .line 520
     invoke-virtual {p0}, Lkotlin/collections/builders/MapBuilder$Itr;->checkForComodification$kotlin_stdlib()V
@@ -279,17 +284,17 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_24
 
     .line 522
     iget-object v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
@@ -301,6 +306,7 @@
 
     iget v2, p0, Lkotlin/collections/builders/MapBuilder$Itr;->lastIndex:I
 
+    # invokes: Lkotlin/collections/builders/MapBuilder;->removeEntryAt(I)V
     invoke-static {v0, v2}, Lkotlin/collections/builders/MapBuilder;->access$removeEntryAt(Lkotlin/collections/builders/MapBuilder;I)V
 
     .line 524
@@ -309,6 +315,7 @@
     .line 525
     iget-object v0, p0, Lkotlin/collections/builders/MapBuilder$Itr;->map:Lkotlin/collections/builders/MapBuilder;
 
+    # getter for: Lkotlin/collections/builders/MapBuilder;->modCount:I
     invoke-static {v0}, Lkotlin/collections/builders/MapBuilder;->access$getModCount$p(Lkotlin/collections/builders/MapBuilder;)I
 
     move-result v0
@@ -319,7 +326,7 @@
     return-void
 
     .line 734
-    :cond_1
+    :cond_24
     const/4 v0, 0x0
 
     .line 521
@@ -341,7 +348,7 @@
 .end method
 
 .method public final setIndex$kotlin_stdlib(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 504
@@ -351,7 +358,7 @@
 .end method
 
 .method public final setLastIndex$kotlin_stdlib(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 505

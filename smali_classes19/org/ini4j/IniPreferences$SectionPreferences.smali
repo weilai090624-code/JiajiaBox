@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/ini4j/IniPreferences;Ljava/util/prefs/AbstractPreferences;Lorg/ini4j/Profile$Section;Z)V
-    .locals 0
+    .registers 5
     .param p2, "parent"    # Ljava/util/prefs/AbstractPreferences;
     .param p3, "section"    # Lorg/ini4j/Profile$Section;
     .param p4, "isNew"    # Z
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected bridge synthetic childSpi(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 241
@@ -62,7 +62,7 @@
 .end method
 
 .method protected childSpi(Ljava/lang/String;)Lorg/ini4j/IniPreferences$SectionPreferences;
-    .locals 4
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,19 +79,19 @@
 
     .line 325
     .local v0, "child":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
     .line 327
     .local v1, "isNew":Z
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_13
 
     .line 329
     iget-object v2, p0, Lorg/ini4j/IniPreferences$SectionPreferences;->_section:Lorg/ini4j/Profile$Section;
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 332
-    :cond_1
+    :cond_13
     new-instance v2, Lorg/ini4j/IniPreferences$SectionPreferences;
 
     iget-object v3, p0, Lorg/ini4j/IniPreferences$SectionPreferences;->this$0:Lorg/ini4j/IniPreferences;
@@ -112,7 +112,7 @@
 .end method
 
 .method protected childrenNamesSpi()[Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -130,7 +130,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -149,7 +149,7 @@
 .end method
 
 .method protected flushSpi()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -161,7 +161,7 @@
 .end method
 
 .method protected getSpi(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 295
@@ -175,7 +175,7 @@
 .end method
 
 .method protected keysSpi()[Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -189,6 +189,7 @@
 
     move-result-object v0
 
+    # getter for: Lorg/ini4j/IniPreferences;->EMPTY:[Ljava/lang/String;
     invoke-static {}, Lorg/ini4j/IniPreferences;->access$000()[Ljava/lang/String;
 
     move-result-object v1
@@ -203,7 +204,7 @@
 .end method
 
 .method protected putSpi(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -217,7 +218,7 @@
 .end method
 
 .method protected removeNodeSpi()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -227,6 +228,7 @@
     .line 380
     iget-object v0, p0, Lorg/ini4j/IniPreferences$SectionPreferences;->this$0:Lorg/ini4j/IniPreferences;
 
+    # getter for: Lorg/ini4j/IniPreferences;->_ini:Lorg/ini4j/Ini;
     invoke-static {v0}, Lorg/ini4j/IniPreferences;->access$100(Lorg/ini4j/IniPreferences;)Lorg/ini4j/Ini;
 
     move-result-object v0
@@ -240,7 +242,7 @@
 .end method
 
 .method protected removeSpi(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 390
@@ -253,7 +255,7 @@
 .end method
 
 .method public sync()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -272,7 +274,7 @@
 .end method
 
 .method protected syncSpi()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;

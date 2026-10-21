@@ -1112,10 +1112,11 @@
     invoke-virtual {p0, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 279
-    if-nez p1, :rose_backdrop_done
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RosePalette;->backdrop(Landroid/view/View;)V
-    :rose_backdrop_done
+    if-nez p1, :cond_2c
 
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RosePalette;->backdrop(Landroid/view/View;)V
+
+    :cond_2c
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->tint(Landroid/view/View;Z)V
 
     .line 280
@@ -1126,7 +1127,7 @@
     .line 281
     instance-of v0, p0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_4d
+    if-eqz v0, :cond_52
 
     .line 282
     check-cast p0, Landroid/app/Activity;
@@ -1148,20 +1149,20 @@
     move-result v0
 
     .line 285
-    if-eqz p1, :cond_48
+    if-eqz p1, :cond_4d
 
     and-int/lit16 p1, v0, -0x2001
 
-    goto :goto_4a
+    goto :goto_4f
 
-    :cond_48
+    :cond_4d
     or-int/lit16 p1, v0, 0x2000
 
-    :goto_4a
+    :goto_4f
     invoke-virtual {p0, p1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 287
-    :cond_4d
+    :cond_52
     return-void
 .end method
 
@@ -2326,7 +2327,7 @@
 
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_e
 
     move-object v0, p0
 
@@ -2337,22 +2338,22 @@
     return-void
 
     .line 352
-    :cond_b
+    :cond_e
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_18
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->refresh(Landroid/view/View;)V
 
     return-void
 
-    :cond_15
+    :cond_18
     nop
 
     .line 353
-    :try_start_16
+    :try_start_19
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -2364,18 +2365,18 @@
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getResourceEntryName(I)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_22
-    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_22} :catch_23
+    :try_end_25
+    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_25} :catch_26
 
-    goto :goto_26
+    goto :goto_29
 
-    :catch_23
+    :catch_26
     move-exception v0
 
     const-string v0, ""
 
     .line 354
-    :goto_26
+    :goto_29
     const-string v1, "item_jj_root"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2384,7 +2385,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_b3
+    if-eqz v1, :cond_a8
 
     .line 355
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -2414,7 +2415,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_68
+    if-eqz v3, :cond_6b
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -2430,7 +2431,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_68
+    if-eqz v3, :cond_6b
 
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -2442,15 +2443,16 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_68
+    if-ne v3, v4, :cond_6b
 
     return-void
 
     .line 357
-    :cond_68
+    :cond_6b
     invoke-static {p1, v1}, Lio/nekohasekai/sagernet/ui/RosePalette;->nodeFill(ZZ)I
+
     move-result v3
-    :goto_71
+
     const/high16 v4, 0x41900000    # 18.0f
 
     invoke-static {p0, v3, v4}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->rounded(Landroid/view/View;IF)Landroid/graphics/drawable/GradientDrawable;
@@ -2473,8 +2475,9 @@
     move-result v4
 
     invoke-static {p1, v1}, Lio/nekohasekai/sagernet/ui/RosePalette;->nodeBorder(ZZ)I
+
     move-result v5
-    :goto_92
+
     invoke-virtual {v3, v4, v5}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
     .line 359
@@ -2508,25 +2511,25 @@
     invoke-virtual {v1, p0, v3}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 364
-    :cond_b3
+    :cond_a8
     const-string v1, "item_jj_emblem"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_cd
+    if-eqz v1, :cond_c2
 
-    if-eqz p1, :cond_c1
+    if-eqz p1, :cond_b6
 
     const v1, -0xcbcac5
 
-    goto :goto_c4
+    goto :goto_b9
 
-    :cond_c1
+    :cond_b6
     const v1, -0x7a7972
 
-    :goto_c4
+    :goto_b9
     const/high16 v3, 0x41600000    # 14.0f
 
     invoke-static {p0, v1, v3}, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->rounded(Landroid/view/View;IF)Landroid/graphics/drawable/GradientDrawable;
@@ -2536,10 +2539,10 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 365
-    :cond_cd
+    :cond_c2
     instance-of v1, p0, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_12e
+    if-eqz v1, :cond_123
 
     const-string v1, "item_jj_name"
 
@@ -2547,7 +2550,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_f1
+    if-nez v1, :cond_e6
 
     const-string v1, "jj_state_title"
 
@@ -2555,7 +2558,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_f1
+    if-nez v1, :cond_e6
 
     const-string v1, "item_jj_subtitle"
 
@@ -2563,7 +2566,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_f1
+    if-nez v1, :cond_e6
 
     const-string v1, "jj_state_hint"
 
@@ -2571,10 +2574,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12e
+    if-eqz v1, :cond_123
 
     .line 366
-    :cond_f1
+    :cond_e6
     move-object v1, p0
 
     check-cast v1, Landroid/widget/TextView;
@@ -2586,7 +2589,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_105
+    if-nez v3, :cond_fa
 
     sget-object v3, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->colors:Ljava/util/WeakHashMap;
 
@@ -2597,8 +2600,8 @@
     invoke-virtual {v3, v1, v4}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 368
-    :cond_105
-    if-eqz p1, :cond_123
+    :cond_fa
+    if-eqz p1, :cond_118
 
     const-string v3, "name"
 
@@ -2606,7 +2609,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_11c
+    if-nez v3, :cond_111
 
     const-string v3, "title"
 
@@ -2614,26 +2617,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_118
+    if-eqz v3, :cond_10d
 
-    goto :goto_11c
+    goto :goto_111
 
-    :cond_118
+    :cond_10d
     const v3, -0x4d4d43
 
-    goto :goto_11f
+    goto :goto_114
 
-    :cond_11c
-    :goto_11c
+    :cond_111
+    :goto_111
     const v3, -0xf0f0d
 
-    :goto_11f
+    :goto_114
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    goto :goto_12e
+    goto :goto_123
 
     .line 369
-    :cond_123
+    :cond_118
     sget-object v3, Lmoe/matsuri/nb4a/ui/LocalAppearanceSettings;->colors:Ljava/util/WeakHashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2645,18 +2648,18 @@
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 371
-    :cond_12e
-    :goto_12e
+    :cond_123
+    :goto_123
     const-string v1, "toolbar"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_155
+    if-eqz v0, :cond_14a
 
     .line 372
-    :try_start_136
+    :try_start_12b
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -2684,23 +2687,23 @@
     aput-object v1, v3, v2
 
     invoke-virtual {v0, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_152
-    .catch Ljava/lang/Exception; {:try_start_136 .. :try_end_152} :catch_153
+    :try_end_147
+    .catch Ljava/lang/Exception; {:try_start_12b .. :try_end_147} :catch_148
 
-    goto :goto_154
+    goto :goto_149
 
     .line 373
-    :catch_153
+    :catch_148
     move-exception v0
 
-    :goto_154
+    :goto_149
     nop
 
     .line 375
-    :cond_155
+    :cond_14a
     instance-of v0, p0, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_16c
+    if-eqz v0, :cond_161
 
     .line 376
     check-cast p0, Landroid/view/ViewGroup;
@@ -2708,12 +2711,12 @@
     .line 377
     nop
 
-    :goto_15c
+    :goto_151
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
-    if-ge v2, v0, :cond_16c
+    if-ge v2, v0, :cond_161
 
     invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
@@ -2723,10 +2726,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_15c
+    goto :goto_151
 
     .line 379
-    :cond_16c
+    :cond_161
     return-void
 .end method
 

@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/List;Lcom/google/common/base/Predicates$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/List;
     .param p2, "x1"    # Lcom/google/common/base/Predicates$1;
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -104,14 +104,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/common/base/Predicates$AndPredicate;->components:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1c
 
     .line 363
     iget-object v1, p0, Lcom/google/common/base/Predicates$AndPredicate;->components:Ljava/util/List;
@@ -126,7 +126,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 364
     const/4 v1, 0x0
@@ -134,21 +134,21 @@
     return v1
 
     .line 362
-    :cond_0
+    :cond_19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 367
     .end local v0    # "i":I
-    :cond_1
+    :cond_1c
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -158,7 +158,7 @@
     .local p0, "this":Lcom/google/common/base/Predicates$AndPredicate;, "Lcom/google/common/base/Predicates$AndPredicate<TT;>;"
     instance-of v0, p1, Lcom/google/common/base/Predicates$AndPredicate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 379
     move-object v0, p1
@@ -179,14 +179,14 @@
 
     .line 382
     .end local v0    # "that":Lcom/google/common/base/Predicates$AndPredicate;, "Lcom/google/common/base/Predicates$AndPredicate<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 373
     .local p0, "this":Lcom/google/common/base/Predicates$AndPredicate;, "Lcom/google/common/base/Predicates$AndPredicate<TT;>;"
@@ -204,7 +204,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 387
     .local p0, "this":Lcom/google/common/base/Predicates$AndPredicate;, "Lcom/google/common/base/Predicates$AndPredicate<TT;>;"
@@ -212,6 +212,7 @@
 
     iget-object v1, p0, Lcom/google/common/base/Predicates$AndPredicate;->components:Ljava/util/List;
 
+    # invokes: Lcom/google/common/base/Predicates;->toStringHelper(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/google/common/base/Predicates;->access$800(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
 
     move-result-object v0

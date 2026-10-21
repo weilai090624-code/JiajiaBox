@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;I)I
-    .locals 2
+    .registers 5
     .param p2, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,7 +107,7 @@
     monitor-enter v0
 
     .line 464
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -121,18 +121,18 @@
     return v1
 
     .line 465
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -145,7 +145,7 @@
     monitor-enter v0
 
     .line 457
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -159,18 +159,18 @@
     return v1
 
     .line 458
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method delegate()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -191,7 +191,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 440
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedMultiset;, "Lcom/google/common/collect/Synchronized$SynchronizedMultiset<TE;>;"
@@ -203,7 +203,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 440
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedMultiset;, "Lcom/google/common/collect/Synchronized$SynchronizedMultiset<TE;>;"
@@ -215,7 +215,7 @@
 .end method
 
 .method public elementSet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -231,10 +231,10 @@
     monitor-enter v0
 
     .line 492
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->elementSet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 493
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
@@ -247,6 +247,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->typePreservingSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$300(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v1
@@ -254,7 +255,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->elementSet:Ljava/util/Set;
 
     .line 495
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->elementSet:Ljava/util/Set;
 
     monitor-exit v0
@@ -262,18 +263,18 @@
     return-object v1
 
     .line 496
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -290,10 +291,10 @@
     monitor-enter v0
 
     .line 502
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->entrySet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 503
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
@@ -306,6 +307,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->typePreservingSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
     invoke-static {v1, v2}, Lcom/google/common/collect/Synchronized;->access$300(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v1
@@ -313,7 +315,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->entrySet:Ljava/util/Set;
 
     .line 505
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->entrySet:Ljava/util/Set;
 
     monitor-exit v0
@@ -321,18 +323,18 @@
     return-object v1
 
     .line 506
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -340,7 +342,7 @@
 
     .line 511
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedMultiset;, "Lcom/google/common/collect/Synchronized$SynchronizedMultiset<TE;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 512
     const/4 v0, 0x1
@@ -348,13 +350,13 @@
     return v0
 
     .line 514
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->mutex:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 515
-    :try_start_0
+    :try_start_7
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -368,18 +370,18 @@
     return v1
 
     .line 516
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_7 .. :try_end_13} :catchall_11
 
     throw v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 521
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedMultiset;, "Lcom/google/common/collect/Synchronized$SynchronizedMultiset<TE;>;"
@@ -388,7 +390,7 @@
     monitor-enter v0
 
     .line 522
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -402,18 +404,18 @@
     return v1
 
     .line 523
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 2
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -427,7 +429,7 @@
     monitor-enter v0
 
     .line 471
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -441,18 +443,18 @@
     return v1
 
     .line 472
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public setCount(Ljava/lang/Object;I)I
-    .locals 2
+    .registers 5
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -468,7 +470,7 @@
     monitor-enter v0
 
     .line 478
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -482,18 +484,18 @@
     return v1
 
     .line 479
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public setCount(Ljava/lang/Object;II)Z
-    .locals 2
+    .registers 6
     .param p2, "oldCount"    # I
     .param p3, "newCount"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -510,7 +512,7 @@
     monitor-enter v0
 
     .line 485
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v1
@@ -524,12 +526,12 @@
     return v1
 
     .line 486
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

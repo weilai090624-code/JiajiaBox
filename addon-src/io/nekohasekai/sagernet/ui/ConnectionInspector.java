@@ -76,9 +76,10 @@ public final class ConnectionInspector {
   try(InputStream input=new FileInputStream(file);ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] buffer=new byte[4096];int n;while((n=input.read(buffer))!=-1){if(out.size()+n>1024*1024)throw new IOException("连接接口信息异常");out.write(buffer,0,n);}return new JSONObject(out.toString("UTF-8"));}
  }
  static JSONObject currentTypes(Context c)throws Exception{JSONObject types=endpoint(c).optJSONObject("types");return types==null?new JSONObject():types;}
- static JSONObject snapshot(Context c)throws Exception{
+ static JSONObject snapshot(Context c)throws Exception{return request(c,"/connections");}
+ static JSONObject request(Context c,String path)throws Exception{
   JSONObject p=endpoint(c);String address=p.optString("address");if(address.isEmpty())throw new IOException("请先重新连接代理，以启用连接详情");
-  HttpURLConnection connection=(HttpURLConnection)new URL("http://"+address+"/connections").openConnection(java.net.Proxy.NO_PROXY);connection.setUseCaches(false);connection.setConnectTimeout(1800);connection.setReadTimeout(1800);connection.setRequestProperty("Authorization","Bearer "+p.optString("secret"));connection.setInstanceFollowRedirects(false);
+  HttpURLConnection connection=(HttpURLConnection)new URL("http://"+address+path).openConnection(java.net.Proxy.NO_PROXY);connection.setUseCaches(false);connection.setConnectTimeout(1800);connection.setReadTimeout(1800);connection.setRequestProperty("Authorization","Bearer "+p.optString("secret"));connection.setInstanceFollowRedirects(false);
   try{if(connection.getResponseCode()!=200)throw new IOException("内核连接信息暂不可用");try(InputStream input=connection.getInputStream();ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] buffer=new byte[8192];int n;while((n=input.read(buffer))!=-1){if(out.size()+n>4*1024*1024)throw new IOException("连接数据过多，请稍后重试");out.write(buffer,0,n);}return new JSONObject(out.toString("UTF-8"));}}
   finally{connection.disconnect();}
  }

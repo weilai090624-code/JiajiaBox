@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/MaterialTimePicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     .line 298
@@ -37,12 +37,13 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 301
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker$2;->this$0:Lcom/google/android/material/timepicker/MaterialTimePicker;
 
+    # getter for: Lcom/google/android/material/timepicker/MaterialTimePicker;->negativeButtonListeners:Ljava/util/Set;
     invoke-static {v0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->access$1000(Lcom/google/android/material/timepicker/MaterialTimePicker;)Ljava/util/Set;
 
     move-result-object v0
@@ -51,12 +52,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -70,10 +71,10 @@
 
     .line 303
     .end local v1    # "listener":Landroid/view/View$OnClickListener;
-    goto :goto_0
+    goto :goto_a
 
     .line 304
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lcom/google/android/material/timepicker/MaterialTimePicker$2;->this$0:Lcom/google/android/material/timepicker/MaterialTimePicker;
 
     invoke-virtual {v0}, Lcom/google/android/material/timepicker/MaterialTimePicker;->dismiss()V

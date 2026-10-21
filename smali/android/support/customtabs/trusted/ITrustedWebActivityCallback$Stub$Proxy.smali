@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 86
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Landroid/support/customtabs/trusted/ITrustedWebActivityCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -48,7 +48,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 95
     const-string v0, "android.support.customtabs.trusted.ITrustedWebActivityCallback"
@@ -57,7 +57,7 @@
 .end method
 
 .method public onExtraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 5
+    .registers 8
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -79,7 +79,7 @@
 
     .line 102
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityCallback"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -90,6 +90,7 @@
     .line 104
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityCallback$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/trusted/ITrustedWebActivityCallback$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 105
@@ -104,8 +105,8 @@
     .line 106
     .local v2, "_status":Z
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
 
     .line 109
     .end local v2    # "_status":Z
@@ -121,7 +122,7 @@
     return-void
 
     .line 109
-    :catchall_0
+    :catchall_26
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

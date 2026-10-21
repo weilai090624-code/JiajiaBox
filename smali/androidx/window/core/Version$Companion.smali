@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/core/Version$Companion;-><init>()V
 
@@ -68,9 +68,10 @@
 
 # virtual methods
 .method public final getCURRENT()Landroidx/window/core/Version;
-    .locals 1
+    .registers 2
 
     .line 81
+    # getter for: Landroidx/window/core/Version;->CURRENT:Landroidx/window/core/Version;
     invoke-static {}, Landroidx/window/core/Version;->access$getCURRENT$cp()Landroidx/window/core/Version;
 
     move-result-object v0
@@ -79,9 +80,10 @@
 .end method
 
 .method public final getUNKNOWN()Landroidx/window/core/Version;
-    .locals 1
+    .registers 2
 
     .line 78
+    # getter for: Landroidx/window/core/Version;->UNKNOWN:Landroidx/window/core/Version;
     invoke-static {}, Landroidx/window/core/Version;->access$getUNKNOWN$cp()Landroidx/window/core/Version;
 
     move-result-object v0
@@ -90,9 +92,10 @@
 .end method
 
 .method public final getVERSION_0_1()Landroidx/window/core/Version;
-    .locals 1
+    .registers 2
 
     .line 79
+    # getter for: Landroidx/window/core/Version;->VERSION_0_1:Landroidx/window/core/Version;
     invoke-static {}, Landroidx/window/core/Version;->access$getVERSION_0_1$cp()Landroidx/window/core/Version;
 
     move-result-object v0
@@ -101,9 +104,10 @@
 .end method
 
 .method public final getVERSION_1_0()Landroidx/window/core/Version;
-    .locals 1
+    .registers 2
 
     .line 80
+    # getter for: Landroidx/window/core/Version;->VERSION_1_0:Landroidx/window/core/Version;
     invoke-static {}, Landroidx/window/core/Version;->access$getVERSION_1_0$cp()Landroidx/window/core/Version;
 
     move-result-object v0
@@ -112,7 +116,7 @@
 .end method
 
 .method public final parse(Ljava/lang/String;)Landroidx/window/core/Version;
-    .locals 12
+    .registers 14
     .param p1, "versionString"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -120,7 +124,7 @@
     .line 93
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_8a
 
     move-object v1, p1
 
@@ -130,12 +134,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
-    goto/16 :goto_4
+    goto/16 :goto_8a
 
     .line 96
-    :cond_0
+    :cond_e
     const-string v1, "(\\d+)(?:\\.(\\d+))(?:\\.(\\d+))(?:-(.+))?"
 
     invoke-static {v1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -156,26 +160,26 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     .line 98
     return-object v0
 
     .line 100
-    :cond_1
+    :cond_22
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     move-object v2, v0
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_2
+    :cond_2b
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
@@ -184,12 +188,12 @@
 
     move-result-object v2
 
-    :goto_0
-    if-nez v2, :cond_3
+    :goto_33
+    if-nez v2, :cond_36
 
     return-object v0
 
-    :cond_3
+    :cond_36
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -202,13 +206,13 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_43
 
     move-object v3, v0
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_4
+    :cond_43
     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v3
@@ -217,12 +221,12 @@
 
     move-result-object v3
 
-    :goto_1
-    if-nez v3, :cond_5
+    :goto_4b
+    if-nez v3, :cond_4e
 
     return-object v0
 
-    :cond_5
+    :cond_4e
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v9
@@ -235,13 +239,13 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_5b
 
     move-object v3, v0
 
-    goto :goto_2
+    goto :goto_63
 
-    :cond_6
+    :cond_5b
     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v3
@@ -250,12 +254,12 @@
 
     move-result-object v3
 
-    :goto_2
-    if-nez v3, :cond_7
+    :goto_63
+    if-nez v3, :cond_66
 
     return-object v0
 
-    :cond_7
+    :cond_66
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -268,18 +272,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_76
 
     invoke-virtual {v1, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_78
 
-    :cond_8
+    :cond_76
     const-string v3, ""
 
-    :goto_3
+    :goto_78
     move-object v10, v3
 
     .line 104
@@ -312,7 +316,7 @@
     .end local v2    # "major":I
     .end local v9    # "minor":I
     .end local v10    # "description":Ljava/lang/String;
-    :cond_9
-    :goto_4
+    :cond_8a
+    :goto_8a
     return-object v0
 .end method

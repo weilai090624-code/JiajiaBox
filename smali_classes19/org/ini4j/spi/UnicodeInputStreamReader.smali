@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
-    .locals 2
+    .registers 5
     .param p1, "in"    # Ljava/io/InputStream;
     .param p2, "defaultEnc"    # Ljava/nio/charset/Charset;
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,7 +71,7 @@
 .end method
 
 .method protected init()V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -81,13 +81,13 @@
     .line 124
     iget-object v0, p0, Lorg/ini4j/spi/UnicodeInputStreamReader;->_reader:Ljava/io/InputStreamReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 126
     return-void
 
     .line 130
-    :cond_0
+    :cond_5
     const/4 v0, 0x4
 
     new-array v0, v0, [B
@@ -106,13 +106,14 @@
 
     .line 135
     .local v1, "n":I
+    # invokes: Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->find([B)Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
     invoke-static {v0}, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->access$000([B)Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
 
     move-result-object v2
 
     .line 137
     .local v2, "bom":Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     .line 139
     iget-object v3, p0, Lorg/ini4j/spi/UnicodeInputStreamReader;->_defaultEncoding:Ljava/nio/charset/Charset;
@@ -122,12 +123,13 @@
     move v4, v1
 
     .local v4, "unread":I
-    goto :goto_0
+    goto :goto_25
 
     .line 144
     .end local v3    # "encoding":Ljava/nio/charset/Charset;
     .end local v4    # "unread":I
-    :cond_1
+    :cond_1a
+    # getter for: Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_charset:Ljava/nio/charset/Charset;
     invoke-static {v2}, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->access$100(Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;)Ljava/nio/charset/Charset;
 
     move-result-object v3
@@ -136,6 +138,7 @@
     .restart local v3    # "encoding":Ljava/nio/charset/Charset;
     array-length v4, v0
 
+    # getter for: Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_bytes:[B
     invoke-static {v2}, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->access$200(Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;)[B
 
     move-result-object v5
@@ -146,8 +149,8 @@
 
     .line 148
     .restart local v4    # "unread":I
-    :goto_0
-    if-lez v4, :cond_2
+    :goto_25
+    if-lez v4, :cond_2e
 
     .line 150
     iget-object v5, p0, Lorg/ini4j/spi/UnicodeInputStreamReader;->_stream:Ljava/io/PushbackInputStream;
@@ -157,7 +160,7 @@
     invoke-virtual {v5, v0, v6, v4}, Ljava/io/PushbackInputStream;->unread([BII)V
 
     .line 153
-    :cond_2
+    :cond_2e
     new-instance v5, Ljava/io/InputStreamReader;
 
     iget-object v6, p0, Lorg/ini4j/spi/UnicodeInputStreamReader;->_stream:Ljava/io/PushbackInputStream;
@@ -171,7 +174,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 1
+    .registers 5
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I

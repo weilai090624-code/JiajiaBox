@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
-    .locals 6
+    .registers 11
     .param p3, "wordBoundary"    # Lcom/google/common/base/CharMatcher;
     .param p4, "wordSeparator"    # Ljava/lang/String;
 
@@ -41,10 +41,11 @@
 
 # virtual methods
 .method normalizeWord(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "word"    # Ljava/lang/String;
 
     .line 89
+    # invokes: Lcom/google/common/base/CaseFormat;->firstCharOnlyToUpper(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {p1}, Lcom/google/common/base/CaseFormat;->access$100(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

@@ -137,7 +137,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
-    .locals 9
+    .registers 12
     .param p1, "this$0"    # Lokhttp3/internal/cache/DiskLruCache;
     .param p2, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -223,11 +223,11 @@
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_8a
 
     const/4 v3, 0x0
 
-    :cond_0
+    :cond_48
     move v4, v3
 
     .local v4, "i":I
@@ -293,13 +293,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 969
-    if-lt v3, v2, :cond_0
+    if-lt v3, v2, :cond_48
 
     .line 976
     .end local v0    # "fileBuilder":Ljava/lang/StringBuilder;
     .end local v1    # "truncateTo":I
     .end local v4    # "i":I
-    :cond_1
+    :cond_8a
     nop
 
     .line 935
@@ -307,7 +307,7 @@
 .end method
 
 .method private final invalidLengths(Ljava/util/List;)Ljava/lang/Void;
-    .locals 2
+    .registers 4
     .param p1, "strings"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,7 +340,7 @@
 .end method
 
 .method private final newSource(I)Lokio/Source;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 1041
@@ -366,16 +366,17 @@
     .local v0, "fileSource":Lokio/Source;
     iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
+    # getter for: Lokhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
     invoke-static {v1}, Lokhttp3/internal/cache/DiskLruCache;->access$getCivilizedFileSystem$p(Lokhttp3/internal/cache/DiskLruCache;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     return-object v0
 
     .line 1044
-    :cond_0
+    :cond_1b
     iget v1, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->lockingSourceCount:I
 
     add-int/lit8 v1, v1, 0x1
@@ -397,7 +398,7 @@
 
 # virtual methods
 .method public final getCleanFiles$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -414,7 +415,7 @@
 .end method
 
 .method public final getCurrentEditor$okhttp()Lokhttp3/internal/cache/DiskLruCache$Editor;
-    .locals 1
+    .registers 2
 
     .line 954
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->currentEditor:Lokhttp3/internal/cache/DiskLruCache$Editor;
@@ -423,7 +424,7 @@
 .end method
 
 .method public final getDirtyFiles$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -440,7 +441,7 @@
 .end method
 
 .method public final getKey$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 936
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->key:Ljava/lang/String;
@@ -449,7 +450,7 @@
 .end method
 
 .method public final getLengths$okhttp()[J
-    .locals 1
+    .registers 2
 
     .line 940
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->lengths:[J
@@ -458,7 +459,7 @@
 .end method
 
 .method public final getLockingSourceCount$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 960
     iget v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->lockingSourceCount:I
@@ -467,7 +468,7 @@
 .end method
 
 .method public final getReadable$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 945
     iget-boolean v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->readable:Z
@@ -476,7 +477,7 @@
 .end method
 
 .method public final getSequenceNumber$okhttp()J
-    .locals 2
+    .registers 3
 
     .line 963
     iget-wide v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->sequenceNumber:J
@@ -485,7 +486,7 @@
 .end method
 
 .method public final getZombie$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 948
     iget-boolean v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->zombie:Z
@@ -494,7 +495,7 @@
 .end method
 
 .method public final setCurrentEditor$okhttp(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 954
@@ -504,7 +505,7 @@
 .end method
 
 .method public final setLengths$okhttp(Ljava/util/List;)V
-    .locals 6
+    .registers 8
     .param p1, "strings"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -536,24 +537,24 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_39
 
     .line 985
     nop
 
     .line 986
-    :try_start_0
+    :try_start_12
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2e
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_1b
     move v2, v1
 
     .local v2, "i":I
@@ -573,19 +574,19 @@
     move-result-wide v4
 
     aput-wide v4, v3, v2
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2c
+    .catch Ljava/lang/NumberFormatException; {:try_start_12 .. :try_end_2c} :catch_2f
 
     .line 986
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_1b
 
     .line 992
     .end local v2    # "i":I
-    :cond_1
+    :cond_2e
     return-void
 
     .line 989
-    :catch_0
+    :catch_2f
     move-exception v0
 
     .line 990
@@ -600,7 +601,7 @@
 
     .line 982
     .end local v0    # "_":Ljava/lang/NumberFormatException;
-    :cond_2
+    :cond_39
     invoke-direct {p0, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->invalidLengths(Ljava/util/List;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -611,7 +612,7 @@
 .end method
 
 .method public final setLockingSourceCount$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 960
@@ -621,7 +622,7 @@
 .end method
 
 .method public final setReadable$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 945
@@ -631,7 +632,7 @@
 .end method
 
 .method public final setSequenceNumber$okhttp(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 963
@@ -641,7 +642,7 @@
 .end method
 
 .method public final setZombie$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 948
@@ -651,7 +652,7 @@
 .end method
 
 .method public final snapshot$okhttp()Lokhttp3/internal/cache/DiskLruCache$Snapshot;
-    .locals 11
+    .registers 12
 
     .line 1013
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -663,18 +664,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_39
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
-    goto :goto_0
+    goto :goto_39
 
     .line 1079
-    :cond_0
+    :cond_e
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -718,8 +719,8 @@
     throw v2
 
     .line 1081
-    :cond_1
-    :goto_0
+    :cond_39
+    :goto_39
     nop
 
     .line 1015
@@ -729,33 +730,34 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_40
 
     return-object v1
 
     .line 1016
-    :cond_2
+    :cond_40
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
+    # getter for: Lokhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
     invoke-static {v0}, Lokhttp3/internal/cache/DiskLruCache;->access$getCivilizedFileSystem$p(Lokhttp3/internal/cache/DiskLruCache;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_51
 
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->currentEditor:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_50
 
     iget-boolean v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->zombie:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_51
 
-    :cond_3
+    :cond_50
     return-object v1
 
     .line 1018
-    :cond_4
+    :cond_51
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -779,18 +781,18 @@
     nop
 
     .line 1021
-    :try_start_0
+    :try_start_62
     iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-virtual {v2}, Lokhttp3/internal/cache/DiskLruCache;->getValueCount$okhttp()I
 
     move-result v2
 
-    if-lez v2, :cond_6
+    if-lez v2, :cond_7a
 
     const/4 v3, 0x0
 
-    :cond_5
+    :cond_6b
     move v4, v3
 
     .local v4, "i":I
@@ -808,11 +810,11 @@
     invoke-interface {v5, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 1021
-    if-lt v3, v2, :cond_5
+    if-lt v3, v2, :cond_6b
 
     .line 1024
     .end local v4    # "i":I
-    :cond_6
+    :cond_7a
     new-instance v10, Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     iget-object v3, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -828,13 +830,13 @@
     move-object v8, v9
 
     invoke-direct/range {v2 .. v8}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;-><init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;JLjava/util/List;[J)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_88
+    .catch Ljava/io/FileNotFoundException; {:try_start_62 .. :try_end_88} :catch_89
 
     return-object v10
 
     .line 1025
-    :catch_0
+    :catch_89
     move-exception v2
 
     .line 1027
@@ -843,12 +845,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_8e
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_a1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -865,33 +867,33 @@
     invoke-static {v5}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .end local v4    # "source":Lokio/Source;
-    goto :goto_1
+    goto :goto_8e
 
     .line 1032
-    :cond_7
+    :cond_a1
     nop
 
     .line 1033
-    :try_start_1
+    :try_start_a2
     iget-object v3, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-virtual {v3, p0}, Lokhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lokhttp3/internal/cache/DiskLruCache$Entry;)Z
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_a7
+    .catch Ljava/io/IOException; {:try_start_a2 .. :try_end_a7} :catch_a8
 
-    goto :goto_2
+    goto :goto_a9
 
     .line 1034
-    :catch_1
+    :catch_a8
     move-exception v3
 
     .line 1036
-    :goto_2
+    :goto_a9
     return-object v1
 .end method
 
 .method public final writeLengths$okhttp(Lokio/BufferedSink;)V
-    .locals 6
+    .registers 8
     .param p1, "writer"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -910,8 +912,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_9
+    if-ge v2, v1, :cond_19
 
     aget-wide v3, v0, v2
 
@@ -927,10 +929,10 @@
 
     invoke-interface {v5, v3, v4}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1000
     .end local v3    # "length":J
-    :cond_0
+    :cond_19
     return-void
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Comparable;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)V"
@@ -70,7 +70,7 @@
 .end method
 
 .method static aboveAll()Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -82,6 +82,7 @@
     .end annotation
 
     .line 225
+    # getter for: Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
     invoke-static {}, Lcom/google/common/collect/Cut$AboveAll;->access$100()Lcom/google/common/collect/Cut$AboveAll;
 
     move-result-object v0
@@ -90,7 +91,7 @@
 .end method
 
 .method static aboveValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -111,7 +112,7 @@
 .end method
 
 .method static belowAll()Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -123,6 +124,7 @@
     .end annotation
 
     .line 118
+    # getter for: Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
     invoke-static {}, Lcom/google/common/collect/Cut$BelowAll;->access$000()Lcom/google/common/collect/Cut$BelowAll;
 
     move-result-object v0
@@ -131,7 +133,7 @@
 .end method
 
 .method static belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -154,7 +156,7 @@
 
 # virtual methods
 .method canonical(Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -172,7 +174,7 @@
 .end method
 
 .method public compareTo(Lcom/google/common/collect/Cut;)I
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -188,7 +190,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     .line 75
     const/4 v0, 0x1
@@ -196,12 +198,12 @@
     return v0
 
     .line 77
-    :cond_0
+    :cond_8
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_10
 
     .line 78
     const/4 v0, -0x1
@@ -209,7 +211,7 @@
     return v0
 
     .line 80
-    :cond_1
+    :cond_10
     iget-object v0, p0, Lcom/google/common/collect/Cut;->endpoint:Ljava/lang/Comparable;
 
     iget-object v1, p1, Lcom/google/common/collect/Cut;->endpoint:Ljava/lang/Comparable;
@@ -220,13 +222,13 @@
 
     .line 81
     .local v0, "result":I
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1b
 
     .line 82
     return v0
 
     .line 85
-    :cond_2
+    :cond_1b
     instance-of v1, p0, Lcom/google/common/collect/Cut$AboveValue;
 
     instance-of v2, p1, Lcom/google/common/collect/Cut$AboveValue;
@@ -239,7 +241,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
@@ -259,7 +261,7 @@
 .end method
 
 .method endpoint()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -274,7 +276,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -286,7 +288,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 97
     move-object v0, p1
@@ -295,25 +297,25 @@
 
     .line 99
     .local v0, "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :try_start_0
+    :try_start_8
     invoke-virtual {p0, v0}, Lcom/google/common/collect/Cut;->compareTo(Lcom/google/common/collect/Cut;)I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/ClassCastException; {:try_start_8 .. :try_end_c} :catch_10
 
     .line 100
     .local v2, "compareResult":I
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_f
     return v1
 
     .line 101
     .end local v2    # "compareResult":I
-    :catch_0
+    :catch_10
     move-exception v2
 
     .line 102
@@ -323,7 +325,7 @@
     .line 105
     .end local v0    # "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     .end local v2    # "wastNotComparableToOurType":Ljava/lang/ClassCastException;
-    :cond_1
+    :cond_12
     return v1
 .end method
 

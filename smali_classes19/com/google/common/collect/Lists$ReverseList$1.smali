@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Lists$ReverseList;Ljava/util/ListIterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Lists$ReverseList;
 
     .line 889
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -85,7 +85,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 902
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList$1;, "Lcom/google/common/collect/Lists$ReverseList$1;"
@@ -99,7 +99,7 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 907
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList$1;, "Lcom/google/common/collect/Lists$ReverseList$1;"
@@ -113,7 +113,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 916
     const/4 v0, 0x1
@@ -146,7 +146,7 @@
     return-object v0
 
     .line 914
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -155,7 +155,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 2
+    .registers 3
 
     .line 922
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList$1;, "Lcom/google/common/collect/Lists$ReverseList$1;"
@@ -167,6 +167,7 @@
 
     move-result v1
 
+    # invokes: Lcom/google/common/collect/Lists$ReverseList;->reversePosition(I)I
     invoke-static {v0, v1}, Lcom/google/common/collect/Lists$ReverseList;->access$000(Lcom/google/common/collect/Lists$ReverseList;I)I
 
     move-result v0
@@ -175,7 +176,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -191,7 +192,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 931
     const/4 v0, 0x1
@@ -208,7 +209,7 @@
     return-object v0
 
     .line 929
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -217,7 +218,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 937
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList$1;, "Lcom/google/common/collect/Lists$ReverseList$1;"
@@ -231,7 +232,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 942
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList$1;, "Lcom/google/common/collect/Lists$ReverseList$1;"
@@ -254,7 +255,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

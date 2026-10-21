@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1082
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/OkHttpClient$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final getDEFAULT_CONNECTION_SPECS$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -73,6 +73,7 @@
     .end annotation
 
     .line 1085
+    # getter for: Lokhttp3/OkHttpClient;->DEFAULT_CONNECTION_SPECS:Ljava/util/List;
     invoke-static {}, Lokhttp3/OkHttpClient;->access$getDEFAULT_CONNECTION_SPECS$cp()Ljava/util/List;
 
     move-result-object v0
@@ -81,7 +82,7 @@
 .end method
 
 .method public final getDEFAULT_PROTOCOLS$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -92,6 +93,7 @@
     .end annotation
 
     .line 1083
+    # getter for: Lokhttp3/OkHttpClient;->DEFAULT_PROTOCOLS:Ljava/util/List;
     invoke-static {}, Lokhttp3/OkHttpClient;->access$getDEFAULT_PROTOCOLS$cp()Ljava/util/List;
 
     move-result-object v0

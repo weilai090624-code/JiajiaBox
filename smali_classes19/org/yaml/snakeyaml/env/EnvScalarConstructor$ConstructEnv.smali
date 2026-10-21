@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/yaml/snakeyaml/env/EnvScalarConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 43
     iput-object p1, p0, Lorg/yaml/snakeyaml/env/EnvScalarConstructor$ConstructEnv;->this$0:Lorg/yaml/snakeyaml/env/EnvScalarConstructor;
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/yaml/snakeyaml/env/EnvScalarConstructor;Lorg/yaml/snakeyaml/env/EnvScalarConstructor$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lorg/yaml/snakeyaml/env/EnvScalarConstructor;
     .param p2, "x1"    # Lorg/yaml/snakeyaml/env/EnvScalarConstructor$1;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 45
@@ -54,6 +54,7 @@
 
     check-cast v1, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
+    # invokes: Lorg/yaml/snakeyaml/env/EnvScalarConstructor;->constructScalar(Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
     invoke-static {v0, v1}, Lorg/yaml/snakeyaml/env/EnvScalarConstructor;->access$100(Lorg/yaml/snakeyaml/env/EnvScalarConstructor;Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
 
     move-result-object v0
@@ -97,16 +98,16 @@
     .local v4, "separator":Ljava/lang/String;
     iget-object v5, p0, Lorg/yaml/snakeyaml/env/EnvScalarConstructor$ConstructEnv;->this$0:Lorg/yaml/snakeyaml/env/EnvScalarConstructor;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     move-object v6, v3
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_2a
     const-string v6, ""
 
-    :goto_0
+    :goto_2c
     iget-object v7, p0, Lorg/yaml/snakeyaml/env/EnvScalarConstructor$ConstructEnv;->this$0:Lorg/yaml/snakeyaml/env/EnvScalarConstructor;
 
     invoke-virtual {v7, v2}, Lorg/yaml/snakeyaml/env/EnvScalarConstructor;->getEnv(Ljava/lang/String;)Ljava/lang/String;

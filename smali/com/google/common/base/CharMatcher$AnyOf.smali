@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "chars"    # Ljava/lang/CharSequence;
 
     .line 1731
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1738
@@ -74,21 +74,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 4
+    .registers 6
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 1744
@@ -98,8 +98,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_e
 
     aget-char v3, v0, v2
 
@@ -111,15 +111,15 @@
     .end local v3    # "c":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 1747
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 1751
     new-instance v0, Ljava/lang/StringBuilder;
@@ -136,13 +136,14 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_19
 
     aget-char v4, v1, v3
 
     .line 1753
     .local v4, "c":C
+    # invokes: Lcom/google/common/base/CharMatcher;->showCharacter(C)Ljava/lang/String;
     invoke-static {v4}, Lcom/google/common/base/CharMatcher;->access$100(C)Ljava/lang/String;
 
     move-result-object v5
@@ -153,10 +154,10 @@
     .end local v4    # "c":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 1755
-    :cond_0
+    :cond_19
     const-string v1, "\")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/widget/NestedScrollView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/widget/NestedScrollView;
 
     .line 2575
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getScaledScrollFactor()F
-    .locals 1
+    .registers 2
 
     .line 2593
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView$DifferentialMotionFlingTargetImpl;->this$0:Landroidx/core/widget/NestedScrollView;
@@ -52,7 +52,7 @@
 .end method
 
 .method public startDifferentialMotionFling(F)Z
-    .locals 2
+    .registers 4
     .param p1, "velocity"    # F
 
     .line 2578
@@ -60,7 +60,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 2579
     const/4 v0, 0x0
@@ -68,7 +68,7 @@
     return v0
 
     .line 2581
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView$DifferentialMotionFlingTargetImpl;->stopDifferentialMotionFling()V
 
     .line 2582
@@ -85,11 +85,12 @@
 .end method
 
 .method public stopDifferentialMotionFling()V
-    .locals 1
+    .registers 2
 
     .line 2588
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView$DifferentialMotionFlingTargetImpl;->this$0:Landroidx/core/widget/NestedScrollView;
 
+    # getter for: Landroidx/core/widget/NestedScrollView;->mScroller:Landroid/widget/OverScroller;
     invoke-static {v0}, Landroidx/core/widget/NestedScrollView;->access$000(Landroidx/core/widget/NestedScrollView;)Landroid/widget/OverScroller;
 
     move-result-object v0

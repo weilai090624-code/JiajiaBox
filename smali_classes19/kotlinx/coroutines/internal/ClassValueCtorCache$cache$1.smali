@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 107
     invoke-direct {p0}, Ljava/lang/ClassValue;-><init>()V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public bridge synthetic computeValue(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Class;
 
     .line 107
@@ -75,7 +75,7 @@
 .end method
 
 .method protected computeValue(Ljava/lang/Class;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,6 +94,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
+    # invokes: Lkotlinx/coroutines/internal/ExceptionsConstructorKt;->createConstructor(Ljava/lang/Class;)Lkotlin/jvm/functions/Function1;
     invoke-static {p1}, Lkotlinx/coroutines/internal/ExceptionsConstructorKt;->access$createConstructor(Ljava/lang/Class;)Lkotlin/jvm/functions/Function1;
 
     move-result-object v0

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;)V
-    .locals 3
+    .registers 7
     .param p1, "this$0"    # Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "viewPool"    # Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
@@ -80,6 +80,7 @@
 
     new-instance v1, Landroidx/recyclerview/widget/LinearLayoutManager;
 
+    # getter for: Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->context:Landroid/content/Context;
     invoke-static {p1}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->access$000(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Landroid/content/Context;
 
     move-result-object v2
@@ -102,13 +103,13 @@
 
 # virtual methods
 .method public useCustomAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 3
+    .registers 5
     .param p1, "newAdapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 172
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
@@ -120,16 +121,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 173
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
     new-instance v1, Landroidx/recyclerview/widget/LinearLayoutManager;
 
     iget-object v2, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->this$0:Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
+    # getter for: Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->context:Landroid/content/Context;
     invoke-static {v2}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->access$000(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Landroid/content/Context;
 
     move-result-object v2
@@ -151,25 +153,26 @@
     invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
     .line 177
-    :cond_1
+    :cond_2b
     return-void
 .end method
 
 .method public useMaterialAboutItemAdapter()V
-    .locals 3
+    .registers 4
 
     .line 163
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     instance-of v0, v0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_31
 
     .line 164
     new-instance v0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;
 
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->this$0:Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
+    # getter for: Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->viewTypeManager:Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
     invoke-static {v1}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->access$100(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
 
     move-result-object v1
@@ -185,6 +188,7 @@
 
     iget-object v2, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->this$0:Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
+    # getter for: Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->context:Landroid/content/Context;
     invoke-static {v2}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->access$000(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Landroid/content/Context;
 
     move-result-object v2
@@ -208,6 +212,6 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
     .line 169
-    :cond_0
+    :cond_31
     return-void
 .end method

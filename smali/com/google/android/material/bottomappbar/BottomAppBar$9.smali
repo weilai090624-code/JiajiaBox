@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     .line 1246
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 1249
@@ -47,17 +47,19 @@
     .line 1252
     iget-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$9;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->findDependentFab()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     invoke-static {v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2300(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     move-result-object v0
 
     .line 1253
     .local v0, "fab":Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1254
     iget-object v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$9;->this$0:Lcom/google/android/material/bottomappbar/BottomAppBar;
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getFabTranslationX()F
     invoke-static {v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$2400(Lcom/google/android/material/bottomappbar/BottomAppBar;)F
 
     move-result v1
@@ -65,6 +67,6 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setTranslationX(F)V
 
     .line 1256
-    :cond_0
+    :cond_18
     return-void
 .end method

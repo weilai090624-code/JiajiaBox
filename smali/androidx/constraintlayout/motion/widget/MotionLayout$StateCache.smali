@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -94,24 +94,24 @@
 
 # virtual methods
 .method apply()V
-    .locals 4
+    .registers 5
 
     .line 1612
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->startState:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->endState:I
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_31
 
     .line 1613
-    :cond_0
+    :cond_9
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->startState:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_15
 
     .line 1614
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -120,13 +120,13 @@
 
     invoke-virtual {v0, v2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->transitionToState(I)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 1615
-    :cond_1
+    :cond_15
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->endState:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_21
 
     .line 1616
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -135,10 +135,10 @@
 
     invoke-virtual {v0, v2, v1, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setState(III)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 1618
-    :cond_2
+    :cond_21
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->startState:I
@@ -148,7 +148,7 @@
     invoke-virtual {v0, v2, v3}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setTransition(II)V
 
     .line 1620
-    :goto_0
+    :goto_2a
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     sget-object v2, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->SETUP:Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
@@ -156,14 +156,14 @@
     invoke-virtual {v0, v2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setState(Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;)V
 
     .line 1622
-    :cond_3
+    :cond_31
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->mVelocity:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4a
 
     .line 1623
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->mProgress:F
@@ -172,13 +172,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_42
 
     .line 1624
     return-void
 
     .line 1626
-    :cond_4
+    :cond_42
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->mProgress:F
@@ -189,7 +189,7 @@
     return-void
 
     .line 1629
-    :cond_5
+    :cond_4a
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->mProgress:F
@@ -217,7 +217,7 @@
 .end method
 
 .method public getTransitionState()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 1637
     new-instance v0, Landroid/os/Bundle;
@@ -258,11 +258,12 @@
 .end method
 
 .method public recordState()V
-    .locals 1
+    .registers 2
 
     .line 1669
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
+    # getter for: Landroidx/constraintlayout/motion/widget/MotionLayout;->mEndState:I
     invoke-static {v0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->access$100(Landroidx/constraintlayout/motion/widget/MotionLayout;)I
 
     move-result v0
@@ -272,6 +273,7 @@
     .line 1670
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$StateCache;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
+    # getter for: Landroidx/constraintlayout/motion/widget/MotionLayout;->mBeginState:I
     invoke-static {v0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->access$200(Landroidx/constraintlayout/motion/widget/MotionLayout;)I
 
     move-result v0
@@ -301,7 +303,7 @@
 .end method
 
 .method public setEndState(I)V
-    .locals 0
+    .registers 2
     .param p1, "endState"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -320,7 +322,7 @@
 .end method
 
 .method public setProgress(F)V
-    .locals 0
+    .registers 2
     .param p1, "progress"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -339,7 +341,7 @@
 .end method
 
 .method public setStartState(I)V
-    .locals 0
+    .registers 2
     .param p1, "startState"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -358,7 +360,7 @@
 .end method
 
 .method public setTransitionState(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -410,7 +412,7 @@
 .end method
 
 .method public setVelocity(F)V
-    .locals 0
+    .registers 2
     .param p1, "mVelocity"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

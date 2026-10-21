@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 699
     sget-object v0, Lkotlin/io/encoding/Base64$PaddingOption;->PRESENT:Lkotlin/io/encoding/Base64$PaddingOption;
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/io/encoding/Base64$Default;-><init>()V
 
@@ -78,9 +78,10 @@
 
 # virtual methods
 .method public final getMime()Lkotlin/io/encoding/Base64;
-    .locals 1
+    .registers 2
 
     .line 745
+    # getter for: Lkotlin/io/encoding/Base64;->Mime:Lkotlin/io/encoding/Base64;
     invoke-static {}, Lkotlin/io/encoding/Base64;->access$getMime$cp()Lkotlin/io/encoding/Base64;
 
     move-result-object v0
@@ -89,9 +90,10 @@
 .end method
 
 .method public final getMimeLineSeparatorSymbols$kotlin_stdlib()[B
-    .locals 1
+    .registers 2
 
     .line 711
+    # getter for: Lkotlin/io/encoding/Base64;->mimeLineSeparatorSymbols:[B
     invoke-static {}, Lkotlin/io/encoding/Base64;->access$getMimeLineSeparatorSymbols$cp()[B
 
     move-result-object v0
@@ -100,9 +102,10 @@
 .end method
 
 .method public final getUrlSafe()Lkotlin/io/encoding/Base64;
-    .locals 1
+    .registers 2
 
     .line 728
+    # getter for: Lkotlin/io/encoding/Base64;->UrlSafe:Lkotlin/io/encoding/Base64;
     invoke-static {}, Lkotlin/io/encoding/Base64;->access$getUrlSafe$cp()Lkotlin/io/encoding/Base64;
 
     move-result-object v0

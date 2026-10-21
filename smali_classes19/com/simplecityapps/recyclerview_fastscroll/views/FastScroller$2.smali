@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 169
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 1
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I
@@ -45,6 +45,7 @@
     .line 174
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$2;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
+    # getter for: Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     invoke-static {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->access$200(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     move-result-object v0
@@ -53,7 +54,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 175
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller$2;->this$0:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -61,6 +62,6 @@
     invoke-virtual {v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->show()V
 
     .line 177
-    :cond_0
+    :cond_14
     return-void
 .end method

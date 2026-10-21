@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 715
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,12 +70,13 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 718
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1;, "Lcom/google/common/collect/LinkedListMultimap$1;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$500(Lcom/google/common/collect/LinkedListMultimap;)Ljava/util/Map;
 
     move-result-object v0
@@ -90,15 +91,15 @@
 
     .line 719
     .local v0, "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     iget v1, v0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->count:I
 
-    :goto_0
+    :goto_14
     return v1
 .end method

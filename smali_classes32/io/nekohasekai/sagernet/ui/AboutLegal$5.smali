@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AboutLegal$5;->f$0:Landroid/app/Activity;
 
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AboutLegal;->lambda$append$6(Landroid/app/Activity;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AboutLegal;->lambda$append$7(Landroid/app/Activity;)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 908
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 911
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;"
@@ -46,13 +46,13 @@
 
     iget-object v0, v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 912
     return-void
 
     .line 915
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     iget-object v0, v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -61,7 +61,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 916
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
@@ -73,7 +73,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setVisibility(I)V
 
     .line 918
-    :cond_1
+    :cond_19
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     iget-object v0, v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->view:Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -84,22 +84,24 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2a
 
     .line 919
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
+    # invokes: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->startFadeInAnimation()V
     invoke-static {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1200(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 921
-    :cond_2
+    :cond_2a
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
+    # invokes: Lcom/google/android/material/snackbar/BaseTransientBottomBar;->startSlideInAnimation()V
     invoke-static {v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->access$1300(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
 
     .line 923
-    :goto_0
+    :goto_2f
     return-void
 .end method

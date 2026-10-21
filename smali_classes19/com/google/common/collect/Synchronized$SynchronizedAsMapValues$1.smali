@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues;
 
     .line 1307
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1307
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues$1;, "Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues$1;"
@@ -60,7 +60,7 @@
 .end method
 
 .method transform(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,6 +78,7 @@
 
     iget-object v0, v0, Lcom/google/common/collect/Synchronized$SynchronizedAsMapValues;->mutex:Ljava/lang/Object;
 
+    # invokes: Lcom/google/common/collect/Synchronized;->typePreservingCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     invoke-static {p1, v0}, Lcom/google/common/collect/Synchronized;->access$400(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final synthetic access$getConnectivityManager$p(Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;)Landroid/net/ConnectivityManager;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;
 
     .line 115
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public getInitialState()Landroidx/work/impl/constraints/NetworkState;
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->connectivityManager:Landroid/net/ConnectivityManager;
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic getInitialState()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 115
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker24;->getInitialState()Landroidx/work/impl/constraints/NetworkState;
@@ -138,17 +138,18 @@
 .end method
 
 .method public startTracking()V
-    .locals 5
+    .registers 6
 
     .line 137
     const-string v0, "Received exception while registering network callback"
 
     .line 138
-    :try_start_0
+    :try_start_2
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -165,14 +166,14 @@
     check-cast v2, Landroid/net/ConnectivityManager$NetworkCallback;
 
     invoke-static {v1, v2}, Landroidx/work/impl/utils/NetworkApi24;->registerDefaultNetworkCallbackCompat(Landroid/net/ConnectivityManager;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_18} :catch_29
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_38
 
     .line 146
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 147
@@ -181,6 +182,7 @@
 
     move-result-object v2
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -191,11 +193,11 @@
 
     invoke-virtual {v2, v3, v0, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 140
     .end local v1    # "e":Ljava/lang/SecurityException;
-    :catch_1
+    :catch_29
     move-exception v1
 
     .line 145
@@ -204,6 +206,7 @@
 
     move-result-object v2
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -216,22 +219,23 @@
 
     .line 149
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_38
     return-void
 .end method
 
 .method public stopTracking()V
-    .locals 5
+    .registers 6
 
     .line 152
     const-string v0, "Received exception while unregistering network callback"
 
     .line 153
-    :try_start_0
+    :try_start_2
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -248,14 +252,14 @@
     check-cast v2, Landroid/net/ConnectivityManager$NetworkCallback;
 
     invoke-static {v1, v2}, Landroidx/work/impl/utils/NetworkApi21;->unregisterNetworkCallbackCompat(Landroid/net/ConnectivityManager;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_18} :catch_29
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_38
 
     .line 161
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 162
@@ -264,6 +268,7 @@
 
     move-result-object v2
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -274,11 +279,11 @@
 
     invoke-virtual {v2, v3, v0, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 155
     .end local v1    # "e":Ljava/lang/SecurityException;
-    :catch_1
+    :catch_29
     move-exception v1
 
     .line 160
@@ -287,6 +292,7 @@
 
     move-result-object v2
 
+    # getter for: Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTrackerKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v3
@@ -299,6 +305,6 @@
 
     .line 164
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_38
     return-void
 .end method

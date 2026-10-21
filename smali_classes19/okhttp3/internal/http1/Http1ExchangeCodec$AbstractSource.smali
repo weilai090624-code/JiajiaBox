@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,6 +86,7 @@
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->source:Lokio/BufferedSource;
     invoke-static {v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
 
     move-result-object v1
@@ -105,7 +106,7 @@
 
 # virtual methods
 .method protected final getClosed()Z
-    .locals 1
+    .registers 2
 
     .line 327
     iget-boolean v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->closed:Z
@@ -114,7 +115,7 @@
 .end method
 
 .method protected final getTimeout()Lokio/ForwardingTimeout;
-    .locals 1
+    .registers 2
 
     .line 326
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->timeout:Lokio/ForwardingTimeout;
@@ -123,7 +124,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 2
+    .registers 6
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -135,9 +136,10 @@
     nop
 
     .line 333
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -145,14 +147,14 @@
     invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_10} :catch_11
 
     .line 332
     return-wide v0
 
     .line 334
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 335
@@ -173,38 +175,41 @@
 .end method
 
 .method public final responseBodyComplete()V
-    .locals 3
+    .registers 4
 
     .line 346
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)I
 
     move-result v0
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     return-void
 
     .line 347
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
     invoke-static {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)I
 
     move-result v0
 
     const/4 v2, 0x5
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_20
 
     .line 349
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     iget-object v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->timeout:Lokio/ForwardingTimeout;
 
+    # invokes: Lokhttp3/internal/http1/Http1ExchangeCodec;->detachTimeout(Lokio/ForwardingTimeout;)V
     invoke-static {v0, v2}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$detachTimeout(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokio/ForwardingTimeout;)V
 
     .line 351
@@ -216,11 +221,12 @@
     return-void
 
     .line 347
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget-object v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
+    # getter for: Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
     invoke-static {v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->access$getState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)I
 
     move-result v1
@@ -241,7 +247,7 @@
 .end method
 
 .method protected final setClosed(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 327
@@ -251,7 +257,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 329
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$AbstractSource;->timeout:Lokio/ForwardingTimeout;

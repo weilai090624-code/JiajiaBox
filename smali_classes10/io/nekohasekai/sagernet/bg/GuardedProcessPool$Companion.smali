@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final synthetic access$getPid(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;)Ljava/lang/reflect/Field;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;
 
     .line 21
@@ -72,9 +72,10 @@
 .end method
 
 .method private final getPid()Ljava/lang/reflect/Field;
-    .locals 1
+    .registers 2
 
     .line 22
+    # getter for: Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->pid$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->access$getPid$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0

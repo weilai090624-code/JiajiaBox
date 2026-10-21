@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/text/CharDirectionality$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private final getDirectionalityMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -74,6 +74,7 @@
     .end annotation
 
     .line 118
+    # getter for: Lkotlin/text/CharDirectionality;->directionalityMap$delegate:Lkotlin/Lazy;
     invoke-static {}, Lkotlin/text/CharDirectionality;->access$getDirectionalityMap$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -90,7 +91,7 @@
 
 # virtual methods
 .method public final valueOf(I)Lkotlin/text/CharDirectionality;
-    .locals 3
+    .registers 5
     .param p1, "directionality"    # I
 
     .line 121
@@ -108,11 +109,11 @@
 
     check-cast v0, Lkotlin/text/CharDirectionality;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     return-object v0
 
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

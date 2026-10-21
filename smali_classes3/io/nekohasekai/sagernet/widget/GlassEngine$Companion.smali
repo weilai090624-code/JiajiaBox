@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/widget/GlassEngine$Companion;-><init>()V
 
@@ -68,9 +68,10 @@
 
 # virtual methods
 .method public final getCapturing()Z
-    .locals 1
+    .registers 2
 
     .line 46
+    # getter for: Lio/nekohasekai/sagernet/widget/GlassEngine;->capturing:Z
     invoke-static {}, Lio/nekohasekai/sagernet/widget/GlassEngine;->access$getCapturing$cp()Z
 
     move-result v0
@@ -79,9 +80,10 @@
 .end method
 
 .method public final getRENDER_PAINT()Landroid/graphics/Paint;
-    .locals 1
+    .registers 2
 
     .line 55
+    # getter for: Lio/nekohasekai/sagernet/widget/GlassEngine;->RENDER_PAINT:Landroid/graphics/Paint;
     invoke-static {}, Lio/nekohasekai/sagernet/widget/GlassEngine;->access$getRENDER_PAINT$cp()Landroid/graphics/Paint;
 
     move-result-object v0
@@ -90,7 +92,7 @@
 .end method
 
 .method public final setCapturing(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 46

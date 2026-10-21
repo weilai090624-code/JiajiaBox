@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitter;Z)V
-    .locals 0
+    .registers 3
     .param p2, "first"    # Z
 
     .line 360
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public expect()V
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,6 +53,7 @@
     .line 365
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
@@ -61,11 +62,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_103
 
     .line 366
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
@@ -82,22 +84,23 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_21
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getTags()Ljava/util/Map;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
-    :cond_0
+    :cond_21
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->openEnded:Z
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$400(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 368
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -112,12 +115,12 @@
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 371
-    :cond_1
+    :cond_35
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
     .line 372
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -126,6 +129,7 @@
 
     move-result-object v5
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->prepareVersion(Lorg/yaml/snakeyaml/DumperOptions$Version;)Ljava/lang/String;
     invoke-static {v2, v5}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$500(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/DumperOptions$Version;)Ljava/lang/String;
 
     move-result-object v2
@@ -138,17 +142,19 @@
 
     .line 375
     .end local v2    # "versionText":Ljava/lang/String;
-    :cond_2
+    :cond_4a
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     new-instance v5, Ljava/util/LinkedHashMap;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->DEFAULT_TAG_PREFIXES:Ljava/util/Map;
     invoke-static {}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$700()Ljava/util/Map;
 
     move-result-object v6
 
     invoke-direct {v5, v6}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->tagPrefixes:Ljava/util/Map;
     invoke-static {v2, v5}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$602(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/util/Map;)Ljava/util/Map;
 
     .line 376
@@ -156,7 +162,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_a0
 
     .line 377
     new-instance v2, Ljava/util/TreeSet;
@@ -178,12 +184,12 @@
     move-result-object v5
 
     .local v5, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_6f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_a0
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,6 +213,7 @@
     .local v7, "prefix":Ljava/lang/String;
     iget-object v8, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->tagPrefixes:Ljava/util/Map;
     invoke-static {v8}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$600(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/util/Map;
 
     move-result-object v8
@@ -216,6 +223,7 @@
     .line 381
     iget-object v8, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->prepareTagHandle(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v8, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$800(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
@@ -224,6 +232,7 @@
     .local v8, "handleText":Ljava/lang/String;
     iget-object v9, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->prepareTagPrefix(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v9, v7}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$900(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
@@ -239,24 +248,25 @@
     .end local v7    # "prefix":Ljava/lang/String;
     .end local v8    # "handleText":Ljava/lang/String;
     .end local v9    # "prefixText":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_6f
 
     .line 386
     .end local v2    # "handles":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .end local v5    # "i$":Ljava/util/Iterator;
-    :cond_3
+    :cond_a0
     iget-boolean v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->first:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_d6
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getExplicit()Z
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_d6
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1000(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
 
     move-result-object v2
@@ -265,19 +275,19 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_d6
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     move-result-object v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_d6
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getTags()Ljava/util/Map;
 
     move-result-object v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_cc
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->getTags()Ljava/util/Map;
 
@@ -287,28 +297,29 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_d6
 
-    :cond_4
+    :cond_cc
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->checkEmptyDocument()Z
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1100(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_d6
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_d7
 
-    :cond_5
+    :cond_d6
     const/4 v2, 0x0
 
     .line 390
     .local v2, "implicit":Z
-    :goto_1
-    if-nez v2, :cond_6
+    :goto_d7
+    if-nez v2, :cond_f6
 
     .line 391
     iget-object v5, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -325,6 +336,7 @@
     .line 393
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
     invoke-static {v3}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1000(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
 
     move-result-object v3
@@ -333,7 +345,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_f6
 
     .line 394
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -341,7 +353,7 @@
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 397
-    :cond_6
+    :cond_f6
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
     new-instance v4, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentRoot;
@@ -350,23 +362,25 @@
 
     invoke-direct {v4, v5, v1}, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentRoot;-><init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->state:Lorg/yaml/snakeyaml/emitter/EmitterState;
     invoke-static {v3, v4}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$202(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/EmitterState;)Lorg/yaml/snakeyaml/emitter/EmitterState;
 
     .line 398
     .end local v0    # "ev":Lorg/yaml/snakeyaml/events/DocumentStartEvent;
     .end local v2    # "implicit":Z
-    goto :goto_2
+    goto :goto_13d
 
-    :cond_7
+    :cond_103
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/StreamEndEvent;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_11f
 
     .line 399
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
@@ -382,31 +396,35 @@
 
     invoke-direct {v2, v3, v1}, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectNothing;-><init>(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/Emitter$1;)V
 
+    # setter for: Lorg/yaml/snakeyaml/emitter/Emitter;->state:Lorg/yaml/snakeyaml/emitter/EmitterState;
     invoke-static {v0, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$202(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/EmitterState;)Lorg/yaml/snakeyaml/emitter/EmitterState;
 
-    goto :goto_2
+    goto :goto_13d
 
     .line 401
-    :cond_8
+    :cond_11f
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v0
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/CommentEvent;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_13e
 
     .line 402
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1400(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     move-result-object v0
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v1
@@ -416,14 +434,15 @@
     .line 403
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # invokes: Lorg/yaml/snakeyaml/emitter/Emitter;->writeBlockComment()V
     invoke-static {v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$1500(Lorg/yaml/snakeyaml/emitter/Emitter;)V
 
     .line 408
-    :goto_2
+    :goto_13d
     return-void
 
     .line 406
-    :cond_9
+    :cond_13e
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -438,6 +457,7 @@
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectDocumentStart;->this$0:Lorg/yaml/snakeyaml/emitter/Emitter;
 
+    # getter for: Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
     invoke-static {v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
 
     move-result-object v2

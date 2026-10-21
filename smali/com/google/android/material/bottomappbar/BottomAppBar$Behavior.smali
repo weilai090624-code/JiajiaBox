@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1398
     invoke-direct {p0}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$2500(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Ljava/lang/ref/WeakReference;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
     .line 1309
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$2600(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
     .line 1309
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$2700(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;
 
     .line 1309
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public bridge synthetic onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 0
+    .registers 4
 
     .line 1309
     check-cast p2, Lcom/google/android/material/bottomappbar/BottomAppBar;
@@ -137,7 +137,7 @@
 .end method
 
 .method public onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;I)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
     .param p3, "layoutDirection"    # I
@@ -150,21 +150,23 @@
     iput-object v0, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->viewRef:Ljava/lang/ref/WeakReference;
 
     .line 1412
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->findDependentView()Landroid/view/View;
     invoke-static {p2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3200(Lcom/google/android/material/bottomappbar/BottomAppBar;)Landroid/view/View;
 
     move-result-object v0
 
     .line 1413
     .local v0, "dependentView":Landroid/view/View;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5c
 
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5c
 
     .line 1416
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->updateFabAnchorGravity(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/view/View;)V
     invoke-static {p2, v0}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3300(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/view/View;)V
 
     .line 1420
@@ -186,7 +188,7 @@
     .line 1424
     instance-of v2, v0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_54
 
     .line 1425
     move-object v2, v0
@@ -195,17 +197,19 @@
 
     .line 1426
     .local v2, "fab":Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->fabAnchorMode:I
     invoke-static {p2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$400(Lcom/google/android/material/bottomappbar/BottomAppBar;)I
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_3b
 
+    # getter for: Lcom/google/android/material/bottomappbar/BottomAppBar;->removeEmbeddedFabElevation:Z
     invoke-static {p2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3400(Lcom/google/android/material/bottomappbar/BottomAppBar;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3b
 
     .line 1427
     const/4 v3, 0x0
@@ -216,12 +220,12 @@
     invoke-virtual {v2, v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setCompatElevation(F)V
 
     .line 1434
-    :cond_0
+    :cond_3b
     invoke-virtual {v2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getShowMotionSpec()Lcom/google/android/material/animation/MotionSpec;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_46
 
     .line 1435
     sget v3, Lcom/google/android/material/R$animator;->mtrl_fab_show_motion_spec:I
@@ -229,12 +233,12 @@
     invoke-virtual {v2, v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setShowMotionSpecResource(I)V
 
     .line 1437
-    :cond_1
+    :cond_46
     invoke-virtual {v2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getHideMotionSpec()Lcom/google/android/material/animation/MotionSpec;
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_51
 
     .line 1438
     sget v3, Lcom/google/android/material/R$animator;->mtrl_fab_hide_motion_spec:I
@@ -242,22 +246,24 @@
     invoke-virtual {v2, v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setHideMotionSpecResource(I)V
 
     .line 1442
-    :cond_2
+    :cond_51
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->addFabAnimationListeners(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
     invoke-static {p2, v2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$3500(Lcom/google/android/material/bottomappbar/BottomAppBar;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
 
     .line 1445
     .end local v2    # "fab":Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
-    :cond_3
+    :cond_54
     iget-object v2, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;->fabLayoutListener:Landroid/view/View$OnLayoutChangeListener;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
     .line 1448
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->setCutoutStateAndTranslateFab()V
     invoke-static {p2}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$1400(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
 
     .line 1452
     .end local v1    # "fabLayoutParams":Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
-    :cond_4
+    :cond_5c
     invoke-virtual {p1, p2, p3}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->onLayoutChild(Landroid/view/View;I)V
 
     .line 1453
@@ -269,7 +275,7 @@
 .end method
 
 .method public bridge synthetic onStartNestedScroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z
-    .locals 7
+    .registers 14
 
     .line 1309
     move-object v2, p2
@@ -296,7 +302,7 @@
 .end method
 
 .method public onStartNestedScroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/view/View;Landroid/view/View;II)Z
-    .locals 1
+    .registers 8
     .param p1, "coordinatorLayout"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
     .param p3, "directTargetChild"    # Landroid/view/View;
@@ -309,23 +315,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1466
     invoke-super/range {p0 .. p6}, Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;->onStartNestedScroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 1465
-    :goto_0
+    :goto_f
     return v0
 .end method

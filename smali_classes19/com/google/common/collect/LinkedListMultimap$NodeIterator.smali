@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;I)V
-    .locals 2
+    .registers 5
     .param p2, "index"    # I
 
     .line 331
@@ -84,6 +84,7 @@
     .line 329
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$000(Lcom/google/common/collect/LinkedListMultimap;)I
 
     move-result v0
@@ -102,9 +103,10 @@
     .line 334
     div-int/lit8 v1, v0, 0x2
 
-    if-lt p2, v1, :cond_0
+    if-lt p2, v1, :cond_29
 
     .line 335
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
     invoke-static {p1}, Lcom/google/common/collect/LinkedListMultimap;->access$100(Lcom/google/common/collect/LinkedListMultimap;)Lcom/google/common/collect/LinkedListMultimap$Node;
 
     move-result-object p1
@@ -115,24 +117,25 @@
     iput v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->nextIndex:I
 
     .line 337
-    :goto_0
+    :goto_20
     add-int/lit8 p1, p2, 0x1
 
     .end local p2    # "index":I
     .local p1, "index":I
-    if-ge p2, v0, :cond_1
+    if-ge p2, v0, :cond_38
 
     .line 338
     invoke-virtual {p0}, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->previous()Lcom/google/common/collect/LinkedListMultimap$Node;
 
     move p2, p1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 341
     .end local p1    # "index":I
     .restart local p2    # "index":I
-    :cond_0
+    :cond_29
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
     invoke-static {p1}, Lcom/google/common/collect/LinkedListMultimap;->access$200(Lcom/google/common/collect/LinkedListMultimap;)Lcom/google/common/collect/LinkedListMultimap$Node;
 
     move-result-object p1
@@ -140,22 +143,22 @@
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 342
-    :goto_1
+    :goto_2f
     add-int/lit8 p1, p2, -0x1
 
     .end local p2    # "index":I
     .restart local p1    # "index":I
-    if-lez p2, :cond_1
+    if-lez p2, :cond_38
 
     .line 343
     invoke-virtual {p0}, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next()Lcom/google/common/collect/LinkedListMultimap$Node;
 
     move p2, p1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 346
-    :cond_1
+    :cond_38
     const/4 p2, 0x0
 
     iput-object p2, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -165,25 +168,26 @@
 .end method
 
 .method private checkForConcurrentModification()V
-    .locals 2
+    .registers 3
 
     .line 350
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$000(Lcom/google/common/collect/LinkedListMultimap;)I
 
     move-result v0
 
     iget v1, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 353
     return-void
 
     .line 351
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -194,7 +198,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -206,7 +210,7 @@
 .end method
 
 .method public add(Ljava/util/Map$Entry;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -226,7 +230,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 357
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -235,21 +239,21 @@
     .line 358
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 391
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -258,21 +262,21 @@
     .line 392
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public next()Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -288,7 +292,7 @@
     .line 365
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 368
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -317,7 +321,7 @@
     return-object v0
 
     .line 366
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -326,7 +330,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -338,7 +342,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 410
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -348,7 +352,7 @@
 .end method
 
 .method public previous()Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -364,7 +368,7 @@
     .line 399
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 402
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -393,7 +397,7 @@
     return-object v0
 
     .line 400
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -402,7 +406,7 @@
 .end method
 
 .method public bridge synthetic previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -414,7 +418,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 415
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -426,7 +430,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 376
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -437,16 +441,16 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v2, "no calls to next() since the last call to remove()"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -456,7 +460,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_22
 
     .line 379
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -472,10 +476,10 @@
 
     iput v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->nextIndex:I
 
-    goto :goto_1
+    goto :goto_28
 
     .line 382
-    :cond_1
+    :cond_22
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iget-object v0, v0, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -483,11 +487,12 @@
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 384
-    :goto_1
+    :goto_28
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    # invokes: Lcom/google/common/collect/LinkedListMultimap;->removeNode(Lcom/google/common/collect/LinkedListMultimap$Node;)V
     invoke-static {v0, v1}, Lcom/google/common/collect/LinkedListMultimap;->access$300(Lcom/google/common/collect/LinkedListMultimap;Lcom/google/common/collect/LinkedListMultimap$Node;)V
 
     .line 385
@@ -498,6 +503,7 @@
     .line 386
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$000(Lcom/google/common/collect/LinkedListMultimap;)I
 
     move-result v0
@@ -509,7 +515,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
@@ -521,7 +527,7 @@
 .end method
 
 .method public set(Ljava/util/Map$Entry;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -541,7 +547,7 @@
 .end method
 
 .method setValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -557,16 +563,16 @@
     .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 430

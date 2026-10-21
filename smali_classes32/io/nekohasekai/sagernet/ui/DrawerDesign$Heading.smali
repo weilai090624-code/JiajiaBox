@@ -28,7 +28,7 @@
 .method constructor <init>(Landroid/view/View;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/view/ViewGroup;)V
     .registers 5
 
-    .line 49
+    .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$Heading;->back:Landroid/view/View;

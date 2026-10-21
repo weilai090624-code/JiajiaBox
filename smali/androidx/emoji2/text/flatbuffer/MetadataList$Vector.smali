@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 69
     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/BaseVector;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public __assign(IILjava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/MetadataList$Vector;
-    .locals 0
+    .registers 4
     .param p1, "_vector"    # I
     .param p2, "_element_size"    # I
     .param p3, "_bb"    # Ljava/nio/ByteBuffer;
@@ -39,7 +39,7 @@
 .end method
 
 .method public get(I)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 1
+    .registers 3
     .param p1, "j"    # I
 
     .line 72
@@ -55,7 +55,7 @@
 .end method
 
 .method public get(Landroidx/emoji2/text/flatbuffer/MetadataList;I)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 2
+    .registers 5
     .param p1, "obj"    # Landroidx/emoji2/text/flatbuffer/MetadataList;
     .param p2, "j"    # I
 
@@ -66,6 +66,7 @@
 
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/MetadataList$Vector;->bb:Ljava/nio/ByteBuffer;
 
+    # invokes: Landroidx/emoji2/text/flatbuffer/MetadataList;->__indirect(ILjava/nio/ByteBuffer;)I
     invoke-static {v0, v1}, Landroidx/emoji2/text/flatbuffer/MetadataList;->access$000(ILjava/nio/ByteBuffer;)I
 
     move-result v0

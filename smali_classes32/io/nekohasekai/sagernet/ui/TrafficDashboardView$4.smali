@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -24,31 +24,13 @@
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .registers 20
+.method public final run()V
+    .registers 2
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView$4;->f$0:Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-virtual/range {v0 .. v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$new$3$io-nekohasekai-sagernet-ui-TrafficDashboardView(Landroid/view/View;IIIIIIII)V
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$new$0$io-nekohasekai-sagernet-ui-TrafficDashboardView()V
 
     return-void
 .end method

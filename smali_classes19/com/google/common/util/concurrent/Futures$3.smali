@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Lcom/google/common/collect/ImmutableList;I)V
-    .locals 0
+    .registers 4
 
     .line 889
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$3;->val$state:Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 892
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$state:Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
@@ -53,6 +53,7 @@
 
     iget v2, p0, Lcom/google/common/util/concurrent/Futures$3;->val$localI:I
 
+    # invokes: Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->recordInputCompletion(Lcom/google/common/collect/ImmutableList;I)V
     invoke-static {v0, v1, v2}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->access$300(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Lcom/google/common/collect/ImmutableList;I)V
 
     .line 893

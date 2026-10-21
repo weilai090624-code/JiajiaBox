@@ -37,16 +37,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 324
+    # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->GENERATE_CANCELLATION_CAUSES:Z
     invoke-static {}, Lcom/google/common/util/concurrent/AbstractFuture;->access$300()Z
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 325
     sput-object v1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_CANCELLED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
@@ -54,10 +55,10 @@
     .line 326
     sput-object v1, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 328
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
     const/4 v2, 0x0
@@ -76,12 +77,12 @@
     sput-object v0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;
 
     .line 331
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method constructor <init>(ZLjava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "wasInterrupted"    # Z
     .param p2, "cause"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;

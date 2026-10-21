@@ -29,7 +29,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/common/util/concurrent/Monitor;)V
-    .locals 1
+    .registers 3
     .param p1, "monitor"    # Lcom/google/common/util/concurrent/Monitor;
 
     .line 318
@@ -52,6 +52,7 @@
     iput-object v0, p0, Lcom/google/common/util/concurrent/Monitor$Guard;->monitor:Lcom/google/common/util/concurrent/Monitor;
 
     .line 320
+    # getter for: Lcom/google/common/util/concurrent/Monitor;->lock:Ljava/util/concurrent/locks/ReentrantLock;
     invoke-static {p1}, Lcom/google/common/util/concurrent/Monitor;->access$000(Lcom/google/common/util/concurrent/Monitor;)Ljava/util/concurrent/locks/ReentrantLock;
 
     move-result-object v0

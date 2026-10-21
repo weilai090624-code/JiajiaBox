@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/WorkDatabasePathHelper;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method private final getNoBackupPath(Landroid/content/Context;)Ljava/io/File;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 116
@@ -85,7 +85,7 @@
 .end method
 
 .method public static final migrateDatabase(Landroid/content/Context;)V
-    .locals 12
+    .registers 13
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -107,19 +107,20 @@
 
     const/16 v2, 0x17
 
-    if-lt v1, v2, :cond_4
+    if-lt v1, v2, :cond_cf
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_cf
 
     .line 51
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
+    # getter for: Landroidx/work/impl/WorkDatabasePathHelperKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/WorkDatabasePathHelperKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v2
@@ -148,12 +149,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_33
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_ce
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -185,20 +186,21 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_ca
 
     .line 54
     invoke-virtual {v7}, Ljava/io/File;->exists()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_76
 
     .line 55
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v8
 
+    # getter for: Landroidx/work/impl/WorkDatabasePathHelperKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/WorkDatabasePathHelperKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v9
@@ -224,14 +226,14 @@
     invoke-virtual {v8, v9, v10}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 57
-    :cond_0
+    :cond_76
     invoke-virtual {v6, v7}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     move-result v8
 
     .line 58
     .local v8, "renamed":Z
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_9b
 
     .line 59
     new-instance v9, Ljava/lang/StringBuilder;
@@ -262,10 +264,10 @@
 
     move-result-object v9
 
-    goto :goto_1
+    goto :goto_be
 
     .line 61
-    :cond_1
+    :cond_9b
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -301,7 +303,7 @@
     move-result-object v9
 
     .line 58
-    :goto_1
+    :goto_be
     nop
 
     .line 63
@@ -310,6 +312,7 @@
 
     move-result-object v10
 
+    # getter for: Landroidx/work/impl/WorkDatabasePathHelperKt;->TAG:Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/WorkDatabasePathHelperKt;->access$getTAG$p()Ljava/lang/String;
 
     move-result-object v11
@@ -319,7 +322,7 @@
     .line 65
     .end local v8    # "renamed":Z
     .end local v9    # "message":Ljava/lang/String;
-    :cond_2
+    :cond_ca
     nop
 
     .line 127
@@ -329,23 +332,23 @@
     nop
 
     .end local v4    # "element$iv":Ljava/util/Map$Entry;
-    goto/16 :goto_0
+    goto/16 :goto_33
 
     .line 128
-    :cond_3
+    :cond_ce
     nop
 
     .line 67
     .end local v1    # "$this$forEach$iv":Ljava/util/Map;
     .end local v2    # "$i$f$forEach":I
-    :cond_4
+    :cond_cf
     return-void
 .end method
 
 
 # virtual methods
 .method public final getDatabasePath(Landroid/content/Context;)Ljava/io/File;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -357,28 +360,28 @@
 
     const/16 v1, 0x17
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 101
     invoke-virtual {p0, p1}, Landroidx/work/impl/WorkDatabasePathHelper;->getDefaultDatabasePath(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 103
-    :cond_0
+    :cond_10
     invoke-direct {p0, p1}, Landroidx/work/impl/WorkDatabasePathHelper;->getNoBackupPath(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
     .line 99
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public final getDefaultDatabasePath(Landroid/content/Context;)Ljava/io/File;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -400,7 +403,7 @@
 .end method
 
 .method public final migrationPaths(Landroid/content/Context;)Ljava/util/Map;
-    .locals 17
+    .registers 19
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -425,7 +428,7 @@
 
     const/16 v2, 0x17
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_8f
 
     .line 77
     invoke-virtual/range {p0 .. p1}, Landroidx/work/impl/WorkDatabasePathHelper;->getDefaultDatabasePath(Landroid/content/Context;)Ljava/io/File;
@@ -440,6 +443,7 @@
 
     .line 79
     .local v2, "migratedPath":Ljava/io/File;
+    # getter for: Landroidx/work/impl/WorkDatabasePathHelperKt;->DATABASE_EXTRA_FILES:[Ljava/lang/String;
     invoke-static {}, Landroidx/work/impl/WorkDatabasePathHelperKt;->access$getDATABASE_EXTRA_FILES$p()[Ljava/lang/String;
 
     move-result-object v3
@@ -481,8 +485,8 @@
 
     const/4 v10, 0x0
 
-    :goto_0
-    if-ge v10, v9, :cond_0
+    :goto_30
+    if-ge v10, v9, :cond_82
 
     aget-object v11, v7, v10
 
@@ -572,12 +576,12 @@
 
     move-object/from16 v3, v16
 
-    goto :goto_0
+    goto :goto_30
 
     .line 134
     .end local v16    # "$this$associate$iv":[Ljava/lang/Object;
     .restart local v3    # "$this$associate$iv":[Ljava/lang/Object;
-    :cond_0
+    :cond_82
     move-object/from16 v16, v3
 
     .line 130
@@ -607,15 +611,15 @@
     .end local v0    # "databasePath":Ljava/io/File;
     .end local v1    # "map":Ljava/util/Map;
     .end local v2    # "migratedPath":Ljava/io/File;
-    goto :goto_1
+    goto :goto_93
 
     .line 83
-    :cond_1
+    :cond_8f
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
     .line 76
-    :goto_1
+    :goto_93
     return-object v0
 .end method

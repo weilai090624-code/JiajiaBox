@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 215
     const/4 v0, 0x0
@@ -29,10 +29,11 @@
 
 # virtual methods
 .method public handlePotentialDeadlock(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;)V
-    .locals 3
+    .registers 5
     .param p1, "e"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;
 
     .line 218
+    # getter for: Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->access$100()Ljava/util/logging/Logger;
 
     move-result-object v0

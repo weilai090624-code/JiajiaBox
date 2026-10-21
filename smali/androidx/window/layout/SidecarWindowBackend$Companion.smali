@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/layout/SidecarWindowBackend$Companion;-><init>()V
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public final getInstance(Landroid/content/Context;)Landroidx/window/layout/SidecarWindowBackend;
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -80,13 +80,15 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 181
+    # getter for: Landroidx/window/layout/SidecarWindowBackend;->globalInstance:Landroidx/window/layout/SidecarWindowBackend;
     invoke-static {}, Landroidx/window/layout/SidecarWindowBackend;->access$getGlobalInstance$cp()Landroidx/window/layout/SidecarWindowBackend;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     .line 182
+    # getter for: Landroidx/window/layout/SidecarWindowBackend;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
     invoke-static {}, Landroidx/window/layout/SidecarWindowBackend;->access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
 
     move-result-object v0
@@ -99,12 +101,13 @@
 
     .line 183
     .local v1, "$i$a$-withLock-SidecarWindowBackend$Companion$getInstance$1":I
-    :try_start_0
+    :try_start_15
+    # getter for: Landroidx/window/layout/SidecarWindowBackend;->globalInstance:Landroidx/window/layout/SidecarWindowBackend;
     invoke-static {}, Landroidx/window/layout/SidecarWindowBackend;->access$getGlobalInstance$cp()Landroidx/window/layout/SidecarWindowBackend;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2b
 
     .line 184
     sget-object v2, Landroidx/window/layout/SidecarWindowBackend;->Companion:Landroidx/window/layout/SidecarWindowBackend$Companion;
@@ -125,20 +128,20 @@
 
     .line 187
     .end local v2    # "windowExtension":Landroidx/window/layout/ExtensionInterfaceCompat;
-    :cond_0
+    :cond_2b
     nop
 
     .end local v1    # "$i$a$-withLock-SidecarWindowBackend$Companion$getInstance$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_15 .. :try_end_2e} :catchall_32
 
     .line 182
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    goto :goto_0
+    goto :goto_37
 
-    :catchall_0
+    :catchall_32
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -146,8 +149,9 @@
     throw v1
 
     .line 189
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
+    # getter for: Landroidx/window/layout/SidecarWindowBackend;->globalInstance:Landroidx/window/layout/SidecarWindowBackend;
     invoke-static {}, Landroidx/window/layout/SidecarWindowBackend;->access$getGlobalInstance$cp()Landroidx/window/layout/SidecarWindowBackend;
 
     move-result-object v0
@@ -158,7 +162,7 @@
 .end method
 
 .method public final initAndVerifyExtension(Landroid/content/Context;)Landroidx/window/layout/ExtensionInterfaceCompat;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -173,7 +177,7 @@
     nop
 
     .line 200
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/window/layout/SidecarCompat;->Companion:Landroidx/window/layout/SidecarCompat$Companion;
 
     invoke-virtual {v1}, Landroidx/window/layout/SidecarCompat$Companion;->getSidecarVersion()Landroidx/window/core/Version;
@@ -184,7 +188,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     .line 201
     new-instance v1, Landroidx/window/layout/SidecarCompat;
@@ -203,10 +207,10 @@
     invoke-virtual {v1}, Landroidx/window/layout/SidecarCompat;->validateExtensionInterface()Z
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_7 .. :try_end_22} :catchall_27
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2a
 
     .line 203
     nop
@@ -214,10 +218,10 @@
     .line 206
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 209
-    :catchall_0
+    :catchall_27
     move-exception v1
 
     .line 210
@@ -229,32 +233,32 @@
 
     .line 215
     .end local v1    # "t":Ljava/lang/Throwable;
-    :cond_0
-    :goto_0
-    if-nez v0, :cond_1
+    :cond_2a
+    :goto_2a
+    if-nez v0, :cond_2d
 
     .line 216
     nop
 
     .line 220
-    :cond_1
+    :cond_2d
     return-object v0
 .end method
 
 .method public final isSidecarVersionSupported(Landroidx/window/core/Version;)Z
-    .locals 2
+    .registers 4
     .param p1, "sidecarVersion"    # Landroidx/window/core/Version;
 
     .line 229
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 230
     return v0
 
     .line 232
-    :cond_0
+    :cond_4
     sget-object v1, Landroidx/window/core/Version;->Companion:Landroidx/window/core/Version$Companion;
 
     invoke-virtual {v1}, Landroidx/window/core/Version$Companion;->getVERSION_0_1()Landroidx/window/core/Version;
@@ -265,16 +269,16 @@
 
     move-result v1
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_11
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_11
     return v0
 .end method
 
 .method public final resetInstance()V
-    .locals 1
+    .registers 2
 
     .line 240
     const/4 v0, 0x0

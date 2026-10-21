@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public final coroutineBoundary()Ljava/lang/StackTraceElement;
-    .locals 2
+    .registers 3
 
     .line 46
     new-instance v0, Ljava/lang/Exception;
@@ -55,6 +55,7 @@
 
     move-result-object v1
 
+    # invokes: L_COROUTINE/CoroutineDebuggingKt;->artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
     invoke-static {v0, v1}, L_COROUTINE/CoroutineDebuggingKt;->access$artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
 
     move-result-object v0
@@ -63,7 +64,7 @@
 .end method
 
 .method public final coroutineCreation()Ljava/lang/StackTraceElement;
-    .locals 2
+    .registers 3
 
     .line 34
     new-instance v0, Ljava/lang/Exception;
@@ -78,6 +79,7 @@
 
     move-result-object v1
 
+    # invokes: L_COROUTINE/CoroutineDebuggingKt;->artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
     invoke-static {v0, v1}, L_COROUTINE/CoroutineDebuggingKt;->access$artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
 
     move-result-object v0

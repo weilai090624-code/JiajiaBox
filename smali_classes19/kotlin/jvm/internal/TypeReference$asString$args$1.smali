@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/TypeReference;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/jvm/internal/TypeReference$asString$args$1;->this$0:Lkotlin/jvm/internal/TypeReference;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final invoke(Lkotlin/reflect/KTypeProjection;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Lkotlin/reflect/KTypeProjection;
 
     const-string v0, "it"
@@ -77,6 +77,7 @@
     .line 51
     iget-object v0, p0, Lkotlin/jvm/internal/TypeReference$asString$args$1;->this$0:Lkotlin/jvm/internal/TypeReference;
 
+    # invokes: Lkotlin/jvm/internal/TypeReference;->asString(Lkotlin/reflect/KTypeProjection;)Ljava/lang/String;
     invoke-static {v0, p1}, Lkotlin/jvm/internal/TypeReference;->access$asString(Lkotlin/jvm/internal/TypeReference;Lkotlin/reflect/KTypeProjection;)Ljava/lang/String;
 
     move-result-object v0
@@ -87,7 +88,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 51

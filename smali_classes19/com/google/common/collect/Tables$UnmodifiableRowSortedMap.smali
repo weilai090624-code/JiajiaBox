@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/RowSortedTable;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method protected delegate()Lcom/google/common/collect/RowSortedTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,7 +81,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 2
 
     .line 608
     .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap;, "Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap<TR;TC;TV;>;"
@@ -93,7 +93,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 608
     .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap;, "Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap<TR;TC;TV;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 608
     .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap;, "Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap<TR;TC;TV;>;"
@@ -117,7 +117,7 @@
 .end method
 
 .method public rowKeySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 608
     .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap;, "Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap<TR;TC;TV;>;"
@@ -156,7 +156,7 @@
 .end method
 
 .method public rowMap()Ljava/util/SortedMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,6 +169,7 @@
 
     .line 623
     .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap;, "Lcom/google/common/collect/Tables$UnmodifiableRowSortedMap<TR;TC;TV;>;"
+    # invokes: Lcom/google/common/collect/Tables;->unmodifiableWrapper()Lcom/google/common/base/Function;
     invoke-static {}, Lcom/google/common/collect/Tables;->access$000()Lcom/google/common/base/Function;
 
     move-result-object v0

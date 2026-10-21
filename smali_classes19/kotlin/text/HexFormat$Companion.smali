@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 768
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/text/HexFormat$Companion;-><init>()V
 
@@ -60,9 +60,10 @@
 
 # virtual methods
 .method public final getDefault()Lkotlin/text/HexFormat;
-    .locals 1
+    .registers 2
 
     .line 789
+    # getter for: Lkotlin/text/HexFormat;->Default:Lkotlin/text/HexFormat;
     invoke-static {}, Lkotlin/text/HexFormat;->access$getDefault$cp()Lkotlin/text/HexFormat;
 
     move-result-object v0
@@ -71,9 +72,10 @@
 .end method
 
 .method public final getUpperCase()Lkotlin/text/HexFormat;
-    .locals 1
+    .registers 2
 
     .line 804
+    # getter for: Lkotlin/text/HexFormat;->UpperCase:Lkotlin/text/HexFormat;
     invoke-static {}, Lkotlin/text/HexFormat;->access$getUpperCase$cp()Lkotlin/text/HexFormat;
 
     move-result-object v0

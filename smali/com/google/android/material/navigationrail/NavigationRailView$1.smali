@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigationrail/NavigationRailView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/navigationrail/NavigationRailView;
 
     .line 170
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 5
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p3, "initialPadding"    # Lcom/google/android/material/internal/ViewUtils$RelativePadding;
@@ -47,15 +47,17 @@
 
     iget-object v1, p0, Lcom/google/android/material/navigationrail/NavigationRailView$1;->this$0:Lcom/google/android/material/navigationrail/NavigationRailView;
 
+    # getter for: Lcom/google/android/material/navigationrail/NavigationRailView;->paddingTopSystemWindowInsets:Ljava/lang/Boolean;
     invoke-static {v1}, Lcom/google/android/material/navigationrail/NavigationRailView;->access$000(Lcom/google/android/material/navigationrail/NavigationRailView;)Ljava/lang/Boolean;
 
     move-result-object v1
 
+    # invokes: Lcom/google/android/material/navigationrail/NavigationRailView;->shouldApplyWindowInsetPadding(Ljava/lang/Boolean;)Z
     invoke-static {v0, v1}, Lcom/google/android/material/navigationrail/NavigationRailView;->access$100(Lcom/google/android/material/navigationrail/NavigationRailView;Ljava/lang/Boolean;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 180
     iget v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->top:I
@@ -75,20 +77,22 @@
     iput v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->top:I
 
     .line 182
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView$1;->this$0:Lcom/google/android/material/navigationrail/NavigationRailView;
 
     iget-object v1, p0, Lcom/google/android/material/navigationrail/NavigationRailView$1;->this$0:Lcom/google/android/material/navigationrail/NavigationRailView;
 
+    # getter for: Lcom/google/android/material/navigationrail/NavigationRailView;->paddingBottomSystemWindowInsets:Ljava/lang/Boolean;
     invoke-static {v1}, Lcom/google/android/material/navigationrail/NavigationRailView;->access$200(Lcom/google/android/material/navigationrail/NavigationRailView;)Ljava/lang/Boolean;
 
     move-result-object v1
 
+    # invokes: Lcom/google/android/material/navigationrail/NavigationRailView;->shouldApplyWindowInsetPadding(Ljava/lang/Boolean;)Z
     invoke-static {v0, v1}, Lcom/google/android/material/navigationrail/NavigationRailView;->access$100(Lcom/google/android/material/navigationrail/NavigationRailView;Ljava/lang/Boolean;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 183
     iget v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->bottom:I
@@ -109,21 +113,21 @@
     iput v0, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->bottom:I
 
     .line 187
-    :cond_1
+    :cond_3a
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_42
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_2
+    :cond_42
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_43
     move v0, v1
 
     .line 188
@@ -142,16 +146,16 @@
     .local v2, "systemWindowInsetRight":I
     iget v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_52
 
     move v4, v2
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_3
+    :cond_52
     move v4, v1
 
-    :goto_1
+    :goto_53
     add-int/2addr v3, v4
 
     iput v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I

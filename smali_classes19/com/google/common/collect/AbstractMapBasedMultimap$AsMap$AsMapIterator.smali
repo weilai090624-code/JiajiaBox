@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;
 
     .line 1422
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1428
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap.AsMapIterator;"
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1422
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap.AsMapIterator;"
@@ -114,7 +114,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,22 +156,22 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 1440
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.AsMap.AsMapIterator;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap$AsMapIterator;->collection:Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "no calls to next() since the last call to remove()"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -192,6 +192,7 @@
 
     move-result v1
 
+    # -= operator for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$220(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
 
     .line 1443

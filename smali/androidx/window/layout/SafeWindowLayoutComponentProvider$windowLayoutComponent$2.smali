@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/SafeWindowLayoutComponentProvider$windowLayoutComponent$2;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/window/extensions/layout/WindowLayoutComponent;
-    .locals 4
+    .registers 5
 
     const-class v0, Landroidx/window/layout/SafeWindowLayoutComponentProvider;
 
@@ -87,21 +87,22 @@
     .local v0, "loader":Ljava/lang/ClassLoader;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     sget-object v2, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->INSTANCE:Landroidx/window/layout/SafeWindowLayoutComponentProvider;
 
+    # invokes: Landroidx/window/layout/SafeWindowLayoutComponentProvider;->canUseWindowLayoutComponent(Ljava/lang/ClassLoader;)Z
     invoke-static {v2, v0}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->access$canUseWindowLayoutComponent(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 35
     nop
 
     .line 36
-    :try_start_0
+    :try_start_12
     invoke-static {}, Landroidx/window/extensions/WindowExtensionsProvider;->getWindowExtensions()Landroidx/window/extensions/WindowExtensions;
 
     move-result-object v2
@@ -109,13 +110,13 @@
     invoke-interface {v2}, Landroidx/window/extensions/WindowExtensions;->getWindowLayoutComponent()Landroidx/window/extensions/layout/WindowLayoutComponent;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_12 .. :try_end_1a} :catch_1b
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 37
-    :catch_0
+    :catch_1b
     move-exception v2
 
     .line 38
@@ -125,22 +126,22 @@
     check-cast v3, Landroidx/window/extensions/layout/WindowLayoutComponent;
 
     .end local v2    # "e":Ljava/lang/UnsupportedOperationException;
-    :goto_0
-    goto :goto_1
+    :goto_1f
+    goto :goto_23
 
     .line 41
-    :cond_0
+    :cond_20
     move-object v2, v1
 
     check-cast v2, Landroidx/window/extensions/layout/WindowLayoutComponent;
 
     .line 34
-    :goto_1
+    :goto_23
     return-object v1
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Landroidx/window/layout/SafeWindowLayoutComponentProvider$windowLayoutComponent$2;->invoke()Landroidx/window/extensions/layout/WindowLayoutComponent;

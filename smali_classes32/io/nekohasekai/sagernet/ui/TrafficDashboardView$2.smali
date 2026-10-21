@@ -48,7 +48,7 @@
 
     move/from16 v9, p9
 
-    invoke-static/range {v0 .. v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$installHome$1(Ljava/lang/Runnable;Landroid/view/View;IIIIIIII)V
+    invoke-static/range {v0 .. v9}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->lambda$installHome$2(Ljava/lang/Runnable;Landroid/view/View;IIIIIIII)V
 
     return-void
 .end method

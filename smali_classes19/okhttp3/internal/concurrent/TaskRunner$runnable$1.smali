@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/concurrent/TaskRunner;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokhttp3/internal/concurrent/TaskRunner;
 
     iput-object p1, p0, Lokhttp3/internal/concurrent/TaskRunner$runnable$1;->this$0:Lokhttp3/internal/concurrent/TaskRunner;
@@ -61,12 +61,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 13
+    .registers 14
 
     .line 58
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 59
@@ -80,24 +80,24 @@
 
     .line 60
     .local v2, "$i$a$-synchronized-TaskRunner$runnable$1$run$task$1":I
-    :try_start_0
+    :try_start_8
     invoke-virtual {v1}, Lokhttp3/internal/concurrent/TaskRunner;->awaitTaskToRun()Lokhttp3/internal/concurrent/Task;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_c
+    .catchall {:try_start_8 .. :try_end_c} :catchall_a7
 
     .line 59
     .end local v2    # "$i$a$-synchronized-TaskRunner$runnable$1$run$task$1":I
     monitor-exit v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 61
     return-void
 
     .line 59
-    :cond_0
+    :cond_10
     move-object v0, v1
 
     .line 63
@@ -134,7 +134,7 @@
 
     .line 319
     .local v7, "loggingEnabled$iv":Z
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3c
 
     .line 320
     invoke-virtual {v2}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -152,10 +152,11 @@
     .line 321
     const-string v8, "starting"
 
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v1, v0, v2, v8}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .line 324
-    :cond_1
+    :cond_3c
     const/4 v8, 0x0
 
     .line 325
@@ -174,10 +175,11 @@
     nop
 
     .line 66
-    :try_start_1
+    :try_start_41
+    # invokes: Lokhttp3/internal/concurrent/TaskRunner;->runTask(Lokhttp3/internal/concurrent/Task;)V
     invoke-static {v3, v0}, Lokhttp3/internal/concurrent/TaskRunner;->access$runTask(Lokhttp3/internal/concurrent/TaskRunner;Lokhttp3/internal/concurrent/Task;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_44
+    .catchall {:try_start_41 .. :try_end_44} :catchall_6d
 
     .line 67
     const/4 v3, 0x1
@@ -195,10 +197,10 @@
 
     .end local v3    # "completedNormally":Z
     .end local v9    # "$i$a$-logElapsed-TaskRunner$runnable$1$run$1":I
-    :try_start_2
+    :try_start_48
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_48 .. :try_end_4a} :catchall_6b
 
     .line 327
     .local v3, "result$iv":Ljava/lang/Object;
@@ -209,7 +211,7 @@
 
     .line 330
     .end local v3    # "result$iv":Ljava/lang/Object;
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_6a
 
     .line 331
     invoke-virtual {v2}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -241,6 +243,7 @@
 
     move-result-object v11
 
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v1, v0, v2, v11}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .end local v9    # "elapsedNs$iv":J
@@ -248,26 +251,26 @@
     nop
 
     .line 328
-    :cond_2
-    goto :goto_0
+    :cond_6a
+    goto :goto_1
 
     .end local v3    # "result$iv":Ljava/lang/Object;
-    :catchall_0
+    :catchall_6b
     move-exception v3
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 73
     .local v9, "$i$a$-logElapsed-TaskRunner$runnable$1$run$1":I
     .restart local v10    # "completedNormally":Z
-    :catchall_1
+    :catchall_6d
     move-exception v11
 
     .line 70
     nop
 
     .line 71
-    :try_start_3
+    :try_start_6f
     invoke-virtual {v3}, Lokhttp3/internal/concurrent/TaskRunner;->getBackend()Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     move-result-object v3
@@ -286,8 +289,8 @@
     .end local v7    # "loggingEnabled$iv":Z
     .end local v8    # "completedNormally$iv":Z
     throw v11
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_7a
+    .catchall {:try_start_6f .. :try_end_7a} :catchall_6b
 
     .line 330
     .end local v9    # "$i$a$-logElapsed-TaskRunner$runnable$1$run$1":I
@@ -299,8 +302,8 @@
     .restart local v5    # "startNs$iv":J
     .restart local v7    # "loggingEnabled$iv":Z
     .restart local v8    # "completedNormally$iv":Z
-    :goto_1
-    if-eqz v7, :cond_4
+    :goto_7a
+    if-eqz v7, :cond_a6
 
     .line 331
     invoke-virtual {v2}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -319,7 +322,7 @@
 
     .line 332
     .local v9, "elapsedNs$iv":J
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_99
 
     .line 333
     const-string v11, "finished run in "
@@ -332,12 +335,13 @@
 
     move-result-object v11
 
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v1, v0, v2, v11}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_a6
 
     .line 335
-    :cond_3
+    :cond_99
     const-string v11, "failed a run in "
 
     invoke-static {v9, v10}, Lokhttp3/internal/concurrent/TaskLoggerKt;->formatDuration(J)Ljava/lang/String;
@@ -348,11 +352,12 @@
 
     move-result-object v11
 
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v1, v0, v2, v11}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .end local v9    # "elapsedNs$iv":J
-    :cond_4
-    :goto_2
+    :cond_a6
+    :goto_a6
     throw v3
 
     .line 59
@@ -363,7 +368,7 @@
     .end local v5    # "startNs$iv":J
     .end local v7    # "loggingEnabled$iv":Z
     .end local v8    # "completedNormally$iv":Z
-    :catchall_2
+    :catchall_a7
     move-exception v1
 
     monitor-exit v0

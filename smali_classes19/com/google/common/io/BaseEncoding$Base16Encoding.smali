@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/io/BaseEncoding$Alphabet;)V
-    .locals 4
+    .registers 6
     .param p1, "alphabet"    # Lcom/google/common/io/BaseEncoding$Alphabet;
 
     .line 898
@@ -36,6 +36,7 @@
     iput-object v0, p0, Lcom/google/common/io/BaseEncoding$Base16Encoding;->encoding:[C
 
     .line 899
+    # getter for: Lcom/google/common/io/BaseEncoding$Alphabet;->chars:[C
     invoke-static {p1}, Lcom/google/common/io/BaseEncoding$Alphabet;->access$000(Lcom/google/common/io/BaseEncoding$Alphabet;)[C
 
     move-result-object v0
@@ -44,26 +45,26 @@
 
     const/16 v1, 0x10
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 900
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_1a
     const/16 v1, 0x100
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_37
 
     .line 901
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$Base16Encoding;->encoding:[C
@@ -92,16 +93,16 @@
     .line 900
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 904
     .end local v0    # "i":I
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "alphabetChars"    # Ljava/lang/String;
 
@@ -123,7 +124,7 @@
 
 # virtual methods
 .method decodeTo([BLjava/lang/CharSequence;)I
-    .locals 5
+    .registers 8
     .param p1, "target"    # [B
     .param p2, "chars"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
@@ -144,7 +145,7 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_37
 
     .line 923
     const/4 v0, 0x0
@@ -154,12 +155,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_e
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_36
 
     .line 925
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$Base16Encoding;->alphabet:Lcom/google/common/io/BaseEncoding$Alphabet;
@@ -204,18 +205,18 @@
 
     move v0, v3
 
-    goto :goto_0
+    goto :goto_e
 
     .line 928
     .end local v1    # "i":I
     .end local v3    # "bytesWritten":I
     .restart local v0    # "bytesWritten":I
-    :cond_0
+    :cond_36
     return v0
 
     .line 921
     .end local v0    # "bytesWritten":I
-    :cond_1
+    :cond_37
     new-instance v0, Lcom/google/common/io/BaseEncoding$DecodingException;
 
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
@@ -248,7 +249,7 @@
 .end method
 
 .method encodeTo(Ljava/lang/Appendable;[BII)V
-    .locals 4
+    .registers 9
     .param p1, "target"    # Ljava/lang/Appendable;
     .param p2, "bytes"    # [B
     .param p3, "off"    # I
@@ -273,8 +274,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p4, :cond_0
+    :goto_a
+    if-ge v0, p4, :cond_25
 
     .line 911
     add-int v1, p3, v0
@@ -304,16 +305,16 @@
     .end local v1    # "b":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 915
     .end local v0    # "i":I
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method newInstance(Lcom/google/common/io/BaseEncoding$Alphabet;Ljava/lang/Character;)Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 4
     .param p1, "alphabet"    # Lcom/google/common/io/BaseEncoding$Alphabet;
     .param p2, "paddingChar"    # Ljava/lang/Character;
         .annotation runtime Ljavax/annotation/CheckForNull;

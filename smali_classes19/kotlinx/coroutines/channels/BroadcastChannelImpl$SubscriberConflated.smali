@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/channels/BroadcastChannelImpl;)V
-    .locals 6
+    .registers 8
     .param p1, "this$0"    # Lkotlinx/coroutines/channels/BroadcastChannelImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public cancelImpl(Ljava/lang/Throwable;)Z
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 372
@@ -98,6 +98,7 @@
 
     check-cast v1, Lkotlinx/coroutines/channels/ReceiveChannel;
 
+    # invokes: Lkotlinx/coroutines/channels/BroadcastChannelImpl;->removeSubscriber(Lkotlinx/coroutines/channels/ReceiveChannel;)V
     invoke-static {v0, v1}, Lkotlinx/coroutines/channels/BroadcastChannelImpl;->access$removeSubscriber(Lkotlinx/coroutines/channels/BroadcastChannelImpl;Lkotlinx/coroutines/channels/ReceiveChannel;)V
 
     .line 373
@@ -109,7 +110,7 @@
 .end method
 
 .method public bridge synthetic cancelImpl$kotlinx_coroutines_core(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 369

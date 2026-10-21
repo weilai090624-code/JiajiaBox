@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 55
     const/4 v0, 0x1
@@ -141,7 +141,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -150,13 +150,13 @@
 .end method
 
 .method public static convertToRippleDrawableColor(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
-    .locals 6
+    .registers 7
     .param p0, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 125
     sget-boolean v0, Lcom/google/android/material/ripple/RippleUtils;->USE_FRAMEWORK_RIPPLE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3a
 
     .line 126
     const/4 v0, 0x3
@@ -237,7 +237,7 @@
     .end local v1    # "states":[[I
     .end local v2    # "colors":[I
     .end local v3    # "i":I
-    :cond_0
+    :cond_3a
     const/16 v0, 0xa
 
     .line 155
@@ -422,11 +422,12 @@
 .end method
 
 .method public static createOvalRippleLollipop(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "padding"    # I
 
     .line 264
+    # invokes: Lcom/google/android/material/ripple/RippleUtils$RippleUtilsLollipop;->createOvalRipple(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     invoke-static {p0, p1}, Lcom/google/android/material/ripple/RippleUtils$RippleUtilsLollipop;->access$000(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -435,7 +436,7 @@
 .end method
 
 .method private static doubleAlpha(I)I
-    .locals 2
+    .registers 3
     .param p0, "color"    # I
 
     .line 285
@@ -461,12 +462,12 @@
 .end method
 
 .method private static getColorForState(Landroid/content/res/ColorStateList;[I)I
-    .locals 2
+    .registers 4
     .param p0, "rippleColor"    # Landroid/content/res/ColorStateList;
     .param p1, "state"    # [I
 
     .line 270
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 271
     invoke-virtual {p0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
@@ -478,54 +479,54 @@
     move-result v0
 
     .local v0, "color":I
-    goto :goto_0
+    goto :goto_c
 
     .line 273
     .end local v0    # "color":I
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 275
     .restart local v0    # "color":I
-    :goto_0
+    :goto_c
     sget-boolean v1, Lcom/google/android/material/ripple/RippleUtils;->USE_FRAMEWORK_RIPPLE:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_15
 
     invoke-static {v0}, Lcom/google/android/material/ripple/RippleUtils;->doubleAlpha(I)I
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     move v1, v0
 
-    :goto_1
+    :goto_16
     return v1
 .end method
 
 .method public static sanitizeRippleDrawableColor(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
-    .locals 3
+    .registers 4
     .param p0, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 220
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2d
 
     .line 221
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x16
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_2c
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1b
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_2c
 
     .line 223
     invoke-virtual {p0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
@@ -536,7 +537,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2c
 
     sget-object v1, Lcom/google/android/material/ripple/RippleUtils;->ENABLED_PRESSED_STATE_SET:[I
 
@@ -549,7 +550,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 226
     sget-object v0, Lcom/google/android/material/ripple/RippleUtils;->LOG_TAG:Ljava/lang/String;
@@ -559,11 +560,11 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 228
-    :cond_0
+    :cond_2c
     return-object p0
 
     .line 230
-    :cond_1
+    :cond_2d
     invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -572,7 +573,7 @@
 .end method
 
 .method public static shouldDrawRippleCompat([I)Z
-    .locals 7
+    .registers 8
     .param p0, "stateSet"    # [I
 
     .line 238
@@ -590,8 +591,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_4
+    :goto_5
+    if-ge v4, v2, :cond_27
 
     aget v5, p0, v4
 
@@ -599,60 +600,60 @@
     .local v5, "state":I
     const v6, 0x101009e
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_10
 
     .line 243
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 244
-    :cond_0
+    :cond_10
     const v6, 0x101009c
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_17
 
     .line 245
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 246
-    :cond_1
+    :cond_17
     const v6, 0x10100a7
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_1e
 
     .line 247
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 248
-    :cond_2
+    :cond_1e
     const v6, 0x1010367
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_24
 
     .line 249
     const/4 v1, 0x1
 
     .line 241
     .end local v5    # "state":I
-    :cond_3
-    :goto_1
+    :cond_24
+    :goto_24
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 252
-    :cond_4
-    if-eqz v0, :cond_5
+    :cond_27
+    if-eqz v0, :cond_2c
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_2c
 
     const/4 v3, 0x1
 
-    :cond_5
+    :cond_2c
     return v3
 .end method

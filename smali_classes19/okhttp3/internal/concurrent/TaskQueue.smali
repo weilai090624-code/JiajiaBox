@@ -107,7 +107,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/concurrent/TaskRunner;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -142,41 +142,41 @@
 .end method
 
 .method public static synthetic execute$default(Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;JZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
-    .locals 6
+    .registers 14
 
     .line 94
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_8
 
     .line 96
     const-wide/16 p2, 0x0
 
     move-wide v2, p2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 94
-    :cond_0
+    :cond_8
     move-wide v2, p2
 
-    :goto_0
+    :goto_9
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_10
 
     .line 97
     const/4 p4, 0x1
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 94
-    :cond_1
+    :cond_10
     move v4, p4
 
-    :goto_1
+    :goto_11
     move-object v0, p0
 
     move-object v1, p1
@@ -189,34 +189,34 @@
 .end method
 
 .method public static synthetic schedule$default(Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;JLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
-    .locals 0
+    .registers 7
 
     .line 80
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 82
     const-wide/16 p2, 0x0
 
     .line 80
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/internal/concurrent/TaskQueue;->schedule(Ljava/lang/String;JLkotlin/jvm/functions/Function0;)V
 
     return-void
 .end method
 
 .method public static synthetic schedule$default(Lokhttp3/internal/concurrent/TaskQueue;Lokhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 61
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     const-wide/16 p2, 0x0
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2, p3}, Lokhttp3/internal/concurrent/TaskQueue;->schedule(Lokhttp3/internal/concurrent/Task;J)V
 
     return-void
@@ -225,7 +225,7 @@
 
 # virtual methods
 .method public final cancelAll()V
-    .locals 5
+    .registers 6
 
     .line 183
     move-object v0, p0
@@ -237,18 +237,18 @@
     .local v1, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 248
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -292,8 +292,8 @@
     throw v2
 
     .line 250
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 185
@@ -307,12 +307,12 @@
 
     .line 186
     .local v1, "$i$a$-synchronized-TaskQueue$cancelAll$1":I
-    :try_start_0
+    :try_start_3d
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->cancelAllAndDecide$okhttp()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
     .line 187
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -322,13 +322,13 @@
     invoke-virtual {v2, p0}, Lokhttp3/internal/concurrent/TaskRunner;->kickCoordinator$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
 
     .line 189
-    :cond_2
+    :cond_4a
     nop
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$cancelAll$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4d
+    .catchall {:try_start_3d .. :try_end_4d} :catchall_4f
 
     .line 185
     monitor-exit v0
@@ -337,7 +337,7 @@
     return-void
 
     .line 185
-    :catchall_0
+    :catchall_4f
     move-exception v1
 
     monitor-exit v0
@@ -346,14 +346,14 @@
 .end method
 
 .method public final cancelAllAndDecide$okhttp()Z
-    .locals 7
+    .registers 8
 
     .line 205
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->activeTask:Lokhttp3/internal/concurrent/Task;
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->activeTask:Lokhttp3/internal/concurrent/Task;
 
@@ -363,13 +363,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 206
     iput-boolean v1, p0, Lokhttp3/internal/concurrent/TaskQueue;->cancelActiveTask:Z
 
     .line 209
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 210
@@ -382,9 +382,9 @@
 
     sub-int/2addr v2, v1
 
-    if-ltz v2, :cond_4
+    if-ltz v2, :cond_53
 
-    :cond_1
+    :cond_1c
     move v1, v2
 
     .local v1, "i":I
@@ -403,7 +403,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_51
 
     .line 212
     iget-object v3, p0, Lokhttp3/internal/concurrent/TaskQueue;->taskRunner:Lokhttp3/internal/concurrent/TaskRunner;
@@ -432,7 +432,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4a
 
     .line 256
     const/4 v6, 0x0
@@ -442,10 +442,11 @@
     const-string v6, "canceled"
 
     .end local v6    # "$i$a$-taskLog-TaskQueue$cancelAllAndDecide$1":I
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v3, v4, p0, v6}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .line 258
-    :cond_2
+    :cond_4a
     nop
 
     .line 213
@@ -460,17 +461,17 @@
     invoke-interface {v3, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 210
-    :cond_3
-    if-gez v2, :cond_1
+    :cond_51
+    if-gez v2, :cond_1c
 
     .line 217
     .end local v1    # "i":I
-    :cond_4
+    :cond_53
     return v0
 .end method
 
 .method public final execute(Ljava/lang/String;JZLkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "delayNanos"    # J
     .param p4, "cancelable"    # Z
@@ -512,7 +513,7 @@
 .end method
 
 .method public final getActiveTask$okhttp()Lokhttp3/internal/concurrent/Task;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->activeTask:Lokhttp3/internal/concurrent/Task;
@@ -521,7 +522,7 @@
 .end method
 
 .method public final getCancelActiveTask$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 42
     iget-boolean v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->cancelActiveTask:Z
@@ -530,7 +531,7 @@
 .end method
 
 .method public final getFutureTasks$okhttp()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -547,7 +548,7 @@
 .end method
 
 .method public final getName$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->name:Ljava/lang/String;
@@ -556,7 +557,7 @@
 .end method
 
 .method public final getScheduledTasks()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -576,7 +577,7 @@
 
     .line 49
     .local v1, "$i$a$-synchronized-TaskQueue$scheduledTasks$1":I
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getFutureTasks$okhttp()Ljava/util/List;
 
     move-result-object v2
@@ -586,15 +587,15 @@
     invoke-static {v2}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_4 .. :try_end_e} :catchall_10
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$scheduledTasks$1":I
     monitor-exit v0
 
     return-object v2
 
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -603,7 +604,7 @@
 .end method
 
 .method public final getShutdown$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 33
     iget-boolean v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->shutdown:Z
@@ -612,7 +613,7 @@
 .end method
 
 .method public final getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->taskRunner:Lokhttp3/internal/concurrent/TaskRunner;
@@ -621,7 +622,7 @@
 .end method
 
 .method public final idleLatch()Ljava/util/concurrent/CountDownLatch;
-    .locals 8
+    .registers 9
 
     .line 110
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->taskRunner:Lokhttp3/internal/concurrent/TaskRunner;
@@ -632,14 +633,14 @@
 
     .line 112
     .local v1, "$i$a$-synchronized-TaskQueue$idleLatch$1":I
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getActiveTask$okhttp()Lokhttp3/internal/concurrent/Task;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getFutureTasks$okhttp()Ljava/util/List;
 
@@ -649,14 +650,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 113
     new-instance v2, Ljava/util/concurrent/CountDownLatch;
 
     invoke-direct {v2, v3}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_4 .. :try_end_1a} :catchall_6b
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     monitor-exit v0
@@ -665,8 +666,8 @@
 
     .line 118
     .restart local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
-    :cond_0
-    :try_start_1
+    :cond_1c
+    :try_start_1c
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getActiveTask$okhttp()Lokhttp3/internal/concurrent/Task;
 
     move-result-object v2
@@ -675,7 +676,7 @@
     .local v2, "existingTask":Lokhttp3/internal/concurrent/Task;
     instance-of v4, v2, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2d
 
     .line 120
     move-object v3, v2
@@ -685,8 +686,8 @@
     invoke-virtual {v3}, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;->getLatch()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_1c .. :try_end_2b} :catchall_6b
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     .end local v2    # "existingTask":Lokhttp3/internal/concurrent/Task;
@@ -697,8 +698,8 @@
     .line 122
     .restart local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     .restart local v2    # "existingTask":Lokhttp3/internal/concurrent/Task;
-    :cond_1
-    :try_start_2
+    :cond_2d
+    :try_start_2d
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getFutureTasks$okhttp()Ljava/util/List;
 
     move-result-object v4
@@ -707,12 +708,12 @@
 
     move-result-object v4
 
-    :cond_2
+    :cond_35
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4e
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -724,7 +725,7 @@
     .local v5, "futureTask":Lokhttp3/internal/concurrent/Task;
     instance-of v6, v5, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_35
 
     .line 124
     move-object v3, v5
@@ -734,8 +735,8 @@
     invoke-virtual {v3}, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;->getLatch()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4c
+    .catchall {:try_start_2d .. :try_end_4c} :catchall_6b
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     .end local v2    # "existingTask":Lokhttp3/internal/concurrent/Task;
@@ -747,8 +748,8 @@
     .line 129
     .restart local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     .restart local v2    # "existingTask":Lokhttp3/internal/concurrent/Task;
-    :cond_3
-    :try_start_3
+    :cond_4e
+    :try_start_4e
     new-instance v4, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;
 
     invoke-direct {v4}, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;-><init>()V
@@ -765,7 +766,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_65
 
     .line 131
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -775,12 +776,12 @@
     invoke-virtual {v3, p0}, Lokhttp3/internal/concurrent/TaskRunner;->kickCoordinator$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
 
     .line 133
-    :cond_4
+    :cond_65
     invoke-virtual {v4}, Lokhttp3/internal/concurrent/TaskQueue$AwaitIdleTask;->getLatch()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_69
+    .catchall {:try_start_4e .. :try_end_69} :catchall_6b
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$idleLatch$1":I
     .end local v2    # "existingTask":Lokhttp3/internal/concurrent/Task;
@@ -789,7 +790,7 @@
 
     return-object v3
 
-    :catchall_0
+    :catchall_6b
     move-exception v1
 
     monitor-exit v0
@@ -798,7 +799,7 @@
 .end method
 
 .method public final schedule(Ljava/lang/String;JLkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "delayNanos"    # J
     .param p4, "block"    # Lkotlin/jvm/functions/Function0;
@@ -839,7 +840,7 @@
 .end method
 
 .method public final schedule(Lokhttp3/internal/concurrent/Task;J)V
-    .locals 6
+    .registers 10
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
     .param p2, "delayNanos"    # J
 
@@ -856,19 +857,19 @@
 
     .line 63
     .local v1, "$i$a$-synchronized-TaskQueue$schedule$1":I
-    :try_start_0
+    :try_start_9
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getShutdown$okhttp()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4e
 
     .line 64
     invoke-virtual {p1}, Lokhttp3/internal/concurrent/Task;->getCancelable()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     .line 65
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -890,7 +891,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     .line 225
     const/4 v4, 0x0
@@ -900,12 +901,13 @@
     const-string v5, "schedule canceled (queue is shutdown)"
 
     .end local v4    # "$i$a$-taskLog-TaskQueue$schedule$1$1":I
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v2, p1, p0, v5}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_9 .. :try_end_2c} :catchall_61
 
     .line 227
-    :cond_0
+    :cond_2c
     nop
 
     .line 66
@@ -920,8 +922,8 @@
 
     .line 68
     .restart local v1    # "$i$a$-synchronized-TaskQueue$schedule$1":I
-    :cond_1
-    :try_start_1
+    :cond_30
+    :try_start_30
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
 
     move-result-object v2
@@ -941,7 +943,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     .line 229
     const/4 v4, 0x0
@@ -951,10 +953,11 @@
     const-string v5, "schedule failed (queue is shutdown)"
 
     .end local v4    # "$i$a$-taskLog-TaskQueue$schedule$1$2":I
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v2, p1, p0, v5}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .line 231
-    :cond_2
+    :cond_47
     nop
 
     .line 69
@@ -971,14 +974,14 @@
     .line 72
     .restart local p1    # "task":Lokhttp3/internal/concurrent/Task;
     .restart local p2    # "delayNanos":J
-    :cond_3
+    :cond_4e
     const/4 v2, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v2}, Lokhttp3/internal/concurrent/TaskQueue;->scheduleAndDecide$okhttp(Lokhttp3/internal/concurrent/Task;JZ)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5c
 
     .line 73
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -988,13 +991,13 @@
     invoke-virtual {v2, p0}, Lokhttp3/internal/concurrent/TaskRunner;->kickCoordinator$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
 
     .line 75
-    :cond_4
+    :cond_5c
     nop
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$schedule$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5f
+    .catchall {:try_start_30 .. :try_end_5f} :catchall_61
 
     .line 62
     monitor-exit v0
@@ -1003,7 +1006,7 @@
     return-void
 
     .line 62
-    :catchall_0
+    :catchall_61
     move-exception v1
 
     monitor-exit v0
@@ -1012,7 +1015,7 @@
 .end method
 
 .method public final scheduleAndDecide$okhttp(Lokhttp3/internal/concurrent/Task;JZ)Z
-    .locals 20
+    .registers 25
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
     .param p2, "delayNanos"    # J
     .param p4, "recurrence"    # Z
@@ -1057,7 +1060,7 @@
 
     const/4 v8, -0x1
 
-    if-eq v6, v8, :cond_2
+    if-eq v6, v8, :cond_46
 
     .line 156
     invoke-virtual/range {p1 .. p1}, Lokhttp3/internal/concurrent/Task;->getNextExecuteNanoTime$okhttp()J
@@ -1066,7 +1069,7 @@
 
     cmp-long v11, v9, v4
 
-    if-gtz v11, :cond_1
+    if-gtz v11, :cond_41
 
     .line 157
     iget-object v8, v0, Lokhttp3/internal/concurrent/TaskQueue;->taskRunner:Lokhttp3/internal/concurrent/TaskRunner;
@@ -1086,7 +1089,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_3f
 
     .line 233
     const/4 v10, 0x0
@@ -1096,10 +1099,11 @@
     const-string v10, "already scheduled"
 
     .end local v10    # "$i$a$-taskLog-TaskQueue$scheduleAndDecide$1":I
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v8, v1, v0, v10}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .line 235
-    :cond_0
+    :cond_3f
     nop
 
     .line 158
@@ -1108,13 +1112,13 @@
     return v7
 
     .line 160
-    :cond_1
+    :cond_41
     iget-object v9, v0, Lokhttp3/internal/concurrent/TaskQueue;->futureTasks:Ljava/util/List;
 
     invoke-interface {v9, v6}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 162
-    :cond_2
+    :cond_46
     invoke-virtual {v1, v4, v5}, Lokhttp3/internal/concurrent/Task;->setNextExecuteNanoTime$okhttp(J)V
 
     .line 163
@@ -1135,14 +1139,14 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_78
 
     .line 237
     const/4 v11, 0x0
 
     .line 164
     .local v11, "$i$a$-taskLog-TaskQueue$scheduleAndDecide$2":I
-    if-eqz p4, :cond_3
+    if-eqz p4, :cond_68
 
     sub-long v12, v4, v2
 
@@ -1156,10 +1160,10 @@
 
     move-result-object v12
 
-    goto :goto_0
+    goto :goto_74
 
     .line 165
-    :cond_3
+    :cond_68
     sub-long v12, v4, v2
 
     invoke-static {v12, v13}, Lokhttp3/internal/concurrent/TaskLoggerKt;->formatDuration(J)Ljava/lang/String;
@@ -1173,14 +1177,15 @@
     move-result-object v12
 
     .line 164
-    :goto_0
+    :goto_74
     nop
 
     .end local v11    # "$i$a$-taskLog-TaskQueue$scheduleAndDecide$2":I
+    # invokes: Lokhttp3/internal/concurrent/TaskLoggerKt;->log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
     invoke-static {v9, v1, v0, v12}, Lokhttp3/internal/concurrent/TaskLoggerKt;->access$log(Ljava/util/logging/Logger;Lokhttp3/internal/concurrent/Task;Lokhttp3/internal/concurrent/TaskQueue;Ljava/lang/String;)V
 
     .line 239
-    :cond_4
+    :cond_78
     nop
 
     .line 169
@@ -1201,14 +1206,14 @@
 
     move-result-object v12
 
-    :goto_1
+    :goto_81
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
     const/4 v14, 0x1
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_a5
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1233,47 +1238,47 @@
 
     cmp-long v19, v17, p2
 
-    if-lez v19, :cond_5
+    if-lez v19, :cond_9d
 
     const/4 v15, 0x1
 
-    goto :goto_2
+    goto :goto_9e
 
-    :cond_5
+    :cond_9d
     const/4 v15, 0x0
 
     .end local v15    # "it":Lokhttp3/internal/concurrent/Task;
     .end local v16    # "$i$a$-indexOfFirst-TaskQueue$scheduleAndDecide$insertAt$1":I
-    :goto_2
-    if-eqz v15, :cond_6
+    :goto_9e
+    if-eqz v15, :cond_a1
 
     .line 243
-    goto :goto_3
+    goto :goto_a6
 
     .line 244
-    :cond_6
+    :cond_a1
     nop
 
     .end local v13    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v11, v11, 0x1
 
     .line 241
-    goto :goto_1
+    goto :goto_81
 
     .line 246
-    :cond_7
+    :cond_a5
     const/4 v11, -0x1
 
     .line 169
     .end local v9    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v10    # "$i$f$indexOfFirst":I
     .end local v11    # "index$iv":I
-    :goto_3
+    :goto_a6
     move v9, v11
 
     .line 170
     .local v9, "insertAt":I
-    if-ne v9, v8, :cond_8
+    if-ne v9, v8, :cond_af
 
     iget-object v8, v0, Lokhttp3/internal/concurrent/TaskQueue;->futureTasks:Ljava/util/List;
 
@@ -1282,22 +1287,22 @@
     move-result v9
 
     .line 171
-    :cond_8
+    :cond_af
     iget-object v8, v0, Lokhttp3/internal/concurrent/TaskQueue;->futureTasks:Ljava/util/List;
 
     invoke-interface {v8, v9, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 174
-    if-nez v9, :cond_9
+    if-nez v9, :cond_b7
 
     const/4 v7, 0x1
 
-    :cond_9
+    :cond_b7
     return v7
 .end method
 
 .method public final setActiveTask$okhttp(Lokhttp3/internal/concurrent/Task;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/concurrent/Task;
 
     .line 36
@@ -1307,7 +1312,7 @@
 .end method
 
 .method public final setCancelActiveTask$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 42
@@ -1317,7 +1322,7 @@
 .end method
 
 .method public final setShutdown$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 33
@@ -1327,7 +1332,7 @@
 .end method
 
 .method public final shutdown()V
-    .locals 5
+    .registers 6
 
     .line 193
     move-object v0, p0
@@ -1339,18 +1344,18 @@
     .local v1, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 252
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1394,8 +1399,8 @@
     throw v2
 
     .line 254
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 195
@@ -1411,7 +1416,7 @@
     .local v1, "$i$a$-synchronized-TaskQueue$shutdown$1":I
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_3e
     invoke-virtual {p0, v2}, Lokhttp3/internal/concurrent/TaskQueue;->setShutdown$okhttp(Z)V
 
     .line 197
@@ -1419,7 +1424,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4e
 
     .line 198
     invoke-virtual {p0}, Lokhttp3/internal/concurrent/TaskQueue;->getTaskRunner$okhttp()Lokhttp3/internal/concurrent/TaskRunner;
@@ -1429,13 +1434,13 @@
     invoke-virtual {v2, p0}, Lokhttp3/internal/concurrent/TaskRunner;->kickCoordinator$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
 
     .line 200
-    :cond_2
+    :cond_4e
     nop
 
     .end local v1    # "$i$a$-synchronized-TaskQueue$shutdown$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_51
+    .catchall {:try_start_3e .. :try_end_51} :catchall_53
 
     .line 195
     monitor-exit v0
@@ -1444,7 +1449,7 @@
     return-void
 
     .line 195
-    :catchall_0
+    :catchall_53
     move-exception v1
 
     monitor-exit v0
@@ -1453,7 +1458,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 220
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue;->name:Ljava/lang/String;

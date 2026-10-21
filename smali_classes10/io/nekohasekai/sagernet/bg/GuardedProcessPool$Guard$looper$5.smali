@@ -81,7 +81,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Lkotlinx/coroutines/channels/Channel;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,7 +180,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -193,7 +193,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_e8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -204,27 +204,27 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_14
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_e4
 
-    :pswitch_1
-    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    move-object v1, p1
-
-    goto/16 :goto_2
-
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p1
 
-    goto :goto_1
+    goto/16 :goto_bf
+
+    :pswitch_1f
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+
+    move-object v1, p1
+
+    goto :goto_89
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_24
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 81
@@ -233,32 +233,34 @@
 
     const/16 v4, 0x18
 
-    if-ge v1, v4, :cond_4
+    if-ge v1, v4, :cond_8f
 
     .line 82
     nop
 
     .line 83
-    :try_start_0
+    :try_start_2e
     sget-object v1, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->Companion:Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;
 
+    # invokes: Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;->getPid()Ljava/lang/reflect/Field;
     invoke-static {v1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;->access$getPid(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;)Ljava/lang/reflect/Field;
 
     move-result-object v1
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5;->this$0:Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->process:Ljava/lang/Process;
     invoke-static {v4}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->access$getProcess$p(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;)Ljava/lang/Process;
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_40
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v4, v3
 
-    :cond_0
+    :cond_40
     invoke-virtual {v1, v4}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -276,14 +278,14 @@
     sget v4, Landroid/system/OsConstants;->SIGTERM:I
 
     invoke-static {v1, v4}, Landroid/system/Os;->kill(II)V
-    :try_end_0
-    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ReflectiveOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Landroid/system/ErrnoException; {:try_start_2e .. :try_end_54} :catch_5f
+    .catch Ljava/lang/ReflectiveOperationException; {:try_start_2e .. :try_end_54} :catch_55
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 86
-    :catch_0
+    :catch_55
     move-exception v1
 
     .line 87
@@ -296,11 +298,11 @@
 
     invoke-virtual {v4, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 84
     .end local v1    # "e":Ljava/lang/ReflectiveOperationException;
-    :catch_1
+    :catch_5f
     move-exception v1
 
     .line 85
@@ -309,7 +311,7 @@
 
     sget v5, Landroid/system/OsConstants;->ESRCH:I
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_6e
 
     sget-object v4, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -321,8 +323,8 @@
 
     .line 89
     .end local v1    # "e":Landroid/system/ErrnoException;
-    :cond_1
-    :goto_0
+    :cond_6e
+    :goto_6e
     new-instance v1, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5$1;
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5;->$exitChannel:Lkotlinx/coroutines/channels/Channel;
@@ -345,13 +347,13 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_86
 
     .line 80
     return-object v0
 
     .line 89
-    :cond_2
+    :cond_86
     move-object v7, v1
 
     move-object v1, p1
@@ -360,33 +362,34 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :goto_1
-    if-eqz p1, :cond_3
+    :goto_89
+    if-eqz p1, :cond_8e
 
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :cond_3
+    :cond_8e
     move-object p1, v1
 
     .line 91
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :cond_4
+    :cond_8f
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5;->this$0:Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->process:Ljava/lang/Process;
     invoke-static {v1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->access$getProcess$p(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;)Ljava/lang/Process;
 
     move-result-object v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_9b
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v1, v3
 
-    :cond_5
+    :cond_9b
     invoke-virtual {v1}, Ljava/lang/Process;->destroy()V
 
     .line 92
@@ -394,7 +397,7 @@
 
     const/16 v4, 0x1a
 
-    if-lt v1, v4, :cond_9
+    if-lt v1, v4, :cond_d5
 
     .line 93
     new-instance v1, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5$2;
@@ -419,13 +422,13 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_6
+    if-ne v1, v0, :cond_bc
 
     .line 80
     return-object v0
 
     .line 93
-    :cond_6
+    :cond_bc
     move-object v7, v1
 
     move-object v1, p1
@@ -434,31 +437,32 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_2
-    if-eqz p1, :cond_7
+    :goto_bf
+    if-eqz p1, :cond_c4
 
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 94
-    :cond_7
+    :cond_c4
     iget-object p1, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5;->this$0:Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->process:Ljava/lang/Process;
     invoke-static {p1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->access$getProcess$p(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;)Ljava/lang/Process;
 
     move-result-object p1
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_d0
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_d1
 
-    :cond_8
+    :cond_d0
     move-object v3, p1
 
-    :goto_3
+    :goto_d1
     invoke-virtual {v3}, Ljava/lang/Process;->destroyForcibly()Ljava/lang/Process;
 
     move-object p1, v1
@@ -466,7 +470,7 @@
     .line 96
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :cond_9
+    :cond_d5
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$5;->$exitChannel:Lkotlinx/coroutines/channels/Channel;
 
     move-object v2, p0
@@ -481,25 +485,25 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_a
+    if-ne v1, v0, :cond_e4
 
     .line 80
     return-object v0
 
     .line 97
-    :cond_a
-    :goto_4
+    :cond_e4
+    :goto_e4
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e8
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_1f
+        :pswitch_19
+        :pswitch_14
     .end packed-switch
 .end method

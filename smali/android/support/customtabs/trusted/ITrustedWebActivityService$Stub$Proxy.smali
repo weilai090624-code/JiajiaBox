@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 160
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public areNotificationsEnabled(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 5
+    .registers 7
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -60,7 +60,7 @@
 
     .line 177
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -68,6 +68,7 @@
     .line 178
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p1, v2}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 179
@@ -86,13 +87,14 @@
     .line 181
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_8 .. :try_end_23} :catchall_2c
 
     move-object v2, v3
 
@@ -111,7 +113,7 @@
 
     .line 184
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_2c
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -124,7 +126,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 165
     iget-object v0, p0, Landroid/support/customtabs/trusted/ITrustedWebActivityService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -133,7 +135,7 @@
 .end method
 
 .method public cancelNotification(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -154,7 +156,7 @@
 
     .line 212
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -162,6 +164,7 @@
     .line 213
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p1, v2}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 214
@@ -176,8 +179,8 @@
     .line 215
     .local v2, "_status":Z
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
 
     .line 218
     .end local v2    # "_status":Z
@@ -193,7 +196,7 @@
     return-void
 
     .line 218
-    :catchall_0
+    :catchall_23
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -206,7 +209,7 @@
 .end method
 
 .method public extraCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/IBinder;)Landroid/os/Bundle;
-    .locals 5
+    .registers 9
     .param p1, "commandName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "callback"    # Landroid/os/IBinder;
@@ -229,7 +232,7 @@
 
     .line 279
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -240,6 +243,7 @@
     .line 281
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p2, v2}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 282
@@ -261,13 +265,14 @@
     .line 285
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_8 .. :try_end_2a} :catchall_33
 
     move-object v2, v3
 
@@ -286,7 +291,7 @@
 
     .line 288
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_33
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -299,7 +304,7 @@
 .end method
 
 .method public getActiveNotifications()Landroid/os/Bundle;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -319,7 +324,7 @@
 
     .line 228
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -342,13 +347,14 @@
     .line 231
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_8 .. :try_end_20} :catchall_29
 
     move-object v2, v3
 
@@ -367,7 +373,7 @@
 
     .line 234
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_29
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -380,7 +386,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 169
     const-string v0, "android.support.customtabs.trusted.ITrustedWebActivityService"
@@ -389,7 +395,7 @@
 .end method
 
 .method public getSmallIconBitmap()Landroid/os/Bundle;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -409,7 +415,7 @@
 
     .line 262
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -432,13 +438,14 @@
     .line 265
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_8 .. :try_end_20} :catchall_29
 
     move-object v2, v3
 
@@ -457,7 +464,7 @@
 
     .line 268
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_29
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -470,7 +477,7 @@
 .end method
 
 .method public getSmallIconId()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -490,7 +497,7 @@
 
     .line 245
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -514,8 +521,8 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_8 .. :try_end_1c} :catchall_25
 
     move v2, v3
 
@@ -534,7 +541,7 @@
 
     .line 251
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -547,7 +554,7 @@
 .end method
 
 .method public notifyNotificationWithChannel(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 5
+    .registers 7
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -568,7 +575,7 @@
 
     .line 195
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "android.support.customtabs.trusted.ITrustedWebActivityService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -576,6 +583,7 @@
     .line 196
     const/4 v2, 0x0
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {v0, p1, v2}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 197
@@ -594,13 +602,14 @@
     .line 199
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {v1, v3}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_8 .. :try_end_23} :catchall_2c
 
     move-object v2, v3
 
@@ -619,7 +628,7 @@
 
     .line 202
     .end local v2    # "_result":Landroid/os/Bundle;
-    :catchall_0
+    :catchall_2c
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -71,7 +71,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$R2WGNWJyyAvR4TNARc1AZg6Qljw(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)Lkotlin/Unit;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,11 +106,12 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)Lkotlin/Unit;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/JJHomeFragment;
     .param p1, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     .line 591
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->performDeleteGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$performDeleteGroup(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)V
 
     .line 592
@@ -122,7 +123,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,7 +150,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -163,7 +164,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,7 +193,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -205,7 +206,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_134
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -216,15 +217,15 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_13
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_36
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_18
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 564
@@ -251,20 +252,20 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_34
 
     .line 563
     return-object v0
 
     .line 564
-    :cond_0
+    :cond_34
     move-object v0, p1
 
     move-object p1, v1
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_36
     check-cast p1, Ljava/lang/Number;
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
@@ -279,14 +280,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_47
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 568
-    :cond_1
+    :cond_47
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->$group:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getUngrouped()Z
@@ -295,7 +296,7 @@
 
     const-string v4, "getString(...)"
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7f
 
     .line 569
     .end local p1    # "groupCount":I
@@ -313,14 +314,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_60
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_2
-    if-eqz v3, :cond_3
+    :cond_60
+    if-eqz v3, :cond_7b
 
     .line 570
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -341,7 +342,7 @@
     move-result-object p1
 
     .line 571
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_7b
 
     .line 569
     nop
@@ -349,25 +350,25 @@
     .line 571
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_1
+    goto :goto_7c
 
     .line 569
-    :cond_3
+    :cond_7b
     nop
 
     .line 572
-    :goto_1
+    :goto_7c
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 574
     .restart local p1    # "groupCount":I
-    :cond_4
+    :cond_7f
     nop
 
     .end local p1    # "groupCount":I
-    if-gt p1, v2, :cond_7
+    if-gt p1, v2, :cond_b0
 
     .line 575
     nop
@@ -384,14 +385,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_91
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_5
-    if-eqz v3, :cond_6
+    :cond_91
+    if-eqz v3, :cond_ac
 
     .line 576
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -412,7 +413,7 @@
     move-result-object p1
 
     .line 577
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_ac
 
     .line 575
     nop
@@ -420,20 +421,20 @@
     .line 577
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_2
+    goto :goto_ad
 
     .line 575
-    :cond_6
+    :cond_ac
     nop
 
     .line 578
-    :goto_2
+    :goto_ad
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 580
-    :cond_7
+    :cond_b0
     sget-object p1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;->getUpdating()Ljava/util/Set;
@@ -454,7 +455,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_f4
 
     .line 581
     nop
@@ -471,14 +472,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_d5
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_8
-    if-eqz v3, :cond_9
+    :cond_d5
+    if-eqz v3, :cond_f0
 
     .line 582
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -499,7 +500,7 @@
     move-result-object p1
 
     .line 583
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_f0
 
     .line 581
     nop
@@ -507,20 +508,20 @@
     .line 583
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_3
+    goto :goto_f1
 
     .line 581
-    :cond_9
+    :cond_f0
     nop
 
     .line 584
-    :goto_3
+    :goto_f1
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 586
-    :cond_a
+    :cond_f4
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     .line 587
@@ -577,6 +578,7 @@
 
     invoke-direct {v6, v4, v5}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1$$ExternalSyntheticLambda0;-><init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)V
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->showGlassConfirmDialog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
     invoke-static {p1, v1, v2, v3, v6}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$showGlassConfirmDialog(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
 
     .line 593
@@ -584,9 +586,9 @@
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_134
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_13
     .end packed-switch
 .end method

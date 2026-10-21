@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
-    .locals 0
+    .registers 2
 
     .line 1163
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.Itr<TT;>;"
@@ -87,6 +87,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1164
+    # getter for: Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
     invoke-static {p1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$000(Lcom/google/common/collect/AbstractMapBasedMultimap;)Ljava/util/Map;
 
     move-result-object p1
@@ -123,7 +124,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1174
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.Itr<TT;>;"
@@ -133,7 +134,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;->valueIterator:Ljava/util/Iterator;
 
@@ -141,25 +142,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -174,7 +175,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 1180
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;->keyIterator:Ljava/util/Iterator;
@@ -213,7 +214,7 @@
 
     .line 1189
     .end local v0    # "mapEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    :cond_0
+    :cond_26
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;->key:Ljava/lang/Object;
 
     invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -250,7 +251,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 1194
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.Itr<TT;>;"
@@ -271,7 +272,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1200
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;->keyIterator:Ljava/util/Iterator;
@@ -279,9 +280,10 @@
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 1202
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    # operator-- for: Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
     invoke-static {v0}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$210(Lcom/google/common/collect/AbstractMapBasedMultimap;)I
 
     .line 1203

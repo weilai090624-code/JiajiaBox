@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchBarAnimationHelper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
 
     .line 223
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 226
@@ -42,6 +42,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/google/android/material/search/SearchBarAnimationHelper;->runningExpandOrCollapseAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/google/android/material/search/SearchBarAnimationHelper;->access$202(Lcom/google/android/material/search/SearchBarAnimationHelper;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     .line 227

@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/FileHandle;J)V
-    .locals 1
+    .registers 5
     .param p1, "fileHandle"    # Lokio/FileHandle;
     .param p2, "position"    # J
 
@@ -98,17 +98,17 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
 
     .line 432
     iget-boolean v0, p0, Lokio/FileHandle$FileHandleSource;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 433
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokio/FileHandle$FileHandleSource;->closed:Z
@@ -127,11 +127,12 @@
 
     .line 435
     .local v2, "$i$a$-synchronized-FileHandle$FileHandleSource$close$1":I
-    :try_start_0
+    :try_start_d
     invoke-virtual {p0}, Lokio/FileHandle$FileHandleSource;->getFileHandle()Lokio/FileHandle;
 
     move-result-object v3
 
+    # getter for: Lokio/FileHandle;->openStreamCount:I
     invoke-static {v3}, Lokio/FileHandle;->access$getOpenStreamCount$p(Lokio/FileHandle;)I
 
     move-result v4
@@ -145,32 +146,34 @@
 
     move-result-object v3
 
+    # getter for: Lokio/FileHandle;->openStreamCount:I
     invoke-static {v3}, Lokio/FileHandle;->access$getOpenStreamCount$p(Lokio/FileHandle;)I
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3a
 
     invoke-virtual {p0}, Lokio/FileHandle$FileHandleSource;->getFileHandle()Lokio/FileHandle;
 
     move-result-object v3
 
+    # getter for: Lokio/FileHandle;->closed:Z
     invoke-static {v3}, Lokio/FileHandle;->access$getClosed$p(Lokio/FileHandle;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2f
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 437
-    :cond_1
+    :cond_2f
     nop
 
     .end local v2    # "$i$a$-synchronized-FileHandle$FileHandleSource$close$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_d .. :try_end_32} :catchall_3c
 
     monitor-exit v0
 
@@ -188,8 +191,8 @@
     return-void
 
     .line 436
-    :cond_2
-    :goto_0
+    :cond_3a
+    :goto_3a
     monitor-exit v0
 
     return-void
@@ -197,7 +200,7 @@
     .line 437
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v1    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_3c
     move-exception v2
 
     monitor-exit v0
@@ -206,7 +209,7 @@
 .end method
 
 .method public final getClosed()Z
-    .locals 1
+    .registers 2
 
     .line 420
     iget-boolean v0, p0, Lokio/FileHandle$FileHandleSource;->closed:Z
@@ -215,7 +218,7 @@
 .end method
 
 .method public final getFileHandle()Lokio/FileHandle;
-    .locals 1
+    .registers 2
 
     .line 417
     iget-object v0, p0, Lokio/FileHandle$FileHandleSource;->fileHandle:Lokio/FileHandle;
@@ -224,7 +227,7 @@
 .end method
 
 .method public final getPosition()J
-    .locals 2
+    .registers 3
 
     .line 418
     iget-wide v0, p0, Lokio/FileHandle$FileHandleSource;->position:J
@@ -233,7 +236,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 7
+    .registers 11
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -244,7 +247,7 @@
     .line 423
     iget-boolean v0, p0, Lokio/FileHandle$FileHandleSource;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 424
     iget-object v1, p0, Lokio/FileHandle$FileHandleSource;->fileHandle:Lokio/FileHandle;
@@ -255,6 +258,7 @@
 
     move-wide v5, p2
 
+    # invokes: Lokio/FileHandle;->readNoCloseCheck(JLokio/Buffer;J)J
     invoke-static/range {v1 .. v6}, Lokio/FileHandle;->access$readNoCloseCheck(Lokio/FileHandle;JLokio/Buffer;J)J
 
     move-result-wide v0
@@ -265,7 +269,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1e
 
     iget-wide v2, p0, Lokio/FileHandle$FileHandleSource;->position:J
 
@@ -274,12 +278,12 @@
     iput-wide v2, p0, Lokio/FileHandle$FileHandleSource;->position:J
 
     .line 426
-    :cond_0
+    :cond_1e
     return-wide v0
 
     .line 443
     .end local v0    # "result":J
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     .line 423
@@ -303,7 +307,7 @@
 .end method
 
 .method public final setClosed(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 420
@@ -313,7 +317,7 @@
 .end method
 
 .method public final setPosition(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 418
@@ -323,7 +327,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 429
     sget-object v0, Lokio/Timeout;->NONE:Lokio/Timeout;

@@ -2,14 +2,6 @@
 .super Landroidx/preference/ListPreference;
 .source "LongClickListPreference.kt"
 
-.method protected onClick()V
-    .locals 0
-
-    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
-
-    return-void
-.end method
-
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
@@ -53,7 +45,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$n_qT45yp19CUiyjHlltfAnmR7Gw(Lmoe/matsuri/nb4a/ui/LongClickListPreference;Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/LongClickListPreference;->onBindViewHolder$lambda$0(Lmoe/matsuri/nb4a/ui/LongClickListPreference;Landroid/view/View;)Z
 
@@ -63,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -89,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -116,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -135,27 +127,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 11
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 12
     const/4 p2, 0x0
 
     .line 11
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 12
     const p3, 0x7f040190
 
     .line 11
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lmoe/matsuri/nb4a/ui/LongClickListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 13
@@ -163,32 +155,32 @@
 .end method
 
 .method private static final onBindViewHolder$lambda$0(Lmoe/matsuri/nb4a/ui/LongClickListPreference;Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/LongClickListPreference;
     .param p1, "it"    # Landroid/view/View;
 
     .line 20
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/LongClickListPreference;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-interface {v0, p1}, Landroid/view/View$OnLongClickListener;->onLongClick(Landroid/view/View;)Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 
 # virtual methods
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     const-string v0, "holder"
@@ -217,8 +209,16 @@
     return-void
 .end method
 
+.method protected onClick()V
+    .registers 1
+
+    invoke-static {p0}, Lmoe/matsuri/nb4a/ui/GlassPreferenceDialog;->show(Landroidx/preference/ListPreference;)V
+
+    return-void
+.end method
+
 .method public final setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "longClickListener"    # Landroid/view/View$OnLongClickListener;
 
     const-string v0, "longClickListener"

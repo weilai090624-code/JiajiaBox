@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$L8MV_mlC9GaeB7r0xUv3PN7I6QQ(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$applyTopInset$3;->onViewAttachedToWindow$lambda$0(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$applyTopInset$3;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -66,10 +66,11 @@
 .end method
 
 .method private static final onViewAttachedToWindow$lambda$0(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
-    .locals 0
+    .registers 1
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     .line 186
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->applyStatusBarInsetFromRoot()V
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$applyStatusBarInsetFromRoot(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
     return-void
@@ -78,7 +79,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     const-string v0, "v"
@@ -99,7 +100,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     const-string v0, "v"

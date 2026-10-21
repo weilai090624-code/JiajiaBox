@@ -67,7 +67,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 260
@@ -79,7 +79,7 @@
 .end method
 
 .method public static final synthetic box-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/SegmentOrClosed;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/internal/SegmentOrClosed;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public static constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -105,17 +105,17 @@
 .end method
 
 .method public static equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlinx/coroutines/internal/SegmentOrClosed;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlinx/coroutines/internal/SegmentOrClosed;
@@ -128,18 +128,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return v1
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -149,13 +149,13 @@
 .end method
 
 .method public static synthetic getSegment$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getSegment-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/Segment;
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,11 +166,12 @@
     .end annotation
 
     .line 263
+    # getter for: Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->CLOSED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->access$getCLOSED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v0
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_f
 
     const-string v0, "null cannot be cast to non-null type S of kotlinx.coroutines.internal.SegmentOrClosed"
 
@@ -182,7 +183,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Does not contain segment"
@@ -197,47 +198,48 @@
 .end method
 
 .method public static hashCode-impl(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public static final isClosed-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 261
+    # getter for: Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->CLOSED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/internal/ConcurrentLinkedListKt;->access$getCLOSED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static toString-impl(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -269,7 +271,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/SegmentOrClosed;->value:Ljava/lang/Object;
 
@@ -281,7 +283,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/SegmentOrClosed;->value:Ljava/lang/Object;
 
@@ -293,7 +295,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/SegmentOrClosed;->value:Ljava/lang/Object;
 
@@ -305,7 +307,7 @@
 .end method
 
 .method public final synthetic unbox-impl()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/SegmentOrClosed;->value:Ljava/lang/Object;
 

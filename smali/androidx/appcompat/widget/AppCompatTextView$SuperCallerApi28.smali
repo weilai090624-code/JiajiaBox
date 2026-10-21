@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatTextView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 884
@@ -34,12 +34,13 @@
 
 # virtual methods
 .method public setFirstBaselineToTopHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "firstBaselineToTopHeight"    # I
 
     .line 888
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextView$SuperCallerApi28;->this$0:Landroidx/appcompat/widget/AppCompatTextView;
 
+    # invokes: Landroid/widget/TextView;->setFirstBaselineToTopHeight(I)V
     invoke-static {v0, p1}, Landroidx/appcompat/widget/AppCompatTextView;->access$1001(Landroidx/appcompat/widget/AppCompatTextView;I)V
 
     .line 889
@@ -47,12 +48,13 @@
 .end method
 
 .method public setLastBaselineToBottomHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "lastBaselineToBottomHeight"    # I
 
     .line 893
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextView$SuperCallerApi28;->this$0:Landroidx/appcompat/widget/AppCompatTextView;
 
+    # invokes: Landroid/widget/TextView;->setLastBaselineToBottomHeight(I)V
     invoke-static {v0, p1}, Landroidx/appcompat/widget/AppCompatTextView;->access$1101(Landroidx/appcompat/widget/AppCompatTextView;I)V
 
     .line 894

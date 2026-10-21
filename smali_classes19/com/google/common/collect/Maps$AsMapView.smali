@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method backingSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 902
     .local p0, "this":Lcom/google/common/collect/Maps$AsMapView;, "Lcom/google/common/collect/Maps$AsMapView<TK;TV;>;"
@@ -122,7 +122,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -142,7 +142,7 @@
 .end method
 
 .method protected createEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,7 +162,7 @@
 .end method
 
 .method public createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,6 +177,7 @@
 
     move-result-object v0
 
+    # invokes: Lcom/google/common/collect/Maps;->removeOnlySet(Ljava/util/Set;)Ljava/util/Set;
     invoke-static {v0}, Lcom/google/common/collect/Maps;->access$200(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v0
@@ -185,7 +186,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -208,7 +209,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -234,7 +235,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 881
     move-object v0, p1
@@ -251,14 +252,14 @@
 
     .line 884
     .end local v0    # "k":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -284,7 +285,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 893
     move-object v0, p1
@@ -301,14 +302,14 @@
 
     .line 896
     .end local v0    # "k":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 868
     .local p0, "this":Lcom/google/common/collect/Maps$AsMapView;, "Lcom/google/common/collect/Maps$AsMapView<TK;TV;>;"

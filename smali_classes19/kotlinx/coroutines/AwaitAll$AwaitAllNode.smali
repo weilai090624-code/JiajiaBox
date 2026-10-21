@@ -94,7 +94,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/AwaitAll;Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lkotlinx/coroutines/AwaitAll;
     .param p2, "continuation"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public final getDisposer()Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -160,16 +160,16 @@
 .end method
 
 .method public final getHandle()Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lkotlinx/coroutines/AwaitAll$AwaitAllNode;->handle:Lkotlinx/coroutines/DisposableHandle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "handle"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -180,7 +180,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 103
@@ -196,11 +196,11 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 11
+    .registers 13
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 112
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     .line 113
     iget-object v0, p0, Lkotlinx/coroutines/AwaitAll$AwaitAllNode;->continuation:Lkotlinx/coroutines/CancellableContinuation;
@@ -211,7 +211,7 @@
 
     .line 114
     .local v0, "token":Ljava/lang/Object;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_59
 
     .line 115
     iget-object v1, p0, Lkotlinx/coroutines/AwaitAll$AwaitAllNode;->continuation:Lkotlinx/coroutines/CancellableContinuation;
@@ -223,14 +223,15 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_59
 
     invoke-virtual {v1}, Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;->disposeAll()V
 
-    goto :goto_1
+    goto :goto_59
 
     .end local v0    # "token":Ljava/lang/Object;
-    :cond_0
+    :cond_19
+    # getter for: Lkotlinx/coroutines/AwaitAll;->notCompletedCount$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
     invoke-static {}, Lkotlinx/coroutines/AwaitAll;->access$getNotCompletedCount$FU$p()Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     move-result-object v0
@@ -242,7 +243,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_59
 
     .line 121
     iget-object v0, p0, Lkotlinx/coroutines/AwaitAll$AwaitAllNode;->continuation:Lkotlinx/coroutines/CancellableContinuation;
@@ -251,6 +252,7 @@
 
     iget-object v1, p0, Lkotlinx/coroutines/AwaitAll$AwaitAllNode;->this$0:Lkotlinx/coroutines/AwaitAll;
 
+    # getter for: Lkotlinx/coroutines/AwaitAll;->deferreds:[Lkotlinx/coroutines/Deferred;
     invoke-static {v1}, Lkotlinx/coroutines/AwaitAll;->access$getDeferreds$p(Lkotlinx/coroutines/AwaitAll;)[Lkotlinx/coroutines/Deferred;
 
     move-result-object v1
@@ -280,8 +282,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v6, :cond_1
+    :goto_3c
+    if-ge v7, v6, :cond_4c
 
     aget-object v8, v4, v7
 
@@ -307,10 +309,10 @@
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 131
-    :cond_1
+    :cond_4c
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -333,13 +335,13 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 124
-    :cond_2
-    :goto_1
+    :cond_59
+    :goto_59
     return-void
 .end method
 
 .method public final setDisposer(Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -358,7 +360,7 @@
 .end method
 
 .method public final setHandle(Lkotlinx/coroutines/DisposableHandle;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlinx/coroutines/DisposableHandle;
 
     .line 104

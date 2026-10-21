@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/FileBackedOutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/io/FileBackedOutputStream;
 
     .line 123
@@ -34,21 +34,21 @@
 
 # virtual methods
 .method protected finalize()V
-    .locals 2
+    .registers 3
 
     .line 132
     :try_start_0
     iget-object v0, p0, Lcom/google/common/io/FileBackedOutputStream$1;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
     invoke-virtual {v0}, Lcom/google/common/io/FileBackedOutputStream;->reset()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_6
 
     .line 135
-    goto :goto_0
+    goto :goto_c
 
     .line 133
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     .line 134
@@ -59,12 +59,12 @@
 
     .line 136
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 .method public openStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,6 +74,7 @@
     .line 126
     iget-object v0, p0, Lcom/google/common/io/FileBackedOutputStream$1;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
+    # invokes: Lcom/google/common/io/FileBackedOutputStream;->openInputStream()Ljava/io/InputStream;
     invoke-static {v0}, Lcom/google/common/io/FileBackedOutputStream;->access$100(Lcom/google/common/io/FileBackedOutputStream;)Ljava/io/InputStream;
 
     move-result-object v0

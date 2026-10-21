@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 358
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/lifecycle/SavedStateHandle$Companion;-><init>()V
 
@@ -69,27 +69,27 @@
 
 # virtual methods
 .method public final createHandle(Landroid/os/Bundle;Landroid/os/Bundle;)Landroidx/lifecycle/SavedStateHandle;
-    .locals 7
+    .registers 10
     .param p1, "restoredState"    # Landroid/os/Bundle;
     .param p2, "defaultState"    # Landroid/os/Bundle;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 365
-    if-nez p1, :cond_2
+    if-nez p1, :cond_39
 
     .line 366
-    if-nez p2, :cond_0
+    if-nez p2, :cond_a
 
     .line 368
     new-instance v0, Landroidx/lifecycle/SavedStateHandle;
 
     invoke-direct {v0}, Landroidx/lifecycle/SavedStateHandle;-><init>()V
 
-    goto :goto_1
+    goto :goto_38
 
     .line 370
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -106,12 +106,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -131,11 +131,11 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 374
     .end local v2    # "key":Ljava/lang/String;
-    :cond_1
+    :cond_32
     new-instance v1, Landroidx/lifecycle/SavedStateHandle;
 
     invoke-direct {v1, v0}, Landroidx/lifecycle/SavedStateHandle;-><init>(Ljava/util/Map;)V
@@ -144,11 +144,11 @@
 
     .line 366
     .end local v0    # "state":Ljava/util/Map;
-    :goto_1
+    :goto_38
     return-object v0
 
     .line 381
-    :cond_2
+    :cond_39
     const-string v0, "keys"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -165,9 +165,9 @@
 
     .line 383
     .local v1, "values":Ljava/util/ArrayList;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_56
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_56
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -177,17 +177,17 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_56
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_57
 
-    :cond_3
+    :cond_56
     const/4 v2, 0x0
 
-    :goto_2
-    if-eqz v2, :cond_5
+    :goto_57
+    if-eqz v2, :cond_82
 
     .line 386
     new-instance v2, Ljava/util/LinkedHashMap;
@@ -205,8 +205,8 @@
 
     move-result v4
 
-    :goto_3
-    if-ge v3, v4, :cond_4
+    :goto_65
+    if-ge v3, v4, :cond_7c
 
     .line 388
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -228,11 +228,11 @@
     .line 387
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_65
 
     .line 390
     .end local v3    # "i":I
-    :cond_4
+    :cond_7c
     new-instance v3, Landroidx/lifecycle/SavedStateHandle;
 
     invoke-direct {v3, v2}, Landroidx/lifecycle/SavedStateHandle;-><init>(Ljava/util/Map;)V
@@ -241,7 +241,7 @@
 
     .line 383
     .end local v2    # "state":Ljava/util/Map;
-    :cond_5
+    :cond_82
     const/4 v2, 0x0
 
     .line 384
@@ -264,19 +264,20 @@
 .end method
 
 .method public final validateValue(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 398
     const/4 v0, 0x1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 399
     return v0
 
     .line 401
-    :cond_0
+    :cond_4
+    # getter for: Landroidx/lifecycle/SavedStateHandle;->ACCEPTABLE_CLASSES:[Ljava/lang/Class;
     invoke-static {}, Landroidx/lifecycle/SavedStateHandle;->access$getACCEPTABLE_CLASSES$cp()[Ljava/lang/Class;
 
     move-result-object v1
@@ -287,8 +288,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_b
+    if-ge v4, v2, :cond_1c
 
     aget-object v5, v1, v4
 
@@ -300,19 +301,19 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_19
 
     .line 403
     return v0
 
     .line 401
     .end local v5    # "cl":Ljava/lang/Class;
-    :cond_1
+    :cond_19
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 406
-    :cond_2
+    :cond_1c
     return v3
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "this$1"    # Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;
 
     .line 3366
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .registers 6
     .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 3369
@@ -59,6 +59,7 @@
 
     move-result v3
 
+    # invokes: Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;->tweenIndicatorPosition(Landroid/view/View;Landroid/view/View;F)V
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;->access$1800(Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;Landroid/view/View;Landroid/view/View;F)V
 
     .line 3370

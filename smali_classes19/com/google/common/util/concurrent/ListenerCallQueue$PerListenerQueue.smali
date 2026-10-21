@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method declared-synchronized add(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "label"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -144,7 +144,7 @@
     monitor-enter p0
 
     .line 152
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->waitQueue:Ljava/util/Queue;
 
     invoke-interface {v0, p1}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
@@ -153,8 +153,8 @@
     iget-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->labelQueue:Ljava/util/Queue;
 
     invoke-interface {v0, p2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_d
 
     .line 154
     monitor-exit p0
@@ -165,19 +165,19 @@
     .end local p0    # "this":Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue<TL;>;"
     .end local p1    # "event":Lcom/google/common/util/concurrent/ListenerCallQueue$Event;, "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<TL;>;"
     .end local p2    # "label":Ljava/lang/Object;
-    :catchall_0
+    :catchall_d
     move-exception p1
 
-    :try_start_1
+    :try_start_e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw p1
 .end method
 
 .method dispatch()V
-    .locals 8
+    .registers 9
 
     .line 161
     .local p0, "this":Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue<TL;>;"
@@ -188,10 +188,10 @@
     monitor-enter p0
 
     .line 163
-    :try_start_0
+    :try_start_2
     iget-boolean v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 164
     const/4 v1, 0x1
@@ -202,27 +202,27 @@
     const/4 v0, 0x1
 
     .line 167
-    :cond_0
+    :cond_a
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_b
+    .catchall {:try_start_2 .. :try_end_b} :catchall_63
 
     .line 168
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_62
 
     .line 170
-    :try_start_1
+    :try_start_d
     iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->executor:Ljava/util/concurrent/Executor;
 
     invoke-interface {v1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_12
+    .catch Ljava/lang/RuntimeException; {:try_start_d .. :try_end_12} :catch_13
 
     .line 182
-    goto :goto_0
+    goto :goto_62
 
     .line 171
-    :catch_0
+    :catch_13
     move-exception v1
 
     .line 173
@@ -232,15 +232,16 @@
     .line 174
     const/4 v2, 0x0
 
-    :try_start_2
+    :try_start_16
     iput-boolean v2, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
     .line 175
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_19
+    .catchall {:try_start_16 .. :try_end_19} :catchall_5f
 
     .line 177
+    # getter for: Lcom/google/common/util/concurrent/ListenerCallQueue;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v2
@@ -313,36 +314,36 @@
     throw v1
 
     .line 175
-    :catchall_0
+    :catchall_5f
     move-exception v2
 
-    :try_start_3
+    :try_start_60
     monitor-exit p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_61
+    .catchall {:try_start_60 .. :try_end_61} :catchall_5f
 
     throw v2
 
     .line 184
     .end local v1    # "e":Ljava/lang/RuntimeException;
-    :cond_1
-    :goto_0
+    :cond_62
+    :goto_62
     return-void
 
     .line 167
-    :catchall_1
+    :catchall_63
     move-exception v1
 
-    :try_start_4
+    :try_start_64
     monitor-exit p0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_65
+    .catchall {:try_start_64 .. :try_end_65} :catchall_63
 
     throw v1
 .end method
 
 .method public run()V
-    .locals 11
+    .registers 12
 
     .line 188
     .local p0, "this":Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;, "Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue<TL;>;"
@@ -350,16 +351,16 @@
 
     .line 193
     .local v0, "stillRunning":Z
-    :goto_0
+    :goto_1
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     monitor-enter p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_3
+    .catchall {:try_start_2 .. :try_end_3} :catchall_76
 
     .line 194
-    :try_start_1
+    :try_start_3
     iget-boolean v2, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
@@ -383,7 +384,7 @@
 
     .line 197
     .local v3, "nextLabel":Ljava/lang/Object;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_27
 
     .line 198
     iput-boolean v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
@@ -393,68 +394,69 @@
 
     .line 200
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1c
+    .catchall {:try_start_3 .. :try_end_1c} :catchall_73
 
     .line 216
     .end local v2    # "nextToRun":Lcom/google/common/util/concurrent/ListenerCallQueue$Event;, "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<TL;>;"
     .end local v3    # "nextLabel":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 219
     monitor-enter p0
 
     .line 220
-    :try_start_2
+    :try_start_1f
     iput-boolean v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
     .line 221
     monitor-exit p0
 
-    goto :goto_1
+    goto :goto_26
 
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_25
+    .catchall {:try_start_1f .. :try_end_25} :catchall_23
 
     throw v1
 
     .line 224
-    :cond_0
-    :goto_1
+    :cond_26
+    :goto_26
     return-void
 
     .line 202
     .restart local v2    # "nextToRun":Lcom/google/common/util/concurrent/ListenerCallQueue$Event;, "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<TL;>;"
     .restart local v3    # "nextLabel":Ljava/lang/Object;
-    :cond_1
-    :try_start_3
+    :cond_27
+    :try_start_27
     monitor-exit p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_28
+    .catchall {:try_start_27 .. :try_end_28} :catchall_73
 
     .line 206
-    :try_start_4
+    :try_start_28
     iget-object v4, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->listener:Ljava/lang/Object;
 
     invoke-interface {v2, v4}, Lcom/google/common/util/concurrent/ListenerCallQueue$Event;->call(Ljava/lang/Object;)V
-    :try_end_4
-    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_2d
+    .catch Ljava/lang/RuntimeException; {:try_start_28 .. :try_end_2d} :catch_2e
+    .catchall {:try_start_28 .. :try_end_2d} :catchall_76
 
     .line 213
-    goto :goto_2
+    goto :goto_72
 
     .line 207
-    :catch_0
+    :catch_2e
     move-exception v4
 
     .line 209
     .local v4, "e":Ljava/lang/RuntimeException;
-    :try_start_5
+    :try_start_2f
+    # getter for: Lcom/google/common/util/concurrent/ListenerCallQueue;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->access$000()Ljava/util/logging/Logger;
 
     move-result-object v5
@@ -520,61 +522,61 @@
     move-result-object v7
 
     invoke-virtual {v5, v6, v7, v4}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_72
+    .catchall {:try_start_2f .. :try_end_72} :catchall_76
 
     .line 214
     .end local v2    # "nextToRun":Lcom/google/common/util/concurrent/ListenerCallQueue$Event;, "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<TL;>;"
     .end local v3    # "nextLabel":Ljava/lang/Object;
     .end local v4    # "e":Ljava/lang/RuntimeException;
-    :goto_2
-    goto :goto_0
+    :goto_72
+    goto :goto_1
 
     .line 202
-    :catchall_1
+    :catchall_73
     move-exception v2
 
-    :try_start_6
+    :try_start_74
     monitor-exit p0
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_75
+    .catchall {:try_start_74 .. :try_end_75} :catchall_73
 
     .end local v0    # "stillRunning":Z
-    :try_start_7
+    :try_start_75
     throw v2
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    :try_end_76
+    .catchall {:try_start_75 .. :try_end_76} :catchall_76
 
     .line 216
     .restart local v0    # "stillRunning":Z
-    :catchall_2
+    :catchall_76
     move-exception v2
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_81
 
     .line 219
     monitor-enter p0
 
     .line 220
-    :try_start_8
+    :try_start_7a
     iput-boolean v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
     .line 221
     monitor-exit p0
 
-    goto :goto_3
+    goto :goto_81
 
-    :catchall_3
+    :catchall_7e
     move-exception v1
 
     monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+    :try_end_80
+    .catchall {:try_start_7a .. :try_end_80} :catchall_7e
 
     throw v1
 
     .line 223
-    :cond_2
-    :goto_3
+    :cond_81
+    :goto_81
     throw v2
 .end method

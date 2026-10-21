@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/RingBuffer;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lkotlin/collections/RingBuffer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,6 +88,7 @@
     iput v0, p0, Lkotlin/collections/RingBuffer$iterator$1;->count:I
 
     .line 113
+    # getter for: Lkotlin/collections/RingBuffer;->startIndex:I
     invoke-static {p1}, Lkotlin/collections/RingBuffer;->access$getStartIndex$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v0
@@ -101,22 +102,23 @@
 
 # virtual methods
 .method protected computeNext()V
-    .locals 6
+    .registers 7
 
     .line 116
     iget v0, p0, Lkotlin/collections/RingBuffer$iterator$1;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 117
     invoke-virtual {p0}, Lkotlin/collections/RingBuffer$iterator$1;->done()V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 120
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lkotlin/collections/RingBuffer$iterator$1;->this$0:Lkotlin/collections/RingBuffer;
 
+    # getter for: Lkotlin/collections/RingBuffer;->buffer:[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/collections/RingBuffer;->access$getBuffer$p(Lkotlin/collections/RingBuffer;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -143,6 +145,7 @@
     .local v3, "$i$f$forward":I
     add-int v4, v1, v2
 
+    # getter for: Lkotlin/collections/RingBuffer;->capacity:I
     invoke-static {v0}, Lkotlin/collections/RingBuffer;->access$getCapacity$p(Lkotlin/collections/RingBuffer;)I
 
     move-result v5
@@ -164,6 +167,6 @@
     iput v0, p0, Lkotlin/collections/RingBuffer$iterator$1;->count:I
 
     .line 124
-    :goto_0
+    :goto_2a
     return-void
 .end method

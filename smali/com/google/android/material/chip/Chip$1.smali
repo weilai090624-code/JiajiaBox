@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/chip/Chip;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/chip/Chip;
 
     .line 180
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onFontRetrievalFailed(I)V
-    .locals 0
+    .registers 2
     .param p1, "reason"    # I
 
     .line 190
@@ -42,7 +42,7 @@
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;Z)V
-    .locals 2
+    .registers 5
     .param p1, "typeface"    # Landroid/graphics/Typeface;
     .param p2, "fontResolvedSynchronously"    # Z
 
@@ -51,6 +51,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/chip/Chip$1;->this$0:Lcom/google/android/material/chip/Chip;
 
+    # getter for: Lcom/google/android/material/chip/Chip;->chipDrawable:Lcom/google/android/material/chip/ChipDrawable;
     invoke-static {v1}, Lcom/google/android/material/chip/Chip;->access$000(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;
 
     move-result-object v1
@@ -59,10 +60,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     iget-object v1, p0, Lcom/google/android/material/chip/Chip$1;->this$0:Lcom/google/android/material/chip/Chip;
 
+    # getter for: Lcom/google/android/material/chip/Chip;->chipDrawable:Lcom/google/android/material/chip/ChipDrawable;
     invoke-static {v1}, Lcom/google/android/material/chip/Chip;->access$000(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;
 
     move-result-object v1
@@ -71,16 +73,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_19
     iget-object v1, p0, Lcom/google/android/material/chip/Chip$1;->this$0:Lcom/google/android/material/chip/Chip;
 
     invoke-virtual {v1}, Lcom/google/android/material/chip/Chip;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1f
     invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setText(Ljava/lang/CharSequence;)V
 
     .line 185

@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/SagerConnection;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/bg/SagerConnection;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
@@ -69,23 +69,24 @@
 
 # virtual methods
 .method public cbSelectorUpdate(J)V
-    .locals 3
+    .registers 6
     .param p1, "id"    # J
 
     .line 90
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     invoke-static {v0}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-void
 
     .line 91
     .local v0, "callback":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    :cond_0
+    :cond_9
     new-instance v1, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1$cbSelectorUpdate$1;
 
     const/4 v2, 0x0
@@ -101,7 +102,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 3
+    .registers 5
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     const-string v0, "stats"
@@ -111,17 +112,18 @@
     .line 76
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     invoke-static {v0}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     return-void
 
     .line 77
     .local v0, "callback":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    :cond_0
+    :cond_e
     new-instance v1, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1$cbSpeedUpdate$1;
 
     const/4 v2, 0x0
@@ -137,7 +139,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 3
+    .registers 5
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     const-string v0, "stats"
@@ -147,17 +149,18 @@
     .line 83
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     invoke-static {v0}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     return-void
 
     .line 84
     .local v0, "callback":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    :cond_0
+    :cond_e
     new-instance v1, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1$cbTrafficUpdate$1;
 
     const/4 v2, 0x0
@@ -173,7 +176,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
 
@@ -188,17 +191,18 @@
     .line 97
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     invoke-static {v0}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     return-void
 
     .line 98
     .local v0, "callback":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    :cond_0
+    :cond_13
     new-instance v1, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1$missingPlugin$1;
 
     const/4 v2, 0x0
@@ -214,18 +218,18 @@
 .end method
 
 .method public stateChanged(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 8
+    .registers 12
     .param p1, "state"    # I
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;
 
     .line 66
-    if-gez p1, :cond_0
+    if-gez p1, :cond_3
 
     return-void
 
     .line 67
-    :cond_0
+    :cond_3
     invoke-static {}, Lio/nekohasekai/sagernet/bg/BaseService$State;->values()[Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     move-result-object v0
@@ -241,17 +245,18 @@
     .line 69
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;->this$0:Lio/nekohasekai/sagernet/bg/SagerConnection;
 
+    # getter for: Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     invoke-static {v1}, Lio/nekohasekai/sagernet/bg/SagerConnection;->access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_17
 
     return-void
 
     .line 70
     .local v2, "callback":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    :cond_1
+    :cond_17
     new-instance v7, Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1$stateChanged$1;
 
     const/4 v6, 0x0

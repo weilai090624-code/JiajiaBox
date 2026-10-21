@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 827
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,12 +66,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 830
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1EntriesImpl;, "Lcom/google/common/collect/LinkedListMultimap$1EntriesImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1EntriesImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
+    # getter for: Lcom/google/common/collect/LinkedListMultimap;->size:I
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$800(Lcom/google/common/collect/LinkedListMultimap;)I
 
     move-result v0

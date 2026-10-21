@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -187,7 +187,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ae
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -198,7 +198,7 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlin/jvm/internal/Ref$BooleanRef;
@@ -206,11 +206,11 @@
     .local v0, "deleted":Lkotlin/jvm/internal/Ref$BooleanRef;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_41
 
     .end local v0    # "deleted":Lkotlin/jvm/internal/Ref$BooleanRef;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 638
@@ -249,39 +249,39 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_40
 
     .line 637
     return-object v0
 
     .line 639
-    :cond_0
+    :cond_40
     move-object v0, v1
 
     .line 647
     .end local v1    # "deleted":Lkotlin/jvm/internal/Ref$BooleanRef;
     .restart local v0    # "deleted":Lkotlin/jvm/internal/Ref$BooleanRef;
-    :goto_0
+    :goto_41
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->isAdded()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4c
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 648
-    :cond_1
+    :cond_4c
     iget-boolean v1, v0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
     const-string v3, "getString(...)"
 
     .end local v0    # "deleted":Lkotlin/jvm/internal/Ref$BooleanRef;
-    if-nez v1, :cond_4
+    if-nez v1, :cond_80
 
     .line 649
     nop
@@ -298,14 +298,14 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_61
 
     move-object v2, v0
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_61
+    if-eqz v2, :cond_7c
 
     .line 650
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -326,7 +326,7 @@
     move-result-object v0
 
     .line 651
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7c
 
     .line 649
     nop
@@ -334,20 +334,20 @@
     .line 651
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 649
-    :cond_3
+    :cond_7c
     nop
 
     .line 652
-    :goto_1
+    :goto_7d
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 654
-    :cond_4
+    :cond_80
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -356,14 +356,14 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_8d
 
     move-object v2, v0
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_5
-    if-eqz v2, :cond_6
+    :cond_8d
+    if-eqz v2, :cond_a6
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
@@ -381,14 +381,15 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a6
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 655
-    :cond_6
+    :cond_a6
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$performDeleteNode$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->reload()V
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$reload(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
     .line 656
@@ -396,9 +397,9 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_ae
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_12
     .end packed-switch
 .end method

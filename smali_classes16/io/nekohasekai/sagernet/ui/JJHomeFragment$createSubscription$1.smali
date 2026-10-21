@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -132,7 +132,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -175,7 +175,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -186,7 +186,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_8a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -197,15 +197,15 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_3c
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 663
@@ -240,20 +240,20 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_3a
 
     .line 662
     return-object v0
 
     .line 663
-    :cond_0
+    :cond_3a
     move-object v0, p1
 
     move-object p1, v1
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_3c
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -277,20 +277,21 @@
 
     move-result-object v3
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->renderConnection(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$renderConnection(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/bg/BaseService$State;)V
 
     .line 679
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_59
 
     const v1, 0x7f130160
 
-    goto :goto_1
+    goto :goto_5c
 
     .end local p1    # "ok":Z
-    :cond_1
+    :cond_59
     const v1, 0x7f13015b
 
-    :goto_1
+    :goto_5c
     move p1, v1
 
     .line 680
@@ -303,14 +304,14 @@
 
     instance-of v3, v1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6a
 
     move-object v2, v1
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_6a
+    if-eqz v2, :cond_82
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$createSubscription$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
@@ -329,14 +330,15 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_82
 
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 681
-    :cond_3
+    :cond_82
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$createSubscription$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
+    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->reload()V
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$reload(Lio/nekohasekai/sagernet/ui/JJHomeFragment;)V
 
     .line 682
@@ -344,9 +346,9 @@
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_8a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 190
@@ -37,12 +37,13 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "ignored"    # Landroid/view/View;
 
     .line 193
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout$3;->this$0:Lcom/google/android/material/textfield/EndCompoundLayout;
 
+    # invokes: Lcom/google/android/material/textfield/EndCompoundLayout;->addTouchExplorationStateChangeListenerIfNeeded()V
     invoke-static {v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->access$300(Lcom/google/android/material/textfield/EndCompoundLayout;)V
 
     .line 194
@@ -50,12 +51,13 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "ignored"    # Landroid/view/View;
 
     .line 198
     iget-object v0, p0, Lcom/google/android/material/textfield/EndCompoundLayout$3;->this$0:Lcom/google/android/material/textfield/EndCompoundLayout;
 
+    # invokes: Lcom/google/android/material/textfield/EndCompoundLayout;->removeTouchExplorationStateChangeListenerIfNeeded()V
     invoke-static {v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->access$400(Lcom/google/android/material/textfield/EndCompoundLayout;)V
 
     .line 199

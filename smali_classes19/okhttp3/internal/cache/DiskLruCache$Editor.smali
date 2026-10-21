@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$Entry;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lokhttp3/internal/cache/DiskLruCache;
     .param p2, "entry"    # Lokhttp3/internal/cache/DiskLruCache$Entry;
     .annotation system Ldalvik/annotation/Signature;
@@ -100,13 +100,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache;->getValueCount$okhttp()I
@@ -115,7 +115,7 @@
 
     new-array v0, v0, [Z
 
-    :goto_0
+    :goto_23
     iput-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->written:[Z
 
     .line 837
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public final abort()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -143,10 +143,10 @@
 
     .line 926
     .local v2, "$i$a$-synchronized-DiskLruCache$Editor$abort$1":I
-    :try_start_0
+    :try_start_6
     iget-boolean v3, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_24
 
     .line 927
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -161,7 +161,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 928
     const/4 v3, 0x0
@@ -169,7 +169,7 @@
     invoke-virtual {v1, p0, v3}, Lokhttp3/internal/cache/DiskLruCache;->completeEdit$okhttp(Lokhttp3/internal/cache/DiskLruCache$Editor;Z)V
 
     .line 930
-    :cond_0
+    :cond_1c
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
@@ -179,8 +179,8 @@
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$abort$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_6 .. :try_end_22} :catchall_32
 
     .line 925
     monitor-exit v0
@@ -190,8 +190,8 @@
 
     .line 926
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$abort$1":I
-    :cond_1
-    :try_start_1
+    :cond_24
+    :try_start_24
     const-string v1, "Check failed."
 
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -205,12 +205,12 @@
     check-cast v3, Ljava/lang/Throwable;
 
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_32
+    .catchall {:try_start_24 .. :try_end_32} :catchall_32
 
     .line 925
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$abort$1":I
-    :catchall_0
+    :catchall_32
     move-exception v1
 
     monitor-exit v0
@@ -219,7 +219,7 @@
 .end method
 
 .method public final commit()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -237,10 +237,10 @@
 
     .line 911
     .local v2, "$i$a$-synchronized-DiskLruCache$Editor$commit$1":I
-    :try_start_0
+    :try_start_6
     iget-boolean v3, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_23
 
     .line 912
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -257,13 +257,13 @@
 
     const/4 v4, 0x1
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 913
     invoke-virtual {v1, p0, v4}, Lokhttp3/internal/cache/DiskLruCache;->completeEdit$okhttp(Lokhttp3/internal/cache/DiskLruCache$Editor;Z)V
 
     .line 915
-    :cond_0
+    :cond_1c
     iput-boolean v4, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
 
     .line 916
@@ -271,8 +271,8 @@
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$commit$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_6 .. :try_end_21} :catchall_31
 
     .line 910
     monitor-exit v0
@@ -282,8 +282,8 @@
 
     .line 911
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$commit$1":I
-    :cond_1
-    :try_start_1
+    :cond_23
+    :try_start_23
     const-string v1, "Check failed."
 
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -297,12 +297,12 @@
     check-cast v3, Ljava/lang/Throwable;
 
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_31
+    .catchall {:try_start_23 .. :try_end_31} :catchall_31
 
     .line 910
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$commit$1":I
-    :catchall_0
+    :catchall_31
     move-exception v1
 
     monitor-exit v0
@@ -311,7 +311,7 @@
 .end method
 
 .method public final detach$okhttp()V
-    .locals 2
+    .registers 3
 
     .line 848
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->entry:Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -324,16 +324,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 849
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
+    # getter for: Lokhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
     invoke-static {v0}, Lokhttp3/internal/cache/DiskLruCache;->access$getCivilizedFileSystem$p(Lokhttp3/internal/cache/DiskLruCache;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 850
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -342,10 +343,10 @@
 
     invoke-virtual {v0, p0, v1}, Lokhttp3/internal/cache/DiskLruCache;->completeEdit$okhttp(Lokhttp3/internal/cache/DiskLruCache$Editor;Z)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 852
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->entry:Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     const/4 v1, 0x1
@@ -353,13 +354,13 @@
     invoke-virtual {v0, v1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->setZombie$okhttp(Z)V
 
     .line 855
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 .end method
 
 .method public final getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
-    .locals 1
+    .registers 2
 
     .line 837
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->entry:Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -368,7 +369,7 @@
 .end method
 
 .method public final getWritten$okhttp()[Z
-    .locals 1
+    .registers 2
 
     .line 838
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->written:[Z
@@ -377,7 +378,7 @@
 .end method
 
 .method public final newSink(I)Lokio/Sink;
-    .locals 7
+    .registers 9
     .param p1, "index"    # I
 
     .line 881
@@ -391,10 +392,10 @@
 
     .line 882
     .local v2, "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
-    :try_start_0
+    :try_start_6
     iget-boolean v3, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_62
 
     .line 883
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -409,14 +410,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1e
 
     .line 884
     invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_6 .. :try_end_1c} :catchall_70
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
     monitor-exit v0
@@ -425,8 +426,8 @@
 
     .line 886
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
-    :cond_0
-    :try_start_1
+    :cond_1e
+    :try_start_1e
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     move-result-object v3
@@ -435,7 +436,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_32
 
     .line 887
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getWritten$okhttp()[Z
@@ -449,7 +450,7 @@
     aput-boolean v4, v3, p1
 
     .line 889
-    :cond_1
+    :cond_32
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     move-result-object v3
@@ -463,8 +464,8 @@
     move-result-object v3
 
     check-cast v3, Lokio/Path;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_40
+    .catchall {:try_start_1e .. :try_end_40} :catchall_70
 
     .local v3, "dirtyFile":Lokio/Path;
     const/4 v4, 0x0
@@ -474,7 +475,7 @@
     nop
 
     .line 892
-    :try_start_2
+    :try_start_42
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->getFileSystem$okhttp()Lokio/FileSystem;
 
     move-result-object v5
@@ -482,14 +483,14 @@
     invoke-virtual {v5, v3}, Lokio/FileSystem;->sink(Lokio/Path;)Lokio/Sink;
 
     move-result-object v5
-    :try_end_2
-    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4a
+    .catch Ljava/io/FileNotFoundException; {:try_start_42 .. :try_end_4a} :catch_5b
+    .catchall {:try_start_42 .. :try_end_4a} :catchall_70
 
     move-object v4, v5
 
     .line 896
-    :try_start_3
+    :try_start_4b
     new-instance v5, Lokhttp3/internal/cache/FaultHidingSink;
 
     new-instance v6, Lokhttp3/internal/cache/DiskLruCache$Editor$newSink$1$1;
@@ -501,8 +502,8 @@
     invoke-direct {v5, v4, v6}, Lokhttp3/internal/cache/FaultHidingSink;-><init>(Lokio/Sink;Lkotlin/jvm/functions/Function1;)V
 
     check-cast v5, Lokio/Sink;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_59
+    .catchall {:try_start_4b .. :try_end_59} :catchall_70
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
     .end local v3    # "dirtyFile":Lokio/Path;
@@ -515,17 +516,17 @@
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
     .restart local v3    # "dirtyFile":Lokio/Path;
     .restart local v4    # "sink":Lokio/Sink;
-    :catch_0
+    :catch_5b
     move-exception v1
 
     .line 894
     .local v1, "_":Ljava/io/FileNotFoundException;
-    :try_start_4
+    :try_start_5c
     invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
     move-result-object v5
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_60
+    .catchall {:try_start_5c .. :try_end_60} :catchall_70
 
     .end local v1    # "_":Ljava/io/FileNotFoundException;
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
@@ -537,8 +538,8 @@
 
     .line 882
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
-    :cond_2
-    :try_start_5
+    :cond_62
+    :try_start_62
     const-string v1, "Check failed."
 
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -553,13 +554,13 @@
 
     .end local p1    # "index":I
     throw v3
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_70
+    .catchall {:try_start_62 .. :try_end_70} :catchall_70
 
     .line 896
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1":I
     .restart local p1    # "index":I
-    :catchall_0
+    :catchall_70
     move-exception v1
 
     monitor-exit v0
@@ -568,7 +569,7 @@
 .end method
 
 .method public final newSource(I)Lokio/Source;
-    .locals 5
+    .registers 7
     .param p1, "index"    # I
 
     .line 862
@@ -582,10 +583,10 @@
 
     .line 863
     .local v2, "$i$a$-synchronized-DiskLruCache$Editor$newSource$1":I
-    :try_start_0
+    :try_start_6
     iget-boolean v3, p0, Lokhttp3/internal/cache/DiskLruCache$Editor;->done:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_50
 
     .line 864
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
@@ -598,7 +599,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4d
 
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
 
@@ -612,7 +613,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4d
 
     invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lokhttp3/internal/cache/DiskLruCache$Entry;
 
@@ -621,19 +622,19 @@
     invoke-virtual {v3}, Lokhttp3/internal/cache/DiskLruCache$Entry;->getZombie$okhttp()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_6 .. :try_end_2b} :catchall_5e
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2e
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 867
-    :cond_0
+    :cond_2e
     nop
 
     .line 868
-    :try_start_1
+    :try_start_2f
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->getFileSystem$okhttp()Lokio/FileSystem;
 
     move-result-object v1
@@ -655,27 +656,27 @@
     invoke-virtual {v1, v3}, Lokio/FileSystem;->source(Lokio/Path;)Lokio/Source;
 
     move-result-object v4
-    :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_45
+    .catch Ljava/io/FileNotFoundException; {:try_start_2f .. :try_end_45} :catch_46
+    .catchall {:try_start_2f .. :try_end_45} :catchall_5e
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 869
-    :catch_0
+    :catch_46
     move-exception v1
 
     .line 870
     .local v1, "_":Ljava/io/FileNotFoundException;
-    :try_start_2
+    :try_start_47
     move-object v3, v4
 
     check-cast v3, Lokio/Source;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_47 .. :try_end_4a} :catchall_5e
 
     .end local v1    # "_":Ljava/io/FileNotFoundException;
-    :goto_0
+    :goto_4a
     nop
 
     .line 867
@@ -686,8 +687,8 @@
 
     .line 865
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSource$1":I
-    :cond_1
-    :goto_1
+    :cond_4d
+    :goto_4d
     nop
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSource$1":I
@@ -697,8 +698,8 @@
 
     .line 863
     .restart local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSource$1":I
-    :cond_2
-    :try_start_3
+    :cond_50
+    :try_start_50
     const-string v1, "Check failed."
 
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -713,13 +714,13 @@
 
     .end local p1    # "index":I
     throw v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_5e
+    .catchall {:try_start_50 .. :try_end_5e} :catchall_5e
 
     .line 867
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSource$1":I
     .restart local p1    # "index":I
-    :catchall_0
+    :catchall_5e
     move-exception v1
 
     monitor-exit v0

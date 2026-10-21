@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
 
     .line 311
@@ -41,13 +41,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 314
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView$2;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
     iget v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView$2;->val$width:I
 
+    # invokes: Lcom/google/android/material/navigation/NavigationBarItemView;->updateActiveIndicatorLayoutParams(I)V
     invoke-static {v0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$400(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
 
     .line 315

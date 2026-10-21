@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,32 +72,35 @@
 
 # virtual methods
 .method public onDismissed(Lcom/google/android/material/snackbar/Snackbar;I)V
-    .locals 2
+    .registers 5
     .param p1, "transientBottomBar"    # Lcom/google/android/material/snackbar/Snackbar;
     .param p2, "event"    # I
 
     .line 27
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$removedCallback$1;->this$0:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
+    # getter for: Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->last:Lcom/google/android/material/snackbar/Snackbar;
     invoke-static {v0}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->access$getLast$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Lcom/google/android/material/snackbar/Snackbar;
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_2b
 
     const/4 v0, 0x1
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_2b
 
     .line 28
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$removedCallback$1;->this$0:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
+    # getter for: Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->callback:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$Interface;
     invoke-static {v0}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->access$getCallback$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$Interface;
 
     move-result-object v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$removedCallback$1;->this$0:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
+    # getter for: Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->recycleBin:Ljava/util/ArrayList;
     invoke-static {v1}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->access$getRecycleBin$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -109,6 +112,7 @@
     .line 29
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$removedCallback$1;->this$0:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
+    # getter for: Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->recycleBin:Ljava/util/ArrayList;
     invoke-static {v0}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->access$getRecycleBin$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -123,12 +127,12 @@
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->access$setLast$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;Lcom/google/android/material/snackbar/Snackbar;)V
 
     .line 32
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public bridge synthetic onDismissed(Ljava/lang/Object;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # I
 

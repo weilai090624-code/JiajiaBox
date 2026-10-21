@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomappbar/BottomAppBar;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/bottomappbar/BottomAppBar;
 
     .line 902
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onHidden(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 2
+    .registers 4
     .param p1, "fab"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 905
@@ -46,6 +46,7 @@
 
     iget v1, p0, Lcom/google/android/material/bottomappbar/BottomAppBar$5;->val$targetMode:I
 
+    # invokes: Lcom/google/android/material/bottomappbar/BottomAppBar;->getFabTranslationX(I)F
     invoke-static {v0, v1}, Lcom/google/android/material/bottomappbar/BottomAppBar;->access$1900(Lcom/google/android/material/bottomappbar/BottomAppBar;I)F
 
     move-result v0

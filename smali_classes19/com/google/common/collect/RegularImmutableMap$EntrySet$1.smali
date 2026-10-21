@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
     .line 322
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 322
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public get(I)Ljava/util/Map$Entry;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,6 +69,7 @@
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->size:I
     invoke-static {v0}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$000(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
 
     move-result v0
@@ -78,6 +79,7 @@
     .line 331
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->alternatingKeysAndValues:[Ljava/lang/Object;
     invoke-static {v0}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$100(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -86,6 +88,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->keyOffset:I
     invoke-static {v2}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$200(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
 
     move-result v2
@@ -102,6 +105,7 @@
     .local v0, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->alternatingKeysAndValues:[Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$100(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)[Ljava/lang/Object;
 
     move-result-object v1
@@ -110,6 +114,7 @@
 
     iget-object v3, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->keyOffset:I
     invoke-static {v3}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$200(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
 
     move-result v3
@@ -134,7 +139,7 @@
 .end method
 
 .method public isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 344
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;"
@@ -144,12 +149,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 339
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
+    # getter for: Lcom/google/common/collect/RegularImmutableMap$EntrySet;->size:I
     invoke-static {v0}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->access$000(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
 
     move-result v0

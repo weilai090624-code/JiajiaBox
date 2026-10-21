@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeToken;
 
     .line 870
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/reflect/GenericArrayType;
 
     .line 891
@@ -59,7 +59,7 @@
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/reflect/ParameterizedType;
 
     .line 885
@@ -90,7 +90,7 @@
 .end method
 
 .method visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,6 +107,7 @@
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken$3;->this$0:Lcom/google/common/reflect/TypeToken;
 
     .line 874
+    # getter for: Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
     invoke-static {v1}, Lcom/google/common/reflect/TypeToken;->access$500(Lcom/google/common/reflect/TypeToken;)Ljava/lang/reflect/Type;
 
     move-result-object v1
@@ -149,7 +150,7 @@
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/WildcardType;
 
     .line 879

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/MapIteratorCache;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/graph/MapIteratorCache;
 
     .line 108
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -60,7 +60,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -73,6 +73,7 @@
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache$1;, "Lcom/google/common/graph/MapIteratorCache$1;"
     iget-object v0, p0, Lcom/google/common/graph/MapIteratorCache$1;->this$0:Lcom/google/common/graph/MapIteratorCache;
 
+    # getter for: Lcom/google/common/graph/MapIteratorCache;->backingMap:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/graph/MapIteratorCache;->access$000(Lcom/google/common/graph/MapIteratorCache;)Ljava/util/Map;
 
     move-result-object v0
@@ -95,7 +96,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 108
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache$1;, "Lcom/google/common/graph/MapIteratorCache$1;"
@@ -107,12 +108,13 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 130
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache$1;, "Lcom/google/common/graph/MapIteratorCache$1;"
     iget-object v0, p0, Lcom/google/common/graph/MapIteratorCache$1;->this$0:Lcom/google/common/graph/MapIteratorCache;
 
+    # getter for: Lcom/google/common/graph/MapIteratorCache;->backingMap:Ljava/util/Map;
     invoke-static {v0}, Lcom/google/common/graph/MapIteratorCache;->access$000(Lcom/google/common/graph/MapIteratorCache;)Ljava/util/Map;
 
     move-result-object v0

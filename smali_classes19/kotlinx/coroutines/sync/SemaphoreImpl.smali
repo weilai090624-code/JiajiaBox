@@ -129,7 +129,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 5
+    .registers 8
     .param p1, "permits"    # I
     .param p2, "acquiredPermits"    # I
 
@@ -201,32 +201,32 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_f
+    if-eqz v0, :cond_58
 
     .line 138
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_18
 
     iget v0, p0, Lkotlinx/coroutines/sync/SemaphoreImpl;->permits:I
 
-    if-gt p2, v0, :cond_1
+    if-gt p2, v0, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_19
+    if-eqz v1, :cond_38
 
     .line 139
     new-instance v0, Lkotlinx/coroutines/sync/SemaphoreSegment;
@@ -270,7 +270,7 @@
     return-void
 
     .line 398
-    :cond_2
+    :cond_38
     const/4 v0, 0x0
 
     .line 138
@@ -307,7 +307,7 @@
     throw v1
 
     .line 398
-    :cond_3
+    :cond_58
     const/4 v0, 0x0
 
     .line 137
@@ -345,7 +345,7 @@
 .end method
 
 .method public static final synthetic access$acquireSlowPath(Lkotlinx/coroutines/sync/SemaphoreImpl;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/sync/SemaphoreImpl;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -358,7 +358,7 @@
 .end method
 
 .method public static final synthetic access$addAcquireToQueue(Lkotlinx/coroutines/sync/SemaphoreImpl;Lkotlinx/coroutines/Waiter;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/sync/SemaphoreImpl;
     .param p1, "waiter"    # Lkotlinx/coroutines/Waiter;
 
@@ -371,7 +371,7 @@
 .end method
 
 .method private final acquire(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p1, "waiter"    # Ljava/lang/Object;
     .param p2, "suspend"    # Lkotlin/jvm/functions/Function1;
     .param p3, "onAcquired"    # Lkotlin/jvm/functions/Function1;
@@ -395,7 +395,7 @@
 
     .line 205
     .local v0, "$i$f$acquire":I
-    :cond_0
+    :cond_1
     nop
 
     .line 207
@@ -405,7 +405,7 @@
 
     .line 209
     .local v1, "p":I
-    if-lez v1, :cond_1
+    if-lez v1, :cond_c
 
     .line 210
     invoke-interface {p3, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -414,7 +414,7 @@
     return-void
 
     .line 214
-    :cond_1
+    :cond_c
     invoke-interface {p2, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -425,13 +425,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     return-void
 .end method
 
 .method static synthetic acquire$suspendImpl(Lkotlinx/coroutines/sync/SemaphoreImpl;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/sync/SemaphoreImpl;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -453,14 +453,14 @@
 
     .line 179
     .local v0, "p":I
-    if-lez v0, :cond_0
+    if-lez v0, :cond_9
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 184
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Lkotlinx/coroutines/sync/SemaphoreImpl;->acquireSlowPath(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -469,11 +469,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_14
 
     return-object v1
 
-    :cond_1
+    :cond_14
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 185
@@ -481,7 +481,7 @@
 .end method
 
 .method private final acquireSlowPath(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -526,16 +526,17 @@
 
     .line 189
     .local v5, "$i$a$-suspendCancellableCoroutineReusable-SemaphoreImpl$acquireSlowPath$2":I
-    :try_start_0
+    :try_start_e
     move-object v6, v4
 
     check-cast v6, Lkotlinx/coroutines/Waiter;
 
+    # invokes: Lkotlinx/coroutines/sync/SemaphoreImpl;->addAcquireToQueue(Lkotlinx/coroutines/Waiter;)Z
     invoke-static {p0, v6}, Lkotlinx/coroutines/sync/SemaphoreImpl;->access$addAcquireToQueue(Lkotlinx/coroutines/sync/SemaphoreImpl;Lkotlinx/coroutines/Waiter;)Z
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1e
 
     .line 193
     move-object v6, v4
@@ -543,8 +544,8 @@
     check-cast v6, Lkotlinx/coroutines/CancellableContinuation;
 
     invoke-virtual {p0, v6}, Lkotlinx/coroutines/sync/SemaphoreImpl;->acquire(Lkotlinx/coroutines/CancellableContinuation;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_e .. :try_end_1d} :catchall_37
 
     .line 194
     nop
@@ -552,7 +553,7 @@
     .line 402
     .end local v4    # "cont":Lkotlinx/coroutines/CancellableContinuationImpl;
     .end local v5    # "$i$a$-suspendCancellableCoroutineReusable-SemaphoreImpl$acquireSlowPath$2":I
-    :cond_0
+    :cond_1e
     nop
 
     .line 409
@@ -568,21 +569,21 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2c
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_1
+    :cond_2c
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_33
 
     return-object v1
 
     .line 410
-    :cond_2
+    :cond_33
     nop
 
     .end local v0    # "$i$f$suspendCancellableCoroutineReusable":I
@@ -596,7 +597,7 @@
     .restart local v1    # "uCont$iv":Lkotlin/coroutines/Continuation;
     .restart local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutineReusable$2$iv":I
     .restart local v3    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    :catchall_0
+    :catchall_37
     move-exception v4
 
     .line 406
@@ -608,7 +609,7 @@
 .end method
 
 .method private final addAcquireToQueue(Lkotlinx/coroutines/Waiter;)Z
-    .locals 21
+    .registers 23
     .param p1, "waiter"    # Lkotlinx/coroutines/Waiter;
 
     move-object/from16 v0, p0
@@ -642,6 +643,7 @@
     sget-object v6, Lkotlinx/coroutines/sync/SemaphoreImpl;->tail$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 289
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v7
@@ -656,7 +658,7 @@
 
     .line 431
     .local v9, "$i$f$findSegmentAndMoveForward$atomicfu":I
-    :goto_0
+    :goto_20
     nop
 
     .line 432
@@ -678,7 +680,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_6
+    if-nez v11, :cond_7b
 
     invoke-static {v10}, Lkotlinx/coroutines/internal/SegmentOrClosed;->getSegment-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/Segment;
 
@@ -691,7 +693,7 @@
     const/4 v15, 0x0
 
     .local v15, "$i$f$loop$atomicfu":I
-    :goto_1
+    :goto_37
     invoke-virtual {v6, v0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v16
@@ -719,43 +721,43 @@
 
     cmp-long v20, v13, v7
 
-    if-ltz v20, :cond_0
+    if-ltz v20, :cond_4f
 
     const/4 v7, 0x1
 
-    goto :goto_2
+    goto :goto_67
 
     .line 435
-    :cond_0
+    :cond_4f
     invoke-virtual {v11}, Lkotlinx/coroutines/internal/Segment;->tryIncPointers$kotlinx_coroutines_core()Z
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_57
 
     const/4 v7, 0x0
 
-    goto :goto_2
+    goto :goto_67
 
     .line 436
-    :cond_1
+    :cond_57
     invoke-static {v6, v0, v12, v11}, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_6d
 
     .line 437
     invoke-virtual {v12}, Lkotlinx/coroutines/internal/Segment;->decPointers$kotlinx_coroutines_core()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_66
 
     invoke-virtual {v12}, Lkotlinx/coroutines/internal/Segment;->remove()V
 
     .line 438
-    :cond_2
+    :cond_66
     const/4 v7, 0x1
 
     .line 433
@@ -764,15 +766,15 @@
     .end local v15    # "$i$f$loop$atomicfu":I
     .end local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
     .end local v17    # "$i$f$moveForward$atomicfu":I
-    :goto_2
-    if-eqz v7, :cond_3
+    :goto_67
+    if-eqz v7, :cond_6a
 
-    goto :goto_3
+    goto :goto_7d
 
-    :cond_3
+    :cond_6a
     move-wide/from16 v7, v18
 
-    goto :goto_0
+    goto :goto_20
 
     .line 440
     .restart local v11    # "to$iv$iv":Lkotlinx/coroutines/internal/Segment;
@@ -780,24 +782,24 @@
     .restart local v15    # "$i$f$loop$atomicfu":I
     .restart local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
     .restart local v17    # "$i$f$moveForward$atomicfu":I
-    :cond_4
+    :cond_6d
     invoke-virtual {v11}, Lkotlinx/coroutines/internal/Segment;->decPointers$kotlinx_coroutines_core()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_76
 
     invoke-virtual {v11}, Lkotlinx/coroutines/internal/Segment;->remove()V
 
     .line 441
-    :cond_5
+    :cond_76
     move/from16 v14, v17
 
     move-wide/from16 v7, v18
 
     .end local v12    # "cur$iv$iv":Lkotlinx/coroutines/internal/Segment;
     .end local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
-    goto :goto_1
+    goto :goto_37
 
     .line 433
     .end local v11    # "to$iv$iv":Lkotlinx/coroutines/internal/Segment;
@@ -805,7 +807,7 @@
     .end local v17    # "$i$f$moveForward$atomicfu":I
     .end local v18    # "id$iv":J
     .restart local v7    # "id$iv":J
-    :cond_6
+    :cond_7b
     move-wide/from16 v18, v7
 
     .line 290
@@ -813,7 +815,7 @@
     .end local v7    # "id$iv":J
     .end local v9    # "$i$f$findSegmentAndMoveForward$atomicfu":I
     .end local v10    # "s$iv":Ljava/lang/Object;
-    :goto_3
+    :goto_7d
     invoke-static {v10}, Lkotlinx/coroutines/internal/SegmentOrClosed;->getSegment-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/Segment;
 
     move-result-object v6
@@ -825,6 +827,7 @@
 
     .line 291
     .local v6, "segment":Lkotlinx/coroutines/sync/SemaphoreSegment;
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v7
@@ -859,7 +862,7 @@
     .end local v7    # "expected$iv":Ljava/lang/Object;
     .end local v9    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .end local v10    # "$i$f$cas":I
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_a1
 
     .line 294
     move-object v7, v6
@@ -874,12 +877,14 @@
     return v7
 
     .line 299
-    :cond_7
+    :cond_a1
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->PERMIT:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getPERMIT$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v7
 
     .restart local v7    # "expected$iv":Ljava/lang/Object;
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->TAKEN:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getTAKEN$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v9
@@ -905,7 +910,7 @@
     .end local v9    # "value$iv":Ljava/lang/Object;
     .end local v10    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .end local v11    # "$i$f$cas":I
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_f8
 
     .line 301
     nop
@@ -913,7 +918,7 @@
     .line 302
     instance-of v7, v1, Lkotlinx/coroutines/CancellableContinuation;
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_cd
 
     .line 303
     const-string v7, "null cannot be cast to non-null type kotlinx.coroutines.CancellableContinuation<kotlin.Unit>"
@@ -935,13 +940,13 @@
 
     invoke-interface {v7, v9, v10}, Lkotlinx/coroutines/CancellableContinuation;->resume(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 
-    goto :goto_4
+    goto :goto_d9
 
     .line 306
-    :cond_8
+    :cond_cd
     instance-of v7, v1, Lkotlinx/coroutines/selects/SelectInstance;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_db
 
     .line 307
     move-object v7, v1
@@ -953,13 +958,13 @@
     invoke-interface {v7, v9}, Lkotlinx/coroutines/selects/SelectInstance;->selectInRegistrationPhase(Ljava/lang/Object;)V
 
     .line 311
-    :goto_4
+    :goto_d9
     const/4 v7, 0x1
 
     return v7
 
     .line 307
-    :cond_9
+    :cond_db
     new-instance v7, Ljava/lang/IllegalStateException;
 
     .line 309
@@ -990,14 +995,14 @@
     throw v7
 
     .line 313
-    :cond_a
+    :cond_f8
     const/4 v7, 0x1
 
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_11c
 
     .line 398
     const/4 v9, 0x0
@@ -1022,26 +1027,27 @@
     .line 313
     .end local v10    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .end local v11    # "$i$f$get":I
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->BROKEN:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getBROKEN$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v11
 
-    if-ne v10, v11, :cond_b
+    if-ne v10, v11, :cond_112
 
     const/4 v13, 0x1
 
-    goto :goto_5
+    goto :goto_113
 
-    :cond_b
+    :cond_112
     const/4 v13, 0x0
 
     .end local v9    # "$i$a$-assert-SemaphoreImpl$addAcquireToQueue$1":I
-    :goto_5
-    if-eqz v13, :cond_c
+    :goto_113
+    if-eqz v13, :cond_116
 
-    goto :goto_6
+    goto :goto_11c
 
-    :cond_c
+    :cond_116
     new-instance v7, Ljava/lang/AssertionError;
 
     invoke-direct {v7}, Ljava/lang/AssertionError;-><init>()V
@@ -1049,20 +1055,20 @@
     throw v7
 
     .line 314
-    :cond_d
-    :goto_6
+    :cond_11c
+    :goto_11c
     const/4 v7, 0x0
 
     return v7
 .end method
 
 .method private final coerceAvailablePermitsAtMaximum()V
-    .locals 3
+    .registers 4
 
     .line 275
     nop
 
-    :cond_0
+    :cond_1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 276
@@ -1074,7 +1080,7 @@
     .local v0, "cur":I
     iget v1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl;->permits:I
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_15
 
     .line 278
     sget-object v1, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -1085,21 +1091,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 280
     .end local v0    # "cur":I
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method private final decPermits()I
-    .locals 2
+    .registers 3
 
     .line 235
     nop
 
-    :cond_0
+    :cond_1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 237
@@ -1111,14 +1117,14 @@
     .local v0, "p":I
     iget v1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl;->permits:I
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1
 
     .line 243
     return v0
 .end method
 
 .method private final tryResumeAcquire(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "$this$tryResumeAcquire"    # Ljava/lang/Object;
 
     .line 344
@@ -1127,7 +1133,7 @@
     .line 345
     instance-of v0, p1, Lkotlinx/coroutines/CancellableContinuation;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 346
     const-string v0, "null cannot be cast to non-null type kotlinx.coroutines.CancellableContinuation<kotlin.Unit>"
@@ -1155,7 +1161,7 @@
 
     .line 348
     .local v0, "token":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 349
     move-object v1, p1
@@ -1167,22 +1173,22 @@
     .line 350
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 351
-    :cond_0
+    :cond_23
     nop
 
     .end local v0    # "token":Ljava/lang/Object;
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_33
 
     .line 353
-    :cond_1
+    :cond_26
     instance-of v0, p1, Lkotlinx/coroutines/selects/SelectInstance;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 354
     move-object v0, p1
@@ -1196,11 +1202,11 @@
     move-result v1
 
     .line 357
-    :goto_0
+    :goto_33
     return v1
 
     .line 354
-    :cond_2
+    :cond_34
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 356
@@ -1232,7 +1238,7 @@
 .end method
 
 .method private final tryResumeNextFromQueue()Z
-    .locals 21
+    .registers 22
 
     move-object/from16 v0, p0
 
@@ -1255,6 +1261,7 @@
 
     .line 321
     .local v2, "deqIdx":J
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v4
@@ -1277,7 +1284,7 @@
 
     .line 445
     .local v8, "$i$f$findSegmentAndMoveForward$atomicfu":I
-    :goto_0
+    :goto_1e
     nop
 
     .line 446
@@ -1301,7 +1308,7 @@
 
     const/4 v11, 0x0
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_7e
 
     invoke-static {v9}, Lkotlinx/coroutines/internal/SegmentOrClosed;->getSegment-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/Segment;
 
@@ -1314,7 +1321,7 @@
     const/4 v14, 0x0
 
     .local v14, "$i$f$loop$atomicfu":I
-    :goto_1
+    :goto_36
     invoke-virtual {v7, v0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v15
@@ -1344,43 +1351,43 @@
 
     cmp-long v3, v12, v1
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_4e
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_66
 
     .line 449
-    :cond_0
+    :cond_4e
     invoke-virtual {v10}, Lkotlinx/coroutines/internal/Segment;->tryIncPointers$kotlinx_coroutines_core()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_56
 
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_66
 
     .line 450
-    :cond_1
+    :cond_56
     invoke-static {v7, v0, v15, v10}, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6e
 
     .line 451
     invoke-virtual {v15}, Lkotlinx/coroutines/internal/Segment;->decPointers$kotlinx_coroutines_core()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_65
 
     invoke-virtual {v15}, Lkotlinx/coroutines/internal/Segment;->remove()V
 
     .line 452
-    :cond_2
+    :cond_65
     const/4 v1, 0x1
 
     .line 447
@@ -1389,17 +1396,17 @@
     .end local v15    # "cur$iv$iv":Lkotlinx/coroutines/internal/Segment;
     .end local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
     .end local v17    # "$i$f$moveForward$atomicfu":I
-    :goto_2
-    if-eqz v1, :cond_3
+    :goto_66
+    if-eqz v1, :cond_69
 
-    goto :goto_3
+    goto :goto_82
 
-    :cond_3
+    :cond_69
     move-object/from16 v1, v18
 
     move-wide/from16 v2, v19
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 454
     .restart local v10    # "to$iv$iv":Lkotlinx/coroutines/internal/Segment;
@@ -1407,17 +1414,17 @@
     .restart local v15    # "cur$iv$iv":Lkotlinx/coroutines/internal/Segment;
     .restart local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
     .restart local v17    # "$i$f$moveForward$atomicfu":I
-    :cond_4
+    :cond_6e
     invoke-virtual {v10}, Lkotlinx/coroutines/internal/Segment;->decPointers$kotlinx_coroutines_core()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_77
 
     invoke-virtual {v10}, Lkotlinx/coroutines/internal/Segment;->remove()V
 
     .line 455
-    :cond_5
+    :cond_77
     move/from16 v13, v17
 
     move-object/from16 v1, v18
@@ -1426,7 +1433,7 @@
 
     .end local v15    # "cur$iv$iv":Lkotlinx/coroutines/internal/Segment;
     .end local v16    # "$i$a$-loop$atomicfu-ConcurrentLinkedListKt$moveForward$atomicfu$1$iv$iv":I
-    goto :goto_1
+    goto :goto_36
 
     .line 447
     .end local v10    # "to$iv$iv":Lkotlinx/coroutines/internal/Segment;
@@ -1436,7 +1443,7 @@
     .end local v19    # "deqIdx":J
     .restart local v1    # "curHead":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .restart local v2    # "deqIdx":J
-    :cond_6
+    :cond_7e
     move-object/from16 v18, v1
 
     move-wide/from16 v19, v2
@@ -1449,7 +1456,7 @@
     .end local v9    # "s$iv":Ljava/lang/Object;
     .restart local v18    # "curHead":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .restart local v19    # "deqIdx":J
-    :goto_3
+    :goto_82
     invoke-static {v9}, Lkotlinx/coroutines/internal/SegmentOrClosed;->getSegment-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/Segment;
 
     move-result-object v1
@@ -1468,12 +1475,13 @@
 
     cmp-long v7, v2, v4
 
-    if-lez v7, :cond_7
+    if-lez v7, :cond_93
 
     return v11
 
     .line 327
-    :cond_7
+    :cond_93
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getSEGMENT_SIZE$p()I
 
     move-result v2
@@ -1486,6 +1494,7 @@
 
     .line 328
     .local v3, "i":I
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->PERMIT:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getPERMIT$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v2
@@ -1517,15 +1526,16 @@
     nop
 
     .line 330
-    if-nez v2, :cond_a
+    if-nez v2, :cond_e0
 
     .line 333
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->MAX_SPIN_CYCLES:I
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getMAX_SPIN_CYCLES$p()I
 
     move-result v7
 
-    :goto_4
-    if-ge v11, v7, :cond_9
+    :goto_b1
+    if-ge v11, v7, :cond_cb
 
     move v8, v11
 
@@ -1552,18 +1562,19 @@
     .line 334
     .end local v10    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreSegment;
     .end local v12    # "$i$f$get":I
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->TAKEN:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getTAKEN$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v12
 
-    if-ne v10, v12, :cond_8
+    if-ne v10, v12, :cond_c7
 
     const/4 v7, 0x1
 
     return v7
 
     .line 335
-    :cond_8
+    :cond_c7
     nop
 
     .line 333
@@ -1571,15 +1582,17 @@
     .end local v9    # "$i$a$-repeat-SemaphoreImpl$tryResumeNextFromQueue$1":I
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_4
+    goto :goto_b1
 
     .line 337
-    :cond_9
+    :cond_cb
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->PERMIT:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getPERMIT$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v7
 
     .local v7, "expected$iv":Ljava/lang/Object;
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->BROKEN:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getBROKEN$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v8
@@ -1612,17 +1625,18 @@
     return v7
 
     .line 339
-    :cond_a
+    :cond_e0
+    # getter for: Lkotlinx/coroutines/sync/SemaphoreKt;->CANCELLED:Lkotlinx/coroutines/internal/Symbol;
     invoke-static {}, Lkotlinx/coroutines/sync/SemaphoreKt;->access$getCANCELLED$p()Lkotlinx/coroutines/internal/Symbol;
 
     move-result-object v7
 
-    if-ne v2, v7, :cond_b
+    if-ne v2, v7, :cond_e7
 
     return v11
 
     .line 340
-    :cond_b
+    :cond_e7
     invoke-direct {v0, v2}, Lkotlinx/coroutines/sync/SemaphoreImpl;->tryResumeAcquire(Ljava/lang/Object;)Z
 
     move-result v7
@@ -1633,7 +1647,7 @@
 
 # virtual methods
 .method public acquire(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1653,7 +1667,7 @@
 .end method
 
 .method protected final acquire(Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 7
+    .registers 9
     .param p1, "waiter"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1673,7 +1687,7 @@
 
     .line 411
     .local v1, "$i$f$acquire":I
-    :cond_0
+    :cond_2
     nop
 
     .line 413
@@ -1683,7 +1697,7 @@
 
     .line 415
     .local v2, "p$iv":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_14
 
     .line 416
     move-object v3, p1
@@ -1705,10 +1719,10 @@
     nop
 
     .line 417
-    goto :goto_0
+    goto :goto_24
 
     .line 420
-    :cond_1
+    :cond_14
     move-object v3, p1
 
     .restart local v3    # "cont":Lkotlinx/coroutines/CancellableContinuation;
@@ -1731,18 +1745,18 @@
     .line 420
     .end local v3    # "cont":Lkotlinx/coroutines/CancellableContinuation;
     .end local v4    # "$i$a$-acquire-SemaphoreImpl$acquire$2":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     .line 201
     .end local v0    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreImpl;
     .end local v1    # "$i$f$acquire":I
     .end local v2    # "p$iv":I
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public getAvailablePermits()I
-    .locals 2
+    .registers 3
 
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -1761,7 +1775,7 @@
 .end method
 
 .method protected final onAcquireRegFunction(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 6
+    .registers 9
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "ignoredParam"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1782,7 +1796,7 @@
 
     .line 421
     .local v1, "$i$f$acquire":I
-    :cond_0
+    :cond_2
     nop
 
     .line 423
@@ -1792,7 +1806,7 @@
 
     .line 425
     .local v2, "p$iv":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_12
 
     .line 426
     move-object v3, p1
@@ -1812,10 +1826,10 @@
     nop
 
     .line 427
-    goto :goto_0
+    goto :goto_22
 
     .line 430
-    :cond_1
+    :cond_12
     move-object v3, p1
 
     .restart local v3    # "s":Lkotlinx/coroutines/selects/SelectInstance;
@@ -1838,23 +1852,23 @@
     .line 430
     .end local v3    # "s":Lkotlinx/coroutines/selects/SelectInstance;
     .end local v4    # "$i$a$-acquire-SemaphoreImpl$onAcquireRegFunction$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     .line 225
     .end local v0    # "this_$iv":Lkotlinx/coroutines/sync/SemaphoreImpl;
     .end local v1    # "$i$f$acquire":I
     .end local v2    # "p$iv":I
-    :goto_0
+    :goto_22
     return-void
 .end method
 
 .method public release()V
-    .locals 4
+    .registers 5
 
     .line 248
     nop
 
-    :cond_0
+    :cond_1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 250
@@ -1866,25 +1880,25 @@
     .local v0, "p":I
     iget v1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl;->permits:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_15
 
     .line 260
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_e
 
     return-void
 
     .line 265
-    :cond_1
+    :cond_e
     invoke-direct {p0}, Lkotlinx/coroutines/sync/SemaphoreImpl;->tryResumeNextFromQueue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 
     .line 256
-    :cond_2
+    :cond_15
     invoke-direct {p0}, Lkotlinx/coroutines/sync/SemaphoreImpl;->coerceAvailablePermitsAtMaximum()V
 
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -1920,13 +1934,13 @@
 .end method
 
 .method public tryAcquire()Z
-    .locals 3
+    .registers 4
 
     .line 157
     nop
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 159
@@ -1938,24 +1952,24 @@
     .local v0, "p":I
     iget v1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl;->permits:I
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_f
 
     .line 165
     invoke-direct {p0}, Lkotlinx/coroutines/sync/SemaphoreImpl;->coerceAvailablePermitsAtMaximum()V
 
     .line 166
-    goto :goto_0
+    goto :goto_1
 
     .line 170
-    :cond_1
-    if-gtz v0, :cond_2
+    :cond_f
+    if-gtz v0, :cond_13
 
     const/4 v1, 0x0
 
     return v1
 
     .line 171
-    :cond_2
+    :cond_13
     sget-object v1, Lkotlinx/coroutines/sync/SemaphoreImpl;->_availablePermits$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     add-int/lit8 v2, v0, -0x1
@@ -1964,7 +1978,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 

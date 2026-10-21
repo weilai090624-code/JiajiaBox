@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/CompositeDateValidator;
-    .locals 6
+    .registers 8
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 114
@@ -68,36 +68,39 @@
     .local v2, "operator":Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     const/4 v3, 0x2
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_17
 
     .line 119
+    # getter for: Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     invoke-static {}, Lcom/google/android/material/datepicker/CompositeDateValidator;->access$000()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_23
 
     .line 120
-    :cond_0
+    :cond_17
     const/4 v3, 0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_1f
 
     .line 121
+    # getter for: Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     invoke-static {}, Lcom/google/android/material/datepicker/CompositeDateValidator;->access$100()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_23
 
     .line 123
-    :cond_1
+    :cond_1f
+    # getter for: Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     invoke-static {}, Lcom/google/android/material/datepicker/CompositeDateValidator;->access$000()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
 
     move-result-object v2
 
     .line 126
-    :goto_0
+    :goto_23
     new-instance v3, Lcom/google/android/material/datepicker/CompositeDateValidator;
 
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -114,7 +117,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/CompositeDateValidator$3;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/CompositeDateValidator;
@@ -125,7 +128,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/datepicker/CompositeDateValidator;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 132
@@ -135,7 +138,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/CompositeDateValidator$3;->newArray(I)[Lcom/google/android/material/datepicker/CompositeDateValidator;

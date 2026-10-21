@@ -40,12 +40,12 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lorg/json/JSONObject;Lorg/json/JSONObject;)V
-    .registers 6
+    .registers 8
 
-    .line 81
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
+    .line 93
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -56,142 +56,115 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->main:Landroid/os/Handler;
 
-    .line 80
+    .line 95
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$1;
 
     invoke-direct {v0, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$1;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;)V
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->tick:Ljava/lang/Runnable;
 
-    .line 82
+    .line 97
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
 
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->row:Lorg/json/JSONObject;
 
     iput-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->types:Lorg/json/JSONObject;
 
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->row:Lorg/json/JSONObject;
+    const-string p3, "id"
 
-    const-string p2, "id"
-
-    invoke-virtual {p1, p2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->id:Ljava/lang/String;
-
-    new-instance p1, Landroid/app/Dialog;
-
-    iget-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
-
-    invoke-direct {p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
-
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
-
-    .line 83
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
-
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->column(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->panel(Landroid/view/View;)V
-
-    iget-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
-
-    const-string p3, "\u8fde\u63a5\u8be6\u60c5"
-
-    invoke-static {p2, p3}, Lio/nekohasekai/sagernet/ui/UiComponents;->title(Landroid/content/Context;Ljava/lang/CharSequence;)Landroid/widget/TextView;
+    invoke-virtual {p2, p3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    iput-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->id:Ljava/lang/String;
 
-    .line 84
-    new-instance p2, Landroid/widget/TextView;
+    new-instance p2, Landroid/app/Dialog;
 
-    iget-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
+    invoke-direct {p2, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    iput-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 
-    iput-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
+    .line 98
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->column(Landroid/content/Context;)Landroid/widget/LinearLayout;
 
-    iget-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
+    move-result-object p3
 
-    const/4 p3, 0x1
+    invoke-static {p3}, Lio/nekohasekai/sagernet/ui/UiComponents;->panel(Landroid/view/View;)V
 
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
+    const-string v0, "\u8fde\u63a5\u8be6\u60c5"
 
-    iget-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
+    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->title(Landroid/content/Context;Ljava/lang/CharSequence;)Landroid/widget/TextView;
 
-    invoke-static {p2}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
+    move-result-object v0
 
-    const-string p2, "\u6bcf 2 \u79d2\u5237\u65b0"
+    invoke-virtual {p3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    invoke-virtual {p0, p2}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->render(Ljava/lang/String;)V
+    .line 99
+    new-instance v0, Landroid/widget/TextView;
 
-    .line 85
-    new-instance p2, Landroid/widget/ScrollView;
+    invoke-direct {v0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    iget-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
 
-    invoke-direct {p2, p3}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
+    const/4 v1, 0x1
 
-    iget-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
 
-    invoke-virtual {p2, p3}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
-    new-instance p3, Landroid/widget/LinearLayout$LayoutParams;
+    const-string v1, "\u6bcf 2 \u79d2\u5237\u65b0"
 
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
+    invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->render(Ljava/lang/String;)V
 
-    const/high16 v1, 0x43960000    # 300.0f
+    .line 100
+    new-instance v1, Landroid/widget/ScrollView;
 
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    invoke-direct {v1, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    move-result v0
+    invoke-virtual {v1, v0}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
 
-    const/4 v1, -0x1
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {p3, v1, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    const/high16 v2, 0x43960000    # 300.0f
 
-    invoke-virtual {p1, p2, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-static {p1, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
-    .line 86
-    new-instance p2, Landroid/widget/TextView;
+    move-result v2
 
-    iget-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
+    const/4 v3, -0x1
 
-    invoke-direct {p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v3, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    const-string p3, "\u5173\u95ed"
+    invoke-virtual {p3, v1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 101
+    new-instance v0, Landroid/widget/TextView;
 
-    new-instance p3, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$2;
+    invoke-direct {v0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {p3, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$2;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;)V
+    const-string p1, "\u5173\u95ed"
 
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-static {p2}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
+    new-instance p1, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$2;
 
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$2;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;)V
 
-    .line 87
-    iget-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p2, p1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
 
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
+    invoke-virtual {p3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    new-instance p2, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$3;
+    .line 102
+    invoke-virtual {p2, p3}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    invoke-direct {p2, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$3;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;)V
+    new-instance p1, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$3;
 
-    invoke-virtual {p1, p2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$3;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;)V
 
-    .line 88
+    invoke-virtual {p2, p1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
     return-void
 .end method
 
@@ -200,7 +173,7 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-ConnectionInspector$LiveDetail()V
     .registers 1
 
-    .line 80
+    .line 95
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->refresh()V
 
     return-void
@@ -209,7 +182,7 @@
 .method synthetic lambda$new$1$io-nekohasekai-sagernet-ui-ConnectionInspector$LiveDetail(Landroid/view/View;)V
     .registers 2
 
-    .line 86
+    .line 101
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
@@ -220,9 +193,10 @@
 .method synthetic lambda$new$2$io-nekohasekai-sagernet-ui-ConnectionInspector$LiveDetail(Landroid/content/DialogInterface;)V
     .registers 3
 
-    .line 87
+    .line 0
     const/4 p1, 0x1
 
+    .line 102
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->closed:Z
 
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->main:Landroid/os/Handler;
@@ -237,72 +211,65 @@
 .method synthetic lambda$refresh$3$io-nekohasekai-sagernet-ui-ConnectionInspector$LiveDetail(Ljava/lang/String;Lorg/json/JSONObject;Lorg/json/JSONObject;)V
     .registers 6
 
-    .line 102
+    .line 0
     const/4 v0, 0x0
 
+    .line 117
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->loading:Z
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->closed:Z
 
     if-eqz v0, :cond_8
 
-    return-void
+    goto :goto_65
 
-    .line 103
     :cond_8
-    if-eqz p1, :cond_21
+    if-eqz p1, :cond_1f
 
+    .line 118
     new-instance p2, Ljava/lang/StringBuilder;
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    const-string p1, "\uff0c\u7a0d\u540e\u91cd\u8bd5\uff08\u4fdd\u7559\u4e0a\u6b21\u6570\u636e\uff09"
 
-    const-string p2, "\uff0c\u7a0d\u540e\u91cd\u8bd5\uff08\u4fdd\u7559\u4e0a\u6b21\u6570\u636e\uff09"
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->render(Ljava/lang/String;)V
 
-    goto :goto_60
+    goto :goto_58
 
-    .line 104
-    :cond_21
-    if-nez p2, :cond_2c
+    :cond_1f
+    if-nez p2, :cond_2a
 
     const/4 p1, 0x1
 
+    .line 119
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->ended:Z
 
     const-string p1, "\u8fde\u63a5\u5df2\u7ed3\u675f \u00b7 \u4ee5\u4e0a\u4e3a\u6700\u540e\u4e00\u6b21\u91c7\u6837\u6570\u636e"
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->render(Ljava/lang/String;)V
 
-    goto :goto_60
+    goto :goto_58
 
-    .line 105
-    :cond_2c
+    .line 120
+    :cond_2a
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->row:Lorg/json/JSONObject;
 
     iput-object p3, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->types:Lorg/json/JSONObject;
 
     new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string p2, "\u6bcf 2 \u79d2\u5237\u65b0 \u00b7 "
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     new-instance p2, Ljava/text/SimpleDateFormat;
 
@@ -324,13 +291,9 @@
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
-
     const-string p2, " \u66f4\u65b0"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -338,11 +301,11 @@
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->render(Ljava/lang/String;)V
 
-    .line 106
-    :goto_60
+    .line 121
+    :goto_58
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->ended:Z
 
-    if-nez p1, :cond_6d
+    if-nez p1, :cond_65
 
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->main:Landroid/os/Handler;
 
@@ -352,21 +315,19 @@
 
     invoke-virtual {p1, p2, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 107
-    :cond_6d
+    :cond_65
+    :goto_65
     return-void
 .end method
 
 .method synthetic lambda$refresh$4$io-nekohasekai-sagernet-ui-ConnectionInspector$LiveDetail()V
     .registers 8
 
-    .line 94
-    nop
-
-    .line 95
+    .line 0
     const/4 v0, 0x0
 
-    :try_start_2
+    .line 110
+    :try_start_1
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -383,24 +344,23 @@
 
     move-result-object v1
 
-    .line 96
-    if-eqz v1, :cond_58
+    if-eqz v1, :cond_57
 
-    .line 97
     const/4 v2, 0x0
 
-    :goto_15
+    .line 112
+    :goto_14
     invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3b
+    if-ge v2, v3, :cond_3a
 
     invoke-virtual {v1, v2}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v3
 
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_37
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->id:Ljava/lang/String;
 
@@ -408,7 +368,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_38
+    if-nez v4, :cond_37
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->id:Ljava/lang/String;
 
@@ -421,50 +381,49 @@
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
-    :try_end_35
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_35} :catch_60
+    :try_end_34
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_34} :catch_5f
 
-    if-eqz v4, :cond_38
+    if-eqz v4, :cond_37
 
-    goto :goto_3c
+    goto :goto_3b
 
-    :cond_38
+    :cond_37
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_15
+    goto :goto_14
 
-    :cond_3b
+    :cond_3a
     move-object v3, v0
 
-    .line 98
-    :goto_3c
-    :try_start_3c
+    .line 113
+    :goto_3b
+    :try_start_3b
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->id:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_4e
+    if-nez v1, :cond_4d
 
-    .line 99
+    .line 114
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->c:Landroid/content/Context;
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->currentTypes(Landroid/content/Context;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    .line 100
     move-object v6, v1
 
     move-object v1, v0
 
     move-object v0, v6
 
-    goto :goto_78
+    goto :goto_77
 
-    .line 98
-    :cond_4e
+    .line 113
+    :cond_4d
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "\u8fde\u63a5\u6807\u8bc6\u7f3a\u5931\uff0c\u65e0\u6cd5\u5b9e\u65f6\u66f4\u65b0"
@@ -472,18 +431,17 @@
     invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_56
-    .catch Ljava/lang/Exception; {:try_start_3c .. :try_end_56} :catch_56
+    :try_end_55
+    .catch Ljava/lang/Exception; {:try_start_3b .. :try_end_55} :catch_55
 
-    .line 100
-    :catch_56
+    :catch_55
     move-exception v1
 
-    goto :goto_62
+    goto :goto_61
 
-    .line 96
-    :cond_58
-    :try_start_58
+    .line 111
+    :cond_57
+    :try_start_57
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "\u8fde\u63a5\u5217\u8868\u6682\u4e0d\u53ef\u7528"
@@ -491,49 +449,46 @@
     invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_60
-    .catch Ljava/lang/Exception; {:try_start_58 .. :try_end_60} :catch_60
+    :try_end_5f
+    .catch Ljava/lang/Exception; {:try_start_57 .. :try_end_5f} :catch_5f
 
-    .line 100
-    :catch_60
+    :catch_5f
     move-exception v1
 
     move-object v3, v0
 
-    :goto_62
+    .line 115
+    :goto_61
     instance-of v2, v1, Ljava/net/ConnectException;
 
-    if-eqz v2, :cond_69
+    if-eqz v2, :cond_68
 
     const-string v1, "\u4ee3\u7406\u672a\u8fd0\u884c\u6216\u6b63\u5728\u91cd\u8fde"
 
-    goto :goto_74
+    goto :goto_73
 
-    :cond_69
+    :cond_68
     instance-of v2, v1, Ljava/net/SocketTimeoutException;
 
-    if-eqz v2, :cond_70
+    if-eqz v2, :cond_6f
 
     const-string v1, "\u8bfb\u53d6\u8fde\u63a5\u4fe1\u606f\u8d85\u65f6"
 
-    goto :goto_74
+    goto :goto_73
 
-    :cond_70
+    :cond_6f
     invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_74
-    if-nez v1, :cond_78
+    :goto_73
+    if-nez v1, :cond_77
 
     const-string v1, "\u8bfb\u53d6\u8fde\u63a5\u4fe1\u606f\u5931\u8d25"
 
-    .line 101
-    :cond_78
-    :goto_78
-    nop
-
-    .line 102
+    .line 117
+    :cond_77
+    :goto_77
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->main:Landroid/os/Handler;
 
     new-instance v4, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$0;
@@ -542,14 +497,13 @@
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 108
     return-void
 .end method
 
 .method open()V
     .registers 6
 
-    .line 89
+    .line 104
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
@@ -560,7 +514,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_3b
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->dialog:Landroid/app/Dialog;
 
@@ -598,7 +552,7 @@
 
     const-wide v3, 0x3feccccccccccccdL    # 0.9
 
-    mul-double/2addr v1, v3
+    mul-double v1, v1, v3
 
     double-to-int v1, v1
 
@@ -606,7 +560,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/Window;->setLayout(II)V
 
-    :cond_3a
+    :cond_3b
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->main:Landroid/os/Handler;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->tick:Ljava/lang/Runnable;
@@ -619,27 +573,27 @@
 .method refresh()V
     .registers 3
 
-    .line 92
+    .line 107
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->closed:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_1a
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->ended:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_1a
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->loading:Z
 
     if-eqz v0, :cond_d
 
-    goto :goto_1b
+    goto :goto_1a
 
     :cond_d
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->loading:Z
 
-    .line 93
+    .line 108
     sget-object v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->WORKER:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail$4;
@@ -648,19 +602,15 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 109
-    return-void
-
-    .line 92
-    :cond_1b
-    :goto_1b
+    :cond_1a
+    :goto_1a
     return-void
 .end method
 
 .method render(Ljava/lang/String;)V
     .registers 6
 
-    .line 90
+    .line 105
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;->info:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -677,19 +627,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     const-string v2, "\n\n"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 

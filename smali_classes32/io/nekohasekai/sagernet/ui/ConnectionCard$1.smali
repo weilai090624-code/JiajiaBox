@@ -59,7 +59,7 @@
         }
     .end annotation
 
-    .line 68
+    .line 83
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     iput p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
@@ -82,7 +82,7 @@
 .method public run()V
     .registers 5
 
-    .line 69
+    .line 84
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
@@ -96,7 +96,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_67
+    if-ne v0, v1, :cond_4c
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
@@ -107,28 +107,10 @@
 
     if-nez v0, :cond_15
 
-    goto :goto_67
+    goto :goto_4c
 
-    .line 70
+    .line 85
     :cond_15
-    invoke-static {}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->isMoving()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5b
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/FullScreenBackdrop;->isTransitioning(Landroid/view/View;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_24
-
-    goto :goto_5b
-
-    .line 71
-    :cond_24
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
@@ -154,13 +136,13 @@
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$resultTypes:Lorg/json/JSONObject;
 
-    if-nez v1, :cond_44
+    if-nez v1, :cond_35
 
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
-    :cond_44
+    :cond_35
     # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->types:Lorg/json/JSONObject;
     invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$702(Lio/nekohasekai/sagernet/ui/ConnectionCard;Lorg/json/JSONObject;)Lorg/json/JSONObject;
 
@@ -176,34 +158,18 @@
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$problem:Ljava/lang/String;
 
     # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1302(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1202(Lio/nekohasekai/sagernet/ui/ConnectionCard;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->render()V
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1400(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1300(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
 
     return-void
 
-    .line 70
-    :cond_5b
-    :goto_5b
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
-
-    # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->main:Landroid/os/Handler;
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1200(Lio/nekohasekai/sagernet/ui/ConnectionCard;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    const-wide/16 v1, 0x50
-
-    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-
-    .line 69
-    :cond_67
-    :goto_67
+    .line 84
+    :cond_4c
+    :goto_4c
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;

@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/CharSequence;I)Lkotlin/Pair;
-    .locals 4
+    .registers 7
     .param p1, "$this$$receiver"    # Ljava/lang/CharSequence;
     .param p2, "currentIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -150,11 +150,12 @@
 
     const/4 v2, 0x0
 
+    # invokes: Lkotlin/text/StringsKt__StringsKt;->findAnyOf$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/util/Collection;IZZ)Lkotlin/Pair;
     invoke-static {p1, v0, p2, v1, v2}, Lkotlin/text/StringsKt__StringsKt;->access$findAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZZ)Lkotlin/Pair;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 1500
     .local v0, "it":Lkotlin/Pair;
@@ -186,11 +187,11 @@
 
     .end local v0    # "it":Lkotlin/Pair;
     .end local v1    # "$i$a$-let-StringsKt__StringsKt$rangesDelimitedBy$2$1":I
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_2b
     return-object v0
 .end method

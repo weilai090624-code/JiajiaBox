@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/MapIteratorCache$1;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/graph/MapIteratorCache$1;
 
     .line 113
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 116
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache$1$1;, "Lcom/google/common/graph/MapIteratorCache$1$1;"
@@ -60,7 +60,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -83,6 +83,7 @@
 
     iget-object v1, v1, Lcom/google/common/graph/MapIteratorCache$1;->this$0:Lcom/google/common/graph/MapIteratorCache;
 
+    # setter for: Lcom/google/common/graph/MapIteratorCache;->cacheEntry:Ljava/util/Map$Entry;
     invoke-static {v1, v0}, Lcom/google/common/graph/MapIteratorCache;->access$102(Lcom/google/common/graph/MapIteratorCache;Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     .line 123

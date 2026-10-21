@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/CompactHashMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/CompactHashMap;
 
     .line 943
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method getOutput(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "entry"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -59,6 +59,7 @@
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$3;, "Lcom/google/common/collect/CompactHashMap$3;"
     iget-object v0, p0, Lcom/google/common/collect/CompactHashMap$3;->this$0:Lcom/google/common/collect/CompactHashMap;
 
+    # invokes: Lcom/google/common/collect/CompactHashMap;->value(I)Ljava/lang/Object;
     invoke-static {v0, p1}, Lcom/google/common/collect/CompactHashMap;->access$600(Lcom/google/common/collect/CompactHashMap;I)Ljava/lang/Object;
 
     move-result-object v0

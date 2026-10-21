@@ -211,7 +211,8 @@ public final class UiComponents {
             active.setColor(selected?ThemePalette.selected(view.getContext()):(style.role==Role.FIELD||style.role==Role.ACTION)?ThemePalette.inset(view.getContext()):ThemePalette.control(view.getContext()));
             if(selected)border=ThemePalette.selectedBorder(view.getContext());
             active.setCornerRadius(dp(view.getContext(),style.role==Role.SURFACE?PANEL_RADIUS:style.role==Role.ROUTING?ThemePalette.CARD_RADIUS:CELL_RADIUS));
-            active.setStroke(Math.max(1,dp(view.getContext(),1)),border);
+            boolean outlined=style.role==Role.FIELD || selected || (style.role==Role.ROUTING && !dark);
+            active.setStroke(outlined?Math.max(1,dp(view.getContext(),1)):0,border);
         }
         if(view instanceof JJGlassCapsule) {
             JJGlassCapsule capsule=(JJGlassCapsule)view;capsule.disableLiveBackdrop();capsule.setOpaqueVeil(true);

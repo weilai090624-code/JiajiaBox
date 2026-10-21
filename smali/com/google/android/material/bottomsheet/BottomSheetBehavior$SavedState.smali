@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2057
     new-instance v0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState$1;
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 2011
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -96,16 +96,16 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->fitToContents:Z
 
     .line 2020
@@ -113,16 +113,16 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_24
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_25
     iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->hideable:Z
 
     .line 2021
@@ -130,11 +130,11 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_2e
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_2e
     iput-boolean v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->skipCollapsed:Z
 
     .line 2022
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;I)V
-    .locals 0
+    .registers 3
     .param p1, "superstate"    # Landroid/os/Parcelable;
     .param p2, "state"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V
-    .locals 1
+    .registers 4
     .param p1, "superState"    # Landroid/os/Parcelable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,6 +180,7 @@
     iput v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->state:I
 
     .line 2027
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->peekHeight:I
     invoke-static {p2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$1900(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)I
 
     move-result v0
@@ -187,6 +188,7 @@
     iput v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->peekHeight:I
 
     .line 2028
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->fitToContents:Z
     invoke-static {p2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$1400(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v0
@@ -199,6 +201,7 @@
     iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;->hideable:Z
 
     .line 2030
+    # getter for: Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->skipCollapsed:Z
     invoke-static {p2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->access$2000(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z
 
     move-result v0
@@ -212,7 +215,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

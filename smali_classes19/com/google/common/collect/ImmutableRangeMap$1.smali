@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableRangeMap;IILcom/google/common/collect/Range;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableRangeMap;
 
     .line 321
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public get(I)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,20 +72,21 @@
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     .line 330
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1e
 
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->val$len:I
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_e
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 333
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->this$0:Lcom/google/common/collect/ImmutableRangeMap;
 
+    # getter for: Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ImmutableRangeMap;->access$000(Lcom/google/common/collect/ImmutableRangeMap;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -103,10 +104,11 @@
     return-object v0
 
     .line 331
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->this$0:Lcom/google/common/collect/ImmutableRangeMap;
 
+    # getter for: Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
     invoke-static {v0}, Lcom/google/common/collect/ImmutableRangeMap;->access$000(Lcom/google/common/collect/ImmutableRangeMap;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -131,7 +133,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 321
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$1;, "Lcom/google/common/collect/ImmutableRangeMap$1;"
@@ -143,7 +145,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 339
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$1;, "Lcom/google/common/collect/ImmutableRangeMap$1;"
@@ -153,7 +155,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$1;, "Lcom/google/common/collect/ImmutableRangeMap$1;"

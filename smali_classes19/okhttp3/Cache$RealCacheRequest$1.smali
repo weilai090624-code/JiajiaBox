@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/Cache;Lokhttp3/Cache$RealCacheRequest;Lokio/Sink;)V
-    .locals 0
+    .registers 4
     .param p1, "$receiver"    # Lokhttp3/Cache;
     .param p2, "$receiver"    # Lokhttp3/Cache$RealCacheRequest;
     .param p3, "$super_call_param$1"    # Lokio/Sink;
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,14 +80,14 @@
 
     .line 411
     .local v3, "$i$a$-synchronized-Cache$RealCacheRequest$1$close$1":I
-    :try_start_0
+    :try_start_8
     invoke-virtual {v1}, Lokhttp3/Cache$RealCacheRequest;->getDone()Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_8 .. :try_end_c} :catchall_2a
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     .end local v3    # "$i$a$-synchronized-Cache$RealCacheRequest$1$close$1":I
     monitor-exit v0
@@ -96,10 +96,10 @@
 
     .line 412
     .restart local v3    # "$i$a$-synchronized-Cache$RealCacheRequest$1$close$1":I
-    :cond_0
+    :cond_10
     const/4 v4, 0x1
 
-    :try_start_1
+    :try_start_11
     invoke-virtual {v1, v4}, Lokhttp3/Cache$RealCacheRequest;->setDone(Z)V
 
     .line 413
@@ -110,8 +110,8 @@
     add-int/2addr v1, v4
 
     invoke-virtual {v2, v1}, Lokhttp3/Cache;->setWriteSuccessCount$okhttp(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_11 .. :try_end_1c} :catchall_2a
 
     .line 410
     .end local v3    # "$i$a$-synchronized-Cache$RealCacheRequest$1$close$1":I
@@ -123,6 +123,7 @@
     .line 416
     iget-object v0, p0, Lokhttp3/Cache$RealCacheRequest$1;->this$1:Lokhttp3/Cache$RealCacheRequest;
 
+    # getter for: Lokhttp3/Cache$RealCacheRequest;->editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
     invoke-static {v0}, Lokhttp3/Cache$RealCacheRequest;->access$getEditor$p(Lokhttp3/Cache$RealCacheRequest;)Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     move-result-object v0
@@ -133,7 +134,7 @@
     return-void
 
     .line 410
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
     monitor-exit v0

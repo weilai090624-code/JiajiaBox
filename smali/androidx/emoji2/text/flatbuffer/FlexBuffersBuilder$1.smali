@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;
 
     .line 94
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public compare(Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$Value;Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$Value;)I
-    .locals 5
+    .registers 8
     .param p1, "o1"    # Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$Value;
     .param p2, "o2"    # Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$Value;
 
@@ -59,9 +59,10 @@
 
     .line 101
     .local v1, "io":I
-    :cond_0
+    :cond_4
     iget-object v2, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$1;->this$0:Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;->bb:Landroidx/emoji2/text/flatbuffer/ReadWriteBuf;
     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;->access$000(Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;)Landroidx/emoji2/text/flatbuffer/ReadWriteBuf;
 
     move-result-object v2
@@ -74,6 +75,7 @@
     .local v2, "c1":B
     iget-object v3, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$1;->this$0:Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;->bb:Landroidx/emoji2/text/flatbuffer/ReadWriteBuf;
     invoke-static {v3}, Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;->access$000(Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder;)Landroidx/emoji2/text/flatbuffer/ReadWriteBuf;
 
     move-result-object v3
@@ -84,7 +86,7 @@
 
     .line 103
     .local v3, "c2":B
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     .line 104
     sub-int v4, v2, v3
@@ -92,14 +94,14 @@
     return v4
 
     .line 105
-    :cond_1
+    :cond_1d
     add-int/lit8 v0, v0, 0x1
 
     .line 106
     add-int/lit8 v1, v1, 0x1
 
     .line 108
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_4
 
     .line 109
     sub-int v4, v2, v3
@@ -108,7 +110,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 94
     check-cast p1, Landroidx/emoji2/text/flatbuffer/FlexBuffersBuilder$Value;

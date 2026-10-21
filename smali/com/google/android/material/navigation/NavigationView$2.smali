@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/navigation/NavigationView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/navigation/NavigationView;
 
     .line 963
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 10
+    .registers 11
 
     .line 966
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v1}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v1
@@ -53,6 +54,7 @@
     .line 967
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v0}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v0
@@ -63,20 +65,21 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .line 968
     .local v0, "isBehindStatusBar":Z
-    :goto_0
+    :goto_1a
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->presenter:Lcom/google/android/material/internal/NavigationMenuPresenter;
     invoke-static {v3}, Lcom/google/android/material/navigation/NavigationView;->access$100(Lcom/google/android/material/navigation/NavigationView;)Lcom/google/android/material/internal/NavigationMenuPresenter;
 
     move-result-object v3
@@ -86,7 +89,7 @@
     .line 969
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     iget-object v4, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
@@ -94,31 +97,33 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_32
     invoke-virtual {v3, v4}, Lcom/google/android/material/navigation/NavigationView;->setDrawTopInsetForeground(Z)V
 
     .line 973
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v3}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v3
 
     aget v3, v3, v2
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_53
 
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v3}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v3
@@ -133,22 +138,22 @@
 
     add-int/2addr v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_51
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_2
+    :cond_51
     const/4 v3, 0x0
 
-    goto :goto_3
+    goto :goto_54
 
-    :cond_3
-    :goto_2
+    :cond_53
+    :goto_53
     const/4 v3, 0x1
 
     .line 974
     .local v3, "isOnLeftSide":Z
-    :goto_3
+    :goto_54
     iget-object v4, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
     invoke-virtual {v4, v3}, Lcom/google/android/material/navigation/NavigationView;->setDrawLeftInsetForeground(Z)V
@@ -166,7 +171,7 @@
 
     .line 977
     .local v4, "activity":Landroid/app/Activity;
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_d9
 
     .line 978
     new-instance v5, Landroid/util/DisplayMetrics;
@@ -199,24 +204,25 @@
 
     iget-object v7, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v7}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v7
 
     aget v7, v7, v1
 
-    if-ne v6, v7, :cond_4
+    if-ne v6, v7, :cond_8a
 
     const/4 v6, 0x1
 
-    goto :goto_4
+    goto :goto_8b
 
-    :cond_4
+    :cond_8a
     const/4 v6, 0x0
 
     .line 983
     .local v6, "isBehindSystemNav":Z
-    :goto_4
+    :goto_8b
     nop
 
     .line 984
@@ -232,23 +238,23 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_9c
 
     const/4 v7, 0x1
 
-    goto :goto_5
+    goto :goto_9d
 
-    :cond_5
+    :cond_9c
     const/4 v7, 0x0
 
     .line 985
     .local v7, "hasNonZeroAlpha":Z
-    :goto_5
+    :goto_9d
     iget-object v8, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_ad
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_ad
 
     iget-object v9, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
@@ -257,17 +263,17 @@
 
     move-result v9
 
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_ad
 
     const/4 v9, 0x1
 
-    goto :goto_6
+    goto :goto_ae
 
-    :cond_6
+    :cond_ad
     const/4 v9, 0x0
 
     .line 985
-    :goto_6
+    :goto_ae
     invoke-virtual {v8, v9}, Lcom/google/android/material/navigation/NavigationView;->setDrawBottomInsetForeground(Z)V
 
     .line 990
@@ -276,13 +282,14 @@
     iget-object v9, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
     .line 991
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v9}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v9
 
     aget v9, v9, v2
 
-    if-eq v8, v9, :cond_8
+    if-eq v8, v9, :cond_d3
 
     iget v8, v5, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -297,28 +304,29 @@
 
     iget-object v9, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    # getter for: Lcom/google/android/material/navigation/NavigationView;->tmpLocation:[I
     invoke-static {v9}, Lcom/google/android/material/navigation/NavigationView;->access$000(Lcom/google/android/material/navigation/NavigationView;)[I
 
     move-result-object v9
 
     aget v9, v9, v2
 
-    if-ne v8, v9, :cond_7
+    if-ne v8, v9, :cond_d1
 
-    goto :goto_7
+    goto :goto_d3
 
-    :cond_7
+    :cond_d1
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_d4
 
-    :cond_8
-    :goto_7
+    :cond_d3
+    :goto_d3
     nop
 
     .line 994
     .local v1, "isOnRightSide":Z
-    :goto_8
+    :goto_d4
     iget-object v2, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
     invoke-virtual {v2, v1}, Lcom/google/android/material/navigation/NavigationView;->setDrawRightInsetForeground(Z)V
@@ -328,6 +336,6 @@
     .end local v5    # "displayMetrics":Landroid/util/DisplayMetrics;
     .end local v6    # "isBehindSystemNav":Z
     .end local v7    # "hasNonZeroAlpha":Z
-    :cond_9
+    :cond_d9
     return-void
 .end method

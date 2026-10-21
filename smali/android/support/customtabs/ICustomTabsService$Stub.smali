@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 68
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -64,11 +64,11 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/ICustomTabsService;
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Landroid/os/IBinder;
 
     .line 77
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 78
     const/4 v0, 0x0
@@ -76,7 +76,7 @@
     return-object v0
 
     .line 80
-    :cond_0
+    :cond_4
     const-string v0, "android.support.customtabs.ICustomTabsService"
 
     invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -85,11 +85,11 @@
 
     .line 81
     .local v0, "iin":Landroid/os/IInterface;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     instance-of v1, v0, Landroid/support/customtabs/ICustomTabsService;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 82
     move-object v1, v0
@@ -99,7 +99,7 @@
     return-object v1
 
     .line 84
-    :cond_1
+    :cond_14
     new-instance v1, Landroid/support/customtabs/ICustomTabsService$Stub$Proxy;
 
     invoke-direct {v1, p0}, Landroid/support/customtabs/ICustomTabsService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -110,14 +110,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 88
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 7
+    .registers 12
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -135,21 +135,21 @@
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v1, :cond_d
 
     const v2, 0xffffff
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v2, :cond_d
 
     .line 94
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 96
-    :cond_0
-    packed-switch p1, :pswitch_data_0
+    :cond_d
+    packed-switch p1, :pswitch_data_166
 
     .line 104
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_16c
 
     .line 241
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -159,14 +159,14 @@
     return v1
 
     .line 100
-    :pswitch_0
+    :pswitch_18
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 101
     return v1
 
     .line 227
-    :pswitch_1
+    :pswitch_1c
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -179,6 +179,7 @@
     .local v2, "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -195,6 +196,7 @@
     .local v4, "_arg2":I
     sget-object v5, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v5}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v5
@@ -215,7 +217,7 @@
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 237
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 186
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
@@ -223,7 +225,7 @@
     .end local v4    # "_arg2":I
     .end local v5    # "_arg3":Landroid/os/Bundle;
     .end local v6    # "_result":Z
-    :pswitch_2
+    :pswitch_44
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -236,6 +238,7 @@
     .restart local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -246,6 +249,7 @@
     .restart local v3    # "_arg1":Landroid/net/Uri;
     sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v4}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
@@ -266,14 +270,14 @@
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 194
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 127
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_arg1":Landroid/net/Uri;
     .end local v4    # "_arg2":Landroid/os/Bundle;
     .end local v5    # "_result":Z
-    :pswitch_3
+    :pswitch_68
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -286,6 +290,7 @@
     .restart local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -306,13 +311,13 @@
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 133
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 212
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_arg1":Landroid/os/Bundle;
     .end local v4    # "_result":Z
-    :pswitch_4
+    :pswitch_84
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -331,6 +336,7 @@
     .local v3, "_arg1":I
     sget-object v4, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v4}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
@@ -341,6 +347,7 @@
     .local v4, "_arg2":Landroid/net/Uri;
     sget-object v5, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v5}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v5
@@ -361,7 +368,7 @@
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 222
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 199
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
@@ -369,7 +376,7 @@
     .end local v4    # "_arg2":Landroid/net/Uri;
     .end local v5    # "_arg3":Landroid/os/Bundle;
     .end local v6    # "_result":Z
-    :pswitch_5
+    :pswitch_ac
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -388,6 +395,7 @@
     .local v3, "_arg1":Ljava/lang/String;
     sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v4}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
@@ -408,14 +416,14 @@
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 207
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 175
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_arg1":Ljava/lang/String;
     .end local v4    # "_arg2":Landroid/os/Bundle;
     .end local v5    # "_result":I
-    :pswitch_6
+    :pswitch_cc
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -428,6 +436,7 @@
     .restart local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -448,13 +457,13 @@
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 181
-    goto/16 :goto_0
+    goto/16 :goto_165
 
     .line 164
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_arg1":Landroid/net/Uri;
     .end local v4    # "_result":Z
-    :pswitch_7
+    :pswitch_e8
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -467,6 +476,7 @@
     .restart local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -487,13 +497,13 @@
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 170
-    goto :goto_0
+    goto :goto_165
 
     .line 153
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_arg1":Landroid/os/Bundle;
     .end local v4    # "_result":Z
-    :pswitch_8
+    :pswitch_103
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -502,6 +512,7 @@
     .local v2, "_arg0":Ljava/lang/String;
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -519,16 +530,17 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 158
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->writeTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
     invoke-static {p3, v4, v1}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$100(Landroid/os/Parcel;Landroid/os/Parcelable;I)V
 
     .line 159
-    goto :goto_0
+    goto :goto_165
 
     .line 138
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v3    # "_arg1":Landroid/os/Bundle;
     .end local v4    # "_result":Landroid/os/Bundle;
-    :pswitch_9
+    :pswitch_11a
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -541,6 +553,7 @@
     .local v2, "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v3}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
@@ -551,6 +564,7 @@
     .local v3, "_arg1":Landroid/net/Uri;
     sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    # invokes: Landroid/support/customtabs/ICustomTabsService$_Parcel;->readTypedObject(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
     invoke-static {p2, v4}, Landroid/support/customtabs/ICustomTabsService$_Parcel;->access$000(Landroid/os/Parcel;Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
@@ -579,7 +593,7 @@
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 148
-    goto :goto_0
+    goto :goto_165
 
     .line 118
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
@@ -587,7 +601,7 @@
     .end local v4    # "_arg2":Landroid/os/Bundle;
     .end local v5    # "_arg3":Ljava/util/List;, "Ljava/util/List<Landroid/os/Bundle;>;"
     .end local v6    # "_result":Z
-    :pswitch_a
+    :pswitch_143
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -610,12 +624,12 @@
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 122
-    goto :goto_0
+    goto :goto_165
 
     .line 109
     .end local v2    # "_arg0":Landroid/support/customtabs/ICustomTabsCallback;
     .end local v3    # "_result":Z
-    :pswitch_b
+    :pswitch_156
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
@@ -639,26 +653,26 @@
     .line 244
     .end local v2    # "_arg0":J
     .end local v4    # "_result":Z
-    :goto_0
+    :goto_165
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_166
     .packed-switch 0x5f4e5446
-        :pswitch_0
+        :pswitch_18
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_16c
     .packed-switch 0x2
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_156
+        :pswitch_143
+        :pswitch_11a
+        :pswitch_103
+        :pswitch_e8
+        :pswitch_cc
+        :pswitch_ac
+        :pswitch_84
+        :pswitch_68
+        :pswitch_44
+        :pswitch_1c
     .end packed-switch
 .end method

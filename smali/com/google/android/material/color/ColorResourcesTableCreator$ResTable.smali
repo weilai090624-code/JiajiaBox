@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,12 +88,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_22
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -111,6 +111,7 @@
 
     .line 139
     .local v2, "colorResources":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;>;"
+    # getter for: Lcom/google/android/material/color/ColorResourcesTableCreator;->COLOR_RESOURCE_COMPARATOR:Ljava/util/Comparator;
     invoke-static {}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$400()Ljava/util/Comparator;
 
     move-result-object v3
@@ -135,10 +136,10 @@
     .line 141
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/android/material/color/ColorResourcesTableCreator$PackageInfo;Ljava/util/List<Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;>;>;"
     .end local v2    # "colorResources":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;>;"
-    goto :goto_0
+    goto :goto_22
 
     .line 142
-    :cond_0
+    :cond_4c
     new-instance v0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResChunkHeader;
 
     const/16 v1, 0xc
@@ -158,7 +159,7 @@
 .end method
 
 .method private getOverallSize()I
-    .locals 4
+    .registers 5
 
     .line 155
     const/4 v0, 0x0
@@ -171,12 +172,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -194,10 +195,10 @@
 
     .line 158
     .end local v2    # "packageChunk":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageChunk;
-    goto :goto_0
+    goto :goto_7
 
     .line 159
-    :cond_0
+    :cond_19
     iget-object v1, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResTable;->stringPool:Lcom/google/android/material/color/ColorResourcesTableCreator$StringPoolChunk;
 
     invoke-virtual {v1}, Lcom/google/android/material/color/ColorResourcesTableCreator$StringPoolChunk;->getChunkSize()I
@@ -214,7 +215,7 @@
 
 # virtual methods
 .method writeTo(Ljava/io/ByteArrayOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "outputStream"    # Ljava/io/ByteArrayOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -230,6 +231,7 @@
     .line 147
     iget v0, p0, Lcom/google/android/material/color/ColorResourcesTableCreator$ResTable;->packageCount:I
 
+    # invokes: Lcom/google/android/material/color/ColorResourcesTableCreator;->intToByteArray(I)[B
     invoke-static {v0}, Lcom/google/android/material/color/ColorResourcesTableCreator;->access$500(I)[B
 
     move-result-object v0
@@ -248,12 +250,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -267,9 +269,9 @@
 
     .line 151
     .end local v1    # "packageChunk":Lcom/google/android/material/color/ColorResourcesTableCreator$PackageChunk;
-    goto :goto_0
+    goto :goto_19
 
     .line 152
-    :cond_0
+    :cond_29
     return-void
 .end method

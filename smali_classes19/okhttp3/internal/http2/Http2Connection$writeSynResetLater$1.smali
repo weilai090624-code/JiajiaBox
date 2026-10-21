@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 340
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->invoke()V
@@ -82,13 +82,13 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 341
     nop
 
     .line 342
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
     iget v1, p0, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->$streamId:I
@@ -96,23 +96,24 @@
     iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->$errorCode:Lokhttp3/internal/http2/ErrorCode;
 
     invoke-virtual {v0, v1, v2}, Lokhttp3/internal/http2/Http2Connection;->writeSynReset$okhttp(ILokhttp3/internal/http2/ErrorCode;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 343
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 344
     .local v0, "e":Ljava/io/IOException;
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$writeSynResetLater$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
+    # invokes: Lokhttp3/internal/http2/Http2Connection;->failConnection(Ljava/io/IOException;)V
     invoke-static {v1, v0}, Lokhttp3/internal/http2/Http2Connection;->access$failConnection(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
 
     .line 346
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_11
     return-void
 .end method

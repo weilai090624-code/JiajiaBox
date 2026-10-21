@@ -38,7 +38,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/styler/JsonStyler$Companion;-><init>()V
 
@@ -57,14 +57,15 @@
 
 # virtual methods
 .method public final getInstance()Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
-    .locals 4
+    .registers 5
 
     .line 34
+    # getter for: Lcom/blacksquircle/ui/language/json/styler/JsonStyler;->jsonStyler:Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
     invoke-static {}, Lcom/blacksquircle/ui/language/json/styler/JsonStyler;->access$getJsonStyler$cp()Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
 
@@ -91,6 +92,6 @@
     .end local v2    # "$i$a$-also-JsonStyler$Companion$getInstance$1":I
     nop
 
-    :cond_0
+    :cond_15
     return-object v0
 .end method

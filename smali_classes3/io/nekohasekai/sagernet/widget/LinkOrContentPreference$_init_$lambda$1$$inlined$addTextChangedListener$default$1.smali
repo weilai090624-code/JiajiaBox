@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/EditText;Lcom/google/android/material/textfield/TextInputLayout;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/widget/LinkOrContentPreference$_init_$lambda$1$$inlined$addTextChangedListener$default$1;->$it$inlined:Landroid/widget/EditText;
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 82
@@ -90,6 +90,7 @@
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/widget/LinkOrContentPreference$_init_$lambda$1$$inlined$addTextChangedListener$default$1;->$linkLayout$inlined:Lcom/google/android/material/textfield/TextInputLayout;
 
+    # invokes: Lio/nekohasekai/sagernet/widget/LinkOrContentPreference;->lambda$1$validate(Landroid/widget/EditText;Lcom/google/android/material/textfield/TextInputLayout;)V
     invoke-static {v2, v3}, Lio/nekohasekai/sagernet/widget/LinkOrContentPreference;->access$lambda$1$validate(Landroid/widget/EditText;Lcom/google/android/material/textfield/TextInputLayout;)V
 
     .line 99
@@ -105,7 +106,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -127,7 +128,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I

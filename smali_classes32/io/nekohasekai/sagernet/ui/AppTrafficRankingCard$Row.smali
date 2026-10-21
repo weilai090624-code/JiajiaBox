@@ -44,10 +44,10 @@
         }
     .end annotation
 
-    .line 125
+    .line 145
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->this$0:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;
 
-    .line 126
+    .line 146
     invoke-direct {p0, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/16 v0, 0x10
@@ -58,7 +58,7 @@
 
     invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->setImportantForAccessibility(I)V
 
-    .line 127
+    .line 147
     invoke-static {p3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object p3
@@ -120,7 +120,7 @@
 
     invoke-virtual {p0, v2, v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 128
+    .line 148
     new-instance v3, Landroid/widget/LinearLayout;
 
     invoke-direct {v3, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -184,7 +184,7 @@
 
     invoke-virtual {p0, v3, p2}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 129
+    .line 149
     # invokes: Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->text(Ljava/lang/String;FZ)Landroid/widget/TextView;
     invoke-static {p1, v0, v5, v1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->access$000(Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;Ljava/lang/String;FZ)Landroid/widget/TextView;
 
@@ -215,7 +215,7 @@
 
     const/4 p1, 0x6
 
-    .line 130
+    .line 150
     new-array v0, p1, [Landroid/view/View;
 
     aput-object p3, v0, v6

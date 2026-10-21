@@ -60,7 +60,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$_-s4SOKmmdhN7PexQng1D-Olurw(Lkotlinx/coroutines/CancellableContinuation;J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->postFrameCallback$lambda$6(Lkotlinx/coroutines/CancellableContinuation;J)V
 
@@ -68,12 +68,12 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 109
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     .line 241
@@ -101,12 +101,12 @@
     invoke-static {v2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_1 .. :try_end_17} :catchall_18
 
-    goto :goto_0
+    goto :goto_23
 
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -119,19 +119,19 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_23
     invoke-static {v1}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     move-object v0, v1
 
-    :goto_1
+    :goto_2b
     check-cast v0, Lkotlinx/coroutines/android/HandlerDispatcher;
 
     sput-object v0, Lkotlinx/coroutines/android/HandlerDispatcherKt;->Main:Lkotlinx/coroutines/android/HandlerDispatcher;
@@ -140,7 +140,7 @@
 .end method
 
 .method public static final synthetic access$awaitFrameSlowPath(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
 
     .line 1
@@ -152,7 +152,7 @@
 .end method
 
 .method public static final synthetic access$postFrameCallback(Landroid/view/Choreographer;Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 2
     .param p0, "choreographer"    # Landroid/view/Choreographer;
     .param p1, "cont"    # Lkotlinx/coroutines/CancellableContinuation;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public static final synthetic access$updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 1
     .param p0, "cont"    # Lkotlinx/coroutines/CancellableContinuation;
 
     .line 1
@@ -173,12 +173,12 @@
 .end method
 
 .method public static final asHandler(Landroid/os/Looper;Z)Landroid/os/Handler;
-    .locals 9
+    .registers 11
     .param p0, "$this$asHandler"    # Landroid/os/Looper;
     .param p1, "async"    # Z
 
     .line 86
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_5c
 
     .line 90
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -191,7 +191,7 @@
 
     const/4 v4, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_29
 
     const-class v0, Landroid/os/Handler;
 
@@ -227,7 +227,7 @@
     return-object v1
 
     .end local v0    # "factoryMethod":Ljava/lang/reflect/Method;
-    :cond_0
+    :cond_29
     const/4 v0, 0x0
 
     .line 97
@@ -235,7 +235,7 @@
     nop
 
     .line 98
-    :try_start_0
+    :try_start_2b
     const-class v1, Landroid/os/Handler;
 
     const/4 v5, 0x3
@@ -259,8 +259,8 @@
     invoke-virtual {v1, v6}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2b .. :try_end_41} :catch_55
 
     move-object v0, v1
 
@@ -286,7 +286,7 @@
     return-object v1
 
     .line 100
-    :catch_0
+    :catch_55
     move-exception v1
 
     .line 102
@@ -300,7 +300,7 @@
     .line 87
     .end local v0    # "constructor":Ljava/lang/reflect/Constructor;
     .end local v1    # "ignored":Ljava/lang/NoSuchMethodException;
-    :cond_1
+    :cond_5c
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -309,7 +309,7 @@
 .end method
 
 .method public static final awaitFrame(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 8
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -327,7 +327,7 @@
 
     .line 188
     .local v0, "choreographer":Landroid/view/Choreographer;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 189
     const/4 v1, 0x0
@@ -365,6 +365,7 @@
 
     .line 190
     .local v6, "$i$a$-suspendCancellableCoroutine-HandlerDispatcherKt$awaitFrame$2":I
+    # invokes: Lkotlinx/coroutines/android/HandlerDispatcherKt;->postFrameCallback(Landroid/view/Choreographer;Lkotlinx/coroutines/CancellableContinuation;)V
     invoke-static {v0, v5}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->access$postFrameCallback(Landroid/view/Choreographer;Lkotlinx/coroutines/CancellableContinuation;)V
 
     .line 191
@@ -388,12 +389,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2a
 
     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 228
-    :cond_0
+    :cond_2a
     nop
 
     .line 195
@@ -401,7 +402,7 @@
     return-object v2
 
     .line 193
-    :cond_1
+    :cond_2c
     invoke-static {p0}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->awaitFrameSlowPath(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -411,7 +412,7 @@
 .end method
 
 .method private static final awaitFrameSlowPath(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 11
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -468,15 +469,16 @@
 
     move-result-object v7
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_22
 
     .line 199
+    # invokes: Lkotlinx/coroutines/android/HandlerDispatcherKt;->updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
     invoke-static {v4}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->access$updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 201
-    :cond_0
+    :cond_22
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     move-result-object v6
@@ -500,7 +502,7 @@
     invoke-virtual {v6, v7, v9}, Lkotlinx/coroutines/MainCoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
     .line 205
-    :goto_0
+    :goto_35
     nop
 
     .line 237
@@ -521,12 +523,12 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_44
 
     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 240
-    :cond_1
+    :cond_44
     nop
 
     .line 205
@@ -535,7 +537,7 @@
 .end method
 
 .method public static final from(Landroid/os/Handler;)Lkotlinx/coroutines/android/HandlerDispatcher;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -549,7 +551,7 @@
 .end method
 
 .method public static final from(Landroid/os/Handler;Ljava/lang/String;)Lkotlinx/coroutines/android/HandlerDispatcher;
-    .locals 1
+    .registers 3
     .param p0, "$this$asCoroutineDispatcher"    # Landroid/os/Handler;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -564,16 +566,16 @@
 .end method
 
 .method public static synthetic from$default(Landroid/os/Handler;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/android/HandlerDispatcher;
-    .locals 0
+    .registers 4
 
     .line 78
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->from(Landroid/os/Handler;Ljava/lang/String;)Lkotlinx/coroutines/android/HandlerDispatcher;
 
     move-result-object p0
@@ -582,7 +584,7 @@
 .end method
 
 .method public static synthetic getMain$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
         message = "Use Dispatchers.Main instead"
@@ -592,7 +594,7 @@
 .end method
 
 .method private static final postFrameCallback(Landroid/view/Choreographer;Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 1
+    .registers 3
     .param p0, "choreographer"    # Landroid/view/Choreographer;
     .param p1, "cont"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -618,7 +620,7 @@
 .end method
 
 .method private static final postFrameCallback$lambda$6(Lkotlinx/coroutines/CancellableContinuation;J)V
-    .locals 4
+    .registers 7
     .param p0, "$cont"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "nanos"    # J
 
@@ -650,7 +652,7 @@
 .end method
 
 .method private static final updateChoreographerAndPostFrameCallback(Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 3
+    .registers 4
     .param p0, "cont"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -665,7 +667,7 @@
     .line 208
     sget-object v0, Lkotlinx/coroutines/android/HandlerDispatcherKt;->choreographer:Landroid/view/Choreographer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     invoke-static {}, Landroid/view/Choreographer;->getInstance()Landroid/view/Choreographer;
 
@@ -687,7 +689,7 @@
     .end local v1    # "it":Landroid/view/Choreographer;
     .end local v2    # "$i$a$-also-HandlerDispatcherKt$updateChoreographerAndPostFrameCallback$choreographer$1":I
     .local v0, "choreographer":Landroid/view/Choreographer;
-    :cond_0
+    :cond_f
     invoke-static {v0, p0}, Lkotlinx/coroutines/android/HandlerDispatcherKt;->postFrameCallback(Landroid/view/Choreographer;Lkotlinx/coroutines/CancellableContinuation;)V
 
     .line 210

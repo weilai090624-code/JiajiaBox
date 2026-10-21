@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 179
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/reflect/WildcardTypeImpl$Companion;-><init>()V
 
@@ -58,9 +58,10 @@
 
 # virtual methods
 .method public final getSTAR()Lkotlin/reflect/WildcardTypeImpl;
-    .locals 1
+    .registers 2
 
     .line 180
+    # getter for: Lkotlin/reflect/WildcardTypeImpl;->STAR:Lkotlin/reflect/WildcardTypeImpl;
     invoke-static {}, Lkotlin/reflect/WildcardTypeImpl;->access$getSTAR$cp()Lkotlin/reflect/WildcardTypeImpl;
 
     move-result-object v0

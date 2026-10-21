@@ -20,11 +20,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 743
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
 
+    # getter for: Landroidx/emoji2/text/flatbuffer/FlexBuffers;->EMPTY_BB:Landroidx/emoji2/text/flatbuffer/ReadBuf;
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->access$000()Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     move-result-object v1
@@ -39,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)V
-    .locals 0
+    .registers 4
     .param p1, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p2, "end"    # I
     .param p3, "byteWidth"    # I
@@ -52,7 +53,7 @@
 .end method
 
 .method static synthetic access$700()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
-    .locals 1
+    .registers 1
 
     .line 741
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->EMPTY:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
@@ -61,7 +62,7 @@
 .end method
 
 .method public static empty()Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
-    .locals 1
+    .registers 1
 
     .line 754
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->EMPTY:Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
@@ -72,7 +73,7 @@
 
 # virtual methods
 .method compareTo([B)I
-    .locals 5
+    .registers 7
     .param p1, "other"    # [B
 
     .line 778
@@ -84,7 +85,7 @@
 
     .line 782
     .local v1, "io":I
-    :cond_0
+    :cond_3
     iget-object v2, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     invoke-interface {v2, v0}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->get(I)B
@@ -97,7 +98,7 @@
 
     .line 784
     .local v3, "c2":B
-    if-nez v2, :cond_1
+    if-nez v2, :cond_10
 
     .line 785
     sub-int v4, v2, v3
@@ -105,7 +106,7 @@
     return v4
 
     .line 786
-    :cond_1
+    :cond_10
     add-int/lit8 v0, v0, 0x1
 
     .line 787
@@ -114,7 +115,7 @@
     .line 788
     array-length v4, p1
 
-    if-ne v1, v4, :cond_2
+    if-ne v1, v4, :cond_1a
 
     .line 791
     sub-int v4, v2, v3
@@ -122,8 +123,8 @@
     return v4
 
     .line 794
-    :cond_2
-    if-eq v2, v3, :cond_0
+    :cond_1a
+    if-eq v2, v3, :cond_3
 
     .line 795
     sub-int v4, v2, v3
@@ -132,7 +133,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 805
@@ -140,13 +141,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 806
     return v1
 
     .line 808
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;
@@ -155,7 +156,7 @@
 
     iget v2, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->end:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_19
 
     move-object v0, p1
 
@@ -165,16 +166,16 @@
 
     iget v2, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->byteWidth:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_19
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_19
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 812
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->end:I
@@ -187,21 +188,21 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 768
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->end:I
 
     .line 769
     .local v0, "i":I
-    :goto_0
+    :goto_2
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->bb:Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     invoke-interface {v1, v0}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->get(I)B
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 770
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/FlexBuffers$Key;->end:I
@@ -227,14 +228,14 @@
     .line 768
     .end local v1    # "size":I
     .restart local v0    # "i":I
-    :cond_0
+    :cond_18
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 .end method
 
 .method public toString(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 1
+    .registers 3
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 762

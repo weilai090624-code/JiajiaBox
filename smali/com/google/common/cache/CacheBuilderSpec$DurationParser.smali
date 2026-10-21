@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 417
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .registers 11
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_59
 
     .line 426
     const/4 v0, 0x2
@@ -52,7 +52,7 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_9
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -65,42 +65,42 @@
 
     .line 428
     .local v3, "lastChar":C
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_84
 
     .line 442
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    goto :goto_1
+    goto :goto_36
 
     .line 439
-    :sswitch_0
+    :sswitch_18
     sget-object v4, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 440
     .local v4, "timeUnit":Ljava/util/concurrent/TimeUnit;
-    goto :goto_0
+    goto :goto_24
 
     .line 436
     .end local v4    # "timeUnit":Ljava/util/concurrent/TimeUnit;
-    :sswitch_1
+    :sswitch_1b
     sget-object v4, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
     .line 437
     .restart local v4    # "timeUnit":Ljava/util/concurrent/TimeUnit;
-    goto :goto_0
+    goto :goto_24
 
     .line 433
     .end local v4    # "timeUnit":Ljava/util/concurrent/TimeUnit;
-    :sswitch_2
+    :sswitch_1e
     sget-object v4, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
 
     .line 434
     .restart local v4    # "timeUnit":Ljava/util/concurrent/TimeUnit;
-    goto :goto_0
+    goto :goto_24
 
     .line 430
     .end local v4    # "timeUnit":Ljava/util/concurrent/TimeUnit;
-    :sswitch_3
+    :sswitch_21
     sget-object v4, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
 
     .line 431
@@ -108,7 +108,7 @@
     nop
 
     .line 446
-    :goto_0
+    :goto_24
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -138,7 +138,7 @@
 
     .line 442
     .restart local v3    # "lastChar":C
-    :goto_1
+    :goto_36
     const-string v5, "key %s invalid unit: was %s, must end with one of [dhms]"
 
     new-array v6, v0, [Ljava/lang/Object;
@@ -148,6 +148,7 @@
     aput-object p3, v6, v2
 
     .line 443
+    # invokes: Lcom/google/common/cache/CacheBuilderSpec;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/google/common/cache/CacheBuilderSpec;->access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
@@ -158,15 +159,15 @@
     .end local p2    # "key":Ljava/lang/String;
     .end local p3    # "value":Ljava/lang/String;
     throw v4
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_46
+    .catch Ljava/lang/NumberFormatException; {:try_start_9 .. :try_end_46} :catch_46
 
     .line 448
     .end local v3    # "lastChar":C
     .restart local p1    # "spec":Lcom/google/common/cache/CacheBuilderSpec;
     .restart local p2    # "key":Ljava/lang/String;
     .restart local p3    # "value":Ljava/lang/String;
-    :catch_0
+    :catch_46
     move-exception v3
 
     .line 449
@@ -182,6 +183,7 @@
     .line 450
     const-string v1, "key %s value set to %s, must be integer"
 
+    # invokes: Lcom/google/common/cache/CacheBuilderSpec;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     invoke-static {v1, v0}, Lcom/google/common/cache/CacheBuilderSpec;->access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -192,7 +194,7 @@
 
     .line 423
     .end local v3    # "e":Ljava/lang/NumberFormatException;
-    :cond_0
+    :cond_59
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -235,12 +237,12 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_84
     .sparse-switch
-        0x64 -> :sswitch_3
-        0x68 -> :sswitch_2
-        0x6d -> :sswitch_1
-        0x73 -> :sswitch_0
+        0x64 -> :sswitch_21
+        0x68 -> :sswitch_1e
+        0x6d -> :sswitch_1b
+        0x73 -> :sswitch_18
     .end sparse-switch
 .end method
 

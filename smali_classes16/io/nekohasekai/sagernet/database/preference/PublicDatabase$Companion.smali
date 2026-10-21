@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/database/preference/PublicDatabase$Companion;-><init>()V
 
@@ -65,9 +65,10 @@
 
 # virtual methods
 .method public final getInstance()Lio/nekohasekai/sagernet/database/preference/PublicDatabase;
-    .locals 1
+    .registers 2
 
     .line 16
+    # getter for: Lio/nekohasekai/sagernet/database/preference/PublicDatabase;->instance$delegate:Lkotlin/Lazy;
     invoke-static {}, Lio/nekohasekai/sagernet/database/preference/PublicDatabase;->access$getInstance$delegate$cp()Lkotlin/Lazy;
 
     move-result-object v0
@@ -82,7 +83,7 @@
 .end method
 
 .method public final getKvPairDao()Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/PublicDatabase$Companion;->getInstance()Lio/nekohasekai/sagernet/database/preference/PublicDatabase;

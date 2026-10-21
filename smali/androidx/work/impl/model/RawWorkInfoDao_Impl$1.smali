@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/RawWorkInfoDao_Impl;Landroidx/sqlite/db/SupportSQLiteQuery;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/RawWorkInfoDao_Impl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -83,7 +83,7 @@
 .end method
 
 .method public call()Ljava/util/List;
-    .locals 29
+    .registers 30
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -104,6 +104,7 @@
 
     iget-object v0, v1, Landroidx/work/impl/model/RawWorkInfoDao_Impl$1;->this$0:Landroidx/work/impl/model/RawWorkInfoDao_Impl;
 
+    # getter for: Landroidx/work/impl/model/RawWorkInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
     invoke-static {v0}, Landroidx/work/impl/model/RawWorkInfoDao_Impl;->access$000(Landroidx/work/impl/model/RawWorkInfoDao_Impl;)Landroidx/room/RoomDatabase;
 
     move-result-object v0
@@ -120,7 +121,7 @@
 
     .line 139
     .local v2, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_10
     const-string v0, "id"
 
     invoke-static {v2, v0}, Landroidx/room/util/CursorUtil;->getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -173,12 +174,12 @@
 
     .line 146
     .local v8, "_collectionProgress":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<Ljava/lang/String;Ljava/util/ArrayList<Landroidx/work/Data;>;>;"
-    :goto_0
+    :goto_39
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_6a
 
     .line 147
     invoke-interface {v2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -195,7 +196,7 @@
 
     .line 149
     .local v10, "_tmpTagsCollection":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-nez v10, :cond_0
+    if-nez v10, :cond_54
 
     .line 150
     new-instance v11, Ljava/util/ArrayList;
@@ -208,7 +209,7 @@
     invoke-virtual {v7, v9, v10}, Landroidx/collection/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 153
-    :cond_0
+    :cond_54
     invoke-interface {v2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v11
@@ -223,7 +224,7 @@
 
     .line 155
     .local v12, "_tmpProgressCollection":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/work/Data;>;"
-    if-nez v12, :cond_1
+    if-nez v12, :cond_69
 
     .line 156
     new-instance v13, Ljava/util/ArrayList;
@@ -240,11 +241,11 @@
     .end local v10    # "_tmpTagsCollection":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v11    # "_tmpKey_1":Ljava/lang/String;
     .end local v12    # "_tmpProgressCollection":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/work/Data;>;"
-    :cond_1
-    goto :goto_0
+    :cond_69
+    goto :goto_39
 
     .line 160
-    :cond_2
+    :cond_6a
     const/4 v9, -0x1
 
     invoke-interface {v2, v9}, Landroid/database/Cursor;->moveToPosition(I)Z
@@ -252,11 +253,13 @@
     .line 161
     iget-object v10, v1, Landroidx/work/impl/model/RawWorkInfoDao_Impl$1;->this$0:Landroidx/work/impl/model/RawWorkInfoDao_Impl;
 
+    # invokes: Landroidx/work/impl/model/RawWorkInfoDao_Impl;->__fetchRelationshipWorkTagAsjavaLangString(Landroidx/collection/ArrayMap;)V
     invoke-static {v10, v7}, Landroidx/work/impl/model/RawWorkInfoDao_Impl;->access$100(Landroidx/work/impl/model/RawWorkInfoDao_Impl;Landroidx/collection/ArrayMap;)V
 
     .line 162
     iget-object v10, v1, Landroidx/work/impl/model/RawWorkInfoDao_Impl$1;->this$0:Landroidx/work/impl/model/RawWorkInfoDao_Impl;
 
+    # invokes: Landroidx/work/impl/model/RawWorkInfoDao_Impl;->__fetchRelationshipWorkProgressAsandroidxWorkData(Landroidx/collection/ArrayMap;)V
     invoke-static {v10, v8}, Landroidx/work/impl/model/RawWorkInfoDao_Impl;->access$200(Landroidx/work/impl/model/RawWorkInfoDao_Impl;Landroidx/collection/ArrayMap;)V
 
     .line 163
@@ -270,48 +273,48 @@
 
     .line 164
     .local v10, "_result":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;"
-    :goto_1
+    :goto_81
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_c
+    if-eqz v11, :cond_12d
 
     .line 167
-    if-ne v0, v9, :cond_3
+    if-ne v0, v9, :cond_8b
 
     .line 168
     const/4 v11, 0x0
 
     .local v11, "_tmpId":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_97
 
     .line 170
     .end local v11    # "_tmpId":Ljava/lang/String;
-    :cond_3
+    :cond_8b
     invoke-interface {v2, v0}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_93
 
     .line 171
     const/4 v11, 0x0
 
     .restart local v11    # "_tmpId":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_97
 
     .line 173
     .end local v11    # "_tmpId":Ljava/lang/String;
-    :cond_4
+    :cond_93
     invoke-interface {v2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
     .line 177
     .restart local v11    # "_tmpId":Ljava/lang/String;
-    :goto_2
-    if-ne v3, v9, :cond_5
+    :goto_97
+    if-ne v3, v9, :cond_9d
 
     .line 178
     const/4 v12, 0x0
@@ -319,11 +322,11 @@
     move-object/from16 v20, v12
 
     .local v12, "_tmpState":Landroidx/work/WorkInfo$State;
-    goto :goto_3
+    goto :goto_a9
 
     .line 181
     .end local v12    # "_tmpState":Landroidx/work/WorkInfo$State;
-    :cond_5
+    :cond_9d
     invoke-interface {v2, v3}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v12
@@ -341,8 +344,8 @@
     .line 185
     .end local v12    # "_tmp":I
     .local v20, "_tmpState":Landroidx/work/WorkInfo$State;
-    :goto_3
-    if-ne v4, v9, :cond_6
+    :goto_a9
+    if-ne v4, v9, :cond_af
 
     .line 186
     const/4 v12, 0x0
@@ -350,33 +353,33 @@
     move-object/from16 v21, v12
 
     .local v12, "_tmpOutput":Landroidx/work/Data;
-    goto :goto_5
+    goto :goto_c1
 
     .line 189
     .end local v12    # "_tmpOutput":Landroidx/work/Data;
-    :cond_6
+    :cond_af
     invoke-interface {v2, v4}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v12
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_b7
 
     .line 190
     const/4 v12, 0x0
 
     .local v12, "_tmp_1":[B
-    goto :goto_4
+    goto :goto_bb
 
     .line 192
     .end local v12    # "_tmp_1":[B
-    :cond_7
+    :cond_b7
     invoke-interface {v2, v4}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v12
 
     .line 194
     .restart local v12    # "_tmp_1":[B
-    :goto_4
+    :goto_bb
     invoke-static {v12}, Landroidx/work/Data;->fromByteArray([B)Landroidx/work/Data;
 
     move-result-object v13
@@ -386,8 +389,8 @@
     .line 197
     .end local v12    # "_tmp_1":[B
     .local v21, "_tmpOutput":Landroidx/work/Data;
-    :goto_5
-    if-ne v5, v9, :cond_8
+    :goto_c1
+    if-ne v5, v9, :cond_c7
 
     .line 198
     const/4 v12, 0x0
@@ -395,11 +398,11 @@
     move/from16 v22, v12
 
     .local v12, "_tmpRunAttemptCount":I
-    goto :goto_6
+    goto :goto_cd
 
     .line 200
     .end local v12    # "_tmpRunAttemptCount":I
-    :cond_8
+    :cond_c7
     invoke-interface {v2, v5}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v12
@@ -408,8 +411,8 @@
 
     .line 203
     .local v22, "_tmpRunAttemptCount":I
-    :goto_6
-    if-ne v6, v9, :cond_9
+    :goto_cd
+    if-ne v6, v9, :cond_d3
 
     .line 204
     const/4 v12, 0x0
@@ -417,11 +420,11 @@
     move/from16 v23, v12
 
     .local v12, "_tmpGeneration":I
-    goto :goto_7
+    goto :goto_d9
 
     .line 206
     .end local v12    # "_tmpGeneration":I
-    :cond_9
+    :cond_d3
     invoke-interface {v2, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v12
@@ -430,7 +433,7 @@
 
     .line 208
     .local v23, "_tmpGeneration":I
-    :goto_7
+    :goto_d9
     const/4 v12, 0x0
 
     .line 209
@@ -452,7 +455,7 @@
     move-object v12, v13
 
     .line 211
-    if-nez v12, :cond_a
+    if-nez v12, :cond_f1
 
     .line 212
     new-instance v13, Ljava/util/ArrayList;
@@ -463,16 +466,16 @@
 
     move-object/from16 v24, v12
 
-    goto :goto_8
+    goto :goto_f3
 
     .line 211
-    :cond_a
+    :cond_f1
     move-object/from16 v24, v12
 
     .line 214
     .end local v12    # "_tmpTagsCollection_1":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local v24, "_tmpTagsCollection_1":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :goto_8
+    :goto_f3
     const/4 v12, 0x0
 
     .line 215
@@ -494,7 +497,7 @@
     move-object v12, v13
 
     .line 217
-    if-nez v12, :cond_b
+    if-nez v12, :cond_10b
 
     .line 218
     new-instance v13, Ljava/util/ArrayList;
@@ -505,16 +508,16 @@
 
     move-object/from16 v25, v12
 
-    goto :goto_9
+    goto :goto_10d
 
     .line 217
-    :cond_b
+    :cond_10b
     move-object/from16 v25, v12
 
     .line 220
     .end local v12    # "_tmpProgressCollection_1":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/work/Data;>;"
     .local v25, "_tmpProgressCollection_1":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/work/Data;>;"
-    :goto_9
+    :goto_10d
     new-instance v26, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
 
     move-object/from16 v12, v26
@@ -548,8 +551,8 @@
     .line 221
     .local v12, "_item":Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
     invoke-interface {v10, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12a
+    .catchall {:try_start_10 .. :try_end_12a} :catchall_132
 
     .line 222
     nop
@@ -564,10 +567,10 @@
     .end local v25    # "_tmpProgressCollection_1":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/work/Data;>;"
     .end local v27    # "_tmpKey_3":Ljava/lang/String;
     .end local v28    # "_tmpKey_2":Ljava/lang/String;
-    goto/16 :goto_1
+    goto/16 :goto_81
 
     .line 223
-    :cond_c
+    :cond_12d
     nop
 
     .line 225
@@ -585,7 +588,7 @@
     .end local v7    # "_collectionTags":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     .end local v8    # "_collectionProgress":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<Ljava/lang/String;Ljava/util/ArrayList<Landroidx/work/Data;>;>;"
     .end local v10    # "_result":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;"
-    :catchall_0
+    :catchall_132
     move-exception v0
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V

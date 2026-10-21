@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 31
     const-string v0, "line-numbers-1141"
@@ -170,6 +170,7 @@
 
     const/4 v1, 0x4
 
+    # invokes: Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;->getDp(I)I
     invoke-static {v0, v1}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;->access$getDp(Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;I)I
 
     move-result v0
@@ -181,12 +182,12 @@
 .end method
 
 .method private final updateGutter()V
-    .locals 6
+    .registers 7
 
     .line 175
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->lineNumbers:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_69
 
     .line 176
     const/4 v0, 0x3
@@ -223,10 +224,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_1a
     const/16 v4, 0xa
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_37
 
     .line 182
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -249,7 +250,7 @@
     .local v4, "width":F
     cmpl-float v5, v4, v2
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_34
 
     .line 184
     move v1, v3
@@ -259,23 +260,23 @@
 
     .line 181
     .end local v4    # "width":F
-    :cond_0
+    :cond_34
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 188
     .end local v3    # "i":I
-    :cond_1
+    :cond_37
     iget v3, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterDigitCount:I
 
-    if-lt v3, v0, :cond_2
+    if-lt v3, v0, :cond_3d
 
     .line 189
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterDigitCount:I
 
     .line 191
-    :cond_2
+    :cond_3d
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -285,8 +286,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_1
-    if-ge v4, v0, :cond_3
+    :goto_43
+    if-ge v4, v0, :cond_4f
 
     .line 193
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -298,11 +299,11 @@
     .line 192
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_43
 
     .line 195
     .end local v4    # "i":I
-    :cond_3
+    :cond_4f
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v4
@@ -337,7 +338,7 @@
     .end local v1    # "widestNumber":I
     .end local v2    # "widestWidth":F
     .end local v3    # "builder":Ljava/lang/StringBuilder;
-    :cond_4
+    :cond_69
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v0
@@ -352,7 +353,7 @@
 
     add-int/2addr v1, v2
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_96
 
     .line 199
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -391,14 +392,14 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setPadding(IIII)V
 
     .line 206
-    :cond_5
+    :cond_96
     return-void
 .end method
 
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 158
@@ -412,7 +413,7 @@
 .end method
 
 .method public drawBehind(Landroid/graphics/Canvas;)V
-    .locals 16
+    .registers 18
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 83
@@ -423,7 +424,7 @@
     .line 84
     iget-boolean v1, v0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->highlightCurrentLine:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_b5
 
     .line 85
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -460,7 +461,7 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_b5
 
     .line 87
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -471,12 +472,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_36
 
     return-void
 
     .line 89
-    :cond_0
+    :cond_36
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     move-result-object v2
@@ -607,7 +608,7 @@
 
     .line 98
     .local v8, "width":I
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_b5
 
     .line 99
     iget v9, v0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterWidth:I
@@ -640,7 +641,7 @@
     .end local v6    # "lineTop":I
     .end local v7    # "lineBottom":I
     .end local v8    # "width":I
-    :cond_1
+    :cond_b5
     invoke-direct/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->updateGutter()V
 
     .line 108
@@ -648,7 +649,7 @@
 .end method
 
 .method public final getHighlightCurrentLine()Z
-    .locals 1
+    .registers 2
 
     .line 34
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->highlightCurrentLine:Z
@@ -657,7 +658,7 @@
 .end method
 
 .method public final getLineNumbers()Z
-    .locals 1
+    .registers 2
 
     .line 33
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->lineNumbers:Z
@@ -666,7 +667,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -688,7 +689,7 @@
 .end method
 
 .method public onColorSchemeChanged(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;)V
-    .locals 5
+    .registers 7
     .param p1, "colorScheme"    # Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     const-string v0, "colorScheme"
@@ -900,7 +901,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 11
+    .registers 13
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 111
@@ -909,7 +910,7 @@
     .line 112
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->lineNumbers:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_10b
 
     .line 113
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -930,7 +931,7 @@
 
     .line 114
     .local v0, "currentLineStart":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4f
 
     .line 115
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -999,7 +1000,7 @@
     invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 121
-    :cond_0
+    :cond_4f
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -1014,19 +1015,19 @@
     .local v1, "topVisibleLine":I
     const/4 v2, 0x2
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_5f
 
     add-int/lit8 v1, v1, -0x2
 
     .line 123
-    goto :goto_0
+    goto :goto_60
 
     .line 125
-    :cond_1
+    :cond_5f
     const/4 v1, 0x0
 
     .line 127
-    :goto_0
+    :goto_60
     const/4 v3, -0x1
 
     .line 128
@@ -1051,7 +1052,7 @@
 
     .line 129
     .local v4, "textRight":I
-    :goto_1
+    :goto_70
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v2
@@ -1062,7 +1063,7 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_5
+    if-gt v1, v2, :cond_d0
 
     .line 130
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -1073,12 +1074,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_87
 
     return-void
 
     .line 131
-    :cond_2
+    :cond_87
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     move-result-object v2
@@ -1101,10 +1102,10 @@
 
     .line 132
     .local v2, "number":I
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_cb
 
     .line 133
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_cb
 
     .line 134
     add-int/lit8 v5, v2, 0x1
@@ -1144,27 +1145,27 @@
     add-float/2addr v7, v8
 
     .line 137
-    if-ne v2, v0, :cond_3
+    if-ne v2, v0, :cond_c6
 
     iget-boolean v8, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->highlightCurrentLine:Z
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_c6
 
     .line 138
     iget-object v8, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterCurrentLineNumberPaint:Landroid/graphics/Paint;
 
-    goto :goto_2
+    goto :goto_c8
 
     .line 140
-    :cond_3
+    :cond_c6
     iget-object v8, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterTextPaint:Landroid/graphics/Paint;
 
     .line 133
-    :goto_2
+    :goto_c8
     invoke-virtual {p1, v5, v6, v7, v8}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 144
-    :cond_4
+    :cond_cb
     move v3, v2
 
     .line 145
@@ -1173,11 +1174,11 @@
     .end local v2    # "number":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_70
 
     .line 147
-    :cond_5
-    if-eqz p1, :cond_6
+    :cond_d0
+    if-eqz p1, :cond_10b
 
     .line 148
     iget v2, p0, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin;->gutterWidth:I
@@ -1254,12 +1255,12 @@
     .end local v1    # "topVisibleLine":I
     .end local v3    # "prevLineNumber":I
     .end local v4    # "textRight":I
-    :cond_6
+    :cond_10b
     return-void
 .end method
 
 .method public final setHighlightCurrentLine(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 34
@@ -1269,7 +1270,7 @@
 .end method
 
 .method public final setLineNumbers(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 33
@@ -1279,7 +1280,7 @@
 .end method
 
 .method public setTextSize(F)V
-    .locals 2
+    .registers 4
     .param p1, "size"    # F
 
     .line 163
@@ -1316,7 +1317,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "tf"    # Landroid/graphics/Typeface;
 
     .line 169

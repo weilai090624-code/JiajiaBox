@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/TimePickerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/TimePickerView;
 
     .line 132
@@ -34,19 +34,20 @@
 
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 4
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 135
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerView$2;->this$0:Lcom/google/android/material/timepicker/TimePickerView;
 
+    # getter for: Lcom/google/android/material/timepicker/TimePickerView;->onDoubleTapListener:Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
     invoke-static {v0}, Lcom/google/android/material/timepicker/TimePickerView;->access$100(Lcom/google/android/material/timepicker/TimePickerView;)Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
 
     move-result-object v0
 
     .line 136
     .local v0, "listener":Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 137
     invoke-interface {v0}, Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;->onDoubleTap()V
@@ -57,7 +58,7 @@
     return v1
 
     .line 140
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     return v1

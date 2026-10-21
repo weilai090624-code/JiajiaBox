@@ -103,7 +103,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/Cookie$Companion;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ZZZZ)V
-    .locals 0
+    .registers 11
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "expiresAt"    # J
@@ -199,7 +199,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ZZZZLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 12
 
     invoke-direct/range {p0 .. p10}, Lokhttp3/Cookie;-><init>(Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ZZZZ)V
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public static final synthetic access$getDAY_OF_MONTH_PATTERN$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 43
     sget-object v0, Lokhttp3/Cookie;->DAY_OF_MONTH_PATTERN:Ljava/util/regex/Pattern;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final synthetic access$getMONTH_PATTERN$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 43
     sget-object v0, Lokhttp3/Cookie;->MONTH_PATTERN:Ljava/util/regex/Pattern;
@@ -225,7 +225,7 @@
 .end method
 
 .method public static final synthetic access$getTIME_PATTERN$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 43
     sget-object v0, Lokhttp3/Cookie;->TIME_PATTERN:Ljava/util/regex/Pattern;
@@ -234,7 +234,7 @@
 .end method
 
 .method public static final synthetic access$getYEAR_PATTERN$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 43
     sget-object v0, Lokhttp3/Cookie;->YEAR_PATTERN:Ljava/util/regex/Pattern;
@@ -243,7 +243,7 @@
 .end method
 
 .method public static final parse(Lokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/Cookie;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -257,7 +257,7 @@
 .end method
 
 .method public static final parseAll(Lokhttp3/HttpUrl;Lokhttp3/Headers;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -285,7 +285,7 @@
 
 # virtual methods
 .method public final -deprecated_domain()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -302,7 +302,7 @@
 .end method
 
 .method public final -deprecated_expiresAt()J
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -319,7 +319,7 @@
 .end method
 
 .method public final -deprecated_hostOnly()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -336,7 +336,7 @@
 .end method
 
 .method public final -deprecated_httpOnly()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -353,7 +353,7 @@
 .end method
 
 .method public final -deprecated_name()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -370,7 +370,7 @@
 .end method
 
 .method public final -deprecated_path()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -387,7 +387,7 @@
 .end method
 
 .method public final -deprecated_persistent()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -404,7 +404,7 @@
 .end method
 
 .method public final -deprecated_secure()Z
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -421,7 +421,7 @@
 .end method
 
 .method public final -deprecated_value()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -438,7 +438,7 @@
 .end method
 
 .method public final domain()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lokhttp3/Cookie;->domain:Ljava/lang/String;
@@ -447,13 +447,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 117
     instance-of v0, p1, Lokhttp3/Cookie;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 118
     move-object v0, p1
@@ -468,7 +468,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 119
     move-object v0, p1
@@ -483,7 +483,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 120
     move-object v0, p1
@@ -496,7 +496,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_69
 
     .line 121
     move-object v0, p1
@@ -511,7 +511,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 122
     move-object v0, p1
@@ -526,7 +526,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 123
     move-object v0, p1
@@ -537,7 +537,7 @@
 
     iget-boolean v1, p0, Lokhttp3/Cookie;->secure:Z
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_69
 
     .line 124
     move-object v0, p1
@@ -548,7 +548,7 @@
 
     iget-boolean v1, p0, Lokhttp3/Cookie;->httpOnly:Z
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_69
 
     .line 125
     move-object v0, p1
@@ -559,7 +559,7 @@
 
     iget-boolean v1, p0, Lokhttp3/Cookie;->persistent:Z
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_69
 
     .line 126
     move-object v0, p1
@@ -570,22 +570,22 @@
 
     iget-boolean v1, p0, Lokhttp3/Cookie;->hostOnly:Z
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_69
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6a
 
-    :cond_0
+    :cond_69
     const/4 v0, 0x0
 
     .line 117
-    :goto_0
+    :goto_6a
     return v0
 .end method
 
 .method public final expiresAt()J
-    .locals 2
+    .registers 3
 
     .line 60
     iget-wide v0, p0, Lokhttp3/Cookie;->expiresAt:J
@@ -594,7 +594,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 131
     const/16 v0, 0x11
@@ -722,7 +722,7 @@
 .end method
 
 .method public final hostOnly()Z
-    .locals 1
+    .registers 2
 
     .line 96
     iget-boolean v0, p0, Lokhttp3/Cookie;->hostOnly:Z
@@ -731,7 +731,7 @@
 .end method
 
 .method public final httpOnly()Z
-    .locals 1
+    .registers 2
 
     .line 82
     iget-boolean v0, p0, Lokhttp3/Cookie;->httpOnly:Z
@@ -740,7 +740,7 @@
 .end method
 
 .method public final matches(Lokhttp3/HttpUrl;)Z
-    .locals 4
+    .registers 6
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
     const-string v0, "url"
@@ -750,7 +750,7 @@
     .line 104
     iget-boolean v0, p0, Lokhttp3/Cookie;->hostOnly:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 105
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
@@ -763,10 +763,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 107
-    :cond_0
+    :cond_14
     sget-object v0, Lokhttp3/Cookie;->Companion:Lokhttp3/Cookie$Companion;
 
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
@@ -775,57 +775,59 @@
 
     iget-object v2, p0, Lokhttp3/Cookie;->domain:Ljava/lang/String;
 
+    # invokes: Lokhttp3/Cookie$Companion;->domainMatch(Ljava/lang/String;Ljava/lang/String;)Z
     invoke-static {v0, v1, v2}, Lokhttp3/Cookie$Companion;->access$domainMatch(Lokhttp3/Cookie$Companion;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     .line 104
-    :goto_0
+    :goto_20
     nop
 
     .line 109
     .local v0, "domainMatch":Z
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     return v1
 
     .line 111
-    :cond_1
+    :cond_25
     sget-object v2, Lokhttp3/Cookie;->Companion:Lokhttp3/Cookie$Companion;
 
     iget-object v3, p0, Lokhttp3/Cookie;->path:Ljava/lang/String;
 
+    # invokes: Lokhttp3/Cookie$Companion;->pathMatch(Lokhttp3/HttpUrl;Ljava/lang/String;)Z
     invoke-static {v2, p1, v3}, Lokhttp3/Cookie$Companion;->access$pathMatch(Lokhttp3/Cookie$Companion;Lokhttp3/HttpUrl;Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_30
 
     return v1
 
     .line 113
-    :cond_2
+    :cond_30
     iget-boolean v2, p0, Lokhttp3/Cookie;->secure:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3a
 
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->isHttps()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3b
 
-    :cond_3
+    :cond_3a
     const/4 v1, 0x1
 
-    :cond_4
+    :cond_3b
     return v1
 .end method
 
 .method public final name()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lokhttp3/Cookie;->name:Ljava/lang/String;
@@ -834,7 +836,7 @@
 .end method
 
 .method public final newBuilder()Lokhttp3/Cookie$Builder;
-    .locals 1
+    .registers 2
 
     .line 250
     new-instance v0, Lokhttp3/Cookie$Builder;
@@ -845,7 +847,7 @@
 .end method
 
 .method public final path()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lokhttp3/Cookie;->path:Ljava/lang/String;
@@ -854,7 +856,7 @@
 .end method
 
 .method public final persistent()Z
-    .locals 1
+    .registers 2
 
     .line 85
     iget-boolean v0, p0, Lokhttp3/Cookie;->persistent:Z
@@ -863,7 +865,7 @@
 .end method
 
 .method public final secure()Z
-    .locals 1
+    .registers 2
 
     .line 76
     iget-boolean v0, p0, Lokhttp3/Cookie;->secure:Z
@@ -872,7 +874,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 144
     const/4 v0, 0x0
@@ -885,7 +887,7 @@
 .end method
 
 .method public final toString$okhttp(Z)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "forObsoleteRfc2965"    # Z
 
     .line 215
@@ -921,7 +923,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_45
 
     .line 221
     invoke-virtual {p0}, Lokhttp3/Cookie;->expiresAt()J
@@ -932,17 +934,17 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2f
 
     .line 222
     const-string v2, "; max-age=0"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_45
 
     .line 224
-    :cond_0
+    :cond_2f
     const-string v2, "; expires="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -964,13 +966,13 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 228
-    :cond_1
-    :goto_0
+    :cond_45
+    :goto_45
     invoke-virtual {p0}, Lokhttp3/Cookie;->hostOnly()Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5e
 
     .line 229
     const-string v2, "; domain="
@@ -978,7 +980,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 230
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_57
 
     .line 231
     const-string v2, "."
@@ -986,7 +988,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 233
-    :cond_2
+    :cond_57
     invoke-virtual {p0}, Lokhttp3/Cookie;->domain()Ljava/lang/String;
 
     move-result-object v2
@@ -994,7 +996,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 236
-    :cond_3
+    :cond_5e
     const-string v2, "; path="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1012,7 +1014,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_76
 
     .line 239
     const-string v2, "; secure"
@@ -1020,12 +1022,12 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 242
-    :cond_4
+    :cond_76
     invoke-virtual {p0}, Lokhttp3/Cookie;->httpOnly()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_81
 
     .line 243
     const-string v2, "; httponly"
@@ -1033,7 +1035,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 246
-    :cond_5
+    :cond_81
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -1046,7 +1048,7 @@
 .end method
 
 .method public final value()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lokhttp3/Cookie;->value:Ljava/lang/String;

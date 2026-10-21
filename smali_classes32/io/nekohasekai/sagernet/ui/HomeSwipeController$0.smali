@@ -6,14 +6,6 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation runtime Lcom/android/tools/r8/annotations/LambdaMethod;
-    holder = "Lio/nekohasekai/sagernet/ui/HomeSwipeController;"
-    method = "lambda$settle$0"
-    proto = "(Landroid/animation/ValueAnimator;)V"
-.end annotation
-
-
 # instance fields
 .field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/HomeSwipeController;
 

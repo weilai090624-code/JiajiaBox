@@ -33,14 +33,14 @@ public final class DrawerDesign {
  static int accent(Context c){return ThemePalette.accent(c);}
  static GradientDrawable shape(Context c,int color,int radius){GradientDrawable d=new GradientDrawable();d.setColor(color);d.setCornerRadius(dp(c,radius));return d;}
  static TextView label(Context c,CharSequence text,int size,boolean bold){TextView v=new TextView(c);v.setText(text);v.setTextSize(size);v.setTextColor(ink(c));v.setIncludeFontPadding(false);v.setTypeface(Typeface.DEFAULT,bold?Typeface.BOLD:Typeface.NORMAL);return v;}
- static void surface(View v,boolean selected){Context c=v.getContext();boolean d=dark(c);GradientDrawable fill=shape(c,selected?ThemePalette.selected(c):Color.TRANSPARENT,17);if(selected)fill.setStroke(dp(c,1),ThemePalette.selectedBorder(c));v.setBackground(new RippleDrawable(ColorStateList.valueOf(d?0x20ffffff:0x18b74771),fill,shape(c,Color.WHITE,17)));}
+ static void surface(View v,boolean selected){Context c=v.getContext();boolean d=dark(c);GradientDrawable fill=shape(c,selected?ThemePalette.selected(c):Color.TRANSPARENT,17);v.setBackground(new RippleDrawable(ColorStateList.valueOf(d?0x20ffffff:0x18b74771),fill,shape(c,Color.WHITE,17)));}
  public static void install(Activity activity,JJGlassCapsule panel,LinearLayout column,Map<?,?> nav,int current){
   if(panel.getTag(MENU_TAG)!=null)return;
   Menu menu=new Menu(panel,column);panel.setTag(MENU_TAG,menu);
   List<FrameLayout> original=new ArrayList<>();for(int i=0;i<column.getChildCount();i++)if(column.getChildAt(i) instanceof FrameLayout)original.add((FrameLayout)column.getChildAt(i));
   column.removeAllViews();column.setPadding(dp(activity,12),dp(activity,14),dp(activity,12),dp(activity,10));
   menu.header=new LinearLayout(activity);menu.header.setOrientation(LinearLayout.VERTICAL);menu.header.setPadding(dp(activity,14),dp(activity,12),dp(activity,10),dp(activity,22));
-  menu.brand=label(activity,RosePalette.brandTitle(!dark(activity)),26,true);menu.brand.setLetterSpacing(-.025f);menu.header.addView(menu.brand,new LinearLayout.LayoutParams(-1,-2));
+  menu.brand=label(activity,RosePalette.brandTitle(!dark(activity)),24,true);menu.brand.setLetterSpacing(-.025f);menu.header.addView(menu.brand,new LinearLayout.LayoutParams(-1,-2));
   menu.tagline=label(activity,"简单连接，自在上网",12,false);LinearLayout.LayoutParams tagline=new LinearLayout.LayoutParams(-1,-2);tagline.topMargin=dp(activity,9);menu.header.addView(menu.tagline,tagline);column.addView(menu.header,new LinearLayout.LayoutParams(-1,-2));
   MenuScroll scroll=new MenuScroll(activity);scroll.setFillViewport(false);scroll.setVerticalScrollBarEnabled(false);scroll.setOverScrollMode(View.OVER_SCROLL_NEVER);scroll.setClipToPadding(false);
   menu.list=new LinearLayout(activity);menu.list.setOrientation(LinearLayout.VERTICAL);scroll.addView(menu.list,new FrameLayout.LayoutParams(-1,-2));column.addView(scroll,new LinearLayout.LayoutParams(-1,-2));
@@ -49,11 +49,11 @@ public final class DrawerDesign {
    TextView primary=(TextView)row.getChildAt(0);String title=primary.getText().toString();int kind=kind(title);for(Map.Entry<?,?> entry:nav.entrySet())if(entry.getValue()==row&&entry.getKey() instanceof Number){int id=((Number)entry.getKey()).intValue();kind=id==0x7f0a01e3?0:id==0x7f0a01e6?1:id==0x7f0a01e7?2:id==0x7f0a01e9?3:5;}
    if(i==0||i==3){TextView section=label(activity,i==0?"连接与分流":"偏好与更多",10,false);section.setLetterSpacing(.08f);section.setPadding(dp(activity,14),dp(activity,i==0?3:17),0,dp(activity,9));menu.sections.add(section);menu.list.addView(section,new LinearLayout.LayoutParams(-1,-2));}
    row.removeAllViews();Row body=new Row(activity,primary,kind);row.setTag(ROW_TAG,body);row.addView(body,new FrameLayout.LayoutParams(-1,-1));row.setPadding(0,0,0,0);row.setMinimumWidth(0);
-   LinearLayout.LayoutParams rp=new LinearLayout.LayoutParams(-1,Math.max(dp(activity,66),dp(activity,58*activity.getResources().getConfiguration().fontScale)));rp.bottomMargin=dp(activity,3);menu.list.addView(row,rp);
+   LinearLayout.LayoutParams rp=new LinearLayout.LayoutParams(-1,Math.max(dp(activity,58),dp(activity,58*activity.getResources().getConfiguration().fontScale)));rp.bottomMargin=dp(activity,4);menu.list.addView(row,rp);
    row.setOnTouchListener((v,e)->{int action=e.getActionMasked();if(action==MotionEvent.ACTION_DOWN)v.animate().scaleX(.985f).scaleY(.985f).setDuration(90).start();else if(action==MotionEvent.ACTION_UP||action==MotionEvent.ACTION_CANCEL)v.animate().scaleX(1).scaleY(1).setDuration(180).setInterpolator(new DrawerMotion.Ease()).start();return false;});
    menu.rows.add(row);
   }
-  menu.footer=label(activity,"基于 NekoBox · 为简单而生",10,false);menu.footer.setGravity(Gravity.CENTER);menu.footer.setPadding(0,dp(activity,16),0,dp(activity,5));column.addView(menu.footer,new LinearLayout.LayoutParams(-1,-2));
+  menu.footer=label(activity,"基于 NekoBox · 为简单而生",11,false);menu.footer.setGravity(Gravity.CENTER);menu.footer.setPadding(0,dp(activity,20),0,dp(activity,5));column.addView(menu.footer,new LinearLayout.LayoutParams(-1,-2));
   select(nav,current);refresh(panel);
  }
  public static void select(Map<?,?> nav,int current){for(Map.Entry<?,?> entry:nav.entrySet())if(entry.getValue() instanceof View){View row=(View)entry.getValue();boolean selected=entry.getKey() instanceof Number&&((Number)entry.getKey()).intValue()==current;row.setSelected(selected);Object content=row.getTag(ROW_TAG);if(content instanceof Row)((Row)content).paint(selected);}}
@@ -89,7 +89,7 @@ public final class DrawerDesign {
   Row(Context c,TextView title,int kind){super(c);this.kind=kind;setGravity(Gravity.CENTER_VERTICAL);setPadding(dp(c,13),0,dp(c,11),0);setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);icon=new Glyph(c,kind);addView(icon,new LayoutParams(dp(c,24),dp(c,24)));
    LinearLayout words=new LinearLayout(c);words.setOrientation(VERTICAL);words.setGravity(Gravity.CENTER_VERTICAL);LayoutParams wp=new LayoutParams(0,-1,1);wp.setMarginStart(dp(c,14));addView(words,wp);
    primary=title;primary.setGravity(Gravity.START|Gravity.CENTER_VERTICAL);primary.setTextSize(15);primary.setTypeface(Typeface.DEFAULT,Typeface.NORMAL);primary.setPadding(0,0,0,0);primary.setMinimumWidth(0);words.addView(primary,new LayoutParams(-1,-2));
-   secondary=label(c,subtitle(kind),11,false);LayoutParams sp=new LayoutParams(-1,-2);sp.topMargin=dp(c,4);words.addView(secondary,sp);arrow=new Glyph(c,6);LayoutParams ap=new LayoutParams(dp(c,12),dp(c,16));ap.setMarginStart(dp(c,6));addView(arrow,ap);
+   secondary=label(c,subtitle(kind),11,false);secondary.setVisibility(View.GONE);LayoutParams sp=new LayoutParams(-1,-2);sp.topMargin=dp(c,4);words.addView(secondary,sp);arrow=new Glyph(c,6);arrow.setVisibility(View.GONE);LayoutParams ap=new LayoutParams(dp(c,12),dp(c,16));ap.setMarginStart(dp(c,6));addView(arrow,ap);
   }
   void paint(boolean selected){Context c=getContext();surface((View)getParent(),selected);primary.setTextColor(selected?accent(c):ink(c));primary.setTypeface(Typeface.create(selected?"sans-serif-medium":"sans-serif",Typeface.NORMAL));secondary.setTextColor(muted(c));icon.color=selected?accent(c):muted(c);icon.invalidate();arrow.color=selected?accent(c):muted(c);arrow.setAlpha(selected?1:.45f);arrow.invalidate();}
  }

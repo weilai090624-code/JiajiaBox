@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/widget/GlassEngine;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/widget/GlassEngine;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;->this$0:Lio/nekohasekai/sagernet/widget/GlassEngine;
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     const-string v0, "v"
@@ -94,7 +94,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     const-string v0, "v"
@@ -104,17 +104,18 @@
     .line 124
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;->this$0:Lio/nekohasekai/sagernet/widget/GlassEngine;
 
+    # getter for: Lio/nekohasekai/sagernet/widget/GlassEngine;->source:Landroid/view/View;
     invoke-static {v0}, Lio/nekohasekai/sagernet/widget/GlassEngine;->access$getSource$p(Lio/nekohasekai/sagernet/widget/GlassEngine;)Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;->this$0:Lio/nekohasekai/sagernet/widget/GlassEngine;
 
@@ -123,7 +124,7 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
     .line 125
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/GlassEngine$attachListener$1;->this$0:Lio/nekohasekai/sagernet/widget/GlassEngine;
 
     const/4 v1, 0x0

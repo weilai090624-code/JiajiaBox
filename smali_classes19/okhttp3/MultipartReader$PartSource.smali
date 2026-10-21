@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/MultipartReader;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lokhttp3/MultipartReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,11 +88,12 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 150
     iget-object v0, p0, Lokhttp3/MultipartReader$PartSource;->this$0:Lokhttp3/MultipartReader;
 
+    # getter for: Lokhttp3/MultipartReader;->currentPart:Lokhttp3/MultipartReader$PartSource;
     invoke-static {v0}, Lokhttp3/MultipartReader;->access$getCurrentPart$p(Lokhttp3/MultipartReader;)Lokhttp3/MultipartReader$PartSource;
 
     move-result-object v0
@@ -101,7 +102,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 151
     iget-object v0, p0, Lokhttp3/MultipartReader$PartSource;->this$0:Lokhttp3/MultipartReader;
@@ -111,12 +112,12 @@
     invoke-static {v0, v1}, Lokhttp3/MultipartReader;->access$setCurrentPart$p(Lokhttp3/MultipartReader;Lokhttp3/MultipartReader$PartSource;)V
 
     .line 153
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 18
+    .registers 22
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -135,21 +136,22 @@
 
     cmp-long v0, v3, v5
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_b
+    :goto_14
+    if-eqz v0, :cond_f4
 
     .line 157
     iget-object v0, v1, Lokhttp3/MultipartReader$PartSource;->this$0:Lokhttp3/MultipartReader;
 
+    # getter for: Lokhttp3/MultipartReader;->currentPart:Lokhttp3/MultipartReader$PartSource;
     invoke-static {v0}, Lokhttp3/MultipartReader;->access$getCurrentPart$p(Lokhttp3/MultipartReader;)Lokhttp3/MultipartReader$PartSource;
 
     move-result-object v0
@@ -158,11 +160,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_e4
 
     .line 159
     iget-object v0, v1, Lokhttp3/MultipartReader$PartSource;->this$0:Lokhttp3/MultipartReader;
 
+    # getter for: Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/MultipartReader;->access$getSource$p(Lokhttp3/MultipartReader;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -210,7 +213,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_9f
 
     .line 216
     invoke-virtual {v7}, Lokio/Timeout;->deadlineNanoTime()J
@@ -223,7 +226,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_67
 
     .line 218
     invoke-virtual {v7}, Lokio/Timeout;->deadlineNanoTime()J
@@ -241,7 +244,7 @@
     invoke-virtual {v7, v12, v13}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 220
-    :cond_1
+    :cond_67
     nop
 
     .line 221
@@ -249,7 +252,8 @@
 
     .line 160
     .local v12, "$i$a$-intersectWith-MultipartReader$PartSource$read$3":I
-    :try_start_0
+    :try_start_69
+    # invokes: Lokhttp3/MultipartReader;->currentPartBytesRemaining(J)J
     invoke-static {v0, v3, v4}, Lokhttp3/MultipartReader;->access$currentPartBytesRemaining(Lokhttp3/MultipartReader;J)J
 
     move-result-wide v13
@@ -260,14 +264,15 @@
 
     cmp-long v17, v13, v15
 
-    if-nez v17, :cond_2
+    if-nez v17, :cond_76
 
     const-wide/16 v12, -0x1
 
-    goto :goto_1
+    goto :goto_7f
 
     .line 162
-    :cond_2
+    :cond_76
+    # getter for: Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/MultipartReader;->access$getSource$p(Lokhttp3/MultipartReader;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -275,8 +280,8 @@
     invoke-interface {v0, v2, v13, v14}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v15
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7e
+    .catchall {:try_start_69 .. :try_end_7e} :catchall_8f
 
     move-wide v12, v15
 
@@ -288,7 +293,7 @@
     .end local v10    # "originalTimeout$iv":J
     .end local v12    # "$i$a$-intersectWith-MultipartReader$PartSource$read$3":I
     .end local v13    # "limit":J
-    :goto_1
+    :goto_7f
     nop
 
     .line 223
@@ -301,12 +306,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8e
 
     .line 225
     invoke-virtual {v7, v5, v6}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_3
+    :cond_8e
     return-wide v12
 
     .restart local v5    # "originalDeadline$iv":J
@@ -314,7 +319,7 @@
     .restart local v8    # "other$iv":Lokio/Timeout;
     .restart local v9    # "$i$f$intersectWith":I
     .restart local v10    # "originalTimeout$iv":J
-    :catchall_0
+    :catchall_8f
     move-exception v0
 
     .line 223
@@ -327,22 +332,22 @@
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_9e
 
     .line 225
     invoke-virtual {v7, v5, v6}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_4
+    :cond_9e
     throw v0
 
     .line 229
     .end local v5    # "originalDeadline$iv":J
-    :cond_5
+    :cond_9f
     invoke-virtual {v8}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_ac
 
     .line 230
     invoke-virtual {v8}, Lokio/Timeout;->deadlineNanoTime()J
@@ -352,7 +357,7 @@
     invoke-virtual {v7, v5, v6}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 232
-    :cond_6
+    :cond_ac
     nop
 
     .line 233
@@ -360,7 +365,8 @@
 
     .line 160
     .local v5, "$i$a$-intersectWith-MultipartReader$PartSource$read$3":I
-    :try_start_1
+    :try_start_ae
+    # invokes: Lokhttp3/MultipartReader;->currentPartBytesRemaining(J)J
     invoke-static {v0, v3, v4}, Lokhttp3/MultipartReader;->access$currentPartBytesRemaining(Lokhttp3/MultipartReader;J)J
 
     move-result-wide v12
@@ -371,14 +377,15 @@
 
     cmp-long v6, v12, v14
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_bb
 
     const-wide/16 v12, -0x1
 
-    goto :goto_2
+    goto :goto_c4
 
     .line 162
-    :cond_7
+    :cond_bb
+    # getter for: Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
     invoke-static {v0}, Lokhttp3/MultipartReader;->access$getSource$p(Lokhttp3/MultipartReader;)Lokio/BufferedSource;
 
     move-result-object v0
@@ -386,8 +393,8 @@
     invoke-interface {v0, v2, v12, v13}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v14
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_c3
+    .catchall {:try_start_ae .. :try_end_c3} :catchall_d4
 
     move-wide v12, v14
 
@@ -398,7 +405,7 @@
     .end local v9    # "$i$f$intersectWith":I
     .end local v10    # "originalTimeout$iv":J
     .end local v12    # "limit":J
-    :goto_2
+    :goto_c4
     nop
 
     .line 235
@@ -411,19 +418,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_d3
 
     .line 237
     invoke-virtual {v7}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_8
+    :cond_d3
     return-wide v12
 
     .restart local v7    # "this_$iv":Lokio/Timeout;
     .restart local v8    # "other$iv":Lokio/Timeout;
     .restart local v9    # "$i$f$intersectWith":I
     .restart local v10    # "originalTimeout$iv":J
-    :catchall_1
+    :catchall_d4
     move-exception v0
 
     .line 235
@@ -436,12 +443,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_e3
 
     .line 237
     invoke-virtual {v7}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_9
+    :cond_e3
     throw v0
 
     .line 211
@@ -449,7 +456,7 @@
     .end local v8    # "other$iv":Lokio/Timeout;
     .end local v9    # "$i$f$intersectWith":I
     .end local v10    # "originalTimeout$iv":J
-    :cond_a
+    :cond_e4
     const/4 v0, 0x0
 
     .line 157
@@ -472,7 +479,7 @@
     throw v0
 
     .line 211
-    :cond_b
+    :cond_f4
     const/4 v0, 0x0
 
     .line 156
@@ -502,7 +509,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 169
     iget-object v0, p0, Lokhttp3/MultipartReader$PartSource;->timeout:Lokio/Timeout;

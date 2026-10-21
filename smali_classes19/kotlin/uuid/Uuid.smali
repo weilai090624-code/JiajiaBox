@@ -92,7 +92,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$hY_iFluWdHz7H_4hiindXk95oZw(Lkotlin/uuid/Uuid;Lkotlin/uuid/Uuid;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lkotlin/uuid/Uuid;->LEXICAL_ORDER$lambda$2(Lkotlin/uuid/Uuid;Lkotlin/uuid/Uuid;)I
 
@@ -102,7 +102,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/uuid/Uuid$Companion;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>(JJ)V
-    .locals 0
+    .registers 5
     .param p1, "mostSignificantBits"    # J
     .param p3, "leastSignificantBits"    # J
 
@@ -150,7 +150,7 @@
 .end method
 
 .method private static final LEXICAL_ORDER$lambda$2(Lkotlin/uuid/Uuid;Lkotlin/uuid/Uuid;)I
-    .locals 5
+    .registers 7
     .param p0, "a"    # Lkotlin/uuid/Uuid;
     .param p1, "b"    # Lkotlin/uuid/Uuid;
 
@@ -161,7 +161,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_19
 
     .line 394
     iget-wide v0, p0, Lkotlin/uuid/Uuid;->mostSignificantBits:J
@@ -180,10 +180,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 396
-    :cond_0
+    :cond_19
     iget-wide v0, p0, Lkotlin/uuid/Uuid;->leastSignificantBits:J
 
     invoke-static {v0, v1}, Lkotlin/ULong;->constructor-impl(J)J
@@ -200,12 +200,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_29
     return v0
 .end method
 
 .method public static final synthetic access$getLEXICAL_ORDER$cp()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
 
     .line 38
     sget-object v0, Lkotlin/uuid/Uuid;->LEXICAL_ORDER:Ljava/util/Comparator;
@@ -214,7 +214,7 @@
 .end method
 
 .method public static final synthetic access$getNIL$cp()Lkotlin/uuid/Uuid;
-    .locals 1
+    .registers 1
 
     .line 38
     sget-object v0, Lkotlin/uuid/Uuid;->NIL:Lkotlin/uuid/Uuid;
@@ -223,19 +223,19 @@
 .end method
 
 .method public static synthetic getLeastSignificantBits$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getMostSignificantBits$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private final toLongs(Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -283,7 +283,7 @@
 .end method
 
 .method private final toULongs(Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -341,28 +341,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 192
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 193
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/uuid/Uuid;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 194
-    :cond_1
+    :cond_a
     iget-wide v3, p0, Lkotlin/uuid/Uuid;->mostSignificantBits:J
 
     move-object v1, p1
@@ -373,7 +373,7 @@
 
     cmp-long v1, v3, v5
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_21
 
     .line 195
     iget-wide v3, p0, Lkotlin/uuid/Uuid;->leastSignificantBits:J
@@ -386,20 +386,20 @@
 
     cmp-long v1, v3, v5
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v0, 0x0
 
     .line 194
-    :goto_0
+    :goto_22
     return v0
 .end method
 
 .method public final getLeastSignificantBits()J
-    .locals 2
+    .registers 3
 
     .line 42
     iget-wide v0, p0, Lkotlin/uuid/Uuid;->leastSignificantBits:J
@@ -408,7 +408,7 @@
 .end method
 
 .method public final getMostSignificantBits()J
-    .locals 2
+    .registers 3
 
     .line 41
     iget-wide v0, p0, Lkotlin/uuid/Uuid;->mostSignificantBits:J
@@ -417,7 +417,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 199
     iget-wide v0, p0, Lkotlin/uuid/Uuid;->mostSignificantBits:J
@@ -442,7 +442,7 @@
 .end method
 
 .method public final toByteArray()[B
-    .locals 4
+    .registers 5
 
     .line 176
     const/16 v0, 0x10
@@ -455,6 +455,7 @@
 
     const/4 v3, 0x0
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->toByteArray$UuidKt__UuidKt(J[BI)V
     invoke-static {v1, v2, v0, v3}, Lkotlin/uuid/UuidKt__UuidKt;->access$toByteArray(J[BI)V
 
     .line 178
@@ -462,6 +463,7 @@
 
     const/16 v3, 0x8
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->toByteArray$UuidKt__UuidKt(J[BI)V
     invoke-static {v1, v2, v0, v3}, Lkotlin/uuid/UuidKt__UuidKt;->access$toByteArray(J[BI)V
 
     .line 179
@@ -469,7 +471,7 @@
 .end method
 
 .method public final toHexString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 159
     const/16 v0, 0x20
@@ -484,6 +486,7 @@
 
     const/16 v4, 0x8
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v1, v2, v0, v3, v4}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 161
@@ -491,6 +494,7 @@
 
     const/4 v3, 0x0
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v1, v2, v0, v3, v4}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 162
@@ -502,7 +506,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 130
     const/16 v0, 0x24
@@ -517,6 +521,7 @@
 
     const/4 v4, 0x6
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v1, v2, v0, v3, v4}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 132
@@ -537,6 +542,7 @@
 
     const/4 v5, 0x2
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v3, v4, v0, v1, v5}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 134
@@ -549,6 +555,7 @@
 
     const/16 v1, 0xe
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v3, v4, v0, v1, v5}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 136
@@ -565,6 +572,7 @@
 
     const/16 v1, 0x9
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v3, v4, v0, v1, v5}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 138
@@ -583,6 +591,7 @@
 
     const/4 v4, 0x4
 
+    # invokes: Lkotlin/uuid/UuidKt__UuidKt;->formatBytesInto$UuidKt__UuidKt(J[BII)V
     invoke-static {v1, v2, v0, v3, v4}, Lkotlin/uuid/UuidKt__UuidKt;->access$formatBytesInto(J[BII)V
 
     .line 140

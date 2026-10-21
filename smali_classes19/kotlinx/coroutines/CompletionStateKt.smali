@@ -47,7 +47,7 @@
 
 # direct methods
 .method public static final recoverResult(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "state"    # Ljava/lang/Object;
     .param p1, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -65,7 +65,7 @@
     .line 26
     instance-of v0, p0, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 27
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -85,20 +85,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     instance-of v2, p1, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 71
-    :cond_0
+    :cond_17
     move-object v2, p1
 
     check-cast v2, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v0, v2}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v2
@@ -108,8 +109,8 @@
     .line 27
     .end local v0    # "exception$iv":Ljava/lang/Throwable;
     .end local v1    # "$i$f$recoverStackTrace":I
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
     move-result-object v0
@@ -118,22 +119,22 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 29
-    :cond_2
+    :cond_28
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_1
+    :goto_2e
     return-object v0
 .end method
 
 .method public static final toState(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$toState"    # Ljava/lang/Object;
     .param p1, "onCancellation"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -156,7 +157,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     move-object v0, p0
 
@@ -165,7 +166,7 @@
 
     .line 15
     .local v1, "$i$a$-fold-CompletionStateKt$toState$1":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     new-instance v2, Lkotlinx/coroutines/CompletedWithCancellation;
 
@@ -176,11 +177,11 @@
     .line 14
     .end local v0    # "it":Ljava/lang/Object;
     .end local v1    # "$i$a$-fold-CompletionStateKt$toState$1":I
-    :cond_0
-    goto :goto_0
+    :cond_10
+    goto :goto_1b
 
     .local v0, "it":Ljava/lang/Throwable;
-    :cond_1
+    :cond_11
     const/4 v1, 0x0
 
     .line 16
@@ -201,12 +202,12 @@
     move-object v0, v2
 
     .line 17
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final toState(Ljava/lang/Object;Lkotlinx/coroutines/CancellableContinuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$toState"    # Ljava/lang/Object;
     .param p1, "caller"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -226,7 +227,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     move-object v0, p0
 
@@ -240,10 +241,10 @@
     .line 19
     .end local v0    # "it":Ljava/lang/Object;
     .end local v1    # "$i$a$-fold-CompletionStateKt$toState$3":I
-    goto :goto_2
+    goto :goto_2e
 
     .local v0, "it":Ljava/lang/Throwable;
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
     .line 21
@@ -258,7 +259,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_26
 
     move-object v4, p1
 
@@ -266,32 +267,33 @@
 
     instance-of v4, v4, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1c
 
-    goto :goto_0
+    goto :goto_26
 
     .line 69
-    :cond_1
+    :cond_1c
     move-object v4, p1
 
     check-cast v4, Lkotlin/coroutines/Continuation;
 
     check-cast v4, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
+    # invokes: Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
     invoke-static {v0, v4}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->access$recoverFromStackFrame(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_27
 
     .line 68
-    :cond_2
-    :goto_0
+    :cond_26
+    :goto_26
     move-object v4, v0
 
     .line 21
     .end local v3    # "$i$f$recoverStackTrace":I
-    :goto_1
+    :goto_27
     const/4 v3, 0x2
 
     const/4 v5, 0x0
@@ -306,23 +308,23 @@
     move-object v0, v2
 
     .line 22
-    :goto_2
+    :goto_2e
     return-object v0
 .end method
 
 .method public static synthetic toState$default(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 12
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 13
     const/4 p1, 0x0
 
     .line 12
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/CompletionStateKt;->toState(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 
     move-result-object p0

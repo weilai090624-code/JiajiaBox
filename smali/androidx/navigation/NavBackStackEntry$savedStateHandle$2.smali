@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/NavBackStackEntry$savedStateHandle$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
@@ -64,20 +64,22 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/SavedStateHandle;
-    .locals 4
+    .registers 5
 
     .line 125
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntry$savedStateHandle$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
+    # getter for: Landroidx/navigation/NavBackStackEntry;->savedStateRegistryAttached:Z
     invoke-static {v0}, Landroidx/navigation/NavBackStackEntry;->access$getSavedStateRegistryAttached$p(Landroidx/navigation/NavBackStackEntry;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4a
 
     .line 130
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntry$savedStateHandle$2;->this$0:Landroidx/navigation/NavBackStackEntry;
 
+    # getter for: Landroidx/navigation/NavBackStackEntry;->lifecycle:Landroidx/lifecycle/LifecycleRegistry;
     invoke-static {v0}, Landroidx/navigation/NavBackStackEntry;->access$getLifecycle$p(Landroidx/navigation/NavBackStackEntry;)Landroidx/lifecycle/LifecycleRegistry;
 
     move-result-object v0
@@ -88,17 +90,17 @@
 
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_19
+    if-eqz v0, :cond_3c
 
     .line 134
     new-instance v0, Landroidx/lifecycle/ViewModelProvider;
@@ -137,7 +139,7 @@
     return-object v0
 
     .line 130
-    :cond_1
+    :cond_3c
     const/4 v0, 0x0
 
     .line 131
@@ -159,7 +161,7 @@
     throw v0
 
     .line 125
-    :cond_2
+    :cond_4a
     const/4 v0, 0x0
 
     .line 126
@@ -182,7 +184,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 124
     invoke-virtual {p0}, Landroidx/navigation/NavBackStackEntry$savedStateHandle$2;->invoke()Landroidx/lifecycle/SavedStateHandle;

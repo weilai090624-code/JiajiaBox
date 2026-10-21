@@ -51,7 +51,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$04ei314Kkm3KMBPDDsE5Sk-g6nw(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$4(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$70UUUuVSXrXV0urLaSP2NgVOTTQ(Landroidx/preference/SwitchPreference;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$9(Landroidx/preference/SwitchPreference;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$A2w92z0qQoEeMKEDzazxToJGQqQ(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$7(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/view/View;)Z
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$HeVzBGWKPDtzYF6s_uPDG_d8HdQ(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$11(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$MFXtX09cHwTdVCG4AT0MdalWmWM(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$2(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Ou9LaYsEEg4iGfxnZcNgZc5ynGs(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$8(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Pt0MQ8EsWRAp1LYq60mTkEEWwdA(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->reloadListener$lambda$0(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kZwjfQTHDDdjyFnB0et5ju0jFb8(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$3(Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$uYqxW_tgR_U2bCxBexIw_njgXrA(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$7$lambda$6(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/content/DialogInterface;I)V
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$zSuuFQ6oq6GZ5tbXpp0b3jemPck(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->onCreatePreferences$lambda$10(Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-direct {p0}, Landroidx/preference/PreferenceFragmentCompat;-><init>()V
@@ -166,7 +166,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$10(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     const-string p1, "<unused var>"
 
@@ -183,21 +183,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     sget-object p0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->stopService()V
 
     .line 138
-    :cond_0
+    :cond_16
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method private static final onCreatePreferences$lambda$11(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -212,7 +212,7 @@
 
     check-cast p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     const-string v0, "null cannot be cast to non-null type kotlin.Boolean"
 
@@ -229,7 +229,7 @@
     invoke-virtual {p1, v0}, Lio/nekohasekai/sagernet/ui/MainActivity;->refreshNavMenu(Z)V
 
     .line 147
-    :cond_0
+    :cond_1c
     move-object p1, p0
 
     check-cast p1, Landroidx/fragment/app/Fragment;
@@ -243,7 +243,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$2(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
     .param p2, "newTheme"    # Ljava/lang/Object;
 
@@ -262,7 +262,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 47
     sget-object p1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -270,7 +270,7 @@
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->reloadService()V
 
     .line 49
-    :cond_0
+    :cond_16
     sget-object p1, Lio/nekohasekai/sagernet/utils/Theme;->INSTANCE:Lio/nekohasekai/sagernet/utils/Theme;
 
     const-string v0, "null cannot be cast to non-null type kotlin.Int"
@@ -331,7 +331,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$3(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "newTheme"    # Ljava/lang/Object;
 
     const-string v0, "<unused var>"
@@ -367,7 +367,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$4(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
 
     const-string p2, "<unused var>"
@@ -388,7 +388,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$7(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/view/View;)Z
-    .locals 6
+    .registers 8
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -399,12 +399,12 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return v1
 
     .line 94
-    :cond_0
+    :cond_8
     new-instance v0, Landroid/widget/EditText;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->getContext()Landroid/content/Context;
@@ -433,12 +433,12 @@
 
     .line 97
     .local v4, "size":I
-    if-nez v4, :cond_1
+    if-nez v4, :cond_21
 
     const/16 v4, 0x32
 
     .line 98
-    :cond_1
+    :cond_21
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v5
@@ -511,7 +511,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$7$lambda$6(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
     .param p0, "$view"    # Landroid/widget/EditText;
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
 
@@ -539,7 +539,7 @@
 
     move-result p2
 
-    if-gtz p2, :cond_0
+    if-gtz p2, :cond_20
 
     sget-object p2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -548,7 +548,7 @@
     invoke-virtual {p2, p3}, Lio/nekohasekai/sagernet/database/DataStore;->setLogBufSize(I)V
 
     .line 106
-    :cond_0
+    :cond_20
     move-object p2, p1
 
     check-cast p2, Landroidx/fragment/app/Fragment;
@@ -560,7 +560,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$8(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -594,7 +594,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     sget-object p1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -603,7 +603,7 @@
     invoke-virtual {p1, v0}, Lio/nekohasekai/sagernet/database/DataStore;->setDirty(Z)V
 
     .line 123
-    :cond_0
+    :cond_24
     move-object p1, p2
 
     check-cast p1, Ljava/lang/Boolean;
@@ -616,7 +616,7 @@
 .end method
 
 .method private static final onCreatePreferences$lambda$9(Landroidx/preference/SwitchPreference;Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p0, "$profileTrafficStatistics"    # Landroidx/preference/SwitchPreference;
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
     .param p3, "newValue"    # Ljava/lang/Object;
@@ -654,7 +654,7 @@
 .end method
 
 .method private static final reloadListener$lambda$0(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;
 
     const-string p2, "<unused var>"
@@ -677,7 +677,7 @@
 
 # virtual methods
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 29
+    .registers 32
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
     .param p2, "rootKey"    # Ljava/lang/String;
 
@@ -709,7 +709,6 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 44
-
     .line 58
     const-string v2, "nightTheme"
 
@@ -971,13 +970,13 @@
 
     const/16 v20, 0x0
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_110
 
     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object/from16 v8, v20
 
-    :cond_0
+    :cond_110
     invoke-virtual {v8, v5}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->useConfigStore(Ljava/lang/String;)V
 
     .line 86
@@ -1029,13 +1028,13 @@
 
     const/16 v5, 0x1c
 
-    if-ge v1, v5, :cond_1
+    if-ge v1, v5, :cond_148
 
     .line 117
     invoke-static {v8}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->remove(Landroidx/preference/Preference;)Z
 
     .line 119
-    :cond_1
+    :cond_148
     const-string v1, "proxyApps"
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1053,7 +1052,7 @@
     .line 120
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->isProxyApps:Landroidx/preference/SwitchPreference;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_162
 
     const-string v1, "isProxyApps"
 
@@ -1061,7 +1060,7 @@
 
     move-object/from16 v1, v20
 
-    :cond_2
+    :cond_162
     new-instance v5, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment$$ExternalSyntheticLambda6;
 
     invoke-direct {v5, v0}, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment$$ExternalSyntheticLambda6;-><init>(Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;)V
@@ -1305,13 +1304,13 @@
     .line 170
     iget-object v5, v0, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->globalCustomConfig:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_243
 
     invoke-static/range {v22 .. v22}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object/from16 v5, v20
 
-    :cond_3
+    :cond_243
     move-object/from16 v16, v1
 
     .end local v1    # "acquireWakeLock":Landroidx/preference/SwitchPreference;
@@ -1329,7 +1328,7 @@
 .end method
 
 .method public onResume()V
-    .locals 3
+    .registers 4
 
     .line 174
     invoke-super {p0}, Landroidx/preference/PreferenceFragmentCompat;->onResume()V
@@ -1339,12 +1338,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 177
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->isProxyApps:Landroidx/preference/SwitchPreference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const-string v0, "isProxyApps"
 
@@ -1352,7 +1351,7 @@
 
     move-object v0, v1
 
-    :cond_0
+    :cond_12
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getProxyApps()Z
@@ -1362,35 +1361,35 @@
     invoke-virtual {v0, v2}, Landroidx/preference/SwitchPreference;->setChecked(Z)V
 
     .line 179
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->globalCustomConfig:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2d
 
     .line 180
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/SettingsPreferenceFragment;->globalCustomConfig:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_29
 
     const-string v0, "globalCustomConfig"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_2
+    :cond_29
     move-object v1, v0
 
-    :goto_0
+    :goto_2a
     invoke-virtual {v1}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->notifyChanged()V
 
     .line 182
-    :cond_3
+    :cond_2d
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 

@@ -550,7 +550,7 @@
     .line 245
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->updating:Z
 
-    if-nez v0, :cond_b1
+    if-nez v0, :cond_b7
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -560,7 +560,7 @@
 
     if-eqz v0, :cond_e
 
-    goto/16 :goto_b1
+    goto/16 :goto_b7
 
     .line 246
     :cond_e
@@ -775,8 +775,8 @@
     .end local v1    # "dialog":Landroid/app/Dialog;
     .end local v2    # "nameInput":Landroid/widget/EditText;
     .end local v3    # "linkInput":Landroid/widget/EditText;
-    :cond_b1
-    :goto_b1
+    :cond_b7
+    :goto_b7
     return-void
 .end method
 
@@ -970,30 +970,6 @@
     .line 268
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
-    return-void
-.end method
-
-.method public onActivityResult(IILandroid/content/Intent;)V
-    .registers 5
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Landroid/content/Intent;
-
-    invoke-super {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->onActivityResult(IILandroid/content/Intent;)V
-
-    const v0, 0x4a46
-
-    if-ne p1, v0, :cond_10
-
-    const/4 v0, -0x1
-
-    if-ne p2, v0, :cond_10
-
-    if-eqz p3, :cond_10
-
-    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/JJFileImport;->handleResult(Ljava/lang/Object;Landroid/content/Intent;)V
-
-    :cond_10
     return-void
 .end method
 
@@ -4624,6 +4600,30 @@
 
 
 # virtual methods
+.method public onActivityResult(IILandroid/content/Intent;)V
+    .registers 5
+    .param p1, "requestCode"    # I
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Landroid/content/Intent;
+
+    invoke-super {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->onActivityResult(IILandroid/content/Intent;)V
+
+    const v0, 0x4a46
+
+    if-ne p1, v0, :cond_10
+
+    const/4 v0, -0x1
+
+    if-ne p2, v0, :cond_10
+
+    if-eqz p3, :cond_10
+
+    invoke-static {p0, p3}, Lio/nekohasekai/sagernet/ui/JJFileImport;->handleResult(Ljava/lang/Object;Landroid/content/Intent;)V
+
+    :cond_10
+    return-void
+.end method
+
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .registers 2
 

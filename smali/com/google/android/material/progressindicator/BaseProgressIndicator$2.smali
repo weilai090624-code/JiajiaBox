@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
     .line 794
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 797
     .local p0, "this":Lcom/google/android/material/progressindicator/BaseProgressIndicator$2;, "Lcom/google/android/material/progressindicator/BaseProgressIndicator$2;"
     iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator$2;->this$0:Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
+    # invokes: Lcom/google/android/material/progressindicator/BaseProgressIndicator;->internalHide()V
     invoke-static {v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->access$100(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
 
     .line 798
@@ -51,6 +52,7 @@
 
     const-wide/16 v1, -0x1
 
+    # setter for: Lcom/google/android/material/progressindicator/BaseProgressIndicator;->lastShowStartTime:J
     invoke-static {v0, v1, v2}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->access$202(Lcom/google/android/material/progressindicator/BaseProgressIndicator;J)J
 
     .line 799

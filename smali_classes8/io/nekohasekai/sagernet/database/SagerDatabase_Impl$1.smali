@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
     .param p2, "version"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public dropAllTables(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -120,25 +120,26 @@
     .line 55
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl$1;->this$0:Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
+    # getter for: Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->access$000(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 56
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 57
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,15 +153,15 @@
 
     .line 59
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_1b
 
     .line 61
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -174,25 +175,26 @@
     .line 65
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl$1;->this$0:Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
+    # getter for: Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->access$100(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 66
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 67
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -206,15 +208,15 @@
 
     .line 69
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_c
 
     .line 71
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -228,35 +230,38 @@
     .line 75
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl$1;->this$0:Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
+    # setter for: Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
     invoke-static {v0, p1}, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->access$202(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 76
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl$1;->this$0:Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
+    # invokes: Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->internalInitInvalidationTracker(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     invoke-static {v0, p1}, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->access$300(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 77
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl$1;->this$0:Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;
 
+    # getter for: Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->mCallbacks:Ljava/util/List;
     invoke-static {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;->access$400(Lio/nekohasekai/sagernet/database/SagerDatabase_Impl;)Ljava/util/List;
 
     move-result-object v0
 
     .line 78
     .local v0, "_callbacks":Ljava/util/List;, "Ljava/util/List<+Landroidx/room/RoomDatabase$Callback;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 79
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -270,15 +275,15 @@
 
     .line 81
     .end local v2    # "_callback":Landroidx/room/RoomDatabase$Callback;
-    goto :goto_0
+    goto :goto_16
 
     .line 83
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -294,7 +299,7 @@
 .end method
 
 .method public onPreMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -313,7 +318,7 @@
 .end method
 
 .method public onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
-    .locals 35
+    .registers 37
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -561,7 +566,7 @@
 
     const-string v12, "\n Found:\n"
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_f4
 
     .line 114
     new-instance v2, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -597,7 +602,7 @@
     return-object v2
 
     .line 118
-    :cond_0
+    :cond_f4
     new-instance v11, Ljava/util/HashMap;
 
     const/16 v13, 0x1b
@@ -1102,7 +1107,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_305
 
     .line 152
     new-instance v2, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1140,7 +1145,7 @@
     return-object v2
 
     .line 156
-    :cond_1
+    :cond_305
     new-instance v13, Ljava/util/HashMap;
 
     const/16 v14, 0xe
@@ -1409,7 +1414,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_2
+    if-nez v15, :cond_43d
 
     .line 176
     new-instance v15, Landroidx/room/RoomOpenHelper$ValidationResult;
@@ -1453,7 +1458,7 @@
     .line 180
     .end local v18    # "_infoProxyEntities":Landroidx/room/util/TableInfo;
     .restart local v1    # "_infoProxyEntities":Landroidx/room/util/TableInfo;
-    :cond_2
+    :cond_43d
     move-object/from16 v18, v1
 
     .end local v1    # "_infoProxyEntities":Landroidx/room/util/TableInfo;

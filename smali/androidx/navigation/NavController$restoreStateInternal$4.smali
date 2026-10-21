@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$BooleanRef;Ljava/util/List;Lkotlin/jvm/internal/Ref$IntRef;Landroidx/navigation/NavController;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1774
@@ -120,7 +120,7 @@
 .end method
 
 .method public final invoke(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 6
+    .registers 8
     .param p1, "entry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "entry"
@@ -145,7 +145,7 @@
     .local v0, "entryIndex":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_29
 
     .line 1781
     iget-object v1, p0, Landroidx/navigation/NavController$restoreStateInternal$4;->$entries:Ljava/util/List;
@@ -179,16 +179,16 @@
     .line 1781
     .end local v3    # "it":Ljava/util/List;
     .end local v4    # "$i$a$-also-NavController$restoreStateInternal$4$restoredEntries$1":I
-    goto :goto_0
+    goto :goto_2d
 
     .line 1785
-    :cond_0
+    :cond_29
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v1
 
     .line 1780
-    :goto_0
+    :goto_2d
     nop
 
     .line 1787
@@ -201,6 +201,7 @@
 
     iget-object v4, p0, Landroidx/navigation/NavController$restoreStateInternal$4;->$args:Landroid/os/Bundle;
 
+    # invokes: Landroidx/navigation/NavController;->addEntryToBackStack(Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavBackStackEntry;Ljava/util/List;)V
     invoke-static {v2, v3, v4, p1, v1}, Landroidx/navigation/NavController;->access$addEntryToBackStack(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavBackStackEntry;Ljava/util/List;)V
 
     .line 1788

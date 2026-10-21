@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/ConnectionSpec;)V
-    .locals 1
+    .registers 3
     .param p1, "connectionSpec"    # Lokhttp3/ConnectionSpec;
 
     const-string v0, "connectionSpec"
@@ -104,6 +104,7 @@
     iput-object v0, p0, Lokhttp3/ConnectionSpec$Builder;->cipherSuites:[Ljava/lang/String;
 
     .line 212
+    # getter for: Lokhttp3/ConnectionSpec;->tlsVersionsAsString:[Ljava/lang/String;
     invoke-static {p1}, Lokhttp3/ConnectionSpec;->access$getTlsVersionsAsString$p(Lokhttp3/ConnectionSpec;)[Ljava/lang/String;
 
     move-result-object v0
@@ -122,7 +123,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "tls"    # Z
 
     .line 205
@@ -138,7 +139,7 @@
 
 # virtual methods
 .method public final allEnabledCipherSuites()Lokhttp3/ConnectionSpec$Builder;
-    .locals 4
+    .registers 5
 
     .line 216
     move-object v0, p0
@@ -154,7 +155,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 218
     const/4 v2, 0x0
@@ -177,7 +178,7 @@
     .line 349
     .restart local v0    # "$this$allEnabledCipherSuites_u24lambda_u2d1":Lokhttp3/ConnectionSpec$Builder;
     .restart local v1    # "$i$a$-apply-ConnectionSpec$Builder$allEnabledCipherSuites$1":I
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
     .line 217
@@ -201,7 +202,7 @@
 .end method
 
 .method public final allEnabledTlsVersions()Lokhttp3/ConnectionSpec$Builder;
-    .locals 4
+    .registers 5
 
     .line 234
     move-object v0, p0
@@ -217,7 +218,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 236
     const/4 v2, 0x0
@@ -240,7 +241,7 @@
     .line 349
     .restart local v0    # "$this$allEnabledTlsVersions_u24lambda_u2d9":Lokhttp3/ConnectionSpec$Builder;
     .restart local v1    # "$i$a$-apply-ConnectionSpec$Builder$allEnabledTlsVersions$1":I
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
     .line 235
@@ -264,7 +265,7 @@
 .end method
 
 .method public final build()Lokhttp3/ConnectionSpec;
-    .locals 5
+    .registers 6
 
     .line 261
     new-instance v0, Lokhttp3/ConnectionSpec;
@@ -289,7 +290,7 @@
 .end method
 
 .method public final varargs cipherSuites([Ljava/lang/String;)Lokhttp3/ConnectionSpec$Builder;
-    .locals 4
+    .registers 6
     .param p1, "cipherSuites"    # [Ljava/lang/String;
 
     const-string v0, "cipherSuites"
@@ -310,22 +311,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_35
 
     .line 229
     array-length v2, p1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-nez v2, :cond_1
+    :goto_15
+    if-nez v2, :cond_25
 
     .line 231
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
@@ -352,7 +353,7 @@
     .line 349
     .restart local v0    # "$this$cipherSuites_u24lambda_u2d7":Lokhttp3/ConnectionSpec$Builder;
     .restart local v1    # "$i$a$-apply-ConnectionSpec$Builder$cipherSuites$2":I
-    :cond_1
+    :cond_25
     const/4 v2, 0x0
 
     .line 229
@@ -375,7 +376,7 @@
     throw v2
 
     .line 349
-    :cond_2
+    :cond_35
     const/4 v2, 0x0
 
     .line 228
@@ -399,7 +400,7 @@
 .end method
 
 .method public final varargs cipherSuites([Lokhttp3/CipherSuite;)Lokhttp3/ConnectionSpec$Builder;
-    .locals 13
+    .registers 15
     .param p1, "cipherSuites"    # [Lokhttp3/CipherSuite;
 
     const-string v0, "cipherSuites"
@@ -420,7 +421,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_57
 
     .line 223
     move-object v2, p1
@@ -452,8 +453,8 @@
 
     const/4 v9, 0x0
 
-    :goto_0
-    if-ge v9, v7, :cond_0
+    :goto_1e
+    if-ge v9, v7, :cond_2f
 
     aget-object v10, v5, v9
 
@@ -480,10 +481,10 @@
     .end local v10    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 353
-    :cond_0
+    :cond_2f
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -516,7 +517,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4f
 
     .line 223
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -546,7 +547,7 @@
     .local v2, "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v3    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_4f
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -559,7 +560,7 @@
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
     .end local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_2
+    :cond_57
     const/4 v2, 0x0
 
     .line 222
@@ -583,7 +584,7 @@
 .end method
 
 .method public final getCipherSuites$okhttp()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 201
     iget-object v0, p0, Lokhttp3/ConnectionSpec$Builder;->cipherSuites:[Ljava/lang/String;
@@ -592,7 +593,7 @@
 .end method
 
 .method public final getSupportsTlsExtensions$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 203
     iget-boolean v0, p0, Lokhttp3/ConnectionSpec$Builder;->supportsTlsExtensions:Z
@@ -601,7 +602,7 @@
 .end method
 
 .method public final getTls$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 200
     iget-boolean v0, p0, Lokhttp3/ConnectionSpec$Builder;->tls:Z
@@ -610,7 +611,7 @@
 .end method
 
 .method public final getTlsVersions$okhttp()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 202
     iget-object v0, p0, Lokhttp3/ConnectionSpec$Builder;->tlsVersions:[Ljava/lang/String;
@@ -619,7 +620,7 @@
 .end method
 
 .method public final setCipherSuites$okhttp([Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # [Ljava/lang/String;
 
     .line 201
@@ -629,7 +630,7 @@
 .end method
 
 .method public final setSupportsTlsExtensions$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 203
@@ -639,7 +640,7 @@
 .end method
 
 .method public final setTls$okhttp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 200
@@ -649,7 +650,7 @@
 .end method
 
 .method public final setTlsVersions$okhttp([Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # [Ljava/lang/String;
 
     .line 202
@@ -659,7 +660,7 @@
 .end method
 
 .method public final supportsTlsExtensions(Z)Lokhttp3/ConnectionSpec$Builder;
-    .locals 4
+    .registers 6
     .param p1, "supportsTlsExtensions"    # Z
     .annotation runtime Lkotlin/Deprecated;
         message = "since OkHttp 3.13 all TLS-connections are expected to support TLS extensions.\nIn a future release setting this to true will be unnecessary and setting it to false\nwill have no effect."
@@ -679,7 +680,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     .line 258
     invoke-virtual {v0, p1}, Lokhttp3/ConnectionSpec$Builder;->setSupportsTlsExtensions$okhttp(Z)V
@@ -700,7 +701,7 @@
     .line 349
     .restart local v0    # "$this$supportsTlsExtensions_u24lambda_u2d17":Lokhttp3/ConnectionSpec$Builder;
     .restart local v1    # "$i$a$-apply-ConnectionSpec$Builder$supportsTlsExtensions$1":I
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
     .line 257
@@ -724,7 +725,7 @@
 .end method
 
 .method public final varargs tlsVersions([Ljava/lang/String;)Lokhttp3/ConnectionSpec$Builder;
-    .locals 4
+    .registers 6
     .param p1, "tlsVersions"    # [Ljava/lang/String;
 
     const-string v0, "tlsVersions"
@@ -745,22 +746,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_35
 
     .line 248
     array-length v2, p1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-nez v2, :cond_1
+    :goto_15
+    if-nez v2, :cond_25
 
     .line 250
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
@@ -787,7 +788,7 @@
     .line 349
     .restart local v0    # "$this$tlsVersions_u24lambda_u2d15":Lokhttp3/ConnectionSpec$Builder;
     .restart local v1    # "$i$a$-apply-ConnectionSpec$Builder$tlsVersions$2":I
-    :cond_1
+    :cond_25
     const/4 v2, 0x0
 
     .line 248
@@ -810,7 +811,7 @@
     throw v2
 
     .line 349
-    :cond_2
+    :cond_35
     const/4 v2, 0x0
 
     .line 247
@@ -834,7 +835,7 @@
 .end method
 
 .method public final varargs tlsVersions([Lokhttp3/TlsVersion;)Lokhttp3/ConnectionSpec$Builder;
-    .locals 13
+    .registers 15
     .param p1, "tlsVersions"    # [Lokhttp3/TlsVersion;
 
     const-string v0, "tlsVersions"
@@ -855,7 +856,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_57
 
     .line 242
     move-object v2, p1
@@ -887,8 +888,8 @@
 
     const/4 v9, 0x0
 
-    :goto_0
-    if-ge v9, v7, :cond_0
+    :goto_1e
+    if-ge v9, v7, :cond_2f
 
     aget-object v10, v5, v9
 
@@ -915,10 +916,10 @@
     .end local v10    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 359
-    :cond_0
+    :cond_2f
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -951,7 +952,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4f
 
     .line 242
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -981,7 +982,7 @@
     .local v2, "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v3    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_4f
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -994,7 +995,7 @@
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
     .end local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_2
+    :cond_57
     const/4 v2, 0x0
 
     .line 240

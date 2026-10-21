@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 131
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/eventbus/Dispatcher$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/eventbus/Dispatcher$1;
 
     .line 131
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
-    .locals 4
+    .registers 7
     .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,12 +83,12 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 158
-    :goto_0
+    :goto_3
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 159
     iget-object v0, p0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;->queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -107,11 +107,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_3
 
     .line 163
-    :cond_0
-    :goto_1
+    :cond_1b
+    :goto_1b
     iget-object v0, p0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;->queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->poll()Ljava/lang/Object;
@@ -123,22 +123,24 @@
     move-object v1, v0
 
     .local v1, "e":Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 164
+    # getter for: Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->subscriber:Lcom/google/common/eventbus/Subscriber;
     invoke-static {v1}, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->access$800(Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;)Lcom/google/common/eventbus/Subscriber;
 
     move-result-object v0
 
+    # getter for: Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->event:Ljava/lang/Object;
     invoke-static {v1}, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->access$700(Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;)Ljava/lang/Object;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Lcom/google/common/eventbus/Subscriber;->dispatchEvent(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 166
-    :cond_1
+    :cond_32
     return-void
 .end method

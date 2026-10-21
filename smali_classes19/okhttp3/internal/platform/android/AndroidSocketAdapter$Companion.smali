@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/android/AndroidSocketAdapter$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final synthetic access$build(Lokhttp3/internal/platform/android/AndroidSocketAdapter$Companion;Ljava/lang/Class;)Lokhttp3/internal/platform/android/AndroidSocketAdapter;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/platform/android/AndroidSocketAdapter$Companion;
     .param p1, "actualSSLSocketClass"    # Ljava/lang/Class;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method private final build(Ljava/lang/Class;)Lokhttp3/internal/platform/android/AndroidSocketAdapter;
-    .locals 3
+    .registers 5
     .param p1, "actualSSLSocketClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,8 +95,8 @@
 
     .line 108
     .local v0, "possibleClass":Ljava/lang/Class;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1
+    if-eqz v0, :cond_22
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
@@ -108,7 +108,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     .line 109
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
@@ -116,12 +116,12 @@
     move-result-object v0
 
     .line 111
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_1
 
     .line 112
-    :cond_0
+    :cond_16
     new-instance v1, Ljava/lang/AssertionError;
 
     .line 113
@@ -137,7 +137,7 @@
     throw v1
 
     .line 118
-    :cond_1
+    :cond_22
     new-instance v1, Lokhttp3/internal/platform/android/AndroidSocketAdapter;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public final factory(Ljava/lang/String;)Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
-    .locals 1
+    .registers 3
     .param p1, "packageName"    # Ljava/lang/String;
 
     const-string v0, "packageName"
@@ -168,9 +168,10 @@
 .end method
 
 .method public final getPlayProviderFactory()Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
-    .locals 1
+    .registers 2
 
     .line 97
+    # getter for: Lokhttp3/internal/platform/android/AndroidSocketAdapter;->playProviderFactory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
     invoke-static {}, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->access$getPlayProviderFactory$cp()Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
 
     move-result-object v0

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/AppListActivity;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AppListActivity$onCreate$$inlined$addTextChangedListener$default$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 82
@@ -84,6 +84,7 @@
     .local v1, "$i$a$-addTextChangedListener$default-AppListActivity$onCreate$3":I
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AppListActivity$onCreate$$inlined$addTextChangedListener$default$1;->this$0:Lio/nekohasekai/sagernet/ui/AppListActivity;
 
+    # getter for: Lio/nekohasekai/sagernet/ui/AppListActivity;->appsAdapter:Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppListActivity;->access$getAppsAdapter$p(Lio/nekohasekai/sagernet/ui/AppListActivity;)Lio/nekohasekai/sagernet/ui/AppListActivity$AppsAdapter;
 
     move-result-object v2
@@ -92,18 +93,18 @@
 
     move-result-object v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_16
 
-    :cond_0
+    :cond_14
     const-string v3, ""
 
-    :cond_1
+    :cond_16
     check-cast v3, Ljava/lang/CharSequence;
 
     invoke-virtual {v2, v3}, Landroid/widget/Filter;->filter(Ljava/lang/CharSequence;)V
@@ -121,7 +122,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -143,7 +144,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
