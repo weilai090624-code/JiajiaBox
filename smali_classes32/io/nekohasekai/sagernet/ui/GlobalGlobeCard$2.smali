@@ -35,7 +35,7 @@
         }
     .end annotation
 
-    .line 199
+    .line 202
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .registers 6
 
-    .line 201
+    .line 204
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result p2
@@ -61,7 +61,7 @@
 
     if-nez p2, :cond_d
 
-    .line 202
+    .line 205
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;->rotate:Z
 
     :cond_d
@@ -69,7 +69,7 @@
 
     if-ne p2, v1, :cond_12
 
-    .line 203
+    .line 206
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;->rotate:Z
 
     :cond_12
@@ -77,7 +77,7 @@
 
     if-eqz p1, :cond_24
 
-    .line 204
+    .line 207
     iget-boolean v2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;->rotate:Z
 
     if-eqz v2, :cond_20
@@ -98,7 +98,7 @@
     :goto_21
     invoke-interface {p1, p2}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    .line 205
+    .line 208
     :cond_24
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 

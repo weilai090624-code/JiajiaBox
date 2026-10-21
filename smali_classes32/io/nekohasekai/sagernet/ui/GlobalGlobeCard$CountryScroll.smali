@@ -24,7 +24,7 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 2
 
-    .line 236
+    .line 239
     invoke-direct {p0, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     return-void
@@ -35,7 +35,7 @@
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .registers 8
 
-    .line 237
+    .line 240
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0

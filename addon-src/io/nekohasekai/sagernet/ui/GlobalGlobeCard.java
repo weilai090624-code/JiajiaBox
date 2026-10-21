@@ -50,12 +50,10 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/** Bundled, on-demand 3D globe with native cached public-exit probes. Never gives the WebView core credentials or raw IPs. */
+/** Bundled 3D globe with native, rate-limited IP.SB lookups. Never gives the WebView credentials or raw IPs. */
 public final class GlobalGlobeCard extends LinearLayout {
     private static final ExecutorService WORKER=Executors.newSingleThreadExecutor(task->{Thread thread=new Thread(task,"globe-regions");thread.setDaemon(true);return thread;});
     private static String cachedHtml;
-    private static ContinentGeoIp geo;
-    private static boolean geoFailed;
     private final Handler main=new Handler(Looper.getMainLooper());
     private final Rect visible=new Rect();
     private final TextView caption,footer;
@@ -141,20 +139,23 @@ public final class GlobalGlobeCard extends LinearLayout {
                     }
                     cachedHtml=document;
                 }
-                if(geo==null&&!geoFailed)try{geo=new ContinentGeoIp(asset(context,"geoip.db",32*1024*1024));}catch(Exception failure){geoFailed=true;android.util.Log.w("GlobalGlobeCard","Bundled GeoIP unavailable",failure);}
                 JSONArray connections=ConnectionInspector.snapshot(context).optJSONArray("connections");
                 JSONObject types=ConnectionInspector.currentTypes(context);java.util.Set<String> tags=new java.util.TreeSet<>();
+                java.util.Map<String,Integer> targetCounts=new java.util.HashMap<>();
                 for(int i=0;connections!=null&&i<connections.length();i++){
                     JSONObject row=connections.optJSONObject(i);if(row==null)continue;
+                    JSONObject metadata=row.optJSONObject("metadata");String target=metadata==null?"":metadata.optString("destinationIP");
+                    if(!target.isEmpty())targetCounts.put(target,targetCounts.containsKey(target)?targetCounts.get(target)+1:1);
                     String tag=GlobeTopology.tag(row,types),type=GlobeTopology.type(row,types);
                     if(!tag.isEmpty()&&!"direct".equals(type)&&!"block".equals(type)&&!"dns".equals(type))tags.add(tag);
                 }
                 StringBuilder path=new StringBuilder("/globe-egress?network=").append(java.net.URLEncoder.encode(networkKey(context),"UTF-8"));
                 int included=0;for(String tag:tags)if(included++<128)path.append("&tag=").append(java.net.URLEncoder.encode(tag,"UTF-8"));
+                java.util.List<String> targets=new java.util.ArrayList<>(targetCounts.keySet());
+                java.util.Collections.sort(targets,(a,b)->{int order=Integer.compare(targetCounts.get(b),targetCounts.get(a));return order!=0?order:a.compareTo(b);});
+                included=0;for(String ip:targets)if(included++<256)path.append("&ip=").append(java.net.URLEncoder.encode(ip,"UTF-8"));
                 JSONObject locations;try{locations=ConnectionInspector.request(context,path.toString());}catch(Exception e){locations=new JSONObject();}
-                final ContinentGeoIp database=geo;
-                graph=GlobeTopology.build(connections,types,locations,ip->database==null?"":database.country(ip));
-                if(geoFailed)problem="地理库不可用 · 可拖动预览";
+                graph=GlobeTopology.build(connections,types,locations);
             }catch(Exception failure){problem="连接后显示分布 · 可拖动预览";}
             final JSONObject snapshot=graph;final String status=problem,document=cachedHtml;
             main.post(()->{
@@ -164,7 +165,9 @@ public final class GlobalGlobeCard extends LinearLayout {
                     countries=snapshot.optJSONArray("countries");if(countries==null)countries=new JSONArray();
                     nodes=snapshot.optJSONArray("nodes");if(nodes==null)nodes=new JSONArray();links=snapshot.optJSONArray("links");if(links==null)links=new JSONArray();html=document;if(web==null&&!webFailed&&html!=null)createWeb();renderCountries();
                     String own=snapshot.optString("selfCountry");
-                    setText(selfLocation,"本机："+(own.isEmpty()?(snapshot.optBoolean("pending")?"定位中":"未定位"):GlobeCountries.name(own,Locale.getDefault())));
+                    setText(selfLocation,"本机："+(own.isEmpty()?(snapshot.optBoolean("selfPending")?"查询中":"未定位"):GlobeCountries.name(own,Locale.getDefault())));
+                    selfLocation.setContentDescription("本机公网位置，IP.SB 在线查询，"+(own.isEmpty()?"未定位":GlobeCountries.name(own,Locale.getDefault())));
+                    if(snapshot.optInt("total")>0&&countries.length()==0)setText(emptyCountries,snapshot.optBoolean("pending")?"ip.sb 查询中":"ip.sb 未定位");
                     setText(exitLocation,"出口："+snapshot.optInt("exitCount")+" 个"+(snapshot.optBoolean("pending")?" · 查询中":""));
                     setText(footer,status!=null?status.split("[，,·]",2)[0].trim():"当前 "+snapshot.optInt("total"));sendState();
                 });

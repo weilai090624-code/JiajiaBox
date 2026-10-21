@@ -1,22 +1,22 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.4 beta`，内部版本号 `306`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.4 beta`，内部版本号 `307`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.4-beta.306` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.4-beta.306 |
-| APK | `JiajiaBox-0.0.4-beta-306-regions.apk` |
-| APK SHA-256 | `72e5b74d4daf37e6858e39a03d01caa621252a0367fc61607f12ab4c2d13d245` |
-| 对应源码归档 | `JiajiaBox-v0.0.4-beta.306-source.tar.gz` |
+| 对应版本标签 | `v0.0.4-beta.307` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.4-beta.307 |
+| APK | `JiajiaBox-0.0.4-beta-307-online-geo.apk` |
+| APK SHA-256 | `ebc0ac02a579f5a6a54496b5e2ddd15cc73ce0fa7b74cc6c3a13c7e69c76a7c3` |
+| 对应源码归档 | `JiajiaBox-v0.0.4-beta.307-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/jiajiabox-fixed-0.0.3`。成品位于 `/sdcard/Download/`；本次构建与验证记录位于 `build/rebuilt-regions-306/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 和源码归档通过 Releases 附件发布。
+本机项目路径：`/root/jiajiabox-fixed-0.0.3`。成品位于 `/sdcard/Download/`；本次构建与验证记录位于 `build/rebuilt-online-geo-307/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 和源码归档通过 Releases 附件发布。
 
-本版保留 HK、TW 与 CN 独立的地理代码、统计和连线，中文显示为“香港”“台湾”“中国大陆”；底部正常摘要仅为“当前 N”。同时包含此前的真实时间昼夜、透明地球、分段落地连线、节点出口分组及抽屉优化。
+本版将地球位置判断改为 IP.SB 在线查询。本机与各节点出口通过各自出站查询公网 IP、地区和坐标（30 秒刷新）；实际目标 IP 在线查询并复用 60 秒，按地区合并分支。最多每秒启动一次请求，查询失败显示未定位，不使用离线地区冒充在线结果。HK、TW 与 CN 继续独立，底部摘要仍为“当前 N”。安装后断开并重新连接代理，使新内核生效。接口文档见 [IP.SB API](https://ip.sb/api/)。
 
 ## 认证
 
@@ -47,7 +47,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.4-beta.306
+tag=v0.0.4-beta.307
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -55,8 +55,8 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload
-git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload/JiajiaBox-$tag-source.tar.gz" "$tag"
+mkdir -p build/release-upload-307
+git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-307/JiajiaBox-$tag-source.tar.gz" "$tag"
 ```
 
 ## 上传成品
@@ -66,15 +66,15 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload/
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.4-beta.306 \
-  --commit "$(git rev-parse v0.0.4-beta.306^{commit})" \
-  --title "JiajiaBox v0.0.4-beta.306 预发布版" \
-  --notes-file build/release-upload/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-306-regions.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-306-regions.apk.sha256 \
-  --asset build/release-upload/JiajiaBox-v0.0.4-beta.306-source.tar.gz \
-  --asset build/release-upload/SHA256SUMS.txt \
-  --output-json build/release-upload/github-publish.json
+  --tag v0.0.4-beta.307 \
+  --commit "$(git rev-parse v0.0.4-beta.307^{commit})" \
+  --title "JiajiaBox v0.0.4-beta.307 预发布版" \
+  --notes-file build/release-upload-307/RELEASE_NOTES.md \
+  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-307-online-geo.apk \
+  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-307-online-geo.apk.sha256 \
+  --asset build/release-upload-307/JiajiaBox-v0.0.4-beta.307-source.tar.gz \
+  --asset build/release-upload-307/SHA256SUMS.txt \
+  --output-json build/release-upload-307/github-publish.json
 ```
 
 脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。

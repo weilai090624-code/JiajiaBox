@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 190
+    .line 193
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$1;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
@@ -41,7 +41,7 @@
 .method private blocked()Landroid/webkit/WebResourceResponse;
     .registers 5
 
-    .line 196
+    .line 199
     new-instance v0, Landroid/webkit/WebResourceResponse;
 
     new-instance v1, Ljava/io/ByteArrayInputStream;
@@ -66,7 +66,7 @@
 
     if-eqz p1, :cond_c
 
-    .line 195
+    .line 198
     const-string v0, "data:image/webp;base64,"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -92,7 +92,7 @@
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
     .registers 4
 
-    .line 197
+    .line 200
     iget-object p2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$1;->this$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     # getter for: Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
@@ -139,7 +139,7 @@
 .method public shouldInterceptRequest(Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;)Landroid/webkit/WebResourceResponse;
     .registers 3
 
-    .line 194
+    .line 197
     invoke-interface {p2}, Landroid/webkit/WebResourceRequest;->getUrl()Landroid/net/Uri;
 
     move-result-object p1
@@ -158,7 +158,7 @@
 .method public shouldInterceptRequest(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
     .registers 3
 
-    .line 193
+    .line 196
     invoke-direct {p0, p2}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$1;->resource(Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
 
     move-result-object p1

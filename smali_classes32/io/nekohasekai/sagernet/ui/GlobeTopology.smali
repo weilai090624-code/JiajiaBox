@@ -3,14 +3,6 @@
 .source "GlobeTopology.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lio/nekohasekai/sagernet/ui/GlobeTopology$CountryLookup;
-    }
-.end annotation
-
-
 # direct methods
 .method public constructor <init>()V
     .registers 1
@@ -21,603 +13,664 @@
     return-void
 .end method
 
-.method public static build(Lorg/json/JSONArray;Lorg/json/JSONObject;Lorg/json/JSONObject;Lio/nekohasekai/sagernet/ui/GlobeTopology$CountryLookup;)Lorg/json/JSONObject;
-    .registers 30
+.method public static build(Lorg/json/JSONArray;Lorg/json/JSONObject;Lorg/json/JSONObject;)Lorg/json/JSONObject;
+    .registers 32
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    move-object/from16 v0, p3
+    if-nez p0, :cond_8
 
-    if-nez p0, :cond_a
+    .line 55
+    new-instance v0, Lorg/json/JSONArray;
 
-    .line 45
-    new-instance v1, Lorg/json/JSONArray;
+    invoke-direct {v0}, Lorg/json/JSONArray;-><init>()V
 
-    invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
+    goto :goto_a
 
-    goto :goto_c
+    :cond_8
+    move-object/from16 v0, p0
 
-    :cond_a
-    move-object/from16 v1, p0
+    :goto_a
+    if-nez p1, :cond_12
 
-    :goto_c
-    if-nez p1, :cond_14
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+
+    goto :goto_14
+
+    :cond_12
+    move-object/from16 v1, p1
+
+    :goto_14
+    if-nez p2, :cond_1c
 
     new-instance v2, Lorg/json/JSONObject;
 
     invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    goto :goto_16
+    goto :goto_1e
 
-    :cond_14
-    move-object/from16 v2, p1
+    :cond_1c
+    move-object/from16 v2, p2
 
-    :goto_16
-    if-nez p2, :cond_1e
+    .line 56
+    :goto_1e
+    const-string v3, "self"
 
-    new-instance v3, Lorg/json/JSONObject;
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
+    move-result-object v4
 
-    goto :goto_20
+    const-string v5, "exits"
 
-    :cond_1e
-    move-object/from16 v3, p2
-
-    .line 46
-    :goto_20
-    const-string v4, "self"
-
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v5}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v5
 
-    const-string v6, "exits"
+    const-string v6, "targets"
 
-    invoke-virtual {v3, v6}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v6}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v5, :cond_33
+    if-nez v4, :cond_37
 
-    .line 47
+    .line 57
+    new-instance v4, Lorg/json/JSONObject;
+
+    invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
+
+    :cond_37
+    if-nez v5, :cond_3e
+
     new-instance v5, Lorg/json/JSONObject;
 
     invoke-direct {v5}, Lorg/json/JSONObject;-><init>()V
 
-    :cond_33
-    if-nez v3, :cond_3a
+    :cond_3e
+    if-nez v2, :cond_45
 
-    new-instance v3, Lorg/json/JSONObject;
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    .line 48
-    :cond_3a
-    const-string v6, "ip"
+    .line 58
+    :cond_45
+    invoke-static {v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->code(Lorg/json/JSONObject;)Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v6
+
+    const-string v7, "origin"
+
+    invoke-static {v3, v7, v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->locatedPoint(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)Lorg/json/JSONObject;
 
     move-result-object v7
 
-    invoke-interface {v0, v7}, Lio/nekohasekai/sagernet/ui/GlobeTopology$CountryLookup;->country(Ljava/lang/String;)Ljava/lang/String;
+    .line 59
+    new-instance v8, Ljava/util/TreeMap;
 
-    move-result-object v7
+    invoke-direct {v8}, Ljava/util/TreeMap;-><init>()V
 
-    const-string v8, "origin"
-
-    invoke-static {v4, v8, v7}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v8
-
-    .line 49
     new-instance v9, Ljava/util/TreeMap;
 
     invoke-direct {v9}, Ljava/util/TreeMap;-><init>()V
 
-    new-instance v10, Ljava/util/TreeMap;
+    new-instance v10, Ljava/util/HashMap;
 
-    invoke-direct {v10}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct {v10}, Ljava/util/HashMap;-><init>()V
 
+    .line 60
     new-instance v11, Ljava/util/HashMap;
 
     invoke-direct {v11}, Ljava/util/HashMap;-><init>()V
 
-    .line 50
-    new-instance v12, Ljava/util/HashMap;
+    .line 61
+    const-string v12, "pending"
 
-    invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
+    invoke-virtual {v4, v12}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
-    .line 51
-    const-string v13, "pending"
+    move-result v13
 
-    invoke-virtual {v5, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+    const-string v14, "error"
 
-    move-result v5
-
-    if-eqz v8, :cond_69
-
-    invoke-interface {v9, v4, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_69
-    move/from16 p1, v5
-
-    move-object/from16 p2, v7
-
-    const/16 p0, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x0
-
-    const/16 v16, 0x0
-
-    .line 52
-    :goto_74
-    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
-
-    move-result v5
-
-    move/from16 v17, v7
-
-    const-string v7, "direct"
-
-    move/from16 v18, v14
-
-    const-string v14, "count"
-
-    const/16 v19, 0x1
-
-    if-ge v15, v5, :cond_1c3
-
-    .line 53
-    invoke-virtual {v1, v15}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
-
-    move-result-object v5
-
-    move-object/from16 v20, v1
-
-    if-nez v5, :cond_9b
-
-    move-object/from16 v24, v2
-
-    move-object/from16 v23, v8
-
-    move-object v0, v12
-
-    move/from16 v22, v15
-
-    move/from16 v7, v17
-
-    move/from16 v14, v18
-
-    move/from16 v12, p1
-
-    goto/16 :goto_1b4
-
-    :cond_9b
-    const-string v1, "metadata"
-
-    invoke-virtual {v5, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 54
-    const-string v21, ""
-
-    move/from16 v22, v15
-
-    if-nez v1, :cond_aa
-
-    move-object/from16 v1, v21
-
-    goto :goto_b0
-
-    :cond_aa
-    const-string v15, "destinationIP"
-
-    invoke-virtual {v1, v15}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    :goto_b0
-    invoke-interface {v0, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology$CountryLookup;->country(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 55
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    move-object/from16 v23, v8
-
-    const-string v8, "dest:"
-
-    invoke-direct {v15, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string v15, "destination"
-
-    invoke-static {v8, v15, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v4, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-nez v15, :cond_d1
+    invoke-virtual {v15}, Ljava/lang/String;->isEmpty()Z
 
-    add-int/lit8 v1, v18, 0x1
+    move-result v15
 
-    move-object/from16 v25, v12
+    const/16 v16, 0x1
 
-    goto :goto_10f
+    xor-int/lit8 v15, v15, 0x1
 
-    .line 57
-    :cond_d1
-    invoke-interface {v11, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    if-eqz v7, :cond_7c
 
-    move-result v24
+    invoke-interface {v8, v3, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v24, :cond_e4
+    :cond_7c
+    const/16 v17, 0x0
 
-    invoke-interface {v11, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 p2, v4
 
-    move-result-object v24
+    move-object/from16 v18, v6
 
-    check-cast v24, Ljava/lang/Integer;
+    move/from16 p1, v13
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/Integer;->intValue()I
+    move/from16 p0, v15
 
-    move-result v24
+    const/4 v6, 0x0
 
-    add-int/lit8 v24, v24, 0x1
+    const/4 v13, 0x0
 
-    goto :goto_e6
+    const/4 v15, 0x0
 
-    :cond_e4
-    const/16 v24, 0x1
-
-    :goto_e6
-    move-object/from16 v25, v12
-
-    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-interface {v11, v1, v12}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 58
-    invoke-interface {v9, v8}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_f8
-
-    invoke-interface {v9, v8, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 59
-    :cond_f8
-    invoke-interface {v9, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lorg/json/JSONObject;
-
-    invoke-interface {v9, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lorg/json/JSONObject;
-
-    invoke-virtual {v12, v14}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v12
-
-    add-int/lit8 v12, v12, 0x1
-
-    invoke-virtual {v1, v14, v12}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    move/from16 v1, v18
-
-    .line 61
-    :goto_10f
-    invoke-static {v5, v2}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->type(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v5, v2}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->tag(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object v5
+    const/16 v19, 0x0
 
     .line 62
-    invoke-virtual {v7, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_8b
+    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
-    move-result v12
+    move-result v4
 
-    if-eqz v12, :cond_133
+    move/from16 v20, v6
 
-    add-int/lit8 v5, v16, 0x1
+    const-string v6, "direct"
 
-    if-eqz v23, :cond_126
+    move/from16 v21, v13
 
-    if-eqz v15, :cond_126
+    const-string v13, "count"
+
+    if-ge v15, v4, :cond_1fc
 
     .line 63
-    invoke-static {v10, v4, v8, v7}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
-    :cond_126
-    move/from16 v12, p1
+    move-result-object v4
 
-    move v14, v1
+    if-nez v4, :cond_b3
 
-    move-object/from16 v24, v2
+    move/from16 v25, p0
 
-    move/from16 v16, v5
+    move-object/from16 v22, v0
 
-    move/from16 v7, v17
+    move-object/from16 v23, v1
 
-    move-object/from16 v0, v25
+    move-object/from16 v26, v2
 
-    goto/16 :goto_1b4
+    move-object/from16 v28, v7
+
+    move/from16 v24, v15
+
+    move/from16 v6, v20
+
+    move/from16 v13, v21
+
+    move/from16 v7, p1
+
+    goto/16 :goto_1ec
+
+    :cond_b3
+    move-object/from16 v22, v0
+
+    const-string v0, "metadata"
+
+    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    .line 64
+    const-string v23, ""
+
+    move/from16 v24, v15
+
+    if-nez v0, :cond_c4
+
+    move-object/from16 v0, v23
+
+    goto :goto_ca
+
+    :cond_c4
+    const-string v15, "destinationIP"
+
+    invoke-virtual {v0, v15}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_ca
+    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_e3
 
     .line 65
-    :cond_133
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v12}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result v15
+
+    or-int v15, p1, v15
+
+    invoke-virtual {v0, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v25
+
+    xor-int/lit8 v25, v25, 0x1
+
+    or-int v25, p0, v25
+
+    goto :goto_e7
+
+    :cond_e3
+    move/from16 v25, p0
+
+    move/from16 v15, p1
+
+    .line 66
+    :goto_e7
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->code(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object/from16 v26, v2
+
+    .line 67
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    move/from16 p0, v15
+
+    const-string v15, "dest:"
+
+    invoke-direct {v2, v15}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v15, "destination"
+
+    invoke-static {v2, v15, v0}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v15
+
+    if-nez v15, :cond_10a
+
+    add-int/lit8 v0, v21, 0x1
+
+    move-object/from16 v28, v7
+
+    goto :goto_148
+
+    .line 69
+    :cond_10a
+    invoke-interface {v10, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_11d
+
+    invoke-interface {v10, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Ljava/lang/Integer;
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/Integer;->intValue()I
+
+    move-result v27
+
+    add-int/lit8 v27, v27, 0x1
+
+    goto :goto_11f
+
+    :cond_11d
+    const/16 v27, 0x1
+
+    :goto_11f
+    move-object/from16 v28, v7
+
+    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    if-eqz v7, :cond_141
+    invoke-interface {v10, v0, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 66
-    invoke-virtual {v7, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+    .line 70
+    invoke-interface {v8, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v0
 
-    if-eqz v12, :cond_141
+    if-nez v0, :cond_131
 
-    const/4 v12, 0x1
+    invoke-interface {v8, v2, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_143
+    .line 71
+    :cond_131
+    invoke-interface {v8, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_141
-    move/from16 v12, p1
+    move-result-object v0
 
-    :goto_143
-    if-nez v7, :cond_146
+    check-cast v0, Lorg/json/JSONObject;
 
-    goto :goto_14a
+    invoke-interface {v8, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
-    :cond_146
-    invoke-virtual {v7, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v7
+
+    check-cast v7, Lorg/json/JSONObject;
+
+    invoke-virtual {v7, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    add-int/lit8 v7, v7, 0x1
+
+    invoke-virtual {v0, v13, v7}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    move/from16 v0, v21
+
+    .line 73
+    :goto_148
+    invoke-static {v4, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->type(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v4, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->tag(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 74
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_16a
+
+    add-int/lit8 v4, v19, 0x1
+
+    if-eqz v28, :cond_15f
+
+    if-eqz v15, :cond_15f
+
+    .line 75
+    invoke-static {v9, v3, v2, v6}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_15f
+    move/from16 v7, p0
+
+    move v13, v0
+
+    move-object/from16 v23, v1
+
+    move/from16 v19, v4
+
+    :goto_166
+    move/from16 v6, v20
+
+    goto/16 :goto_1ec
+
+    .line 77
+    :cond_16a
+    invoke-virtual {v5, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_183
+
+    .line 78
+    invoke-virtual {v6, v12}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result v7
+
+    or-int v7, p0, v7
+
+    invoke-virtual {v6, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v21
 
-    :goto_14a
-    move/from16 v18, v1
-
-    move-object/from16 v7, v21
-
-    invoke-interface {v0, v7}, Lio/nekohasekai/sagernet/ui/GlobeTopology$CountryLookup;->country(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 68
-    invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/String;->isEmpty()Z
 
     move-result v21
 
-    if-nez v21, :cond_1ac
+    xor-int/lit8 v21, v21, 0x1
 
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->center(Ljava/lang/String;)[D
+    or-int v25, v25, v21
 
-    move-result-object v21
+    goto :goto_185
 
-    if-nez v21, :cond_15f
+    :cond_183
+    move/from16 v7, p0
 
-    goto :goto_1ac
+    :goto_185
+    move/from16 p0, v0
 
-    .line 69
-    :cond_15f
-    invoke-static {v7}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->exitID(Ljava/lang/String;)Ljava/lang/String;
+    if-nez v6, :cond_18a
 
-    move-result-object v7
+    goto :goto_190
 
-    invoke-interface {v9, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 79
+    :cond_18a
+    const-string v0, "ip"
+
+    invoke-virtual {v6, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    :goto_190
+    invoke-static {v6}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->code(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 80
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v21
+
+    if-nez v21, :cond_1e6
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1a1
+
+    goto :goto_1e6
+
+    .line 81
+    :cond_1a1
+    invoke-static/range {v23 .. v23}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->exitID(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v8, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v21
 
     check-cast v21, Lorg/json/JSONObject;
 
-    if-nez v21, :cond_183
+    move-object/from16 v23, v1
 
-    .line 70
-    const-string v0, "exit"
+    if-nez v21, :cond_1c1
 
-    invoke-static {v7, v0, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+    .line 82
+    const-string v1, "exit"
 
-    move-result-object v0
+    invoke-static {v0, v1, v6}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->locatedPoint(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)Lorg/json/JSONObject;
 
-    invoke-interface {v9, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    new-instance v1, Ljava/util/HashSet;
+    invoke-interface {v8, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+    new-instance v6, Ljava/util/HashSet;
 
-    move-object/from16 p1, v0
+    invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
-    move-object/from16 v0, v25
+    invoke-interface {v11, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0, v7, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    goto :goto_1c3
 
-    move-object/from16 v1, p1
-
-    goto :goto_187
-
-    :cond_183
-    move-object/from16 v0, v25
-
+    :cond_1c1
     move-object/from16 v1, v21
 
-    .line 71
-    :goto_187
-    invoke-virtual {v1, v14}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    .line 83
+    :goto_1c3
+    invoke-virtual {v1, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
-    move-result v21
+    move-result v6
 
-    move-object/from16 v24, v2
+    add-int/lit8 v6, v6, 0x1
 
-    add-int/lit8 v2, v21, 0x1
+    invoke-virtual {v1, v13, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    invoke-virtual {v1, v14, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    invoke-interface {v0, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v11, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Set;
 
-    invoke-interface {v1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    if-eqz v23, :cond_1a2
+    if-eqz v28, :cond_1dc
 
-    .line 72
+    .line 84
     const-string v1, "uplink"
 
-    invoke-static {v10, v4, v7, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v9, v3, v0, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1a2
-    if-eqz v15, :cond_1a9
+    :cond_1dc
+    if-eqz v15, :cond_1e3
 
-    .line 73
+    .line 85
     const-string v1, "request"
 
-    invoke-static {v10, v7, v8, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v9, v0, v2, v1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->link(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1a9
-    move/from16 v7, v17
+    :cond_1e3
+    move/from16 v13, p0
 
-    goto :goto_1b2
+    goto :goto_166
 
-    :cond_1ac
-    :goto_1ac
-    move-object/from16 v24, v2
+    :cond_1e6
+    :goto_1e6
+    move-object/from16 v23, v1
 
-    move-object/from16 v0, v25
+    add-int/lit8 v6, v20, 0x1
 
-    add-int/lit8 v7, v17, 0x1
+    move/from16 v13, p0
 
-    :goto_1b2
-    move/from16 v14, v18
+    :goto_1ec
+    add-int/lit8 v15, v24, 0x1
 
-    :goto_1b4
-    add-int/lit8 v15, v22, 0x1
+    move/from16 p1, v7
 
-    move/from16 p1, v12
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v23
 
-    move-object/from16 v8, v23
+    move/from16 p0, v25
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v26
 
-    move-object v12, v0
+    move-object/from16 v7, v28
 
-    move-object/from16 v0, p3
+    goto/16 :goto_8b
 
-    goto/16 :goto_74
+    :cond_1fc
+    move-object/from16 v22, v0
 
-    :cond_1c3
-    move-object/from16 v20, v1
+    move-object/from16 v28, v7
 
-    move-object/from16 v23, v8
+    .line 87
+    invoke-interface {v11}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-object v0, v12
+    move-result-object v0
 
-    .line 75
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1d0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1f6
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Map$Entry;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-interface {v9, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lorg/json/JSONObject;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Set;
-
-    invoke-interface {v2}, Ljava/util/Set;->size()I
-
-    move-result v2
-
-    const-string v4, "members"
-
-    invoke-virtual {v3, v4, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    goto :goto_1d0
-
-    :cond_1f6
-    if-eqz v23, :cond_201
-
-    .line 76
-    invoke-virtual/range {v20 .. v20}, Lorg/json/JSONArray;->length()I
+    :goto_208
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    move-object/from16 v2, v23
+    if-eqz v1, :cond_22e
 
-    invoke-virtual {v2, v14, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    .line 77
-    :cond_201
-    new-instance v1, Ljava/util/ArrayList;
+    move-result-object v1
 
-    invoke-interface {v11}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    check-cast v1, Ljava/util/Map$Entry;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-interface {v8, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v2, Lio/nekohasekai/sagernet/ui/GlobeTopology$0;
+    move-result-object v2
 
-    invoke-direct {v2, v11}, Lio/nekohasekai/sagernet/ui/GlobeTopology$0;-><init>(Ljava/util/Map;)V
+    check-cast v2, Lorg/json/JSONObject;
 
-    invoke-static {v1, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    .line 78
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->size()I
+
+    move-result v1
+
+    const-string v3, "members"
+
+    invoke-virtual {v2, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    goto :goto_208
+
+    :cond_22e
+    if-eqz v28, :cond_239
+
+    .line 88
+    invoke-virtual/range {v22 .. v22}, Lorg/json/JSONArray;->length()I
+
+    move-result v0
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v1, v13, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    .line 89
+    :cond_239
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-interface {v10}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/GlobeTopology$0;
+
+    invoke-direct {v1, v10}, Lio/nekohasekai/sagernet/ui/GlobeTopology$0;-><init>(Ljava/util/Map;)V
+
+    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 90
+    new-instance v1, Lorg/json/JSONArray;
+
+    invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
+
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2}, Lorg/json/JSONArray;-><init>()V
@@ -626,96 +679,108 @@
 
     invoke-direct {v3}, Lorg/json/JSONArray;-><init>()V
 
-    new-instance v4, Lorg/json/JSONArray;
+    .line 91
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    invoke-direct {v4}, Lorg/json/JSONArray;-><init>()V
+    move-result-object v0
 
-    .line 79
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    :goto_25d
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v1
+    move-result v4
 
-    :goto_225
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v4, :cond_2a2
 
-    move-result v5
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    if-eqz v5, :cond_272
+    move-result-object v4
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    check-cast v4, Ljava/lang/String;
+
+    invoke-static {v4}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->center(Ljava/lang/String;)[D
 
     move-result-object v5
 
-    check-cast v5, Ljava/lang/String;
+    new-instance v7, Lorg/json/JSONObject;
 
-    invoke-static {v5}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->center(Ljava/lang/String;)[D
+    invoke-direct {v7}, Lorg/json/JSONObject;-><init>()V
 
-    move-result-object v6
+    const-string v14, "code"
 
-    new-instance v8, Lorg/json/JSONObject;
+    invoke-virtual {v7, v14, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    invoke-direct {v8}, Lorg/json/JSONObject;-><init>()V
-
-    const-string v12, "code"
-
-    invoke-virtual {v8, v12, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v8
+    move-result-object v7
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-static {v5, v12}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->name(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v4, v14}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->name(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
     const-string v15, "name"
 
-    invoke-virtual {v8, v15, v12}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v7, v15, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {v11, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v10, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v8, v14, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v7, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string v8, "lon"
+    const-string v7, "lon"
 
-    move-object/from16 v25, v0
+    aget-wide v14, v5, v17
 
-    move-object/from16 p3, v1
+    invoke-virtual {v4, v7, v14, v15}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
 
-    aget-wide v0, v6, p0
+    move-result-object v4
 
-    invoke-virtual {v5, v8, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
+    const-string v7, "lat"
+
+    aget-wide v14, v5, v16
+
+    invoke-virtual {v4, v7, v14, v15}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+
+    goto :goto_25d
+
+    .line 92
+    :cond_2a2
+    invoke-interface {v8}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v0
 
-    const-string v1, "lat"
-
-    aget-wide v5, v6, v19
-
-    invoke-virtual {v0, v1, v5, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    :goto_2aa
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-object/from16 v1, p3
+    move-result v4
 
-    move-object/from16 v0, v25
+    if-eqz v4, :cond_2ba
 
-    goto :goto_225
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    :cond_272
-    move-object/from16 v25, v0
+    move-result-object v4
 
-    .line 80
+    check-cast v4, Lorg/json/JSONObject;
+
+    invoke-virtual {v2, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+
+    goto :goto_2aa
+
+    :cond_2ba
     invoke-interface {v9}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v0
@@ -724,76 +789,50 @@
 
     move-result-object v0
 
-    :goto_27c
+    :goto_2c2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_28c
+    if-eqz v4, :cond_2d2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Lorg/json/JSONObject;
+    check-cast v4, Lorg/json/JSONObject;
 
-    invoke-virtual {v3, v1}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v3, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    goto :goto_27c
+    goto :goto_2c2
 
-    :cond_28c
-    invoke-interface {v10}, Ljava/util/Map;->values()Ljava/util/Collection;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_294
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2a4
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lorg/json/JSONObject;
-
-    invoke-virtual {v4, v1}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
-
-    goto :goto_294
-
-    .line 81
-    :cond_2a4
+    .line 93
+    :cond_2d2
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    const-string v1, "countries"
+    const-string v4, "countries"
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v4, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "nodes"
 
-    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "links"
 
-    invoke-virtual {v0, v1, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "total"
 
-    invoke-virtual/range {v20 .. v20}, Lorg/json/JSONArray;->length()I
+    invoke-virtual/range {v22 .. v22}, Lorg/json/JSONArray;->length()I
 
     move-result v2
 
@@ -803,37 +842,49 @@
 
     const-string v1, "unknown"
 
-    move/from16 v14, v18
+    move/from16 v13, v21
 
-    invoke-virtual {v0, v1, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v13}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "missingExits"
 
-    move/from16 v14, v17
+    move/from16 v2, v20
 
-    invoke-virtual {v0, v1, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    move/from16 v14, v16
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v7, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v6, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "selfCountry"
 
-    move-object/from16 v2, p2
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
+    const-string v1, "selfPending"
+
+    move-object/from16 v4, p2
+
+    invoke-virtual {v4, v12}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
+    move-result-object v0
+
     const-string v1, "exitCount"
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/Map;->size()I
+    invoke-interface {v11}, Ljava/util/Map;->size()I
 
     move-result v2
 
@@ -841,12 +892,107 @@
 
     move-result-object v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
-    invoke-virtual {v0, v13, v12}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+    invoke-virtual {v0, v12, v13}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     move-result-object v0
 
+    const-string v1, "lookupFailed"
+
+    move/from16 v15, p0
+
+    invoke-virtual {v0, v1, v15}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "provider"
+
+    const-string v2, "ip.sb"
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static code(Lorg/json/JSONObject;)Ljava/lang/String;
+    .registers 4
+
+    .line 35
+    const-string v0, ""
+
+    if-eqz p0, :cond_3f
+
+    const-string v1, "source"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "ip.sb"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3f
+
+    const-string v1, "ip"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3f
+
+    const-string v1, "error"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2b
+
+    goto :goto_3f
+
+    .line 36
+    :cond_2b
+    const-string v1, "country_code"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 37
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->center(Ljava/lang/String;)[D
+
+    move-result-object v1
+
+    if-nez v1, :cond_3e
+
+    return-object v0
+
+    :cond_3e
+    return-object p0
+
+    :cond_3f
+    :goto_3f
     return-object v0
 .end method
 
@@ -858,7 +1004,7 @@
         }
     .end annotation
 
-    .line 36
+    .line 46
     const-string v0, "SHA-256"
 
     invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
@@ -890,7 +1036,7 @@
 
     if-ge v2, v3, :cond_38
 
-    .line 37
+    .line 47
     sget-object v3, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
     aget-byte v4, p0, v2
@@ -930,7 +1076,7 @@
 .method static synthetic lambda$build$0(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
     .registers 4
 
-    .line 77
+    .line 89
     invoke-interface {p0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -989,7 +1135,7 @@
         }
     .end annotation
 
-    .line 40
+    .line 50
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1012,7 +1158,7 @@
 
     check-cast v1, Lorg/json/JSONObject;
 
-    .line 41
+    .line 51
     const-string v2, "count"
 
     if-nez v1, :cond_3d
@@ -1047,7 +1193,7 @@
 
     invoke-interface {p0, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
+    .line 52
     :cond_3d
     invoke-virtual {v1, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
@@ -1060,6 +1206,113 @@
     return-void
 .end method
 
+.method private static locatedPoint(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)Lorg/json/JSONObject;
+    .registers 11
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .line 40
+    invoke-static {p2}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->code(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, p1, v0}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    if-nez p0, :cond_c
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    .line 41
+    :cond_c
+    const-string p1, "longitude"
+
+    const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
+
+    invoke-virtual {p2, p1, v0, v1}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;D)D
+
+    move-result-wide v2
+
+    const-string p1, "latitude"
+
+    invoke-virtual {p2, p1, v0, v1}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;D)D
+
+    move-result-wide v0
+
+    .line 42
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p1
+
+    if-nez p1, :cond_4b
+
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p1
+
+    if-nez p1, :cond_4b
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v4
+
+    const-wide v6, 0x4066800000000000L    # 180.0
+
+    cmpg-double p1, v4, v6
+
+    if-gtz p1, :cond_4b
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v4
+
+    const-wide v6, 0x4056800000000000L    # 90.0
+
+    cmpg-double p1, v4, v6
+
+    if-gtz p1, :cond_4b
+
+    const-string p1, "lon"
+
+    invoke-virtual {p0, p1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    const-string v2, "lat"
+
+    invoke-virtual {p1, v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
+
+    .line 43
+    :cond_4b
+    const-string p1, "source"
+
+    const-string v0, "ip.sb"
+
+    invoke-virtual {p0, p1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    const-string p1, "checked_at"
+
+    invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
+
+    move-result-wide p1
+
+    const-string v0, "checkedAt"
+
+    invoke-virtual {p0, v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private static point(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
     .registers 6
     .annotation system Ldalvik/annotation/Throws;
@@ -1068,7 +1321,7 @@
         }
     .end annotation
 
-    .line 32
+    .line 31
     invoke-static {p2}, Lio/nekohasekai/sagernet/ui/GlobeCountries;->center(Ljava/lang/String;)[D
 
     move-result-object v0
@@ -1079,7 +1332,7 @@
 
     return-object p0
 
-    .line 33
+    .line 32
     :cond_8
     new-instance v1, Lorg/json/JSONObject;
 
@@ -1135,7 +1388,7 @@
 .method public static tag(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
     .registers 6
 
-    .line 22
+    .line 21
     const-string v0, "outbound"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -1150,7 +1403,7 @@
 
     return-object v0
 
-    .line 23
+    .line 22
     :cond_d
     const-string v0, "chains"
 
@@ -1163,14 +1416,14 @@
     :goto_14
     if-eqz p0, :cond_3e
 
-    .line 24
+    .line 23
     invoke-virtual {p0}, Lorg/json/JSONArray;->length()I
 
     move-result v1
 
     if-ge v0, v1, :cond_3e
 
-    .line 25
+    .line 24
     invoke-virtual {p0, v0}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -1179,7 +1432,7 @@
 
     move-result-object v2
 
-    .line 26
+    .line 25
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v3
@@ -1209,7 +1462,7 @@
 
     goto :goto_14
 
-    .line 28
+    .line 27
     :cond_3e
     const-string p0, ""
 
@@ -1219,7 +1472,7 @@
 .method public static type(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
     .registers 4
 
-    .line 30
+    .line 29
     const-string v0, "outboundType"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
