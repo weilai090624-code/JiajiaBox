@@ -61,6 +61,8 @@
 
 .field private final footer:Landroid/widget/TextView;
 
+.field private forceLookup:Z
+
 .field private html:Ljava/lang/String;
 
 .field private final laidOut:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
@@ -78,6 +80,10 @@
 .field private loaded:Z
 
 .field private loading:Z
+
+.field private lookupReport:Ljava/lang/String;
+
+.field private final lookupStatus:Landroid/widget/TextView;
 
 .field private final main:Landroid/os/Handler;
 
@@ -128,7 +134,7 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 55
+    .line 56
     new-instance v0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$0;
 
     invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$0;-><init>()V
@@ -145,10 +151,10 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .registers 15
 
-    .line 77
+    .line 80
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 57
+    .line 58
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -159,14 +165,14 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->main:Landroid/os/Handler;
 
-    .line 58
+    .line 59
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->visible:Landroid/graphics/Rect;
 
-    .line 60
+    .line 61
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -181,10 +187,15 @@
 
     const/4 v0, 0x1
 
-    .line 67
+    .line 68
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->autoRotate:Z
 
-    .line 70
+    .line 72
+    const-string v1, "\u7b49\u5f85\u67e5\u8be2"
+
+    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupReport:Ljava/lang/String;
+
+    .line 73
     new-instance v1, Lorg/json/JSONArray;
 
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
@@ -203,35 +214,35 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->links:Lorg/json/JSONArray;
 
-    .line 71
+    .line 74
     new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$3;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->changed:Ljava/lang/Runnable;
 
-    .line 72
+    .line 75
     new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$4;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$4;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->scrolled:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
-    .line 73
+    .line 76
     new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$5;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$5;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->laidOut:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-    .line 74
+    .line 77
     new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$6;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$6;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->tick:Ljava/lang/Runnable;
 
-    .line 77
+    .line 80
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setOrientation(I)V
 
     const/high16 v1, 0x41800000    # 16.0f
@@ -260,7 +271,7 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setClipToOutline(Z)V
 
-    .line 78
+    .line 81
     new-instance v1, Landroid/widget/LinearLayout;
 
     invoke-direct {v1, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -269,7 +280,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 79
+    .line 82
     const-string v4, "\u5168\u7403\u8fde\u63a5"
 
     const/16 v5, 0xe
@@ -292,7 +303,7 @@
 
     invoke-static {v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
 
-    .line 80
+    .line 83
     const-string v8, "\u5207\u6362\u5730\u7403\u81ea\u8f6c\uff0c\u53cc\u51fb\u5730\u7403\u53ef\u91cd\u7f6e\u89c6\u89d2"
 
     invoke-virtual {v5, v8}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
@@ -303,7 +314,7 @@
 
     invoke-virtual {v5, v8}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 81
+    .line 84
     new-instance v8, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v9, 0x41b00000    # 22.0f
@@ -342,7 +353,7 @@
 
     invoke-virtual {p0, v1, v4}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 82
+    .line 85
     new-instance v1, Landroid/widget/LinearLayout;
 
     invoke-direct {v1, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -363,7 +374,7 @@
 
     invoke-virtual {p0, v1, v4}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 83
+    .line 86
     new-instance v4, Landroid/widget/FrameLayout;
 
     invoke-direct {v4, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -376,7 +387,7 @@
 
     invoke-virtual {v1, v4, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 84
+    .line 87
     new-instance v4, Landroid/widget/LinearLayout;
 
     invoke-direct {v4, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -389,7 +400,7 @@
 
     invoke-virtual {v4, v9}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 85
+    .line 88
     new-instance v9, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryScroll;
 
     invoke-direct {v9, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$CountryScroll;-><init>(Landroid/content/Context;)V
@@ -408,7 +419,7 @@
 
     invoke-virtual {v9, v4, v11}, Landroid/widget/ScrollView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 86
+    .line 89
     new-instance v11, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v12, 0x42d00000    # 104.0f
@@ -427,7 +438,7 @@
 
     invoke-virtual {v1, v9, v11}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 87
+    .line 90
     const-string v1, "\u672c\u673a\uff1a\u5b9a\u4f4d\u4e2d"
 
     invoke-direct {p0, v1, v6, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
@@ -450,7 +461,7 @@
 
     invoke-virtual {v4, v1, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 88
+    .line 91
     const-string v5, "\u51fa\u53e3\uff1a\u7b49\u5f85\u8fde\u63a5"
 
     invoke-direct {p0, v5, v6, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
@@ -471,7 +482,7 @@
 
     invoke-virtual {v4, v5, v11}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 89
+    .line 92
     new-instance v9, Landroid/widget/LinearLayout;
 
     invoke-direct {v9, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -486,7 +497,34 @@
 
     invoke-virtual {v4, v9, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 90
+    .line 93
+    const-string p1, "\u5b9a\u4f4d\uff1a\u7b49\u5f85\u67e5\u8be2"
+
+    const/16 v0, 0x9
+
+    invoke-direct {p0, p1, v0, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupStatus:Landroid/widget/TextView;
+
+    invoke-virtual {p1, v7}, Landroid/widget/TextView;->setSingleLine(Z)V
+
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
+
+    new-instance v9, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$8;
+
+    invoke-direct {v9, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$8;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+
+    invoke-virtual {p1, v9}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v9, v8, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v4, p1, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 94
     sget-object p1, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
@@ -495,17 +533,15 @@
 
     invoke-virtual {v5, p1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 91
-    new-instance p1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$8;
+    .line 95
+    new-instance p1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$9;
 
-    invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$8;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+    invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$9;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 92
+    .line 96
     const-string p1, "\u8bf7\u6c42\u56fd\u5bb6\uff0f\u5730\u533a"
-
-    const/16 v0, 0x9
 
     invoke-direct {p0, p1, v0, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
 
@@ -515,17 +551,17 @@
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v5, 0x41a00000    # 20.0f
+    const/high16 v9, 0x41a00000    # 20.0f
 
-    invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
+    invoke-direct {p0, v9}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
 
-    move-result v5
+    move-result v9
 
-    invoke-direct {v1, v8, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v4, p1, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 93
+    .line 97
     const-string p1, "\u8fde\u63a5\u540e\u663e\u793a\n\u56fd\u5bb6\uff0f\u5730\u533a"
 
     invoke-direct {p0, p1, v6, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
@@ -544,17 +580,30 @@
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v5, 0x42a00000    # 80.0f
+    const/high16 v6, 0x42a00000    # 80.0f
 
-    invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
+    invoke-direct {p0, v6}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
 
-    move-result v5
+    move-result v6
 
-    invoke-direct {v1, v8, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v8, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v4, p1, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 94
+    .line 98
+    new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;
+
+    invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+
+    invoke-virtual {p1, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    new-instance p1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$11;
+
+    invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$11;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
+
+    invoke-virtual {v5, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 99
     const-string p1, "\u5f53\u524d 0"
 
     invoke-direct {p0, p1, v0, v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
@@ -583,7 +632,7 @@
 .method static synthetic access$000(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)Landroid/webkit/WebView;
     .registers 1
 
-    .line 54
+    .line 55
     iget-object p0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     return-object p0
@@ -592,7 +641,7 @@
 .method static synthetic access$100(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)Z
     .registers 1
 
-    .line 54
+    .line 55
     iget-boolean p0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->loaded:Z
 
     return p0
@@ -601,7 +650,7 @@
 .method static synthetic access$102(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Z)Z
     .registers 2
 
-    .line 54
+    .line 55
     iput-boolean p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->loaded:Z
 
     return p1
@@ -610,7 +659,7 @@
 .method static synthetic access$202(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Ljava/lang/String;)Ljava/lang/String;
     .registers 2
 
-    .line 54
+    .line 55
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lastState:Ljava/lang/String;
 
     return-object p1
@@ -619,7 +668,7 @@
 .method static synthetic access$300(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
     .registers 1
 
-    .line 54
+    .line 55
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->sendState()V
 
     return-void
@@ -628,7 +677,7 @@
 .method static synthetic access$400(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)Z
     .registers 1
 
-    .line 54
+    .line 55
     iget-boolean p0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
     return p0
@@ -637,7 +686,7 @@
 .method static synthetic access$500(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Ljava/lang/String;IZ)Landroid/widget/TextView;
     .registers 4
 
-    .line 54
+    .line 55
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
 
     move-result-object p0
@@ -648,7 +697,7 @@
 .method static synthetic access$600(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;F)I
     .registers 2
 
-    .line 54
+    .line 55
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
 
     move-result p0
@@ -659,7 +708,7 @@
 .method static synthetic access$700(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 2
 
-    .line 54
+    .line 55
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
     return-void
@@ -673,7 +722,7 @@
         }
     .end annotation
 
-    .line 123
+    .line 128
     invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object p0
@@ -691,7 +740,7 @@
 
     const/16 v0, 0x2000
 
-    .line 124
+    .line 129
     :try_start_f
     new-array v0, v0, [B
 
@@ -734,7 +783,7 @@
     :try_end_30
     .catchall {:try_start_f .. :try_end_30} :catchall_39
 
-    .line 125
+    .line 130
     :try_start_30
     invoke-virtual {p1}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_33
@@ -750,7 +799,7 @@
     :catchall_39
     move-exception p2
 
-    .line 123
+    .line 128
     :try_start_3a
     invoke-virtual {p1}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_3d
@@ -794,7 +843,7 @@
 .method private available()Z
     .registers 3
 
-    .line 102
+    .line 107
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->isAttachedToWindow()Z
 
     move-result v0
@@ -870,7 +919,7 @@
 
     const/4 v3, 0x0
 
-    .line 190
+    .line 206
     :try_start_3
     new-instance v0, Landroid/webkit/WebView;
 
@@ -894,7 +943,7 @@
 
     invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->exclusiveTouch(Landroid/view/View;Z)V
 
-    .line 191
+    .line 207
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -919,7 +968,7 @@
 
     invoke-virtual {v0, v4}, Landroid/webkit/WebSettings;->setCacheMode(I)V
 
-    .line 192
+    .line 208
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebView;->setVerticalScrollBarEnabled(Z)V
@@ -932,7 +981,7 @@
 
     invoke-virtual {v0, v4}, Landroid/webkit/WebView;->setOverScrollMode(I)V
 
-    .line 193
+    .line 209
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     new-instance v4, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$1;
@@ -941,7 +990,7 @@
 
     invoke-virtual {v0, v4}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    .line 202
+    .line 218
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     new-instance v4, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$2;
@@ -950,7 +999,7 @@
 
     invoke-virtual {v0, v4}, Landroid/webkit/WebView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 211
+    .line 227
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->body:Landroid/widget/FrameLayout;
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
@@ -988,7 +1037,7 @@
     :catch_7c
     move-exception v0
 
-    .line 213
+    .line 229
     :goto_7d
     iput-boolean v2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->webFailed:Z
 
@@ -1047,7 +1096,7 @@
 .method private dp(F)I
     .registers 3
 
-    .line 97
+    .line 102
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1059,10 +1108,10 @@
     return p1
 .end method
 
-.method static synthetic lambda$request$4(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
+.method static synthetic lambda$request$7(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
     .registers 4
 
-    .line 155
+    .line 162
     invoke-interface {p0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1099,10 +1148,19 @@
     return p0
 .end method
 
+.method static synthetic lambda$showLookupReport$12(Landroid/app/Dialog;Landroid/view/View;)V
+    .registers 2
+
+    .line 190
+    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
+
+    return-void
+.end method
+
 .method static synthetic lambda$static$0(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .registers 3
 
-    .line 55
+    .line 56
     new-instance v0, Ljava/lang/Thread;
 
     const-string v1, "globe-regions"
@@ -1119,7 +1177,7 @@
 .method private static networkKey(Landroid/content/Context;)Ljava/lang/String;
     .registers 8
 
-    .line 179
+    .line 195
     :try_start_0
     const-string v0, "connectivity"
 
@@ -1129,12 +1187,12 @@
 
     check-cast p0, Landroid/net/ConnectivityManager;
 
-    .line 180
+    .line 196
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 181
+    .line 197
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getAllNetworks()[Landroid/net/Network;
 
     move-result-object v1
@@ -1148,7 +1206,7 @@
 
     aget-object v4, v1, v3
 
-    .line 182
+    .line 198
     invoke-virtual {p0, v4}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
     move-result-object v5
@@ -1157,7 +1215,7 @@
 
     const/16 v6, 0xc
 
-    .line 183
+    .line 199
     invoke-virtual {v5, v6}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
 
     move-result v6
@@ -1183,7 +1241,7 @@
 
     goto :goto_13
 
-    .line 185
+    .line 201
     :cond_36
     invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
@@ -1195,7 +1253,7 @@
 
     return-object p0
 
-    .line 186
+    .line 202
     :catch_3e
     const-string p0, "network"
 
@@ -1205,7 +1263,7 @@
 .method private reconcile()V
     .registers 5
 
-    .line 104
+    .line 109
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->main:Landroid/os/Handler;
 
     if-eqz v0, :cond_4d
@@ -1220,7 +1278,7 @@
 
     goto :goto_4d
 
-    .line 105
+    .line 110
     :cond_d
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->available()Z
 
@@ -1234,7 +1292,7 @@
 
     goto :goto_4d
 
-    .line 106
+    .line 111
     :cond_19
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
@@ -1244,7 +1302,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 107
+    .line 112
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
     if-eqz v0, :cond_3d
@@ -1270,7 +1328,7 @@
 
     return-void
 
-    .line 108
+    .line 113
     :cond_3d
     iget v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->epoch:I
 
@@ -1294,7 +1352,7 @@
 .method private renderCountries()V
     .registers 10
 
-    .line 222
+    .line 238
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1341,7 +1399,7 @@
 
     goto :goto_7
 
-    .line 223
+    .line 239
     :cond_2b
     :goto_2b
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->exitRows:Ljava/util/List;
@@ -1381,7 +1439,7 @@
     :cond_4b
     const/4 v2, 0x0
 
-    .line 224
+    .line 240
     :goto_4c
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -1442,7 +1500,7 @@
 
     goto :goto_4c
 
-    .line 225
+    .line 241
     :cond_89
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->emptyCountries:Landroid/widget/TextView;
 
@@ -1464,7 +1522,7 @@
     :goto_97
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 226
+    .line 242
     :goto_9a
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countryRows:Ljava/util/List;
 
@@ -1500,7 +1558,7 @@
 
     goto :goto_9a
 
-    .line 227
+    .line 243
     :cond_bb
     :goto_bb
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countries:Lorg/json/JSONArray;
@@ -1511,7 +1569,7 @@
 
     if-ge v1, v0, :cond_109
 
-    .line 228
+    .line 244
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countryRows:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1558,7 +1616,7 @@
 
     invoke-virtual {v2, v0, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 229
+    .line 245
     :cond_f5
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countryRows:Ljava/util/List;
 
@@ -1585,18 +1643,18 @@
 .end method
 
 .method private request()V
-    .registers 5
+    .registers 6
 
-    .line 128
+    .line 133
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2e
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->loading:Z
 
     if-eqz v0, :cond_9
 
-    goto :goto_29
+    goto :goto_2e
 
     :cond_9
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->changed:Ljava/lang/Runnable;
@@ -1607,35 +1665,42 @@
 
     if-eqz v0, :cond_12
 
-    goto :goto_29
+    goto :goto_2e
 
     :cond_12
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->loading:Z
 
-    .line 129
-    iget v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->epoch:I
+    .line 134
+    iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->forceLookup:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->forceLookup:Z
+
+    .line 135
+    iget v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->epoch:I
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 130
-    sget-object v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->WORKER:Ljava/util/concurrent/ExecutorService;
+    .line 136
+    sget-object v3, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v3, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$12;
+    new-instance v4, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$17;
 
-    invoke-direct {v3, p0, v1, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$12;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Landroid/content/Context;I)V
+    invoke-direct {v4, p0, v2, v0, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$17;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Landroid/content/Context;ZI)V
 
-    invoke-interface {v2, v3}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v3, v4}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    :cond_29
-    :goto_29
+    :cond_2e
+    :goto_2e
     return-void
 .end method
 
@@ -1644,7 +1709,7 @@
 
     const-string v0, "window.Globe&&Globe.setState("
 
-    .line 217
+    .line 233
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     if-eqz v1, :cond_6e
@@ -1655,7 +1720,7 @@
 
     goto :goto_6e
 
-    .line 218
+    .line 234
     :cond_b
     :try_start_b
     new-instance v1, Lorg/json/JSONObject;
@@ -1766,7 +1831,7 @@
 .method private static setText(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 3
 
-    .line 220
+    .line 236
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1783,10 +1848,164 @@
     return-void
 .end method
 
+.method private showLookupReport()V
+    .registers 8
+
+    .line 187
+    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/app/Dialog;
+
+    invoke-direct {v1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->column(Landroid/content/Context;)Landroid/widget/LinearLayout;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->panel(Landroid/view/View;)V
+
+    const-string v3, "IP.SB \u67e5\u8be2\u72b6\u6001"
+
+    invoke-static {v0, v3}, Lio/nekohasekai/sagernet/ui/UiComponents;->title(Landroid/content/Context;Ljava/lang/CharSequence;)Landroid/widget/TextView;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 188
+    new-instance v3, Landroid/widget/TextView;
+
+    invoke-direct {v3, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+
+    iget-object v4, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupReport:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const/high16 v4, 0x41400000    # 12.0f
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextSize(F)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
+
+    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
+
+    new-instance v5, Landroid/widget/ScrollView;
+
+    invoke-direct {v5, v0}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v5, v3}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
+
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/high16 v3, 0x43960000    # 300.0f
+
+    invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->dp(F)I
+
+    move-result v3
+
+    const/4 v6, -0x1
+
+    invoke-direct {v0, v6, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v2, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 189
+    const-string v0, "\u91cd\u65b0\u67e5\u8be2"
+
+    const/16 v3, 0xd
+
+    invoke-direct {p0, v0, v3, v4}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
+
+    new-instance v4, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$14;
+
+    invoke-direct {v4, p0, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$14;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;Landroid/app/Dialog;)V
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 190
+    const-string v0, "\u5173\u95ed"
+
+    const/4 v4, 0x0
+
+    invoke-direct {p0, v0, v3, v4}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/UiComponents;->action(Landroid/view/View;)V
+
+    new-instance v3, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$15;
+
+    invoke-direct {v3, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$15;-><init>(Landroid/app/Dialog;)V
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+
+    .line 191
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_a4
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    new-instance v2, Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-direct {v2, v4}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v0, v2}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    int-to-double v1, v1
+
+    const-wide v3, 0x3feccccccccccccdL    # 0.9
+
+    mul-double v1, v1, v3
+
+    double-to-int v1, v1
+
+    const/4 v2, -0x2
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/Window;->setLayout(II)V
+
+    :cond_a4
+    return-void
+.end method
+
 .method private text(Ljava/lang/String;IZ)Landroid/widget/TextView;
     .registers 6
 
-    .line 96
+    .line 101
     new-instance v0, Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->getContext()Landroid/content/Context;
@@ -1830,7 +2049,7 @@
 .method synthetic lambda$new$1$io-nekohasekai-sagernet-ui-GlobalGlobeCard()V
     .registers 5
 
-    .line 74
+    .line 77
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
     if-nez v0, :cond_5
@@ -1862,7 +2081,7 @@
 .method synthetic lambda$new$2$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
     .registers 3
 
-    .line 80
+    .line 83
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->autoRotate:Z
 
     xor-int/lit8 v0, p1, 0x1
@@ -1889,9 +2108,18 @@
 .end method
 
 .method synthetic lambda$new$3$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
+    .registers 2
+
+    .line 93
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->showLookupReport()V
+
+    return-void
+.end method
+
+.method synthetic lambda$new$4$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
     .registers 4
 
-    .line 91
+    .line 95
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     if-eqz p1, :cond_12
@@ -1914,13 +2142,549 @@
     return-void
 .end method
 
-.method synthetic lambda$request$5$io-nekohasekai-sagernet-ui-GlobalGlobeCard(ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+.method synthetic lambda$new$5$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
+    .registers 2
+
+    .line 98
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->showLookupReport()V
+
+    return-void
+.end method
+
+.method synthetic lambda$new$6$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
+    .registers 2
+
+    .line 98
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->showLookupReport()V
+
+    return-void
+.end method
+
+.method synthetic lambda$request$10$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/content/Context;ZI)V
+    .registers 16
+
+    .line 137
+    const-string v0, "UTF-8"
+
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+
+    .line 139
+    :try_start_7
+    sget-object v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_88
+
+    .line 140
+    new-instance v2, Ljava/lang/String;
+
+    const-string v4, "globe/index.html"
+
+    const/high16 v5, 0x40000
+
+    invoke-static {p1, v4, v5}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->asset(Landroid/content/Context;Ljava/lang/String;I)[B
+
+    move-result-object v4
+
+    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v2, v4, v5}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+
+    .line 141
+    const-string v4, "daymap"
+
+    const-string v5, "nightmap"
+
+    const-string v6, "clouds"
+
+    filled-new-array {v4, v5, v6}, [Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "DAY"
+
+    const-string v6, "NIGHT"
+
+    const-string v7, "CLOUDS"
+
+    filled-new-array {v5, v6, v7}, [Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    :goto_30
+    const/4 v7, 0x3
+
+    if-ge v6, v7, :cond_86
+
+    .line 143
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "globe/earth-"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v8, v4, v6
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, ".webp"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/high16 v8, 0x100000
+
+    invoke-static {p1, v7, v8}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->asset(Landroid/content/Context;Ljava/lang/String;I)[B
+
+    move-result-object v7
+
+    const/4 v8, 0x2
+
+    invoke-static {v7, v8}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 144
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "@@EARTH_"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v9, v5, v6
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v9, "@@"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "data:image/webp;base64,"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v2, v8, v7}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v2
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_30
+
+    .line 146
+    :cond_86
+    sput-object v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
+
+    .line 148
+    :cond_88
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->snapshot(Landroid/content/Context;)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    const-string v4, "connections"
+
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    .line 149
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->currentTypes(Landroid/content/Context;)Lorg/json/JSONObject;
+
+    move-result-object v4
+
+    new-instance v5, Ljava/util/TreeSet;
+
+    invoke-direct {v5}, Ljava/util/TreeSet;-><init>()V
+
+    .line 150
+    new-instance v6, Ljava/util/HashMap;
+
+    invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
+
+    const/4 v7, 0x0
+
+    :goto_a1
+    if-eqz v2, :cond_10c
+
+    .line 151
+    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+
+    move-result v8
+
+    if-ge v7, v8, :cond_10c
+
+    .line 152
+    invoke-virtual {v2, v7}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v8
+
+    if-nez v8, :cond_b0
+
+    goto :goto_109
+
+    .line 153
+    :cond_b0
+    const-string v9, "metadata"
+
+    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v9
+
+    if-nez v9, :cond_bb
+
+    const-string v9, ""
+
+    goto :goto_c1
+
+    :cond_bb
+    const-string v10, "destinationIP"
+
+    invoke-virtual {v9, v10}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    .line 154
+    :goto_c1
+    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v10
+
+    if-nez v10, :cond_e0
+
+    invoke-interface {v6, v9}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    const/4 v11, 0x1
+
+    if-eqz v10, :cond_d9
+
+    invoke-interface {v6, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/lang/Integer;
+
+    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+
+    move-result v10
+
+    add-int/2addr v11, v10
+
+    :cond_d9
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    invoke-interface {v6, v9, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 155
+    :cond_e0
+    invoke-static {v8, v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->tag(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->type(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 156
+    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v10
+
+    if-nez v10, :cond_109
+
+    const-string v10, "direct"
+
+    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_109
+
+    const-string v10, "block"
+
+    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_109
+
+    const-string v10, "dns"
+
+    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_109
+
+    invoke-interface {v5, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    :cond_109
+    :goto_109
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_a1
+
+    .line 158
+    :cond_10c
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    const-string v8, "/globe-egress?network="
+
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->networkKey(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz p2, :cond_125
+
+    .line 159
+    const-string p2, "&refresh=1"
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 160
+    :cond_125
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    const/4 v5, 0x0
+
+    :goto_12a
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_14a
+
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    add-int/lit8 v9, v5, 0x1
+
+    const/16 v10, 0x80
+
+    if-ge v5, v10, :cond_148
+
+    const-string v5, "&tag="
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v8, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_148
+    move v5, v9
+
+    goto :goto_12a
+
+    .line 161
+    :cond_14a
+    new-instance p2, Ljava/util/ArrayList;
+
+    invoke-interface {v6}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v5
+
+    invoke-direct {p2, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    .line 162
+    new-instance v5, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$12;
+
+    invoke-direct {v5, v6}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$12;-><init>(Ljava/util/Map;)V
+
+    invoke-static {p2, v5}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 163
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :goto_15f
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_17f
+
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    add-int/lit8 v6, v3, 0x1
+
+    const/16 v8, 0x100
+
+    if-ge v3, v8, :cond_17d
+
+    const-string v3, "&ip="
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v5, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_17d
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_17d} :catch_1ac
+
+    :cond_17d
+    move v3, v6
+
+    goto :goto_15f
 
     .line 164
+    :cond_17f
+    :try_start_17f
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->request(Landroid/content/Context;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p1
+    :try_end_187
+    .catch Ljava/lang/Exception; {:try_start_17f .. :try_end_187} :catch_188
+
+    goto :goto_19e
+
+    :catch_188
+    move-exception v0
+
+    move-object p1, v0
+
+    :try_start_18a
+    new-instance p2, Lorg/json/JSONObject;
+
+    invoke-direct {p2}, Lorg/json/JSONObject;-><init>()V
+
+    const-string v0, "client_error"
+
+    instance-of p1, p1, Ljava/net/SocketTimeoutException;
+
+    if-eqz p1, :cond_198
+
+    const-string p1, "controller_timeout"
+
+    goto :goto_19a
+
+    :cond_198
+    const-string p1, "controller_error"
+
+    :goto_19a
+    invoke-virtual {p2, v0, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    .line 165
+    :goto_19e
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/GlobeQueryStatus;->summary(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/GlobeQueryStatus;->report(Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 166
+    invoke-static {v2, v4, p1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->build(Lorg/json/JSONArray;Lorg/json/JSONObject;Lorg/json/JSONObject;)Lorg/json/JSONObject;
+
+    move-result-object v1
+    :try_end_1aa
+    .catch Ljava/lang/Exception; {:try_start_18a .. :try_end_1aa} :catch_1ac
+
+    const/4 p1, 0x0
+
+    goto :goto_1b2
+
+    .line 167
+    :catch_1ac
+    const-string p1, "\u8fde\u63a5\u540e\u663e\u793a\u5206\u5e03 \u00b7 \u53ef\u62d6\u52a8\u9884\u89c8"
+
+    const-string p2, "\u5185\u6838\u63a5\u53e3\u4e0d\u53ef\u7528\uff0c\u8bf7\u91cd\u8fde"
+
+    const-string v0, "\u8bfb\u53d6\u8fde\u63a5\u4fe1\u606f\u5931\u8d25\u3002\u8bf7\u786e\u8ba4\u4ee3\u7406\u5df2\u8fde\u63a5\uff0c\u5e76\u5728\u5b89\u88c5\u540e\u65ad\u5f00\u518d\u91cd\u65b0\u8fde\u63a5\u3002"
+
+    :goto_1b2
+    move-object v9, p1
+
+    move-object v8, p2
+
+    move-object v7, v0
+
+    move-object v5, v1
+
+    .line 168
+    sget-object v6, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
+
+    .line 169
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->main:Landroid/os/Handler;
+
+    new-instance v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$13;
+
+    move-object v3, p0
+
+    move v4, p3
+
+    invoke-direct/range {v2 .. v9}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$13;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method synthetic lambda$request$8$io-nekohasekai-sagernet-ui-GlobalGlobeCard(ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .registers 10
+
+    .line 172
     iget v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->epoch:I
 
-    if-ne p1, v0, :cond_122
+    if-ne p1, v0, :cond_14f
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->available()Z
 
@@ -1928,9 +2692,9 @@
 
     if-nez p1, :cond_c
 
-    goto/16 :goto_122
+    goto/16 :goto_14f
 
-    .line 165
+    .line 173
     :cond_c
     const-string p1, "countries"
 
@@ -1948,7 +2712,7 @@
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countries:Lorg/json/JSONArray;
 
-    .line 166
+    .line 174
     :cond_1d
     const-string p1, "nodes"
 
@@ -2001,14 +2765,14 @@
     :cond_4e
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->renderCountries()V
 
-    .line 167
+    .line 175
     const-string p1, "selfCountry"
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 168
+    .line 176
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->selfLocation:Landroid/widget/TextView;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2060,7 +2824,7 @@
 
     invoke-static {p3, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 169
+    .line 177
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->selfLocation:Landroid/widget/TextView;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2095,16 +2859,55 @@
 
     invoke-virtual {p3, p1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 170
+    .line 178
+    iput-object p4, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupReport:Ljava/lang/String;
+
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupStatus:Landroid/widget/TextView;
+
+    new-instance p3, Ljava/lang/StringBuilder;
+
+    const-string p4, "\u5b9a\u4f4d\uff1a"
+
+    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-static {p1, p3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
+
+    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lookupStatus:Landroid/widget/TextView;
+
+    new-instance p3, Ljava/lang/StringBuilder;
+
+    const-string p4, "\u5b9a\u4f4d\u72b6\u6001\uff1a"
+
+    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p4, "\uff0c\u70b9\u51fb\u67e5\u770b\u5931\u8d25\u539f\u56e0\u5e76\u91cd\u8bd5"
+
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-virtual {p1, p3}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    .line 179
     const-string p1, "total"
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result p3
 
-    const-string v0, "pending"
+    const-string p4, "pending"
 
-    if-lez p3, :cond_cb
+    if-lez p3, :cond_f8
 
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countries:Lorg/json/JSONArray;
 
@@ -2112,80 +2915,80 @@
 
     move-result p3
 
-    if-nez p3, :cond_cb
+    if-nez p3, :cond_f8
 
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->emptyCountries:Landroid/widget/TextView;
 
-    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p2, p4}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p5
 
-    if-eqz v1, :cond_c6
+    if-eqz p5, :cond_f3
 
-    const-string v1, "ip.sb \u67e5\u8be2\u4e2d"
+    const-string p5, "ip.sb \u67e5\u8be2\u4e2d\n\u70b9\u51fb\u67e5\u770b\u72b6\u6001"
 
-    goto :goto_c8
+    goto :goto_f5
 
-    :cond_c6
-    const-string v1, "ip.sb \u672a\u5b9a\u4f4d"
+    :cond_f3
+    const-string p5, "\u5b9a\u4f4d\u672a\u5b8c\u6210\n\u70b9\u51fb\u67e5\u770b\u539f\u56e0"
 
-    :goto_c8
-    invoke-static {p3, v1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
+    :goto_f5
+    invoke-static {p3, p5}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 171
-    :cond_cb
+    .line 180
+    :cond_f8
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->exitLocation:Landroid/widget/TextView;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p5, Ljava/lang/StringBuilder;
 
-    const-string v2, "\u51fa\u53e3\uff1a"
+    const-string v0, "\u51fa\u53e3\uff1a"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p5, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "exitCount"
+    const-string v0, "exitCount"
 
-    invoke-virtual {p2, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " \u4e2a"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_eb
+    invoke-virtual {p5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, " \u00b7 \u67e5\u8be2\u4e2d"
+    const-string v0, " \u4e2a"
 
-    goto :goto_ed
+    invoke-virtual {p5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_eb
-    const-string v0, ""
+    invoke-virtual {p2, p4}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
-    :goto_ed
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result p4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz p4, :cond_118
 
-    move-result-object v0
+    const-string p4, " \u00b7 \u67e5\u8be2\u4e2d"
 
-    invoke-static {p3, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
+    goto :goto_11a
 
-    .line 172
+    :cond_118
+    const-string p4, ""
+
+    :goto_11a
+    invoke-virtual {p5, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p4
+
+    invoke-static {p3, p4}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
+
+    .line 181
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->footer:Landroid/widget/TextView;
 
-    if-eqz p4, :cond_10a
+    if-eqz p6, :cond_137
 
     const-string p1, "[\uff0c,\u00b7]"
 
     const/4 p2, 0x2
 
-    invoke-virtual {p4, p1, p2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {p6, p1, p2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object p1
 
@@ -2197,14 +3000,14 @@
 
     move-result-object p1
 
-    goto :goto_11c
+    goto :goto_149
 
-    :cond_10a
+    :cond_137
     new-instance p4, Ljava/lang/StringBuilder;
 
-    const-string v0, "\u5f53\u524d "
+    const-string p5, "\u5f53\u524d "
 
-    invoke-direct {p4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p4, p5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
@@ -2216,28 +3019,28 @@
 
     move-result-object p1
 
-    :goto_11c
+    :goto_149
     invoke-static {p3, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->sendState()V
 
-    :cond_122
-    :goto_122
+    :cond_14f
+    :goto_14f
     return-void
 .end method
 
-.method synthetic lambda$request$6$io-nekohasekai-sagernet-ui-GlobalGlobeCard(ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 12
+.method synthetic lambda$request$9$io-nekohasekai-sagernet-ui-GlobalGlobeCard(ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .registers 16
 
     .line 0
     const/4 v0, 0x0
 
-    .line 162
+    .line 170
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->loading:Z
 
     iget v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->epoch:I
 
-    if-ne p1, v0, :cond_1b
+    if-ne p1, v0, :cond_1d
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->available()Z
 
@@ -2245,11 +3048,11 @@
 
     if-nez v0, :cond_e
 
-    goto :goto_1b
+    goto :goto_1d
 
-    .line 163
+    .line 171
     :cond_e
-    new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$9;
+    new-instance v1, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$16;
 
     move-object v2, p0
 
@@ -2261,482 +3064,31 @@
 
     move-object v6, p4
 
-    invoke-direct/range {v1 .. v6}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$9;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
+    move-object v7, p5
+
+    move-object v8, p6
+
+    invoke-direct/range {v1 .. v8}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$16;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->publish(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    :cond_1b
-    :goto_1b
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
-.method synthetic lambda$request$7$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/content/Context;I)V
-    .registers 15
+.method synthetic lambda$showLookupReport$11$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/app/Dialog;Landroid/view/View;)V
+    .registers 3
 
-    .line 131
-    const-string v0, "UTF-8"
+    .line 0
+    const/4 p2, 0x1
 
-    new-instance v1, Lorg/json/JSONObject;
+    .line 189
+    iput-boolean p2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->forceLookup:Z
 
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 133
-    :try_start_7
-    sget-object v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    if-nez v2, :cond_88
-
-    .line 134
-    new-instance v2, Ljava/lang/String;
-
-    const-string v4, "globe/index.html"
-
-    const/high16 v5, 0x40000
-
-    invoke-static {p1, v4, v5}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->asset(Landroid/content/Context;Ljava/lang/String;I)[B
-
-    move-result-object v4
-
-    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-direct {v2, v4, v5}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-
-    .line 135
-    const-string v4, "daymap"
-
-    const-string v5, "nightmap"
-
-    const-string v6, "clouds"
-
-    filled-new-array {v4, v5, v6}, [Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "DAY"
-
-    const-string v6, "NIGHT"
-
-    const-string v7, "CLOUDS"
-
-    filled-new-array {v5, v6, v7}, [Ljava/lang/String;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    :goto_30
-    const/4 v7, 0x3
-
-    if-ge v6, v7, :cond_86
-
-    .line 137
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "globe/earth-"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget-object v8, v4, v6
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, ".webp"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    const/high16 v8, 0x100000
-
-    invoke-static {p1, v7, v8}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->asset(Landroid/content/Context;Ljava/lang/String;I)[B
-
-    move-result-object v7
-
-    const/4 v8, 0x2
-
-    invoke-static {v7, v8}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 138
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "@@EARTH_"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget-object v9, v5, v6
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v9, "@@"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "data:image/webp;base64,"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v8, v7}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v2
-
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_30
-
-    .line 140
-    :cond_86
-    sput-object v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
-
-    .line 142
-    :cond_88
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->snapshot(Landroid/content/Context;)Lorg/json/JSONObject;
-
-    move-result-object v2
-
-    const-string v4, "connections"
-
-    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v2
-
-    .line 143
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->currentTypes(Landroid/content/Context;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/util/TreeSet;
-
-    invoke-direct {v5}, Ljava/util/TreeSet;-><init>()V
-
-    .line 144
-    new-instance v6, Ljava/util/HashMap;
-
-    invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
-
-    const/4 v7, 0x0
-
-    :goto_a1
-    if-eqz v2, :cond_10c
-
-    .line 145
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
-
-    move-result v8
-
-    if-ge v7, v8, :cond_10c
-
-    .line 146
-    invoke-virtual {v2, v7}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
-
-    move-result-object v8
-
-    if-nez v8, :cond_b0
-
-    goto :goto_109
-
-    .line 147
-    :cond_b0
-    const-string v9, "metadata"
-
-    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v9
-
-    if-nez v9, :cond_bb
-
-    const-string v9, ""
-
-    goto :goto_c1
-
-    :cond_bb
-    const-string v10, "destinationIP"
-
-    invoke-virtual {v9, v10}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    .line 148
-    :goto_c1
-    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v10
-
-    if-nez v10, :cond_e0
-
-    invoke-interface {v6, v9}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    const/4 v11, 0x1
-
-    if-eqz v10, :cond_d9
-
-    invoke-interface {v6, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/lang/Integer;
-
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
-
-    move-result v10
-
-    add-int/2addr v11, v10
-
-    :cond_d9
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    invoke-interface {v6, v9, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 149
-    :cond_e0
-    invoke-static {v8, v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->tag(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v4}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->type(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 150
-    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v10
-
-    if-nez v10, :cond_109
-
-    const-string v10, "direct"
-
-    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_109
-
-    const-string v10, "block"
-
-    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_109
-
-    const-string v10, "dns"
-
-    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_109
-
-    invoke-interface {v5, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    :cond_109
-    :goto_109
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_a1
-
-    .line 152
-    :cond_10c
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    const-string v8, "/globe-egress?network="
-
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->networkKey(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 153
-    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    const/4 v8, 0x0
-
-    :goto_123
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_143
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Ljava/lang/String;
-
-    add-int/lit8 v10, v8, 0x1
-
-    const/16 v11, 0x80
-
-    if-ge v8, v11, :cond_141
-
-    const-string v8, "&tag="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v9, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_141
-    move v8, v10
-
-    goto :goto_123
-
-    .line 154
-    :cond_143
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-interface {v6}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v8
-
-    invoke-direct {v5, v8}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    .line 155
-    new-instance v8, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;
-
-    invoke-direct {v8, v6}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;-><init>(Ljava/util/Map;)V
-
-    invoke-static {v5, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    .line 156
-    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_158
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_178
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    add-int/lit8 v8, v3, 0x1
-
-    const/16 v9, 0x100
-
-    if-ge v3, v9, :cond_176
-
-    const-string v3, "&ip="
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v6, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_176
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_176} :catch_18c
-
-    :cond_176
-    move v3, v8
-
-    goto :goto_158
-
-    .line 157
-    :cond_178
-    :try_start_178
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->request(Landroid/content/Context;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object p1
-    :try_end_180
-    .catch Ljava/lang/Exception; {:try_start_178 .. :try_end_180} :catch_181
-
-    goto :goto_186
-
-    :catch_181
-    :try_start_181
-    new-instance p1, Lorg/json/JSONObject;
-
-    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
-
-    .line 158
-    :goto_186
-    invoke-static {v2, v4, p1}, Lio/nekohasekai/sagernet/ui/GlobeTopology;->build(Lorg/json/JSONArray;Lorg/json/JSONObject;Lorg/json/JSONObject;)Lorg/json/JSONObject;
-
-    move-result-object v1
-    :try_end_18a
-    .catch Ljava/lang/Exception; {:try_start_181 .. :try_end_18a} :catch_18c
-
-    const/4 p1, 0x0
-
-    goto :goto_18e
-
-    .line 159
-    :catch_18c
-    const-string p1, "\u8fde\u63a5\u540e\u663e\u793a\u5206\u5e03 \u00b7 \u53ef\u62d6\u52a8\u9884\u89c8"
-
-    :goto_18e
-    move-object v7, p1
-
-    move-object v5, v1
-
-    .line 160
-    sget-object v6, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->cachedHtml:Ljava/lang/String;
-
-    .line 161
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->main:Landroid/os/Handler;
-
-    new-instance v2, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$11;
-
-    move-object v3, p0
-
-    move v4, p2
-
-    invoke-direct/range {v2 .. v7}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$11;-><init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;ILorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->request()V
 
     return-void
 .end method
@@ -2744,7 +3096,7 @@
 .method protected onAttachedToWindow()V
     .registers 3
 
-    .line 111
+    .line 116
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countryScroll:Landroid/widget/ScrollView;
@@ -2783,7 +3135,7 @@
 .method protected onDetachedFromWindow()V
     .registers 4
 
-    .line 114
+    .line 119
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->unobserve(Landroid/view/View;)V
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->cancel(Landroid/view/View;)V
@@ -2810,12 +3162,12 @@
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->live:Z
 
-    .line 115
+    .line 120
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->countryScroll:Landroid/widget/ScrollView;
 
     invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->exclusiveTouch(Landroid/view/View;Z)V
 
-    .line 116
+    .line 121
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->observer:Landroid/view/ViewTreeObserver;
 
     if-eqz v1, :cond_3a
@@ -2843,7 +3195,7 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->observer:Landroid/view/ViewTreeObserver;
 
-    .line 117
+    .line 122
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->web:Landroid/webkit/WebView;
 
     if-eqz v2, :cond_60
@@ -2874,7 +3226,7 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lastState:Ljava/lang/String;
 
-    .line 118
+    .line 123
     :cond_60
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
 
@@ -2884,7 +3236,7 @@
 .method protected onVisibilityChanged(Landroid/view/View;I)V
     .registers 3
 
-    .line 120
+    .line 125
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onVisibilityChanged(Landroid/view/View;I)V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->reconcile()V
@@ -2895,7 +3247,7 @@
 .method protected onWindowVisibilityChanged(I)V
     .registers 2
 
-    .line 121
+    .line 126
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onWindowVisibilityChanged(I)V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->reconcile()V
@@ -2906,7 +3258,7 @@
 .method public refreshAppearance()V
     .registers 3
 
-    .line 99
+    .line 104
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->caption:Landroid/widget/TextView;
 
     if-nez v0, :cond_5
@@ -2922,7 +3274,7 @@
 
     move-result v0
 
-    .line 100
+    .line 105
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->themeApplied:Z
 
     if-eqz v1, :cond_16

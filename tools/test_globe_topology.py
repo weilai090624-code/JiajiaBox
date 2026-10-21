@@ -15,7 +15,7 @@ def run(*args):
  result=subprocess.run(args,capture_output=True,text=True)
  if result.returncode:raise RuntimeError(result.stdout+result.stderr)
  return result.stdout
-sources=[ROOT/'addon-src/io/nekohasekai/sagernet/ui'/name for name in ['GlobeCountries.java','GlobeTopology.java']]
+sources=[ROOT/'addon-src/io/nekohasekai/sagernet/ui'/name for name in ['GlobeCountries.java','GlobeTopology.java','GlobeQueryStatus.java']]
 run('javac','--release','8','-cp',a.android_jar,'-d',str(classes),*[str(s) for s in sources],str(ROOT/'tests/OnlineGlobeTest.java'))
 jar=b/'tests.jar';run('jar','cf',str(jar),'-C',str(classes),'.')
 run('java','-cp',a.d8,'com.android.tools.r8.D8','--release','--min-api','21','--lib',a.android_jar,'--output',str(dex),str(jar))

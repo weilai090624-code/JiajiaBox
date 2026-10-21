@@ -5,6 +5,7 @@ package clashapi
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
 	"errors"
 	"io"
@@ -33,6 +34,7 @@ type globeIP struct {
 	Source      string   `json:"source,omitempty"`
 	CheckedAt   int64    `json:"checked_at,omitempty"`
 	Pending     bool     `json:"pending"`
+	Stale       bool     `json:"stale,omitempty"`
 	Error       string   `json:"error,omitempty"`
 	expires     time.Time
 }
@@ -49,6 +51,17 @@ func newGlobeCache() *globeCache {
 	return &globeCache{values: make(map[string]globeIP), slots: make(chan struct{}, 3), interval: time.Second}
 }
 
+func (c *globeCache) retry(network string) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	for key, value := range c.values {
+		if strings.HasPrefix(key, network+"\x00") && !value.Pending {
+			value.expires = time.Time{}
+			c.values[key] = value
+		}
+	}
+}
+
 // Runs only when the visible globe asks for data, never switches a selector,
 // never uses the node's configured server IP as a substitute for its public exit.
 func (c *globeCache) lookup(ctx context.Context, key string, ttl time.Duration, probe func(context.Context) (globeIP, error)) globeIP {
@@ -62,14 +75,16 @@ func (c *globeCache) lookup(ctx context.Context, key string, ttl time.Duration, 
 	default:
 		v := c.values[key]
 		v.Pending = true
+		v.Stale = v.Source == "ip.sb"
 		return v
 	}
 	v := c.values[key]
 	v.Pending = true
+	v.Stale = v.Source == "ip.sb"
 	c.values[key] = v
 	go func() {
 		defer func() { <-c.slots }()
-		probeCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
+		probeCtx, cancel := context.WithTimeout(ctx, 25*time.Second)
 		defer cancel()
 		var result globeIP
 		err := c.waitTurn(probeCtx)
@@ -79,13 +94,22 @@ func (c *globeCache) lookup(ctx context.Context, key string, ttl time.Duration, 
 		c.mu.Lock()
 		defer c.mu.Unlock()
 		if err != nil {
-			result = globeIP{Error: "unavailable"}
+			result = globeIP{Error: globeErrorCode(err)}
+			// A transient failure is not evidence that the last online location
+			// disappeared. Keep a bounded, explicitly stale result for review.
+			if v.Source == "ip.sb" && v.CheckedAt > 0 && time.Since(time.UnixMilli(v.CheckedAt)) < 5*time.Minute {
+				result = v
+				result.Pending, result.Stale, result.Error = false, true, globeErrorCode(err)
+			}
 			ttl = 15 * time.Second
 			var limited *globeRateLimit
 			if errors.As(err, &limited) {
 				result.Error = "rate_limited"
 				ttl = limited.retry
-				c.blockedUntil = time.Now().Add(ttl)
+				until := time.Now().Add(ttl)
+				if until.After(c.blockedUntil) {
+					c.blockedUntil = until
+				}
 			}
 		}
 		result.expires = time.Now().Add(ttl)
@@ -130,6 +154,37 @@ func (c *globeCache) waitTurn(ctx context.Context) error {
 type globeRateLimit struct{ retry time.Duration }
 
 func (*globeRateLimit) Error() string { return "ip.sb rate limit" }
+
+type globeResponseError struct{ code string }
+
+func (e *globeResponseError) Error() string { return "ip.sb: " + e.code }
+
+// Expose an actionable reason without serializing proxy or connection errors,
+// which may contain private server addresses or credentials.
+func globeErrorCode(err error) string {
+	var response *globeResponseError
+	var limited *globeRateLimit
+	var dns *net.DNSError
+	var certificate *tls.CertificateVerificationError
+	var unknownAuthority x509.UnknownAuthorityError
+	var timeout net.Error
+	switch {
+	case errors.As(err, &response):
+		return response.code
+	case errors.As(err, &limited):
+		return "rate_limited"
+	case errors.As(err, &dns):
+		return "dns"
+	case errors.As(err, &certificate), errors.As(err, &unknownAuthority):
+		return "tls"
+	case errors.Is(err, context.DeadlineExceeded), errors.As(err, &timeout) && timeout.Timeout():
+		return "timeout"
+	case errors.Is(err, io.EOF), errors.Is(err, io.ErrUnexpectedEOF):
+		return "connection_closed"
+	default:
+		return "unavailable"
+	}
+}
 
 func globeRetryAfter(value string) time.Duration {
 	retry := time.Minute
@@ -178,32 +233,63 @@ func publicGlobeIP(raw string) string {
 func parseGlobeLocation(body []byte, target string) (globeIP, error) {
 	var value globeIP
 	if err := json.Unmarshal(body, &value); err != nil {
-		return globeIP{}, err
+		return globeIP{}, &globeResponseError{code: "invalid_response"}
 	}
 	value.IP = publicGlobeIP(value.IP)
 	value.CountryCode = strings.ToUpper(value.CountryCode)
 	if value.IP == "" || (target != "" && value.IP != publicGlobeIP(target)) || len(value.CountryCode) != 2 ||
 		value.CountryCode[0] < 'A' || value.CountryCode[0] > 'Z' || value.CountryCode[1] < 'A' || value.CountryCode[1] > 'Z' {
-		return globeIP{}, errors.New("invalid ip.sb location")
+		return globeIP{}, &globeResponseError{code: "invalid_location"}
 	}
 	if value.Latitude == nil || value.Longitude == nil || math.IsNaN(*value.Latitude) || math.IsNaN(*value.Longitude) ||
 		math.IsInf(*value.Latitude, 0) || math.IsInf(*value.Longitude, 0) || math.Abs(*value.Latitude) > 90 || math.Abs(*value.Longitude) > 180 {
 		value.Latitude, value.Longitude = nil, nil
 	}
-	value.Source, value.Pending, value.Error = "ip.sb", false, ""
+	value.Source, value.Pending, value.Stale, value.Error = "ip.sb", false, false, ""
 	value.CheckedAt = time.Now().UnixMilli()
 	return value, nil
 }
 
 func probeGlobeLocation(ctx context.Context, detour N.Dialer, target string) (globeIP, error) {
+	return probeGlobeLocationFallback(ctx, detour, detour, target, nil)
+}
+
+func probeGlobeLocationFallback(ctx context.Context, detour, fallback N.Dialer, target string, gate func(context.Context) error) (globeIP, error) {
+	var last error
+	for index, host := range []string{"api.ip.sb", "api-ipv4.ip.sb"} {
+		if index > 0 {
+			code := globeErrorCode(last)
+			// Do not hide a rejected certificate, API denial, or rate limit.
+			if code == "tls" || code == "rate_limited" || strings.HasPrefix(code, "http_4") || strings.HasPrefix(code, "invalid_") {
+				break
+			}
+			if gate != nil {
+				if err := gate(ctx); err != nil {
+					return globeIP{}, err
+				}
+			}
+			if fallback != nil {
+				detour = fallback
+			}
+		}
+		result, err := probeGlobeLocationHost(ctx, detour, target, host)
+		if err == nil {
+			return result, nil
+		}
+		last = err
+	}
+	return globeIP{}, last
+}
+
+func probeGlobeLocationHost(ctx context.Context, detour N.Dialer, target, host string) (globeIP, error) {
 	// Fixed verified HTTPS API. Only the IP being located is submitted; never
 	// domains, connection details, node credentials, or GPS coordinates.
 	transport := &http.Transport{Proxy: nil, DisableKeepAlives: true, TLSClientConfig: &tls.Config{RootCAs: adapter.RootPoolFromContext(ctx), Time: ntp.TimeFuncFromContext(ctx)}, DialContext: func(ctx context.Context, network, address string) (net.Conn, error) {
 		return detour.DialContext(ctx, network, M.ParseSocksaddr(address))
 	}}
 	defer transport.CloseIdleConnections()
-	client := &http.Client{Transport: transport, Timeout: 4 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }}
-	url := "https://api.ip.sb/geoip"
+	client := &http.Client{Transport: transport, Timeout: 8 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }}
+	url := "https://" + host + "/geoip"
 	if target != "" {
 		target = publicGlobeIP(target)
 		if target == "" {
@@ -226,11 +312,11 @@ func probeGlobeLocation(ctx context.Context, detour N.Dialer, target string) (gl
 		return globeIP{}, &globeRateLimit{retry: globeRetryAfter(resp.Header.Get("Retry-After"))}
 	}
 	if resp.StatusCode != http.StatusOK {
-		return globeIP{}, errors.New("ip.sb unavailable")
+		return globeIP{}, &globeResponseError{code: "http_" + strconv.Itoa(resp.StatusCode)}
 	}
 	body, err := io.ReadAll(io.LimitReader(resp.Body, 16385))
 	if err != nil || len(body) > 16384 {
-		return globeIP{}, errors.New("invalid ip.sb response")
+		return globeIP{}, &globeResponseError{code: "invalid_response"}
 	}
 	return parseGlobeLocation(body, target)
 }
@@ -244,6 +330,9 @@ func globeEgress(s *Server) http.HandlerFunc {
 			http.Error(w, "too many exits", http.StatusBadRequest)
 			return
 		}
+		if r.URL.Query().Get("refresh") == "1" {
+			s.globe.retry(network)
+		}
 		var direct adapter.Outbound
 		for _, o := range s.outbound.Outbounds() {
 			if o.Type() == C.TypeDirect {
@@ -255,7 +344,9 @@ func globeEgress(s *Server) http.HandlerFunc {
 		}
 		self := globeIP{}
 		if direct != nil {
-			self = s.globe.lookup(s.ctx, network+"\x00self", 30*time.Second, func(ctx context.Context) (globeIP, error) { return probeGlobeLocation(ctx, direct, "") })
+			self = s.globe.lookup(s.ctx, network+"\x00self", 30*time.Second, func(ctx context.Context) (globeIP, error) {
+				return probeGlobeLocationFallback(ctx, direct, direct, "", s.globe.waitTurn)
+			})
 		}
 		exits := make(map[string]globeIP)
 		var targetDialer N.Dialer = direct
@@ -282,7 +373,9 @@ func globeEgress(s *Server) http.HandlerFunc {
 				targetDialer = o
 				proxySelected = true
 			}
-			exits[tag] = s.globe.lookup(s.ctx, network+"\x00exit\x00"+tag, 30*time.Second, func(ctx context.Context) (globeIP, error) { return probeGlobeLocation(ctx, o, "") })
+			exits[tag] = s.globe.lookup(s.ctx, network+"\x00exit\x00"+tag, 30*time.Second, func(ctx context.Context) (globeIP, error) {
+				return probeGlobeLocationFallback(ctx, o, o, "", s.globe.waitTurn)
+			})
 		}
 		targets := make(map[string]globeIP)
 		s.globe.orderTargets(network, ips)
@@ -291,10 +384,12 @@ func globeEgress(s *Server) http.HandlerFunc {
 			if ip == "" || targetDialer == nil {
 				continue
 			}
-			targets[raw] = s.globe.lookup(s.ctx, network+"\x00target\x00"+ip, time.Minute, func(ctx context.Context) (globeIP, error) { return probeGlobeLocation(ctx, targetDialer, ip) })
+			targets[raw] = s.globe.lookup(s.ctx, network+"\x00target\x00"+ip, time.Minute, func(ctx context.Context) (globeIP, error) {
+				return probeGlobeLocationFallback(ctx, targetDialer, direct, ip, s.globe.waitTurn)
+			})
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Cache-Control", "no-store")
-		json.NewEncoder(w).Encode(map[string]any{"provider": "ip.sb", "self": self, "exits": exits, "targets": targets})
+		json.NewEncoder(w).Encode(map[string]any{"api_version": 2, "provider": "ip.sb", "self": self, "exits": exits, "targets": targets})
 	}
 }

@@ -923,7 +923,7 @@
     .line 35
     const-string v0, ""
 
-    if-eqz p0, :cond_3f
+    if-eqz p0, :cond_47
 
     const-string v1, "source"
 
@@ -937,7 +937,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3f
+    if-eqz v1, :cond_47
 
     const-string v1, "ip"
 
@@ -949,7 +949,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_47
 
     const-string v1, "error"
 
@@ -961,12 +961,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_2b
+    if-nez v1, :cond_33
 
-    goto :goto_3f
+    const-string v1, "stale"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_33
+
+    goto :goto_47
 
     .line 36
-    :cond_2b
+    :cond_33
     const-string v1, "country_code"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -984,15 +992,15 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_3e
+    if-nez v1, :cond_46
 
     return-object v0
 
-    :cond_3e
+    :cond_46
     return-object p0
 
-    :cond_3f
-    :goto_3f
+    :cond_47
+    :goto_47
     return-object v0
 .end method
 
@@ -1302,11 +1310,21 @@
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    const-string v0, "checkedAt"
+    const-string p1, "checkedAt"
 
-    invoke-virtual {p0, v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {p0, p1, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    const-string p1, "stale"
+
+    invoke-virtual {p2, p1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result p2
+
+    invoke-virtual {p0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     move-result-object p0
 

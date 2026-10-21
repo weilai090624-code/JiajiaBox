@@ -1,22 +1,26 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.4 beta`，内部版本号 `307`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.4 beta`，内部版本号 `308`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.4-beta.307` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.4-beta.307 |
-| APK | `JiajiaBox-0.0.4-beta-307-online-geo.apk` |
-| APK SHA-256 | `ebc0ac02a579f5a6a54496b5e2ddd15cc73ce0fa7b74cc6c3a13c7e69c76a7c3` |
-| 对应源码归档 | `JiajiaBox-v0.0.4-beta.307-source.tar.gz` |
+| 对应版本标签 | `v0.0.4-beta.308` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.4-beta.308 |
+| APK | `JiajiaBox-0.0.4-beta-308-local-ip-test.apk` |
+| APK SHA-256 | `3f9f6a3bdc34045bf1fa2fa403f8691d6452c5a404e9c3e77dfeea177443f19c` |
+| 对应源码归档 | `JiajiaBox-v0.0.4-beta.308-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/jiajiabox-fixed-0.0.3`。成品位于 `/sdcard/Download/`；本次构建与验证记录位于 `build/rebuilt-online-geo-307/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 和源码归档通过 Releases 附件发布。
+本机项目路径：`/root/jiajiabox-fixed-0.0.3`。成品位于 `/sdcard/Download/`；本次构建与验证记录位于 `build/rebuilt-local-geo-308/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 和源码归档通过 Releases 附件发布。
 
-本版将地球位置判断改为 IP.SB 在线查询。本机与各节点出口通过各自出站查询公网 IP、地区和坐标（30 秒刷新）；实际目标 IP 在线查询并复用 60 秒，按地区合并分支。最多每秒启动一次请求，查询失败显示未定位，不使用离线地区冒充在线结果。HK、TW 与 CN 继续独立，底部摘要仍为“当前 N”。安装后断开并重新连接代理，使新内核生效。接口文档见 [IP.SB API](https://ip.sb/api/)。
+本版为用户本地实测确认通过的 308，发布附件沿用同一份 APK，SHA-256 如上。IP.SB 单次请求最多 8 秒、任务预算 25 秒；短暂连接故障可重试官方 IPv4 端点，目标查询可通过直连重试。HTTP 拒绝、限流及证书错误会明确显示；刷新失败时保留最近 5 分钟内的上次在线结果并标明。点击侧栏“定位”可查看失败类别、上次成功时间与手动重试。HK、TW、CN 独立、按出口与地区合并连线、真实 UTC 昼夜和“当前 N”摘要沿用。
+
+发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。本次 308 已取得用户实测通过及推送授权；307 Release 继续保留为草稿。
+
+接口及数据处理说明见 [IP.SB API](https://ip.sb/api/) 和 `assets/licenses/Global-Globe-NOTICE.txt`。
 
 ## 认证
 
@@ -47,7 +51,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.4-beta.307
+tag=v0.0.4-beta.308
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -55,8 +59,8 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload-307
-git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-307/JiajiaBox-$tag-source.tar.gz" "$tag"
+mkdir -p build/release-upload-308
+git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-308/JiajiaBox-$tag-source.tar.gz" "$tag"
 ```
 
 ## 上传成品
@@ -66,18 +70,18 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.4-beta.307 \
-  --commit "$(git rev-parse v0.0.4-beta.307^{commit})" \
-  --title "JiajiaBox v0.0.4-beta.307 预发布版" \
-  --notes-file build/release-upload-307/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-307-online-geo.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-307-online-geo.apk.sha256 \
-  --asset build/release-upload-307/JiajiaBox-v0.0.4-beta.307-source.tar.gz \
-  --asset build/release-upload-307/SHA256SUMS.txt \
-  --output-json build/release-upload-307/github-publish.json
+  --tag v0.0.4-beta.308 \
+  --commit "$(git rev-parse v0.0.4-beta.308^{commit})" \
+  --title "JiajiaBox v0.0.4-beta.308 预发布版" \
+  --notes-file build/release-upload-308/RELEASE_NOTES.md \
+  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-308-local-ip-test.apk \
+  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-308-local-ip-test.apk.sha256 \
+  --asset build/release-upload-308/JiajiaBox-v0.0.4-beta.308-source.tar.gz \
+  --asset build/release-upload-308/SHA256SUMS.txt \
+  --output-json build/release-upload-308/github-publish.json
 ```
 
-脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。
+脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。创建草稿后会立即保存 Release ID；中断后使用同一命令和 `--output-json` 续传，也可指定 `--release-id`，复用已校验附件。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。
 
 ## 源码与本地构建
 

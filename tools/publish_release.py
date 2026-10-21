@@ -14,9 +14,11 @@ def main():
     parser.add_argument('--notes-file',required=True,type=Path)
     parser.add_argument('--asset',action='append',required=True,type=Path)
     parser.add_argument('--output-json',type=Path)
+    parser.add_argument('--release-id',type=int,help='Resume a specific existing release')
     args=parser.parse_args();token=os.environ.get('GH_TOKEN','')
     if not token:parser.error('Set GH_TOKEN to a token with repository Contents write permission')
     if any(not path.is_file() for path in args.asset):parser.error('Every asset must be a local file')
+    if len({path.name for path in args.asset})!=len(args.asset):parser.error('Asset filenames must be unique')
     base='https://api.github.com/repos/'+args.repo
     class Redirect(urllib.request.HTTPRedirectHandler):
         def redirect_request(self,req,fp,code,msg,headers,newurl):
@@ -40,15 +42,35 @@ def main():
     tag=request(tag_url)['object']
     while tag['type']=='tag':tag=request(base+'/git/tags/'+tag['sha'])['object']
     if tag['sha']!=args.commit:raise RuntimeError('Tag does not match --commit')
-    try:release=request(base+'/releases/tags/'+urllib.parse.quote(args.tag,safe=''))
-    except RuntimeError as error:
-        if 'HTTP 404' not in str(error):raise
-        release=request(base+'/releases','POST',{'tag_name':args.tag,'target_commitish':args.commit,'name':args.title,'body':args.notes_file.read_text(),'draft':True,'prerelease':True})
+    release_id=args.release_id
+    if not release_id and args.output_json and args.output_json.is_file():
+        checkpoint=json.loads(args.output_json.read_text())
+        if checkpoint.get('repository')==args.repo and checkpoint.get('tag')==args.tag and checkpoint.get('commit')==args.commit:release_id=checkpoint.get('release_id')
+    if release_id:release=request(base+'/releases/'+str(release_id))
+    else:
+        try:release=request(base+'/releases/tags/'+urllib.parse.quote(args.tag,safe=''))
+        except RuntimeError as error:
+            if 'HTTP 404' not in str(error):raise
+            # A draft may not be returned by the tag endpoint. Reuse it instead
+            # of creating a second draft after an interrupted attachment upload.
+            matches=[r for r in request(base+'/releases?per_page=100') if r['tag_name']==args.tag]
+            if len(matches)>1:raise RuntimeError('Multiple releases match this tag; select --release-id')
+            release=matches[0] if matches else request(base+'/releases','POST',{'tag_name':args.tag,'target_commitish':args.commit,'name':args.title,'body':args.notes_file.read_text(),'draft':True,'prerelease':True})
+    if release['tag_name']!=args.tag:raise RuntimeError('Release does not match --tag')
+    def save_summary(value):
+        summary={'repository':args.repo,'tag':args.tag,'commit':args.commit,'release_id':value['id'],'release_url':value['html_url'],'draft':value['draft'],'assets':[{'name':a['name'],'id':a['id'],'size':a['size'],'digest':a.get('digest'),'url':a['browser_download_url']} for a in value['assets']]}
+        if args.output_json:
+            args.output_json.parent.mkdir(parents=True,exist_ok=True)
+            temporary=args.output_json.with_suffix(args.output_json.suffix+'.tmp')
+            temporary.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n');temporary.replace(args.output_json)
+        return summary
+    # Persist the release ID before any upload can lose its response.
+    save_summary(release)
     assets={asset['name']:asset for asset in release['assets']}
     for path in args.asset:
         digest=hashlib.sha256(path.read_bytes()).hexdigest();existing=assets.get(path.name)
         if existing:
-            if existing.get('digest')!='sha256:'+digest:raise RuntimeError('Existing asset differs: '+path.name)
+            if existing.get('digest')!='sha256:'+digest or existing.get('size')!=path.stat().st_size or existing.get('state')!='uploaded':raise RuntimeError('Existing asset differs or is incomplete: '+path.name)
             print('Verified existing asset:',path.name,flush=True);continue
         url=release['upload_url'].split('{',1)[0]+'?'+urllib.parse.urlencode({'name':path.name})
         mime='application/vnd.android.package-archive' if path.suffix=='.apk' else 'application/octet-stream'
@@ -56,7 +78,6 @@ def main():
         if asset.get('size')!=path.stat().st_size or asset.get('digest')!='sha256:'+digest:raise RuntimeError('Uploaded asset verification failed: '+path.name)
         print('Uploaded and verified:',path.name,flush=True)
     release=request(base+'/releases/'+str(release['id']),'PATCH',{'name':args.title,'body':args.notes_file.read_text(),'draft':False,'prerelease':True})
-    summary={'repository':args.repo,'tag':args.tag,'commit':args.commit,'release_id':release['id'],'release_url':release['html_url'],'assets':[{'name':a['name'],'id':a['id'],'size':a['size'],'digest':a.get('digest'),'url':a['browser_download_url']} for a in release['assets']]}
-    if args.output_json:args.output_json.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+    summary=save_summary(release)
     print(json.dumps(summary,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

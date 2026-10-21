@@ -32,7 +32,7 @@ public final class GlobeTopology {
         return new JSONObject().put("id",id).put("role",role).put("code",country).put("lon",center[0]).put("lat",center[1]).put("count",0);
     }
     private static String code(JSONObject location){
-        if(location==null||!"ip.sb".equals(location.optString("source"))||location.optString("ip").isEmpty()||!location.optString("error").isEmpty())return "";
+        if(location==null||!"ip.sb".equals(location.optString("source"))||location.optString("ip").isEmpty()||(!location.optString("error").isEmpty()&&!location.optBoolean("stale")))return "";
         String code=location.optString("country_code").toUpperCase(Locale.ROOT);
         return GlobeCountries.center(code)==null?"":code;
     }
@@ -40,7 +40,7 @@ public final class GlobeTopology {
         JSONObject value=point(id,role,code(location));if(value==null)return null;
         double lon=location.optDouble("longitude",Double.NaN),lat=location.optDouble("latitude",Double.NaN);
         if(!Double.isNaN(lon)&&!Double.isNaN(lat)&&Math.abs(lon)<=180&&Math.abs(lat)<=90)value.put("lon",lon).put("lat",lat);
-        return value.put("source","ip.sb").put("checkedAt",location.optLong("checked_at"));
+        return value.put("source","ip.sb").put("checkedAt",location.optLong("checked_at")).put("stale",location.optBoolean("stale"));
     }
     private static String exitID(String ip)throws Exception {
         byte[] digest=MessageDigest.getInstance("SHA-256").digest(ip.getBytes("UTF-8"));StringBuilder out=new StringBuilder("exit:");

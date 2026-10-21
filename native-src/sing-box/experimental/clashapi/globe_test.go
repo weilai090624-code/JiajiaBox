@@ -14,6 +14,7 @@ import (
 	C "github.com/sagernet/sing-box/constant"
 	M "github.com/sagernet/sing/common/metadata"
 	"github.com/sagernet/sing/service"
+	"io"
 	"math/big"
 	"net"
 	"net/http"
@@ -73,7 +74,7 @@ func globeTestTLS(t *testing.T, pool *x509.CertPool, handler http.HandlerFunc) *
 	if err != nil {
 		t.Fatal(err)
 	}
-	template := &x509.Certificate{SerialNumber: big.NewInt(time.Now().UnixNano()), Subject: pkix.Name{CommonName: "globe test"}, DNSNames: []string{"api.ip.sb"}, NotBefore: time.Now().Add(-time.Hour), NotAfter: time.Now().Add(time.Hour), KeyUsage: x509.KeyUsageDigitalSignature, ExtKeyUsage: []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth}}
+	template := &x509.Certificate{SerialNumber: big.NewInt(time.Now().UnixNano()), Subject: pkix.Name{CommonName: "globe test"}, DNSNames: []string{"api.ip.sb", "api-ipv4.ip.sb"}, NotBefore: time.Now().Add(-time.Hour), NotAfter: time.Now().Add(time.Hour), KeyUsage: x509.KeyUsageDigitalSignature, ExtKeyUsage: []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth}}
 	der, err := x509.CreateCertificate(rand.Reader, template, template, &key.PublicKey, key)
 	if err != nil {
 		t.Fatal(err)
@@ -344,5 +345,84 @@ func TestGlobeConcurrencyAndTargetPriority(t *testing.T) {
 	cache.orderTargets("wifi", ips)
 	if ips[0] != "1.36.1.1" {
 		t.Fatal("fresh cache entry blocked a new target")
+	}
+}
+
+type globeFailDialer struct {
+	adapter.Outbound
+	calls atomic.Int32
+}
+
+func (d *globeFailDialer) DialContext(context.Context, string, M.Socksaddr) (net.Conn, error) {
+	d.calls.Add(1)
+	return nil, io.EOF
+}
+
+func TestGlobeIPv4NetworkFallback(t *testing.T) {
+	pool := x509.NewCertPool()
+	server := globeTestTLS(t, pool, func(w http.ResponseWriter, r *http.Request) {
+		if r.Host != "api-ipv4.ip.sb" || r.URL.Path != "/geoip/1.36.1.1" {
+			t.Errorf("wrong documented fallback endpoint: %s %s", r.Host, r.URL.Path)
+		}
+		json.NewEncoder(w).Encode(map[string]string{"ip": "1.36.1.1", "country_code": "HK"})
+	})
+	primary := &globeFailDialer{}
+	fallback := &globeTestOutbound{address: server.Listener.Addr().String()}
+	ctx := service.ContextWith[adapter.CertificateStore](context.Background(), globeTestRoots{pool: pool})
+	turns := 0
+	result, err := probeGlobeLocationFallback(ctx, primary, fallback, "1.36.1.1", func(context.Context) error { turns++; return nil })
+	if err != nil || result.CountryCode != "HK" || primary.calls.Load() != 1 || fallback.calls.Load() != 1 || turns != 1 {
+		t.Fatal("IPv4/network fallback", result, err, turns)
+	}
+}
+func TestGlobeDenialVisibleWithoutBypass(t *testing.T) {
+	pool := x509.NewCertPool()
+	server := globeTestTLS(t, pool, func(w http.ResponseWriter, r *http.Request) { w.WriteHeader(403) })
+	primary := &globeTestOutbound{address: server.Listener.Addr().String()}
+	fallback := &globeFailDialer{}
+	ctx := service.ContextWith[adapter.CertificateStore](context.Background(), globeTestRoots{pool: pool})
+	_, err := probeGlobeLocationFallback(ctx, primary, fallback, "", nil)
+	if globeErrorCode(err) != "http_403" || fallback.calls.Load() != 0 {
+		t.Fatal("API denial must remain visible", err)
+	}
+	if globeErrorCode(&net.DNSError{Err: "no answer", Name: "api.ip.sb"}) != "dns" || globeErrorCode(context.DeadlineExceeded) != "timeout" || globeErrorCode(io.EOF) != "connection_closed" {
+		t.Fatal("specific network error codes")
+	}
+}
+func TestGlobeRetainsMarkedLastResultAndRetry(t *testing.T) {
+	cache := newGlobeCache()
+	cache.interval = 0
+	checked := time.Now().UnixMilli()
+	cache.values["wifi\x00exit\x00node"] = globeIP{IP: "1.36.1.1", CountryCode: "HK", Source: "ip.sb", CheckedAt: checked, expires: time.Now().Add(-time.Second)}
+	failure := func(context.Context) (globeIP, error) { return globeIP{}, &globeResponseError{code: "http_503"} }
+	cache.lookup(context.Background(), "wifi\x00exit\x00node", time.Minute, failure)
+	globeWait(t, func() bool {
+		cache.mu.Lock()
+		defer cache.mu.Unlock()
+		return !cache.values["wifi\x00exit\x00node"].Pending
+	})
+	cache.mu.Lock()
+	value := cache.values["wifi\x00exit\x00node"]
+	cache.mu.Unlock()
+	if value.IP != "1.36.1.1" || !value.Stale || value.Error != "http_503" || value.CheckedAt != checked {
+		t.Fatal("last online result should be retained and marked", value)
+	}
+	cache.retry("wifi")
+	cache.mu.Lock()
+	value = cache.values["wifi\x00exit\x00node"]
+	value.CheckedAt = time.Now().Add(-6 * time.Minute).UnixMilli()
+	cache.values["wifi\x00exit\x00node"] = value
+	cache.mu.Unlock()
+	cache.lookup(context.Background(), "wifi\x00exit\x00node", time.Minute, failure)
+	globeWait(t, func() bool {
+		cache.mu.Lock()
+		defer cache.mu.Unlock()
+		return !cache.values["wifi\x00exit\x00node"].Pending
+	})
+	cache.mu.Lock()
+	value = cache.values["wifi\x00exit\x00node"]
+	cache.mu.Unlock()
+	if value.IP != "" || value.Stale || value.Error != "http_503" {
+		t.Fatal("stale location exceeded retention bound", value)
 	}
 }

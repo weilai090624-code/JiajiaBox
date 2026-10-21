@@ -3,40 +3,34 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/Map;
+.field public final synthetic f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Map;)V
+.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;)V
     .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;->f$0:Ljava/util/Map;
+    iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+.method public final onClick(Landroid/view/View;)V
+    .registers 3
 
     .line 0
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;->f$0:Ljava/util/Map;
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard$10;->f$0:Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;
 
-    check-cast p1, Ljava/lang/String;
+    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lambda$new$5$io-nekohasekai-sagernet-ui-GlobalGlobeCard(Landroid/view/View;)V
 
-    check-cast p2, Ljava/lang/String;
-
-    invoke-static {v0, p1, p2}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->lambda$request$4(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

@@ -1,5 +1,6 @@
 import io.nekohasekai.sagernet.ui.GlobeCountries;
 import io.nekohasekai.sagernet.ui.GlobeTopology;
+import io.nekohasekai.sagernet.ui.GlobeQueryStatus;
 import java.util.*;
 import org.json.*;
 
@@ -18,7 +19,7 @@ public final class OnlineGlobeTest {
   Locale.setDefault(Locale.CHINA);
   JSONObject exits=new JSONObject().put("node-a",location("8.8.8.8","HK",114.1779,22.3829)).put("node-b",location("8.8.8.8","HK",114.1779,22.3829)).put("node-c",location("9.9.9.9","TW",121.53,25.04));
   JSONObject targets=new JSONObject().put("1.36.1.1",location("1.36.1.1","HK",114.1779,22.3829)).put("8.8.8.8",location("8.8.8.8","HK",114.17,22.3)).put("1.160.0.1",location("1.160.0.1","TW",121.53,25.04)).put("223.5.5.5",location("223.5.5.5","CN",121.47,31.23));
-  JSONObject locations=new JSONObject().put("provider","ip.sb").put("self",location("223.5.5.5","CN",121.47,31.23)).put("exits",exits).put("targets",targets);
+  JSONObject locations=new JSONObject().put("provider","ip.sb").put("api_version",2).put("self",location("223.5.5.5","CN",121.47,31.23)).put("exits",exits).put("targets",targets);
   JSONArray rows=new JSONArray().put(row("node-a","1.36.1.1")).put(row("node-a","1.36.1.1")).put(row("node-b","8.8.8.8")).put(row("node-c","1.160.0.1")).put(row("direct","223.5.5.5"));
   JSONObject graph=GlobeTopology.build(rows,new JSONObject(),locations);
   check(graph.getInt("exitCount")==2,"same exit IP must merge nodes");check(graph.getInt("unknown")==0,"all online targets resolved");
@@ -32,6 +33,15 @@ public final class OnlineGlobeTest {
   check(exitsFound==2&&merged&&uplinks==2&&requestBranches==2,"shared trunk and separate region branches");
   JSONObject hk=find(nodes,"id","dest:HK");check(hk.getDouble("lon")==GlobeCountries.center("HK")[0],"country-grouped destination remains representative");
   String serialized=graph.toString();check(!serialized.contains("8.8.8.8")&&!serialized.contains("223.5.5.5"),"WebView must not receive raw IPs");
+  exits.getJSONObject("node-a").put("stale",true).put("error","http_403");
+  JSONObject staleGraph=GlobeTopology.build(rows,new JSONObject(),locations);
+  check(staleGraph.getInt("exitCount")==2,"temporary failure must retain a marked last online exit");
+  boolean staleNode=false;for(int i=0;i<staleGraph.getJSONArray("nodes").length();i++){JSONObject node=staleGraph.getJSONArray("nodes").getJSONObject(i);staleNode|=node.optBoolean("stale");}check(staleNode,"stale coordinates explicitly marked");
+  check(GlobeQueryStatus.summary(locations).contains("上次"),"visible stale status");
+  check(GlobeQueryStatus.report(locations).contains("HTTP 403"),"HTTP failures visible locally");
+  check(GlobeQueryStatus.summary(new JSONObject()).contains("重连"),"old native API explicitly requests restart");
+  check(GlobeQueryStatus.summary(new JSONObject().put("client_error","controller_timeout")).contains("读取内核超时"),"controller errors not swallowed");
+  exits.getJSONObject("node-a").remove("stale");exits.getJSONObject("node-a").remove("error");
   targets.put("1.36.1.1",new JSONObject().put("pending",true));
   JSONObject pending=GlobeTopology.build(rows,new JSONObject(),locations);check(pending.getBoolean("pending")&&pending.getInt("unknown")==2,"pending target has no fabricated offline country");
   targets.put("1.36.1.1",new JSONObject().put("error","rate_limited"));

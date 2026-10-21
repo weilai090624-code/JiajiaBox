@@ -17,3 +17,9 @@ The current JNI Go/C binding sources are versioned in `bindings/android-arm64/`.
 The globe uses verified HTTPS IP.SB lookups instead of the bundled country database. Self and leaf outbounds query `/geoip` independently; destination IPs query `/geoip/{IP}` through an active proxy (or direct when none exists). Results expire after 30 s for self/exits and 60 s for targets. The shared limiter starts at most one request per second, with three concurrent jobs and HTTP 429 backoff. Query errors never invent an offline location. See `assets/licenses/Global-Globe-NOTICE.txt` for data handling.
 
 Tests: `go test -tags=with_clash_api ./experimental/clashapi -run '^TestGlobe'` from `sing-box/`, and `python3 tools/test_globe_topology.py` from the project root (requires Android ART and build tools; see script options).
+
+## Build 308 IP.SB recovery and diagnostics
+
+Uses the exact user-tested build 308 APK. Network failures may retry the documented IPv4 endpoint; target-IP lookups may retry through the direct outbound. Each HTTP request has an 8-second timeout within a 25-second job budget. HTTP denials, rate limits and certificate failures remain visible. A failed refresh may retain an online result for up to five minutes with an explicit stale flag. The local authenticated API reports version 2 and structured error codes; retry preserves global rate-limit backoff. The Android card exposes a local diagnostic report without sending raw IPs to the WebView.
+
+The opt-in `TestGlobeLiveIPSB` exercises the production HTTPS query against IP.SB; set `JIAJIA_GLOBE_LIVE_TEST=1` to run it. The remaining `TestGlobe` tests use local TLS endpoints. This version also passed ART topology/linkage checks, actual Android/bionic execution with Android system trust roots, and user testing before publication.
